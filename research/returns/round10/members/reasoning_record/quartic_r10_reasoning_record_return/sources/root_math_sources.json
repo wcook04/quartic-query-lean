@@ -1,0 +1,59 @@
+[
+  {
+    "id": "P0",
+    "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+    "edition": "OpenAI, 2026-10-05",
+    "archive_text": "paper/extracted.md",
+    "archive_sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+    "status": "read_complete",
+    "scope": "Complete supplied extracted text, all nineteen printed pages, including references; public metadata found, live GitHub directory fetch restricted.",
+    "url": "https://github.com/openai/math/tree/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026",
+    "web_refs": [
+      "turn25academia6",
+      "turn25search0"
+    ]
+  },
+  {
+    "id": "U1",
+    "title": "Degree vs. Approximate Degree and Quantum Implications of Huang's Sensitivity Theorem",
+    "edition": "Aaronson, Ben-David, Kothari, Rao and Tal, arXiv:2010.12629v1 (2020), STOC 2021",
+    "archive_text": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md",
+    "archive_sha256": "fe50f27a93597951aa0e9577d0315a2b4dcdf022122604139232a952d144aa8f",
+    "status": "selected_passages_read",
+    "scope": "Supplied PDF section3, pp.6\u20138: Theorem1, Definitions7\u20138, Lemma9; text extracted directly from PDF, plus visual inspection of PDFpages7\u20138. Source-MD numbering differs (Definition5/Lemma7) and distinct macros collapse to \\relax; PDF locators govern. Nearby section4 opening seen, not reviewed in depth.",
+    "url": "https://arxiv.org/abs/2010.12629v1",
+    "web_refs": [
+      "turn26view1"
+    ],
+    "pdf_pages_visually_inspected": [
+      7,
+      8
+    ]
+  },
+  {
+    "id": "U2",
+    "title": "Induced subgraphs of hypercubes and a proof of the Sensitivity Conjecture",
+    "edition": "Hao Huang, arXiv:1907.00847v2, 2019-08-29",
+    "archive_text": "literature/quartic-ref-17-induced-subgraphs-of-hypercubes-and-a-proo/extracted.md",
+    "archive_sha256": "e84394f6e0af85b50ab5d8ead86afb5327b1249a9eefea200e0f7465a6ca0e4a",
+    "status": "selected_passages_read",
+    "scope": "Main text sections 1\u20133, all proof lemmas and theorem; reference list not reviewed.",
+    "url": "https://arxiv.org/abs/1907.00847v2",
+    "web_refs": [
+      "turn26view2"
+    ]
+  },
+  {
+    "id": "U3",
+    "title": "Exact quantum query complexity for total Boolean functions",
+    "edition": "Gatis Midrijanis, arXiv:quant-ph/0403168v2, 2004-03-27",
+    "archive_text": "literature/quartic-ref-19-exact-quantum-query-complexity-for-total-b/extracted.md",
+    "archive_sha256": "f5842cf5ed481a3dedec06383e7d9e843dbcb67dc2917cef8e1f3e7f3185fe17",
+    "status": "selected_passages_read",
+    "scope": "Main text sections 1\u20135; especially Lemma 3 and proof of Theorem 4, pp.3\u20134. Reference list only partly viewed.",
+    "url": "https://arxiv.org/abs/quant-ph/0403168v2",
+    "web_refs": [
+      "turn26view3"
+    ]
+  }
+]

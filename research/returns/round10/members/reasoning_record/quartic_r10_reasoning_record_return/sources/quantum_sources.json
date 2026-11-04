@@ -1,0 +1,319 @@
+{
+  "schema": "round10-quantum-source-register-v1",
+  "prepared_at_utc": "2026-11-04T13:36:05.310065+00:00",
+  "firewall": "Prepared without reading current manuscripts or prior returns; independent source work only.",
+  "sources": [
+    {
+      "id": "QS01",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "authors": [
+        "OpenAI"
+      ],
+      "edition": "Supplied preprint dated 5 October 2026",
+      "url": null,
+      "archive_path": "paper/extracted.md",
+      "pdf_path": "paper/source.pdf",
+      "passages_read": [
+        "Abstract and Sections 1–3 in full (PDF pp. 1–10); extracted text lines 1–516"
+      ],
+      "status": "read_relevant_argument",
+      "notes": "Read the construction, local verifier, fixed-k Forrelation routine, bounded amplification, fractional-weight tournament, and column application. Did not independently read classical proof or universal upper-bound appendix.",
+      "archive_path_sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "pdf_path_sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+    },
+    {
+      "id": "QS02",
+      "title": "Forrelation: A Problem that Optimally Separates Quantum from Classical Computing",
+      "authors": [
+        "Scott Aaronson",
+        "Andris Ambainis"
+      ],
+      "edition": "arXiv:1411.5729v1, 21 November 2014 (not silently the 2018 journal edition)",
+      "url": "https://arxiv.org/abs/1411.5729v1",
+      "archive_path": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md",
+      "pdf_path": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/source.pdf",
+      "passages_read": [
+        "Section 3.2, Proposition 6 and adjacent amplitude derivation, PDF pp. 13–14, extracted lines 659–735",
+        "Section 3.1 query conventions, pp. 12–13, bounded excerpt",
+        "Introduction k-fold discussion, located and skimmed"
+      ],
+      "status": "read_relevant_argument",
+      "web_refs": [
+        "turn1view0"
+      ],
+      "notes": "The direct k-query circuit has all-zero amplitude Phi. The controlled two-branch circuit uses ceil(k/2) queries and accepts with probability (1+Phi)/2; its stated 0.4 error convention differs from the target 1/3 convention.",
+      "archive_path_sha256": "3d4e3dc004cfcc018ddd31bc1d750395b31ab84b9accffd4b764db7f6934c8ab",
+      "pdf_path_sha256": "c27966b5b6cf12d61e3877f6ac23b48c9a21fe0a86e6b96ef527b02503e4e1fe"
+    },
+    {
+      "id": "QS03",
+      "title": "k-Forrelation Optimally Separates Quantum and Classical Query Complexity",
+      "authors": [
+        "Nikhil Bansal",
+        "Makrand Sinha"
+      ],
+      "edition": "Supplied 40-page primary preprint; theorem numbering checked against PDF. Online arXiv v3 and ECCC revision 2 metadata checked (17 November 2020); local bytes not independently proven identical to either online PDF.",
+      "url": "https://arxiv.org/abs/2008.07003v3",
+      "archive_path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "pdf_path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+      "passages_read": [
+        "PDF pp. 2–5: normalized quadratic form (1.1)–(1.3), Proposition 1.2, Theorem 1.3, Corollary 1.4, beginning of Section 1.2",
+        "Extracted lines 1–75 read, plus portions of later k=3 overview returned by initial tool call"
+      ],
+      "status": "read_relevant_statements_and_quantum_consequence",
+      "web_refs": [
+        "turn17view0",
+        "turn17view1"
+      ],
+      "notes": "Theorem 1.3 has k^-29 and (N/log(kN))^(1-1/k); Corollary 1.4 quantum upper bound O(k 2^(10k)). Full Gaussian lower-bound proof not read by this agent.",
+      "archive_path_sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952",
+      "pdf_path_sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35"
+    },
+    {
+      "id": "QS04",
+      "title": "Quantum Amplitude Amplification and Estimation",
+      "authors": [
+        "Gilles Brassard",
+        "Peter Høyer",
+        "Michele Mosca",
+        "Alain Tapp"
+      ],
+      "edition": "arXiv:quant-ph/0005055v1, 15 May 2000; paper dated 2 May 2000. Published 2002 edition not separately read.",
+      "url": "https://arxiv.org/abs/quant-ph/0005055v1",
+      "archive_path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+      "pdf_path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.pdf",
+      "passages_read": [
+        "Section 2, Lemma 1, equations defining Q and its two-dimensional action, Theorems 2–3, QSearch and analysis; extracted lines 21–167",
+        "Start of Section 2.1 through Theorem 4 and generalized phase reflections, lines 168–181"
+      ],
+      "status": "read_relevant_argument",
+      "web_refs": [
+        "turn1view3"
+      ],
+      "notes": "The normalized good-state component is fixed throughout amplification. Theorem 3 for unknown success probability is expected-cost and can run forever at zero success; a deterministic cap requires a separate construction.",
+      "archive_path_sha256": "9fd98e35695c4bf763e4faa35ac146b18c74c3caf0dee24e3e208923aff71a86",
+      "pdf_path_sha256": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278"
+    },
+    {
+      "id": "QS05",
+      "title": "Tight bounds on quantum searching",
+      "authors": [
+        "Michel Boyer",
+        "Gilles Brassard",
+        "Peter Høyer",
+        "Alain Tapp"
+      ],
+      "edition": "Supplied arXiv:quant-ph/9605034v1, 23 May 1996, PhysComp96 draft dated 10 May 1996; not the 1998 journal edition",
+      "url": "https://arxiv.org/abs/quant-ph/9605034v1",
+      "archive_path": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/extracted.md",
+      "pdf_path": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/source.pdf",
+      "passages_read": [
+        "Lemmas 1–2 and Section 4 unknown number of solutions, Theorem 3 and proof, PDF pp. 3–4; extracted lines 160–300"
+      ],
+      "status": "read_relevant_argument",
+      "notes": "Randomized Grover iteration count gives exact mean 1/2 - sin(4M theta)/(4M sin(2theta)); large-success and zero-success cases need explicit handling.",
+      "archive_path_sha256": "5f3d4a8f2e6038392ea75490bafdf58150e3d8b2a76c063841cc158531233c8b",
+      "pdf_path_sha256": "badd64e3db8079ee2428fc9f869e202d584412b0a003be64464437019d252fde"
+    },
+    {
+      "id": "QS06",
+      "title": "Quantum Search on Bounded-Error Inputs",
+      "authors": [
+        "Peter Høyer",
+        "Michele Mosca",
+        "Ronald de Wolf"
+      ],
+      "edition": "Supplied extracted arXiv source; online arXiv:quant-ph/0304052v2, 14 April 2003 metadata checked. The packet source tarball was not re-rendered or version-matched to the web PDF.",
+      "url": "https://arxiv.org/abs/quant-ph/0304052v2",
+      "archive_path": "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/extracted.md",
+      "pdf_path": null,
+      "passages_read": [
+        "Entire supplied extracted manuscript, including Sections 1–5, facts, proof, algorithm, applications, bibliography and notes"
+      ],
+      "status": "read_full_supplied_text",
+      "web_refs": [
+        "turn1view1"
+      ],
+      "notes": "Robust search assumes every Fi approximates a well-defined bit fi with uniform bounded error. Arbitrary comparison probabilities lacking an underlying gap do not meet that hypothesis.",
+      "archive_path_sha256": "cb04695fcd47585c3989bd3fcb37cfa4d332d691e27763b567d36e5ed976c04b"
+    },
+    {
+      "id": "QS07",
+      "title": "A Quantum Algorithm for Finding the Minimum",
+      "authors": [
+        "Christoph Dürr",
+        "Peter Høyer"
+      ],
+      "edition": "arXiv:quant-ph/9607014v2, 7 January 1999 (paper title page July 1996)",
+      "url": "https://arxiv.org/abs/quant-ph/9607014v2",
+      "archive_path": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/extracted.md",
+      "pdf_path": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/source.pdf",
+      "passages_read": [
+        "Entire 2-page paper: algorithm, Theorem 1, Lemmas 1–2 and final remarks"
+      ],
+      "status": "read_full_supplied_text",
+      "web_refs": [
+        "turn13view0"
+      ],
+      "notes": "Threshold search relies on a genuine ordered list and uniform successful sampling. The expected analysis is converted to a bounded runtime with an explicit timeout.",
+      "archive_path_sha256": "aea6cb99d149fad7a304712f71d4e91403483a1d9bd4e1d2eea5a26c87adf662",
+      "pdf_path_sha256": "ff5c2ff71415e22f0ddf799b31e9b82d1990db9c1fc9d62ea2aabea5907e06cf"
+    },
+    {
+      "id": "QS08",
+      "title": "Separations in Query Complexity Based on Pointer Functions",
+      "authors": [
+        "Andris Ambainis",
+        "Kaspars Balodis",
+        "Aleksandrs Belovs",
+        "Troy Lee",
+        "Miklos Santha",
+        "Juris Smotrovs"
+      ],
+      "edition": "arXiv:1506.04719v3, 26 October 2015; not silently the 2017 JACM edition",
+      "url": "https://arxiv.org/abs/1506.04719v3",
+      "archive_path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+      "pdf_path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/source.pdf",
+      "passages_read": [
+        "Section 1.3 technique overview, PDF pp. 5–6 in full via PDF text extraction",
+        "Theorem 5, Claim 6 and Algorithm 2, PDF pp. 13–14 in full; Corollary 7 on p. 15",
+        "Extracted text theorem/algorithm locators used only to find corresponding PDF text after observing damaged notation"
+      ],
+      "status": "bounded_read",
+      "web_refs": [
+        "turn1view2"
+      ],
+      "notes": "The technique overview assigns a separate role to back pointers and balanced-tree access; quantum verification exploits short access paths. Damaged TeX extraction was checked against PDF text for theorem statement and algorithm.",
+      "archive_path_sha256": "30eacb1b152e26be43fb8f656b065c1ae6e1a25782eb0fcc13c544e246baacd2",
+      "pdf_path_sha256": "1b7803487ac696b1f8d81ee7bc26d55ed7a3c4ff4b78928faa269b71358fe66c"
+    },
+    {
+      "id": "QS09",
+      "title": "Randomized and Quantum Query Complexities of Finding a King in a Tournament",
+      "authors": [
+        "Nikhil S. Mande",
+        "Manaswi Paraashar",
+        "Nitin Saurabh"
+      ],
+      "edition": "Published FSTTCS 2023, LIPIcs 284, article 30, pp. 30:1–30:19",
+      "url": "https://doi.org/10.4230/LIPIcs.FSTTCS.2023.30",
+      "archive_path": "literature/mps-fsttcs2023-published/extracted.md",
+      "pdf_path": "literature/mps-fsttcs2023-published/source.pdf",
+      "passages_read": [
+        "Section 1 technical overview of randomized and quantum algorithms, extracted lines 148–213",
+        "Section 4 complete main construction: Observation 16, Lemmas 17–18, Algorithms 2–4, Theorem 19 proof, extracted lines 529–722 and 729–766; PDF pp. 30:9–30:13"
+      ],
+      "status": "read_main_quantum_argument",
+      "web_refs": [
+        "turn13search1",
+        "turn13search25"
+      ],
+      "notes": "Appendix proofs of subroutines 17–18 not read. Exact edge oracle over a fixed tournament; history stored as W, implicit feasible set sampled uniformly. Its interface/implementation distinction is a useful writing comparison.",
+      "archive_path_sha256": "58231899382edbcfe53a4ae9f8963ad74dab73fd7681a5d9d0661fbe78b384f9",
+      "pdf_path_sha256": "c2501b7a53ad9328ff3214d6de2dfb2cbb2370523eda94b32ab9eb1c864c0f29"
+    },
+    {
+      "id": "QS10",
+      "title": "Quantum Query Complexity of Tournament Solutions",
+      "authors": [
+        "Pragya Arora",
+        "Udit Kumar"
+      ],
+      "edition": "arXiv:2610.39702v1, 29 October 2026",
+      "url": "https://arxiv.org/html/2610.39702v1",
+      "archive_path": null,
+      "pdf_path": null,
+      "passages_read": [
+        "Abstract and introduction; Section 2.1 Quantum query model (HTML lines 178–195); Section 6.1 Lemma 6.1 and Theorem 6.2 upper-bound proof (HTML lines 384–403)"
+      ],
+      "status": "online_bounded_read",
+      "web_refs": [
+        "turn7view0",
+        "turn7view1",
+        "turn9view1",
+        "turn9view2"
+      ],
+      "notes": "New outside-annex primary source. Deterministic tournament edge oracle; Condorcet routine uses king finding plus verification. Lower-bound proof only beginning read. This does not establish the probabilistic-comparison theorem used by the supplied preprint."
+    },
+    {
+      "id": "QS11",
+      "title": "Quantum Approximate k-Minimum Finding",
+      "authors": [
+        "Minbo Gao",
+        "Zhengfeng Ji",
+        "Qisheng Wang"
+      ],
+      "edition": "Published ESA 2025, LIPIcs 351, article 51; 1 October 2025",
+      "url": "https://doi.org/10.4230/LIPIcs.ESA.2025.51",
+      "archive_path": null,
+      "pdf_path": null,
+      "passages_read": [
+        "Publication metadata/abstract; Section 3.1 comparison of oracle types and Remark 8 via primary publisher HTML"
+      ],
+      "status": "online_bounded_read",
+      "web_refs": [
+        "turn7view2",
+        "turn9view0",
+        "turn6search4"
+      ],
+      "notes": "Useful independent taxonomy: bounded-error, deterministic threshold-imprecise, approximate-value, and physically noisy oracles have different promises. Algorithmic claims elsewhere not evaluated."
+    },
+    {
+      "id": "QS12",
+      "title": "Lecture Notes on Quantum Algorithms",
+      "authors": [
+        "Andrew M. Childs"
+      ],
+      "edition": "17 April 2025 title-page edition, 191 PDF pages",
+      "url": "https://www.cs.umd.edu/~amchilds/qa/qa.pdf",
+      "archive_path": "writing_literature/childs-quantum-algorithms-2025/extracted.md",
+      "pdf_path": "writing_literature/childs-quantum-algorithms-2025/source.pdf",
+      "passages_read": [
+        "Preface, printed p. vii / PDF p. 7 (audience and architecture)",
+        "Section 1.4 Reversible computation, printed pp. 2–3 / PDF pp. 10–11, extracted lines 353–378; neighboring Sections 1.1–1.3 and 1.5–1.6 partially read or viewed",
+        "Sections 19.1–19.3, printed pp. 87–89 / PDF pp. 95–97, extracted lines 4511–4667 (unstructured search, implementation query costs, amplification/counting)",
+        "Sections 21.1–21.3, printed pp. 97–99 / PDF pp. 105–107, extracted lines 4875–4983 (query models, phase/bit oracles, polynomial-method interface)"
+      ],
+      "status": "read_selected_complete_sections",
+      "pdf_pages_visually_inspected": [
+        10,
+        11
+      ],
+      "web_refs": [
+        "turn28view1"
+      ],
+      "notes": "Used as an exposition/definition comparison. Did not read the whole book or the preceding quantum-walk theory. The live unversioned PDF URL is bibliographic context; the supplied title-page date and hash identify the edition actually read.",
+      "archive_path_sha256": "cc8d1e80ddc38938d89a037c2ddd289f3d0b7105a8f75d5b1e2a5579c625f351",
+      "pdf_path_sha256": "6e3a32f0aede35e954d665c909fec41f716b955f041957e723e2724ae3efabd1"
+    },
+    {
+      "id": "QS13",
+      "title": "Understanding Quantum Algorithms via Query Complexity",
+      "authors": [
+        "Andris Ambainis"
+      ],
+      "edition": "arXiv:1712.06349v1, 18 December 2017, 20 pages",
+      "url": "https://arxiv.org/abs/1712.06349v1",
+      "archive_path": "writing_literature/ambainis-query-survey-1712.06349v1/extracted.md",
+      "pdf_path": "writing_literature/ambainis-query-survey-1712.06349v1/source.pdf",
+      "passages_read": [
+        "Abstract, Introduction and Section 2.1: printed/PDF pp. 1–5, extracted lines 1–233",
+        "Section 2.2 related quantities: p. 6, read but not used as current-state evidence",
+        "Section 4 pointer-function method including Theorem 4, definition, certificate explanation and elimination algorithm: printed/PDF pp. 9–12, extracted lines 427–543",
+        "Section 5.1 cheat-sheet method, Theorems 5–6, construction and two-stage quantum algorithm: printed/PDF pp. 12–13, extracted lines 545–622"
+      ],
+      "status": "read_selected_complete_sections",
+      "pdf_pages_visually_inspected": [
+        4,
+        10
+      ],
+      "web_refs": [
+        "turn28view0"
+      ],
+      "notes": "Historical survey, not a current best-bounds source. Used to compare model introduction and separation of representation, accepting conditions, certificate role and algorithm; lower-bound sketch not treated as a full proof.",
+      "archive_path_sha256": "891704a5ea685f0556883f843741a0153096766785d46037885e832704f425fd",
+      "pdf_path_sha256": "6d2bfa659d7d29617635627ec6ab998b984cec6b5c8ef5cca8db69e226f40f80"
+    }
+  ],
+  "updated_at_utc": "2026-11-04T13:53:41.464031+00:00"
+}

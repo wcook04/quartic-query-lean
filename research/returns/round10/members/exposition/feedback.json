@@ -1,0 +1,1354 @@
+{
+  "packet": "quartic_r10_exposition(1).zip",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+    "repository/docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+    "repository/docs/expert_companion.pdf": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+    "repository/docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "repository/docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+    "repository/docs/exposition.pdf": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+    "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+    "repository/docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "repository/docs/reasoning_record.pdf": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+  },
+  "panel": {
+    "name": "newcomers, practitioners and teachers",
+    "lead": "examples-first exposition",
+    "prefix": "EX10-",
+    "perspectives": [
+      "research mathematician in analysis/combinatorics, no prior query/quantum course",
+      "strong final-year undergraduate, probability/linear algebra/algorithms",
+      "physicist or engineer, first quantum-circuits course",
+      "lecturer planning advanced undergraduate/beginning graduate use"
+    ],
+    "simulation_boundary": "One shared-context primary reviewer; one complete primary Markdown pass, one complete informed PDF reread, and two targeted informed reconsiderations. No independent human readers or learning outcomes."
+  },
+  "sources_read": [
+    {
+      "source_inventory": "source_inventory.json",
+      "scope": "Read scopes, hashes, editions, roles and limits for every work used below"
+    },
+    {
+      "path": "repository/docs/exposition.md",
+      "sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+      "scope": "Complete lines 1–535, 805 frozen units; batch exposure and a skipped-line detour disclosed.",
+      "stage": "primary first pass",
+      "reader": "primary reviewer",
+      "ranges": [
+        [
+          1,
+          535
+        ]
+      ]
+    },
+    {
+      "path": "repository/docs/exposition.bib",
+      "sha256": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+      "scope": "All 23 BibTeX metadata entries after lead Markdown, without following citations.",
+      "stage": "end of primary first pass",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "repository/docs/exposition.pdf",
+      "sha256": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+      "scope": "All 24 pages visually inspected after freeze, in page order at approximately 90 dpi; rendered reference list has 20 entries.",
+      "stage": "post-freeze undergraduate perspective",
+      "reader": "primary reviewer",
+      "pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ]
+    },
+    {
+      "path": "repository/docs/expert_companion.md",
+      "sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "scope": "Introduction and route overview, lines 1–95; further scoped reads are separately attributed below.",
+      "stage": "post-freeze",
+      "reader": "primary reviewer",
+      "ranges": [
+        [
+          1,
+          95
+        ]
+      ]
+    },
+    {
+      "path": "repository/docs/reasoning_record.md",
+      "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "scope": "Opening and route/statement setup, lines 1–85; linked technical counterparts checked by the mathematical verifier and historical audit.",
+      "stage": "post-freeze",
+      "reader": "primary reviewer",
+      "ranges": [
+        [
+          1,
+          85
+        ]
+      ]
+    },
+    {
+      "path": "paper/extracted.md",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "scope": "Opening source statements, lines 1–70; other scoped reads attributed below.",
+      "stage": "post-freeze",
+      "reader": "primary reviewer",
+      "ranges": [
+        [
+          1,
+          70
+        ]
+      ]
+    },
+    {
+      "path": "READ_ME_FIRST.md",
+      "sha256": "631b5f823704fd1b21c23563a2485a4ce461b31ced20d6e3f876c7629a6f5580",
+      "scope": "Current assignment and required return format; complete initial instructions",
+      "stage": "before first pass",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "chronological_reading.md",
+      "sha256": "d07643bd890e942196a9cf02876142bec674fdad147fef1639d4ee95ac0c9699",
+      "scope": "Complete chronological protocol",
+      "stage": "before first pass",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "SOURCE_STATUS.json",
+      "sha256": "a91f81249be2f04a3c1aca2fb554879814af79d4b0a539593ad7eddcf8995839",
+      "scope": "Source identities and hashes",
+      "stage": "before first pass",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "literature_standard.md",
+      "sha256": "d3f18c9af96467b72ba76c9ca1661bd8dc78b150ee2b5ece545ae26dee2a806c",
+      "scope": "Complete comparison instructions",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "reader_principles.md",
+      "sha256": "32a405467a0f201339dfc564beeea676bd28c050d1ef6c1350f52c029c090441",
+      "scope": "Reader principles",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "skills/README.md",
+      "sha256": "d6908bded5388a7474c49201aa42128ee6b60835a23a5bbb131424d1c748bd2b",
+      "scope": "Writing-method map",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "skills/quartic-writing-method.md",
+      "sha256": "1c7d3136e55604f181df482cf1d23edbe88d2db952068812ae26536779e2793d",
+      "scope": "Local method and chronological refinements",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "skills/record-to-expository/SKILL.md",
+      "sha256": "d2a102cf26a5da788922d22766fbd2d85f12fbc4b227e79953272c8f485f23b2",
+      "scope": "Stage skill; requested whole file in bounded reads; relevant reader-frame, dependency and evidence clauses independently re-read. Some broad output was truncated, so no every-line comprehension claim.",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "docs/authoring.md",
+      "sha256": "69444d73788fbd28f6142911abcb0c2c88c570409c8418a5f9f6217a92303f13",
+      "scope": "Opening 200 lines and relevant review-loop guidance; remainder not claimed read",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "register/REGISTER_RULES.md",
+      "sha256": "7d68627d6d453d4e4d927c7e5d18f1a37ebc3d65b50a23c68e91a23a1210b975",
+      "scope": "Selected rule text and explicit RG23–RG26; broad initial retrieval was truncated. No whole-specimen-corpus or numerical-register audit.",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "METHOD_PROVENANCE.json",
+      "sha256": "90f8c01c76af3d6e84bd65306e5dcfe0b6244f8899633e778988ddf1decf2bff",
+      "scope": "Method pin and source metadata",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "RENDER_PROVENANCE.json",
+      "sha256": "80ff966c4b8e8eec94c26d381f2012750726dbd6fd3a33e6c6ff7a59bd6889b4",
+      "scope": "PDF bindings and source-input existence metadata",
+      "stage": "integrity metadata; no mathematical content before freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "LITERATURE_COVERAGE.json",
+      "sha256": "c968035a7a1b43a1b3b790a194c5a68571cb4c911c5723a82f797fd374ee0eb8",
+      "scope": "Edition/supply map and selected citation entries, not all full texts",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "SUPPLEMENTARY_LITERATURE.json",
+      "sha256": "08771d531a29b47638bb65876aedf9df710b2c7ce8485c267c97b90ebc5cf3be",
+      "scope": "Edition and member metadata",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "LINK_MAP.json",
+      "sha256": "2f4145b1ab1f5a9f656aafd20bdf12fa94cc76ce9a31a1e927ecb7a0bf86fd4d",
+      "scope": "Exposition destination/pin mapping and figure inventory",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "repository/docs/exposition.md",
+      "sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+      "ranges": [
+        [
+          1,
+          535
+        ]
+      ],
+      "scope": "complete mathematical reread",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "repository/docs/expert_companion.md",
+      "sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "ranges": [
+        [
+          1,
+          84
+        ],
+        [
+          142,
+          342
+        ],
+        [
+          393,
+          404
+        ]
+      ],
+      "scope": "selected introduction and core proof passages",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "repository/docs/reasoning_record.md",
+      "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "ranges": [
+        [
+          186,
+          350
+        ],
+        [
+          556,
+          800
+        ],
+        [
+          854,
+          932
+        ],
+        [
+          1795,
+          2033
+        ],
+        [
+          2073,
+          2220
+        ],
+        [
+          2728,
+          2748
+        ],
+        [
+          2828,
+          3070
+        ],
+        [
+          3270,
+          3313
+        ],
+        [
+          3438,
+          3502
+        ],
+        [
+          3567,
+          3662
+        ],
+        [
+          3725,
+          3800
+        ],
+        [
+          3902,
+          3988
+        ]
+      ],
+      "scope": "selected linked proof counterparts; all remaining ranges unreviewed by this verifier",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+      "ranges": [
+        [
+          1,
+          343
+        ]
+      ],
+      "scope": "complete statement inspection, not elaboration",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+      "sha256": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+      "ranges": null,
+      "scope": "complete textual inspection, not elaboration",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+      "ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "scope": "complete textual statement/proof-reference inspection, not elaboration",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "repository/research/returns/round3/members/04_addressed_construction/examples/circuit.json",
+      "sha256": "0f84ef8db3526a5d166307846bf4ef3d9268ad60c8a1e5353005fac9885a0004",
+      "ranges": null,
+      "scope": "complete gate data parsed by newly written evaluator; no submitted checker executed",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "paper/extracted.md",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "ranges": [
+        [
+          1,
+          64
+        ],
+        [
+          151,
+          203
+        ],
+        [
+          363,
+          448
+        ],
+        [
+          528,
+          586
+        ]
+      ],
+      "scope": "selected primary source statements and proofs",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952",
+      "ranges": [
+        [
+          1,
+          88
+        ]
+      ],
+      "scope": "promise and lower-bound statements",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+      "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35",
+      "ranges": null,
+      "scope": "PDF text of printed page 4 inspected for exact Theorem 1.3/Corollary 1.4 numbering",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+      "sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+      "ranges": null,
+      "scope": "PDF text of printed pages 1–2 inspected for universal quartic theorem",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md",
+      "sha256": "fe50f27a93597951aa0e9577d0315a2b4dcdf022122604139232a952d144aa8f",
+      "ranges": [
+        [
+          2489,
+          2489
+        ]
+      ],
+      "scope": "Conjecture 2 inspected; other search snippets not treated as full reading",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "writing_literature/drucker-direct-product-1005.0644v2/extracted.md",
+      "sha256": "f95f2bea6d3ef5d198442fb636b5821518fd3f6ed4241e4e9924244cc259a10e",
+      "ranges": [
+        [
+          455,
+          595
+        ]
+      ],
+      "scope": "Lemmas 3.1–3.2, product-potential proof, fair specialization",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "path": "LINK_MAP.json",
+      "sha256": "2f4145b1ab1f5a9f656aafd20bdf12fa94cc76ce9a31a1e927ecb7a0bf86fd4d",
+      "ranges": null,
+      "scope": "metadata inspection restricted to exposition links and supplied interpretation",
+      "reader": "post-freeze mathematical verifier"
+    },
+    {
+      "source_id": "LC-KLR",
+      "title": "Mathematical Writing",
+      "edition_or_date": "Stanford CS-TR-87-1193; autumn 1987 course report",
+      "url": "https://www-cs-faculty.stanford.edu/~knuth/papers/cs1193.pdf",
+      "read_scope": [
+        "Section 1, items 5–14, printed pp. 2–3; extracted lines approximately 151–223",
+        "Section 10, printed pp. 20–21; extracted lines approximately 1021–1094"
+      ],
+      "skim_scope": [],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-SU",
+      "title": "Guidelines for Good Mathematical Writing",
+      "edition_or_date": "Updated 18 August 2020; three pages",
+      "url": "https://math.hmc.edu/su/wp-content/uploads/sites/10/2020/08/Guidelines-for-Good-Mathematical-Writing.pdf",
+      "read_scope": [
+        "pp. 1–3: audience, distance worked example, structure and running-example guidance"
+      ],
+      "skim_scope": [],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-CHILDS",
+      "title": "Lecture Notes on Quantum Algorithms",
+      "edition_or_date": "Title-page date 17 April 2025, verified in supplied text",
+      "url": "https://www.cs.umd.edu/~amchilds/qa/qa.pdf",
+      "read_scope": [
+        "Preface audience statement",
+        "Section 1.4, printed pp. 2–3; extracted lines 352–381"
+      ],
+      "skim_scope": [
+        "Sections 1.1–1.3 orientation"
+      ],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-AMBAINIS",
+      "title": "Understanding Quantum Algorithms via Query Complexity",
+      "edition_or_date": "arXiv:1712.06349v1, 18 December 2017; supplied header verified",
+      "url": "https://arxiv.org/pdf/1712.06349v1",
+      "read_scope": [
+        "Section 2.1, printed pp. 3–4; extracted lines approximately 118–199",
+        "Section 4 pointer-function discussion and Theorem 4 neighborhood, printed pp. 10–11; extracted lines approximately 427–551"
+      ],
+      "skim_scope": [],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-BHMT",
+      "title": "Quantum Amplitude Amplification and Estimation",
+      "edition_or_date": "arXiv:quant-ph/0005055v1, 15 May 2000; title-page date 2 May 2000",
+      "url": "https://arxiv.org/pdf/quant-ph/0005055v1",
+      "read_scope": [
+        "Section 2, printed pp. 4–10: preparation/inverse, Lemma 1, Eq. (8), Theorem 3 and QSearch; extracted lines approximately 140–401"
+      ],
+      "skim_scope": [],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-DRUCKER",
+      "title": "Improved Direct Product Theorems for Randomized Query Complexity",
+      "edition_or_date": "arXiv:1005.0644v2, 9 May 2014; supplied header verified",
+      "url": "https://arxiv.org/pdf/1005.0644v2",
+      "read_scope": [
+        "Section 3, printed pp. 10–13: residual value W, Lemmas 3.1–3.2, adaptive posterior product, multiplicative argument, final fair/separate-cap comment; extracted lines approximately 451–597"
+      ],
+      "skim_scope": [],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-DEWOLF",
+      "title": "Quantum Computing: Lecture Notes",
+      "edition_or_date": "arXiv:1907.09415v6, 27 August 2026, as identified by the supplied annex/version metadata",
+      "url": "https://arxiv.org/abs/1907.09415v6",
+      "read_scope": [
+        "Chapter 7, Section 7.2: geometry/algebra and search variants, extracted lines approximately 977–1010",
+        "Chapter 7, Section 7.3: amplitude amplification, extracted lines approximately 1011–1033",
+        "Chapter 7 exercises 1–5 vicinity, extracted lines approximately 1045–1080"
+      ],
+      "skim_scope": [],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-PREPRINT",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "edition_or_date": "OpenAI; supplied 5 October 2026 preprint",
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "read_scope": [
+        "Introduction, Sections 1 and 1.1–1.3, printed pp. 1–3; extracted lines approximately 16–125"
+      ],
+      "skim_scope": [],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-HAMOUDI",
+      "title": "Query Complexity, Yassine Hamoudi",
+      "edition_or_date": "PDF title page: last update 24 April 2026; linked from PCMI 2023 course page",
+      "url": "https://yassine-hamoudi.github.io/files/publications/QueryComplexity.pdf",
+      "read_scope": [
+        "Introduction, pp. 1–2",
+        "Section 1.1 models, pp. 2–5",
+        "Section 1.2 examples and total/partial relationship, pp. 6–7"
+      ],
+      "skim_scope": [
+        "Beginning of hybrid-method discussion, p. 7"
+      ],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-HAMOUDI-P1",
+      "title": "PCMI 2023 Problem Session 1: Basics of Query Complexity & The Hybrid Method",
+      "edition_or_date": "PCMI 2023 header; Yassine Hamoudi, instructor; Angelos Pelecanos, TA",
+      "url": "https://yassine-hamoudi.github.io/files/pcmi2023/Problems1.pdf",
+      "read_scope": [
+        "All two pages: error reduction/alphabet; phase queries and parity; sensitivity/certificate/complexity relations"
+      ],
+      "skim_scope": [],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-IBM-SEARCH",
+      "title": "IBM Quantum Learning: Fundamentals of Quantum Algorithms — Unstructured search",
+      "edition_or_date": "Live HTML, no immutable edition/date established",
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/grover-algorithm/unstructured-search",
+      "read_scope": [
+        "Task definitions, Search/UniqueSearch distinctions, query formulation"
+      ],
+      "skim_scope": [],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-IBM-ALGORITHM",
+      "title": "IBM Quantum Learning: Fundamentals of Quantum Algorithms — Grover algorithm description",
+      "edition_or_date": "Live HTML, no immutable edition/date established",
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/grover-algorithm/grover-algorithm-description",
+      "read_scope": [
+        "Algorithm-description page: phase query, input-independent reflection, initialize/iterate/measure, query count"
+      ],
+      "skim_scope": [],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-IBM-ANALYSIS",
+      "title": "IBM Quantum Learning: Fundamentals of Quantum Algorithms — Analysis",
+      "edition_or_date": "Live HTML, no immutable edition/date established",
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/grover-algorithm/analysis",
+      "read_scope": [
+        "Sections on solution/non-solution states, initial-state decomposition, action on the two-dimensional space, and geometric interpretation; substantive lines approximately 20–262"
+      ],
+      "skim_scope": [],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-IBM-CLASSROOM",
+      "title": "IBM Quantum Learning Qiskit in Classrooms — Grover’s algorithm module",
+      "edition_or_date": "Live HTML; no immutable publication date established",
+      "url": "https://quantum.cloud.ibm.com/learning/en/modules/computer-science/grovers",
+      "read_scope": [
+        "Introduction, theory/two-qubit example, geometry discussion, activities and questions"
+      ],
+      "skim_scope": [],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source_id": "LC-HAMOUDI-SOLUTIONS",
+      "title": "PCMI 2023 Solutions 1",
+      "edition_or_date": "PCMI 2023; ten-page PDF",
+      "url": "https://yassine-hamoudi.github.io/files/pcmi2023/Solutions1.pdf",
+      "read_scope": [
+        "Problem 2 phase/parity solution neighborhood, pp. 3–4"
+      ],
+      "skim_scope": [
+        "Remaining PDF not read"
+      ],
+      "reader": "post-freeze literature researcher",
+      "details": "literature_sources.json"
+    },
+    {
+      "source": "Previous-round original findings and individual dispositions",
+      "reader": "post-freeze historical auditor",
+      "scope": "135 EX9, 49 RR9, one XP9; 353 explicitly uninspected IDs",
+      "details": "previous_round_audit.json"
+    }
+  ],
+  "feedback": [
+    {
+      "id": "EX10-001",
+      "paper": "repository/docs/exposition.md",
+      "perspective": [
+        "research mathematician",
+        "undergraduate",
+        "lecturer"
+      ],
+      "locator": {
+        "section": "Introduction; general construction",
+        "quote": "The question is the smallest power that works uniformly over all total functions and all input lengths.",
+        "line_start": 22,
+        "line_end": 22,
+        "pdf_page": 1
+      },
+      "unit_id": "EX10-U0028",
+      "kind": "structure",
+      "severity": "high",
+      "feedback": "The opening postpones the first executable winning-column object while accumulating the uniform infimum, k-dependent family bounds, exact logarithms and coefficient, source reconstruction status, and a detailed route map. Section 2 then starts with the general column and the stopped-simulator estimate before instantiating the promised four-column board. In the PDF, that board first becomes executable on page 6. These statements are largely explained and correct; the remaining problem is the order in which they become useful.",
+      "why_it_matters": "The declared novice must hold several scales and proof obligations before being able to point to one candidate and decide whether it wins. Later local clarifications do not remove that initial working-memory cost. The goal is to bring the construction earlier without depriving the reader of a precise result.",
+      "advice": "Use the opening for the access model, total-versus-promised distinction, the question, source credit, and a short qualitative explanation of the two powers. Keep a clearly signposted exact theorem, but relocate its detailed family parameters to one named theorem at the end of the general supplier/construction interface in Section 3, before Section 4 uses its bounds. Keep m, r and S defined before the earlier symbolic local-test count; moving the family theorem does not postpone every parameter definition. In Section 2, instantiate the four-column fields and winning conditions before scaling to m,r,ell. Move the quantitative rationale for r=20 log2(m), including the stopped-simulator vocabulary at line 129, to the classical proof where the guessing event has been defined. Reuse the existing material; do not add another introductory overview.",
+      "available_before": [
+        "The OR access example",
+        "Definitions of R,Q,error and worst-case cap",
+        "The distinction between total and partial functions"
+      ],
+      "missing_bridge": "The reader has not yet performed a certificate lookup or a winning-condition check when the exact scale hierarchy is introduced.",
+      "confidence": 0.92,
+      "affected_locators": [
+        {
+          "lines": [
+            22,
+            51
+          ],
+          "operation": "shorten the initial prerequisite queue and relocate the exact family block"
+        },
+        {
+          "lines": [
+            106,
+            139
+          ],
+          "operation": "instantiate before generalizing; relocate the quantitative address-hiding preview"
+        },
+        {
+          "lines": [
+            171,
+            204
+          ],
+          "operation": "collect the general family interface after its example"
+        },
+        {
+          "lines": [
+            468,
+            480
+          ],
+          "operation": "refer back to the exact theorem while proving its quantifiers"
+        }
+      ],
+      "dependency_constraints": [
+        "Keep all-input bounded error and worst-case caps explicit.",
+        "Keep immediate OpenAI attribution and the distinction between inherited theorem and reconstructed constants.",
+        "State both bounds for the same total function and exact circuit.",
+        "Preserve the alpha-then-fixed-k-then-growing-m order.",
+        "Do not pretend that r=2,m=4 is a hard instance of the asymptotic family."
+      ],
+      "acceptance_check": "On a construction-first route, a reviewer should locate one addressed cell and justify all four winning conditions before needing the exact r or C_k. The exact family theorem must be locatable at the end of Section 3, before either bound is used, and retain the same endpoint and fixed-k claim. Quantum-only and classical-only routes may continue to accept the other bound as stated.",
+      "outside_source": [
+        {
+          "source": "Hamoudi, A Brief Introduction to Quantum Query Complexity",
+          "edition": "author PDF updated 24 April 2026",
+          "locator": "§1.1, pp.2–5",
+          "role": "comparison of model-to-operation order, not a theorem citation"
+        },
+        {
+          "source": "Ambainis, Understanding Quantum Algorithms via Query Complexity",
+          "edition": "arXiv:1712.06349v1",
+          "locator": "§4 pointer-function construction",
+          "role": "comparison of field/predicate/use ordering"
+        }
+      ],
+      "prior_finding_ids": [
+        "EX9005",
+        "EX9006",
+        "EX9007",
+        "EX9011",
+        "EX9026",
+        "EX9031",
+        "EX9032",
+        "EX9033"
+      ],
+      "previous_round_assessment": {
+        "type": "new structural consequence",
+        "reason": "The arity, quantifier, constant and adaptive-guess clarifications are present. Relocate them with their content intact; do not report them missing.",
+        "audit_file": "previous_round_audit.json",
+        "summary_file": "history_summary.md"
+      }
+    },
+    {
+      "id": "EX10-002",
+      "paper": "repository/docs/exposition.md",
+      "perspective": [
+        "undergraduate",
+        "physicist or engineer"
+      ],
+      "locator": {
+        "section": "§1 projection experiment",
+        "quote": "Read the experiment in time order: prepare $u$, apply $D_{z_2}$, then $H$, then $D_{z_1}$, and finally $H$ before measuring.",
+        "line_start": 88,
+        "line_end": 88,
+        "pdf_page": 4
+      },
+      "unit_id": "EX10-U0118",
+      "kind": "example",
+      "severity": "low",
+      "feedback": "The full time-order sentence includes the final H, but the immediately following arrow chain stops at u before that H. The next paragraph calls this the resulting state and computes projection onto u. The prose at line 98 resolves the distinction, so the algorithm is not wrong; the displayed trajectory and its frame refer to different stopping points.",
+      "why_it_matters": "A learner checking the arrows against the verbal circuit can mistakenly apply the final H twice or expect the displayed final vector to be |00>. The issue is small but appears at the first operational quantum example.",
+      "advice": "Label the arrow chain as the state before the final H, or add the last H-labelled arrow to |00> and mark the preceding u as the point where the overlap formula is evaluated. Keep one measurement implementation and the two-query count.",
+      "available_before": [
+        "The normalized Walsh transform H",
+        "The bit-oracle and phase-kickback rules",
+        "The vector u and basis measurement"
+      ],
+      "missing_bridge": "A visible stage marker between the premeasurement overlap and the final basis-change implementation.",
+      "confidence": 0.96,
+      "later_resolution": {
+        "line": 98,
+        "text": "The final-H sentence explains that outcome 00 implements projection onto u; this is a local sequencing cost, not an omitted operation."
+      },
+      "prior_finding_ids": [
+        "EX9022"
+      ],
+      "previous_round_assessment": {
+        "type": "new local consequence",
+        "reason": "The requested time order is present. The surviving issue is the pre-final-H stopping point of the adjacent display.",
+        "audit_file": "previous_round_audit.json",
+        "summary_file": "history_summary.md"
+      }
+    },
+    {
+      "id": "EX10-003",
+      "paper": "repository/docs/exposition.md",
+      "perspective": [
+        "undergraduate",
+        "lecturer"
+      ],
+      "locator": {
+        "section": "§2 circuit transcripts and local tests",
+        "quote": "For $P_{2,4}$, expanding its finite truth table gives such a circuit with $180$ gates",
+        "line_start": 145,
+        "line_end": 145,
+        "pdf_page": 6
+      },
+      "unit_id": "EX10-U0195",
+      "kind": "evidence_presentation",
+      "severity": "medium",
+      "feedback": "The local-consistency lesson is interleaved with the exact synthesis size, zero-based gate IDs and later K=371 arithmetic. The proof uses the acyclic first-false-gate argument and the size parameter S; the particular gate number and census are evidence about one realization. They do not carry the inference that checking local equations can replace recomputation.",
+      "why_it_matters": "The reader switches between the mathematical mechanism and a checker-specific artifact just as local equations and output tests are being distinguished. The NOT/OR calculation teaches the first-false-gate inference; the domain-bit variant and wrong-address checks teach why separate output tests remain necessary. Neither lesson requires the exact 180-gate census.",
+      "advice": "Keep the two connected gates and the changed-value check in the main explanation, using their roles and input values. Keep K=2m-1+r(S+2) in the main cost derivation. Put the exact 180-gate realization, numeric 371 and source gate-index correspondence together in the optional circuit-check note. If the numeric count remains inline, make it a short check after the mechanism instead of part of the prerequisite sequence.",
+      "available_before": [
+        "The base board and general winning predicate",
+        "A transcript stores proposed gate values",
+        "Induction along an acyclic circuit forces a consistent transcript to be correct"
+      ],
+      "missing_bridge": "A separation between the inference being taught and the finite artifact that independently checks one implementation.",
+      "confidence": 0.86,
+      "affected_locators": [
+        {
+          "lines": [
+            139,
+            145
+          ]
+        },
+        {
+          "lines": [
+            153,
+            165
+          ]
+        }
+      ],
+      "dependency_constraints": [
+        "Do not replace the Forrelation circuit with an unrelated circuit in the definition of F.",
+        "Retain both domain and value output tests and the actual bit-query charges.",
+        "Keep the first-false-gate explanation executable.",
+        "Keep the distinct teaching roles of the NOT/OR calculation and the domain/wrong-address variants; neither substitutes for the other."
+      ],
+      "acceptance_check": "A student can explain why changing both t1 and t2 cannot hide every false equation, and derive K symbolically, without memorizing a gate index or knowing the truth-table synthesizer.",
+      "prior_finding_ids": [
+        "EX9035",
+        "EX9037",
+        "EX9038",
+        "EX9039",
+        "EX9040",
+        "EX9042"
+      ],
+      "previous_round_assessment": {
+        "type": "new evidence-placement consequence",
+        "reason": "The synthesis scope, working link, domain variant and four-term count are repaired. Keep them, but separate the finite artifact census from the local-consistency lesson.",
+        "audit_file": "previous_round_audit.json",
+        "summary_file": "history_summary.md"
+      }
+    },
+    {
+      "id": "EX10-004",
+      "paper": "repository/docs/exposition.md",
+      "perspective": [
+        "all four perspectives"
+      ],
+      "locator": {
+        "section": "§4 comparing columns",
+        "quote": "Thus so if $a_{ij}$ is the probability",
+        "line_start": 215,
+        "line_end": 215,
+        "pdf_page": 9
+      },
+      "unit_id": "EX10-U0302",
+      "kind": "prose",
+      "severity": "low",
+      "feedback": "The transition contains a duplicated connective, “Thus so”.",
+      "why_it_matters": "It introduces the comparison probability used throughout the section, so the small error occurs at an important definition.",
+      "advice": "Delete either “Thus” or “so”; retain the canonical unordered-pair experiment and a_ij+a_ji=1 as a statement about its law.",
+      "available_before": [
+        "The canonical experiment and deterministic tie rule"
+      ],
+      "missing_bridge": "No mathematical bridge is missing; this is a local copy-edit.",
+      "confidence": 0.99,
+      "prior_finding_ids": [],
+      "previous_round_assessment": {
+        "type": "new local copy-edit",
+        "reason": "No matching prior complaint was identified in the inspected exposition findings.",
+        "audit_file": "previous_round_audit.json",
+        "summary_file": "history_summary.md"
+      }
+    },
+    {
+      "id": "EX10-005",
+      "paper": "repository/docs/exposition.md",
+      "perspective": [
+        "research mathematician",
+        "undergraduate",
+        "physicist or engineer",
+        "lecturer"
+      ],
+      "locator": {
+        "section": "§4 from comparison to sampling",
+        "quote": "The comparison runs as a reversible circuit.",
+        "line_start": 217,
+        "line_end": 217,
+        "pdf_page": 9
+      },
+      "unit_id": "EX10-U0304",
+      "kind": "structure",
+      "severity": "high",
+      "feedback": "The exposition moves into reversible flag computation before establishing why the comparison favors a real winner. It then returns to the board, counterexamples and an ideal weight process, and only later resumes the controlled-register implementation. The exact unknown-success schedule introduces another technical detour between the rotation law and the construction-specific stopping guarantee. All of these mechanisms are supplied; their interleaving makes the section harder to reconstruct as one argument.",
+      "why_it_matters": "The reader is asked to understand how to realize a comparison coherently before seeing what property the search will consume. Later, the constants M,N and 9/40 compete with the decisive claim that amplification preserves the successful label law. A clearer order can reduce this switching without removing the mathematical safeguards.",
+      "advice": "Keep the comparison rule, its one-sided winner guarantee, the false-pointer example, the cycle and the ideal weight process together. Then state the sampler contract that the ideal process needs: exact conditional label law, all-input cap and failure control above a threshold. Move the retained-label map from lines 217–223 immediately before its use in the controlled preparation at 259. Teach the two-reflection preservation of the normalized good state on the main route. Put the exact randomized schedule and averaged-trigonometric constants in a marked optional derivation after the usable contract, retaining a direct link and the endpoint cases. Finish with permanent-list stopping and verification.",
+      "available_before": [
+        "The partial decoder and cross-pointer comparison rule",
+        "The need to avoid nested expensive verification"
+      ],
+      "missing_bridge": "A continuous progression from comparison property, to an ideal distribution, to an implemented sampler with exactly that distribution.",
+      "confidence": 0.91,
+      "affected_locators": [
+        {
+          "lines": [
+            215,
+            259
+          ],
+          "operation": "move retained-register implementation after its stochastic purpose is established"
+        },
+        {
+          "lines": [
+            281,
+            313
+          ],
+          "operation": "separate sampler contract, invariant, schedule details and stopping use"
+        }
+      ],
+      "dependency_constraints": [
+        "Keep a_ii=0 and a_ij+a_ji=1 as exact identities.",
+        "Keep winner reliability against every rival decoder label.",
+        "Retain all workspace and the inverse of the complete preparation.",
+        "Preserve the exact normalized successful-label law under fixed iteration counts, mixing iteration counts, and first-success fresh retries.",
+        "The cap must apply below threshold and at q=0; failure guarantees only apply when q is large enough.",
+        "Do not move the fixed T,epsilon choice out of reach of the winner-mass and stopping proof.",
+        "Keep q=0 and q=1 endpoint behavior on the main route; do not define a conditional successful law when success has probability zero.",
+        "Define a_ij first as the measured decoder-and-pointer comparison law, then show the coherent realization has the same law."
+      ],
+      "acceptance_check": "A quantum-route or full-route reader should first derive expected halving using only the comparison-law contract, then derive the implemented pivot law from fresh registers, and finally explain why later sampler failure cannot remove an already listed winner. The reordered passage must still specify every stopping output and every required cap.",
+      "outside_source": [
+        {
+          "source": "Brassard–Høyer–Mosca–Tapp",
+          "edition": "arXiv:quant-ph/0005055v1",
+          "locator": "§2, Lemma 1, equation (8), Theorem 3 and QSearch",
+          "role": "separating rotation geometry from unknown-success control; its expected-cost algorithm is not substituted for the capped one"
+        },
+        {
+          "source": "Childs, Lecture Notes on Quantum Algorithms",
+          "edition": "17 April 2025",
+          "locator": "§1.4, pp.2–3",
+          "role": "operational retained-information progression"
+        }
+      ],
+      "prior_finding_ids": [
+        "EX9060",
+        "EX9061",
+        "EX9075",
+        "EX9077",
+        "EX9078",
+        "EX9079",
+        "RR9-088",
+        "RR9-090",
+        "RR9-091",
+        "RR9-111"
+      ],
+      "previous_round_assessment": {
+        "type": "new structural consequence",
+        "reason": "The coherent calculation, full inverse, endpoints and finite schedule are present. Move intact content and preserve the usable contract; deletion would regress those repairs.",
+        "audit_file": "previous_round_audit.json",
+        "summary_file": "history_summary.md"
+      }
+    },
+    {
+      "id": "EX10-006",
+      "paper": "repository/docs/exposition.md",
+      "perspective": [
+        "undergraduate",
+        "lecturer"
+      ],
+      "locator": {
+        "section": "§4 recurring board variants",
+        "quote": "**A preparation on the board.**",
+        "line_start": 269,
+        "line_end": 269,
+        "pdf_page": 12
+      },
+      "unit_id": "EX10-U0393",
+      "kind": "example",
+      "severity": "medium",
+      "feedback": "The weights (1,0,0,1) use the cycled board, but the local label says only “the board”. By this point the base, domain-bit and false-pointer boards have all appeared, and the fractional matrix soon becomes another active object. The later “Return to the board” and Question 2 inherit the same shorthand.",
+      "why_it_matters": "The base board does not have the same loser-comparison relation as the cycled board. A reader returning from an answer, figure or optional route can therefore execute the right rule on the wrong data. The section does distinguish the abstract fractional matrix; the remaining request is consistent retrieval of the already named physical variant.",
+      "advice": "Use “cycled board” at lines 269,305,313 and in Question 2 at line 315 (with matching answer terminology at 506). State its current pivot list explicitly. Add one compact state-reference table, replacing repeated reset prose where possible: starting object, changed fields, Boolean output, and operation illustrated. Keep the fractional matrix explicitly abstract and the planted picture explicitly schematic. Do not force all examples into one probability law.",
+      "available_before": [
+        "The base board",
+        "Two separately reset mutations",
+        "The cyclic comparison relation and its first-step weights"
+      ],
+      "missing_bridge": "A stable local referent when returning to the physical example after a general derivation.",
+      "confidence": 0.9,
+      "affected_locators": [
+        {
+          "lines": [
+            229,
+            243
+          ]
+        },
+        {
+          "lines": [
+            269,
+            315
+          ]
+        },
+        {
+          "lines": [
+            354,
+            356
+          ]
+        },
+        {
+          "lines": [
+            506,
+            506
+          ]
+        }
+      ],
+      "dependency_constraints": [
+        "Each mutation starts from the stated base, not from the previous mutation.",
+        "The fractional matrix has no supplied certificate realization.",
+        "The planted illustration is not a positive-budget m=4 hardness instance."
+      ],
+      "acceptance_check": "Give a reader only the later Question 2 paragraph and its named example reference; they should retrieve the cycle relation and obtain (1,0,0,0), without guessing which earlier board is active.",
+      "prior_finding_ids": [
+        "EX9034"
+      ],
+      "previous_round_assessment": {
+        "type": "partial-resolution challenge",
+        "reason": "HIST-C01: introductions and independent-toy resets are repaired, but unqualified sampler reentries leave the persistent-name part of the original request open.",
+        "audit_file": "previous_round_audit.json",
+        "summary_file": "history_summary.md"
+      }
+    },
+    {
+      "id": "EX10-007",
+      "paper": "repository/docs/exposition.md",
+      "perspective": [
+        "undergraduate",
+        "lecturer"
+      ],
+      "locator": {
+        "section": "§4 error and cost accounting",
+        "quote": "When $F=1$, the output is wrong only if the list misses the winner or the winner's fresh decoding fails",
+        "line_start": 323,
+        "line_end": 323,
+        "pdf_page": 14
+      },
+      "unit_id": "EX10-U0488",
+      "kind": "structure",
+      "severity": "medium",
+      "feedback": "The correct error analysis is compressed into a paragraph that reuses epsilon for comparison accuracy, sampler failure and missed violations, then explains why some of these are not added again. The following count spreads three levels of oracle accounting over several paragraphs before deliberately loosening the logarithms. The common-unit sum at 331–337 already repairs the earlier conversion complaint; this finding proposes a comparative replacement for the current presentation, not a missing cost identity.",
+      "why_it_matters": "A reader can check each displayed inequality and still fail to reconstruct which event is being charged on which class of inputs, or which quantity counts preparations rather than bit queries. The existing prose explicitly prevents double-counting; a more comparative presentation would make that explanation easier to use.",
+      "advice": "Replace the repeated error-account prose with a compact ledger of event, history condition, F=0/F=1 use, and charge. Reuse the already correct cost sum at 331–337; if a small routine-cost table helps, let it replace the corresponding count prose rather than add another ledger. Keep comparison, preparation and ordinary bit-query units visibly distinct and retain the stated logarithmic enlargement. The priority is reconstructing the alternative error cases without double-counting.",
+      "available_before": [
+        "The ideal missing-winner estimate",
+        "Per-stage failure before the winner is listed",
+        "Fresh verification and the all-address nonwinner property"
+      ],
+      "missing_bridge": "A compact comparative arrangement of the already stated error-event charges and resource units, making the alternative input cases easier to reconstruct.",
+      "confidence": 0.87,
+      "affected_locators": [
+        {
+          "lines": [
+            323,
+            341
+          ]
+        }
+      ],
+      "dependency_constraints": [
+        "Comparison decoder errors are already represented in a_ij.",
+        "The F=1 and F=0 accounts are alternatives, not cumulative errors.",
+        "Use the actual retained list size at most T and an all-input cap.",
+        "Add tournament and verification costs; do not multiply them."
+      ],
+      "acceptance_check": "A reader should derive 2m/2^T+T epsilon+epsilon for F=1 and T epsilon for F=0, and explain each term before seeing the printed totals. They should count preparations, comparisons and bit queries in separate units.",
+      "prior_finding_ids": [
+        "EX9084",
+        "EX9085",
+        "EX9086"
+      ],
+      "previous_round_assessment": {
+        "type": "new presentation refinement",
+        "reason": "The separate input-case error budgets, common bit-query sum and log enlargements are present. Replace exposition with an event comparison if useful; another generic cost-conversion request would repeat resolved feedback.",
+        "audit_file": "previous_round_audit.json",
+        "summary_file": "history_summary.md"
+      }
+    },
+    {
+      "id": "EX10-008",
+      "paper": "repository/docs/exposition.md",
+      "perspective": [
+        "research mathematician",
+        "undergraduate",
+        "physicist or engineer",
+        "lecturer"
+      ],
+      "locator": {
+        "section": "§5 planted lower bound and synthesis",
+        "quote": "We now show that $R(F_{k,m})>\\lfloor mL/100\\rfloor$, by planting a winner in a random column.",
+        "line_start": 350,
+        "line_end": 350,
+        "pdf_page": 15
+      },
+      "unit_id": "EX10-U0530",
+      "kind": "structure",
+      "severity": "high",
+      "feedback": "The lower-bound section makes its individual probability arguments executable, but the reason those arguments produce the product scale mL is distributed across the opening target, erased-zero proof, heavy/light split, stopped simulator and final three-term estimate. Questions 3 and 4 test two vital hypotheses; neither directly asks the learner to assemble the three charges into the claimed scale.",
+      "why_it_matters": "The title promises an explanation of the exponent. A learner may finish the adaptive examples yet retain “planting plus a direct product” as a method name rather than being able to derive why a global budget is divided by mL and why address guessing has no extra factor m.",
+      "advice": "After the first-difference inequality, insert a compact preview of the three charges, with events stated before formulas: erased selected zero, heavily queried selected address tuple, and a light true-cell visit at some time. Reuse this map at the final gap rather than adding a second overview. Add or retarget one short synthesis task: use the integer-compatible bound G<=c mL (or G=floor(c mL)), identify which terms are bounded using L<=m and r=20 log2(m), and explain why averaging a uniformly independent selected column cancels m. The worked answer should show these operations, not only repeat the final inequality. Retarget or extend the existing final combined task rather than add a redundant sixth exercise. Name these as upper-bound charges: they may overlap, and overcounting is permitted.",
+      "available_before": [
+        "The total construction and winning predicate",
+        "The Forrelation hardness/interface and the earlier qualitative planting preview",
+        "The completed quantum upper bound and the accepted minimax idea"
+      ],
+      "missing_bridge": "A single reconstruction task joining the local event bounds to the m-times-partial-hardness scale.",
+      "confidence": 0.92,
+      "affected_locators": [
+        {
+          "lines": [
+            350,
+            379
+          ],
+          "operation": "give an event-to-charge preview after the pair is defined"
+        },
+        {
+          "lines": [
+            381,
+            426
+          ],
+          "operation": "refer each detailed reduction back to its charge"
+        },
+        {
+          "lines": [
+            455,
+            470
+          ],
+          "operation": "finish by assembling the charges and exposing the scale"
+        }
+      ],
+      "dependency_constraints": [
+        "Use the dummy run throughout the coupling estimate.",
+        "Keep I independent of all dummy data and the algorithm run.",
+        "Lightness concerns the whole run and stays inside a joint event.",
+        "The stopped simulator is capped on every tuple and has a total default output.",
+        "Jointly independent side data and separate caps remain explicit.",
+        "Union over times and average over I; do not union over all columns as the target event.",
+        "Define whole-run heavy/light after the coupled pair and before the preview table; the three charges are not a disjoint partition."
+      ],
+      "acceptance_check": "Without copying the final displayed bound, a classical-route or full-route reader should derive 4G/m^2 + G/(mL) + G(2/3)^r, then obtain at most 4c+c+c/m^8 for G<=c mL. They must say where each inequality uses independence, lightness, the cap, or r. This is an exercise in the existing proof, not a new theorem.",
+      "outside_source": [
+        {
+          "source": "Drucker, Improved Direct Product Theorems for Randomized Query Complexity",
+          "edition": "arXiv:1005.0644v2, 9 May 2014",
+          "locator": "§3, Lemmas 3.1–3.2 and product argument",
+          "role": "operational quantities before expectation accounting; distinct from its headline global-budget result"
+        }
+      ],
+      "prior_finding_ids": [
+        "EX9088",
+        "EX9098",
+        "EX9104",
+        "EX9105",
+        "EX9121"
+      ],
+      "previous_round_assessment": {
+        "type": "new synthesis-task consequence",
+        "reason": "Earlier minimax/independence exercise additions were declined, while the capped-predictor rubric was applied. The proposed capstone instead diagnoses assembly of three charges and the mL scale, using the existing final task.",
+        "audit_file": "previous_round_audit.json",
+        "summary_file": "history_summary.md"
+      }
+    },
+    {
+      "id": "EX10-009",
+      "paper": "repository/docs/exposition.md",
+      "perspective": [
+        "undergraduate",
+        "lecturer"
+      ],
+      "locator": {
+        "section": "§5 XOR simulator example",
+        "quote": "It numbers columns from $0$",
+        "line_start": 402,
+        "line_end": 402,
+        "pdf_page": 18
+      },
+      "unit_id": "EX10-U0629",
+      "kind": "prose",
+      "severity": "low",
+      "feedback": "The pedagogical XOR trace inherits a zero-based column label from the linked record and immediately translates it into the exposition's numbering. The hidden-versus-supplied partition and two clocks, rather than that absolute column number, are the mathematical content of the example.",
+      "why_it_matters": "The reader performs an avoidable coordinate conversion while trying to distinguish global time from forwarded queries. The warning correctly prevents silent mismatch with the linked checker, but the example need not import the checker's coordinate convention into its local reasoning.",
+      "advice": "Use the already defined target-column symbol i, or the exposition's column 2, consistently in the local trace and Question 4. Put the exact mapping to record label 1 in the optional destination note. Recheck all cell labels in the table, question and answer together.",
+      "available_before": [
+        "A fixed target column i",
+        "Global query time and target-query count",
+        "The announced switch from the Forrelation construction to a total two-bit XOR toy"
+      ],
+      "missing_bridge": "An example can retain its mathematical state while translating implementation coordinates only at the evidence boundary.",
+      "confidence": 0.92,
+      "affected_locators": [
+        {
+          "lines": [
+            402,
+            419
+          ]
+        },
+        {
+          "lines": [
+            510,
+            510
+          ]
+        }
+      ],
+      "dependency_constraints": [
+        "Do not change the target tuple or the proposed address (a,0).",
+        "Keep t=3 versus t=4 separate and retain stop-before-read.",
+        "Do not claim that the linked record already uses the new local numbering.",
+        "Keep the supplier change, independent pair law and cap reset before the trace; move only coordinate translation to the evidence note."
+      ],
+      "acceptance_check": "A reader can execute both branches and Question 4 without converting a column index, while the evidence note still identifies the exact record example.",
+      "prior_finding_ids": [
+        "EX9014",
+        "EX9034",
+        "XP9-122",
+        "RR9-152"
+      ],
+      "previous_round_assessment": {
+        "type": "new coordinate refinement",
+        "reason": "The supplier/model warning is present and the record deliberately retained it in advance. Preserve that warning and isolate only the absolute-index conversion.",
+        "audit_file": "previous_round_audit.json",
+        "summary_file": "history_summary.md"
+      }
+    },
+    {
+      "id": "EX10-010",
+      "paper": "repository/docs/exposition.md",
+      "perspective": [
+        "research mathematician",
+        "physicist or engineer",
+        "lecturer"
+      ],
+      "locator": {
+        "section": "§7 formal statement extension",
+        "quote": "The explicit-circuit source retains an old preparation-time comment",
+        "line_start": 494,
+        "line_end": 494,
+        "pdf_page": 21
+      },
+      "unit_id": "EX10-U0746",
+      "kind": "evidence_presentation",
+      "severity": "medium",
+      "feedback": "The statement-reading extension shifts from a meaningful formal clause and a real theorem-strength distinction into the history of a stale source comment and later dependency evidence. That chronology answers an evidence-audit question rather than the learner's current task of identifying the statement that rejects an off-promise column.",
+      "why_it_matters": "The final paragraph asks a newcomer to reconcile source-comment age, dependency evidence, Lean execution and Comparator matching. It can make the current mathematical statement look provisional without explaining a changed hypothesis or conclusion.",
+      "advice": "Keep the domain-clause exercise and the distinction between the existential-circuit family theorem and the stronger named-circuit constants in the exposition. Move the stale-comment history and its dated evidence to one linked status note in the record. State the current checked object and the absence of a new run once, with a precise link, instead of narrating the historical discrepancy in the teaching paragraph.",
+      "available_before": [
+        "The informal winning predicate",
+        "some/none as promised/undefined",
+        "The difference between the family challenge and the explicit named-circuit theorem"
+      ],
+      "missing_bridge": "A clear boundary between statement meaning, statement strength and historical checking evidence.",
+      "confidence": 0.9,
+      "affected_locators": [
+        {
+          "lines": [
+            490,
+            494
+          ]
+        }
+      ],
+      "dependency_constraints": [
+        "Do not imply that the family challenge itself specifies exponent six and coefficient 1/400.",
+        "Do not upgrade historical receipts into a fresh Lean or Comparator execution.",
+        "Keep source definitions available for ordinary mathematical interpretation.",
+        "Preserve the separate build and Comparator status of the stronger named-circuit result.",
+        "Use an actually verified status-note destination; the packaged prose and current pinned online prose are different evidence objects."
+      ],
+      "acceptance_check": "A reader can answer what formal clause excludes the domain-bit board and which theorem supplies the explicit constants without opening execution history; a separate audit link still exposes that history accurately.",
+      "prior_finding_ids": [
+        "EX9130"
+      ],
+      "previous_round_assessment": {
+        "type": "new placement consequence plus separate evidence-pointer correction",
+        "reason": "The formal-history repair exists at line 494. HIST-C02 separately corrects its recorded line-98 locator; neither issue is a proof failure.",
+        "audit_file": "previous_round_audit.json",
+        "summary_file": "history_summary.md"
+      }
+    },
+    {
+      "id": "EX10-011",
+      "paper": "repository/docs/exposition.md",
+      "perspective": [
+        "undergraduate",
+        "lecturer"
+      ],
+      "locator": {
+        "section": "Answers; exercise feedback order",
+        "quote": "**Combined-explanation rubric.**",
+        "line_start": 500,
+        "line_end": 500,
+        "pdf_page": 22
+      },
+      "unit_id": "EX10-U0753",
+      "kind": "question",
+      "severity": "medium",
+      "feedback": "The final combined-explanation rubric precedes the numbered Question 1–5 answers, even though the combined task is the last learning task in the main text. The single PDF answer page therefore starts with a global synthesis before giving feedback on the earlier local exercises.",
+      "why_it_matters": "The feedback order does not mirror the task sequence. It can expose the synthesis when a reader consults local feedback, unless navigation lands and stays exactly at an internal anchor. This review's own combined-task exposure came from a tool batch, so it is not evidence of a measured human navigation failure.",
+      "advice": "Order the solutions as projection check, Questions 1–5, then the combined rubric. Label the rubric as guided feedback on the final synthesis. If independent synthesis is an intended course outcome, provide the rubric after the attempt and separate any hints from the full answer. Do not claim that delayed placement alone measures learning. All answers occupy PDF page 22, so reordered prose alone cannot guarantee an unexposed attempt.",
+      "available_before": [
+        "Five numbered exercises and their declared routes",
+        "A final combined task explicitly asking for an attempt before its rubric"
+      ],
+      "missing_bridge": "Feedback should follow the order of the learning tasks and preserve the stated exposure boundary for final synthesis.",
+      "confidence": 0.82,
+      "affected_locators": [
+        {
+          "lines": [
+            486,
+            486
+          ]
+        },
+        {
+          "lines": [
+            498,
+            512
+          ]
+        }
+      ],
+      "dependency_constraints": [
+        "Keep all solution calculations and their query/probability qualifications.",
+        "Preserve explicit answer links and back links.",
+        "Distinguish guided practice from an unassisted attempt."
+      ],
+      "acceptance_check": "Follow each answer link from the delivered PDF and inspect the visible neighborhood. The local answer should be identifiable without first passing through the final synthesis rubric. Record any unavoidable same-page exposure honestly.",
+      "prior_finding_ids": [
+        "EX9121",
+        "EX9122"
+      ],
+      "previous_round_assessment": {
+        "type": "new answer-navigation consequence",
+        "reason": "Prompt and rubric are already separated. The remaining question is the rubric preceding earlier numbered answers, not absent separation.",
+        "audit_file": "previous_round_audit.json",
+        "summary_file": "history_summary.md"
+      }
+    }
+  ],
+  "impact_rank": [
+    "EX10-001",
+    "EX10-005",
+    "EX10-008",
+    "EX10-006",
+    "EX10-007",
+    "EX10-010",
+    "EX10-003",
+    "EX10-011",
+    "EX10-009",
+    "EX10-002",
+    "EX10-004"
+  ],
+  "mathematical_error_findings": 0,
+  "scope": "Feedback and advice only; no manuscript, skill or formal-source edits. The absence of an established error is bounded by checks/mathematical_verification.md.",
+  "protocol_status": "Complete lead-source coverage, partial compliance with strict sentence-before-next chronology; see freeze.json and coverage.json.",
+  "validation_boundary": "No established mathematical error in the scoped checks. Finite enumeration, source inspection and historical receipts do not establish a full independent proof or a new formal execution."
+}

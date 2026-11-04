@@ -1,0 +1,1147 @@
+{
+  "schema": "ex10-source-inventory-v1",
+  "created_at_utc": "2026-11-04T17:09:15.670909+00:00",
+  "source_packet": {
+    "filename": "quartic_r10_exposition(1).zip",
+    "sha256": "80e55fc941d2952b0d9283229fbafd9e50da97c3d0885d14734caf2cf174dbb2"
+  },
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+    "repository/docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+    "repository/docs/expert_companion.pdf": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+    "repository/docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "repository/docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+    "repository/docs/exposition.pdf": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+    "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+    "repository/docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "repository/docs/reasoning_record.pdf": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+  },
+  "repository_commit": "0d977710556f304ce70fa200cbf36b9beecb78e8",
+  "path_convention": "Source paths refer to the supplied input archive. Review artifacts use paths inside this ZIP. No source manuscript is reproduced or rewritten.",
+  "primary_and_root_reads": [
+    {
+      "path": "repository/docs/exposition.md",
+      "sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+      "scope": "Complete lines 1–535, 805 frozen units; batch exposure and a skipped-line detour disclosed.",
+      "stage": "primary first pass",
+      "reader": "primary reviewer",
+      "ranges": [
+        [
+          1,
+          535
+        ]
+      ]
+    },
+    {
+      "path": "repository/docs/exposition.bib",
+      "sha256": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+      "scope": "All 23 BibTeX metadata entries after lead Markdown, without following citations.",
+      "stage": "end of primary first pass",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "repository/docs/exposition.pdf",
+      "sha256": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+      "scope": "All 24 pages visually inspected after freeze, in page order at approximately 90 dpi; rendered reference list has 20 entries.",
+      "stage": "post-freeze undergraduate perspective",
+      "reader": "primary reviewer",
+      "pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ]
+    },
+    {
+      "path": "repository/docs/expert_companion.md",
+      "sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "scope": "Introduction and route overview, lines 1–95; further scoped reads are separately attributed below.",
+      "stage": "post-freeze",
+      "reader": "primary reviewer",
+      "ranges": [
+        [
+          1,
+          95
+        ]
+      ]
+    },
+    {
+      "path": "repository/docs/reasoning_record.md",
+      "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "scope": "Opening and route/statement setup, lines 1–85; linked technical counterparts checked by the mathematical verifier and historical audit.",
+      "stage": "post-freeze",
+      "reader": "primary reviewer",
+      "ranges": [
+        [
+          1,
+          85
+        ]
+      ]
+    },
+    {
+      "path": "paper/extracted.md",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "scope": "Opening source statements, lines 1–70; other scoped reads attributed below.",
+      "stage": "post-freeze",
+      "reader": "primary reviewer",
+      "ranges": [
+        [
+          1,
+          70
+        ]
+      ]
+    },
+    {
+      "path": "READ_ME_FIRST.md",
+      "sha256": "631b5f823704fd1b21c23563a2485a4ce461b31ced20d6e3f876c7629a6f5580",
+      "scope": "Current assignment and required return format; complete initial instructions",
+      "stage": "before first pass",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "chronological_reading.md",
+      "sha256": "d07643bd890e942196a9cf02876142bec674fdad147fef1639d4ee95ac0c9699",
+      "scope": "Complete chronological protocol",
+      "stage": "before first pass",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "SOURCE_STATUS.json",
+      "sha256": "a91f81249be2f04a3c1aca2fb554879814af79d4b0a539593ad7eddcf8995839",
+      "scope": "Source identities and hashes",
+      "stage": "before first pass",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "literature_standard.md",
+      "sha256": "d3f18c9af96467b72ba76c9ca1661bd8dc78b150ee2b5ece545ae26dee2a806c",
+      "scope": "Complete comparison instructions",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "reader_principles.md",
+      "sha256": "32a405467a0f201339dfc564beeea676bd28c050d1ef6c1350f52c029c090441",
+      "scope": "Reader principles",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "skills/README.md",
+      "sha256": "d6908bded5388a7474c49201aa42128ee6b60835a23a5bbb131424d1c748bd2b",
+      "scope": "Writing-method map",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "skills/quartic-writing-method.md",
+      "sha256": "1c7d3136e55604f181df482cf1d23edbe88d2db952068812ae26536779e2793d",
+      "scope": "Local method and chronological refinements",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "skills/record-to-expository/SKILL.md",
+      "sha256": "d2a102cf26a5da788922d22766fbd2d85f12fbc4b227e79953272c8f485f23b2",
+      "scope": "Stage skill; requested whole file in bounded reads; relevant reader-frame, dependency and evidence clauses independently re-read. Some broad output was truncated, so no every-line comprehension claim.",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "docs/authoring.md",
+      "sha256": "69444d73788fbd28f6142911abcb0c2c88c570409c8418a5f9f6217a92303f13",
+      "scope": "Opening 200 lines and relevant review-loop guidance; remainder not claimed read",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "register/REGISTER_RULES.md",
+      "sha256": "7d68627d6d453d4e4d927c7e5d18f1a37ebc3d65b50a23c68e91a23a1210b975",
+      "scope": "Selected rule text and explicit RG23–RG26; broad initial retrieval was truncated. No whole-specimen-corpus or numerical-register audit.",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "METHOD_PROVENANCE.json",
+      "sha256": "90f8c01c76af3d6e84bd65306e5dcfe0b6244f8899633e778988ddf1decf2bff",
+      "scope": "Method pin and source metadata",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "RENDER_PROVENANCE.json",
+      "sha256": "80ff966c4b8e8eec94c26d381f2012750726dbd6fd3a33e6c6ff7a59bd6889b4",
+      "scope": "PDF bindings and source-input existence metadata",
+      "stage": "integrity metadata; no mathematical content before freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "LITERATURE_COVERAGE.json",
+      "sha256": "c968035a7a1b43a1b3b790a194c5a68571cb4c911c5723a82f797fd374ee0eb8",
+      "scope": "Edition/supply map and selected citation entries, not all full texts",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "SUPPLEMENTARY_LITERATURE.json",
+      "sha256": "08771d531a29b47638bb65876aedf9df710b2c7ce8485c267c97b90ebc5cf3be",
+      "scope": "Edition and member metadata",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    },
+    {
+      "path": "LINK_MAP.json",
+      "sha256": "2f4145b1ab1f5a9f656aafd20bdf12fa94cc76ce9a31a1e927ecb7a0bf86fd4d",
+      "scope": "Exposition destination/pin mapping and figure inventory",
+      "stage": "post-freeze",
+      "reader": "primary reviewer"
+    }
+  ],
+  "mathematical_verifier_reads": [
+    {
+      "path": "repository/docs/exposition.md",
+      "sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+      "ranges": [
+        [
+          1,
+          535
+        ]
+      ],
+      "scope": "complete mathematical reread"
+    },
+    {
+      "path": "repository/docs/expert_companion.md",
+      "sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "ranges": [
+        [
+          1,
+          84
+        ],
+        [
+          142,
+          342
+        ],
+        [
+          393,
+          404
+        ]
+      ],
+      "scope": "selected introduction and core proof passages"
+    },
+    {
+      "path": "repository/docs/reasoning_record.md",
+      "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "ranges": [
+        [
+          186,
+          350
+        ],
+        [
+          556,
+          800
+        ],
+        [
+          854,
+          932
+        ],
+        [
+          1795,
+          2033
+        ],
+        [
+          2073,
+          2220
+        ],
+        [
+          2728,
+          2748
+        ],
+        [
+          2828,
+          3070
+        ],
+        [
+          3270,
+          3313
+        ],
+        [
+          3438,
+          3502
+        ],
+        [
+          3567,
+          3662
+        ],
+        [
+          3725,
+          3800
+        ],
+        [
+          3902,
+          3988
+        ]
+      ],
+      "scope": "selected linked proof counterparts; all remaining ranges unreviewed by this verifier"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+      "ranges": [
+        [
+          1,
+          343
+        ]
+      ],
+      "scope": "complete statement inspection, not elaboration"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+      "sha256": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+      "ranges": null,
+      "scope": "complete textual inspection, not elaboration"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+      "ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "scope": "complete textual statement/proof-reference inspection, not elaboration"
+    },
+    {
+      "path": "repository/research/returns/round3/members/04_addressed_construction/examples/circuit.json",
+      "sha256": "0f84ef8db3526a5d166307846bf4ef3d9268ad60c8a1e5353005fac9885a0004",
+      "ranges": null,
+      "scope": "complete gate data parsed by newly written evaluator; no submitted checker executed"
+    },
+    {
+      "path": "paper/extracted.md",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "ranges": [
+        [
+          1,
+          64
+        ],
+        [
+          151,
+          203
+        ],
+        [
+          363,
+          448
+        ],
+        [
+          528,
+          586
+        ]
+      ],
+      "scope": "selected primary source statements and proofs"
+    },
+    {
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952",
+      "ranges": [
+        [
+          1,
+          88
+        ]
+      ],
+      "scope": "promise and lower-bound statements"
+    },
+    {
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+      "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35",
+      "ranges": null,
+      "scope": "PDF text of printed page 4 inspected for exact Theorem 1.3/Corollary 1.4 numbering"
+    },
+    {
+      "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+      "sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+      "ranges": null,
+      "scope": "PDF text of printed pages 1–2 inspected for universal quartic theorem"
+    },
+    {
+      "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md",
+      "sha256": "fe50f27a93597951aa0e9577d0315a2b4dcdf022122604139232a952d144aa8f",
+      "ranges": [
+        [
+          2489,
+          2489
+        ]
+      ],
+      "scope": "Conjecture 2 inspected; other search snippets not treated as full reading"
+    },
+    {
+      "path": "writing_literature/drucker-direct-product-1005.0644v2/extracted.md",
+      "sha256": "f95f2bea6d3ef5d198442fb636b5821518fd3f6ed4241e4e9924244cc259a10e",
+      "ranges": [
+        [
+          455,
+          595
+        ]
+      ],
+      "scope": "Lemmas 3.1–3.2, product-potential proof, fair specialization"
+    },
+    {
+      "path": "LINK_MAP.json",
+      "sha256": "2f4145b1ab1f5a9f656aafd20bdf12fa94cc76ce9a31a1e927ecb7a0bf86fd4d",
+      "ranges": null,
+      "scope": "metadata inspection restricted to exposition links and supplied interpretation"
+    }
+  ],
+  "literature_comparison_reads": [
+    {
+      "id": "LC-KLR",
+      "title": "Mathematical Writing",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "Stanford CS-TR-87-1193; autumn 1987 course report",
+      "url": "https://www-cs-faculty.stanford.edu/~knuth/papers/cs1193.pdf",
+      "local_files": [
+        {
+          "path": "writing_literature/knuth-larrabee-roberts-mathematical-writing/source.pdf",
+          "sha256": "646072129e5c74443447d5de1f8343626bcb7cdefb97758721d3ec15d044f5e0",
+          "bytes": 4783300
+        },
+        {
+          "path": "writing_literature/knuth-larrabee-roberts-mathematical-writing/extracted.md",
+          "sha256": "18afa1384daa525dd248387ab914e5c152a03406962b8d01452166932773e6be",
+          "bytes": 376226
+        }
+      ],
+      "read_scope": [
+        "Section 1, items 5–14, printed pp. 2–3; extracted lines approximately 151–223",
+        "Section 10, printed pp. 20–21; extracted lines approximately 1021–1094"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [],
+      "application": "Reader-state motivation, notation continuity, algorithm purpose and invariants.",
+      "limitations": "General writing guidance; not mathematical evidence for query bounds. OCR occasionally corrupts notation. Rendered PDF pages 7–8 were not visually read and are not counted.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-SU",
+      "title": "Guidelines for Good Mathematical Writing",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "Updated 18 August 2020; three pages",
+      "url": "https://math.hmc.edu/su/wp-content/uploads/sites/10/2020/08/Guidelines-for-Good-Mathematical-Writing.pdf",
+      "local_files": [
+        {
+          "path": "writing_literature/su-mathematical-writing-2020/source.pdf",
+          "sha256": "b1ece2b233160479c49237bda4b8928cec1a946db90e939afd463e082f4ebd02",
+          "bytes": 110818
+        },
+        {
+          "path": "writing_literature/su-mathematical-writing-2020/extracted.md",
+          "sha256": "3578bbd0f91a4b65390e28f2bfac64f0737c1df39350ddc9b3dfa91e9887aac1",
+          "bytes": 11256
+        }
+      ],
+      "read_scope": [
+        "pp. 1–3: audience, distance worked example, structure and running-example guidance"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [],
+      "application": "Allocate detail to interpretation and new operations; do not equate rigor with maximal algebraic display.",
+      "limitations": "A general teaching/writing example, not evidence of this exposition’s observed learning outcomes.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-CHILDS",
+      "title": "Lecture Notes on Quantum Algorithms",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "Title-page date 17 April 2025, verified in supplied text",
+      "url": "https://www.cs.umd.edu/~amchilds/qa/qa.pdf",
+      "local_files": [
+        {
+          "path": "writing_literature/childs-quantum-algorithms-2025/source.pdf",
+          "sha256": "6e3a32f0aede35e954d665c909fec41f716b955f041957e723e2724ae3efabd1",
+          "bytes": 1438768
+        },
+        {
+          "path": "writing_literature/childs-quantum-algorithms-2025/extracted.md",
+          "sha256": "cc8d1e80ddc38938d89a037c2ddd289f3d0b7105a8f75d5b1e2a5579c625f351",
+          "bytes": 674805
+        }
+      ],
+      "read_scope": [
+        "Preface audience statement",
+        "Section 1.4, printed pp. 2–3; extracted lines 352–381"
+      ],
+      "skim_scope": [
+        "Sections 1.1–1.3 orientation"
+      ],
+      "visual_inspection": [],
+      "application": "Reversible computation by retained history; explanation next to the operation using A and its inverse.",
+      "limitations": "Author URL is mutable. Supplied 2025 snapshot was read; no claim about the current URL. Cleaning workspace is not a required defect repair.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-AMBAINIS",
+      "title": "Understanding Quantum Algorithms via Query Complexity",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "arXiv:1712.06349v1, 18 December 2017; supplied header verified",
+      "url": "https://arxiv.org/pdf/1712.06349v1",
+      "local_files": [
+        {
+          "path": "writing_literature/ambainis-query-survey-1712.06349v1/source.pdf",
+          "sha256": "6d2bfa659d7d29617635627ec6ab998b984cec6b5c8ef5cca8db69e226f40f80",
+          "bytes": 499005
+        },
+        {
+          "path": "writing_literature/ambainis-query-survey-1712.06349v1/extracted.md",
+          "sha256": "891704a5ea685f0556883f843741a0153096766785d46037885e832704f425fd",
+          "bytes": 58743
+        }
+      ],
+      "read_scope": [
+        "Section 2.1, printed pp. 3–4; extracted lines approximately 118–199",
+        "Section 4 pointer-function discussion and Theorem 4 neighborhood, printed pp. 10–11; extracted lines approximately 427–551"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [],
+      "application": "Specify task/model and accepting structure before certificate consequences and candidate elimination.",
+      "limitations": "Its chained pointer function differs from the draft’s direct-pointer addressed arrays. Historical bounds are not current-status evidence.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-BHMT",
+      "title": "Quantum Amplitude Amplification and Estimation",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "arXiv:quant-ph/0005055v1, 15 May 2000; title-page date 2 May 2000",
+      "url": "https://arxiv.org/pdf/quant-ph/0005055v1",
+      "local_files": [
+        {
+          "path": "writing_literature/bhmt-amplification-quant-ph-0005055v1/source.pdf",
+          "sha256": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278",
+          "bytes": 295305
+        },
+        {
+          "path": "writing_literature/bhmt-amplification-quant-ph-0005055v1/extracted.md",
+          "sha256": "b54095d2d599d14a5e6f297fb91e6cb1c99843987dd88607242565ec9811627a",
+          "bytes": 79335
+        }
+      ],
+      "read_scope": [
+        "Section 2, printed pp. 4–10: preparation/inverse, Lemma 1, Eq. (8), Theorem 3 and QSearch; extracted lines approximately 140–401"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [
+        "Original supplied PDF p. 5: operator and invariant-plane statement",
+        "Original supplied PDF p. 7: Eq. (8) and QSearch neighborhood"
+      ],
+      "application": "Good/bad invariant subspace and preservation of normalized good state; contrast expected stopping with fixed cap.",
+      "limitations": "QSearch does not terminate at success probability zero. Its expected-cost guarantee cannot replace the draft’s every-input fixed cap. No claim to have re-proved every amplification bound.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-DRUCKER",
+      "title": "Improved Direct Product Theorems for Randomized Query Complexity",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "arXiv:1005.0644v2, 9 May 2014; supplied header verified",
+      "url": "https://arxiv.org/pdf/1005.0644v2",
+      "local_files": [
+        {
+          "path": "writing_literature/drucker-direct-product-1005.0644v2/source.pdf",
+          "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff",
+          "bytes": 405185
+        },
+        {
+          "path": "writing_literature/drucker-direct-product-1005.0644v2/extracted.md",
+          "sha256": "f95f2bea6d3ef5d198442fb636b5821518fd3f6ed4241e4e9924244cc259a10e",
+          "bytes": 109433
+        }
+      ],
+      "read_scope": [
+        "Section 3, printed pp. 10–13: residual value W, Lemmas 3.1–3.2, adaptive posterior product, multiplicative argument, final fair/separate-cap comment; extracted lines approximately 451–597"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [
+        "Original supplied PDF pp. 11–12: conditional distribution and product equations"
+      ],
+      "application": "Conditional-value proof technique, posterior independence after adaptive transcripts, and precise cap distinction.",
+      "limitations": "This is the supplied 2014 arXiv edition, not verification of the cited 2012 journal pagination. Headline theorem uses a global budget; separately capped claim needs the indicated adapted argument.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-DEWOLF",
+      "title": "Quantum Computing: Lecture Notes",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "arXiv:1907.09415v6, 27 August 2026, as identified by the supplied annex/version metadata",
+      "url": "https://arxiv.org/abs/1907.09415v6",
+      "local_files": [
+        {
+          "path": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/source.tar.gz",
+          "sha256": "2ffd080924542b6de1409a1dbd73efcb85e99bc0d3cc2daac5e3eeba84ef2535",
+          "bytes": 399313
+        },
+        {
+          "path": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/extracted.md",
+          "sha256": "57b133972c5e26ceb41d46e49a77a52ef1b03e0ee522ca1534dd6e48547f7dd5",
+          "bytes": 709914
+        }
+      ],
+      "read_scope": [
+        "Chapter 7, Section 7.2: geometry/algebra and search variants, extracted lines approximately 977–1010",
+        "Chapter 7, Section 7.3: amplitude amplification, extracted lines approximately 1011–1033",
+        "Chapter 7 exercises 1–5 vicinity, extracted lines approximately 1045–1080"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [],
+      "application": "Separate rotation, unknown-probability variants, and runtime control; compare intermediate-state and iteration exercises.",
+      "limitations": "Read supplied extracted source text. The archive was not executed. No invented PDF page locators; edition/date rely on supplied version metadata rather than an independently fetched live PDF.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-PREPRINT",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "OpenAI; supplied 5 October 2026 preprint",
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "local_files": [
+        {
+          "path": "paper/source.pdf",
+          "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+          "bytes": 433829
+        },
+        {
+          "path": "paper/extracted.md",
+          "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+          "bytes": 64021
+        }
+      ],
+      "read_scope": [
+        "Introduction, Sections 1 and 1.1–1.3, printed pp. 1–3; extracted lines approximately 16–125"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [],
+      "application": "Distinguish source theorem from exposition’s loose explicit accounting; compare expert introduction with learner sequence.",
+      "limitations": "Only the stated introductory passages were read by this child. Source preprint was supplied, not successfully retrieved live. Not independent certification of the whole result.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-HAMOUDI",
+      "title": "Query Complexity, Yassine Hamoudi",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "PDF title page: last update 24 April 2026; linked from PCMI 2023 course page",
+      "url": "https://yassine-hamoudi.github.io/files/publications/QueryComplexity.pdf",
+      "local_files": [],
+      "read_scope": [
+        "Introduction, pp. 1–2",
+        "Section 1.1 models, pp. 2–5",
+        "Section 1.2 examples and total/partial relationship, pp. 6–7"
+      ],
+      "skim_scope": [
+        "Beginning of hybrid-method discussion, p. 7"
+      ],
+      "application": "Model/task boundaries and explicit qualification of workspace simplification.",
+      "limitations": "Do not call the current PDF a 2023 edition. Its old supercubic-open remark is historical relative to the supplied October result. Memoryless notation is not an assumption to import.",
+      "web_refs": [
+        "turn7view1",
+        "turn8view0",
+        "turn9view0",
+        "turn10view0"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "used"
+    },
+    {
+      "id": "LC-HAMOUDI-P1",
+      "title": "PCMI 2023 Problem Session 1: Basics of Query Complexity & The Hybrid Method",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "PCMI 2023 header; Yassine Hamoudi, instructor; Angelos Pelecanos, TA",
+      "url": "https://yassine-hamoudi.github.io/files/pcmi2023/Problems1.pdf",
+      "local_files": [],
+      "read_scope": [
+        "All two pages: error reduction/alphabet; phase queries and parity; sensitivity/certificate/complexity relations"
+      ],
+      "skim_scope": [],
+      "application": "Reuse an operation in a changed setting; motivates a quantitative transfer task.",
+      "limitations": "Exercises are pedagogical analogy, not evidence for the new family.",
+      "web_refs": [
+        "turn7view2",
+        "turn11view0"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "used",
+      "precise_exercise_locators": [
+        "Problem 2, p.1",
+        "Problem 3, pp.1–2"
+      ]
+    },
+    {
+      "id": "LC-IBM-SEARCH",
+      "title": "IBM Quantum Learning: Fundamentals of Quantum Algorithms — Unstructured search",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "Live HTML, no immutable edition/date established",
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/grover-algorithm/unstructured-search",
+      "local_files": [],
+      "read_scope": [
+        "Task definitions, Search/UniqueSearch distinctions, query formulation"
+      ],
+      "skim_scope": [],
+      "application": "Define the output task before giving the algorithm.",
+      "limitations": "No publication date or independently verified named authorship is asserted.",
+      "web_refs": [
+        "turn14view1"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "used"
+    },
+    {
+      "id": "LC-IBM-ALGORITHM",
+      "title": "IBM Quantum Learning: Fundamentals of Quantum Algorithms — Grover algorithm description",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "Live HTML, no immutable edition/date established",
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/grover-algorithm/grover-algorithm-description",
+      "local_files": [],
+      "read_scope": [
+        "Algorithm-description page: phase query, input-independent reflection, initialize/iterate/measure, query count"
+      ],
+      "skim_scope": [],
+      "application": "Separate operational interface from iteration analysis.",
+      "limitations": "Page concerns ordinary unstructured search; not the draft’s weighted sampler.",
+      "web_refs": [
+        "turn14view0"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "used"
+    },
+    {
+      "id": "LC-IBM-ANALYSIS",
+      "title": "IBM Quantum Learning: Fundamentals of Quantum Algorithms — Analysis",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "Live HTML, no immutable edition/date established",
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/grover-algorithm/analysis",
+      "local_files": [],
+      "read_scope": [
+        "Sections on solution/non-solution states, initial-state decomposition, action on the two-dimensional space, and geometric interpretation; substantive lines approximately 20–262"
+      ],
+      "skim_scope": [],
+      "application": "Define normalized subspaces and operator action before geometric explanation.",
+      "limitations": "Uniform marked-state example cannot substitute for nonuniform label masses plus retained workspace. No claim that a further iteration-count page was read.",
+      "web_refs": [
+        "turn19view0",
+        "turn20view0"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "used"
+    },
+    {
+      "id": "LC-IBM-CLASSROOM",
+      "title": "IBM Quantum Learning Qiskit in Classrooms — Grover’s algorithm module",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "Live HTML; no immutable publication date established",
+      "url": "https://quantum.cloud.ibm.com/learning/en/modules/computer-science/grovers",
+      "local_files": [],
+      "read_scope": [
+        "Introduction, theory/two-qubit example, geometry discussion, activities and questions"
+      ],
+      "skim_scope": [],
+      "application": "Consulted while searching for teaching comparators; not a decisive recommendation source.",
+      "limitations": "No code executed; actual images not independently inspected. Informal wording not used as rigorous theorem evidence.",
+      "web_refs": [
+        "turn6view1",
+        "turn7view0",
+        "turn12view0"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "consulted_not_used_decisively"
+    },
+    {
+      "id": "LC-HAMOUDI-SOLUTIONS",
+      "title": "PCMI 2023 Solutions 1",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "PCMI 2023; ten-page PDF",
+      "url": "https://yassine-hamoudi.github.io/files/pcmi2023/Solutions1.pdf",
+      "local_files": [],
+      "read_scope": [
+        "Problem 2 phase/parity solution neighborhood, pp. 3–4"
+      ],
+      "skim_scope": [
+        "Remaining PDF not read"
+      ],
+      "application": "Limited comparison with problem progression.",
+      "limitations": "Do not claim all ten pages were read. Not used as separate mathematical support.",
+      "web_refs": [
+        "turn7view3"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "consulted_not_used_decisively"
+    }
+  ],
+  "historical_audit_sources": [
+    {
+      "source_member": "previous_round/members/exposition/quartic_r9_exposition_return/feedback.json",
+      "sha256": "fd40d29ae76ad3101af95c3c3697647f694d1975a2fc9e14ece9e7354976b7f2"
+    },
+    {
+      "source_member": "previous_round/members/reasoning_record/feedback.json",
+      "sha256": "97a653d654ff57dccda753ffa9b0ddcc0de6128ff44876aeec416f74c29029d4"
+    },
+    {
+      "source_member": "previous_round/members/expert_paper/feedback.json",
+      "sha256": "58074f65fb26644fffd0123ccae00144cbcc57f17fa543da5c3465000e61f3f3"
+    },
+    {
+      "source_member": "previous_round/adjudication/round9_dispositions/exposition.json",
+      "sha256": "9cf1fa1ef81d48df6a7777806c67adcb17297d48787c453432e2242f5ebaa3b5"
+    },
+    {
+      "source_member": "previous_round/adjudication/round9_dispositions/reasoning_record.json",
+      "sha256": "a0b4a8369c91d91398d0834d664517b48d509082b79820a203645d4ceed50aea"
+    },
+    {
+      "source_member": "previous_round/adjudication/round9_dispositions/expert_companion.json",
+      "sha256": "0087e565eeddc5b5d28221d1e8432637e34af08b3a679aa293b837fc63bf3435"
+    },
+    {
+      "source_member": "previous_round/intake.json",
+      "sha256": "ec7b106bdd007e039760c2c5541249c73789f064118954a6fb6914cb27dd5b6d"
+    },
+    {
+      "source_member": "previous_round/adjudication/round9_synthesis.json",
+      "sha256": "a2e38ce3f480c2d910b8c4f61b98d277960a34de019211f84d9d756d075538ba"
+    },
+    {
+      "source_member": "previous_round/members/exposition/quartic_r9_exposition_return/evidence/cross_document_checks.json",
+      "sha256": "6d33a04a93fe12008e62070eb5c1ef559475f6380d60bee2cf0fd8f86640f835"
+    },
+    {
+      "source_member": "repository/docs/exposition.md",
+      "sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8"
+    },
+    {
+      "source_member": "repository/docs/reasoning_record.md",
+      "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07"
+    },
+    {
+      "source_member": "repository/docs/expert_companion.md",
+      "sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d"
+    }
+  ],
+  "historical_audit_scope": {
+    "all_current_round9_original_ids": 538,
+    "actually_inspected_original_ids": 185,
+    "uninspected_original_ids": 353,
+    "by_return": {
+      "exposition": {
+        "original_count": 135,
+        "inspected": 135,
+        "uninspected": 0,
+        "id_range": "EX9001–EX9135"
+      },
+      "expert_paper": {
+        "original_count": 166,
+        "inspected": 1,
+        "uninspected": 165,
+        "ids": [
+          "XP9-122"
+        ]
+      },
+      "reasoning_record": {
+        "original_count": 237,
+        "inspected": 49,
+        "uninspected": 188,
+        "ids": [
+          "RR9-029",
+          "RR9-030",
+          "RR9-031",
+          "RR9-073",
+          "RR9-074",
+          "RR9-075",
+          "RR9-076",
+          "RR9-077",
+          "RR9-078",
+          "RR9-088",
+          "RR9-089",
+          "RR9-090",
+          "RR9-091",
+          "RR9-111",
+          "RR9-113",
+          "RR9-114",
+          "RR9-115",
+          "RR9-116",
+          "RR9-117",
+          "RR9-118",
+          "RR9-131",
+          "RR9-132",
+          "RR9-133",
+          "RR9-134",
+          "RR9-143",
+          "RR9-144",
+          "RR9-145",
+          "RR9-146",
+          "RR9-147",
+          "RR9-148",
+          "RR9-149",
+          "RR9-150",
+          "RR9-151",
+          "RR9-152",
+          "RR9-153",
+          "RR9-154",
+          "RR9-155",
+          "RR9-156",
+          "RR9-157",
+          "RR9-158",
+          "RR9-159",
+          "RR9-169",
+          "RR9-170",
+          "RR9-171",
+          "RR9-172",
+          "RR9-173",
+          "RR9-174",
+          "RR9-178",
+          "RR9-179"
+        ]
+      }
+    },
+    "assessment_counts": {
+      "resolved": 175,
+      "new_consequence": 9,
+      "unresolved": 1
+    },
+    "recorded_status_counts": {
+      "applied": 127,
+      "not_adopted": 9,
+      "retained": 8,
+      "accepted": 41
+    },
+    "current_source_read_ranges": {
+      "repository/docs/exposition.md": {
+        "extent": "Complete present exposition inspected in the root first pass; this subaudit checked all EX9 mapped current passages and surrounding prose throughout lines 12–535, plus exact locations cited here.",
+        "bounded_range": [
+          12,
+          535
+        ]
+      },
+      "repository/docs/reasoning_record.md": {
+        "extent": "Selected current paragraphs and local displays around exposition-linked destinations; neither the full record nor its PDF was audited.",
+        "mapped_line_numbers": [
+          681,
+          706,
+          713,
+          1928,
+          1930,
+          1941,
+          1952,
+          1977,
+          1984,
+          1993,
+          2128,
+          2160,
+          2186,
+          2204,
+          2739,
+          2745,
+          2760,
+          2760,
+          2766,
+          2787,
+          3291,
+          3301,
+          3322,
+          3324,
+          3470,
+          3482,
+          3504,
+          3510,
+          3550,
+          3571,
+          3585,
+          3585,
+          3600,
+          3605,
+          3609,
+          3618,
+          3641,
+          3655,
+          3677,
+          3697,
+          3725,
+          3908,
+          3913,
+          3915,
+          3931,
+          3933,
+          3935,
+          3995,
+          4000
+        ],
+        "additional_explicit_ranges": [
+          [
+            1928,
+            1932
+          ],
+          [
+            1948,
+            1962
+          ],
+          [
+            2123,
+            2143
+          ],
+          [
+            2197,
+            2216
+          ],
+          [
+            2756,
+            2796
+          ],
+          [
+            3301,
+            3310
+          ],
+          [
+            3609,
+            3616
+          ],
+          [
+            3655,
+            3662
+          ],
+          [
+            3691,
+            3710
+          ],
+          [
+            3714,
+            3737
+          ],
+          [
+            3906,
+            3913
+          ],
+          [
+            3929,
+            3938
+          ],
+          [
+            3990,
+            4000
+          ]
+        ]
+      },
+      "repository/docs/expert_companion.md": {
+        "extent": "XP9-122 original and individual disposition plus current link sentence; no complete companion review.",
+        "ranges": [
+          [
+            291,
+            291
+          ]
+        ]
+      },
+      "repository/docs/exposition.bib": {
+        "ranges": [
+          [
+            88,
+            110
+          ]
+        ],
+        "extent": "BHMT closing-brace regression check"
+      }
+    },
+    "visual_evidence": {
+      "source": "Main reviewer, work/pdf_review.json",
+      "reported_scope": "24 of 24 current exposition PDF pages at normal reading size; all four figures inspected.",
+      "subaudit_scope": "Used the main review visual result for layout dispositions; no separate PDF inspection claim."
+    },
+    "idless_cross_document_notes_inspected": 4,
+    "custody_check": "All 3 archived ZIP hashes, sizes and CRCs and all 91 supplied original-member hashes/sizes verified; this verifies custody only, not semantic reading of every member."
+  },
+  "unavailable_or_not_read": [
+    {
+      "source": "Exact online pinned exposition-to-record and companion prose",
+      "status": "not retrieved; supplied LINK_MAP marks 14 prose-link occurrences different from packaged counterparts",
+      "pin": "8357f268732746d1575e05e7de8c888e20ad3793",
+      "access_result": "DisabledError on attempted record destination; not all remote URLs were independently tested"
+    },
+    {
+      "source": "OpenAI pinned source-preprint URL",
+      "status": "live access DisabledError; supplied local PDF/extracted text used"
+    },
+    {
+      "source": "Yao, FOCS 1977; Nisan, SIAM J. Comput. 1991; Barnum–Saks–Szegedy, CCC 2003 exact edition",
+      "status": "cited-only exact editions not read; supplied 2002 Barnum alternative also not substantively reviewed here"
+    },
+    {
+      "source": "Unlisted annex passages, exemplars, older-round prose and companion/record PDF pages",
+      "status": "not claimed read; this is not a cover-to-cover review of all 6176 archive members"
+    },
+    {
+      "source": "Register measurement/profile values",
+      "status": "not rerun or used to certify writing quality"
+    }
+  ],
+  "fresh_executions": [
+    "New independent finite arithmetic evaluator",
+    "Read-only hashes, CRCs, source/quote/schema and archive checks"
+  ],
+  "not_executed": [
+    "Uploaded reviewer scripts",
+    "Lean",
+    "Lake",
+    "Comparator"
+  ],
+  "root_online_reads": [
+    {
+      "title": "Scott Aaronson, Open Problems Related to Quantum Query Complexity",
+      "url": "https://www.scottaaronson.com/papers/open.pdf",
+      "retrieved_on": "2026-11-04",
+      "scope": "Introduction and §4 Maximal Separations, pp.3–4",
+      "use": "Historical 2021 problem framing only, not current open-status evidence"
+    },
+    {
+      "title": "Yassine Hamoudi, Query Complexity",
+      "url": "https://yassine-hamoudi.github.io/files/publications/QueryComplexity.pdf",
+      "edition": "PDF updated 24 April 2026",
+      "scope": "Introduction and §1.1 model discussion, pp.1–5; historical p.7 remark recognized as dated",
+      "use": "Model and workspace teaching comparison"
+    }
+  ]
+}

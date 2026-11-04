@@ -1,0 +1,150 @@
+{
+  "schema": "quartic-r10-remaining-method-dispositions-v1",
+  "observations": [
+    {
+      "source": "research/returns/round10/members/reasoning_record/quartic_r10_reasoning_record_return/method_feedback.json",
+      "id": "MF-001",
+      "status": "existing_rule_application",
+      "owner": "docs/reader-review.md",
+      "action": "Preserve exposure units, annotation units and limitations; no retroactive strict-sentence claim."
+    },
+    {
+      "source": "research/returns/round10/members/reasoning_record/quartic_r10_reasoning_record_return/method_feedback.json",
+      "id": "MF-002",
+      "status": "existing_owner_acceptance_refinement",
+      "owner": "docs/authoring.md",
+      "action": "Refine the existing sequential-versus-entry acceptance check with explicit pending contracts and discharge points."
+    },
+    {
+      "source": "research/returns/round10/members/reasoning_record/quartic_r10_reasoning_record_return/method_feedback.json",
+      "id": "MF-003",
+      "status": "existing_rule_application",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "action": "Put complete bounded evaluator and history-indexed transition law before the dependent proof; retain state/failure semantics."
+    },
+    {
+      "source": "research/returns/round10/members/reasoning_record/quartic_r10_reasoning_record_return/method_feedback.json",
+      "id": "MF-004",
+      "status": "existing_rule_application",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "action": "Assess current/history disclosure separately from optional reordering; preserve historical receipts."
+    },
+    {
+      "source": "research/returns/round10/members/reasoning_record/quartic_r10_reasoning_record_return/method_feedback.json",
+      "id": "MF-005",
+      "status": "existing_rule_application",
+      "owner": "docs/authoring.md",
+      "action": "Reconcile current passages and all named occurrences; stale prior locators get a new current locator record."
+    },
+    {
+      "source": "research/returns/round10/members/reasoning_record/quartic_r10_reasoning_record_return/method_feedback.json",
+      "id": "MF-006",
+      "status": "existing_rule_application",
+      "owner": "skills/record-to-expository/SKILL.md",
+      "action": "Keep local boards explicit and separate shared circuit rules from the actual checked input at the destination."
+    },
+    {
+      "source": "research/returns/round10/members/reasoning_record/quartic_r10_reasoning_record_return/method_feedback.json",
+      "id": "MF-007",
+      "status": "existing_rule_application",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "action": "Audit every exact constructor-count contribution; do not require a new proof build merely for the explanation."
+    },
+    {
+      "source": "research/returns/round10/members/exposition/method_feedback.json",
+      "id": "EX10-M01",
+      "status": "existing_rule_application",
+      "owner": "docs/authoring.md",
+      "action": "Dependency-order revision replaces redundant previews; named theorem stays available before its use."
+    },
+    {
+      "source": "research/returns/round10/members/exposition/method_feedback.json",
+      "id": "EX10-M02",
+      "status": "existing_rule_application",
+      "owner": "skills/record-to-expository/SKILL.md",
+      "action": "Keep example identities through reentries, questions and answers; implementation index translation stays at evidence destination."
+    },
+    {
+      "source": "research/returns/round10/members/exposition/method_feedback.json",
+      "id": "EX10-M03",
+      "status": "existing_rule_application",
+      "owner": "docs/reader-review.md",
+      "action": "Preserve declared batching and answer exposure; existing strict reader-review procedure already requires save-before-next."
+    },
+    {
+      "source": "research/returns/round10/members/exposition/method_feedback.json",
+      "id": "EX10-M04",
+      "status": "existing_rule_application",
+      "owner": "docs/authoring.md",
+      "action": "Separate resolved absence, residual placement, partial repair and locator failure; preserve earlier review editions."
+    },
+    {
+      "source": "research/returns/round10/members/exposition/method_feedback.json",
+      "id": "EX10-M05",
+      "status": "existing_rule_application",
+      "owner": "docs/authoring.md",
+      "action": "Bind printed links to exact inspected source editions; preserve build/Comparator and mathematical evidence distinctions."
+    },
+    {
+      "source": "research/returns/round10/members/exposition/method_feedback.json",
+      "id": "EX10-M06",
+      "status": "existing_rule_application",
+      "owner": "docs/authoring.md",
+      "action": "Retain all-input caps, conditional label law and independent-product conditions while changing explanatory order."
+    },
+    {
+      "source": "research/returns/round10/members/exposition/method_feedback.json",
+      "id": "EX10-M07",
+      "status": "implemented_checker_repair",
+      "owner": "quartic-query-lean tools/build_round5_packets.py, tools/build_round6_packets.py, tools/build_round9_packets.py",
+      "action": "Repair live author label, image inventory and full native render-input closure; run actual-case replay and regression tests, leaving archives unchanged."
+    }
+  ],
+  "general_refinement": {
+    "owner_repository": "wcook04/lean-exposition",
+    "owner": "docs/authoring.md",
+    "trigger": "A review proposes changing full reading order despite usable proof-entry links.",
+    "action": "Assess complete route separately from shortcut entry; enumerate deferred contracts and proof-discharge destinations before relocation.",
+    "check": "Every retained promised proof still has a destination; the next main-route operation has a complete usable contract.",
+    "reason": "A correct interface resolves an absence claim without necessarily resolving the cost of the default reading order.",
+    "exception": "An expert-facing short statement may best remain early; chronology may lead when chronology is the subject. No universal construction-first mandate.",
+    "transfer_cases": [
+      {
+        "case": "SK long reasoning record, section2.1",
+        "sources": [
+          "papers/qaoa-sk/long/reasoning-record.md:151",
+          "papers/qaoa-sk/short/paper.md:1"
+        ],
+        "assessment": "Source-grounded author check: contact/curvature full-support route closes before the circuit branch; positive density and fixed-word second moments have separate dependencies. Existing entry links do not permit promoting support alone into a complete circuit proof.",
+        "outcome": "Refinement distinguishes independent proof access from full dependency closure."
+      },
+      {
+        "case": "Architecture companion and executable bundle guide",
+        "sources": [
+          "papers/architecture/paper.md:70",
+          "docs/bundle-consumers.md:40"
+        ],
+        "assessment": "Source-grounded author check: reader-task narrative can precede schema details, but executable assemble/check/query route must retain setup and exact edition requirements. A direct query entry is not proof that a newcomer can complete that full route.",
+        "outcome": "Same distinction works for an operational derivation without imposing mathematical section order."
+      }
+    ],
+    "evidence_kind": "Inspected-source editorial transfer checks; no reader experiment or measured improvement."
+  },
+  "packet_validation": "round10_remaining_packet_validation.json",
+  "limitations": [
+    "Review protocols were prospective only at disclosed block/batch granularity.",
+    "Most observations apply existing public guidance; they do not justify duplicating it as fourteen new rules.",
+    "No new Lean or Comparator execution follows from a prose revision."
+  ],
+  "upstream": {
+    "repository": "wcook04/lean-exposition",
+    "pull_request": 46,
+    "merge_commit": "6c7226e4c5512795c381a661a9c2777f4a2ef1cd",
+    "branch_commit": "064ed5ddd0c238c4956ea85d0e33b737a7f9e066",
+    "tests_run": 710,
+    "skipped": 2,
+    "layout_and_links": "passed",
+    "ci": "Python3.11, Python3.12 and site jobs passed",
+    "minimal_bundle": "validate and inspect completed; partial extraction and unresolved external dependencies remain explicit"
+  }
+}

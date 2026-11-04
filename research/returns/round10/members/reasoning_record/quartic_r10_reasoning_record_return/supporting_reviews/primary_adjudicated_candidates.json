@@ -1,0 +1,610 @@
+{
+  "metadata": {
+    "title": "Second-pass adjudication of all 27 prospective primary-reader candidates",
+    "created_at": "2026-11-04T14:37:10.834828+00:00",
+    "first_pass_unchanged": true,
+    "first_pass_freeze_sha256": "714edbed6d440767df589d5cc23fcca3fd00b23c244d808ea202fd850b56e472",
+    "source_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "scope": "Current-text adjudication after the entire prospective pass was frozen, informed by the complete RR9 audit. This is simulated reader reasoning, not human observation or independent revalidation of every theorem.",
+    "counts": {
+      "retain_reframed": 3,
+      "discard": 8,
+      "merge_optional": 2,
+      "optional": 7,
+      "resolved": 4,
+      "retain": 2,
+      "discard_false_positive": 1
+    },
+    "eligible_candidate_ids": [
+      "FP-001",
+      "FP-011",
+      "FP-018",
+      "FP-022",
+      "FP-025"
+    ],
+    "status_meanings": {
+      "retain": "A specific current concern remains; see bounded recommendation.",
+      "retain_reframed": "Some initial wording was too broad; only the explicitly narrowed current concern survives.",
+      "resolved": "The requested bridge is already supplied by current material and no finding remains.",
+      "discard": "A current defect is not established.",
+      "discard_false_positive": "A concrete initial suspicion is disproved by current source.",
+      "optional": "Potential improvement, not an established defect or required repair.",
+      "merge_optional": "Do not count separately; an optional observation is covered by the named candidate."
+    },
+    "critical_corrections": [
+      "FP-018: the early three-property ingredient preview exists; withdraw the claim that a usable interface arrives only at 3.17.",
+      "FP-026: section 3.18 exists and its catalogue destination is valid."
+    ],
+    "finding_limits": "Only five candidates are eligible, three overlapping RR9 survivors. No candidate alleges a false mathematical theorem. Optional and discarded rows must not be promoted as new findings."
+  },
+  "candidates": [
+    {
+      "status": "retain_reframed",
+      "severity": "low",
+      "title": "Shorten the opening probability argument to its mechanism",
+      "reason": "The opening already gives a useful column/winner explanation, so the problem is not complete absence of an object. It then asks a first-time reader to retain L, the fixed-time joint event, r=20 log m, a union over query times and heavy-column accounting before a worked board or simulator exists. Later sections justify all of this; the surviving issue is the amount of technical state required by the synopsis.",
+      "recommendation": "Keep the planted-zero/cell dichotomy and mL versus square-root-m exponent comparison in the synopsis; place the fixed-time event and numerical choice with the first lower-bound roadmap. Preserve the exact proof in section 6.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-001",
+      "prospective_observation": "The opening synopsis introduces the numeric r=20 log2 m, allowance L, a fixed-time joint event, heavy columns and the union bound before a column/address example exists. The broad mechanism is understandable, but the precise event is an opaque miniature proof. Consider moving the fixed-time event and coefficients to a first-proof map while retaining the mL versus sqrt(m) synopsis.",
+      "prospective_locator": {
+        "block_id": 3,
+        "line_start": 5,
+        "line_end": 5
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 5,
+        "line_end": 5,
+        "quote": "For any fixed column and query time, the joint event"
+      },
+      "eligible_as_finding": true
+    },
+    {
+      "status": "discard",
+      "reason": "This describes logical dependence, not a promise that section numbers follow the clause order. The sentence itself lists section 3 as supplier and section 4 as construction before sections 5 and 6. No actual contradictory route remains established.",
+      "linked_rr9_ids": [
+        "RR9-006"
+      ],
+      "candidate_id": "FP-002",
+      "prospective_observation": "The paragraph says the proof has two branches 'after the same total function is constructed' but immediately lists §3 ingredients before §4 construction. This is a dependency description rather than publication order; say so or order the sentence by construction then branches.",
+      "prospective_locator": {
+        "block_id": 9,
+        "line_start": 16,
+        "line_end": 16
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 16,
+        "line_end": 16,
+        "quote": "The proof has two branches after the same total function is constructed"
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "merge_optional",
+      "merge_into": "FP-004",
+      "reason": "The route explicitly distinguishes imported literature from the complete local proof and points to the source limitation. It does not require a chronological reader to perform an undefined source audit before understanding the construction. The remaining observation concerns the quantity of front navigation, shared with FP-004, and should not become a second finding.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-003",
+      "prospective_observation": "The route requires a source-display audit and imported lower bound before the reader has seen the construction. The route itself is longer and harder to retain than the main proof preview; a compact prerequisite table could distinguish imported and locally rebuilt ingredients without repeated nested section ranges.",
+      "prospective_locator": {
+        "block_id": 11,
+        "line_start": 20,
+        "line_end": 20
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 20,
+        "line_end": 20,
+        "quote": "**The construction.**"
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "optional",
+      "reason": "Four role-specific routes, five question links and the later dependency index create some repeated navigation, but they serve distinct reader tasks and all have explicit destinations. Consolidation could improve entry, yet no failure of access or prerequisite specification is established. Keep as an optional design suggestion, not a required repair.",
+      "recommendation": "Consider one compact reading-route table and one dependency map while retaining the exact stopping criteria for the formal audit.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-004",
+      "prospective_observation": "Four route descriptions, five direct questions, §1.1's mechanism and a second dependency index precede the model development. Most links are individually useful but jointly produce a high navigation tax; consolidate repeated entry guidance while preserving full routes in one location.",
+      "prospective_locator": {
+        "block_id": 14,
+        "line_start": 26,
+        "line_end": 26
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 18,
+        "line_end": 18,
+        "quote": "The record can be read along four routes."
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "optional",
+      "reason": "Sections 3.4 and 4.4 explain the exact domain/value circuit and gate-local transcript tests, so the complete manuscript does not confuse computing the hard value with checking supplied bits. One early sentence contrasting the two tasks could help an outsider, but the synopsis need not prove certification in place. This is an optional first-encounter bridge, not a mathematical gap.",
+      "recommendation": "Optionally add that the input supplies all intermediate gate values, which can be checked by local consistency tests; computing those values is a different task.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-005",
+      "prospective_observation": "'A circuit transcript in the cell certifies the values' first asks an outsider to accept a cheap certification of a classically hard function. A short bridge should distinguish querying a supplied transcript from computing it and flag the one-sided definition that makes the certification possible.",
+      "prospective_locator": {
+        "block_id": 45,
+        "line_start": 116,
+        "line_end": 116
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 116,
+        "line_end": 116,
+        "quote": "A circuit transcript in the cell certifies the values that form its address."
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "discard",
+      "reason": "The explicit numbering key and equation-location list already disclose the two namespaces and give an example of the collision. Role names can still improve individual citations, but the prospective concern did not identify a current wrong destination or an unrecoverable reference.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-006",
+      "prospective_observation": "Multiple incompatible numbering namespaces impose a persistent lookup cost. The explanation is precise but the reader must remember that Lemma4.1 belongs to §6.1 and bare equations to another paper; add role names at subsequent lemma citations or adopt local named labels consistently.",
+      "prospective_locator": {
+        "block_id": 65,
+        "line_start": 164,
+        "line_end": 165
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 165,
+        "line_end": 165,
+        "quote": "Theorem, lemma and proposition numbers are the preprint's; section numbers are this record's."
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "resolved",
+      "reason": "The passage itself gives the typed E and J maps, states the intertwining relation, and says this strengthened invariant is needed to prepend a query. The following induction explains the query case. Reinspection shows that the motivation requested in the first-pass note is already supplied.",
+      "linked_rr9_ids": [
+        "RR9-021",
+        "RR9-022"
+      ],
+      "candidate_id": "FP-007",
+      "prospective_observation": "The two maps E and J appear simultaneously in a dense bridge paragraph; the reader must infer why one is not enough before the following proof explains it. A tiny query-prefix diagram or one sentence stating that E may scramble the oracle address while J must intertwine the oracle would make the strengthened invariant usable immediately.",
+      "prospective_locator": {
+        "block_id": 115,
+        "line_start": 324,
+        "line_end": 324
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 324,
+        "line_end": 324,
+        "quote": "This oracle-compatible embedding"
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "optional",
+      "reason": "This transport is part of the claimed model equivalence and also prevents acceptance-mass preservation from being mistaken for a retained-state theorem. Grouping implementation comparisons visually could improve flow, but moving this particular boundary away would weaken a useful qualification of the model bridge. No standalone defect is established.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-008",
+      "prospective_observation": "The model section repeatedly switches between a mathematical convention and implementation-specific formal transport. A consistent compact 'formal comparison' block could let a mathematician follow the model continuously while retaining all implementation details for the formal-methods route.",
+      "prospective_locator": {
+        "block_id": 122,
+        "line_start": 346,
+        "line_end": 347
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 346,
+        "line_end": 346,
+        "quote": "It preserves the accepting mass for all inputs and all starting vectors and says nothing about final states"
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "discard",
+      "reason": "The edition note is directly relevant to the adjacent classical parity calculation: expected-query and worst-case-cap conventions differ. It names the versions and limits the inference. Its length is not enough by itself to establish a harmful interruption, and a footnote is an optional formatting choice.",
+      "linked_rr9_ids": [
+        "RR9-025"
+      ],
+      "candidate_id": "FP-009",
+      "prospective_observation": "The edition warning after the parity calculation is longer than the parity conclusion and interrupts the transition to the ingredient. A short footnote with the exact convention difference would preserve necessary citation fidelity while allowing the main proof to advance.",
+      "prospective_locator": {
+        "block_id": 151,
+        "line_start": 437,
+        "line_end": 438
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 437,
+        "line_end": 437,
+        "quote": "Its exact classical parity figure must not be imported into the present cap model."
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "merge_optional",
+      "merge_into": "FP-018",
+      "reason": "The preview already separates hardness, decoder and exact circuit into three numbered items with their uses and destinations. Exact constants are legitimate because later explicit bounds and growing k use them. Staging qualitative and numerical information is an optional part of the larger publication-order proposal, not a missing supplier interface.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-010",
+      "prospective_observation": "The ingredient preview is useful but immediately introduces a numeric threshold13669k² and exact circuit coefficient200 before the design need is operational. Distinguish the simple interface used by §4 from a separate quantitative parameter line so readers can first retain what each guarantee does.",
+      "prospective_locator": {
+        "block_id": 157,
+        "line_start": 453,
+        "line_end": 454
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 454,
+        "line_end": 454,
+        "quote": "**The ingredient used by the construction.**"
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "retain",
+      "severity": "medium",
+      "title": "Expose the accounting behind the asserted exact circuit size",
+      "reason": "The source provides primitive arithmetic costs and the butterfly count, then asserts an exact composite S identity. The non-transform bracket terms and final +7 are not assigned to constructors. The later coarse inequality is shown, so this is a reconstructibility gap in an asserted exact count, not proof that the count or final bound is false.",
+      "recommendation": "Add a short summand-to-constructor ledger, or explicitly limit the claim to an upper bound with a shown derivation if exact equality is unnecessary. Include the constant gates and the final +7.",
+      "linked_rr9_ids": [
+        "RR9-033"
+      ],
+      "candidate_id": "FP-011",
+      "prospective_observation": "The exact S identity is introduced as a recovered constructor count, but the reader receives only one large expression. A small accounting table assigning each summand to transforms, sign layers, final sum and comparisons would make the claimed equality reconstructible without source archaeology.",
+      "prospective_locator": {
+        "block_id": 260,
+        "line_start": 776,
+        "line_end": 779
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 773,
+        "line_end": 773,
+        "quote": "Adding the final sum, the repeated doublings, three comparisons and three output gates gives"
+      },
+      "eligible_as_finding": true
+    },
+    {
+      "status": "optional",
+      "reason": "The repeated normalization, promise and query-cap definitions make the long analytic proof independently addressable, a stated purpose rather than accidental duplication. An entry box could shorten the rereading cost, but the repeated material is mathematically appropriate and not a prerequisite defect.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-012",
+      "prospective_observation": "The independent-entry convention repeats definition, normalization, orthogonality, promise and cap in substantial detail shortly after they were proved. Mark a short boxed 'entry assumptions' summary and refer within the complete route, keeping an optional standalone version separate if duplication is a deliberate publishing requirement.",
+      "prospective_locator": {
+        "block_id": 285,
+        "line_start": 856,
+        "line_end": 858
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 858,
+        "line_end": 858,
+        "quote": "so this proof can be read independently."
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "discard",
+      "reason": "The preceding proof spine already introduces the derivative/martingale mechanism, and this paragraph identifies what is inherited and changed. Owen's T function is mentioned as a technique avoided, not as an unintroduced prerequisite the reader must use. Moving technical credit is optional; no genuine dependence gap remains established.",
+      "linked_rr9_ids": [
+        "RR9-040"
+      ],
+      "candidate_id": "FP-013",
+      "prospective_observation": "Credit and novelty appear as a long paragraph containing raw derivatives, Fourier levels and a kernel not yet defined. Separate the short provenance claim needed now from the technical comparison after F24, where the reader can evaluate it.",
+      "prospective_locator": {
+        "block_id": 306,
+        "line_start": 930,
+        "line_end": 931
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 930,
+        "line_end": 930,
+        "quote": "Section 3.16 gives the detailed credit."
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "optional",
+      "reason": "The needed jobs are stated before the choice, and the immediately following differentiation explicitly gives phi=x Psi-Psi prime and derives the Gaussian identity. A design explanation could aid discovery, but the selected transform is fully reconstructible by verification and no missing justification is established.",
+      "recommendation": "Optionally say that choosing a bounded kernel Psi and defining phi=x Psi-Psi prime engineers the integration-by-parts identity; the chosen algebraic kernel then yields simple constants.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-014",
+      "prospective_observation": "The unusual algebraic bias transform is presented without a design derivation. The stated jobs explain why boundedness and integration by parts matter, but not why choosing Psi=1/(2sqrt(2+x²)) produces the useful phi. A short design line deriving phi=xPsi−Psi prime from the chosen kernel would improve reconstructibility without adding a theorem.",
+      "prospective_locator": {
+        "block_id": 328,
+        "line_start": 1001,
+        "line_end": 1006
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 998,
+        "line_end": 998,
+        "quote": "We need bounded biases and an integration-by-parts identity that removes them one at a time."
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "resolved",
+      "reason": "The current sentence expressly says that nu_1 need not be promise-supported and that section 6.2 supplies a separate promised law mu by minimax. That is precisely the distinction the first-pass concern requested. A persistent glossary would be optional and must not be reported as a missing bridge.",
+      "linked_rr9_ids": [
+        "RR9-042"
+      ],
+      "candidate_id": "FP-015",
+      "prospective_observation": "The notation nu1 is called the analytic comparison law, while nearby prose later calls it the hard distribution and §6 will introduce a different promised hard law mu. A persistent two-row distribution glossary would prevent conflating the all-cube Gaussian comparison with the planting input law.",
+      "prospective_locator": {
+        "block_id": 355,
+        "line_start": 1091,
+        "line_end": 1091
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 1091,
+        "line_end": 1091,
+        "quote": "The analytic comparison law is"
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "discard",
+      "reason": "The common mean-value parameter is valid for the single scalar expectation difference and the subsequent bound is uniform. Replacing it with the integral formulation is a proof-presentation alternative, not a correction or a demonstrated obstacle.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-016",
+      "prospective_observation": "The single common s-star is mathematically enough, but it hides that F33 can also be obtained by integrating a uniform-in-s derivative bound over[0,1]. Consider the integral form as the primary bridge; it removes an auxiliary existential parameter that otherwise needs an explanatory paragraph, while retaining the mean-value observation optionally.",
+      "prospective_locator": {
+        "block_id": 385,
+        "line_start": 1194,
+        "line_end": 1197
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 1195,
+        "line_end": 1195,
+        "quote": "h_g'(s_*)"
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "discard",
+      "reason": "The main threshold and its sufficient consequence are already finished before a clearly labeled short optional refinement. Its different ceiling is not used as an unexplained new premise. The earlier concern is a preference for reducing numeric detail, not an unresolved error or bridge.",
+      "linked_rr9_ids": [
+        "RR9-064"
+      ],
+      "candidate_id": "FP-017",
+      "prospective_observation": "The near-identical optional threshold ceiling introduces another exact constant immediately after the main numerical assembly. It adds bookkeeping without changing a reader's use of the theorem; move this refinement to a numerical note or parameter appendix.",
+      "prospective_locator": {
+        "block_id": 508,
+        "line_start": 1623,
+        "line_end": 1624
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 1623,
+        "line_end": 1623,
+        "quote": "**Optional threshold refinement.**"
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "retain_reframed",
+      "severity": "medium",
+      "title": "Let the complete reading route reach the total construction before the long hardness engine",
+      "reason": "Correction to the frozen first impression: a usable three-property preview already exists at lines 454–460, so it is false to say that the interface first appears only at 3.17. The remaining chronological burden is real: after that preview, the complete reader traverses the full independent analytic hardness derivation before the addressed function and its first complete board. The skip route helps selective readers but does not change publication order.",
+      "recommendation": "Consider using the existing three-property preview as the explicit contract, then present the addressed construction and both proof branches, and place the complete hardness derivation as a later proof module. Keep the locally proved uniform bound available before any growing-k conclusion; do not replace it by an unverified external assumption.",
+      "correction_of_prospective_observation": "The claim of a missing early usable ingredient interface is withdrawn; only the global sequencing proposal survives.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-018",
+      "prospective_observation": "The complete chronological reader reaches the usable three-property interface only after roughly1,200 source lines of Forrelation development, before any complete addressed board. A two-part architecture could introduce the §3.17 contract early, complete §§4–7, and then rebuild the analytic hardness engine. This preserves a complete proof while making every technical lemma answer a previously encountered need. The current route instructions permit skipping, but do not repair the publication-order burden.",
+      "prospective_locator": {
+        "block_id": 518,
+        "line_start": 1655,
+        "line_end": 1658
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 854,
+        "line_end": 854,
+        "quote": "### 3.6. The statement and the proof"
+      },
+      "eligible_as_finding": true
+    },
+    {
+      "status": "resolved",
+      "reason": "The current note explicitly distinguishes the statistic magnitudes used by the two boards and lists exactly what transfers and what does not. Unifying the board would be a larger optional editorial redesign; the manuscript does not silently transport the wrong decoder law.",
+      "linked_rr9_ids": [
+        "RR9-073"
+      ],
+      "candidate_id": "FP-019",
+      "prospective_observation": "The corresponding four-column examples in the reasoning record and exposition use different statistic magnitudes and therefore different decoder laws. The warning is correct, but requiring readers to carry this nonidentity weakens the shared example's teaching role. Prefer one common board or a compact explicit conversion table.",
+      "prospective_locator": {
+        "block_id": 591,
+        "line_start": 1926,
+        "line_end": 1928
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 1928,
+        "line_end": 1928,
+        "quote": "the board-specific decoder probabilities do not."
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "discard",
+      "reason": "The asset and rerun paragraph comes after the mathematical example and labels the finite-check evidence boundary. The long physical paths are link targets rather than all being displayed as raw prose. A stable asset index is optional, but this is not a current interruption of an unfinished proof.",
+      "linked_rr9_ids": [
+        "RR9-075"
+      ],
+      "candidate_id": "FP-020",
+      "prospective_observation": "The example's mathematical conclusion is interrupted by very long nested historical return paths and rerun commands. A stable asset index or a brief evidence note would preserve reproducibility while letting the example conclude at the level of its mathematical lesson.",
+      "prospective_locator": {
+        "block_id": 598,
+        "line_start": 1945,
+        "line_end": 1946
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 1945,
+        "line_end": 1945,
+        "quote": "These finite computational checks are separate from the general proofs above and from the supplied Lean evidence."
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "discard",
+      "reason": "In ordinary usage at least halves describes a reduction by at least one half, consistent with the later explicit drift inequality. Saying expected remaining weight is at most half would be slightly crisper, but the tentative directional ambiguity does not survive as a mathematical or substantive exposition finding.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-021",
+      "prospective_observation": "The phrase about total surviving weight 'at least halves in expectation' leaves a momentary direction-of-inequality ambiguity. State that expected remaining total weight is at most half of current weight, and later connect the drift equation to that sentence.",
+      "prospective_locator": {
+        "block_id": 633,
+        "line_start": 2063,
+        "line_end": 2063
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 2063,
+        "line_end": 2063,
+        "quote": "the total surviving weight at least halves in expectation"
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "retain_reframed",
+      "severity": "low",
+      "title": "Keep the sampler-to-coupling proof continuous",
+      "reason": "The ordinary exact pivot law is established at 2445. Before the coupling at 2465, the text introduces q_x and f_x, compares a separate compiled implementation, distinguishes returned states, and rederives conditional normalization. The finite joint law is relevant to the coupling; the implementation comparison is what interrupts the ordinary probability argument.",
+      "recommendation": "Keep the real sampler law and zero-mass conventions immediately available for the coupling. Move the implementation/state-correspondence discussion to the end of the tournament proof or the formal comparison section, retaining its precise limits.",
+      "linked_rr9_ids": [
+        "RR9-101"
+      ],
+      "candidate_id": "FP-022",
+      "prospective_observation": "The exact pivot-law proof is followed by several formal correspondence, padded-budget, and finite-law restatements before the concrete decoder/comparator resumes. Each distinction is careful, but their cumulative placement interrupts the algorithmic arc. A single paired ordinary-proof/formal-interface subsection after the full evaluator would preserve these distinctions with less repeated state reconstruction.",
+      "prospective_locator": {
+        "block_id": 763,
+        "line_start": 2447,
+        "line_end": 2447
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 2447,
+        "line_end": 2447,
+        "quote": "**Correspondence note.** The compiled version rests on a finite-label statement."
+      },
+      "eligible_as_finding": true
+    },
+    {
+      "status": "optional",
+      "reason": "The alternate theorem comparison is under a Sources heading and supplies its assumptions, parameter substitution, changed term and reason the direct proof is used instead. It is not silently imported. Relocating that unused quantitative comparison could improve momentum into planting, but the existing compact provenance purpose is sufficient to avoid a required standalone finding.",
+      "recommendation": "Optionally retain only a short ancestry sentence here and move the complete Drucker substitution to the source-comparison appendix.",
+      "linked_rr9_ids": [
+        "RR9-127",
+        "RR9-128"
+      ],
+      "candidate_id": "FP-023",
+      "prospective_observation": "The source paragraph gives a full alternative Drucker substitution, its replacement error term, and a Shaltiel comparison between the direct-product proof and the planting argument. It is valuable provenance, but at this exact transition I must retain the simulator contract while processing an unused alternate theorem. Moving the quantitative alternative to a clearly linked source appendix would keep the main lower-bound chain easier to follow.",
+      "prospective_locator": {
+        "block_id": 969,
+        "line_start": 3242,
+        "line_end": 3268
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 3247,
+        "line_end": 3247,
+        "quote": "Drucker's Theorem 1.1"
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "resolved",
+      "reason": "The toy explicitly states its XOR simplification, excludes the Forrelation/asymptotic parameter claim, and supplies the exact +1 translation between its labels and section 4. The simplification isolates the simulator lesson; aligning all board labels is optional, not a missing interpretation.",
+      "linked_rr9_ids": [
+        "RR9-138"
+      ],
+      "candidate_id": "FP-024",
+      "prospective_observation": "The planting toy switches both its partial function and its row/column numbering from the earlier construction example. The XOR simplification has a clear purpose, but changing one-based to zero-based labels adds an avoidable translation exactly when the simulator must track two clocks and three kinds of data. Keep one coordinate-label convention across worked boards.",
+      "prospective_locator": {
+        "block_id": 1012,
+        "line_start": 3395,
+        "line_end": 3397
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 3397,
+        "line_end": 3397,
+        "quote": "Adding one to a row or column label translates it to the convention of §4"
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "retain",
+      "severity": "medium",
+      "title": "Finish the planted lower-bound chain before alternative zero-search proofs",
+      "reason": "Equation (19) is already sufficient, but two full optional derivations intervene before the still-needed planted-cell estimate. Labels and a continuation link make skipping possible, yet do not address the complete source-order reading cost. Both alternatives can be moved with their definitions intact.",
+      "recommendation": "Present the planted-cell simulation and generic lower-bound conclusion immediately after the sufficient erased-zero estimate; retain the two refinements together later with a backward link and their formal-route explanation.",
+      "linked_rr9_ids": [
+        "RR9-145"
+      ],
+      "candidate_id": "FP-025",
+      "prospective_observation": "The erased-zero estimate is proved three ways before the planted-cell reduction resumes. The alternatives are honestly marked optional and distinguish formal scope well, but the chronological argument still spends substantial space on an already sufficient term. Retain the main early/late proof here and place the alternative induction/refinement beside the formal-route appendix or in a compact optional supplement.",
+      "prospective_locator": {
+        "block_id": 1042,
+        "line_start": 3504,
+        "line_end": 3504
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 3504,
+        "line_end": 3504,
+        "quote": "The rest of §6.4 gives two optional estimates for the same term"
+      },
+      "eligible_as_finding": true
+    },
+    {
+      "status": "discard_false_positive",
+      "reason": "The numbered section 3.18 and its forr_references anchor are present. The catalogue references have a real destination. The first-pass suspicion was a recall error and is explicitly rejected; frozen observations remain unchanged.",
+      "correction_of_prospective_observation": "No missing section or broken destination was established.",
+      "linked_rr9_ids": [],
+      "candidate_id": "FP-026",
+      "prospective_observation": "The catalogue repeatedly refers to section3.18, including the Forrelation source-version discrepancy. On this chronological encounter I recall section3 ending with its supplier bundle/source note before section4 and cannot identify that numbered heading. Check whether the printed section labels and forr_references anchor still designate an actual section; this is provisional pending a later link/heading audit.",
+      "prospective_locator": {
+        "block_id": 1342,
+        "line_start": 4367,
+        "line_end": 4367
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 1663,
+        "line_end": 1663,
+        "quote": "### 3.18. Sources for the Forrelation argument"
+      },
+      "eligible_as_finding": false
+    },
+    {
+      "status": "optional",
+      "reason": "Appendix F explicitly identifies itself as archival, links current G.4 status and now has a snapshot index. This meets the previous finding's allowed archival-part alternative. Moving current evidence before history could still improve complete reading order, but the current repair should not be reclassified as failed merely because a stronger optional reorder is possible.",
+      "recommendation": "Optionally place the current statement inventory before the full execution-history appendix while preserving every archived observation and exact receipt.",
+      "linked_rr9_ids": [
+        "RR9-205",
+        "RR9-206"
+      ],
+      "candidate_id": "FP-027",
+      "prospective_observation": "A full execution-history archive intervenes between source comparisons and the current formal-evidence explanation. Its repeated dates, counts, byte identities, wrapper qualifications, and superseded comments require substantial version bookkeeping. For a reading manuscript, keep a compact provenance timeline plus one durable archival link; retain the full archive as a separate evidence artifact.",
+      "prospective_locator": {
+        "block_id": 2040,
+        "line_start": 6127,
+        "line_end": 6128
+      },
+      "current_locator": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "line_start": 6128,
+        "line_end": 6128,
+        "quote": "The passages below are an archive of earlier observations, not the current statement inventory."
+      },
+      "eligible_as_finding": false
+    }
+  ]
+}

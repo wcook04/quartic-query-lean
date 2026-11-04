@@ -1,0 +1,105 @@
+ts never count as
+correct. For any nonnegative weight $\nu$ on that cube, write
+$\nu_{a,b}(x)=\nu(x)\mathbf1_{\{x_a=b\}}$, and define
+
+[B0956 L3161-3161]
+<!-- claim:NCL-weighted-value -->
+
+[B0957 L3162-3169]
+\[
+\begin{aligned}
+ W_0(\nu)&=\max_{b\in\{0,1\}}\sum_{x\in D:P(x)=b}\nu(x),\\
+ W_{c+1}(\nu)&=\max\!\left\{W_c(\nu),\
+       \max_{a}\bigl(W_c(\nu_{a,0})+W_c(\nu_{a,1})\bigr)\right\}.
+\end{aligned}
+\tag{6.9}
+\]
+
+[B0958 L3171-3173]
+(If there are no coordinates, the inner maximum is omitted.) The first term
+in the second line keeps every strategy within the old allowance, and the
+remaining terms query $a$ and then use its two best continuations.
+
+[B0959 L3175-3185]
+Induction on depth shows that $W_c(\nu)$ is the maximum weighted success
+of a tree of depth at most $c$. At depth zero the two constants are the
+only choices. At the next depth, each displayed candidate is attained by
+an old optimal tree or by a query followed by two optimal smaller trees;
+conversely, every tree is a constant or starts with some query $a$, and
+splitting its success sum by that answer bounds it by the corresponding
+candidate. In particular, $W_c$ is nonnegative and nondecreasing in $c$,
+and the two branch values with one fewer query sum to at most the old
+value. Since a nonnegative weight of mass zero vanishes pointwise, all its
+success values are zero.
+<!-- /passage:CL-weighted-values -->
+
+[B0960 L3187-3191]
+<a id="CL-weighted-product"></a>
+<!-- passage:CL-weighted-product -->
+Now give input $h$ its own nonnegative weight $\nu_h$ and allowance $c_h$.
+We claim that every vector-output tree $T$ respecting these allowances on
+every branch satisfies
+
+[B0961 L3193-3193]
+<!-- claim:NCL-weighted-product -->
+
+[B0962 L3194-3200]
+\[
+ \sum_{u_1,\ldots,u_r\in D}
+    \left(\prod_{h=1}^{r}\nu_h(u_h)\right)
+    \mathbf1_{\{T(u_1,\ldots,u_r)=(P(u_1),\ldots,P(u_r))\}}
+ \leq\prod_{h=1}^{r}W_{c_h}(\nu_h).
+\tag{6.10}
+\]
+
+[B0963 L3202-3214]
+We argue by induction on $T$. At a leaf with output $s$, finite
+distributivity factors the left side into
+$\prod_h\sum_{x\in D:P(x)=s_h}\nu_h(x)$, and each factor is bounded by
+$W_{c_h}(\nu_h)$. At a query to coordinate $a$ of input $h$ we have
+$c_h>0$, and we split the success sum by the answer $b$. In that branch we
+replace only $\nu_h$ by $\nu_{h,a,b}$ and only $c_h$ by $c_h-1$; the
+subtrees obey these new allowances, so induction bounds their two successes
+by the corresponding products. Since every factor other than the $h$-th is
+the same in both, factoring out these common nonnegative factors leaves the
+sum $W_{c_h-1}(\nu_{h,a,0})+W_{c_h-1}(\nu_{h,a,1})$, which (6.9) bounds by
+$W_{c_h}(\nu_h)$. This proves (6.10). Taking $\nu_h=\mu$ and $c_h=L$
+recovers (6.1), since the one-input hypothesis gives $W_L(\mu)\leq\beta$.
+<!-- /passage:CL-weighted-product -->
+
+[B0964 L3216-3221]
+<a id="CL-normalization"></a>
+<!-- passage:CL-normalization -->
+The two proofs rest on the same one-factor calculation. At a positive-probability
+history, put $\nu_h^\tau=\mu\mathbf1_{E_h(\tau)}$. Dividing each
+tree's weighted success by the positive mass $\mu(E_h(\tau))$ commutes with
+the finite maximum defining the optimum, so
+
+[B0965 L3223-3223]
+<!-- claim:NCL-product-normalization -->
+
+[B0966 L3224-3230]
+\[
+ V_h(\tau)=\frac{W_{L-q_h(\tau)}(\nu_h^\tau)}{\mu(E_h(\tau))},
+ \qquad
+ \Pr(H_\tau)\,Z(\tau)
+   =\prod_{h=1}^{r}W_{L-q_h(\tau)}(\nu_h^\tau).
+\tag{6.11}
+\]
+
+[B0967 L3232-3237]
+The second identity follows by cancelling the product of masses from
+(6.2), so a transcript's probability times its normalized potential equals
+its unnormalized product value. The weighted induction proves the bound
+without divisions, and the conditional proof explains why adaptivity gives
+no advantage.
+<!-- /passage:CL-normalization -->
+
+[B0968 L3240-3240]
+#### Sources
+
+[B0969 L3242-3268]
+<a id="CL-literature-and-verification"></a>
+<!-- passage:CL-literature-and-verification -->
+The proof above follows the conditional-value argument of
+[OpenAI, §4.1][OpenAI2026], which builds on

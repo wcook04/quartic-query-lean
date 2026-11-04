@@ -1,0 +1,25 @@
+different mathematical roles, and their actual types preserve that difference.
+
+[B2107 L6321-6321]
+<a id="evidence-checks"></a>
+
+[B2108 L6323-6323]
+### G.3. Execution evidence and checks of meaning
+
+[B2109 L6325-6325]
+The [correspondence record](reasoning_record_correspondence.json) separates the current catalogue observation from the frozen historical audit. It retains full available source types, ordinary premises, assumptions, mathematical-fidelity judgments, source hashes, and separate build, Comparator and dependency-reach evidence. The [dated review receipt](reasoning_record_review.json) identifies the exact observation used here. A source-fidelity judgment is not an execution receipt, and a pass for one declaration does not certify its neighbours. The immutable [baseline catalogue](../research/returns/funnel/1_long_reasoning_record/reasoning-record.md#ROOT-CATALOGUE-INTRO) and [121-row historical audit](../research/adjudication/round3_appendix_audit.json) remain earlier evidence; their absence claims are not current facts.
+
+[B2110 L6327-6327]
+**Machine-readable access.** Current observations are in `current_catalogue_snapshot.rows`. The `current_in_memory_evidence` fields under `catalogue_rows` belong to the frozen audit, as `catalogue_rows_scope` explains.
+
+[B2111 L6329-6329]
+Four kinds of evidence are kept apart throughout this record: an ordinary proof, a successful Lean build with its axiom audit, a Comparator comparison of a configured statement, and review of whether a formal definition models the intended mathematics. The current checked statements and their status are listed in [Appendix G.4](#checked-statements); [Appendix F](#execution-history) records how the evidence accumulated, run by run. [Appendix B](#ROOT-CATALOGUE-INTRO) and [the dated integration review](reasoning_record_review.json) give the maintained record's evidence boundary for every catalogued claim.
+
+[B2112 L6332-6332]
+The challenges compile separately but mechanically share the maintained definitions and theorem specifications. Their agreement therefore establishes conformity to that specification; source review and independently specified examples address its mathematical meaning. The dependency export separately records which declarations are used by particular headline proof roots. It is not another compilation or comparison result. The retained return rechecked source-byte bindings and exact finite examples without rerunning Lean or Comparator. Its dependency pins are bound, but it does not enclose the external checkout bytes and native compiled artifacts needed for a full replay. It reports no human review.
+
+[B2113 L6334-6334]
+The examples in §2.6 establish their stated costs by ordinary proofs and exact finite arithmetic. The section's exact-arithmetic checker verifies the truth tables, the one-query classical OR obstruction and the two-bit quantum interference calculation; that frozen record has no exact-example Lean or Comparator receipts. Its separate finite semantic controls distinguish per-input algorithm selection, a weakened success threshold, false completion of an undefined value, minimum rather than maximum branch cost, a strict rather than inclusive success threshold, and two deliberately wrong promise/comparison specifications. These are different failure modes of the intended model, so matching the controls is useful evidence about the definitions. It does not prove general model equivalence or constitute a Lean or Comparator execution. Conversely, a comparison of a shared specification does not, merely by passing, establish that specification's intended meaning. Ordinary proofs, full declaration types, Lean execution, Comparator execution and review of mathematical fidelity remain separate throughout this record.
+
+[B2114 L6337-6337]
+The maintained [semantic controls](../lean/QuarticCorpus/Independent/Semantics.lean) give independently specified finite expectations directly against the project definitions: one-bit identity 

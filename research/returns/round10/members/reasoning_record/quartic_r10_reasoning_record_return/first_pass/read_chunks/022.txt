@@ -1,0 +1,74 @@
+e preparation or its inverse; convert calls to ordinary bit queries by multiplying by the implemented preparation cap. The quantities $c_{\mathrm{rd}}$ in §5.2 and $c_c$ below count logical reads in one comparison, each costing at most two bit queries. The same two-query compiler applies to the decoder and local-test counts $a$ and $c_0$. The final budget $B_{k,t}$ counts physical input-bit queries and already includes these factors.
+
+[B0849 L2688-2688]
+The finite budget uses the following parameters; the first four count logical operations, before the two-query compilation factor.
+
+[B0850 L2690-2698]
+| Symbol | Definition | Role |
+| --- | --- | --- |
+| $q$ | $\lceil16\delta^{-2}\ln(r/\varepsilon)\rceil$ | Forrelation repetitions for error $\varepsilon/r$ |
+| $a$ | $rqk$ | Reads for one address |
+| $c_c$ | $2a+2(2t+1)$ | Reads for one comparison |
+| $c_0$ | $\max\{3,2t+1\}$ | Reads for one exact local test |
+| $N$ | $\lceil\ln(1/\varepsilon)/\ln(40/31)\rceil$ | Amplification trials |
+| $M_0$ | $\lceil10\sqrt{2m}\rceil$ | Tournament iteration-range size |
+| $M_1$ | $\lceil10\sqrt K\rceil$ | Verifier iteration-range size |
+
+[B0851 L2700-2700]
+The construction then has the following physical-query budget:
+
+[B0852 L2702-2702]
+<!-- claim:new-upper-finite-budget -->
+
+[B0853 L2703-2707]
+$$
+B_{k,t}
+ =T\bigl[2N(2M_0+1)T c_c\bigr]
+  +T\bigl[2a+2N(2M_1+1)c_0\bigr].
+$$
+
+[B0854 L2709-2709]
+The first bracket is one tournament stage: at most $N$ trials, at most $2M_0+1$ preparation or inverse calls per trial, at most $T c_c$ abstract reads per such call, and two bit queries per read. Every stage is padded to the maximum history length $T$, and there are at most $T$ stages. The second bracket is one verifier, which spends $2a$ bit queries on its fresh address decoder and then runs the amplified local-test search with its corresponding trial and iteration bounds; at most $T$ candidates are verified. Every random branch and every off-promise input obeys this same integer budget.
+
+[B0855 L2711-2712]
+By the preceding construction and error analysis, this integer budget bounds $Q(F_{k,m})$ for every realizing circuit with the stated local tests, so correctness is established before we substitute the size of the particular circuit chosen in §4. The conversion factors in this budget are convenient upper bounds, and the earlier expression with $h$ comparisons at history length $h$ gives the same asymptotic result with less padding.
+<!-- /passage:upper-finite-budget -->
+
+[B0856 L2714-2715]
+<a id="upper-asymptotic-bound"></a>
+<!-- passage:upper-asymptotic-bound -->
+
+[B0857 L2717-2717]
+The earlier estimates already prove Proposition 3.3. The tournament contributes $O(c\sqrt m\,T^2\log T)$ queries, where $c=(\log m)^{O_k(1)}$, and each of the at most $T=O(\log m)$ verifications costs $\sqrt m(\log m)^{O_k(1)}$, so the sum has the same form. Together with the error bound, we obtain:
+
+[B0858 L2719-2719]
+<!-- claim:prop-3.3 -->
+
+[B0859 L2720-2723]
+$$
+Q(F_{k,m})\leq\sqrt m\,(\log m)^{O_k(1)}
+\qquad(k\geq2,\ m=4^t,\ t\geq1).
+$$
+
+[B0860 L2725-2726]
+Here $F_{k,m}$ uses the circuit fixed for that $k,m$ in the construction, and the implicit constants may depend on $k$. The bound concerns query complexity on every input, and its proof rests on the quantum algorithm above alone, independently of Bansal and Sinha's randomized lower bound.
+<!-- /passage:upper-asymptotic-bound -->
+
+[B0861 L2728-2729]
+<a id="upper-explicit-log6"></a>
+<!-- passage:upper-explicit-log6 -->
+
+[B0862 L2731-2731]
+For the circuit fixed in §4, the same budget gives logarithmic exponent six: there is a positive integer $C_k$, depending only on $k$, such that the particular Forrelation circuit used in the construction satisfies
+
+[B0863 L2733-2733]
+<!-- claim:new-upper-log6 -->
+
+[B0864 L2734-2737]
+$$
+Q(F_{k,4^t})\leq C_k\,2^t(2t)^6
+\qquad(t\geq1).
+$$
+
+[B0865 L2739-2739]
+We deliberately enlarge logarithms and square roots to obtain one convenient fixed power, six; this is not an optimization claim.

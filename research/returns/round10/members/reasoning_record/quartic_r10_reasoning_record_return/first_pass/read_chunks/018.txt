@@ -1,0 +1,31 @@
+s. This serves the error reduction of the paper, with the count and threshold kept in the workspace. The declared address labels stay available throughout the later controlled computations, and this availability is what makes their probability analysis valid.
+<!-- /passage:upper-decode-cost -->
+
+[B0802 L2565-2566]
+<a id="upper-comparator"></a>
+<!-- passage:upper-comparator -->
+
+[B0803 L2568-2568]
+To compare two columns, we fix a numerical ordering of the columns. A distinct pair is first arranged with its smaller index first, so that both ordered calls use the same underlying circuit, and both addresses are decoded with fresh work registers. At the decoded address of the first column we read the pointer directed toward the second column and then the addressed entry of the second column's $X$-block; if that entry is zero, the second column is disqualified. The reverse operation, using the second decoded address, tests whether the first column is disqualified. If exactly one column is disqualified, the other wins, and if both or neither are disqualified, the smaller column wins. A self-comparison always returns false and makes no pointer query. Apart from address decoding, this comparison reads only the selected pointer fields and targeted $X$ bits; it does not inspect gate transcripts. The verifier checks those later.
+
+[B0804 L2570-2571]
+Reading a pointer takes its $\ell$ address bits followed by the targeted $X$-bit, and reversible reading keeps the pointer and the target address available for uncomputation. Thus the two pointer tests use $O(\ell+1)$ bit queries, up to a constant factor if controlled reads are needed, and together with the two decodings a comparison and its inverse have query cost $c=O_k(r\ln(r/\varepsilon)+\ell)=O_k(\ell\log\ell)$. The circuit is defined on all input strings, and since the bit oracle is its own inverse, reversing its gate sequence gives the inverse with the same number of queries.
+<!-- /passage:upper-comparator -->
+
+[B0805 L2573-2574]
+<a id="upper-comparison-law"></a>
+<!-- passage:upper-comparison-law -->
+
+[B0806 L2576-2576]
+We check that the coherent calculation has the probabilities suggested by the classical description. After decoding, we write the state as a sum over the two decoded labels, each summand carrying those labels in dedicated retained registers. The subsequent pointer tests and winner computation are controlled by these labels and leave them intact, so the final projection onto a winning output is block diagonal with respect to the retained labels. Since distinct labels are orthogonal, the cross terms vanish and the squared norm of that projection is the sum, over label pairs, of the squared norms of the corresponding projected summands. Within one summand the pointer test reads the designated bits, so its contribution is the decoding probability of those labels multiplied by the deterministic result of the comparison rule at those labels.
+
+[B0807 L2578-2579]
+The comparison output law is a classical mixture over the decoded labels, and retaining extra work within a label block preserves both this orthogonality and the rule, since the controlled subsequent computations are a direct sum of unitaries on these label blocks. For each distinct unordered pair the two possible winners exhaust the outcomes, so reversing the names of the pair complements the counted event. Hence $a_{ij}+a_{ji}=1$, while the self-comparison gives $a_{ii}=0$. This proves the hypotheses of equation (10), even when neither decoded address is promised to be meaningful.
+<!-- /passage:upper-comparison-law -->
+
+[B0808 L2581-2582]
+<a id="upper-winner-dominates"></a>
+<!-- passage:upper-winner-dominates -->
+
+[B0809 L2584-2584]
+We apply the [winner-comparison implication of §4.7](#AC-comparison). Suppose that $i^\star$ is a winning column. By the definition of a winner its $X$-block consists entirely of ones, so a pointer from any opponent, at any decoded address, finds a one in that block, and $i^\star$ is never 

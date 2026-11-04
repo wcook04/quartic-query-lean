@@ -149,8 +149,7 @@ and aim beyond regression repair toward exceptionally well-written mathematics.
 
 The first [round-ten return](returns/round10/README.md) is the expert review.
 Its [revision account](adjudication/round10_revision.md) tracks manuscript changes,
-individual dispositions and writing-method propagation. The exposition and
-reasoning-record reviews have not yet arrived.
+individual dispositions and writing-method propagation. The later exposition and reasoning-record returns are preserved in the same directory. Their [assimilation](adjudication/round10_remaining_revision.md) tracks the further revisions of all three manuscripts.
 
 The [follow-up editorial revision](adjudication/round10_followup_revision.md)
 applies a later informal expert assessment to both shorter accounts, preserving

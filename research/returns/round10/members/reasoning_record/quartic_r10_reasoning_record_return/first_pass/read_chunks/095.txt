@@ -1,0 +1,37 @@
+he formal claims separately. The [named-family theorem][src-constants] proves (7.1) for the [canonical Forrelation circuit][src-forr-circuit] with \(k\) strings at size \(m=4^t\), with constant \(1/400\), logarithmic exponent six, the [quantum constant][src-budget-constant] \(C_k\), and the circuit-size bound in the same conclusion. The [existential family theorem][src-equation-two] packages these facts existentially. Neither statement has an unproved Forrelation binder.
+
+[B2222 L6619-6619]
+The [finite quotient calculation][src-ratio-arithmetic] proves the finite quotient inequality. The [exponent ratio for abstract sequences][src-ratio-abstract] adds divergence of the explicit lower envelope and the quotient for abstract sequences satisfying the fixed-parameter bounds. The [exponent ratio for the named family][src-ratio-family] specializes all three conclusions to the named total-function family with \(b_k=6\). Thus the literal quotient and limit now have formal support; the older [comparison of powers][src-eventual-comparison] supplies only the sufficient eventual strict comparison. The elementary integral argument above explains the same limit by a different proof.
+
+[B2223 L6621-6621]
+Three declarations implement the [choice of \(k\)][src-exponent-choice], the [exclusion of smaller exponents][src-no-smaller-exponent] and the [infimum argument][src-alpha-infimum]. Their intermediate binders for family bounds and reindexing are discharged by the model and construction theorems. The final [exponent theorem][src-alpha], [Theorem 1.1][src-theorem] and [failure of the cubic bound][src-cubic] have no mathematical assumption left open.
+
+[B2224 L6623-6624]
+The compared forms of these final statements, and the status of the named-family constants theorem, are listed in [Appendix G.4](#checked-statements).
+<!-- /passage:ROOT-EXPONENT-CORRESPONDENCE -->
+
+[B2225 L6626-6628]
+<a id="R3-A-ROUTES"></a>
+<!-- passage:R3-A-ROUTES -->
+Three separate formal bounds are present in the supplied source. Their constants come from the indicated ingredients:
+
+[B2226 L6630-6634]
+| Formal route | Block sensitivity | Spectral sensitivity | Quartic coefficient |
+| --- | --- | --- | ---: |
+| Existing complexitylib route | \(\operatorname{bs}\le16Q^2\), polynomial method | \(\lambda\le36Q\), specialized progress | \(16\cdot36^2=20736\) |
+| Literal Appendix A assembly | \(\operatorname{bs}\le35^2Q^2\), star adversary | \(\lambda\le35Q\), general adversary | \(35^4=1500625\) |
+| Separate hybrid | \(\operatorname{bs}\le16Q^2\), polynomial method | \(\lambda\le35Q\), general adversary | \(16\cdot35^2=19600\) |
+
+[B2227 L6636-6637]
+The second route proves the intermediate general-matrix, star, actual-face and recursive-matrix statements used in this appendix. Its larger numerical constant reflects the star estimate for block sensitivity. The hybrid keeps the stronger polynomial-method estimate and is exported separately. The first route is the one used by the recorded headline proof; the other two are separately compiled alternatives. The constants distinguish implementations of known inequalities; none establishes a sharp universal constant. The coefficients in the first and third rows are read from the pinned complexitylib proof and its project wrappers; the reconstruction of (A.1) uses the fully explained second row.
+<!-- /passage:R3-A-ROUTES -->
+
+[B2228 L6639-6640]
+<a id="R3-A-FORMAL"></a>
+<!-- passage:R3-A-FORMAL -->
+
+[B2229 L6642-6642]
+The formal multiplicity proof uses a local variation: multiplying coordinates by their parity signs anticommutes with \(H'_d\), so it sends each positive-root eigenvector to a negative-root eigenvector and conversely. The square and trace identities are separately checked. The resulting eigenvector and extension argument agree with (A.8)–(A.10).
+
+[B2230 L6644-6644]
+The general bound is the [formal spectral-adversary lemma][src-lemma-a2]; its Perron and progress assumptions are proved by its dependencies and are not extra open 

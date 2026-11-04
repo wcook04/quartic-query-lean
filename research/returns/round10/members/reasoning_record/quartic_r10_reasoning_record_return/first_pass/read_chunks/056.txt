@@ -1,0 +1,109 @@
+ claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.
+
+[B1468 L4669-4669]
+**Argument:** [§4.4](#CL-local-tests), [§4.4](#CL-local-equivalence), [§5.3](#upper-verifier).
+
+[B1469 L4671-4671]
+<!-- /passage:CAT-lem-2.2.i -->
+
+[B1470 L4673-4673]
+#### lem-2.2.ii
+
+[B1471 L4675-4677]
+<a id="CAT-lem-2.2.ii"></a>
+<!-- passage:CAT-lem-2.2.ii -->
+<!-- claim:lem-2.2.ii -->
+
+[B1472 L4679-4679]
+> Each test is evaluated exactly with O(log m) bit queries, also coherently with the same bound with test indices in superposition. The number of tests and the indexing convention are the same for every (i,s).
+
+[B1473 L4681-4681]
+**Argument:** [§4.4](#CL-local-tests), [§4.6](#CL-coherent-tests), [§5.3](#upper-verification-proof).
+
+[B1474 L4683-4683]
+<!-- /passage:CAT-lem-2.2.ii -->
+
+[B1475 L4685-4685]
+#### lem-2.2
+
+[B1476 L4687-4689]
+<a id="CAT-lem-2.2"></a>
+<!-- passage:CAT-lem-2.2 -->
+<!-- claim:lem-2.2 -->
+
+[B1477 L4691-4691]
+> Conjunction of lem-2.2.i and lem-2.2.ii.
+
+[B1478 L4693-4693]
+**Argument:** [§4.6](#CL-coherent-tests).
+
+[B1479 L4695-4695]
+<!-- /passage:CAT-lem-2.2 -->
+
+[B1480 L4697-4697]
+#### cor-local-dichotomy
+
+[B1481 L4699-4701]
+<a id="CAT-cor-local-dichotomy"></a>
+<!-- passage:CAT-cor-local-dichotomy -->
+<!-- claim:cor-local-dichotomy -->
+
+[B1482 L4703-4703]
+> A winner has an address at which every test passes; a nonwinner has a failing test at every address.
+
+[B1483 L4705-4705]
+**Argument:** [§4.4](#CL-dichotomy).
+
+[B1484 L4707-4707]
+<!-- /passage:CAT-cor-local-dichotomy -->
+
+[B1485 L4709-4709]
+#### claim-winner-fidelity
+
+[B1486 L4711-4713]
+<a id="CAT-claim-winner-fidelity"></a>
+<!-- passage:CAT-claim-winner-fidelity -->
+<!-- claim:claim-winner-fidelity -->
+
+[B1487 L4715-4715]
+> Given the correctness half of lem-2.1.iii: WinsAt(y,i,s) iff X_i=1^m, every P(A_{i,h}) is defined, s=s_i, the transcripts in B_{i,s} are correct, and eq-8 holds. Hence exists s, WinsAt(y,i,s) is the paper's winner condition.
+
+[B1488 L4717-4717]
+**Argument:** [§4.2](#CL-fidelity).
+
+[B1489 L4719-4719]
+<!-- /passage:CAT-claim-winner-fidelity -->
+
+[B1490 L4721-4721]
+### B.4. Amplification and the returned state
+
+[B1491 L4723-4723]
+Section 5.1 gives the state calculation and bounded fresh-trial procedure. The [amplification theorem for abstract procedures][src-amplification] matches the abstract amplification assertion, including its successful state and cap. The implemented upper bound uses a physical label-law theorem. Those two statements do not supply the missing identification of a designated physical output subsystem; Appendix G.7 states that stronger target completely. Thus an exact abstract tie for Lemma 3.1 must not be read as closing the physical-state bridge. Trial parameters, mixture and recursion have separate formal suppliers.
+
+[B1492 L4725-4725]
+#### def-grover-trial
+
+[B1493 L4727-4729]
+<a id="CAT-def-grover-trial"></a>
+<!-- passage:CAT-def-grover-trial -->
+<!-- claim:def-grover-trial -->
+
+[B1494 L4731-4731]
+> M = ceil(10/sqrt(gamma)). A trial picks with probability 1/2 l=0, and with probability 1/2 a uniform l in {0,...,M-1}, applies l Grover iterations to A|0>, and measures the success bit. The procedure runs ceil(log(1/eta)/log(40/31)) trials with fresh registers, stopping at the first success.
+
+[B1495 L4733-4733]
+**Argument:** [§5.1](#upper-grover-trial).
+
+[B1496 L4735-4735]
+<!-- /passage:CAT-def-grover-trial -->
+
+[B1497 L4737-4737]
+#### claim-grover-state
+
+[B1498 L4739-4741]
+<a id="CAT-claim-grover-state"></a>
+<!-- passage:CAT-claim-grover-state -->
+<!-- claim:claim-grover-state -->
+
+[B1499 L4743-4743]
+> For 0<p<1 write A|0>=sin(theta)|g>+cos(theta)|b>, 0<theta<pi/2, with g,b normalized in the successful and unsuccessful

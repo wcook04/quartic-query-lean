@@ -1,0 +1,85 @@
+claim IDs, the exact maintained statement of each claim, and a direct link to its proof or explanation. The groups follow the mathematical dependencies. Their introductory paragraphs identify formal boundaries which would otherwise be obscured by listing many component declarations.
+
+[B1291 L4246-4246]
+The configured Comparator targets, their status, and the refinements that have no catalogue ID (the threshold $13669k^2$, the logarithmic exponent six and the named-circuit constants) are listed with their proofs in [Appendix G.4](#checked-statements). The [correspondence record](reasoning_record_correspondence.json) and [dated review receipt](reasoning_record_review.json) retain the declaration inventory and evidence. [Appendix G.3](#evidence-checks) explains their authority and historical scope.
+
+[B1292 L4248-4249]
+The quotations below are the maintained ledger's literal claim text, including its plain-text notation, preserved so that each row can be matched byte for byte against the ledger; the linked argument gives the typeset statement and complete reasoning. Corrections to a historical quotation, including the Bansal–Sinha-to-$L$ and Huang rows, are identified by their original and maintained hashes in the correspondence. This compact catalogue does not replace either the proofs or that full evidence record.
+<!-- /passage:ROOT-CATALOGUE-INTRO -->
+
+[B1293 L4251-4251]
+### B.1. Functions, budgets and separation
+
+[B1294 L4253-4253]
+The first group fixes the objects quantified over in the theorem. Read §§2.1–2.6 and Appendices G.2–G.3 for the promise, the common algorithm and the all-input cap. The exact function-model and separation wrappers now have source-bound mathematical-fidelity reviews. The global logarithm convention is prose: the available logarithm lemmas establish its separate numerical uses rather than one theorem asserting the entire convention. The real-power family and the floor-form headline remain distinct conjunctions, joined by the floor argument in §7.
+
+[B1295 L4255-4255]
+#### def-log-convention
+
+[B1296 L4257-4259]
+<a id="CAT-def-log-convention"></a>
+<!-- passage:CAT-def-log-convention -->
+<!-- claim:def-log-convention -->
+
+[B1297 L4261-4261]
+> log means log_2, except where changing the base only changes an absolute constant. Ledger pinning: log in T (prop-3.2), r and l (eq-6) and L (eq-5) is exactly log_2.
+
+[B1298 L4263-4263]
+**Argument:** [§2](#ROOT-LOGS).
+
+[B1299 L4265-4265]
+<!-- /passage:CAT-def-log-convention -->
+
+[B1300 L4267-4267]
+#### def-partial-query
+
+[B1301 L4269-4271]
+<a id="CAT-def-partial-query"></a>
+<!-- passage:CAT-def-partial-query -->
+<!-- claim:def-partial-query -->
+
+[B1302 L4273-4273]
+> A partial Boolean function is a pair (D,P) with D a subset of {0,1}^N and P:D->{0,1}. An algorithm computes it if it is correct, with the stated error, on every x in D; behaviour off D is unconstrained.
+
+[B1303 L4275-4275]
+**Argument:** [§2.1](#ROOT-PARTIAL).
+
+[B1304 L4277-4277]
+<!-- /passage:CAT-def-partial-query -->
+
+[B1305 L4279-4279]
+#### def-R
+
+[B1306 L4281-4283]
+<a id="CAT-def-R"></a>
+<!-- passage:CAT-def-R -->
+<!-- claim:def-R -->
+
+[B1307 L4285-4285]
+> For a (partial) Boolean function f, R(f) is the least q such that some probability distribution on deterministic decision trees of depth at most q satisfies Pr[T(x)=f(x)] >= 2/3 for every x in dom f. The query cap holds on every branch and every coin outcome.
+
+[B1308 L4287-4287]
+**Argument:** [§2.1](#ROOT-PARTIAL), [§2.2](#R3-01-CLASSICAL).
+
+[B1309 L4289-4289]
+<!-- /passage:CAT-def-R -->
+
+[B1310 L4291-4291]
+#### def-query-oracle
+
+[B1311 L4293-4295]
+<a id="CAT-def-query-oracle"></a>
+<!-- passage:CAT-def-query-oracle -->
+<!-- claim:def-query-oracle -->
+
+[B1312 L4297-4297]
+> For x in {0,1}^n the bit oracle is the unitary O_x|i,b,z> = |i, b xor x_i, z>, with i in [n], b a bit, z a workspace label. It is self-inverse.
+
+[B1313 L4299-4299]
+**Argument:** [§2.3](#ROOT-ORACLE).
+
+[B1314 L4301-4301]
+<!-- /passage:CAT-def-query-oracle -->
+
+[B1315 L4303-4303]
+####

@@ -1,0 +1,27 @@
+hypotheses. The [star and sensitivity estimates][src-lemma-a3], the [spectral degree theorem on an actual face][src-lemma-a4] and the [bridge to Midrijānis's bound][src-lemma-a5] are separate formal statements. The quartic statements at a [quantum query cap][src-quartic-cap] and at the [attained quantum minimum][src-quartic-minimum] are stated separately, and [Theorem A.1 in its displayed form][src-theorem-a1] also includes \(R\le D\). The [older quartic bound][src-quartic-older] proves coefficient 20736, while the [hybrid quartic bound][src-quartic-hybrid] proves 19600.
+
+[B2231 L6646-6647]
+Some corpus rows deliberately combine several assertions. For example, the matrix spectrum row includes square, trace, symmetry, eigenvalue classification and multiplicities; these are supplied by several declarations, rather than by the multiplicity theorem alone. Likewise the per-query row and the final-overlap row each have separate supporting estimates. Their correspondence remains partial at a single primary declaration even though the named additional declarations have compilation evidence for the reviewed snapshot. The polynomial-definition prose includes an ordinary uniqueness proof beyond the one Fourier-degree bridge. The exact parity witness above is an ordinary mathematical and finite-computational check, with no supplied Lean theorem for its exact one-query algorithm. Comparator acceptance of the existing separation wrapper does not constitute a separate comparison of each new Appendix declaration.
+<!-- /passage:R3-A-FORMAL -->
+
+[B2232 L6649-6649]
+## Use of AI tools
+
+[B2233 L6651-6652]
+<a id="ai-disclosure"></a>
+Will Cook directed this reconstruction. AI agents wrote the Lean formalization, the explanatory additions and the text of this record, working from OpenAI's preprint, which contains the theorem, the construction and both analyses; the earlier ingredients keep their authors' credit as cited. No person has reviewed the mathematics, and the record has not been submitted for publication.
+
+[B2234 L6654-6781]
+<!-- lean-links -->
+[cmp-amplifier]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L52
+[cmp-degree]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Independent/Degree/Challenge.lean#L14-L20
+[cmp-direct-product]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25
+[cmp-le-iff]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Foundations/Challenge.lean#L326-L330
+[cmp-winners]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Construction/Challenge.lean#L326-L341
+[cmp-zero-cost]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Independent/ModelZero/Challenge.lean#L11-L14
+[def-D]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L76-L77
+[def-DLe]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L67-L69
+[def-L]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L297-L300
+[def-Q]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L139-L140
+[def-QLe]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L133-L137
+[def-R]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/Quarti

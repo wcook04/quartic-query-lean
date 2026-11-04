@@ -1,0 +1,65 @@
+{
+  "stage": "post_freeze_classical_specialist_reread",
+  "manuscript": "repository/docs/reasoning_record.md",
+  "manuscript_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+  "mathematical_defects_verified": 0,
+  "candidates": [
+    {
+      "id": "CLS-C01",
+      "title": "Narrow the residual source-status assertion",
+      "kind": "evidence_scope_wording",
+      "severity": "medium",
+      "mathematical_blocker": false,
+      "status": "verified_current_text; merge with historical audit rather than duplicate",
+      "location": {
+        "file": "repository/docs/reasoning_record.md",
+        "line_start": 3743,
+        "line_end": 3743,
+        "passage": "CL-forrelation-input"
+      },
+      "exact_short_quote": "the stated theorem stands",
+      "related_current_locations": [
+        1642,
+        6008,
+        6028,
+        6050
+      ],
+      "reader_need": "Distinguish the limited implication of a defective source display from affirmative validation of the source theorem or its original proof.",
+      "evidence": "Line 3743 makes the affirmative assertion; line 1642 and Appendix E explicitly state only that the diagnosed display defect does not by itself refute the theorem. The record independently proves the needed prerequisite, and its SSW comparison has a separate source and parameter scope.",
+      "why_actionable": "The supplied source check certifies two identified defects and a sufficient alternative estimate. It neither repairs the original proof nor documents author approval. Leaving an affirmative source-status sentence beside the narrower audit blurs the evidence boundary.",
+      "advice": "Replace with: Appendix E identifies a defect in one displayed step; that defect does not by itself refute Bansal and Sinha’s theorem. This section uses the prerequisite proved independently in §3. If affirmative revalidation is intended, identify the alternative theorem and its precise regime.",
+      "prior_pointer": "Parent reported the historical RR9-067 finding before this independent context check. Parent owns exact historical disposition evidence.",
+      "encounter_status": "informed specialist validation, not cold-primary discovery",
+      "sources": [
+        "CLS-S02",
+        "CLS-S09"
+      ],
+      "confidence": "high for wording/scope mismatch; no assertion that the theorem is false"
+    }
+  ],
+  "optional_opportunities": [
+    {
+      "id": "CLS-OP01",
+      "kind": "explanatory_opportunity",
+      "required_fix": false,
+      "location": "§3.6 with cross-reference to §7.3 and Appendix E",
+      "advice": "Consider one compact table comparing the stated Bansal–Sinha bound, direct uniform bound F43, and SSW-based comparison F60, with k/logarithm dependence, threshold, numerical-constant status, and use in the argument.",
+      "reason": "All distinctions are present but dispersed. A table would expose the reason for choosing F43 in the growing-k assembly without adding another proof."
+    }
+  ],
+  "resolved_concerns": [
+    "Separate pathwise caps are distinguished from one global total cap and expected cost.",
+    "Transcript factorization is applied only to compatible positive-probability histories.",
+    "The terminal product controls conditional success probability, not a pointwise success indicator.",
+    "Side information and random coins are required to be jointly independent of the target tuple.",
+    "Nonheaviness is inside a joint event; the simulation truncates before query L+1.",
+    "The minimax hard law is not asserted to have balanced labels or to equal the analytic Forrelation law.",
+    "The simulator receives dummy outside data and no target address or transcript.",
+    "Independent uniform selection of the planted column is used in the erased-zero identity.",
+    "Ordinary constant and threshold derivations are distinguished from formal statement coverage.",
+    "Fixed-k exponent exclusion and the separate growing-k uniform schedule are not conflated.",
+    "Appendix E isolates source display defects and independently derives a sufficient replacement; it does not claim a counterexample to the cited theorem."
+  ],
+  "no_build_performed": true,
+  "created_at": "2026-11-04T14:28:07.935768+00:00"
+}

@@ -1,0 +1,1317 @@
+{
+  "packet": "quartic_r10_reasoning_record",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+    "repository/docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+    "repository/docs/expert_companion.pdf": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+    "repository/docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "repository/docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+    "repository/docs/exposition.pdf": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+    "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+    "repository/docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "repository/docs/reasoning_record.pdf": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+  },
+  "panel": [
+    {
+      "perspective": "mathematician outside query complexity",
+      "role": "primary publication-order simulated pass",
+      "scope": "all6781 lead Markdown lines; qualified block-based encounter record, not independent per-sentence observations"
+    },
+    {
+      "perspective": "quantum-algorithms researcher",
+      "role": "first informed specialist reread",
+      "scope_file": "supporting_reviews/quantum_scopes_read.json"
+    },
+    {
+      "perspective": "randomized lower-bound researcher",
+      "role": "second informed specialist reread",
+      "scope_file": "supporting_reviews/classical_review_scope.json"
+    },
+    {
+      "perspective": "formal-methods reader",
+      "role": "third informed specialist reread",
+      "scope_file": "supporting_reviews/formal_review_scope.json"
+    }
+  ],
+  "sources_read": [
+    {
+      "inventory_file": "sources/root_math_sources.json",
+      "id": "P0",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "edition": "OpenAI, 2026-10-05",
+      "archive_text": "paper/extracted.md",
+      "archive_sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "status": "read_complete",
+      "scope": "Complete supplied extracted text, all nineteen printed pages, including references; public metadata found, live GitHub directory fetch restricted.",
+      "url": "https://github.com/openai/math/tree/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026",
+      "web_refs": [
+        "turn25academia6",
+        "turn25search0"
+      ]
+    },
+    {
+      "inventory_file": "sources/root_math_sources.json",
+      "id": "U1",
+      "title": "Degree vs. Approximate Degree and Quantum Implications of Huang's Sensitivity Theorem",
+      "edition": "Aaronson, Ben-David, Kothari, Rao and Tal, arXiv:2010.12629v1 (2020), STOC 2021",
+      "archive_text": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md",
+      "archive_sha256": "fe50f27a93597951aa0e9577d0315a2b4dcdf022122604139232a952d144aa8f",
+      "status": "selected_passages_read",
+      "scope": "Supplied PDF section3, pp.6–8: Theorem1, Definitions7–8, Lemma9; text extracted directly from PDF, plus visual inspection of PDFpages7–8. Source-MD numbering differs (Definition5/Lemma7) and distinct macros collapse to \\relax; PDF locators govern. Nearby section4 opening seen, not reviewed in depth.",
+      "url": "https://arxiv.org/abs/2010.12629v1",
+      "web_refs": [
+        "turn26view1"
+      ],
+      "pdf_pages_visually_inspected": [
+        7,
+        8
+      ]
+    },
+    {
+      "inventory_file": "sources/root_math_sources.json",
+      "id": "U2",
+      "title": "Induced subgraphs of hypercubes and a proof of the Sensitivity Conjecture",
+      "edition": "Hao Huang, arXiv:1907.00847v2, 2019-08-29",
+      "archive_text": "literature/quartic-ref-17-induced-subgraphs-of-hypercubes-and-a-proo/extracted.md",
+      "archive_sha256": "e84394f6e0af85b50ab5d8ead86afb5327b1249a9eefea200e0f7465a6ca0e4a",
+      "status": "selected_passages_read",
+      "scope": "Main text sections 1–3, all proof lemmas and theorem; reference list not reviewed.",
+      "url": "https://arxiv.org/abs/1907.00847v2",
+      "web_refs": [
+        "turn26view2"
+      ]
+    },
+    {
+      "inventory_file": "sources/root_math_sources.json",
+      "id": "U3",
+      "title": "Exact quantum query complexity for total Boolean functions",
+      "edition": "Gatis Midrijanis, arXiv:quant-ph/0403168v2, 2004-03-27",
+      "archive_text": "literature/quartic-ref-19-exact-quantum-query-complexity-for-total-b/extracted.md",
+      "archive_sha256": "f5842cf5ed481a3dedec06383e7d9e843dbcb67dc2917cef8e1f3e7f3185fe17",
+      "status": "selected_passages_read",
+      "scope": "Main text sections 1–5; especially Lemma 3 and proof of Theorem 4, pp.3–4. Reference list only partly viewed.",
+      "url": "https://arxiv.org/abs/quant-ph/0403168v2",
+      "web_refs": [
+        "turn26view3"
+      ]
+    },
+    {
+      "inventory_file": "sources/writing_sources.json",
+      "id": "W1",
+      "authors": "Francis Edward Su",
+      "title": "Guidelines for Good Mathematical Writing",
+      "edition": "Updated 2020-08-18",
+      "url": "https://math.hmc.edu/su/wp-content/uploads/sites/10/2020/08/Guidelines-for-Good-Mathematical-Writing.pdf",
+      "archive_text": "writing_literature/su-mathematical-writing-2020/extracted.md",
+      "status": "read",
+      "scope": "complete, pp. 1–3",
+      "web_refs": [
+        "turn20view2"
+      ]
+    },
+    {
+      "inventory_file": "sources/writing_sources.json",
+      "id": "W2",
+      "authors": "Donald E. Knuth; Tracy Larrabee; Paul M. Roberts",
+      "title": "Mathematical Writing",
+      "edition": "Stanford report STAN-CS-88-1193; 1987 course / 1988 report",
+      "url": "https://www-cs-faculty.stanford.edu/~knuth/papers/cs1193.pdf",
+      "archive_text": "writing_literature/knuth-larrabee-roberts-mathematical-writing/extracted.md",
+      "status": "selected_passages_read",
+      "scope": "Introduction; §1 rules 1–24; §10 pp.20–22; §§31–33 pp.69–72; §42 pp.106–111",
+      "web_refs": [
+        "turn20view3",
+        "turn18search0"
+      ]
+    },
+    {
+      "inventory_file": "sources/writing_sources.json",
+      "id": "W3",
+      "authors": "Leslie Lamport",
+      "title": "How to Write a 21st Century Proof",
+      "edition": "2011-11-23, revised 2012-01-15",
+      "url": "https://lamport.azurewebsites.net/pubs/proof.pdf",
+      "doi": "10.1007/s11784-012-0071-6",
+      "status": "selected_passages_read",
+      "scope": "§§1–3 and §§4.1–4.4; printed pp.1–14; formal appendix not read",
+      "web_refs": [
+        "turn20view0",
+        "turn22view0"
+      ]
+    },
+    {
+      "inventory_file": "sources/writing_sources.json",
+      "id": "W4",
+      "authors": "John Etnyre",
+      "title": "The Art of Writing Introductions",
+      "edition": "Notices AMS 66(3), March 2019, pp.361–362",
+      "url": "https://marktomforde.com/academic/gradstudents/AMSarticles/earlycareer/2019/rnoti-p361.pdf",
+      "doi": "10.1090/noti1816",
+      "author_index": "https://etnyre.math.gatech.edu/preprints/notes.html",
+      "status": "read",
+      "scope": "both pages, complete article",
+      "web_refs": [
+        "turn23view0"
+      ]
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS01",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "authors": [
+        "OpenAI"
+      ],
+      "edition": "Supplied preprint dated 5 October 2026",
+      "url": null,
+      "archive_path": "paper/extracted.md",
+      "pdf_path": "paper/source.pdf",
+      "passages_read": [
+        "Abstract and Sections 1–3 in full (PDF pp. 1–10); extracted text lines 1–516"
+      ],
+      "status": "read_relevant_argument",
+      "notes": "Read the construction, local verifier, fixed-k Forrelation routine, bounded amplification, fractional-weight tournament, and column application. Did not independently read classical proof or universal upper-bound appendix.",
+      "archive_path_sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "pdf_path_sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS02",
+      "title": "Forrelation: A Problem that Optimally Separates Quantum from Classical Computing",
+      "authors": [
+        "Scott Aaronson",
+        "Andris Ambainis"
+      ],
+      "edition": "arXiv:1411.5729v1, 21 November 2014 (not silently the 2018 journal edition)",
+      "url": "https://arxiv.org/abs/1411.5729v1",
+      "archive_path": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md",
+      "pdf_path": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/source.pdf",
+      "passages_read": [
+        "Section 3.2, Proposition 6 and adjacent amplitude derivation, PDF pp. 13–14, extracted lines 659–735",
+        "Section 3.1 query conventions, pp. 12–13, bounded excerpt",
+        "Introduction k-fold discussion, located and skimmed"
+      ],
+      "status": "read_relevant_argument",
+      "web_refs": [
+        "turn1view0"
+      ],
+      "notes": "The direct k-query circuit has all-zero amplitude Phi. The controlled two-branch circuit uses ceil(k/2) queries and accepts with probability (1+Phi)/2; its stated 0.4 error convention differs from the target 1/3 convention.",
+      "archive_path_sha256": "3d4e3dc004cfcc018ddd31bc1d750395b31ab84b9accffd4b764db7f6934c8ab",
+      "pdf_path_sha256": "c27966b5b6cf12d61e3877f6ac23b48c9a21fe0a86e6b96ef527b02503e4e1fe"
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS03",
+      "title": "k-Forrelation Optimally Separates Quantum and Classical Query Complexity",
+      "authors": [
+        "Nikhil Bansal",
+        "Makrand Sinha"
+      ],
+      "edition": "Supplied 40-page primary preprint; theorem numbering checked against PDF. Online arXiv v3 and ECCC revision 2 metadata checked (17 November 2020); local bytes not independently proven identical to either online PDF.",
+      "url": "https://arxiv.org/abs/2008.07003v3",
+      "archive_path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "pdf_path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+      "passages_read": [
+        "PDF pp. 2–5: normalized quadratic form (1.1)–(1.3), Proposition 1.2, Theorem 1.3, Corollary 1.4, beginning of Section 1.2",
+        "Extracted lines 1–75 read, plus portions of later k=3 overview returned by initial tool call"
+      ],
+      "status": "read_relevant_statements_and_quantum_consequence",
+      "web_refs": [
+        "turn17view0",
+        "turn17view1"
+      ],
+      "notes": "Theorem 1.3 has k^-29 and (N/log(kN))^(1-1/k); Corollary 1.4 quantum upper bound O(k 2^(10k)). Full Gaussian lower-bound proof not read by this agent.",
+      "archive_path_sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952",
+      "pdf_path_sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35"
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS04",
+      "title": "Quantum Amplitude Amplification and Estimation",
+      "authors": [
+        "Gilles Brassard",
+        "Peter Høyer",
+        "Michele Mosca",
+        "Alain Tapp"
+      ],
+      "edition": "arXiv:quant-ph/0005055v1, 15 May 2000; paper dated 2 May 2000. Published 2002 edition not separately read.",
+      "url": "https://arxiv.org/abs/quant-ph/0005055v1",
+      "archive_path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+      "pdf_path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.pdf",
+      "passages_read": [
+        "Section 2, Lemma 1, equations defining Q and its two-dimensional action, Theorems 2–3, QSearch and analysis; extracted lines 21–167",
+        "Start of Section 2.1 through Theorem 4 and generalized phase reflections, lines 168–181"
+      ],
+      "status": "read_relevant_argument",
+      "web_refs": [
+        "turn1view3"
+      ],
+      "notes": "The normalized good-state component is fixed throughout amplification. Theorem 3 for unknown success probability is expected-cost and can run forever at zero success; a deterministic cap requires a separate construction.",
+      "archive_path_sha256": "9fd98e35695c4bf763e4faa35ac146b18c74c3caf0dee24e3e208923aff71a86",
+      "pdf_path_sha256": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278"
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS05",
+      "title": "Tight bounds on quantum searching",
+      "authors": [
+        "Michel Boyer",
+        "Gilles Brassard",
+        "Peter Høyer",
+        "Alain Tapp"
+      ],
+      "edition": "Supplied arXiv:quant-ph/9605034v1, 23 May 1996, PhysComp96 draft dated 10 May 1996; not the 1998 journal edition",
+      "url": "https://arxiv.org/abs/quant-ph/9605034v1",
+      "archive_path": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/extracted.md",
+      "pdf_path": "literature/quartic-ref-11-tight-bounds-on-quantum-searching/source.pdf",
+      "passages_read": [
+        "Lemmas 1–2 and Section 4 unknown number of solutions, Theorem 3 and proof, PDF pp. 3–4; extracted lines 160–300"
+      ],
+      "status": "read_relevant_argument",
+      "notes": "Randomized Grover iteration count gives exact mean 1/2 - sin(4M theta)/(4M sin(2theta)); large-success and zero-success cases need explicit handling.",
+      "archive_path_sha256": "5f3d4a8f2e6038392ea75490bafdf58150e3d8b2a76c063841cc158531233c8b",
+      "pdf_path_sha256": "badd64e3db8079ee2428fc9f869e202d584412b0a003be64464437019d252fde"
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS06",
+      "title": "Quantum Search on Bounded-Error Inputs",
+      "authors": [
+        "Peter Høyer",
+        "Michele Mosca",
+        "Ronald de Wolf"
+      ],
+      "edition": "Supplied extracted arXiv source; online arXiv:quant-ph/0304052v2, 14 April 2003 metadata checked. The packet source tarball was not re-rendered or version-matched to the web PDF.",
+      "url": "https://arxiv.org/abs/quant-ph/0304052v2",
+      "archive_path": "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/extracted.md",
+      "pdf_path": null,
+      "passages_read": [
+        "Entire supplied extracted manuscript, including Sections 1–5, facts, proof, algorithm, applications, bibliography and notes"
+      ],
+      "status": "read_full_supplied_text",
+      "web_refs": [
+        "turn1view1"
+      ],
+      "notes": "Robust search assumes every Fi approximates a well-defined bit fi with uniform bounded error. Arbitrary comparison probabilities lacking an underlying gap do not meet that hypothesis.",
+      "archive_path_sha256": "cb04695fcd47585c3989bd3fcb37cfa4d332d691e27763b567d36e5ed976c04b"
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS07",
+      "title": "A Quantum Algorithm for Finding the Minimum",
+      "authors": [
+        "Christoph Dürr",
+        "Peter Høyer"
+      ],
+      "edition": "arXiv:quant-ph/9607014v2, 7 January 1999 (paper title page July 1996)",
+      "url": "https://arxiv.org/abs/quant-ph/9607014v2",
+      "archive_path": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/extracted.md",
+      "pdf_path": "literature/quartic-ref-14-a-quantum-algorithm-for-finding-the-minimu/source.pdf",
+      "passages_read": [
+        "Entire 2-page paper: algorithm, Theorem 1, Lemmas 1–2 and final remarks"
+      ],
+      "status": "read_full_supplied_text",
+      "web_refs": [
+        "turn13view0"
+      ],
+      "notes": "Threshold search relies on a genuine ordered list and uniform successful sampling. The expected analysis is converted to a bounded runtime with an explicit timeout.",
+      "archive_path_sha256": "aea6cb99d149fad7a304712f71d4e91403483a1d9bd4e1d2eea5a26c87adf662",
+      "pdf_path_sha256": "ff5c2ff71415e22f0ddf799b31e9b82d1990db9c1fc9d62ea2aabea5907e06cf"
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS08",
+      "title": "Separations in Query Complexity Based on Pointer Functions",
+      "authors": [
+        "Andris Ambainis",
+        "Kaspars Balodis",
+        "Aleksandrs Belovs",
+        "Troy Lee",
+        "Miklos Santha",
+        "Juris Smotrovs"
+      ],
+      "edition": "arXiv:1506.04719v3, 26 October 2015; not silently the 2017 JACM edition",
+      "url": "https://arxiv.org/abs/1506.04719v3",
+      "archive_path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+      "pdf_path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/source.pdf",
+      "passages_read": [
+        "Section 1.3 technique overview, PDF pp. 5–6 in full via PDF text extraction",
+        "Theorem 5, Claim 6 and Algorithm 2, PDF pp. 13–14 in full; Corollary 7 on p. 15",
+        "Extracted text theorem/algorithm locators used only to find corresponding PDF text after observing damaged notation"
+      ],
+      "status": "bounded_read",
+      "web_refs": [
+        "turn1view2"
+      ],
+      "notes": "The technique overview assigns a separate role to back pointers and balanced-tree access; quantum verification exploits short access paths. Damaged TeX extraction was checked against PDF text for theorem statement and algorithm.",
+      "archive_path_sha256": "30eacb1b152e26be43fb8f656b065c1ae6e1a25782eb0fcc13c544e246baacd2",
+      "pdf_path_sha256": "1b7803487ac696b1f8d81ee7bc26d55ed7a3c4ff4b78928faa269b71358fe66c"
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS09",
+      "title": "Randomized and Quantum Query Complexities of Finding a King in a Tournament",
+      "authors": [
+        "Nikhil S. Mande",
+        "Manaswi Paraashar",
+        "Nitin Saurabh"
+      ],
+      "edition": "Published FSTTCS 2023, LIPIcs 284, article 30, pp. 30:1–30:19",
+      "url": "https://doi.org/10.4230/LIPIcs.FSTTCS.2023.30",
+      "archive_path": "literature/mps-fsttcs2023-published/extracted.md",
+      "pdf_path": "literature/mps-fsttcs2023-published/source.pdf",
+      "passages_read": [
+        "Section 1 technical overview of randomized and quantum algorithms, extracted lines 148–213",
+        "Section 4 complete main construction: Observation 16, Lemmas 17–18, Algorithms 2–4, Theorem 19 proof, extracted lines 529–722 and 729–766; PDF pp. 30:9–30:13"
+      ],
+      "status": "read_main_quantum_argument",
+      "web_refs": [
+        "turn13search1",
+        "turn13search25"
+      ],
+      "notes": "Appendix proofs of subroutines 17–18 not read. Exact edge oracle over a fixed tournament; history stored as W, implicit feasible set sampled uniformly. Its interface/implementation distinction is a useful writing comparison.",
+      "archive_path_sha256": "58231899382edbcfe53a4ae9f8963ad74dab73fd7681a5d9d0661fbe78b384f9",
+      "pdf_path_sha256": "c2501b7a53ad9328ff3214d6de2dfb2cbb2370523eda94b32ab9eb1c864c0f29"
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS10",
+      "title": "Quantum Query Complexity of Tournament Solutions",
+      "authors": [
+        "Pragya Arora",
+        "Udit Kumar"
+      ],
+      "edition": "arXiv:2610.39702v1, 29 October 2026",
+      "url": "https://arxiv.org/html/2610.39702v1",
+      "archive_path": null,
+      "pdf_path": null,
+      "passages_read": [
+        "Abstract and introduction; Section 2.1 Quantum query model (HTML lines 178–195); Section 6.1 Lemma 6.1 and Theorem 6.2 upper-bound proof (HTML lines 384–403)"
+      ],
+      "status": "online_bounded_read",
+      "web_refs": [
+        "turn7view0",
+        "turn7view1",
+        "turn9view1",
+        "turn9view2"
+      ],
+      "notes": "New outside-annex primary source. Deterministic tournament edge oracle; Condorcet routine uses king finding plus verification. Lower-bound proof only beginning read. This does not establish the probabilistic-comparison theorem used by the supplied preprint."
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS11",
+      "title": "Quantum Approximate k-Minimum Finding",
+      "authors": [
+        "Minbo Gao",
+        "Zhengfeng Ji",
+        "Qisheng Wang"
+      ],
+      "edition": "Published ESA 2025, LIPIcs 351, article 51; 1 October 2025",
+      "url": "https://doi.org/10.4230/LIPIcs.ESA.2025.51",
+      "archive_path": null,
+      "pdf_path": null,
+      "passages_read": [
+        "Publication metadata/abstract; Section 3.1 comparison of oracle types and Remark 8 via primary publisher HTML"
+      ],
+      "status": "online_bounded_read",
+      "web_refs": [
+        "turn7view2",
+        "turn9view0",
+        "turn6search4"
+      ],
+      "notes": "Useful independent taxonomy: bounded-error, deterministic threshold-imprecise, approximate-value, and physically noisy oracles have different promises. Algorithmic claims elsewhere not evaluated."
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS12",
+      "title": "Lecture Notes on Quantum Algorithms",
+      "authors": [
+        "Andrew M. Childs"
+      ],
+      "edition": "17 April 2025 title-page edition, 191 PDF pages",
+      "url": "https://www.cs.umd.edu/~amchilds/qa/qa.pdf",
+      "archive_path": "writing_literature/childs-quantum-algorithms-2025/extracted.md",
+      "pdf_path": "writing_literature/childs-quantum-algorithms-2025/source.pdf",
+      "passages_read": [
+        "Preface, printed p. vii / PDF p. 7 (audience and architecture)",
+        "Section 1.4 Reversible computation, printed pp. 2–3 / PDF pp. 10–11, extracted lines 353–378; neighboring Sections 1.1–1.3 and 1.5–1.6 partially read or viewed",
+        "Sections 19.1–19.3, printed pp. 87–89 / PDF pp. 95–97, extracted lines 4511–4667 (unstructured search, implementation query costs, amplification/counting)",
+        "Sections 21.1–21.3, printed pp. 97–99 / PDF pp. 105–107, extracted lines 4875–4983 (query models, phase/bit oracles, polynomial-method interface)"
+      ],
+      "status": "read_selected_complete_sections",
+      "pdf_pages_visually_inspected": [
+        10,
+        11
+      ],
+      "web_refs": [
+        "turn28view1"
+      ],
+      "notes": "Used as an exposition/definition comparison. Did not read the whole book or the preceding quantum-walk theory. The live unversioned PDF URL is bibliographic context; the supplied title-page date and hash identify the edition actually read.",
+      "archive_path_sha256": "cc8d1e80ddc38938d89a037c2ddd289f3d0b7105a8f75d5b1e2a5579c625f351",
+      "pdf_path_sha256": "6e3a32f0aede35e954d665c909fec41f716b955f041957e723e2724ae3efabd1"
+    },
+    {
+      "inventory_file": "sources/quantum_sources.json",
+      "id": "QS13",
+      "title": "Understanding Quantum Algorithms via Query Complexity",
+      "authors": [
+        "Andris Ambainis"
+      ],
+      "edition": "arXiv:1712.06349v1, 18 December 2017, 20 pages",
+      "url": "https://arxiv.org/abs/1712.06349v1",
+      "archive_path": "writing_literature/ambainis-query-survey-1712.06349v1/extracted.md",
+      "pdf_path": "writing_literature/ambainis-query-survey-1712.06349v1/source.pdf",
+      "passages_read": [
+        "Abstract, Introduction and Section 2.1: printed/PDF pp. 1–5, extracted lines 1–233",
+        "Section 2.2 related quantities: p. 6, read but not used as current-state evidence",
+        "Section 4 pointer-function method including Theorem 4, definition, certificate explanation and elimination algorithm: printed/PDF pp. 9–12, extracted lines 427–543",
+        "Section 5.1 cheat-sheet method, Theorems 5–6, construction and two-stage quantum algorithm: printed/PDF pp. 12–13, extracted lines 545–622"
+      ],
+      "status": "read_selected_complete_sections",
+      "pdf_pages_visually_inspected": [
+        4,
+        10
+      ],
+      "web_refs": [
+        "turn28view0"
+      ],
+      "notes": "Historical survey, not a current best-bounds source. Used to compare model introduction and separation of representation, accepting conditions, certificate role and algorithm; lower-bound sketch not treated as a full proof.",
+      "archive_path_sha256": "891704a5ea685f0556883f843741a0153096766785d46037885e832704f425fd",
+      "pdf_path_sha256": "6d2bfa659d7d29617635627ec6ab998b984cec6b5c8ef5cca8db69e226f40f80"
+    },
+    {
+      "inventory_file": "sources/classical_sources.json",
+      "id": "CLS-S01",
+      "title": "Improved Direct Product Theorems for Randomized Query Complexity",
+      "authors": [
+        "Andrew Drucker"
+      ],
+      "edition": "arXiv:1005.0644v2; author version essentially matching Computational Complexity21(2),197–244(2012)",
+      "date": "2014-05-09",
+      "url": "https://arxiv.org/abs/1005.0644v2",
+      "archive_members": [
+        {
+          "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.tex",
+          "sha256": "7defbc5925e9554768cf5bab0ab548188d5d264075cfc1f00891544b5aec782d"
+        },
+        {
+          "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.pdf",
+          "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff"
+        }
+      ],
+      "passage_locators": [
+        "§1.3 pp.6–8",
+        "§3 pp.10–13, Lemmas3.1–3.2 and fair-algorithm closing remark",
+        "§5 pp.14–15 Lemma5.1"
+      ],
+      "read_status": "read_relevant_arguments",
+      "read_scope": "Introduction through methods; §2 success-complexity definition; full §3 potential/transcript argument; §5 minimax statement and application",
+      "web_refs": [
+        "turn4view2",
+        "turn3search4",
+        "turn3search3"
+      ],
+      "limitations": [
+        "Remaining threshold, XOR, dynamic and tree-size proofs not read"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "inventory_file": "sources/classical_sources.json",
+      "id": "CLS-S02",
+      "title": "k-Forrelation Optimally Separates Quantum and Classical Query Complexity",
+      "authors": [
+        "Nikhil Bansal",
+        "Makrand Sinha"
+      ],
+      "edition": "arXiv:2008.07003v3; STOC2021 supplement checked for statements",
+      "date": "2020-11-17",
+      "url": "https://arxiv.org/abs/2008.07003v3",
+      "archive_members": [
+        {
+          "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+          "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35"
+        },
+        {
+          "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+          "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952"
+        },
+        {
+          "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+          "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015"
+        },
+        {
+          "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/supplements/stoc-2021-proceedings.pdf",
+          "sha256": "b3102c80c39e118a4d7fda9bf4b97a1b0f8e0b6a96af7eb5f1dac00ab8fc8d38"
+        }
+      ],
+      "passage_locators": [
+        "Definition(1.1)–(1.3), Theorem1.3, Corollary1.4, pp.2–5",
+        "§1.2 proof overview",
+        "§3 pp.15–18, Theorems3.1–3.4, Corollary3.5",
+        "§5.3–5.4 pp.37–38; Eq.(5.31)",
+        "main.tex inside source.tar.gz: lines726–729 and1170–1188"
+      ],
+      "read_status": "read_relevant_arguments",
+      "read_scope": "Definitions, stated bounds, Gaussian input distribution support proof, Fourier bound interfaces, random restriction proof, final lower-bound extraction; PDF p.38 visually inspected",
+      "web_refs": [
+        "turn4view1",
+        "turn12view0",
+        "turn12view1",
+        "turn14search2"
+      ],
+      "limitations": [
+        "Long Gaussian branching proof §5.2 not reconstructed",
+        "Source display issues noted independently; no claim that the published asymptotic separation is false",
+        "Extraction renumbers theorem objects; original PDF numbers authoritative"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "inventory_file": "sources/classical_sources.json",
+      "id": "CLS-S03",
+      "title": "Towards proving strong direct product theorems",
+      "authors": [
+        "Ronen Shaltiel"
+      ],
+      "edition": "supplied author/preprint version; CCC2001; journal2003",
+      "date": "2003",
+      "url": "https://doi.org/10.1007/s00037-003-0175-x",
+      "archive_members": [
+        {
+          "path": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/source.pdf",
+          "sha256": "70248ab80df12ff9fab1b2708a2fda7947bf6f22c44db5f7713e6252aaad2436"
+        },
+        {
+          "path": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/extracted.md",
+          "sha256": "1713dc1cac7a31a4daa12f10ae21bfbdf8e5ab2443f25053843035a2a185e929"
+        }
+      ],
+      "passage_locators": [
+        "§1 fairness discussion",
+        "§5 pp.11–12: Definition4, Theorem5, Lemma7 and induction proof"
+      ],
+      "read_status": "read_relevant_arguments",
+      "read_scope": "Fair decision-tree definition, XOR advantage theorem and two-input induction",
+      "web_refs": [
+        "turn15search4",
+        "turn16view1"
+      ],
+      "limitations": [
+        "Source PDF not asserted byte-identical to journal",
+        "Other communication-complexity and counterexample arguments not read"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "inventory_file": "sources/classical_sources.json",
+      "id": "CLS-S04",
+      "title": "Separations in Query Complexity Based on Pointer Functions",
+      "authors": [
+        "Andris Ambainis",
+        "Kaspars Balodis",
+        "Aleksandrs Belovs",
+        "Troy Lee",
+        "Miklos Santha",
+        "Juris Smotrovs"
+      ],
+      "edition": "arXiv:1506.04719v3; JACM2017 cited separately",
+      "date": "2015-10-26",
+      "url": "https://arxiv.org/abs/1506.04719v3",
+      "archive_members": [
+        {
+          "path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/source.pdf",
+          "sha256": "1b7803487ac696b1f8d81ee7bc26d55ed7a3c4ff4b78928faa269b71358fe66c"
+        },
+        {
+          "path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+          "sha256": "30eacb1b152e26be43fb8f656b065c1ae6e1a25782eb0fcc13c544e246baacd2"
+        }
+      ],
+      "passage_locators": [
+        "§1 motivation and pointer variations",
+        "§5 Theorem17 p.20",
+        "§6 pp.21–23: Lemma24, Claim25 and full hard-distribution/potential proof"
+      ],
+      "read_status": "read_relevant_arguments",
+      "read_scope": "Read construction motivation and complete bounded-error randomized lower-bound proof around Theorem17",
+      "web_refs": [
+        "turn5view1"
+      ],
+      "limitations": [
+        "Not every pointer variant/quantum proof read",
+        "Damaged Markdown symbols checked against PDF-derived text"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "inventory_file": "sources/classical_sources.json",
+      "id": "CLS-S05",
+      "title": "A Super-Grover Separation Between Randomized and Quantum Query Complexities",
+      "authors": [
+        "Shalev Ben-David"
+      ],
+      "edition": "arXiv:1506.08106; ECCC TR15-108",
+      "date": "2015-06-26",
+      "url": "https://eccc.weizmann.ac.il/report/2015/108/download/",
+      "archive_members": [
+        {
+          "path": "literature/quartic-lit-ben-david-a-super-grover-separation/source.tex",
+          "sha256": "d2968f44fab184c7a6ac93fb3cc711aece603ae4b3b5ea07ed582e8bb01d6184"
+        },
+        {
+          "path": "literature/quartic-lit-ben-david-a-super-grover-separation/extracted.md",
+          "sha256": "364f32dc5944ab95423b7e2e4c8d587df886aebdcdd41d1e87bbb7f67921e10a"
+        }
+      ],
+      "passage_locators": [
+        "§3 construction",
+        "§4 quantum overview",
+        "§5.1–5.2 pp.3–4, visited-address list and hybrid"
+      ],
+      "read_status": "read_relevant_arguments",
+      "read_scope": "Read short construction and both randomized lower-bound subsections; source quantitative caveat recorded",
+      "web_refs": [
+        "turn5view0"
+      ],
+      "limitations": [
+        "Do not treat informal hidden-zero estimate in §5.1 as an exact lemma",
+        "Not a2023 paper"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "inventory_file": "sources/classical_sources.json",
+      "id": "CLS-S06",
+      "title": "Direct Product Theorems for Randomized Query Complexity",
+      "authors": [
+        "Shalev Ben-David",
+        "Eric Blais"
+      ],
+      "edition": "arXiv:2512.08268v1, FOCS2025",
+      "date": "2025-12-09",
+      "url": "https://arxiv.org/html/2512.08268v1",
+      "archive_members": [],
+      "passage_locators": [
+        "§1.1 definitions and Theorem1",
+        "§1.2 list-decoding definition and Theorem2"
+      ],
+      "read_status": "bounded_read",
+      "read_scope": "Definitions and theorem statements, including distinctions between worst-case and expected cost; proofs not read",
+      "web_refs": [
+        "turn4view0",
+        "turn8view0",
+        "turn24view0"
+      ],
+      "limitations": [
+        "Additional online source not supplied",
+        "Bounded200-word synopsis only in final review",
+        "Not a proposed replacement of the capped lemma"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "inventory_file": "sources/classical_sources.json",
+      "id": "CLS-S08",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "authors": [
+        "OpenAI"
+      ],
+      "edition": "supplied preprint",
+      "date": "2026-10-05",
+      "url": null,
+      "archive_members": [
+        {
+          "path": "paper/source.pdf",
+          "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+        },
+        {
+          "path": "paper/extracted.md",
+          "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+        }
+      ],
+      "passage_locators": [
+        "Introduction and§2 pp.1–5",
+        "§4.1–4.2 pp.11–13"
+      ],
+      "read_status": "read_relevant_arguments",
+      "read_scope": "Read construction context and complete classical bound, including capped direct product, finite minimax, dummy/planted coupling, hidden-zero count, capped predictor and final budget",
+      "web_refs": [
+        "user_supplied"
+      ],
+      "limitations": [
+        "This is the source preprint, not the current lead manuscript",
+        "No Lean executions performed"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "inventory_file": "sources/classical_source_addendum.json",
+      "id": "CLS-S09",
+      "title": "An Optimal Separation of Randomized and Quantum Query Complexity",
+      "authors": [
+        "Alexander A. Sherstov",
+        "Andrey A. Storozhenko",
+        "Pei Wu"
+      ],
+      "edition": "2008.10223v4",
+      "date": "2023-01-29",
+      "url": "https://arxiv.org/abs/2008.10223v4",
+      "archive_members": [
+        {
+          "path": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/source.pdf",
+          "sha256": "bafc286d1955c4b26a05af69f078b6f08acf6f9cb353cf1a787a6aacf441d325"
+        },
+        {
+          "path": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/extracted.md",
+          "sha256": "5196d6af0153637376a40d23afb3275e921b8e55b4d2b584c2a35071c1788ba2"
+        },
+        {
+          "path": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/source.tar.gz",
+          "sha256": "f16324a919208b0c7699615e76f7ac8ef5738e8061fc968796c8a463c9e4e46f"
+        }
+      ],
+      "passage_locators": [
+        "arXiv v4 PDF pp.35–36, Corollaries 4.14–4.15 and proofs",
+        "Extracted Markdown lines 850–900; introduction lines 1–45"
+      ],
+      "read_scope": "Read the exact Fourier bound and real-leaf extension proof, with PDF text confirmation. Read opening rorrelation/Forrelation distinction. Did not reconstruct the full combinatorial Fourier theorem.",
+      "web_refs": [
+        "turn30view0"
+      ],
+      "stage": "post_freeze_classical_specialist_reread",
+      "direct_quotation_words": 0
+    },
+    {
+      "inventory_file": "sources/classical_source_addendum.json",
+      "id": "CLS-S10",
+      "title": "Fourier Growth of Parity Decision Trees",
+      "authors": [
+        "Uma Girish",
+        "Avishay Tal",
+        "Kewen Wu"
+      ],
+      "edition": "2103.11604v2",
+      "date": "2021-05-13",
+      "url": "https://arxiv.org/abs/2103.11604v2",
+      "archive_members": [
+        {
+          "path": "literature/gtw-arxiv-2103-11604v2/source.pdf",
+          "sha256": "f5889f17ef275ba7c190ab51f42b6b75459007e752154717a31250d855e29392"
+        },
+        {
+          "path": "literature/gtw-arxiv-2103-11604v2/extracted.md",
+          "sha256": "57317145b6058df3bc15852a5ace10381759f4502824c70c0dcf2c4b0b4560ae"
+        }
+      ],
+      "passage_locators": [
+        "arXiv v2 §1.3, printed pp.6–8, standard-tree overview and Lemma 1.9",
+        "v2 extracted lines 300–455, especially truncation footnote on p.8",
+        "Additional supplied arxiv-2103-11604/extracted.md: lines 110–201 and 400–550"
+      ],
+      "read_scope": "Read standard-tree martingale hierarchy and explicit caution against conditioning instead of stopping. Incidental parity cleanup and initial concentration passages were read, without full parity-proof reconstruction.",
+      "web_refs": [
+        "turn30view1"
+      ],
+      "stage": "post_freeze_classical_specialist_reread",
+      "direct_quotation_words": 0
+    }
+  ],
+  "source_access_limits": "sources/source_access_log.json; exact Yao1977, Nisan1991 and BSS2003 full texts remain unread. Selected local Lean subset is not a complete replay closure.",
+  "finding_policy": "Actionable improvements only, source order; no mathematical-error finding has been established. Architectural proposals are editorial judgments, not measured learning outcomes.",
+  "feedback": [
+    {
+      "id": "RR10-001",
+      "paper": "reasoning_record",
+      "perspective": "mathematician outside query complexity; informed editorial synthesis",
+      "locator": {
+        "section": "Opening synopsis and the order of §§3–4",
+        "quote": "For any fixed column and query time",
+        "line_start": 5,
+        "line_end": 5,
+        "pdf_page": 1
+      },
+      "unit_id": "RR10-U00014",
+      "kind": "structure",
+      "severity": "high",
+      "title": "Let the complete construction give the long supplier proof its purpose",
+      "feedback": "The opening already compresses the fixed-time joint event, the per-column allowance and the time union into one synopsis. The subsequent complete reading then proves the full Forrelation hardness engine before presenting the first complete addressed board. This is a publication-order burden, not an absent interface: the three-property preview at lines 454–460 is explicit, and the construction route already permits skipping. The frozen FP-018 claim that no usable interface appears until §3.17 is therefore too strong and is rejected.",
+      "why_it_matters": "The outsider must retain why a hard partial function, an exact domain circuit and a quantum proposal are different resources while working through an extensive analytic proof before using them on an actual total input. More route links do not change that first complete reading. A construction-first order would make each later supplier calculation answer a concrete dependency.",
+      "advice": "Use the existing ingredient preview as the main contract, with the exact one-sided promise and all-input cap conditions beside it. Bring the complete §4 board, predicate and local tests before the long analytic derivation. Complete the quantum and planted reductions using the stated contract, then discharge its detailed supplier proofs in a separately named full-proof part. In the opening, retain the mL versus square-root-m mechanism and move the fixed-time event and numerical r choice to the lower-bound proof map. Consolidate the overlapping reading guide, mechanism preview and dependency index into one short role-based map with separately named proof destinations. A conservative alternative moves only §§3.6–3.15 after the construction and reductions; its benefit is smaller but it retains most current numbering. Neither version deletes the Forrelation proof.",
+      "available_before": [
+        "The opening has stated the total-function question, the quartic upper bound and the new separating powers. Within the synopsis it has just introduced columns and hidden cells, but no complete input or local-test procedure has yet been given."
+      ],
+      "missing_bridge": "A sequence in which the reader first sees the full object and the precise demands on its supplier, then follows the full derivations that meet those demands.",
+      "confidence": 0.9,
+      "affected_locators": [
+        {
+          "section": "Opening and navigation",
+          "line_start": 3,
+          "line_end": 42
+        },
+        {
+          "section": "Mechanism preview",
+          "line_start": 114,
+          "line_end": 154
+        },
+        {
+          "section": "Supplier contract and complete supplier proofs",
+          "line_start": 441,
+          "line_end": 1669
+        },
+        {
+          "section": "Construction and two reductions",
+          "line_start": 1670,
+          "line_end": 3971
+        }
+      ],
+      "dependency_constraints": [
+        "State the same P, normalization, one-sided promise and circuit realization property before defining F.",
+        "Keep one chosen circuit for both bounds; the transcript length and test count depend on that circuit.",
+        "Keep the decoder correct only on promised inputs but capped on all inputs.",
+        "Distinguish eventual imported hardness, the direct explicit threshold, and the separate uniform estimate used when k grows.",
+        "A declared lemma whose proof is deferred must remain visibly pending until its full proof part; do not describe the construction route as a closed source-free proof before that discharge.",
+        "Preserve incoming anchors and task-specific return instructions from both shorter accounts."
+      ],
+      "acceptance_check": "From the revised opening through the completed construction, a reader can identify every input field, determine why the predicate is total, explain why the winner defeats an unpromised rival, and state the three supplier obligations without entering the Gaussian argument. Following the complete route afterward reaches every current proof, including the explicit threshold and universal upper bound, with no new imported mathematical assumption.",
+      "later_resolution": {
+        "lines": [
+          454,
+          462
+        ],
+        "effect": "The explicit preview and skip route resolve interface absence; the surviving finding concerns the full publication-order route."
+      },
+      "outside_source": [
+        {
+          "source_id": "P0",
+          "passage": "§2 construction and §3/§4 reductions",
+          "application": "Use the original dependency contract while retaining this record’s fuller derivations."
+        },
+        {
+          "source_id": "QS13",
+          "passage": "§4 pointer-function definition and certificate discussion, pp.9–12",
+          "application": "Introduce a fixed representation and predicate before deriving its algorithmic roles; the source uses a different function."
+        },
+        {
+          "source_id": "W2",
+          "passage": "§10, printed pp.20–22",
+          "application": "Tie an algorithmic presentation to its operations and invariant, rather than adopting a named style."
+        },
+        {
+          "source_id": "W4",
+          "passage": "pp.361–362",
+          "application": "Keep the research question and main mechanism visible; the record legitimately needs more technical detail than an introduction."
+        }
+      ],
+      "recommendation_class": "editorial_reconstruction_improvement"
+    },
+    {
+      "id": "RR10-002",
+      "paper": "reasoning_record",
+      "perspective": "quantum-algorithms researcher and outsider; source-assisted assessment",
+      "locator": {
+        "section": "§3.4, constructor accounting",
+        "quote": "Adding the final sum, the repeated doublings, three comparisons and three output gates gives",
+        "line_start": 773,
+        "line_end": 779,
+        "pdf_page": 19
+      },
+      "unit_id": "RR10-U00577",
+      "kind": "prerequisite",
+      "severity": "medium",
+      "title": "Make the exact gate-count identity auditable",
+      "feedback": "The prose states an exact formula for S and says it is recovered from the actual constructors. It separates the Walsh term, but does not assign the remaining arithmetic bracket and final +7 to their constructor contributions. The subsequent coarse inequalities are shown. This is a missing accounting explanation, not a verified false size bound.",
+      "why_it_matters": "A reader arriving from the companion for the advertised coefficient 200 can check the algebra after the identity, but cannot reconstruct the identity itself without reverse-engineering the implementation. The text’s exact-equality claim asks more than an asymptotic circuit sketch.",
+      "advice": "Add a compact constructor ledger: constructor or repeated operation, number of calls, gate cost per call, and its contribution to S. Match the constant gates, sign layers, final summation, repeated doublings, comparisons and output gates to every summand. Alternatively give a directly justified upper-bound ledger sufficient for 200 and explicitly stop claiming the unshown exact identity. No new formal theorem or compilation is required.",
+      "available_before": [
+        "The integer representation, signed range, arithmetic operation costs, transform recurrence and output semantics have been explained."
+      ],
+      "missing_bridge": "The term-by-term passage from those already stated constructor costs to the exact S expression.",
+      "confidence": 0.9,
+      "prior_finding_ids": [
+        "RR9-033"
+      ],
+      "outside_source": [
+        {
+          "source_id": "W1",
+          "passage": "§2, organization and allocation of detail",
+          "application": "Omit routine algebra only after the assumptions and decomposition needed to reproduce it are visible."
+        },
+        {
+          "source_id": "P0",
+          "passage": "§2.1, proof of Lemma2.1(iii)",
+          "application": "The original asymptotic circuit argument does not itself certify this reconstruction’s extra exact coefficient."
+        }
+      ],
+      "recommendation_class": "editorial_reconstruction_improvement"
+    },
+    {
+      "id": "RR10-003",
+      "paper": "reasoning_record",
+      "perspective": "quantum-algorithms researcher; cross-document historical check",
+      "locator": {
+        "section": "§4.4, the board carried into the local-test calculation",
+        "quote": "Its board uses Forrelation values $\\Phi=+1$ and $-1$",
+        "line_start": 1926,
+        "line_end": 1930,
+        "pdf_page": 41
+      },
+      "unit_id": "RR10-U01173",
+      "kind": "example",
+      "severity": "medium",
+      "title": "Keep the current worked board identifiable across the companion detour",
+      "feedback": "The record’s §4.3 board uses nonzero values +1/2 and -1/2. Just before its local-test count, §4.4 introduces the exposition’s +1/-1 board and a return instruction; the next paragraph then says “the four-column board.” The numerical statements are qualified correctly, but the reader must recover which board persists. The exposition’s incoming checker link lands at this same alternate-board note. EX9039’s exposition-side relocation was implemented at exposition line 159; this is a new consequence at its receiving lead passage, not a failed original disposition.",
+      "why_it_matters": "The example is supposed to connect one complete input to its tests. An accurate warning about a different board currently interrupts that connection, and the two boards have different projection-decoder probabilities. Shared gate numbering is not identity of input or output law.",
+      "advice": "Call the local object the §4.3 board throughout its test calculation. Complete that calculation before a clearly separated companion-navigation note. In that note identify exactly what transfers—the finite circuit, gate numbering and local-test rules—and what does not—the input values and Phi-dependent decoder law. Rebind the exposition’s checker link to an explicit landing paragraph stating which board the archived checker actually checked. Do not change the 371-test count or claim that a new shared-board experiment was run.",
+      "available_before": [
+        "The lead has fixed its §4.3 input, the true address convention, local tests and their soundness."
+      ],
+      "missing_bridge": "A stable referent from the defined board to the worked test count and a scoped landing point for the other account.",
+      "confidence": 0.9,
+      "prior_finding_ids": [
+        "EX9039"
+      ],
+      "later_resolution": {
+        "lines": [
+          1928,
+          1945
+        ],
+        "effect": "The difference in decoder laws is disclosed; the remaining problem is identity and placement, not an undisclosed numerical inconsistency."
+      },
+      "outside_source": [
+        {
+          "source_id": "QS13",
+          "passage": "§4, pointer representation and acceptance conditions",
+          "application": "Stable concrete input identity supports following a representation into its certificate operations."
+        },
+        {
+          "source_id": "W1",
+          "passage": "§1 worked distance problem and §2 examples",
+          "application": "Make the relevant input assumptions available at the operation they support."
+        }
+      ],
+      "recommendation_class": "editorial_reconstruction_improvement"
+    },
+    {
+      "id": "RR10-004",
+      "paper": "reasoning_record",
+      "perspective": "quantum-algorithms researcher; informed synthesis",
+      "locator": {
+        "section": "§5 opening and tournament entry",
+        "quote": "The algorithm first produces a short list that is likely to contain the winning column and then checks each listed column.",
+        "line_start": 2063,
+        "line_end": 2069,
+        "pdf_page": 45
+      },
+      "unit_id": "RR10-U01279",
+      "kind": "structure",
+      "severity": "medium",
+      "title": "Show one complete bounded evaluator before proving its subroutines",
+      "feedback": "The opening describes the two-stage idea, but the executable stop and output rules arrive separately after the amplification and weight arguments. The two uses of amplification failure have different meanings. Both are eventually explained, so the issue is when the reader can hold one complete program in mind. The later tournament entry also repeats the full parameters and comparison interface after already stating them in Proposition3.2.",
+      "why_it_matters": "A chronological reader carries unresolved control flow through the long subroutine derivation, then rebuilds a second setup before reaching weights. The fixed query cap and final Boolean decision are easier to assess against a visible program.",
+      "advice": "Place a short whole-algorithm block after the §5 opening: at most T list stages, fresh comparison registers, only the measured pivot list retained between stages, stage failure returning that list; then decode, measure and fix a fresh address for each listed candidate before searching its exact local tests for a defect, accepting at the first search reporting failure to find a defect and otherwise returning zero. Give the two amplification parameter pairs (1/(2m),epsilon) and (1/K,epsilon). Refer forward to named contracts whose proofs follow. Replace later duplicate control-flow prose with references to this block. At the §5.2 proof entry retain the derivation of complementarity from the shared circuit and the new error-budget interpretation, but remove the immediately repeated parameter/contract statements. Express the drift as expected remaining weight at most W/2.",
+      "available_before": [
+        "The construction supplies exact local tests, their count K and the all-input decoder cap. The opening has stated the target upper bound and conceptual list-then-check plan."
+      ],
+      "missing_bridge": "A single executable procedure with every exit’s output and the quantitative contracts used by its two calls.",
+      "confidence": 0.9,
+      "prior_finding_ids": [
+        "RR9-094"
+      ],
+      "affected_locators": [
+        {
+          "section": "§5 opening",
+          "line_start": 2045,
+          "line_end": 2072
+        },
+        {
+          "section": "§5.2 statement and repeated setup",
+          "line_start": 2222,
+          "line_end": 2285
+        },
+        {
+          "section": "Sampler exits",
+          "line_start": 2443,
+          "line_end": 2445
+        },
+        {
+          "section": "Verifier and final output",
+          "line_start": 2599,
+          "line_end": 2616
+        }
+      ],
+      "dependency_constraints": [
+        "Keep all T,K,epsilon definitions available in the block.",
+        "Do not make weights accessible to the algorithm.",
+        "All-input caps hold with or without a winner; dominance only controls inclusion probability.",
+        "Sampler failure ends list generation; failed-defect-search can accept a candidate with the stated error.",
+        "Keep the exact successful conditional law and retained-workspace construction in their proofs."
+      ],
+      "acceptance_check": "A reader can execute each exit on an F=1 input and an F=0 input before reading the amplifier proof, then point to the precise later result justifying each success/error guarantee. No algorithm depends on an unknown weight or winner, and the contract appears once in full.",
+      "later_resolution": {
+        "lines": [
+          2443,
+          2616
+        ],
+        "effect": "The complete rules already exist later. The proposal relocates and consolidates them, rather than alleging an undefined algorithm."
+      },
+      "outside_source": [
+        {
+          "source_id": "QS09",
+          "passage": "FSTTCS2023 pp.30:11–30:13, Algorithm4 and Theorem19",
+          "application": "Use a visible main loop and separate invariant/accounting; its fixed-edge theorem is not transferred."
+        },
+        {
+          "source_id": "W2",
+          "passage": "§10 pp.20–22",
+          "application": "Operations and their invariants should explain one another."
+        }
+      ],
+      "recommendation_class": "editorial_reconstruction_improvement"
+    },
+    {
+      "id": "RR10-005",
+      "paper": "reasoning_record",
+      "perspective": "quantum-algorithms researcher and formal-methods reader",
+      "locator": {
+        "section": "§5.2, exact sampler to coupling",
+        "quote": "The compiled version rests on a finite-label statement.",
+        "line_start": 2447,
+        "line_end": 2459,
+        "pdf_page": 54
+      },
+      "unit_id": "RR10-U01532",
+      "kind": "structure",
+      "severity": "medium",
+      "title": "Keep the real transition law in the coupling’s own notation",
+      "feedback": "The correspondence note introduces b, q_x(b), q_x and f_x between the derivation of the exact pivot law and the history-dependent coupling. The next paragraph changes back to list L, weights w_i, total W and f(L). Calling the note a correspondence does not remove this intervening notation and formal-implementation task.",
+      "why_it_matters": "The proof’s central step needs the actual real transition kernel at the current history. A generic formal-law restatement makes the reader translate that kernel just as the coupling is about to use it. The current argument is mathematically adequate; the placement obscures its decisive inference.",
+      "advice": "For an active stage with |L|<T, display Pr[stop|L]=f(L) and Pr[next=i|L]=(1-f(L))w_i(L)/W(L) for W(L)>0, with f(L)=1 when W(L)=0. At |L|=T, return the current list deterministically. State f(L)<=epsilon only at the histories where W(L)/m>=1/(2m). Continue directly to the coupling. Move the generic measured/reset correspondence and source-interface comparison to G.7, leaving one precise pointer here. Preserve the ordinary full-successful-state proof in §5.1 and the formal measured-label distinction.",
+      "available_before": [
+        "The tensor preparation has proved success mass W/m and conditional law w_i/W; bounded amplification preserves that law and the real stopping rule has been stated."
+      ],
+      "missing_bridge": "A direct passage from the real history-conditioned kernel to the coupled marginals, with no intermediate notation or implementation excursion.",
+      "confidence": 0.9,
+      "prior_finding_ids": [
+        "RR9-101"
+      ],
+      "affected_locators": [
+        {
+          "section": "§5.2 correspondence and coupling",
+          "line_start": 2443,
+          "line_end": 2506
+        },
+        {
+          "section": "G.7 measured-label route",
+          "line_start": 6488,
+          "line_end": 6541
+        }
+      ],
+      "dependency_constraints": [
+        "Do not replace the stagewise coupling by conditioning globally on no failure.",
+        "Do not assume independent stage failures.",
+        "Once the winner is listed, later failure cannot remove it.",
+        "The measured-law formal route must not be promoted to a full physical-state equality.",
+        "Apply the sampler transition kernel only at active stages; the fixed T-stage horizon has its own deterministic return rule."
+      ],
+      "acceptance_check": "Read from the end of the exact-law calculation through the real-list bound without a change of mathematical variables. Verify both coupled marginals and the T epsilon stopped-failure charge, then follow one link for the distinct formal interface.",
+      "outside_source": [
+        {
+          "source_id": "P0",
+          "passage": "Proposition3.2 proof, equation(15) and subsequent coupling",
+          "application": "The exact conditional law is the input to the real/ideal comparison."
+        },
+        {
+          "source_id": "QS04",
+          "passage": "§2 Lemma1 and equation(8), pp.5–7",
+          "application": "The invariant good component explains the label law; it does not supply the fixed-cap schedule."
+        }
+      ],
+      "recommendation_class": "editorial_reconstruction_improvement"
+    },
+    {
+      "id": "RR10-006",
+      "paper": "reasoning_record",
+      "perspective": "mathematician outside query complexity; classical specialist validation",
+      "locator": {
+        "section": "§6.1 source alternative and §6.4 optional search estimates",
+        "quote": "Drucker's Theorem 1.1",
+        "line_start": 3247,
+        "line_end": 3261,
+        "pdf_page": 69
+      },
+      "unit_id": "RR10-U01987",
+      "kind": "structure",
+      "severity": "medium",
+      "title": "Finish the planted reduction before its quantitative alternatives",
+      "feedback": "The direct-product-to-planting transition derives an unused global-budget substitution in detail. Later, after the sufficient coefficient-four erased-zero estimate is finished, two stronger search arguments precede the planted-cell simulator. The alternatives are clearly marked and linked; the issue is the full sequential route, which still carries the unfinished planted-cell event through them.",
+      "why_it_matters": "The reader has to retain the target law and the two-location discrepancy decomposition while changing tasks to alternatives whose sharper constants are not needed for the main 6/100 contradiction. The archive-style organization helps readers entering by topic but costs continuity for a complete proof reader.",
+      "advice": "Keep short source credit and the exact separate-cap contract at §6.1. Move the detailed Drucker substitution and the two optional zero-search refinements to a named alternatives subsection after the generic contradiction (or a proof supplement). At the erased-zero point retain (19), one line identifying the alternative formal route, and the direct continuation into the capped predictor. At the relocated entry restate m, the fixed dummy input, the X-query count and the selected-column identity, so the alternatives still work as independent proof destinations. Keep existing incoming anchors or explicit redirects. Relocating the detailed Drucker substitution is discretionary source-organization advice; the stronger surviving concern is the placement of the two full zero-search alternatives.",
+      "available_before": [
+        "The main direct-product result is proved. At §6.4, the erased-zero identity and coefficient-four bound already suffice for the pending discrepancy theorem."
+      ],
+      "missing_bridge": "A continuous derivation from the sufficient erased-zero estimate to the address predictor and final discrepancy, with alternative proofs reachable after the conclusion.",
+      "confidence": 0.85,
+      "prior_finding_ids": [
+        "RR9-145"
+      ],
+      "affected_locators": [
+        {
+          "section": "§6.1 quantitative source comparison",
+          "line_start": 3242,
+          "line_end": 3268
+        },
+        {
+          "section": "§6.4 optional zero-search proofs",
+          "line_start": 3504,
+          "line_end": 3565
+        },
+        {
+          "section": "§6.5–6.6 main continuation",
+          "line_start": 3567,
+          "line_end": 3802
+        }
+      ],
+      "dependency_constraints": [
+        "Keep credit for Drucker and Shaltiel at the direct-product use.",
+        "Preserve the distinction between separate caps and the global-budget theorem.",
+        "Retain the exact search-induction proof that supplies the formal endpoint and its different proof-route status.",
+        "The coefficient-four argument and 6/100 discrepancy must remain complete without the alternatives.",
+        "Restore all local definitions at moved proof entries rather than requiring an undocumented backward search."
+      ],
+      "acceptance_check": "A sequential read from the end of the conditional-value proof through Proposition4.2 uses one selected estimate for each discrepancy term and reaches the contradiction without an unused variant. A separate entry at each preserved alternative anchor reconstructs that variant with its assumptions and provenance.",
+      "outside_source": [
+        {
+          "source_id": "CLS-S01",
+          "passage": "§3, W and Lemmas3.1–3.2 through the product argument",
+          "application": "Keep the operational potential and the factor changed by a query adjacent to its use; do not equate the source headline theorem with the separate-cap contract."
+        },
+        {
+          "source_id": "W2",
+          "passage": "§1 items10–14, pp.2–3",
+          "application": "Sequence information by what the reader needs for the next inference."
+        }
+      ],
+      "recommendation_class": "editorial_reconstruction_improvement"
+    },
+    {
+      "id": "RR10-007",
+      "paper": "reasoning_record",
+      "perspective": "randomized lower-bound researcher; prior-disposition audit",
+      "locator": {
+        "section": "§6.6, source-status qualification",
+        "quote": "the stated theorem stands",
+        "line_start": 3743,
+        "line_end": 3744,
+        "pdf_page": 80
+      },
+      "unit_id": "RR10-U02276",
+      "kind": "evidence_presentation",
+      "severity": "medium",
+      "title": "Complete the previously accepted narrowing of the source-status claim",
+      "feedback": "The remaining sentence says the stated Bansal–Sinha theorem stands. The source check establishes a defect in a displayed inference and says that this does not by itself refute the theorem. It does not certify the rest of the original proof. Line1642 already uses the narrower wording, but the second occurrence identified by RR9-067 was not repaired.",
+      "why_it_matters": "This overstates the scope of the external source audit at the moment the record distinguishes its independently proved prerequisite from the published estimate. The current lower-bound proof does not need this affirmative certification.",
+      "advice": "Replace the phrase with the limited conclusion: the displayed-step defect does not by itself refute the source theorem, and this section uses the prerequisite independently proved in §3. If an affirmative revalidation is intended, identify its alternative argument, exact hypotheses and parameter range. Check both occurrences and Appendix E together.",
+      "available_before": [
+        "The record has proved its needed prerequisite in §3 and has just compared it with the stated published lower bound. Appendix E is advertised as a check of specific displayed steps."
+      ],
+      "missing_bridge": "A valid inference from the bounded source check to its stated conclusion; lack of a refutation is not an affirmative certification.",
+      "confidence": 0.98,
+      "prior_finding_ids": [
+        "RR9-067"
+      ],
+      "later_resolution": {
+        "lines": [
+          6008,
+          6050
+        ],
+        "effect": "Appendix E states the appropriately limited result, and line1642 was repaired. Those passages do not repair the surviving wording at3743."
+      },
+      "outside_source": [
+        {
+          "source_id": "CLS-S02",
+          "passage": "arXiv2008.07003v3 §5.4, pp.37–38; source(5.31)",
+          "application": "The omitted logarithmic factor and inconsistent exceptional term delimit the displayed-inference check."
+        },
+        {
+          "source_id": "CLS-S09",
+          "passage": "arXiv2008.10223v4 Corollaries4.14–4.15, pp.35–36",
+          "application": "The optional SSW-based alternative is a distinct argument with its own scope, not evidence of an author-approved repair to Bansal–Sinha."
+        }
+      ],
+      "recommendation_class": "evidence_scope_repair"
+    },
+    {
+      "id": "RR10-008",
+      "paper": "reasoning_record",
+      "perspective": "formal-methods reader; publication-order synthesis",
+      "locator": {
+        "section": "Appendices F–G, current evidence versus execution archive",
+        "quote": "This appendix records how the formal evidence accumulated.",
+        "line_start": 6127,
+        "line_end": 6128,
+        "pdf_page": 119
+      },
+      "unit_id": "RR10-U03704",
+      "kind": "structure",
+      "severity": "low",
+      "title": "Optional: offer current statement status before the dated execution archive",
+      "feedback": "Appendix F is now explicitly historical and points to the current inventory, so the old complaint that its status is undisclosed is resolved. The complete reading nevertheless traverses the dated archive on pages119–124 before reaching the worked current check and then the statement inventory on page129. This is an optional architectural improvement, not an allegation that historical receipts are presented as fresh runs.",
+      "why_it_matters": "A reader asking what the current theorem claims must hold multiple snapshots, denominators and comparison scopes before reaching the present statement map. The history is easier to interpret once that map is known.",
+      "advice": "Optionally reorder the formal-evidence part by current task: one worked statement check, current central-statement inventory, model and transport explanations, then historical execution chronology. Retain the full archive as a final subsection or separately linked evidence artifact. Keep the current/historical sidecar field distinction and the qualified source-byte relationships; moving the material does not create new execution evidence.",
+      "available_before": [
+        "The mathematical argument, catalogue and source comparisons have been read. The current formal statement route is linked but its full explanation appears later."
+      ],
+      "missing_bridge": "Place the already available current statement-and-evidence frame before the archive, so it gives the chronology a stable referent.",
+      "confidence": 0.82,
+      "affected_locators": [
+        {
+          "section": "Execution archive",
+          "line_start": 6125,
+          "line_end": 6232
+        },
+        {
+          "section": "Worked check and current inventory",
+          "line_start": 6233,
+          "line_end": 6459
+        },
+        {
+          "section": "Detailed transports",
+          "line_start": 6461,
+          "line_end": 6648
+        }
+      ],
+      "dependency_constraints": [
+        "Keep source presence, statement correspondence, build, named comparison and semantic review as distinct claims.",
+        "Do not treat an older unelaborated comment as later execution status.",
+        "Keep the measured-label route separate from the optional stronger physical-state target.",
+        "Preserve the historical archive and its receipt-specific source bindings."
+      ],
+      "acceptance_check": "A reader entering the formal part can identify the four configured Unconditional targets, the explicit-constants theorem’s different status, the ordinary 13669k² threshold, and the selected proof route before reading historical counts. Each historical observation then has an identifiable snapshot and scope.",
+      "later_resolution": {
+        "lines": [
+          6127,
+          6137
+        ],
+        "effect": "The explicit archive label and snapshot index resolve the earlier disclosure concern. This finding recommends a different ordering for the complete route."
+      },
+      "outside_source": [
+        {
+          "source_id": "W3",
+          "passage": "§§2–4.4, explicit goals and hierarchical proof obligations",
+          "application": "Put the current question and its obligations before supporting detail; do not import TLA+ syntax or a universal proof style."
+        }
+      ],
+      "recommendation_class": "optional_architecture"
+    }
+  ],
+  "impact_ranking": [
+    "RR10-001",
+    "RR10-005",
+    "RR10-004",
+    "RR10-007",
+    "RR10-002",
+    "RR10-003",
+    "RR10-006",
+    "RR10-008"
+  ]
+}

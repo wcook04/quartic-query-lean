@@ -1,0 +1,87 @@
+hold for the hardness and floor estimates. The fixed-$k$ formulation allows the threshold to depend on $k$. (With natural logarithms the coefficient becomes \((\ln 2)^2/400\).)
+
+[B1134 L3799-3800]
+Because the generic proof works for every realizing circuit, with a threshold independent of that circuit, the same circuit can witness both sides of the eventual separation. Section 7 combines this lower bound with the upper bound on the same function, obtaining exponent \(4-2/k\) up to logarithms for fixed \(k\); varying the fixed choice of \(k\) then rules out each universal exponent below four. For each single fixed \(k\) the exponent stays below four, so the argument yields no exact fourth-power family.
+<!-- /passage:CL-concrete-lower -->
+
+[B1135 L3803-3803]
+## 7. The optimal exponent
+
+[B1136 L3805-3805]
+We now combine the two bounds for the same functions and compute the infimum.
+
+[B1137 L3807-3809]
+<a id="ROOT-FAMILY-ASSEMBLY"></a>
+<!-- passage:ROOT-FAMILY-ASSEMBLY -->
+The construction defeats every proposed universal power below four, and together with the quartic upper bound of Appendix A this gives
+
+[B1138 L3810-3812]
+\[
+\alpha_{\mathrm{tot}}=4.
+\]
+
+[B1139 L3813-3813]
+Here \(R\) and \(Q\) are the minimum worst-case query caps for success probability at least \(2/3\) on every input, and the exponent is defined by
+
+[B1140 L3814-3818]
+\[
+\alpha_{\mathrm{tot}}=\inf\left\{\alpha\geq0:
+\exists K>0\ \forall n\geq1\ \forall f:\{0,1\}^n\to\{0,1\},
+\quad R(f)\leq K(1+Q(f))^\alpha\right\}.
+\]
+
+[B1141 L3819-3819]
+The universal bound must hold with one constant for every total Boolean function and every input length. We choose the construction parameter after the proposed exponent and then let the function's size tend to infinity with that parameter fixed, following the argument of [OpenAI (2026), §5, printed p. 14][OpenAI2026].
+
+[B1142 L3821-3821]
+We first collect the two estimates for the same functions. Fix \(k\geq2\), write \(m=4^t\), and let \(C_{k,t}\) be the exact circuit for the promise and value of \(P_{k,m}\) constructed in §3.17. In the notation of §4, set \(F_{k,m}=F_{k,m}[C_{k,t}]\). The quantum estimate of §5.4 and the randomized estimate of §6.6 give constants \(C_k>0\), \(b_k\in\mathbb N\), and \(t_0(k)\) such that
+
+[B1143 L3822-3829]
+\[
+Q(F_{k,m})\leq C_k\sqrt m\,(\log_2m)^{b_k},
+\qquad
+R(F_{k,m})\geq\frac1{400}\,
+\frac{m^{2-1/k}}{(\log_2m)^2}
+\qquad(t\geq t_0(k)).
+\tag{7.1}
+\]
+
+[B1144 L3830-3830]
+The quantum estimate allows \(b_k=6\) for every \(k\); its constant and the threshold may depend on \(k\) and are independent of \(t\), and the circuit has size \(O_k(m(\log_2m)^2)\). Both inequalities in (7.1) concern this one circuit, since a separation needs a single function witnessing both estimates. These are the conclusions of [OpenAI (2026), Propositions 3.3 and 4.2][OpenAI2026]; the explicit logarithmic power and floor constant come from the accompanying formal development.
+
+[B1145 L3832-3833]
+The lower estimate in (7.1) is Proposition 4.2 combined with the floor calculation of [§6.6](#CL-floors): for \(t\geq8\), \(G=\lfloor mL/100\rfloor\geq\frac1{400}m^{2-1/k}/(\log_2m)^2\), as a plain inequality. Enlarging \(t_0(k)\) to cover eight and the fixed-\(k\) Forrelation threshold proves (7.1).
+<!-- /passage:ROOT-FAMILY-ASSEMBLY -->
+
+[B1146 L3835-3835]
+### 7.1. A fixed parameter and a strict exponent gap
+
+[B1147 L3837-3839]
+<a id="ROOT-RATIO"></a>
+<!-- passage:ROOT-RATIO -->
+Fix \(0\leq\alpha<4\). Choose an integer \(k\geq2\) with
+
+[B1148 L3840-3843]
+\[
+k>\frac{2}{4-\alpha}.
+\tag{7.2}
+\]
+
+[B1149 L3844-3844]
+This choice ensures that
+
+[B1150 L3845-3847]
+\[
+\varepsilon_\alpha=2-\frac1k-\frac\alpha2>0.
+\]
+
+[B1151 L3848-3848]
+We keep \(k\) fixed from now on. Since \(\sqrt m(\log_2m)^{b_k}\geq1\) for \(m\geq4\), the upper estimate in (7.1) gives
+
+[B1152 L3849-3851]
+\[
+1+Q(F_{k,m})\leq(1+C_k)\sqrt m\,(\log_2m)^{b_k}.
+\]
+
+[B1153 L3852-3852]
+All bases are positive and \(\alpha\geq0\), so exponentiation preserves this inequality, an

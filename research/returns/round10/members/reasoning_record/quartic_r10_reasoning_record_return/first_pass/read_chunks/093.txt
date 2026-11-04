@@ -1,0 +1,58 @@
+al expectations directly, without Mathlib's supermartingales. It reuses the one-input optimization lemmas, and does not invoke
+the older multi-input direct-product theorem to prove its endpoint.
+
+[B2204 L6557-6567]
+The round-four integration added the
+[direct product on the cap event][cmp-direct-product] as an endpoint, accepted by
+Comparator. It covers a finite seed space with arbitrary nonnegative weights
+summing to one, each seed selecting an initially uncapped tree, and bounds the
+weighted joint event that every instance is answered correctly and no
+instance exceeds its cap of $L$ queries by $\beta^r$. [Compliance with the caps][src-complies] is
+a recursive predicate, which follows the path taken on the
+given input and decrements the cap of each queried instance. The observable
+[query count][src-count], the number of queries that path makes to each instance,
+is defined separately, and the equivalence of the two descriptions is not a
+Lean theorem.
+
+[B2205 L6569-6569]
+**Ordinary cap-count identification.** At a leaf, every observable count is zero and recursive compliance holds. At a query to instance $h$, compliance requires $c_h>0$ and applies the same condition to the chosen subtree with $c_h$ lowered by one. The path count for $h$ is one plus its subtree count; other counts are unchanged. Induction therefore identifies recursive compliance with the condition that each instance is queried at most its cap. This is an ordinary proof, not a new formal declaration.
+
+[B2206 L6571-6577]
+Arbitrary measurable
+external randomness is handled by the ordinary [finite-behavior reduction in §6.1](#CL-independent-information),
+not by a Lean theorem. The arbitrary-information reduction, the generic
+joint-event truncation corollary and the combined identity (6.11) are ordinary
+deductions supplied here. The worked example is a separate exact finite
+calculation.
+<!-- /passage:CL-direct-product-formal -->
+
+[B2207 L6579-6580]
+<a id="CL-formal-scope"></a>
+<!-- passage:CL-formal-scope -->
+
+[B2208 L6582-6582]
+In the Lean development an older core theorem proves the one-sided planted discrepancy inequality, and the supplied Paper wrapper states the stronger absolute-value endpoint, which follows from the coupling argument and the stronger search estimate. These formal endpoints do not identify the alternative proof with the paper's early/late derivation.
+
+[B2209 L6584-6584]
+The retained [planted correspondence](../research/returns/round3/members/07_planted_lower_bound/correspondence.json) records the packet's complete source signatures, compiler-reported types, hypotheses and historical receipts. The [integrated correspondence](reasoning_record_correspondence.json) adds the maintained conjunction wrappers and keeps each evidence observation bound to its own source.
+
+[B2210 L6586-6586]
+**The whole equation (19).** There are two complete conjunctions, ordinarily equivalent by substituting their common equality:
+
+[B2211 L6587-6596]
+\[
+ \begin{aligned}
+ &\left(\Pr[\mathrm{hit}]=\frac{\mathbb E Z}{m}\right)
+ \ \wedge\
+ \left(\Pr[\mathrm{hit}]\le\frac{4G}{m^2}\right),\\
+ &\left(\Pr[\mathrm{hit}]=\frac{\mathbb E Z}{m}\right)
+ \ \wedge\
+ \left(\frac{\mathbb E Z}{m}\le\frac{4G}{m^2}\right).
+ \end{aligned}
+\]
+
+[B2212 L6597-6597]
+Both use one nonnegative normalized law $\mu$, one deterministic query tree $T$ and $\operatorname{depth}(T)\le G$. Their formal column size is $2^\ell$, with $\ell=2t$ giving $m=4^t$; no promise-support or hardness premise is required.
+
+[B2213 L6599-6599]
+The [whole erased-zero theorem][src-equation-19] gives the first conjunction; the [identity with the bound on the divided expectation][src-equation-19-expectation] gives the second. The [identity alone][src-erased-zero-identity] is algebraically valid for arbitrary finite real weights, while interpreting it as a probability needs normalization and nonnegativity. The older [erased-zero bound][src-erased-zero-bound] supplies only the hit-probability upper bound. Exact execution evi

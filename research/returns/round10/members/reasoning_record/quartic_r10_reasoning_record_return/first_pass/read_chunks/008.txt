@@ -1,0 +1,70 @@
+\end{pmatrix}.
+\]
+
+[B0649 L2108-2108]
+By the addition formulas, applying this matrix to a vector with coordinates $(\sin\alpha,\cos\alpha)$ gives $(\sin(\alpha+2\theta),\cos(\alpha+2\theta))$. Induction on the nonnegative integer $j$, starting at $\alpha=\theta$, therefore gives the state and success formula:
+
+[B0650 L2110-2110]
+<!-- claim:claim-grover-state -->
+
+[B0651 L2111-2116]
+$$
+G^j\psi
+ =\sin((2j+1)\theta)g+\cos((2j+1)\theta)b,
+\qquad
+\Pr[\text{success after }j]=\sin^2((2j+1)\theta).
+$$
+
+[B0652 L2118-2118]
+Projection onto success removes the $b$ term, so whenever success has nonzero probability the normalized result is $g$ or $-g$. This conclusion concerns the whole workspace, including any registers in which $A$ has recorded intermediate data, and so it is stronger than a statement about the probability of a success flag alone.
+
+[B0653 L2120-2121]
+At $p=0$ the state lies in the failure subspace, where the success reflection fixes it; since the reflection about $\psi$ also fixes $\psi$, every iterate has zero success probability. At $p=1$ the success reflection sends $\psi$ to $-\psi$, so every iterate remains a scalar multiple of $\psi$ in the success subspace. Both endpoint cases are thus settled without normalizing a zero component.
+<!-- /passage:upper-grover-geometry -->
+
+[B0654 L2123-2124]
+<a id="upper-grover-trial"></a>
+<!-- passage:upper-grover-trial -->
+
+[B0655 L2126-2126]
+This is the trial-count construction used in the [exposition, Section 4](exposition.md#4-the-quantum-algorithm-a-tournament); the successful-state geometry precedes it and the averaged failure bound follows it.
+
+[B0656 L2128-2128]
+The procedure has two integer parameters: the iteration-range size $M$ within one trial, and the maximum number $N$ of fresh trials. Use natural logarithms in the second expression:
+
+[B0657 L2130-2130]
+<!-- claim:def-grover-trial -->
+
+[B0658 L2131-2135]
+$$
+M=\left\lceil\frac{10}{\sqrt\gamma}\right\rceil,
+\qquad
+N=\left\lceil\frac{\ln(1/\eta)}{\ln(40/31)}\right\rceil.
+$$
+
+[B0659 L2137-2137]
+In one trial we set $j=0$ with probability $1/2$ and otherwise, with the remaining probability $1/2$, choose $j$ uniformly from $0,\ldots,M-1$; we then prepare $\psi$, apply $G^j$, and measure success. We run at most $N$ such trials on freshly initialized registers, stop at the first success, and return failure if none succeeds. Equivalently, each iteration count $j<M$ receives probability $1/(2M)$ and zero receives an additional $1/2$, so the distribution is finite and fixed before any access to the input. The zero-iteration half protects preparations that already succeed often; the randomized iterations handle small success probabilities without risking a fixed overshoot. More iterations need not increase success monotonically.
+
+[B0660 L2139-2140]
+One preparation followed by $j$ iterates uses $2j+1$ calls to $A$ or $A^{-1}$, and the elementary reflections $S_0$ and $S_\chi$ add no further calls to $A$ or $A^{-1}$. As $j<M$, a trial makes at most $2M-1$ calls; the formal construction charges the convenient upper bound $2M+1$. Stopping after $N$ trials therefore gives a syntactic cap that holds for every input and every sequence of outcomes, with no success assumption.
+<!-- /passage:upper-grover-trial -->
+
+[B0661 L2142-2143]
+<a id="upper-average-exact"></a>
+<!-- passage:upper-average-exact -->
+
+[B0662 L2145-2145]
+We control the randomized iteration count by the exact averaging identity of Boyer, Brassard, Høyer and Tapp [BBHT1996, §4, Lemma 2, p. 3], which strengthens the inequality in OpenAI's equation (9):
+
+[B0663 L2147-2147]
+<!-- claim:new-upper-average-exact -->
+
+[B0664 L2148-2152]
+$$
+\frac1M\sum_{j=0}^{M-1}\sin^2((2j+1)\theta)
+ =\frac12-\frac{\sin(4M\theta)}{4M\sin(2\theta)}
+ \quad(M\geq1,\ \sin(2\theta)\ne0).
+$$
+
+[B0665 L2154-2155]
+To prove it, we write $\sin^2 u=(1-\cos(2u))/2$. The difference between $\sin(4(j+1)\theta)$ and $\sin(4j\theta)$ is $2\sin(2\theta)\cos((4j+2)\theta)$, so summing this equality over $j=0,\ldots,M-

@@ -1,0 +1,32 @@
+CORRESPONDENCE) and binds the supplied source bytes. The reviewed type-and-axiom audit separately covers the newer named-family and quotient declarations. The timestamped Unconditional Comparator receipt covers the final compared declarations, not every explanatory helper. The challenges share the maintained definitions and theorem specifications; independent compilation does not make them independently authored mathematical tests. These descriptions identify the earlier supplied receipts. The round-three integration of 2 November also performed the new root build, named comparisons and paranoid check recorded in [F.1](#history-evidence-convention); that execution does not create additional helper theorems or extend the earlier selected type-and-axiom audit.
+<!-- /passage:history-exponent-evidence -->
+
+[B2069 L6224-6227]
+<a id="history-appendix-a-evidence"></a>
+<!-- passage:history-appendix-a-evidence -->
+The source-bound native receipts record successful compilation of the ten `Paper/AppendixA*.lean` modules. After the root build, the recorded type and allowed-axiom audit passed for the reviewed declarations. This supersedes the historical “unelaborated” comments retained in the source and the baseline's statements that these intermediate theorems have no formal ties. The Appendix-specific type-and-axiom audit is retained evidence from the earlier review. The round-three integration of 2 November also performed a new root build and the named comparisons recorded in [F.1](#history-evidence-convention); it does not claim a new Appendix-specific type-and-axiom audit. The complete types, exact source hashes and receipt locations are in the [Appendix A correspondence](../research/returns/round3/members/08_reviewed/quartic_r3_08_return/correspondence.json).
+<!-- /passage:history-appendix-a-evidence -->
+
+[B2070 L6229-6229]
+### F.7. Earlier drafts
+
+[B2071 L6231-6231]
+The earlier [short expert draft](../research/returns/funnel/2_short_expert_paper/) and [examples-first draft](../research/returns/funnel/3_examples_first_exposition/) are preserved advisory returns from an earlier round. The maintained [expert companion](expert_companion.md) and [exposition](exposition.md) are the current reading copies. The archived drafts have not been refreshed against this integration. Their main theorem belongs to §§1 and 7 here; their construction, tournament and planted proof belong to §§4, 5 and 6.
+
+[B2072 L6233-6233]
+## Appendix G. Formal statements and evidence
+
+[B2073 L6235-6236]
+<a id="formal-appendix"></a>
+A Lean 4 formalization accompanies this record. Its four headline targets are the separation family, the optimal exponent, failure of a cubic bound and eventual fixed-$k$ Forrelation hardness. They are written in the separate [statement file][statement-file] against definitions of the query models, and Comparator checks that separately compiled proofs establish those types using only the three standard axioms. This appendix describes what the formalization checks and where its statements differ from the claims of the record. No person has reviewed the definitions, the proofs or this record.
+
+[B2074 L6238-6238]
+### G.1. Checking one statement
+
+[B2075 L6240-6241]
+<a id="record-statement-check"></a>
+One configured statement, checked against Theorem 1.1, shows what the formalization establishes.
+
+[B2076 L6243-6247]
+1. Read the [compared headline theorem][thm-headline] beside Theorem 1.1 in §1. Its quantifiers run $\forall k\ \exists S,A,b,t_0\ \forall t\ \exists\mathcal C$, with one circuit for both bounds. Here $S$ is a coefficient in $\mathcal C.\mathrm{size}\le S\,m(2t)^2$, not the earlier actual gate count; $A$ is the quantum-query coefficient, $b$ its logarithmic exponent and $t_0$ the dyadic-size threshold. Its lower bound is the integer form $\lfloor mL/100\rfloor<R(F_{k,m})$, which implies (2) by the floor calculation of §6.6.
+2. Read the [definition of $R$][def-R] and the [definition of $Q$][def-Q] in the same file against §§2.1–2.4: 

@@ -1,0 +1,54 @@
+st is exact. Thus the failure-detection probability is zero when all tests pass and at least $1/K$ for a nonwinner at any proposed address. The later search routine uses the evaluator and its inverse with the retained work registers. A theorem only about this uniform distribution would not, by itself, supply the arbitrary-index action (4.15).
+<!-- /passage:AC-uniform-sampler -->
+
+[B0614 L2001-2001]
+### 4.7. Why a winner defeats an unpromised opponent
+
+[B0615 L2003-2005]
+<a id="AC-comparison"></a>
+<!-- passage:AC-comparison -->
+For distinct columns $i,j$, the comparison routine in §5.3 decodes one address label for each column and, at those labels, follows the pointer from each column into the other, disqualifying a column if the other column's pointer finds a zero in its $X$-string. If exactly one is disqualified, the other wins; a fixed rule resolves the remaining cases. On every raw input each decoded label is a bit string, possibly unrelated to any true address, and it is produced within a query cap fixed for all inputs.
+
+[B0616 L2007-2007]
+**Winner-comparison implication.** Fix $0<\varepsilon<1/2$, and suppose column $i^\star$ wins. For any opponent $j\ne i^\star$, every proposed rival address $a$, and every pointer stored there,
+
+[B0617 L2009-2012]
+$$
+X_{i^\star}[p_{j,a,i^\star}]=1.
+\tag{4.17}
+$$
+
+[B0618 L2014-2014]
+This follows from the winner's all-one string alone, so the winner is never disqualified. Whenever its own decoder returns its true address $s_{i^\star}$, its outward pointer satisfies
+
+[B0619 L2016-2019]
+$$
+X_j[p_{i^\star,s_{i^\star},j}]=0,
+\tag{4.18}
+$$
+
+[B0620 L2021-2021]
+so the rival is disqualified and the tie rule plays no part on this event. Therefore
+
+[B0621 L2023-2028]
+$$
+\Pr[i^\star\text{ wins against }j]
+\ \geq\ \Pr[\widehat s_{i^\star}=s_{i^\star}]
+\ \geq\ 1-\varepsilon.
+\tag{4.19}
+$$
+
+[B0622 L2030-2030]
+For the last inequality, we run the promised decoder on each of the winner's $r$ instances with error at most $\varepsilon/r$ and apply the union bound; all those promises hold by (4.5). The event inclusion itself holds for every rival decoder and every joint distribution of the two output labels. The numerical lower bound $1-\varepsilon$ additionally requires that the winner's marginal decoder law returns its true address with probability at least $1-\varepsilon$. In the coherent implementation the decoded labels are retained in orthogonal registers that control the later pointer operations, so projection onto a comparison result adds the probabilities of the corresponding label blocks and the same event calculation applies.
+
+[B0623 L2032-2033]
+In the example, column 2 can propose $00$, $01$, $10$, or $11$, and can direct its incoming pointer to any of the four rows of column 1, where it always reads a one, while the true cell $B_{1,10}$ always points to the zero at row 1 of column 2. The checker confirms this for all 16 rival-label/target choices, and for all 48 choices once the other two rivals are included. The tournament in §5 uses this property; comparisons between two nonwinners remain unrestricted.
+<!-- /passage:AC-comparison -->
+
+[B0624 L2035-2035]
+### 4.8. Antecedents of the construction
+
+[B0625 L2037-2039]
+<a id="AC-attribution"></a>
+<!-- passage:AC-attribution -->
+Göös, Pitassi and Watson use a unique all-one column with a pointer chain through one zero in each other column [GPW2018, Theorem 5 and §2.1, pp. 3–5 of the ECCC revision](https://eccc.weizmann.ac.il/report/2015/050/). Their pointers make the accepting certificate unique while the search for it stays hard, and the uniqueness argument of §4.2 inherits that role. Here the pointers run directly from the winner to a zero in every other column, and this direction makes each comparison with the winner reliable (§4.7). Addressing a certificate array by partial-function answers follows the cheat-sheet framework of Aaronson, Ben-David and Kothari [ABK2019, §6.1, Definitions 14–15, pp. 20–21]. Their Lemma 17, p. 22, gives the evaluate-t

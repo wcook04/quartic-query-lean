@@ -1,0 +1,257 @@
+{
+  "schema": "quartic-round10-input-integrity-review-v1",
+  "checked_at_utc": "2026-11-04T16:29:37.189005+00:00",
+  "archive": {
+    "path": "/workspace/scratch/1069a698c5e0/upload/quartic_r10_exposition(1).zip",
+    "bytes": 65106494,
+    "sha256": "80e55fc941d2952b0d9283229fbafd9e50da97c3d0885d14734caf2cf174dbb2",
+    "entry_count": 6176,
+    "file_entry_count": 6176,
+    "uncompressed_bytes": 194444415,
+    "crc_test_first_bad_member": null,
+    "duplicate_names": {},
+    "unsafe_names": [],
+    "symlink_entries": [],
+    "encrypted_entries": []
+  },
+  "manifest": {
+    "path": "manifest.json",
+    "sha256": "a3c79f4a79fe42e92705d8a377e650307b5e3b5d35deece8df2d8fd686534e1f",
+    "listed_member_count": 6174,
+    "unique_listed_member_count": 6174,
+    "duplicate_member_rows": {},
+    "unlisted_archive_entries": [
+      "READ_ME_FIRST.md",
+      "manifest.json"
+    ],
+    "listed_members_absent_in_archive": [],
+    "errors": []
+  },
+  "extracted_copy": {
+    "path": "/workspace/scratch/1069a698c5e0/input",
+    "compared_entry_count": 6176,
+    "errors": []
+  },
+  "draft_hashes": [
+    {
+      "path": "repository/docs/expert_companion.bib",
+      "source_status_sha256": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+      "actual_sha256": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+      "matches_source_status": true,
+      "matches_manifest_draft": true
+    },
+    {
+      "path": "repository/docs/expert_companion.md",
+      "source_status_sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "actual_sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "matches_source_status": true,
+      "matches_manifest_draft": true
+    },
+    {
+      "path": "repository/docs/expert_companion.pdf",
+      "source_status_sha256": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+      "actual_sha256": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+      "matches_source_status": true,
+      "matches_manifest_draft": true
+    },
+    {
+      "path": "repository/docs/exposition.bib",
+      "source_status_sha256": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+      "actual_sha256": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+      "matches_source_status": true,
+      "matches_manifest_draft": true
+    },
+    {
+      "path": "repository/docs/exposition.md",
+      "source_status_sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+      "actual_sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+      "matches_source_status": true,
+      "matches_manifest_draft": true
+    },
+    {
+      "path": "repository/docs/exposition.pdf",
+      "source_status_sha256": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+      "actual_sha256": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+      "matches_source_status": true,
+      "matches_manifest_draft": true
+    },
+    {
+      "path": "repository/docs/reasoning_record.bib",
+      "source_status_sha256": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+      "actual_sha256": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+      "matches_source_status": true,
+      "matches_manifest_draft": true
+    },
+    {
+      "path": "repository/docs/reasoning_record.md",
+      "source_status_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "actual_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "matches_source_status": true,
+      "matches_manifest_draft": true
+    },
+    {
+      "path": "repository/docs/reasoning_record.pdf",
+      "source_status_sha256": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7",
+      "actual_sha256": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7",
+      "matches_source_status": true,
+      "matches_manifest_draft": true
+    }
+  ],
+  "render_provenance": [
+    {
+      "paper": "expert_companion",
+      "pdf_path": "repository/docs/expert_companion.pdf",
+      "expected_pdf_sha256": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+      "actual_pdf_sha256": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+      "pdf_matches": true,
+      "inputs": [
+        {
+          "path": "repository/docs/expert_companion.bib",
+          "expected_sha256": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+          "actual_sha256": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+          "matches": true
+        },
+        {
+          "path": "repository/docs/expert_companion.md",
+          "expected_sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+          "actual_sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+          "matches": true
+        },
+        {
+          "path": "repository/docs/figures/expert_column.tex",
+          "expected_sha256": "2b04f8d05910d176ac8a5f3c581baa98fef0d994385aca4dc1e3e7dd950026eb",
+          "actual_sha256": "2b04f8d05910d176ac8a5f3c581baa98fef0d994385aca4dc1e3e7dd950026eb",
+          "matches": true
+        },
+        {
+          "path": "repository/docs/figures/expert_planted.tex",
+          "expected_sha256": "7765359db5724588a2459ab5d68b33dd3a744049f2a973269a85f7752dc339f8",
+          "actual_sha256": "7765359db5724588a2459ab5d68b33dd3a744049f2a973269a85f7752dc339f8",
+          "matches": true
+        },
+        {
+          "path": "repository/tools/render_papers.py",
+          "expected_sha256": "e3b311d62d401f0dc58b178a9efa213f44ac7d270b3e4fd16bfb8d1550edefb7",
+          "actual_sha256": "e3b311d62d401f0dc58b178a9efa213f44ac7d270b3e4fd16bfb8d1550edefb7",
+          "matches": true
+        }
+      ],
+      "interpretation": "Hash consistency with supplied provenance; does not independently attest execution, rendered appearance, or acceptance."
+    },
+    {
+      "paper": "exposition",
+      "pdf_path": "repository/docs/exposition.pdf",
+      "expected_pdf_sha256": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+      "actual_pdf_sha256": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+      "pdf_matches": true,
+      "inputs": [
+        {
+          "path": "repository/docs/exposition.bib",
+          "expected_sha256": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+          "actual_sha256": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+          "matches": true
+        },
+        {
+          "path": "repository/docs/exposition.md",
+          "expected_sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+          "actual_sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+          "matches": true
+        },
+        {
+          "path": "repository/docs/figures/exposition/fig1_column.tex",
+          "expected_sha256": "38b7ffa995a54c1450d8c81eee1972102af2d055b3df1df74e6d5a30afd608f7",
+          "actual_sha256": "38b7ffa995a54c1450d8c81eee1972102af2d055b3df1df74e6d5a30afd608f7",
+          "matches": true
+        },
+        {
+          "path": "repository/docs/figures/exposition/fig2_board.tex",
+          "expected_sha256": "b07957d1341efed364feafe0cc80931ac2e9f7bfee03b021d9eee5cb843be8b7",
+          "actual_sha256": "b07957d1341efed364feafe0cc80931ac2e9f7bfee03b021d9eee5cb843be8b7",
+          "matches": true
+        },
+        {
+          "path": "repository/docs/figures/exposition/fig3_tournament.tex",
+          "expected_sha256": "8d7f225f7003d9e0fc9687ab733f78ae91a98913f3efb0a68735c9043a2385c3",
+          "actual_sha256": "8d7f225f7003d9e0fc9687ab733f78ae91a98913f3efb0a68735c9043a2385c3",
+          "matches": true
+        },
+        {
+          "path": "repository/docs/figures/exposition/fig4_planted.tex",
+          "expected_sha256": "78158ce0e8e219ef3ab71f5027143a9ad0627e348f43c1326abf87037687ed70",
+          "actual_sha256": "78158ce0e8e219ef3ab71f5027143a9ad0627e348f43c1326abf87037687ed70",
+          "matches": true
+        },
+        {
+          "path": "repository/docs/figures/exposition/style.tex",
+          "expected_sha256": "b63231827c3f07218f2004beba07a62deba4d7bef1ef1b12c7d8dbb425b34380",
+          "actual_sha256": null,
+          "matches": false
+        },
+        {
+          "path": "repository/tools/render_papers.py",
+          "expected_sha256": "e3b311d62d401f0dc58b178a9efa213f44ac7d270b3e4fd16bfb8d1550edefb7",
+          "actual_sha256": "e3b311d62d401f0dc58b178a9efa213f44ac7d270b3e4fd16bfb8d1550edefb7",
+          "matches": true
+        }
+      ],
+      "interpretation": "Hash consistency with supplied provenance; does not independently attest execution, rendered appearance, or acceptance."
+    },
+    {
+      "paper": "reasoning_record",
+      "pdf_path": "repository/docs/reasoning_record.pdf",
+      "expected_pdf_sha256": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7",
+      "actual_pdf_sha256": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7",
+      "pdf_matches": true,
+      "inputs": [
+        {
+          "path": "repository/docs/reasoning_record.md",
+          "expected_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+          "actual_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+          "matches": true
+        },
+        {
+          "path": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_header.tex",
+          "expected_sha256": "9817af5f1cbe1ae754962776f5f5a9cd94c5cda1243a4844fb4810544261e468",
+          "actual_sha256": "9817af5f1cbe1ae754962776f5f5a9cd94c5cda1243a4844fb4810544261e468",
+          "matches": true
+        },
+        {
+          "path": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_layout.lua",
+          "expected_sha256": "fa01ab1345f461ecea15aba9bd4855b55c4683797dbd4040348b045d47557253",
+          "actual_sha256": "fa01ab1345f461ecea15aba9bd4855b55c4683797dbd4040348b045d47557253",
+          "matches": true
+        },
+        {
+          "path": "repository/research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/render_section.py",
+          "expected_sha256": "f52c6ae0ee39915ccce36953afd00c76071f19bb43d6407651694c61032edaab",
+          "actual_sha256": "f52c6ae0ee39915ccce36953afd00c76071f19bb43d6407651694c61032edaab",
+          "matches": true
+        },
+        {
+          "path": "repository/tools/render_reasoning_record.py",
+          "expected_sha256": "1c46bf4047f4f2d9ecc93bd8369c0fd7f1c3d4ca693197a4cc6ed01e383bb901",
+          "actual_sha256": "1c46bf4047f4f2d9ecc93bd8369c0fd7f1c3d4ca693197a4cc6ed01e383bb901",
+          "matches": true
+        }
+      ],
+      "interpretation": "Hash consistency with supplied provenance; does not independently attest execution, rendered appearance, or acceptance."
+    }
+  ],
+  "request_hash": {
+    "manifest_request_sha256": "631b5f823704fd1b21c23563a2485a4ce461b31ced20d6e3f876c7629a6f5580",
+    "read_me_first_sha256": "631b5f823704fd1b21c23563a2485a4ce461b31ced20d6e3f876c7629a6f5580",
+    "matches": true,
+    "interpretation": "A different value is reported without assuming which pre-packaging request bytes the field describes."
+  },
+  "status": "inspect_discrepancies",
+  "procedure": [
+    "Inspected only archive entry metadata and the three allowed metadata files: manifest.json, SOURCE_STATUS.json, RENDER_PROVENANCE.json.",
+    "Read every archive member as bytes solely for CRC/length/SHA-256 checks; no manuscript, historical review, or literature content was interpreted.",
+    "Compared all manifest rows against archive bytes and every archive member against the extracted file.",
+    "Compared supplied draft and render-provenance hashes to byte hashes, without rerunning any build or rendering."
+  ],
+  "limitations": [
+    "A checksum match establishes byte identity, not mathematical validity, chronological provenance, successful Lean execution, or human/agent visual approval.",
+    "The archive may faithfully preserve stale or incomplete metadata; this audit only identifies literal comparisons."
+  ]
+}

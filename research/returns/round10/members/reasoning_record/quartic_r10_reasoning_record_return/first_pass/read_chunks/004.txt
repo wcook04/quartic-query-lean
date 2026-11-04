@@ -1,0 +1,41 @@
+ion of labels, and in its retained-workspace form it acts as
+
+[B0606 L1968-1973]
+$$
+\sum_{e\in E}\alpha_e\,|e\rangle|0_e\rangle
+\longmapsto
+\sum_{e\in E}\alpha_e\,|e\rangle|\psi_{e,y}\rangle,
+\tag{4.15}
+$$
+
+[B0607 L1975-1975]
+where the coefficients $\alpha_e$ are arbitrary, each $\psi_{e,y}$ has norm one, and its output label equals $g_e(y;i,s)$ with certainty. Normalization of the whole state requires $\sum_e|\alpha_e|^2=1$, while the linear identity holds for all coefficients. The test workspaces may have index-dependent finite dimensions, embedded into one finite workspace, and their dimensions and initial states are fixed before the input is given. The index register stays unmeasured, so the controlled unitary has exactly the linear action (4.15). The index can become entangled with the final workspace state, which may depend on $y$ and remains available for inversion.
+
+[B0608 L1977-1977]
+**Proof and query count.** For each test we run its decision tree from (4.13). At every level we retain the earlier answers and compute the next queried location from them by an input-independent reversible operation (this is how the pointer lookup works), then query into a fresh answer register, keeping enough history to make each update reversible. A leaf determines the test output exactly, and we pad shorter branches to the common depth $q_*$ with inactive reads. A controlled bit read costs two ordinary oracle calls: we load the bit into a temporary register, use it conditionally, and query again to clear that register, retaining the queried coordinate until this second call. The two calls still occur when the control is false and cancel on that branch. The basis calculation extends linearly to superposed coordinates and controls. Hence all branches have a common physical query cap $2q_*$.
+
+[B0609 L1979-1980]
+The entire construction is controlled by $e$, so its action is the direct sum of the individual test unitaries and linearity gives (4.15) for arbitrary complex coefficients. Distinct index blocks remain orthogonal, and the output in each block is the correct test value. This proves the arbitrary-index coherent part of Lemma 2.2, with retained workspace and at most $2(\ell+1)$ ordinary bit queries for $m\geq4$.
+<!-- /passage:AC-coherent -->
+
+[B0610 L1982-1984]
+<a id="AC-clean-oracle"></a>
+<!-- passage:AC-clean-oracle -->
+The verifier below uses the retained-workspace evaluator (4.15). An optional stronger interface resets the work registers by a compute–copy–uncompute step. Controlled query-free gates prepare the fixed index-dependent starting states from a common all-zero ancilla and restore that convention at the end. We apply the implementation in (4.15), XOR its exact output label into a separate target bit, and apply the full inverse implementation. Since the computed output is certain in each index block, copying it leaves that block's workspace unchanged, so the inverse restores the starting state and gives
+
+[B0611 L1986-1991]
+$$
+|e\rangle|b\rangle|0_{\rm work}\rangle
+\longmapsto
+|e\rangle|b\mathbin\oplus g_e(y;i,s)\rangle|0_{\rm work}\rangle
+\tag{4.16}
+$$
+
+[B0612 L1993-1994]
+with at most $4q_*$ physical queries. By linearity, (4.16) holds on arbitrary superpositions of the label and target. The certainty of each test value is essential here. The noisy decoder of [§3.3](#forr_coherent) instead retains its workspace, as its output may be a superposition of correct and incorrect labels. The formal construction theorem states the retained-workspace form (4.15), and we derive the reset-workspace interface (4.16) from it here as a corollary.
+<!-- /passage:AC-clean-oracle -->
+
+[B0613 L1996-1999]
+<a id="AC-uniform-sampler"></a>
+<!-- passage:AC-uniform-sampler -->
+Uniform-index evaluation is a special case of (4.15): we prepare the input-independent state $K^{-1/2}\sum_e|e\rangle$ and run the controlled evaluator. If $h$ tests fail, a failed test is observed with probability $h/K$, because the index blocks are orthogonal and each te

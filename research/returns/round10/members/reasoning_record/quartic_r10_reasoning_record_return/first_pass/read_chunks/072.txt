@@ -1,0 +1,111 @@
+W01]: https://homepages.cwi.nl/~rdewolf/publ/qc/polynomials.pdf
+[ABKRT2020]: https://arxiv.org/abs/2010.12629v1
+[AA18]: https://arxiv.org/abs/1411.5729v1
+[BansalSinha2021]: https://arxiv.org/abs/2008.07003v3
+[GirishTalWu2021]: https://arxiv.org/abs/2103.11604v2
+[SherstovStorozhenkoWu2023]: https://arxiv.org/abs/2008.10223v4
+[Tal2019v1]: https://arxiv.org/abs/1912.12561v1
+[ABK2019]: https://arxiv.org/pdf/1511.01937v2
+[ABBLSS2015]: https://arxiv.org/pdf/1506.04719v3
+[BHMT2000]: https://arxiv.org/abs/quant-ph/0005055v1
+[BBHT1996]: https://arxiv.org/abs/quant-ph/9605034v1
+[DH1999]: https://arxiv.org/abs/quant-ph/9607014v2
+[HMW2003]: https://arxiv.org/abs/quant-ph/0304052v2
+[AIK2026]: https://arxiv.org/abs/2609.11664v2
+[BDK2026]: https://arxiv.org/abs/2609.15063v1
+[MPS2023]: https://doi.org/10.4230/LIPIcs.FSTTCS.2023.30
+[Drucker2012]: https://arxiv.org/abs/1005.0644v2
+[Shaltiel2001]: https://eccc.weizmann.ac.il/report/2001/009/
+[Huang2019]: https://annals.math.princeton.edu/wp-content/uploads/annals-v190-n3-p06-s.pdf
+[Midrijanis2004]: https://arxiv.org/abs/quant-ph/0403168v2
+[HLS2007]: https://www.ucw.cz/~robert/papers/madv.pdf
+[SS2006]: https://theoryofcomputing.org/articles/v002a001/v002a001.pdf
+[BSS2003]: https://doi.org/10.1109/CCC.2003.1214419
+[ComplexitylibPinned]: https://github.com/cslib-community/complexitylib/tree/62ca5c21461b2482e8bd12b7cb9b4937d887a33a
+
+[B1982 L5903-5903]
+## Appendix D. The earlier sufficient threshold
+
+[B1983 L5905-5905]
+The stronger estimate (F43) gives the simpler threshold in §3.15. The derivation below uses a coarser consequence of (F33); retaining it makes the change of constants and the former proof recoverable.
+
+[B1984 L5907-5910]
+<a id="forr_historical_threshold"></a>
+<!-- passage:forr_historical_threshold -->
+<a id="forr_coarse_advantage"></a>
+Since $3/16\le3$ and $2^{-k}\le1$, (F33) implies the coarser estimate
+
+[B1985 L5912-5912]
+<!-- claim:NEW-FOR-19 -->
+
+[B1986 L5913-5919]
+\[
+\left|\mathbb E_{\nu_1}g-\mathbb E_{\mathcal U}g\right|
+\le
+\left(\frac{3}{\sqrt m}\right)^{k-1}
+\left[\bigl(16kd\ln(4km)\bigr)^{k/2}+1\right]
+\tag{F34}
+\]
+
+[B1987 L5921-5921]
+for every tree, or mixture of trees, of depth at most $d\ge1$ with leaf values in $[-1,1]$.
+
+[B1988 L5923-5924]
+<!-- claim:NEW-FOR-25 -->
+For this historical estimate only, free $\tau$ and $\delta$ from their earlier dependence on $k$: fix integers $k=h+1\ge2$ and $\tau\ge0$, and a real $0<\delta\le1$. The frozen Forrelation choices resume in [the closure argument](#forr_historical_closure). Define
+
+[B1989 L5926-5929]
+\[
+C=16k(2\tau+1)(\ln(4k)+2),\qquad
+\eta_0=\min\left(1,\frac{\delta^2}{4\cdot9^h}\right)
+\]
+
+[B1990 L5931-5931]
+and
+
+[B1991 L5933-5940]
+\[
+t_0=\max\left\{
+8,\left\lceil C/\eta_0\right\rceil,
+\left\lceil2\cdot3^h/\delta\right\rceil,
+\left\lceil4/\delta^3\right\rceil
+\right\}.
+\tag{H1}
+\]
+
+[B1992 L5942-5944]
+For every integer $t\ge t_0$, put $m=4^t$,
+$X=m^{1-1/k}/(2t)^2$, $L=\lfloor X\rfloor$ and $d=2\tau L+1$.
+We claim that the coarse advantage expression (F34), at this depth, is at most $\delta$, and that $4/(m\delta^2)\le\delta$.
+
+[B1993 L5946-5947]
+First, $4t^2\le2^t$ for $t\ge8$, by the [induction in §6.6](#CL-floors).
+Since $1-1/k\ge1/2$, we have $m^{1-1/k}\ge2^t$, so $X\ge1$. It follows that
+
+[B1994 L5949-5953]
+\[
+d\le(2\tau+1)X,\qquad
+\ln(4km)\le(\ln(4k)+2)t.
+\tag{H2}
+\]
+
+[B1995 L5955-5955]
+Using $k(1-1/k)=h$, the square of the main term in (F34) is therefore at most
+
+[B1996 L5957-5960]
+\[
+9^h\left(\frac C{4t}\right)^k.
+\tag{H3}
+\]
+
+[B1997 L5962-5964]
+The threshold gives $C/(4t)\le\eta_0/4\le\eta_0\le1$.
+Thus (H3) is at most $9^h\eta_0\le\delta^2/4$.
+The main term is nonnegative and is at most $\delta/2$.
+
+[B1998 L5966-5971]
+The residual in (F34) is $3^h2^{-th}$.
+Since $h\ge1$, $2^t\ge t$, and $t\ge2\cdot3^h/\delta$, it is at most
+$3^h/t\le\delta/2$. This proves the claimed advantage bound.
+Also $4^t\ge t\ge4/\delta^3$, so $4/(m\delta^2)\le\delta$.
+Thus (H1) makes the depth-$d$ advantage at most $\delta$ and the exceptional m

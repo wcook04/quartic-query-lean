@@ -1,0 +1,75 @@
+e:upper-coupling -->
+
+[B0774 L2480-2481]
+<a id="upper-tournament-cost"></a>
+<!-- passage:upper-tournament-cost -->
+
+[B0775 L2483-2483]
+At history length $h$ the state preparation uses $h$ controlled comparison circuits, while the uniform superposition and the success conjunction are input independent, so the preparation and its inverse each cost at most a constant times $c(h+1)$ queries. Lemma 3.1 makes at most a constant times $\sqrt m\ln(1/\varepsilon)$ calls to these preparations, and its limits on trials and iterations apply even when the success probability is below $1/(2m)$. Summing over $h=0,\ldots,T-1$ and using $\sum_{h=0}^{T-1}(h+1)=T(T+1)/2$ we obtain:
+
+[B0776 L2485-2485]
+<!-- claim:claim-tournament-cost -->
+
+[B0777 L2486-2490]
+$$
+\text{queries}
+=O\!\left(c\sqrt m\,T^2\ln(1/\varepsilon)\right)
+=O\!\left(c\sqrt m\,T^2\log T\right).
+$$
+
+[B0778 L2492-2493]
+The second equality uses $1/\varepsilon=1000T$ and $T\geq1$ (indeed $T\geq11$ when $m\geq2$), the constants are absolute, and early stopping can only reduce the cost. This proves Proposition 3.2: uniformly for every family of coherently available comparison circuits satisfying the stated cap, one algorithm returns a list of at most $T$ vertices, has the displayed query cap on every input, and contains every specified dominant vertex $s$ with probability at least $1-2m/2^T-T\varepsilon$. No estimate of the $a_{ij}$'s is required.
+<!-- /passage:upper-tournament-cost -->
+
+[B0779 L2495-2497]
+<a id="upper-padded-tournament-budget"></a>
+<!-- passage:upper-padded-tournament-budget -->
+Here a preparation call means one use of a unitary or its inverse; a logical read is one abstract oracle operation in that unitary; a physical query is a call to the bit oracle. The compiler below charges at most two physical queries per logical read.
+
+[B0780 L2499-2500]
+For the exact accounting of the compiled circuit, let $c_{\mathrm{rd}}$ be the number of logical reads in a comparison, let $M_0=\lceil10\sqrt{2m}\rceil$, and keep $N=\lceil\ln(1/\varepsilon)/\ln(40/31)\rceil$. Since the compiler uses two physical bit queries per logical read, padding every stage to $T$ comparisons gives
+<!-- claim:r2-quantum-tournament-budget-6072 -->
+
+[B0781 L2501-2505]
+$$
+ B_{\mathrm{list}}
+ =2T^2c_{\mathrm{rd}}N(2M_0+1)
+ \leq6072\,c_{\mathrm{rd}}\sqrt m\,T^2\ln T.
+$$
+
+[B0782 L2506-2506]
+Indeed, the padded-product bound above gives the intermediate bound
+
+[B0783 L2508-2510]
+$$
+ 276\,c_{\mathrm{rd}}\sqrt{2m}\,T^2\ln(1000T).
+$$
+
+[B0784 L2511-2512]
+Since $T\geq2$, we have $\ln(1000T)\leq11\ln T$ (using $1000\leq2^{10}$), and $\sqrt{2m}\leq2\sqrt m$; multiplying the constants gives $276\cdot2\cdot11=6072$. The estimate bounds the actual padded product directly and does not infer a bound on that product from a smaller procedure's call count. When a comparison is given with $c$ ordinary bit queries, each such query is one logical read in this representation, so the same bound with $c_{\mathrm{rd}}=c$ proves the order asserted in Proposition 3.2. For the concrete construction below, we count logical reads and physical queries separately.
+<!-- /passage:upper-padded-tournament-budget -->
+
+[B0785 L2515-2516]
+<a id="upper-tournament-evidence"></a>
+<!-- passage:upper-tournament-evidence -->
+
+[B0786 L2518-2518]
+**Finite-law correspondence.** We can also express the list guarantee as a probability law on the finite set
+
+[B0787 L2519-2521]
+$$
+ \mathcal L_T=\{L:\ L\text{ is a list of candidates and }|L|\leq T\}.
+$$
+
+[B0788 L2522-2523]
+<!-- claim:r2-quantum-coherent-list-witness -->
+There is one input-independent bounded sampler, with output law $\lambda_x$ on $\mathcal L_T$, such that for every input $x$, $\lambda_x(L)\geq0$, $\sum_L\lambda_x(L)=1$, and, for every dominant $s$,
+
+[B0789 L2524-2527]
+$$
+ \sum_{L:\,s\in L}\lambda_x(L)
+ \geq1-\frac{2m}{2^T}-T\varepsilon.
+$$
+
+[B0790 L2528-2529]
+The sampler is chosen before both $x$ and $s$, so it operates without knowing which vertex is dominant, and the indicator of membership 

@@ -1,0 +1,25 @@
+nk$ to the continuation's cap. Coherence, the measured law and the physical cost therefore sit in one witness, which proves the required $O_k(1+\log(1/\eta))$ conclusion. The explicit ceiling choice comes from the repetition and decoder theorems; the wrapper's existential statement alone does not assert it.
+
+[B2175 L6467-6467]
+The local phase-kickback identity has also been compiled, but it does not yet supply a complete formal program with the sharper $qk$ physical cap, so the sharper displayed inequality rests on the ordinary construction above. Likewise, [the tensor state in §3.3](#forr_quantum) explains our construction, and the source's retained-isometry theorem asserts no equality with that concrete-register display. The correspondence files record the full theorem types and these distinctions.
+
+[B2176 L6470-6470]
+The fixed-$k$ statement (F3) with an eventual threshold is the [compared Forrelation lower bound][thm-forrelation], a configured Unconditional target whose type is the [Forrelation hardness statement][def-bansal-sinha] ([Appendix G.4](#checked-statements)). Its solution forwards to the [implementation theorem][src-forr-implementation], which supplies the proof; Comparator compares the configured target, and the implementation receives no separate comparison credit. The uniform estimate (F43) is the [uniform Forrelation estimate][src-forrelation-uniform], which has a recorded build and an axiom audit and is not configured for comparison.
+
+[B2177 L6472-6472]
+The threshold (F51), the finite-polynomial explanation of differentiation and the comparison (F57)–(F60) are ordinary mathematics with no Lean counterpart. The ordinary proof of (F25) allows arbitrary bounded real leaf labels, whereas the formal interface uses a Boolean-output tree followed by one fixed map from its two output values into $[-1,1]$, which suffices for acceptance probabilities. The estimate (F60) rests on an external Fourier theorem, allows variable error and every power-of-two dimension, and is the type of neither formal endpoint.
+
+[B2178 L6474-6475]
+The three parts of Lemma 2.1 are packaged together in [one formal statement][src-lemma21], including the retained-isometry physical implementation of part (ii). Its threshold is eventual, and the explicit specialization $13669k^2$ is ordinary. Its generic physical compiler charges $2qk$ queries for $q$ repetitions, whereas the phase construction of §3.3 has the cap $qk$; both give the stated asymptotic bound, and neither the sharper cap nor the explicit threshold appears in the compiled type.
+<!-- /passage:forr_validation_scope -->
+
+[B2179 L6477-6477]
+### G.6. The addressed construction
+
+[B2180 L6479-6481]
+<a id="AC-evidence"></a>
+<!-- passage:AC-evidence -->
+The exact source declarations and complete types are recorded in [correspondence.json](../research/returns/round3/members/04_addressed_construction/correspondence.json) and [evidence/lean_audit.json](../research/returns/round3/members/04_addressed_construction/evidence/lean_audit.json). In particular, the [identification of consistent transcripts with true evaluations][src-transcript] gives (4.2), the [uniqueness of the winning pair][src-winner-unique] gives pair uniqueness, and the [description of winning by the local tests][src-winner-tests] gives (4.12) under the premise that $C$ [computes $P$ exactly][def-realises]. The [semantic bridge to the paper's winning condition][src-winner-paper] has no such premise because both sides already refer to the partial function.
+
+[B2181 L6483-6483]
+The [complete evaluator theorem][src-construction-complete] packages the count, finite size bound, local-test equivalence, adaptive depth, arbitrary-index retained-workspace implementation, and physical query cap for the same circuit witnesses. Its premises $t\geq1$, [exact computation][def-realises] of $P_{k,4^t}$ by $C$, and the circuit-size bound are exactly the supplied circuit properties. The [essential-coordinate theorem for pointers][src-pointer-suppor

@@ -1,0 +1,58 @@
+ was formalized. It also makes no claim about the optimal distinguishing success at a fixed worst-case budget.
+<!-- /passage:CL-zero-average -->
+
+[B1058 L3548-3550]
+<a id="CL-zero-optional"></a>
+<!-- passage:CL-zero-optional -->
+**An expectation-cost refinement.** The following sharper estimate relates discovery probability to expected cost. With the outside data fixed, we run \(T\) on the reference input in which the selected column is all ones. List the distinct $X$ positions on that reference path as \(p_1,\ldots,p_d\), in order of first appearance. Matching the reference path is needed only until the first differing answer. Repeated calls and calls after discovery can only increase the counted $X$-query cost. A world with zero at \(p_s\) follows the reference path until that position is queried, so it discovers the zero and incurs at least \(s\) column queries. A world whose zero is absent from the list follows the whole reference path and never discovers the zero, although it incurs at least \(d\) column queries. Hence exactly \(d\) worlds discover the zero, and the total query count over all the worlds is at least
+
+[B1059 L3551-3555]
+\[
+1+\cdots+d+(m-d)d
+=\frac{d(2m-d+1)}2
+\ge\frac{d(m+1)}2.
+\]
+
+[B1060 L3556-3557]
+Averaging as above gives
+<!-- claim:NCL-erased-zero-mplusone -->
+
+[B1061 L3558-3563]
+\[
+\mathbb EZ\le\frac{2}{m+1}\mathbb E Q_X,
+\qquad
+\Pr[T\text{ on }Y^{(0)}\text{ queries }X_I[J_I]]
+\le\frac{2G}{m(m+1)}.
+\]
+
+[B1062 L3564-3565]
+Scanning one column without repetition until its zero is found attains the first, expectation-cost inequality, since its expected cost is \((m+1)/2\). Its worst-case cost is \(m\), and the example does not establish an optimal success curve for each prescribed worst-case budget. The proof of Proposition 4.2 uses neither this \(m+1\) refinement nor an optimality assertion, and no supplied Lean declaration proves the refinement.
+<!-- /passage:CL-zero-optional -->
+
+[B1063 L3567-3567]
+### 6.5. A capped simulator for the planted cell
+
+[B1064 L3569-3573]
+<a id="CL-heavy"></a>
+<!-- passage:CL-heavy -->
+Let \(N_i\) be the number of queries made during the complete dummy run to the strings \(A_{i,1},\ldots,A_{i,r}\), counting repetitions, and call column \(i\) heavy when \(N_i>L\). Since \(\sum_iN_i\le G\), at most \(G/L\) columns are heavy, and \(I\) remains uniform conditional on the dummy run. Thus
+<!-- claim:def-heavy -->
+<!-- claim:eq-20 -->
+
+[B1065 L3574-3577]
+\[
+\Pr[I\text{ is heavy}]\le\frac{G}{mL}.
+\tag{20}
+\]
+
+[B1066 L3578-3579]
+The threshold bounds the total number of queries to all \(r\) strings of a column, so in particular a nonheavy run uses at most \(L\) queries to each of those strings.
+<!-- /passage:CL-heavy -->
+
+[B1067 L3581-3583]
+<a id="CL-simulator"></a>
+<!-- passage:CL-simulator -->
+Fix a column \(i\) and a time \(q\in\{1,\ldots,G\}\). The simulator's queried inputs are the \(r\) strings of that column, and we give it the independent outside data: every \(J_j\), all the \(A\)-strings of the other columns, and the fixed blank cells. It receives no target string, target address or target transcript as side information. In particular, revealing $J_i$ is harmless: the simulator predicts the vector of partial-function values, and all zero locations are jointly independent of those target strings.
+
+[B1068 L3585-3586]
+There are two counters: the original tree clock counts every proposed query, whereas the charged counter counts only target-string oracle calls. The simulator runs \(T\) on the dummy input up to its proposed \(q\)-th query. A default output can itself be correct, so the proof below needs containment in the simulator-success event, not equality of events. It answers every outside query from the supplied data, and it answers a query to one of the target strings by making the corresponding oracle query, charged against one shared counter; it aborts before that counter would exceed \(L\). If time \(q\) is reached and the proposed query is to \(B_{i,s}\), it outputs \(s\

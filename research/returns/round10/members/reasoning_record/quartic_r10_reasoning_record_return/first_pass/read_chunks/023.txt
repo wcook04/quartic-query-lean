@@ -1,0 +1,35 @@
+ The size arithmetic below shows that $C_k$ is independent of $t$, starting from the finite budget already proved. Put $\tau=\ell=2t$ and $u=2^t$, so $m=u^2$, $r=20\tau$, and $\tau\geq2$. For the chosen circuit we set $C_F(k)=200(k+1)^2$, the circuit-size constant of the source, so that $S\leq C_F(k)m\tau^2$. We define $R_k=1+1920000\cdot2^{10k}$, $C_c(k)=40R_kk+4$ and $C_K(k)=42+20C_F(k)$, each independent of $t$.
+
+[B0866 L2741-2741]
+First, $1000<2^{10}$ implies $T\leq\tau+10\leq6\tau$, hence $1/\varepsilon=1000T\leq6000\tau$. Using $\ln(1/\varepsilon)\leq1/\varepsilon$ and $\ln(40/31)\geq1/4$, the ceiling defining $N$ gives $N\leq4/\varepsilon+1\leq24001\tau$, and likewise $r/\varepsilon\leq120000\tau^2$. The decoder's repetition count is at most $16\cdot2^{10k}\ln(r/\varepsilon)+1$, hence at most $R_k\tau^2$, and so $a=rqk\leq20R_kk\tau^3$. Since the remaining comparison cost $2(\tau+1)$ is at most $4\tau^3$, we get $c_c\leq C_c(k)\tau^3$.
+
+[B0867 L2743-2743]
+Second, the formula for $K$ gives $K=2m-1+20\tau(S+2)\leq C_K(k)m\tau^3$, since the circuit term is at most $20C_F(k)m\tau^3$, the $2m$ term is at most $2m\tau^3$, and $40\tau\leq40m\tau^3$. Because $C_K(k)\geq1$ and $\tau\geq1$, this implies $\sqrt K\leq C_K(k)u\tau^2$, and together with $\sqrt{2m}\leq2u$ the ceilings give $2M_0+1\leq43u$ and $2M_1+1\leq23C_K(k)u\tau^2$. Finally, $c_0\leq3\tau$.
+
+[B0868 L2745-2745]
+We insert these bounds into the two brackets of $B_{k,t}$. One tournament stage is at most $48002\cdot258\,C_c(k)u\tau^5$, with factors twice $24001\tau$, then $43u$, then $6\tau\,C_c(k)\tau^3$, and its at most $6\tau$ stages contribute at most $6(48002\cdot258\,C_c(k))u\tau^6$. One verifier is at most $(40R_kk+48002\cdot69\,C_K(k))u\tau^4$, where the decoder cost $2a$ has been enlarged using $u,\tau\geq1$ and the search term has factors twice $24001\tau$, then $23C_K(k)u\tau^2$, then $3\tau$; multiplying by $T\leq6\tau$ and enlarging $\tau^5$ to $\tau^6$ gives the remaining contribution. Thus we may take $C_k=6(48002\cdot258\,C_c(k))+6(40R_kk+48002\cdot69\,C_K(k))$, which is the deliberately loose [constant of the formal budget][src-budget-constant].
+
+[B0869 L2747-2748]
+This completes the quantum half of the family bounds, with the same chosen circuit that appears in the total function. The bound holds for each fixed $k$, and its proof uses only the fixed-$k$ estimates above, with no randomized lower bound.
+<!-- /passage:upper-explicit-log6 -->
+
+[B0870 L2753-2753]
+### 5.5. Sequential verification of the listed candidates
+
+[B0871 L2755-2755]
+The proofs of Propositions 3.2 and 3.3 above are complete without this subsection. The Lean proof of Theorem 1.1 packages the same tournament and sequential verification as a Boolean continuation: its external result is one acceptance bit, rather than the intermediate list. The distinction is in the output and proof interface, not in whether candidates are verified sequentially. The induction below proves the acceptance guarantee of that route, and Appendix G.7 names the corresponding declarations.
+
+[B0872 L2757-2758]
+<a id="upper-continuation-induction"></a>
+<!-- passage:upper-continuation-induction -->
+
+[B0873 L2760-2760]
+For this Boolean continuation, we give the induction in full, so that the difference in its statement has a complete mathematical explanation. At the fixed input, let $v(i)\in[0,1]$ be the full fresh verifier acceptance probability for candidate $i$, averaging both its newly decoded address and its local-test search, and let $V(L)$ be the probability that at least one fresh verification of a member of $L$ accepts. Sequential verification gives $V([])=0$ and $V(i::L)=v(i)+(1-v(i))V(L)$. Here $i::L$ puts the newest entry first, whereas §5.2 writes pivots in chronological order. Fresh independent verifier outcomes give
+
+[B0874 L2761-2763]
+\[
+V(L)=1-\prod_{i\in L}(1-v(i)),
+\]
+
+[B0875 L2764-2764]
+where entries are counted with their multiplicities. Thus both this probability and the weight product are inv

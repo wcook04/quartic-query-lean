@@ -1,0 +1,131 @@
+ subspaces. After l Grover iterations the state is sin((2l+1)theta)|g>+cos((2l+1)theta)|b>. Hence measuring success yields |g> up to global phase, independently of l.
+
+[B1500 L4745-4745]
+**Argument:** [§5.1](#upper-grover-geometry).
+
+[B1501 L4747-4747]
+<!-- /passage:CAT-claim-grover-state -->
+
+[B1502 L4749-4749]
+#### claim-sin2theta
+
+[B1503 L4751-4753]
+<a id="CAT-claim-sin2theta"></a>
+<!-- passage:CAT-claim-sin2theta -->
+<!-- claim:claim-sin2theta -->
+
+[B1504 L4755-4755]
+> If gamma<=p<=1/2 then sin(2theta)=2 sqrt(p(1-p)) >= sqrt(gamma).
+
+[B1505 L4757-4757]
+**Argument:** [§5.1](#upper-small-probability).
+
+[B1506 L4759-4759]
+<!-- /passage:CAT-claim-sin2theta -->
+
+[B1507 L4761-4761]
+#### eq-9
+
+[B1508 L4763-4765]
+<a id="CAT-eq-9"></a>
+<!-- passage:CAT-eq-9 -->
+<!-- claim:eq-9 -->
+
+[B1509 L4767-4767]
+> If gamma<=p<=1/2 and M=ceil(10/sqrt(gamma)), then (1/M) sum_{l=0}^{M-1} sin^2((2l+1)theta) >= 1/2 - 1/(2M|sin 2theta|) >= 9/20.
+
+[B1510 L4769-4769]
+**Argument:** [§5.1](#upper-average-exact), [§5.1](#upper-small-probability).
+
+[B1511 L4771-4771]
+<!-- /passage:CAT-eq-9 -->
+
+[B1512 L4773-4773]
+#### lem-3.1
+
+[B1513 L4775-4777]
+<a id="CAT-lem-3.1"></a>
+<!-- passage:CAT-lem-3.1 -->
+<!-- claim:lem-3.1 -->
+
+[B1514 L4779-4779]
+> For 0<gamma<=1/2 and 0<eta<1/2 there is a single procedure, black-box in A and A^{-1} and with call counts depending only on gamma and eta, using O(gamma^{-1/2} log(1/eta)) calls for every p and on every branch, such that for every state preparation A with a success bit, success probability p and, if p>0, normalized successful state |g>: it reports failure or produces a successful outcome; conditional on success the output is |g> up to global phase; if p>=gamma, failure probability <=eta; if p=0 it always reports failure.
+
+[B1515 L4781-4781]
+**Argument:** [§5.1](#upper-amplification-statement), [§5.1](#upper-amplification-proof).
+
+[B1516 L4783-4783]
+<!-- /passage:CAT-lem-3.1 -->
+
+[B1517 L4785-4785]
+### B.5. Tournament sampling
+
+[B1518 L4787-4787]
+The matrix inequalities lead to the ideal process and its shrinking expected weight in §5.2. The implemented sampler must then be related to that process. The literal tensor equation and the finite bounded-list theorem are now explicit declarations. Some component rows about the sampler, coupling and cost retain partial ties because each row combines a construction or interpretation with an estimate. The list theorem supplies one common witness and the complete list-law conclusion; it does not assert equality of every retained tensor state in the alternative measured route.
+
+[B1519 L4789-4789]
+#### def-aij
+
+[B1520 L4791-4793]
+<a id="CAT-def-aij"></a>
+<!-- passage:CAT-def-aij -->
+<!-- claim:def-aij -->
+
+[B1521 L4795-4795]
+> For a fixed oracle input and a coherent comparison circuit, a_{ij} is the probability that i is reported as defeating j when the result is measured, using one circuit per unordered pair; a_{ii}=0.
+
+[B1522 L4797-4797]
+**Argument:** [§5.2](#upper-comparison-model).
+
+[B1523 L4799-4799]
+<!-- /passage:CAT-def-aij -->
+
+[B1524 L4801-4801]
+#### eq-10
+
+[B1525 L4803-4805]
+<a id="CAT-eq-10"></a>
+<!-- passage:CAT-eq-10 -->
+<!-- claim:eq-10 -->
+
+[B1526 L4807-4807]
+> a_{ij}+a_{ji}=1 for i != j, and a_{ii}=0.
+
+[B1527 L4809-4809]
+**Argument:** [§5.2](#upper-comparison-model), [§5.3](#upper-comparison-law).
+
+[B1528 L4811-4811]
+<!-- /passage:CAT-eq-10 -->
+
+[B1529 L4813-4813]
+#### def-T-eps
+
+[B1530 L4815-4817]
+<a id="CAT-def-T-eps"></a>
+<!-- passage:CAT-def-T-eps -->
+<!-- claim:def-T-eps -->
+
+[B1531 L4819-4819]
+> For m>=2: T=ceil(log_2(1000m)), epsilon=1/(1000T).
+
+[B1532 L4821-4821]
+**Argument:** [§5.2](#upper-tournament-parameters).
+
+[B1533 L4823-4823]
+<!-- /passage:CAT-def-T-eps -->
+
+[B1534 L4825-4825]
+#### eq-11
+
+[B1535 L4827-4829]
+<a id="CAT-eq-11"></a>
+<!-- passage:CAT-eq-11 -->
+<!-- claim:eq-11 -->
+
+[B1536 L4831-4831]
+> i_* is dominant if a_{i_* j} >= 1-epsilon for every j != i_*.
+
+[B1537 L4833-4833]
+**Argument:** [§5.2](#upper-tournament-parameters).
+
+[B1538 L4835-483

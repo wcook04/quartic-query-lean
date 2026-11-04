@@ -390,6 +390,7 @@ def inputs(job, **options):
     generated.mkdir(parents=True, exist_ok=True)
     pdfs = dict(zip(LEADS.values(), (options['expert_pdf'], options['exposition_pdf'], options['record_pdf'])))
     provenance = render_provenance(root, pdfs)
+    round9.add_render_inputs(files, root, provenance)
     for name in LEADS.values():
         source = (root / f'docs/{name}.md').read_text()
         path = generated / f'{name}.lines.txt'

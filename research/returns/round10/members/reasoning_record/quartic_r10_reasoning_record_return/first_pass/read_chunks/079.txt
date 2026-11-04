@@ -1,0 +1,45 @@
+the returned section review did not rerun Lean. The round-three integration of 2 November separately performed the root build and targeted construction comparison recorded in [F.1](#history-evidence-convention). The Construction Comparator configuration names the [four checked winner wrappers][cmp-winners]: uniqueness of the winning pair, uniqueness of the gate-consistent transcript, and the two halves of winner dominance. The source theorems they forward to have wrapper-mediated credit only. It does not compare the newer complete local-test theorem. Old source comments and earlier returns calling those files unelaborated describe an earlier stage; the exact receipts and their scope are retained in the evidence sidecar. No human review is claimed.
+<!-- /passage:history-construction-evidence -->
+
+[B2061 L6188-6188]
+### F.4. Quantum upper bound
+
+[B2062 L6190-6193]
+<a id="history-upper-evidence"></a>
+<!-- passage:history-upper-evidence -->
+The reviewed packet contains a successful source-bound root build receipt and later exact-type/axiom auditing, in addition to focused module passes. The former record labels its commit `31e17dee667d1d72fa621da8e7d3d8ff5fc3960a`, while the packet manifest labels its repository commit `1dd469dd0042b937b739da3bc211eeb60bdf7462`. For that frozen local Lean/configuration closure, all 124 supplied source hashes agree across the packet files, evidence snapshot, root receipt, dependency export and axiom verdict. This makes the recorded evidence applicable to those exact bytes despite the differing commit labels. Those are retained earlier executions; the round-three integration’s new native runs are recorded separately in [F.1](#history-evidence-convention). The recorded toolchain is `leanprover/lean4:v4.36.0-rc2`; the dependency pins are preserved in the source receipt.
+<!-- /passage:history-upper-evidence -->
+
+[B2063 L6195-6195]
+### F.5. Direct product
+
+[B2064 L6197-6211]
+<a id="history-direct-product-evidence"></a>
+<!-- passage:history-direct-product-evidence -->
+The supplied receipts record successful native compilation of the packet’s exact
+source bytes; the returned section review made no fresh Lean run. The round-three
+integration’s 2 November root build and comparison scope are recorded in [F.1](#history-evidence-convention). The headline dependency
+closure still uses the unnormalized route, and no exact-declaration
+Comparator pass is supplied in that snapshot for the direct-product helpers described in its correspondence file. The conditional-value file's
+old “UNELABORATED” header predates the successful receipts. Exact types,
+byte checks, declaration membership, and the limits
+of the recorded evidence are in [correspondence.json](../research/returns/round3/members/06_direct_product/correspondence.json), [lean_types.json](../research/returns/round3/members/06_direct_product/lean_types.json),
+and [LEAN_GAPS.md](../research/returns/round3/members/06_direct_product/LEAN_GAPS.md). The arbitrary-information finite-behavior reduction,
+the generic joint-event truncation corollary, and the combined identity
+(6.11) are ordinary deductions supplied here; they are not new Lean builds
+or new Comparator passes.
+<!-- /passage:history-direct-product-evidence -->
+
+[B2065 L6213-6213]
+### F.6. Exponent and Appendix A
+
+[B2066 L6215-6215]
+The current exponent endpoint and the three quartic proof routes are indexed in [G.9](#ROOT-EXPONENT-CORRESPONDENCE). This section records the earlier checks supporting those declarations.
+
+[B2067 L6217-6217]
+An earlier annex transcription put an extra square root around the full adversary denominator. Correcting that transcription did not resolve the separate factor-two discrepancy in the inspected Špalek–Szegedy display, tested by the parity witness in Appendix A.2.
+
+[B2068 L6219-6222]
+<a id="history-exponent-evidence"></a>
+<!-- passage:history-exponent-evidence -->
+The timestamped root-build receipt covers the exponent declarations now listed in [Appendix G.9](#ROOT-EXPONENT-

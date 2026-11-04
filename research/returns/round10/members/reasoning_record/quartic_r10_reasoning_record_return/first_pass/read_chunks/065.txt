@@ -1,0 +1,132 @@
+]
+Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appendix G.9](#R3-A-ROUTES) compares it with the complexity-library and hybrid formal routes. Its formal ties include exact or stronger endpoints and partial correspondence for several definitions, progress estimates and rounding steps. The corrected Huang statement requires $d\ge1$ for two distinct eigenvalues with equal multiplicities; at $d=0$ the matrix is the singleton zero matrix. The printed adversary prefactor is discussed with an explicit parity witness in §A.2. No statement about a corrected convention is silently substituted for what the cited edition prints.
+
+[B1814 L5495-5495]
+#### def-D
+
+[B1815 L5497-5499]
+<a id="CAT-def-D"></a>
+<!-- passage:CAT-def-D -->
+<!-- claim:def-D -->
+
+[B1816 L5501-5501]
+> D(f) is the least depth of a deterministic decision tree computing f exactly on every input.
+
+[B1817 L5503-5503]
+**Argument:** [§2.1](#ROOT-PARTIAL), [§2.2](#R3-01-CLASSICAL).
+
+[B1818 L5505-5505]
+<!-- /passage:CAT-def-D -->
+
+[B1819 L5507-5507]
+#### def-deg
+
+[B1820 L5509-5511]
+<a id="CAT-def-deg"></a>
+<!-- passage:CAT-def-deg -->
+<!-- claim:def-deg -->
+
+[B1821 L5513-5513]
+> deg(f) is the degree of the unique real multilinear polynomial agreeing with f on the cube, with degree 0 for every constant function, including the zero function. With this convention it is unchanged by replacing input or output bits by signs.
+
+[B1822 L5515-5515]
+**Argument:** [§A.1](#ROOT-DEGREE-BLOCK).
+
+[B1823 L5517-5517]
+<!-- /passage:CAT-def-deg -->
+
+[B1824 L5519-5519]
+#### def-bs
+
+[B1825 L5521-5523]
+<a id="CAT-def-bs"></a>
+<!-- passage:CAT-def-bs -->
+<!-- claim:def-bs -->
+
+[B1826 L5525-5525]
+> A nonempty B subset [n] is a sensitive block at x if flipping all bits of B changes f(x). bs(f) is the maximum over x of the number of pairwise disjoint sensitive blocks at x.
+
+[B1827 L5527-5527]
+**Argument:** [§A.1](#ROOT-DEGREE-BLOCK).
+
+[B1828 L5529-5529]
+<!-- /passage:CAT-def-bs -->
+
+[B1829 L5531-5531]
+#### def-Gamma-i
+
+[B1830 L5533-5535]
+<a id="CAT-def-Gamma-i"></a>
+<!-- passage:CAT-def-Gamma-i -->
+<!-- claim:def-Gamma-i -->
+
+[B1831 L5537-5537]
+> For an input-indexed matrix Gamma, (Gamma_i)_{xy}=Gamma_{xy} 1{x_i != y_i}. Matrix norms are operator norms for the Euclidean norm.
+
+[B1832 L5539-5539]
+**Argument:** [§A.2](#ROOT-ADVERSARY-PERRON).
+
+[B1833 L5541-5541]
+<!-- /passage:CAT-def-Gamma-i -->
+
+[B1834 L5543-5543]
+#### claim-perron
+
+[B1835 L5545-5547]
+<a id="CAT-claim-perron"></a>
+<!-- passage:CAT-claim-perron -->
+<!-- claim:claim-perron -->
+
+[B1836 L5549-5549]
+> A nonzero real symmetric entrywise nonnegative Gamma has a nonnegative unit eigenvector v of eigenvalue ||Gamma||.
+
+[B1837 L5551-5551]
+**Argument:** [§A.2](#ROOT-ADVERSARY-PERRON).
+
+[B1838 L5553-5553]
+<!-- /passage:CAT-claim-perron -->
+
+[B1839 L5555-5555]
+#### def-adv-progress
+
+[B1840 L5557-5559]
+<a id="CAT-def-adv-progress"></a>
+<!-- passage:CAT-def-adv-progress -->
+<!-- claim:def-adv-progress -->
+
+[B1841 L5561-5561]
+> W_t = sum_{x,y} v_x v_y Gamma_{xy} <psi_x^t | psi_y^t>, where psi_x^t is the purified state after t queries on input x.
+
+[B1842 L5563-5563]
+**Argument:** [§A.2](#ROOT-ADVERSARY-PROGRESS).
+
+[B1843 L5565-5565]
+<!-- /passage:CAT-def-adv-progress -->
+
+[B1844 L5567-5567]
+#### claim-per-query
+
+[B1845 L5569-5571]
+<a id="CAT-claim-per-query"></a>
+<!-- passage:CAT-claim-per-query -->
+<!-- claim:claim-per-query -->
+
+[B1846 L5573-5573]
+> Each query changes W by at most: |W_{t+1}-W_t| <= 2 sum_i u_i^T Gamma_i u_i <= 2 max_i ||Gamma_i||, where u_i(x)=v_x ||phi_{x,i}||.
+
+[B1847 L5575-5575]
+**Argument:** [§A.2](#ROOT-ADVERSARY-PROGRESS).
+
+[B1848 L5577-5577]
+<!-- /passage:CAT-claim-per-query -->
+
+[B1849 L5579-5579]
+#### claim-final-overlap
+
+[B1850 L5581-5583]
+<a id="CAT-claim-final-overlap"></a>
+<!-- passage:CAT-claim-final-overlap -->
+<!-- claim:claim-final-overlap -->
+
+[B1851 L5585-5585]
+> If Pr[output 1] is <=1/3 on one state and >=2/3 on another, their overlap has absolute value <=2 sqrt(2)/3. Hence |W_final| <= (

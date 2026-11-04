@@ -1,0 +1,94 @@
+ $k(t)=\lfloor\sqrt{t/20}\rfloor$ for $t\ge80$. With $\ell=2t$, we will prove
+
+[B1173 L3909-3912]
+\[
+R(F_t)\ge Q(F_t)^{4-\varepsilon(\ell)},\qquad
+\varepsilon(\ell)=8\sqrt{10/\ell}+\frac{56\log_2\ell+508}{\ell}\longrightarrow0.
+\]
+
+[B1174 L3913-3913]
+This uses the allowance $L=\lfloor X\rfloor$ from the uniform estimate (F43), defined below, rather than the smaller fixed-$k$ allowance of §6.6. Consequently its hardness condition is $15k+2\le2t$, not $t\ge13669k^2$.
+
+[B1175 L3915-3915]
+On the quantum side, the useful scale is $C_k\le2^{53}k2^{10k}$. Its exponential factor contributes $40k$ to $4\log_2Q$, which will be balanced against the classical loss $\ell/k$. To verify this envelope, expand the constant $C_k$ of §5.4:
+
+[B1176 L3916-3918]
+\[
+C_k=2972284080\,k\,\bigl(1+1920000\cdot2^{10k}\bigr)+79491312000\,(k+1)^2+1131887160 .
+\]
+
+[B1177 L3919-3919]
+For $k\ge1$ we have $1\le k\le2^{10k}$, so $k(1+1920000\cdot2^{10k})\le1920001\,k\,2^{10k}$, $(k+1)^2\le4k^2\le4k\,2^{10k}$ and $1\le k\,2^{10k}$. Hence $C_k\le N\,k\,2^{10k}$ with $N=2972284080\cdot1920001+4\cdot79491312000+1131887160=5707107503019240<2^{53}$, and the bound of §5.4 becomes
+
+[B1178 L3920-3923]
+\[
+Q(F_{k,4^t})\le2^{53}k\,2^{10k}\,2^t\,\ell^6\qquad(k\ge2,\ t\ge1).
+\tag{7.5}
+\]
+
+[B1179 L3925-3925]
+On the classical side, suppose that $15k+2\le2t$ and $t\ge32$. Then the uniform estimate (F43) gives $R(P_{k,m})>X$, where
+
+[B1180 L3926-3928]
+\[
+X=\frac2{18225}\,\frac{m^{1-1/k}}{k^2\ln(4km)} .
+\]
+
+[B1181 L3929-3929]
+Clearly $X<m$. Since $k\ge2$, we have $m^{1-1/k}\ge m^{1/2}=2^t$. Since $k\le2t/15$ and $\ln2<7/10$, we have
+
+[B1182 L3930-3932]
+\[
+\ln(4k)\le4k-1\le8t/15-1<3t/5<2t(1-\ln2).
+\]
+
+[B1183 L3933-3933]
+Here $\ln u\le u-1$, and the exponential series at $7/10$ already exceeds two through its fourth-degree term, proving the numerical bound on $\ln2$. Thus $\ln(4km)\le2t$ and $18225\,k^2\ln(4km)\le18225\cdot(4t^2/225)\cdot2t=648t^3$. Therefore $X\ge2\cdot2^t/(648t^3)\ge2$: at $t=32$ the exact comparison is $2^{32}=4294967296>21233664=648\cdot32^3$, and $2^t/t^3$ increases for $t\ge5$. Put $L=\lfloor X\rfloor$. The preceding estimates give the three admissibility conditions $1\le L\le m$ and $L<R(P_{k,m})$.
+
+[B1184 L3935-3935]
+We can therefore apply the generic theorem of §6 to obtain $R(F_{k,m})>\lfloor mL/100\rfloor$. The integer-valued complexity satisfies
+
+[B1185 L3936-3938]
+\[
+R(F_{k,m})\ge\lfloor mL/100\rfloor+1>mL/100.
+\]
+
+[B1186 L3939-3939]
+Finally $L\ge X/2$, so
+
+[B1187 L3940-3943]
+\[
+R(F_{k,m})>\frac{mX}{200}=\frac{m^{2-1/k}}{1822500\,k^2\ln(4km)} .
+\tag{7.6}
+\]
+
+[B1188 L3944-3944]
+The generic bound holds for every circuit realizing $P_{k,m}$, so (7.5) and (7.6) concern the same function, built with the circuit fixed in §4.
+
+[B1189 L3946-3946]
+We now choose $k=\lfloor\sqrt{t/20}\rfloor$ with $t\ge80$. This balances the leading losses $40k$ from the exponential decoder cost and $\ell/k$ from the classical power $m^{-1/k}$: they are equal at $k=\sqrt{\ell/40}=\sqrt{t/20}$. The following estimates check the floors and lower-order terms for that choice. Then $k\ge2$, $15k+2\le2t$ and $t\ge32$. Write $x=\sqrt{\ell/40}$, so that $k=\lfloor x\rfloor$ and $x\ge2$, and let
+
+[B1190 L3947-3950]
+\[
+A=\Bigl(2-\frac1k\Bigr)\ell-\log_2\bigl(1822500\,k^2\ln(4km)\bigr),\qquad
+B=\frac\ell2+10k+53+\log_2k+6\log_2\ell
+\]
+
+[B1191 L3951-3951]
+be the base-two logarithms of the right sides of (7.6) and (7.5). The lower bound (7.6) is positive, so $R(F_t)>0$. By the zero-query characterization in [§2.6](#R3-01-ZERO), $F_t$ is nonconstant and $Q(F_t),R(F_t)\ge1$; these logarithms are therefore defined. Then $\log_2R(F_t)>A$, $\log_2Q(F_t)\le B$, and
+
+[B1192 L3952-3954]
+\[
+4B-A=40k+\frac\ell k+212+6\log_2k+\log_21822500+\log_2\ln(4km)+24\log_2\ell .
+\]
+
+[B1193 L3955-3955]
+We bound the terms one at a time. Since $\ell=40x^2$,
+
+[B1194 L3956-3958]
+\[
+40k+\frac\ell k-80x=\frac{40}{k}\bigl(k^2-2kx+x^2\bigr)=\frac{40(x-k)^2}{k}<20,
+\]
+
+[B1195 L3959-3960]
+because $0\le x-k<1$ and $k\ge2$; as

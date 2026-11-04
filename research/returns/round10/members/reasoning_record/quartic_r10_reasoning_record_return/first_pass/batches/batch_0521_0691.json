@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch_0521_0691",
+  "first_block": 521,
+  "last_block": 691,
+  "line_start": 1665,
+  "line_end": 2227,
+  "recorded_at": "2026-11-04T13:49:16.075903+00:00",
+  "notes": {
+    "522": "The construction finally begins after the long imported-interface proof.",
+    "525": "A winner combines an all-one own column with certificates and zeros in every other column.",
+    "527": "Use one topologically ordered circuit with separate domain and value outputs.",
+    "528": "The domain output is exact everywhere; the value output matters on the promise.",
+    "530": "Each transcript gate checks claimed predecessors against actual input bits or earlier transcript bits.",
+    "532": "Topological consistency forces the unique true circuit evaluation.",
+    "534": "Consistency alone does not certify the promise; the separate d=1 test is essential.",
+    "537": "The logarithmic address length is forty t bits.",
+    "538": "The factor twenty is amplification slack while keeping the complete board polynomial in m.",
+    "540": "Each column owns an m-bit X string.",
+    "541": "Each column also owns r separate km-bit partial-function inputs.",
+    "542": "Every address cell stores pointers into every rival and one transcript per partial input.",
+    "543": "Every pointer encoding is valid because m is a power of two.",
+    "544": "Input length includes all cells, while query complexity charges selected bits only.",
+    "545": "A true address exists only when every partial input in the column is promised.",
+    "548": "The semantic winner conditions fix X, all partial values, transcripts, and outward zeros.",
+    "549": "Partial-function notation is guarded by domain membership.",
+    "551": "The total function is existential over finite column-address candidates.",
+    "554": "Two winner columns contradict all-one versus zero; one column's values force its address.",
+    "558": "The toy board uses two address bits and a finite truth-table circuit, not the asymptotic parameter choice.",
+    "560": "The four-bit Walsh normalization makes N/8 the displayed statistic.",
+    "562": "The examples distinguish positive yes, zero no, and large negative undefined inputs.",
+    "564": "Squaring the statistic hides its sign in this decoder, while the exact domain circuit distinguishes it.",
+    "566": "The sample board has one all-one column and one off-promise rival.",
+    "568": "The winner's three pointer fields target the three displayed rival zeros.",
+    "570": "Even globally correct transcripts can describe an off-promise rival; its domain output remains zero.",
+    "573": "An X test costs one bit query.",
+    "574": "A pointer test adaptively reads its address and then the selected target bit.",
+    "575": "A gate test reads at most three bits and never trusts a claimed input-wire value.",
+    "576": "Domain and value output tests are distinct from their gate consistency tests.",
+    "580": "The local test family contains m+(m-1)+r(S+2) tests.",
+    "582": "The gate-count interface turns K into O(m log cubed m).",
+    "585": "Passing every local test is equivalent to the semantic winner predicate.",
+    "588": "The equivalence uses transcript uniqueness and the explicit domain/value assertions.",
+    "590": "Changing an off-promise domain bit to one breaks its gate consistency.",
+    "591": "Two manuscript examples use different statistic magnitudes; transfer structural claims but recompute decoder probabilities.",
+    "595": "The small visible board expands to371 tests and5936 bits in the full finite encoding.",
+    "596": "Historical finite checks are reported separately from the mathematical argument.",
+    "597": "Removing domain tests would admit a deliberately constructed false winner.",
+    "600": "Adaptive lookup depth is logarithmic, but its essential support includes all target bits.",
+    "602": "This depth-versus-support distinction matters to a later formalization comparison.",
+    "604": "Search requires a reversible evaluator on arbitrary superpositions of test indices.",
+    "607": "Exact output flags can coexist with input-dependent retained workspace.",
+    "608": "Record adaptive histories and compute each query location reversibly; use a conservative two-query controlled read.",
+    "612": "Computing, copying, and uncomputing gives a clean exact bit oracle at twice the retained-work cost.",
+    "613": "A uniform index yields failure fraction h/K, but the required action is stronger than that one law.",
+    "615": "Comparisons use both chosen certificates and two pointer lookups, with a fixed tie rule.",
+    "617": "An actual winner is never disqualified by a rival pointer because every own X bit is one.",
+    "621": "A correct winner address guarantees victory regardless of its rival's label.",
+    "622": "The event implication tolerates correlated labels; numerical error control only needs the winner marginal.",
+    "625": "Antecedents separate pointer-function and cheat-sheet ideas from this construction's use.",
+    "631": "The target upper bound is C_k times sqrt(m) times log-sixth-power m.",
+    "633": "The algorithm will shrink weighted candidates and then verify a shortlist despite cyclic comparisons.",
+    "639": "Amplification is specified as a bounded black-box A/A-inverse interface with free fixed reflections.",
+    "640": "On success the designated original registers must equal the normalized successful component, including workspace.",
+    "644": "The two-dimensional good/bad decomposition reduces the iterate to a rotation.",
+    "651": "After j iterations the successful amplitude is sin((2j+1)theta).",
+    "652": "Successful projection preserves the same good vector up to a global phase.",
+    "658": "The iteration range scales as inverse square-root gamma; the number of trials as log inverse eta.",
+    "659": "A half probability of zero iterations protects the large-success-probability regime.",
+    "660": "Every trial has a fixed cap even when the success lower bound fails.",
+    "664": "The exact random-iteration average follows from a telescoping trigonometric sum.",
+    "669": "For success between gamma and one-half the sine denominator is bounded below.",
+    "673": "Both probability regimes give trial success at least9/40.",
+    "675": "Independent fresh trials reduce failure geometrically and still reject probability-zero input surely.",
+    "676": "Conditioning on the first successful trial preserves the same pure good state.",
+    "679": "The optional accounting gives an explicit constant138 for total calls.",
+    "682": "The original-register good state factors from trial-record auxiliaries; the enlarged state need not literally equal g.",
+    "684": "Controlled fixed reflections implement controlled Grover iterations while A calls remain unconditional.",
+    "688": "The plus-state versus Bell-state example demonstrates that label laws do not determine quantum states.",
+    "691": "The tournament interface assumes complementary pairwise probabilities, not transitivity."
+  },
+  "issues": {
+    "591": [
+      {
+        "id": "FP-019",
+        "observation": "The corresponding four-column examples in the reasoning record and exposition use different statistic magnitudes and therefore different decoder laws. The warning is correct, but requiring readers to carry this nonidentity weakens the shared example's teaching role. Prefer one common board or a compact explicit conversion table."
+      }
+    ],
+    "598": [
+      {
+        "id": "FP-020",
+        "observation": "The example's mathematical conclusion is interrupted by very long nested historical return paths and rerun commands. A stable asset index or a brief evidence note would preserve reproducibility while letting the example conclude at the level of its mathematical lesson."
+      }
+    ],
+    "633": [
+      {
+        "id": "FP-021",
+        "observation": "The phrase about total surviving weight 'at least halves in expectation' leaves a momentary direction-of-inequality ambiguity. State that expected remaining total weight is at most half of current weight, and later connect the drift equation to that sentence."
+      }
+    ]
+  },
+  "exposure": "Contiguous block batches and later 4000-character read chunks were visible before paragraph-level notes. One output over blocks521–565 truncated558–561, which were recovered before continuing. An initial attempt to return chunks1–5 together truncated chunk3 and omitted4–5; chunks3–6 were reread safely before chunks7–10. No sentence-by-sentence isolated exposure is claimed. Block692 was partially visible but is deferred until its full text is read.",
+  "summary": "The three imported guarantees are now used to define a total board: gate transcripts plus explicit domain and value output tests force one semantic address, while zero pointers into every rival force uniqueness. The concrete four-column board makes the winner and off-promise distinction intelligible. The local verifier has adaptive query depth logarithmic in m although its variable support is linear. Its reversible evaluator works on arbitrary test-index superpositions. Dominance needs only the actual winner's correctly decoded address; rival labels may be arbitrary. The bounded amplification proof supplies a finite all-input cap and preserves the complete successful original-register state, with ancillary trial histories explicitly separated. All these claims are readable at this encounter; the remaining upper-bound uncertainty is how the weighted tournament finds enough candidates under intransitive comparisons."
+}

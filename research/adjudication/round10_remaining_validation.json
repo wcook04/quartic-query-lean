@@ -1,0 +1,1022 @@
+{
+  "schema": "quartic-round10-remaining-validation-v1",
+  "baseline": "0adda9d800100b54a55c76d43510e45d8df2288b",
+  "source_hashes": {
+    "docs/expert_companion.md": "f0f11c0c50846ae77327ba6a74288d76e0d02f25539519f1079270a280de8a87",
+    "docs/expert_companion.bib": "24f106300a306ffd884aa973ce763963f1158de653a24b5262ee3d1a5723dfe2",
+    "docs/exposition.md": "032a2818baf0c0310d460114935c5ebdf7706d78946295dead0673ef688c2247",
+    "docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "docs/reasoning_record.md": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a",
+    "docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491"
+  },
+  "checks": {
+    "make_check": {
+      "result": "OK",
+      "tests_run": 264,
+      "skipped": 2,
+      "log_sha256": "c00cd3eb73fd20c8cc986f45b0e972055ffd0d09b47b09ae8b765decca854387"
+    },
+    "finite_examples": {
+      "kind": "finite checks, not formal proofs",
+      "forrelation": {
+        "m": 4,
+        "k": 2,
+        "inputs_checked": 256,
+        "result": "exact integer thresholds and Walsh orthogonality agree"
+      },
+      "tournament": {
+        "m": 6,
+        "T": 4,
+        "eps": "1/100",
+        "histories": 360,
+        "drift_instances": 157,
+        "expected_final_weight": "4505947942664514688034906363713407667657262243608462016246243788608996363078621949915372863439429075453658220185026952064063536967167358460010888571493815822389/113836898544623900724026082252343568836120209522500288116675146887284967415377066549413780826571230937978898336497842496620101493811426082649680002462831371775000",
+        "winner_miss_probability": "3706161382631314488208282010424750381265680692541017795180624556509019206557166595949609663024874288532677675558235519490589988324530000000000000/98483207339522274998429747742349294215241142895458082546405290309502645478426865326681098433034696914242069750137947577560328050535677654269829107",
+        "result": "passed exactly"
+      },
+      "capped_product": [
+        {
+          "function": "AND",
+          "copies": 1,
+          "per_copy_cap": 1,
+          "optimal_success": "3/4",
+          "beta_power": "3/4"
+        },
+        {
+          "function": "AND",
+          "copies": 2,
+          "per_copy_cap": 1,
+          "optimal_success": "9/16",
+          "beta_power": "9/16"
+        },
+        {
+          "function": "AND",
+          "copies": 3,
+          "per_copy_cap": 1,
+          "optimal_success": "27/64",
+          "beta_power": "27/64"
+        },
+        {
+          "function": "XOR",
+          "copies": 1,
+          "per_copy_cap": 1,
+          "optimal_success": "1/2",
+          "beta_power": "1/2"
+        },
+        {
+          "function": "XOR",
+          "copies": 2,
+          "per_copy_cap": 1,
+          "optimal_success": "1/4",
+          "beta_power": "1/4"
+        },
+        {
+          "function": "XOR",
+          "copies": 3,
+          "per_copy_cap": 1,
+          "optimal_success": "1/8",
+          "beta_power": "1/8"
+        },
+        {
+          "conditioning_counterexample": "AND, uniform two-bit input",
+          "unconditional_optimal_one_query_success": "3/4",
+          "adaptive_algorithm_success_given_nonheavy": "1",
+          "joint_nonheavy_and_success_probability": "1/2",
+          "conclusion": "conditioning on nonheavy invalidates the beta bound"
+        }
+      ]
+    },
+    "lean_sources_changed": false,
+    "lean_or_comparator_executed": false,
+    "original_return_members_reverified": 197,
+    "all_manuscript_findings_dispositioned": 26,
+    "method_findings_dispositioned": 14,
+    "exact_current_local_git_crosslinks": 59,
+    "record_anchors": {
+      "original_preserved": 367,
+      "current": 369
+    },
+    "record_claim_markers_preserved": 261,
+    "record_passages_preserved": 298,
+    "appendix_c_byte_identical_to_baseline": true
+  },
+  "pdfs": {
+    "expert": {
+      "path": "/Users/willcook/Downloads/quartic_round10_complete_20261104/expert/expert_companion.pdf",
+      "sha256": "ecd69dcc814e7439a7630b0474a04df0d111989e2c5eb9e96506f826e0710a4d",
+      "pages": 19,
+      "render_receipt_sha256": "b566bb5e231a20e26c0b0bda0b31e95fca6bbf9475d055a13db7592033b11838",
+      "render_inputs_current": true,
+      "contact_sheets_inspected": [
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/expert/inspection/sheet-001.png",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "sha256": "f1421d821899f16b31cd4ebefb5134468f1cd2548d7c73bb391f15701b107a10"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/expert/inspection/sheet-007.png",
+          "pages": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "sha256": "bb7072d3548747a02617faeaca1bbfa2658e7efd91cc879969e170baf2a88161"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/expert/inspection/sheet-013.png",
+          "pages": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "665350471f2f96f0155cd173063cb1b82a6a694c623cf673b071011a8670a322"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/expert/inspection/sheet-019.png",
+          "pages": [
+            19
+          ],
+          "sha256": "63732feabf2e1a8ba93453b358a926efc7eef0bbef56d6511877a5270534e514"
+        }
+      ],
+      "full_size_pages_inspected": [
+        1,
+        2,
+        5,
+        12,
+        14
+      ],
+      "link_kinds": {
+        "4": 51,
+        "2": 83
+      },
+      "internal_links_with_valid_page_targets": 51,
+      "targeted_exposition_landings": [],
+      "visual_scope": "All final pages inspected at contact-sheet size; listed affected pages also at normal readable size. Not a fresh full-proof review."
+    },
+    "exposition": {
+      "path": "/Users/willcook/Downloads/quartic_round10_complete_20261104/exposition/exposition.pdf",
+      "sha256": "7a4a38b5af04a9cf80dbfa69446e99e953a0ee4d4bf80bb438b39bbafb80a79b",
+      "pages": 26,
+      "render_receipt_sha256": "839059fe6ee550898c59b287cf016e03500719c8893490a5d4b61ce0157b9089",
+      "render_inputs_current": true,
+      "contact_sheets_inspected": [
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/exposition/inspection/sheet-001.png",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "sha256": "2f8d937466215bb2d06dc5557fb83b6e2660e30cf7d9718a7c0fc042b9fb08e9"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/exposition/inspection/sheet-007.png",
+          "pages": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "sha256": "14850097f16659cf2bd1fe4d8c6cdbc842b06ca95152a032d907262720f8f5c6"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/exposition/inspection/sheet-013.png",
+          "pages": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "sha256": "9af30d0409ab456fc8d6c43a2345091115953501e99132c0e4f48d6e7242c206"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/exposition/inspection/sheet-019.png",
+          "pages": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "sha256": "c15161513c055e1aec98765c0b4cef91f04fcee41c001c75106fef4c60554f2f"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/exposition/inspection/sheet-025.png",
+          "pages": [
+            25,
+            26
+          ],
+          "sha256": "54d37b5cdd6543cad0cf6bf4bd7c80eed5c9b8ff114c4c92d848d3463414e798"
+        }
+      ],
+      "full_size_pages_inspected": [
+        3,
+        10,
+        12,
+        15,
+        17,
+        22,
+        24
+      ],
+      "link_kinds": {
+        "4": 47,
+        "2": 37
+      },
+      "internal_links_with_valid_page_targets": 47,
+      "targeted_exposition_landings": [
+        {
+          "from_page": 3,
+          "label": "the sign\n answer",
+          "to_page": 22,
+          "named_destination": "section*.22"
+        },
+        {
+          "from_page": 7,
+          "label": "ow name\nAnswer",
+          "to_page": 22,
+          "named_destination": "section*.23"
+        },
+        {
+          "from_page": 13,
+          "label": "routine uses a\nAppendix A.3",
+          "to_page": 24,
+          "named_destination": "section*.33"
+        },
+        {
+          "from_page": 14,
+          "label": "aw. Mul\nAnswer.",
+          "to_page": 22,
+          "named_destination": "section*.24"
+        },
+        {
+          "from_page": 17,
+          "label": "ter queri\n(Answer.",
+          "to_page": 22,
+          "named_destination": "section*.25"
+        },
+        {
+          "from_page": 19,
+          "label": "𝑐afterw\nAnswer",
+          "to_page": 22,
+          "named_destination": "section*.26"
+        },
+        {
+          "from_page": 20,
+          "label": "Appendix B ",
+          "to_page": 24,
+          "named_destination": "section*.35"
+        },
+        {
+          "from_page": 21,
+          "label": "Which 𝑘m\n(Answer",
+          "to_page": 22,
+          "named_destination": "section*.27"
+        },
+        {
+          "from_page": 21,
+          "label": "anisms \n rubric",
+          "to_page": 22,
+          "named_destination": "section*.28"
+        }
+      ],
+      "visual_scope": "All final pages inspected at contact-sheet size; listed affected pages also at normal readable size. Not a fresh full-proof review."
+    },
+    "record": {
+      "path": "/Users/willcook/Downloads/quartic_round10_complete_20261104/record/reasoning_record.pdf",
+      "sha256": "77fdf469b24afc54d19e424ee29d164e6edcefd94b42c50ace68a78e6d0bb70e",
+      "pages": 140,
+      "render_receipt_sha256": "b19588e54ec84e3cd839381507c300565b7b5abc027f7a56976a29ffca897a75",
+      "render_inputs_current": true,
+      "contact_sheets_inspected": [
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/record/inspection/sheet-001.png",
+          "pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "sha256": "a3e48427610b2485c0d09c0de87536b4d4a0dd55f87cb41e5d346a31a280a4a8"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/record/inspection/sheet-013.png",
+          "pages": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "sha256": "cd3b7a6a05d03e7f769af4f58b776f7d2e8087662fffa62437abd0e1fc76de65"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/record/inspection/sheet-025.png",
+          "pages": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36
+          ],
+          "sha256": "d57662ec4ee58ed5fa2ed94d716aff02f12ad55510faacacb340f8413b54077a"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/record/inspection/sheet-037.png",
+          "pages": [
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48
+          ],
+          "sha256": "f07b975510c971b03254fe3bde26766e93e5b18cc47e126f0401d75c7d886705"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/record/inspection/sheet-049.png",
+          "pages": [
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "sha256": "49846929c0a8b4fff9010a6fb0af338c0057f0d3dd88a57ad4e14adced7115dd"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/record/inspection/sheet-061.png",
+          "pages": [
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72
+          ],
+          "sha256": "e85a0231cf935a83ad59f54e4e6c416191808d3bae2fbee2034ce17b6001b6f6"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/record/inspection/sheet-073.png",
+          "pages": [
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84
+          ],
+          "sha256": "88c0aec700e4d234b31b9ab5ddbd040215e2fbfa5096a2c767c6fdd07007d72e"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/record/inspection/sheet-085.png",
+          "pages": [
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96
+          ],
+          "sha256": "a7e5ab68e041c96997c58abe81b1fd3e58ccc24f02ab4df03e9aadac5dfec65b"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/record/inspection/sheet-097.png",
+          "pages": [
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "sha256": "e16f24fdb3396da5a87b9f68ab5953ae5727f6686887983d41994a590c205d64"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/record/inspection/sheet-109.png",
+          "pages": [
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120
+          ],
+          "sha256": "76d82862cb782e1498844fadf5790f3339a954973a015a9171991d79bb86a7d2"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/record/inspection/sheet-121.png",
+          "pages": [
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132
+          ],
+          "sha256": "3781c0fbb97bdf632d26804fbad04e83b6dd2aea702416d735f0cef4507948f2"
+        },
+        {
+          "path": "/Volumes/Demo Take Media/quartic_round10_complete_20261104/record/inspection/sheet-133.png",
+          "pages": [
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            140
+          ],
+          "sha256": "f73e0e4fec5884ff434e2a9afcf9f12636c8279f4029bca43ff5d9aa9a1e8620"
+        }
+      ],
+      "full_size_pages_inspected": [
+        14,
+        20,
+        24,
+        25,
+        33,
+        58,
+        63,
+        69
+      ],
+      "link_kinds": {
+        "2": 272,
+        "4": 369,
+        "3": 82
+      },
+      "internal_links_with_valid_page_targets": 369,
+      "targeted_exposition_landings": [],
+      "visual_scope": "All final pages inspected at contact-sheet size; listed affected pages also at normal readable size. Not a fresh full-proof review."
+    }
+  },
+  "source_links": [
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "R3-01-BRIDGES",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_quantum",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_circuit",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_quantum",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_quantum",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_circuit",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-local-tests",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-coherent-tests",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-tournament-statement",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-minimax",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-simulator-example",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-conditioning-counterexample",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-floors",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-zero-optional",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "checked-statements",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "formal-named-family",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "R3-01-CLASSICAL",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "R3-01-BRIDGES",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "ROOT-EXPONENT-CORRESPONDENCE",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-missing-physical-state",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-direct-product-formal",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_small_instance",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-cyclic-example",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-selection-independence-example",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-independent-information",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-conditioning-counterexample",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-adaptive-example",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "ROOT-GROWING-K",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-small-probability",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-small-probability",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-returned-register",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-weighted-values",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-literature-and-verification",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_uniform_assembly",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_threshold",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "ROOT-GROWING-K",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "ROOT-GROWING-K",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "ROOT-GROWING-K",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_stein",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_credit",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": null,
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "d7274d658a8c8069801bfcb582ba7d737d9f92d3",
+      "path": "docs/expert_companion.md",
+      "anchor": null,
+      "sha256": "f0f11c0c50846ae77327ba6a74288d76e0d02f25539519f1079270a280de8a87"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "AC-example-check-scope",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_circuit",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "forr_target",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "AC-coherent",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-minimax",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-early-late",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-conditioning-counterexample",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "CL-simulator-example",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "ROOT-GROWING-K",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "R3-A-RESULT",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "R3-01-CLASSICAL",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "formal-named-family",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "checked-statements",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-explicit-log6",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/exposition.md",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": "upper-grover-trial",
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.bib",
+      "commit": "79d996f8f09bae7baa335f73bc11106d251af07e",
+      "path": "docs/reasoning_record.md",
+      "anchor": null,
+      "sha256": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a"
+    },
+    {
+      "from": "docs/expert_companion.bib",
+      "commit": "41244d6eb9043470bc5b630b112cdf1671a3ecd8",
+      "path": "docs/exposition.md",
+      "anchor": null,
+      "sha256": "032a2818baf0c0310d460114935c5ebdf7706d78946295dead0673ef688c2247"
+    }
+  ],
+  "source_link_scope": "Exact current Markdown bytes at pinned Git commits and their fragments. Native render receipts separately bind bibliography and figures; a Markdown citation does not identify a PDF. Remote availability checked after publication.",
+  "register": {
+    "expert": {
+      "report_sha256": "fd0239486f417a3e6e73287f7df4ff6f4a5078a7ae3aceeb98527383b97596e1",
+      "prose_words": 6946,
+      "sentences": 474,
+      "summary": {
+        "outside": 12,
+        "mean_abs_d": 1.8934864029414373
+      },
+      "profile": "ABK v2, pointer v3, supplied OpenAI preprint",
+      "interpretation": "Descriptive inspection prompts only; no optimization to a score. Specialist formal-status vocabulary serves a distinct verification task; teaching questions and short sentences are intentional."
+    },
+    "exposition": {
+      "report_sha256": "17a988542893d7ad85f1dd98b6320012eddab9fbcbfd36a8bd51847e640bb53e",
+      "prose_words": 10746,
+      "sentences": 751,
+      "summary": {
+        "outside": 26,
+        "mean_abs_d": 4.531195514973472
+      },
+      "profile": "de Wolf lecture notes v6; one specimen, zero-IQR scale floored",
+      "interpretation": "Descriptive inspection prompts only; no optimization to a score. Specialist formal-status vocabulary serves a distinct verification task; teaching questions and short sentences are intentional."
+    },
+    "limits": [
+      "Damaged survey extraction excluded. ABK front matter absent in extraction and pointer math macros damaged; prose profiles do not judge formulas or abstracts.",
+      "No genre-matched numerical norm is claimed for the 140-page reasoning record. Grouped author source review covers its changed and relocated units.",
+      "No new human comprehension test, strict chronological reader trial, Lean build or Comparator run."
+    ]
+  },
+  "upstream": {
+    "repository": "wcook04/lean-exposition",
+    "pull_request": 46,
+    "merge_commit": "6c7226e4c5512795c381a661a9c2777f4a2ef1cd",
+    "branch_commit": "064ed5ddd0c238c4956ea85d0e33b737a7f9e066",
+    "tests_run": 710,
+    "skipped": 2,
+    "layout_and_links": "passed",
+    "ci": "Python3.11, Python3.12 and site jobs passed",
+    "minimal_bundle": "validate and inspect completed; partial extraction and unresolved external dependencies remain explicit"
+  },
+  "receiving_repairs": [
+    "Restored external-document and source-bibliography section numbers touched by numeric remapping.",
+    "Kept direct-product anchor at Appendix B and schedule anchor on its rendered page.",
+    "Kept theorem/display, table introductions and amplification heading/lemma together.",
+    "Distinguished published CCC Lemma9 from arXiv-v2 Lemma1.9 in printed bibliography."
+  ],
+  "limitations": [
+    "Full returns apply to original sent R10 edition, not to these final revisions.",
+    "Preserved block/batch exposure limits; no claim of new isolated-sentence or human review.",
+    "Finite checks and editorial source inspection do not independently certify the whole mathematics.",
+    "No new R11 review packets built; original R10 packets unchanged."
+  ],
+  "publication": {
+    "source_commits": {
+      "record": "79d996f8f09b",
+      "expert": "d7274d6",
+      "exposition": "41244d6"
+    },
+    "remote_verification": "Performed after the scoped publication commit; see separate publication receipt."
+  }
+}

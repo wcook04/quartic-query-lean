@@ -1,0 +1,57 @@
+disqualified. This holds whatever the opponent's promises and decoded label.
+
+[B0810 L2586-2586]
+The winner's own Forrelation promises hold, so it decodes its correct address with probability at least $1-\varepsilon$, and at that address its pointer into each other column finds a zero, again by the definition of a winner. Whenever its decoding is correct, every opponent in the comparison is therefore disqualified and $i^\star$ wins, whatever the numerical tie convention. Since correct decoding is contained in the event that it wins, we obtain:
+
+[B0811 L2588-2588]
+<!-- claim:claim-winner-dominates -->
+
+[B0812 L2589-2591]
+$$
+a_{i^\star j}\geq1-\varepsilon\qquad(j\ne i^\star).
+$$
+
+[B0813 L2593-2594]
+The proof uses the correctness of the true winner's decoder and two deterministic facts: the winner cannot be disqualified, and its true-address pointers disqualify every opponent. Nothing is assumed about a nonwinning column's decoder. This is also why amplifying an assumed comparison bias would be unjustified: the available guarantee is a strong one-sided property of a true winner, while other pairs may have arbitrary probabilities.
+<!-- /passage:upper-winner-dominates -->
+
+[B0814 L2596-2597]
+<a id="upper-verifier"></a>
+<!-- passage:upper-verifier -->
+
+[B0815 L2599-2599]
+Comparison retains both decoded labels coherently while using them to control pointers. Verification instead samples one fresh label before any test search: to verify a candidate, we decode its address afresh, measure it, and fix the resulting address $a$. Lemma 2.2 provides a finite list of exact local tests, whose number is
+
+[B0816 L2601-2601]
+<!-- claim:def-K -->
+
+[B0817 L2602-2604]
+$$
+K=m+(m-1)+r(S+2)=O_k(m\ell^3).
+$$
+
+[B0818 L2606-2606]
+The first $m$ tests check that the candidate's $X$-block is all ones, and the next $m-1$ tests follow its pointers at address $a$ and check for a zero in each other column. For each of the $r$ Forrelation instances, $S$ tests check the gate values in the proposed circuit transcript and two check the required outputs. The tests depend on the candidate and the fixed address, and each is an exact Boolean computation on the raw input. A gate test reads at most three bits and a pointer test is an adaptive decision tree of depth at most $\ell+1$, so the uniform per-test depth is $\max\{3,\ell+1\}=O(\log m)$. The argument needs only this depth bound, so pointer tests may read adaptively chosen coordinates.
+
+[B0819 L2608-2608]
+We prepare a uniform test label, compute whether that test fails, and count failure of the test as success for an application of Lemma 3.1 with $\gamma=1/K$ and $\eta=\varepsilon$. These are admissible parameters: $K\ge m\ge4$ gives $0<1/K\le1/2$, and $0<\varepsilon<1/2$. The candidate is rejected if this search returns a failed test and accepted if it reports failure to find one.
+
+[B0820 L2610-2610]
+The same amplification subroutine has different caller meanings in the two uses:
+
+[B0821 L2612-2612]
+**Tournament stages.** Success means that the candidate defeats every stored pivot. On reported failure, stop and return the list accumulated so far. Before a dominant vertex has appeared, the probability of this failure is at most $\varepsilon$.
+
+[B0822 L2614-2614]
+**Verification.** Success means that the sampled local test fails. On reported failure, accept the candidate at its proposed address. This accepts a nonwinner with probability at most $\varepsilon$, and accepts with certainty when all tests pass.
+
+[B0823 L2616-2617]
+ Every column in the returned tournament list is decoded and verified with fresh randomness, stopping once one is accepted, and the output is one exactly in that event; in particular, the empty list produces zero.
+<!-- /passage:upper-verifier -->
+
+[B0824 L2619-2620]
+<a id="upper-verification-proof"></a>
+<!-- passage:upper-verification-proof -->
+
+[B0825 L2622-2622]
+For a fixed input, candidate, and decoded address, let $h$ be the number of failed local tests. Since the tests are exact and their l

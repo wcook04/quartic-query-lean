@@ -1,0 +1,79 @@
+
+The labels $d,b$ in the last summand denote the two output *tests*, which come in addition to the consistency tests at the corresponding output gates. Consequently
+
+[B0580 L1880-1883]
+$$
+K=|E|=m+(m-1)+r(S+2).
+\tag{4.10}
+$$
+
+[B0581 L1885-1885]
+**Explicit-budget calculation.** If $S\leq A m\ell^2$ for a fixed integer $A$, then (4.3) gives
+
+[B0582 L1887-1891]
+$$
+K=2m-1+20\ell(S+2)
+\leq(42+20A)m\ell^3.
+\tag{4.11}
+$$
+
+[B0583 L1893-1894]
+Indeed, the circuit term contributes at most $20A m\ell^3$, while $2m\leq2m\ell^3$ and $40\ell\leq40m\ell^3$ (recall that $m\geq4$ and $\ell\geq2$). This gives the bound $K=O_k(m(\log m)^3)$ once §3.17 supplies $A=A_k$.
+<!-- /passage:AC-tests -->
+
+[B0584 L1896-1899]
+<a id="CL-local-equivalence"></a>
+<a id="AC-local-equivalence"></a>
+<!-- passage:AC-local-equivalence -->
+**Local verification lemma (classical part of OpenAI, Lemma 2.2).** Suppose $C$ satisfies (4.1). On every complete input $y$, and for every candidate $(i,s)$,
+
+[B0585 L1901-1905]
+$$
+W(y;i,s)\quad\Longleftrightarrow\quad
+g_e(y;i,s)=1\text{ for every }e\in E.
+\tag{4.12}
+$$
+
+[B0586 L1907-1907]
+Every test is computed by an exact deterministic adaptive decision tree of depth at most
+
+[B0587 L1909-1913]
+$$
+q_*=\max\{3,\ell+1\}=\ell+1
+\qquad(m\geq4).
+\tag{4.13}
+$$
+
+[B0588 L1915-1915]
+**Proof.** Suppose all tests pass. The column-bit and pointer tests give the first and last lines of (4.5). For each $h$, the gate tests and (4.2) identify $\tau_{i,s,h}$ as the true evaluation of $C$ on $A_{i,h}$, and its two output tests then give $A_{i,h}\in D$ and $P(A_{i,h})=s_h$ by (4.1); these are the remaining lines of (4.5). Conversely, (4.5) supplies true transcripts of promised inputs with the required values, so every test passes.
+
+[B0589 L1917-1918]
+The procedures defining the tests use at most one, three or $\ell+1$ queries, according to their type, and they are exact on every input, including inputs at which the candidate is a nonwinner or its address instances are unpromised. Their largest depth is (4.13). ∎
+<!-- /passage:AC-local-equivalence -->
+
+[B0590 L1920-1924]
+<a id="CL-dichotomy"></a>
+<a id="AC-dichotomy"></a>
+<!-- passage:AC-dichotomy -->
+It follows that a winning column passes all tests at its unique true address and fails at least one test at every other address. A nonwinner, including any column with an unpromised instance, fails some test at every address, since an address at which all tests passed would contradict (4.12). For an unpromised instance the true transcript has domain output zero, and changing that output to one makes at least one gate equation fail; hence gate consistency cannot repair the instance.
+<!-- /passage:AC-dichotomy -->
+
+[B0591 L1926-1928]
+<a id="AC-example-tests"></a>
+<!-- passage:AC-example-tests -->
+The circuit and gate numbering below also serve the examples-first exposition. Its board uses Forrelation values $\Phi=+1$ and $-1$, whereas the preserved checker's board uses $\Phi=+1/2$ and $-1/2$. The 256-input circuit truth table, gate identities and local-test rules transfer unchanged; the board-specific decoder probabilities do not.
+
+[B0592 L1930-1930]
+*For readers arriving from the exposition:* return to [Section 2](exposition.md#2-one-column-then-four) after inspecting these tests.
+
+[B0593 L1932-1932]
+On the four-column board, the supplied finite circuit has $S=180$ non-input gates, and in zero-based numbering its domain and value outputs are gates 178 and 179. Each candidate therefore has
+
+[B0594 L1934-1937]
+$$
+K=4+3+2(180+2)=371
+\tag{4.14}
+$$
+
+[B0595 L1939-1939]
+tests, and by the count that follows §4.2 the board has $4[4+16+4(6+360)]=5936$ input bits. At $(1,10)$ all 371 local tests pass: the four column tests, three pointer tests, 360 gate tests, two domain-output tests and two value-output tests. At $(1,00),(1,01),(1,11)$ there are, respectively, $1,2,1$ failed tests, because the proposed address disagrees with one or two true output bits while every pointer still reaches its designated zero. Column

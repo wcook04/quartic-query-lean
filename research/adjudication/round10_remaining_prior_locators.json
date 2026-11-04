@@ -1,0 +1,66 @@
+{
+  "schema": "quartic-r10-current-prior-locators-v1",
+  "baseline": "0adda9d",
+  "current_exposition_sha256": "032a2818baf0c0310d460114935c5ebdf7706d78946295dead0673ef688c2247",
+  "findings": [
+    {
+      "prior_id": "EX9104",
+      "status": "current_locator_supplied",
+      "path": "docs/exposition.md",
+      "line": 512,
+      "anchor": "answer-combined",
+      "quote": "Combined-explanation rubric (guided feedback)",
+      "scope": "Repairs locator evidence for the current edition; original R9 and R10 records unchanged."
+    },
+    {
+      "prior_id": "EX9105",
+      "status": "current_locator_supplied",
+      "path": "docs/exposition.md",
+      "line": 512,
+      "anchor": "answer-combined",
+      "quote": "Combined-explanation rubric (guided feedback)",
+      "scope": "Repairs locator evidence for the current edition; original R9 and R10 records unchanged."
+    },
+    {
+      "prior_id": "EX9118",
+      "status": "current_locator_supplied",
+      "path": "docs/exposition.md",
+      "line": 512,
+      "anchor": "answer-combined",
+      "quote": "Combined-explanation rubric (guided feedback)",
+      "scope": "Repairs locator evidence for the current edition; original R9 and R10 records unchanged."
+    },
+    {
+      "prior_id": "EX9121",
+      "status": "current_locator_supplied",
+      "path": "docs/exposition.md",
+      "line": 512,
+      "anchor": "answer-combined",
+      "quote": "Combined-explanation rubric (guided feedback)",
+      "scope": "Repairs locator evidence for the current edition; original R9 and R10 records unchanged."
+    },
+    {
+      "prior_id": "EX9122",
+      "status": "current_locator_supplied",
+      "path": "docs/exposition.md",
+      "line": 512,
+      "anchor": "answer-combined",
+      "quote": "Combined-explanation rubric (guided feedback)",
+      "scope": "Repairs locator evidence for the current edition; original R9 and R10 records unchanged."
+    },
+    {
+      "prior_id": "EX9130",
+      "status": "current_locator_supplied",
+      "path": "docs/exposition.md",
+      "line": 492,
+      "anchor": null,
+      "quote": "For the **family bounds**",
+      "scope": "Repairs locator evidence for the current edition; original R9 and R10 records unchanged."
+    }
+  ],
+  "XP9-155": {
+    "status": "exact_local_git_editions_verified",
+    "scope": "Final source-link validation checks pinned bytes and anchors against Git objects. A live remote-byte check is recorded separately in final validation; this is not a theorem check."
+  },
+  "other_challenges": "RR9-033, RR9-067, RR9-094, RR9-101 and RR9-145 are adjudicated through the corresponding RR10 findings; EX9034 is addressed by EX10 example-identity revisions. Full original audits remain edition-bound."
+}

@@ -1,0 +1,47 @@
+q1$; thus the total success probability is positive whenever $p>0$. At $p=0$ we assert certain failure and make no conditional-state assertion about a null event.
+<!-- /passage:upper-amplification-proof -->
+
+[B0682 L2200-2202]
+<a id="upper-returned-register"></a>
+<!-- passage:upper-returned-register -->
+We now interpret the retained registers. On a successful measured history, we route the entire original register of the first successful trial to a fixed output register, whose state is $g$ up to phase. The earlier unsuccessful registers, the iteration-count records and the chosen trial index are additional registers, and keeping all of them leaves the pure reduced state $|g\rangle\langle g|$ of the output register unchanged. If the history is retained coherently, the phase of each history can be absorbed into its auxiliary amplitude: after the fixed routing, the unnormalized successful component factors as $g\otimes\xi$, with $\|\xi\|^2$ equal to the success probability. This is a statement about a designated subsystem; it does not identify the whole enlarged workspace with the smaller vector $g$.
+
+[B0683 L2204-2204]
+A coherent implementation may run all $N$ trial registers and then route the first success, keeping the same padded cap, and it calls the preparation unitary only without control. To control a Grover iterate, we apply $A$ and $A^{-1}$ unconditionally, control only the fixed reflections $S_0,S_\chi$, and apply the minus sign as a phase on the true control. Writing $C(U)=|0\rangle\langle0|\otimes I+|1\rangle\langle1|\otimes U$ and $Z_c=|0\rangle\langle0|-|1\rangle\langle1|$, the controlled product is
+
+[B0684 L2205-2208]
+\[
+(Z_c\otimes I)(I\otimes A)C(S_0)(I\otimes A^{-1})C(S_\chi)
+=|0\rangle\langle0|\otimes I+|1\rangle\langle1|\otimes G.
+\]
+
+[B0685 L2209-2209]
+On a false control the reflections are identities and $AA^{-1}=I$; on a true control the product is $G$. The iteration-count record therefore controls only input-independent gates. Every trial has a fixed schedule of preparation calls, and its success projection can be recorded coherently in an auxiliary flag. After routing, the common factor $g$ on every successful history gives the stated factorization, and the first trial alone gives total success probability at least $p/2$ when $p>0$.
+
+[B0686 L2211-2212]
+<!-- claim:r3-q-labels-do-not-determine-state -->
+The successful-state assertion needs more than equality of label distributions. Write $|\pm\rangle=(|0\rangle\pm|1\rangle)/\sqrt2$. The vectors
+
+[B0687 L2213-2217]
+$$
+ |+\rangle\otimes|0\rangle
+ \quad\hbox{and}\quad
+ \frac{|0\rangle|0\rangle+|1\rangle|1\rangle}{\sqrt2}
+$$
+
+[B0688 L2218-2219]
+give the same uniform computational-basis distribution on the first register. In the first vector that register is in the pure state $|+\rangle$, and in the second it has density matrix $I/2$, so measuring it in the $\{|+\rangle,|-\rangle\}$ basis distinguishes the two laws: the probability of $+$ is respectively $1$ and $1/2$. The example shows why the formal successful-label theorem certifies less than the full successful-state assertion, which the ordinary proof of Lemma 3.1 just given establishes.
+<!-- /passage:upper-returned-register -->
+
+[B0689 L2222-2222]
+### 5.2. A tournament with probabilistic comparisons
+
+[B0690 L2224-2225]
+<a id="upper-tournament-statement"></a>
+**Proposition 3.2 (probabilistic-comparison tournament).**
+
+[B0691 L2227-2227]
+**Comparison interface.** Let $m\ge2$, and for each unordered pair of distinct vertices let one designated comparison circuit be available coherently, including under control of the pair's indices, with a cap of $c\ge1$ bit queries for the circuit and for its inverse. Let $a_{ij}$ be the probability that $i$ wins against $j$, with $a_{ii}=0$, so that $a_{ij}+a_{ji}=1$ for $i\ne j$ (equation (10)); the comparisons may be intransitive, and their error need not be bounded.
+
+[B0692 L2229-2229]
+**Parameters and distinguished vertex.** Put $T=\lceil\log_2(1000m)\rceil$ and $\vare

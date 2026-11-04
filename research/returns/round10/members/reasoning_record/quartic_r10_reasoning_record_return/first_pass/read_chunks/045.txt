@@ -1,0 +1,64 @@
+ $80x=2\sqrt{40\ell}$, this gives $40k+\ell/k\le2\sqrt{40\ell}+20$.
+Next, $6\log_2k\le3\log_2(\ell/40)<3\log_2\ell-15.96$, $\log_21822500<20.80$, and $\log_2\ln(4km)\le\log_2\ell$ because $\ln(4km)\le\ell$. Adding these bounds gives $4B-A\le2\sqrt{40\ell}+28\log_2\ell+237$, since $20+212-15.96+20.80=236.84$, and we define
+
+[B1196 L3961-3963]
+\[
+\varepsilon(\ell)=8\sqrt{\frac{10}{\ell}}+\frac{56\log_2\ell+508}{\ell}\ \ge\ \frac{2(4B-A)}{\ell}.
+\]
+
+[B1197 L3964-3965]
+The value $508$ is a retained harmless upper rounding of $474$; no later step requires the extra slack.
+If $4B\le A$, then $A\ge4B$. Otherwise $B\ge\ell/2$ gives $(4B-A)/B\le2(4B-A)/\ell\le\varepsilon(\ell)$. In both cases $A\ge(4-\varepsilon(\ell))B$. The function $F_t$ is not constant, so $Q(F_t)\ge1$ and $R(F_t)\ge1$. When $\varepsilon(\ell)<4$ we obtain $\log_2R(F_t)>A\ge(4-\varepsilon(\ell))B\ge(4-\varepsilon(\ell))\log_2Q(F_t)$, and when $\varepsilon(\ell)\ge4$ the inequality below holds trivially. Thus, for every $t\ge80$,
+
+[B1198 L3966-3968]
+\[
+R(F_t)\ge Q(F_t)^{4-\varepsilon(\ell)},\qquad \varepsilon(\ell)\to0 .
+\]
+
+[B1199 L3969-3970]
+The lower bound (7.6) tends to infinity along this schedule: its leading logarithm is $(2-1/k)\ell$, while its denominator has logarithm $O(\log\ell)$. The universal quartic upper bound then forces $Q(F_t)\to\infty$. Thus the exponents tend to four on a family of unbounded complexity, although the argument gives no bound $R=\Omega(Q^4)$ for this family.
+<!-- /passage:ROOT-GROWING-K -->
+
+[B1200 L3972-3972]
+## Appendix A. The universal quartic bound
+
+[B1201 L3974-3974]
+We reconstruct the known upper bound $R=O(Q^4)$, which makes four attainable. This appendix follows the star-adversary route with coefficient $35^4$; the headline Lean proof uses the separately compiled complexitylib route. [G.9](#R3-A-ROUTES) compares those routes and a third hybrid. A reader who accepts the theorem of Aaronson, Ben-David, Kothari, Rao and Tal needs only the outline in the next two paragraphs.
+
+[B1202 L3976-3979]
+<a id="ROOT-APPENDIX-INTRO"></a>
+<a id="R3-A-RESULT"></a>
+<!-- passage:R3-A-RESULT -->
+Every total Boolean function satisfies
+
+[B1203 L3980-3984]
+\[
+ R(f)\le D(f)\le 35^4 Q(f)^4
+       =1{,}500{,}625\,Q(f)^4.
+\tag{A.1}
+\]
+
+[B1204 L3985-3985]
+Here \(D\) is exact deterministic query complexity and \(R,Q\) use error at most \(1/3\), with a worst-case query cap. The constant is independent of the function and its number of input bits. Constant functions have zero query complexity, so the estimate includes the zero-dimensional cube. In particular, \(R(f)\le 1{,}500{,}625(1+Q(f))^4\); this is the upper endpoint needed in §7.
+
+[B1205 L3987-3988]
+The quartic upper bound is due to [Aaronson, Ben-David, Kothari, Rao and Tal, arXiv:2010.12629v1, Theorem 2, printed p. 2][ABKRT2020]. We reconstruct the argument of [OpenAI's Appendix A, printed pp. 14–17][OpenAI2026], keeping its two applications of the nonnegative adversary method. One bounds block sensitivity, the other spectral sensitivity. Huang's signed cube converts spectral sensitivity into a degree bound; Midrijānis's decision tree then multiplies degree by block sensitivity. The explicit coefficient in (A.1) belongs to the supplied implementation and is not an optimality claim.
+<!-- /passage:R3-A-RESULT -->
+
+[B1206 L3990-3990]
+### A.1. Degree, sensitive blocks and the sensitivity graph
+
+[B1207 L3992-3995]
+<a id="ROOT-DEGREE-BLOCK"></a>
+<a id="R3-A-DEFINITIONS"></a>
+<!-- passage:R3-A-DEFINITIONS -->
+Let \(f:\{0,1\}^n\to\{0,1\}\) be total. Its unique real multilinear representation is obtained by interpolating on the cube:
+
+[B1208 L3996-3999]
+\[
+ p_f(x)=\sum_{a\in\{0,1\}^n}
+ f(a)\prod_{i:a_i=1}x_i\prod_{i:a_i=0}(1-x_i).
+\]
+
+[B1209 L4000-4000]
+At a cube point only its own interpolation term survives. For uniqueness, let $p$ be the difference of two multilinear representations, so $p$ vanishes on the cube. Write $p=p_0+x_np_1$, where $p_0,p_1$ are multilinear polynomials in the other $n-1$ variab

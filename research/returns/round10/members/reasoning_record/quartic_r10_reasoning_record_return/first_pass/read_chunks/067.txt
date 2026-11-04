@@ -1,0 +1,92 @@
+d="CAT-lem-A.4"></a>
+<!-- passage:CAT-lem-A.4 -->
+<!-- claim:lem-A.4 -->
+
+[B1901 L5705-5705]
+> Every nonconstant total Boolean f satisfies deg(f) <= lambda(f)^2.
+
+[B1902 L5707-5707]
+**Argument:** [§A.4](#ROOT-HUANG-SPECTRUM).
+
+[B1903 L5709-5709]
+<!-- /passage:CAT-lem-A.4 -->
+
+[B1904 L5711-5711]
+#### claim-round-block
+
+[B1905 L5713-5715]
+<a id="CAT-claim-round-block"></a>
+<!-- passage:CAT-claim-round-block -->
+<!-- claim:claim-round-block -->
+
+[B1906 L5717-5717]
+> In each round of the algorithm on input x, with S the selected maximum-degree monomial's support in the current restriction, the restriction to S with all other unqueried variables set as in x is nonconstant. So some nonempty subset of S is a sensitive block at x. Blocks of different rounds are disjoint.
+
+[B1907 L5719-5719]
+**Argument:** [§A.5](#ROOT-MONOMIAL-TREE).
+
+[B1908 L5721-5721]
+<!-- /passage:CAT-claim-round-block -->
+
+[B1909 L5723-5723]
+#### lem-A.5
+
+[B1910 L5725-5727]
+<a id="CAT-lem-A.5"></a>
+<!-- passage:CAT-lem-A.5 -->
+<!-- claim:lem-A.5 -->
+
+[B1911 L5729-5729]
+> Every total Boolean f satisfies D(f) <= bs(f) deg(f).
+
+[B1912 L5731-5731]
+**Argument:** [§A.5](#ROOT-MONOMIAL-TREE).
+
+[B1913 L5733-5733]
+<!-- /passage:CAT-lem-A.5 -->
+
+[B1914 L5735-5735]
+#### thm-A.1
+
+[B1915 L5737-5739]
+<a id="CAT-thm-A.1"></a>
+<!-- passage:CAT-thm-A.1 -->
+<!-- claim:thm-A.1 -->
+
+[B1916 L5741-5741]
+> Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.
+
+[B1917 L5743-5743]
+**Argument:** [Appendix A](#ROOT-APPENDIX-INTRO), [§A.6](#ROOT-QUARTIC-UPPER).
+
+[B1918 L5745-5745]
+<!-- /passage:CAT-thm-A.1 -->
+
+[B1919 L5747-5747]
+## Appendix C. References and inspected editions
+
+[B1920 L5749-5749]
+This appendix gives the exact edition and locator of every cited source.
+
+[B1921 L5751-5753]
+<a id="ROOT-REFERENCES"></a>
+<!-- passage:ROOT-REFERENCES -->
+The editions and theorem locators below are those assessed in the retained section returns. In-text citations distinguish a theorem used as a premise, an antecedent, a comparison and a disputed displayed step. The notes retain the scope of those readings; a listed source is not thereby claimed to have been read in full for this revision. Machine-readable records are in [reasoning_record.bib](reasoning_record.bib).
+
+[B1922 L5755-5755]
+<a id="ref-OpenAI2026"></a>
+
+[B1923 L5757-5757]
+- **OpenAI2026.** OpenAI. *A Nearly Quartic Separation Between Randomized and Quantum Query Complexity*. 2026. [Full-text edition](https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf). Preprint dated 5 October 2026. Mathematical target throughout this record. The retained reviewed PDF has SHA-256 a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e.
+
+[B1924 L5759-5759]
+<a id="ref-BDW02"></a>
+
+[B1925 L5761-5761]
+- **BDW02.** Harry Buhrman and Ronald de Wolf. *Complexity Measures and Decision Tree Complexity: A Survey*. 2002. Theoretical Computer Science. 21–43. [Full-text edition](https://homepages.cwi.nl/~rdewolf/publ/qc/dectree.pdf). Author PDF dated 10 October 2002; supplied PDF SHA-256 7002019660c498b652611acf5cdbe264ea9c4a139f8f4da6e82e12822e5d9122. Sections 3.1–3.3, printed pages 5–8, supply the model conventions. Section 3.2 explicitly allows biased coins, takes maximum supported depth, and uses inclusive success at least 2/3. Section 3.3 uses a fixed sequence of input-independent gates and bit queries. Standard exposition, not a proof of the new separation.
+
+[B1926 L5763-5763]
+<a id="ref-DW26"></a>
+
+[B1927 L5765-5765]
+- **DW26.** Ronald de Wolf. *Quantum Computing: Lecture Notes*. 2026. [Version record](https://arxiv.org/abs/1907.09415v6). Version 6, 27 August 2026. Supplied source archive SHA-256 2ffd080924542b6de1409a1dbd73efcb85e99bc0d3cc2daac5e3eeba84ef2535. Measurement: Section 1.2.2, printed pages 4–6, and Section 2.1.2, pages 14–15. Oracle and phase query: Section 2.4, printed pages 

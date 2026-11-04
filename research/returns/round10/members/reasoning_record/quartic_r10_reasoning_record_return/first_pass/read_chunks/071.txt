@@ -1,0 +1,47 @@
+47v2; its corresponding locators are pp. 4–5.
+
+[B1968 L5847-5847]
+<a id="ref-Midrijanis2004"></a>
+
+[B1969 L5849-5849]
+- **Midrijanis2004.** Midrijānis, Gatis. *Exact quantum query complexity for total Boolean functions*. 2004. [Version record](https://arxiv.org/abs/quant-ph/0403168v2). Version 2, 27 March 2004. Lemma 3, p. 3; proof of Theorem 4, pp. 3–4, especially its final paragraph for D(f) <= deg(f) bs(f). Theorem 5 concerns exact, not bounded-error, quantum query complexity.
+
+[B1970 L5851-5851]
+<a id="ref-HLS2007"></a>
+
+[B1971 L5853-5853]
+- **HLS2007.** Høyer, Peter and Lee, Troy and Špalek, Robert. *Negative weights make adversaries stronger*. 2007. [Full-text edition](https://www.ucw.cz/~robert/papers/madv.pdf). The inspected 29-page author PDF: Definition 1 and Theorem 1, printed p. 3. Version-2 metadata is dated 24 April 2007; byte identity of the author PDF and arXiv PDF was not established. Theorem 1 attributes the nonnegative spectral bound, including denominator two, to Barnum–Saks–Szegedy. Related conference publication: STOC 2007, pp. 526–535, DOI 10.1145/1250790.1250867.
+
+[B1972 L5855-5855]
+<a id="ref-SS2006"></a>
+
+[B1973 L5857-5857]
+- **SS2006.** Špalek, Robert and Szegedy, Mario. *All Quantum Adversary Methods are Equivalent*. 2006. Theory of Computing. 1–18. [Full-text edition](https://theoryofcomputing.org/articles/v002a001/v002a001.pdf). Publisher edition. Oracle convention: Section 2.1, p. 4; operator norm: Section 2.4, p. 5; Theorem 3.1 and equation (3.1): p. 6; closing proof: p. 14. The printed error prefactor lacks a factor 1/2 under those conventions; the exact two-bit parity witness checks this local discrepancy without disputing the nonnegative-adversary equivalences.
+
+[B1974 L5859-5859]
+<a id="ref-BSS2003"></a>
+
+[B1975 L5861-5861]
+- **BSS2003.** Barnum, Howard and Saks, Michael and Szegedy, Mario. *Quantum query complexity and semi-definite programming*. 2003. Proceedings of the 18th IEEE Annual Conference on Computational Complexity. 179–193. [Publication metadata](https://doi.org/10.1109/CCC.2003.1214419). The proceedings title and DOI are confirmed by the [Rutgers institutional record](https://www.researchwithrutgers.org/en/publications/quantum-query-complexity-and-semi-definite-programming/). The attribution of the adversary theorem follows Høyer–Lee–Špalek Theorem 1 and Špalek–Szegedy reference 7. Original full text was not supplied or independently inspected in this review.
+
+[B1976 L5863-5863]
+<a id="ref-ComplexitylibPinned"></a>
+
+[B1977 L5865-5865]
+- **ComplexitylibPinned.** complexitylib contributors. *complexitylib: pinned Lean source dependency*. [Full-text edition](https://github.com/cslib-community/complexitylib/tree/62ca5c21461b2482e8bd12b7cb9b4937d887a33a). Revision read from the supplied lake-manifest.json and DEPENDENCY_SOURCES.json. Exact proof-source and run evidence are recorded separately in correspondence.json; a source citation alone does not assert successful compilation. No repository commit date or individual author list is inferred.
+
+[B1978 L5867-5867]
+<a id="ref-GPW2018"></a>
+
+[B1979 L5869-5869]
+- **GPW2018.** Mika Göös, Toniann Pitassi and Thomas Watson. *Deterministic communication vs. Partition number*. SIAM Journal on Computing (2018), DOI [10.1137/16M1059369](https://doi.org/10.1137/16M1059369). The retained baseline assessment uses [ECCC TR15-050](https://eccc.weizmann.ac.il/report/2015/050/), revision text dated 5 September 2017, Theorem 5 and §2.1, pp. 3–5. Historical construction antecedent; this integration does not claim a fresh full reading.
+
+[B1980 L5871-5871]
+<!-- /passage:ROOT-REFERENCES -->
+
+[B1981 L5873-5900]
+[OpenAI2026]: https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf
+[BDW02]: https://homepages.cwi.nl/~rdewolf/publ/qc/dectree.pdf
+[DW26]: https://arxiv.org/abs/1907.09415v6
+[BBCMW98]: https://arxiv.org/abs/quant-ph/9802049v3
+[BBCM

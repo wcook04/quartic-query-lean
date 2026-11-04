@@ -1,0 +1,41 @@
+bout a differently quantified algorithm, a different promise, or only one part of a displayed conjunction would not establish the same statement. The definitions in §§2.1–2.5 make these choices explicit. Here we describe their formal counterparts and the particular translations used later. Complete source signatures, including the circuit and workspace quantifiers, are accessible in the retained [model contract](../research/returns/round3/members/01_models_evidence/model_contract.json) and [declaration correspondence](../research/returns/round3/members/01_models_evidence/correspondence.json); [Appendix B](#ROOT-CATALOGUE-INTRO) follows every numbered source claim.
+
+[B2087 L6271-6271]
+**The partial function and its domain.** For a finite coordinate type $I$, a formal [partial Boolean function][def-partial] on $I$ is a function from [bit inputs][def-bit-input] on $I$ to optional Boolean values. A defined value records both membership in the promise and the required answer. An undefined value imposes no correctness requirement. This is the domain-and-value description of §2.1, with no assumption of totality. [Totalisation][def-totalise] embeds a total Boolean function into this type by defining its value everywhere. It is that embedding, rather than an arbitrary completion of a partial function, which appears in the total-function separation statements.
+
+[B2088 L6273-6273]
+**One algorithm and a global cap.** The [deterministic][def-DLe], [randomized][def-RLe] and [quantum][def-QLe] budget tests take a partial Boolean function and a natural-number budget; the complexities [$D$][def-D], [$R$][def-R] and [$Q$][def-Q] are natural numbers. In the classical cases, the witness is one decision tree or one mixture of trees, with a global depth cap and correctness on all defined inputs. In the quantum case, the witness is either the explicitly constant-on-promise alternative or one normalized initial state and one capped program, chosen before the input. This includes the constant and empty-promise cases without selecting an algorithm separately for each input. None of these definitions assumes a lower-bound theorem or any property of Forrelation.
+
+[B2089 L6275-6275]
+For every finite Boolean promise the read-all construction gives
+
+[B2090 L6276-6278]
+\[
+ R(f)\le D(f),\qquad Q(f)\le D(f),\qquad D(f)\le |I|.
+\]
+
+[B2091 L6279-6279]
+An equivalence $e:I\simeq J$ simply renames the coordinates. After [renaming the coordinates][def-reindex] of $f$ by $e$, each of the three complexities is unchanged. These statements concern arbitrary finite promises: their only ordinary premises are the specified finite coordinate types and, for renaming, the equivalence. The [classical][src-le-iff-classical] and [quantum][src-le-iff-quantum] equivalences between complexity bounds and budget tests connect the numerical complexities to the budget predicates. The uniform choice and global cap remain inside those predicates; they cannot be discarded when applying the numerical inequalities.
+
+[B2092 L6281-6281]
+**The physical query and its output law.** With $x$ a bit input, $i\in I$, a response bit $b$, and workspace label $z\in\operatorname{Fin}(w+1)$, the oracle acts by
+
+[B2093 L6282-6285]
+\[
+ \operatorname{bitOracle}_x|i,b,z\rangle
+   =|i,b\mathbin{\oplus}x_i,z\rangle.
+\]
+
+[B2094 L6286-6286]
+It is an involutive complex linear isometry equivalence, for every input and every basis label. The construction states these [bit-oracle identities][src-query-oracle] in one wrapper. For an adaptive program $A$ and an arbitrary state vector $\psi$, the two output masses obey
+
+[B2095 L6287-6292]
+\[
+ \operatorname{outputMass}_A(x,\psi,b)\ge0,
+ \qquad
+ \operatorname{outputMass}_A(x,\psi,\mathsf{true})
+ +\operatorname{outputMass}_A(x,\psi,\mathsf{false})=\|\psi\|^2.
+\]
+
+[B2096 L6293-6293]
+Normalization makes these masses a probability distribution. The identities themselves do not require a unit vector; this distinction matters when an intermediate branch carries unnormalized ma

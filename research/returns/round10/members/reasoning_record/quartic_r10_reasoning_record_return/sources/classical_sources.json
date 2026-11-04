@@ -1,0 +1,289 @@
+{
+  "created_date": "2026-11-04",
+  "stage": "source_only_before_primary_freeze",
+  "sources": [
+    {
+      "id": "CLS-S01",
+      "title": "Improved Direct Product Theorems for Randomized Query Complexity",
+      "authors": [
+        "Andrew Drucker"
+      ],
+      "edition": "arXiv:1005.0644v2; author version essentially matching Computational Complexity21(2),197–244(2012)",
+      "date": "2014-05-09",
+      "url": "https://arxiv.org/abs/1005.0644v2",
+      "archive_members": [
+        {
+          "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.tex",
+          "sha256": "7defbc5925e9554768cf5bab0ab548188d5d264075cfc1f00891544b5aec782d"
+        },
+        {
+          "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.pdf",
+          "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff"
+        }
+      ],
+      "passage_locators": [
+        "§1.3 pp.6–8",
+        "§3 pp.10–13, Lemmas3.1–3.2 and fair-algorithm closing remark",
+        "§5 pp.14–15 Lemma5.1"
+      ],
+      "read_status": "read_relevant_arguments",
+      "read_scope": "Introduction through methods; §2 success-complexity definition; full §3 potential/transcript argument; §5 minimax statement and application",
+      "web_refs": [
+        "turn4view2",
+        "turn3search4",
+        "turn3search3"
+      ],
+      "limitations": [
+        "Remaining threshold, XOR, dynamic and tree-size proofs not read"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "id": "CLS-S02",
+      "title": "k-Forrelation Optimally Separates Quantum and Classical Query Complexity",
+      "authors": [
+        "Nikhil Bansal",
+        "Makrand Sinha"
+      ],
+      "edition": "arXiv:2008.07003v3; STOC2021 supplement checked for statements",
+      "date": "2020-11-17",
+      "url": "https://arxiv.org/abs/2008.07003v3",
+      "archive_members": [
+        {
+          "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+          "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35"
+        },
+        {
+          "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+          "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952"
+        },
+        {
+          "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz",
+          "sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015"
+        },
+        {
+          "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/supplements/stoc-2021-proceedings.pdf",
+          "sha256": "b3102c80c39e118a4d7fda9bf4b97a1b0f8e0b6a96af7eb5f1dac00ab8fc8d38"
+        }
+      ],
+      "passage_locators": [
+        "Definition(1.1)–(1.3), Theorem1.3, Corollary1.4, pp.2–5",
+        "§1.2 proof overview",
+        "§3 pp.15–18, Theorems3.1–3.4, Corollary3.5",
+        "§5.3–5.4 pp.37–38; Eq.(5.31)",
+        "main.tex inside source.tar.gz: lines726–729 and1170–1188"
+      ],
+      "read_status": "read_relevant_arguments",
+      "read_scope": "Definitions, stated bounds, Gaussian input distribution support proof, Fourier bound interfaces, random restriction proof, final lower-bound extraction; PDF p.38 visually inspected",
+      "web_refs": [
+        "turn4view1",
+        "turn12view0",
+        "turn12view1",
+        "turn14search2"
+      ],
+      "limitations": [
+        "Long Gaussian branching proof §5.2 not reconstructed",
+        "Source display issues noted independently; no claim that the published asymptotic separation is false",
+        "Extraction renumbers theorem objects; original PDF numbers authoritative"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "id": "CLS-S03",
+      "title": "Towards proving strong direct product theorems",
+      "authors": [
+        "Ronen Shaltiel"
+      ],
+      "edition": "supplied author/preprint version; CCC2001; journal2003",
+      "date": "2003",
+      "url": "https://doi.org/10.1007/s00037-003-0175-x",
+      "archive_members": [
+        {
+          "path": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/source.pdf",
+          "sha256": "70248ab80df12ff9fab1b2708a2fda7947bf6f22c44db5f7713e6252aaad2436"
+        },
+        {
+          "path": "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/extracted.md",
+          "sha256": "1713dc1cac7a31a4daa12f10ae21bfbdf8e5ab2443f25053843035a2a185e929"
+        }
+      ],
+      "passage_locators": [
+        "§1 fairness discussion",
+        "§5 pp.11–12: Definition4, Theorem5, Lemma7 and induction proof"
+      ],
+      "read_status": "read_relevant_arguments",
+      "read_scope": "Fair decision-tree definition, XOR advantage theorem and two-input induction",
+      "web_refs": [
+        "turn15search4",
+        "turn16view1"
+      ],
+      "limitations": [
+        "Source PDF not asserted byte-identical to journal",
+        "Other communication-complexity and counterexample arguments not read"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "id": "CLS-S04",
+      "title": "Separations in Query Complexity Based on Pointer Functions",
+      "authors": [
+        "Andris Ambainis",
+        "Kaspars Balodis",
+        "Aleksandrs Belovs",
+        "Troy Lee",
+        "Miklos Santha",
+        "Juris Smotrovs"
+      ],
+      "edition": "arXiv:1506.04719v3; JACM2017 cited separately",
+      "date": "2015-10-26",
+      "url": "https://arxiv.org/abs/1506.04719v3",
+      "archive_members": [
+        {
+          "path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/source.pdf",
+          "sha256": "1b7803487ac696b1f8d81ee7bc26d55ed7a3c4ff4b78928faa269b71358fe66c"
+        },
+        {
+          "path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+          "sha256": "30eacb1b152e26be43fb8f656b065c1ae6e1a25782eb0fcc13c544e246baacd2"
+        }
+      ],
+      "passage_locators": [
+        "§1 motivation and pointer variations",
+        "§5 Theorem17 p.20",
+        "§6 pp.21–23: Lemma24, Claim25 and full hard-distribution/potential proof"
+      ],
+      "read_status": "read_relevant_arguments",
+      "read_scope": "Read construction motivation and complete bounded-error randomized lower-bound proof around Theorem17",
+      "web_refs": [
+        "turn5view1"
+      ],
+      "limitations": [
+        "Not every pointer variant/quantum proof read",
+        "Damaged Markdown symbols checked against PDF-derived text"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "id": "CLS-S05",
+      "title": "A Super-Grover Separation Between Randomized and Quantum Query Complexities",
+      "authors": [
+        "Shalev Ben-David"
+      ],
+      "edition": "arXiv:1506.08106; ECCC TR15-108",
+      "date": "2015-06-26",
+      "url": "https://eccc.weizmann.ac.il/report/2015/108/download/",
+      "archive_members": [
+        {
+          "path": "literature/quartic-lit-ben-david-a-super-grover-separation/source.tex",
+          "sha256": "d2968f44fab184c7a6ac93fb3cc711aece603ae4b3b5ea07ed582e8bb01d6184"
+        },
+        {
+          "path": "literature/quartic-lit-ben-david-a-super-grover-separation/extracted.md",
+          "sha256": "364f32dc5944ab95423b7e2e4c8d587df886aebdcdd41d1e87bbb7f67921e10a"
+        }
+      ],
+      "passage_locators": [
+        "§3 construction",
+        "§4 quantum overview",
+        "§5.1–5.2 pp.3–4, visited-address list and hybrid"
+      ],
+      "read_status": "read_relevant_arguments",
+      "read_scope": "Read short construction and both randomized lower-bound subsections; source quantitative caveat recorded",
+      "web_refs": [
+        "turn5view0"
+      ],
+      "limitations": [
+        "Do not treat informal hidden-zero estimate in §5.1 as an exact lemma",
+        "Not a2023 paper"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "id": "CLS-S06",
+      "title": "Direct Product Theorems for Randomized Query Complexity",
+      "authors": [
+        "Shalev Ben-David",
+        "Eric Blais"
+      ],
+      "edition": "arXiv:2512.08268v1, FOCS2025",
+      "date": "2025-12-09",
+      "url": "https://arxiv.org/html/2512.08268v1",
+      "archive_members": [],
+      "passage_locators": [
+        "§1.1 definitions and Theorem1",
+        "§1.2 list-decoding definition and Theorem2"
+      ],
+      "read_status": "bounded_read",
+      "read_scope": "Definitions and theorem statements, including distinctions between worst-case and expected cost; proofs not read",
+      "web_refs": [
+        "turn4view0",
+        "turn8view0",
+        "turn24view0"
+      ],
+      "limitations": [
+        "Additional online source not supplied",
+        "Bounded200-word synopsis only in final review",
+        "Not a proposed replacement of the capped lemma"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "id": "CLS-S07",
+      "title": "Probabilistic computations: Toward a unified measure of complexity",
+      "authors": [
+        "Andrew Chi-Chih Yao"
+      ],
+      "edition": "FOCS1977 pp.222–227",
+      "date": "1977",
+      "url": "https://doi.org/10.1109/SFCS.1977.24",
+      "archive_members": [],
+      "passage_locators": [
+        "Publisher metadata only"
+      ],
+      "read_status": "unread_full_text",
+      "read_scope": "Attempted DOI access; redirect gave JavaScript/bot-verification page",
+      "web_refs": [
+        "turn15search0",
+        "turn16view0"
+      ],
+      "limitations": [
+        "Full original not read; use Drucker §5 for the query minimax form"
+      ],
+      "direct_quotation_words": 0
+    },
+    {
+      "id": "CLS-S08",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "authors": [
+        "OpenAI"
+      ],
+      "edition": "supplied preprint",
+      "date": "2026-10-05",
+      "url": null,
+      "archive_members": [
+        {
+          "path": "paper/source.pdf",
+          "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e"
+        },
+        {
+          "path": "paper/extracted.md",
+          "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+        }
+      ],
+      "passage_locators": [
+        "Introduction and§2 pp.1–5",
+        "§4.1–4.2 pp.11–13"
+      ],
+      "read_status": "read_relevant_arguments",
+      "read_scope": "Read construction context and complete classical bound, including capped direct product, finite minimax, dummy/planted coupling, hidden-zero count, capped predictor and final budget",
+      "web_refs": [
+        "user_supplied"
+      ],
+      "limitations": [
+        "This is the source preprint, not the current lead manuscript",
+        "No Lean executions performed"
+      ],
+      "direct_quotation_words": 0
+    }
+  ]
+}

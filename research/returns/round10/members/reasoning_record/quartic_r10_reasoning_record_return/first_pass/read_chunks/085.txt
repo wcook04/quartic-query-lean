@@ -1,0 +1,22 @@
+cannot have randomized cap zero; the three-way OR mixture has success $(2/3,2/3,2/3,1)$ and randomized complexity one; the true-only promise has randomized and quantum complexity zero; and the pair of sign blocks $(-1,1,1,1)$ has Forrelation value $-1$ and lies outside the one-sided promise. The two-vertex matrix $\left(\begin{smallmatrix}0&1/2\\1/2&0\end{smallmatrix}\right)$ witnesses that the actual tournament predicate is nonempty: its diagonal vanishes and its two opposite off-diagonal entries sum to one. These checks import the actual definitions but do not obtain their expected answers from generated Challenge statements. The [mutation checks](../lean/QuarticCorpus/Independent/SemanticMutations.lean) show how changing the algorithm/input quantifier order, making the threshold strict, taking an absolute value in the high Forrelation branch, or completing the undefined input by false changes the selected answers. Their scope is these precise examples, not a proof that every semantic mismatch has been excluded.
+
+[B2115 L6339-6339]
+A separate [shared-specification control](../lean/QuarticCorpus/Independent/Controls/SharedAudit.lean) makes the limitation of comparison concrete. Its deliberately bad tournament predicate adds an impossible field. Two modules can agree on the resulting vacuous assertion, whereas the independent expected matrix cannot satisfy that predicate. The changed-threshold and inequality-only controls instead ask comparison to distinguish different types or definitions. The dated review records their actual native outcomes separately from the mathematical detection statements; a positive comparison of the deliberately shared bad specification is evidence of agreement, not of a correct model.
+
+[B2116 L6342-6342]
+<!-- /passage:ROOT-EVIDENCE-CONVENTION -->
+
+[B2117 L6344-6344]
+<a id="checked-statements"></a>
+
+[B2118 L6345-6345]
+### G.4. Central statements and their evidence
+
+[B2119 L6347-6347]
+The first four entries are the configured Unconditional targets. Later entries distinguish separately compared statements, built declarations, ordinary arguments and their use by the headline proof; status does not transfer from one entry to another.
+
+[B2120 L6349-6349]
+The headline statements are the four configured targets of the Unconditional Comparator bundle, all in the [statement file][statement-file] whose definitions follow the models of §§2.1–2.5. Each target is proved in the paired [solution file][statement-solution] by forwarding to an implementation theorem, and the [configuration][statement-config] names exactly these four targets. The statement file ends each target with an intentional `sorry`: it is the specification, and Comparator checks that the separately compiled solution proves the same type from the same definitions using only the three standard axioms. The [receipt of 3 November 2026](../corpus/receipts/comparator-Unconditional-2026-11-03T033042571917+0000.json) records acceptance of the four configured targets on the integrated round-four sources, and a [later paranoid run the same day](../corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json), which also runs every external checker bundled with Lean and was executed as an unsandboxed local rehearsal, accepted them again; their credit extends to those configured names only. The dedicated comparisons of Lemma 2.2 and Equation (19) were rerun on the same sources and passed (receipts stamped `2026-11-03T120058951138`).
+
+[B2121 L6351-6351]
+The *corpus judgments* below come from [the statement corpus](../corpus/statements.json) and [its ties](../corpus/ties.json): *exact* means that the Lean type states the claim, *stronger* that it implies the claim with more information, and *partial* that it proves only some clauses or keeps a hypothesis. Those judgments are bound to the sources of 2 November and were not refreshed after the round-four additions, so a declaration added later has no corpus row. The *textual review* is the separat

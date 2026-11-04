@@ -1,0 +1,166 @@
+2 sqrt(2)/3)||Gamma||.
+
+[B1852 L5587-5587]
+**Argument:** [§A.2](#ROOT-ADVERSARY-FINAL).
+
+[B1853 L5589-5589]
+<!-- /passage:CAT-claim-final-overlap -->
+
+[B1854 L5591-5591]
+#### lem-A.2
+
+[B1855 L5593-5595]
+<a id="CAT-lem-A.2"></a>
+<!-- passage:CAT-lem-A.2 -->
+<!-- claim:lem-A.2 -->
+
+[B1856 L5597-5597]
+> Let f be a nonconstant total Boolean function, Gamma a nonzero real symmetric entrywise nonnegative input-indexed matrix with Gamma_{xy}=0 whenever f(x)=f(y). Then Q(f) >= c ||Gamma|| / max_i ||Gamma_i|| for an absolute constant c>0.
+
+[B1857 L5599-5599]
+**Argument:** [§A.2](#ROOT-ADVERSARY-PROGRESS), [§A.2](#ROOT-ADVERSARY-FINAL).
+
+[B1858 L5601-5601]
+<!-- /passage:CAT-lem-A.2 -->
+
+[B1859 L5603-5603]
+#### def-Sf
+
+[B1860 L5605-5607]
+<a id="CAT-def-Sf"></a>
+<!-- passage:CAT-def-Sf -->
+<!-- claim:def-Sf -->
+
+[B1861 L5609-5609]
+> S_f is the adjacency matrix on {0,1}^n of the graph joining inputs that differ in exactly one bit and have different f-values. lambda(f)=||S_f||.
+
+[B1862 L5611-5611]
+**Argument:** [§A.1](#R3-A-DEFINITIONS) (definition), [§A.3](#ROOT-BS-LAMBDA) (use).
+
+[B1863 L5613-5613]
+<!-- /passage:CAT-def-Sf -->
+
+[B1864 L5615-5615]
+#### lem-A.3.bs
+
+[B1865 L5617-5619]
+<a id="CAT-lem-A.3.bs"></a>
+<!-- passage:CAT-lem-A.3.bs -->
+<!-- claim:lem-A.3.bs -->
+
+[B1866 L5621-5621]
+> For nonconstant total f, bs(f)=O(Q(f)^2).
+
+[B1867 L5623-5623]
+**Argument:** [§A.3](#ROOT-BS-LAMBDA).
+
+[B1868 L5625-5625]
+<!-- /passage:CAT-lem-A.3.bs -->
+
+[B1869 L5627-5627]
+#### lem-A.3.lambda
+
+[B1870 L5629-5631]
+<a id="CAT-lem-A.3.lambda"></a>
+<!-- passage:CAT-lem-A.3.lambda -->
+<!-- claim:lem-A.3.lambda -->
+
+[B1871 L5633-5633]
+> For nonconstant total f, lambda(f)=O(Q(f)).
+
+[B1872 L5635-5635]
+**Argument:** [§A.3](#ROOT-BS-LAMBDA).
+
+[B1873 L5637-5637]
+<!-- /passage:CAT-lem-A.3.lambda -->
+
+[B1874 L5639-5639]
+#### lem-A.3
+
+[B1875 L5641-5643]
+<a id="CAT-lem-A.3"></a>
+<!-- passage:CAT-lem-A.3 -->
+<!-- claim:lem-A.3 -->
+
+[B1876 L5645-5645]
+> Conjunction of lem-A.3.bs and lem-A.3.lambda.
+
+[B1877 L5647-5647]
+**Argument:** [§A.3](#ROOT-BS-LAMBDA).
+
+[B1878 L5649-5649]
+<!-- /passage:CAT-lem-A.3 -->
+
+[B1879 L5651-5651]
+#### claim-restrict-parity
+
+[B1880 L5653-5655]
+<a id="CAT-claim-restrict-parity"></a>
+<!-- passage:CAT-claim-restrict-parity -->
+<!-- claim:claim-restrict-parity -->
+
+[B1881 L5657-5657]
+> With f in sign form and d=deg f>=1, restricting variables outside a degree-d monomial's support gives g on the d-cube with nonzero parity correlation. So for some sigma in {-1,1}, U={x:g(x)=sigma x_1...x_d} has |U|>2^{d-1}, and every cube edge inside U changes g.
+
+[B1882 L5659-5659]
+**Argument:** [§A.4](#ROOT-HUANG-RESTRICTION).
+
+[B1883 L5661-5661]
+<!-- /passage:CAT-claim-restrict-parity -->
+
+[B1884 L5663-5663]
+#### def-huang
+
+[B1885 L5665-5667]
+<a id="CAT-def-huang"></a>
+<!-- passage:CAT-def-huang -->
+<!-- claim:def-huang -->
+
+[B1886 L5669-5669]
+> H'_1=[[0,1],[1,0]], H'_{j+1}=[[H'_j,I],[I,-H'_j]]. Its entrywise absolute value is the cube adjacency matrix.
+
+[B1887 L5671-5671]
+**Argument:** [§A.4](#ROOT-HUANG-SPECTRUM).
+
+[B1888 L5673-5673]
+<!-- /passage:CAT-def-huang -->
+
+[B1889 L5675-5675]
+#### claim-huang-spectrum
+
+[B1890 L5677-5679]
+<a id="CAT-claim-huang-spectrum"></a>
+<!-- passage:CAT-claim-huang-spectrum -->
+<!-- claim:claim-huang-spectrum -->
+
+[B1891 L5681-5681]
+> For d>=1, (H'_d)^2=dI and trace H'_d=0; H'_d has eigenvalues +-sqrt(d), each of multiplicity 2^{d-1}.
+
+[B1892 L5683-5683]
+**Argument:** [§A.4](#ROOT-HUANG-SPECTRUM).
+
+[B1893 L5685-5685]
+<!-- /passage:CAT-claim-huang-spectrum -->
+
+[B1894 L5687-5687]
+#### claim-interlace
+
+[B1895 L5689-5691]
+<a id="CAT-claim-interlace"></a>
+<!-- passage:CAT-claim-interlace -->
+<!-- claim:claim-interlace -->
+
+[B1896 L5693-5693]
+> There is a nonzero v in the sqrt(d)-eigenspace supported on U; with u=|v|, u^T A_U u >= v^T H'_d v = sqrt(d)||u||^2.
+
+[B1897 L5695-5695]
+**Argument:** [§A.4](#ROOT-HUANG-SPECTRUM).
+
+[B1898 L5697-5697]
+<!-- /passage:CAT-claim-interlace -->
+
+[B1899 L5699-5699]
+#### lem-A.4
+
+[B1900 L5701-5703]
+<a i

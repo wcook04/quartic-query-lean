@@ -1,0 +1,528 @@
+{
+  "schema": "quartic-round10-mathematical-verification-v1",
+  "created_utc": "2026-11-04T16:48:31.899974+00:00",
+  "reviewer_role": "mathematical verifier",
+  "stage": "retrospective; after parent primary first-pass freeze",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+    "repository/docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+    "repository/docs/expert_companion.pdf": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+    "repository/docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "repository/docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+    "repository/docs/exposition.pdf": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+    "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+    "repository/docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "repository/docs/reasoning_record.pdf": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+  },
+  "sources_read": [
+    {
+      "path": "repository/docs/exposition.md",
+      "sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+      "ranges": [
+        [
+          1,
+          535
+        ]
+      ],
+      "scope": "complete mathematical reread"
+    },
+    {
+      "path": "repository/docs/expert_companion.md",
+      "sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "ranges": [
+        [
+          1,
+          84
+        ],
+        [
+          142,
+          342
+        ],
+        [
+          393,
+          404
+        ]
+      ],
+      "scope": "selected introduction and core proof passages"
+    },
+    {
+      "path": "repository/docs/reasoning_record.md",
+      "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "ranges": [
+        [
+          186,
+          350
+        ],
+        [
+          556,
+          800
+        ],
+        [
+          854,
+          932
+        ],
+        [
+          1795,
+          2033
+        ],
+        [
+          2073,
+          2220
+        ],
+        [
+          2728,
+          2748
+        ],
+        [
+          2828,
+          3070
+        ],
+        [
+          3270,
+          3313
+        ],
+        [
+          3438,
+          3502
+        ],
+        [
+          3567,
+          3662
+        ],
+        [
+          3725,
+          3800
+        ],
+        [
+          3902,
+          3988
+        ]
+      ],
+      "scope": "selected linked proof counterparts; all remaining ranges unreviewed by this verifier"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+      "ranges": [
+        [
+          1,
+          343
+        ]
+      ],
+      "scope": "complete statement inspection, not elaboration"
+    },
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Solution.lean",
+      "sha256": "19725ad42b615a8881db00417ee6375c8982b0de08e618f06f901fe4db2e2cd3",
+      "ranges": null,
+      "scope": "complete textual inspection, not elaboration"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+      "ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "scope": "complete textual statement/proof-reference inspection, not elaboration"
+    },
+    {
+      "path": "repository/research/returns/round3/members/04_addressed_construction/examples/circuit.json",
+      "sha256": "0f84ef8db3526a5d166307846bf4ef3d9268ad60c8a1e5353005fac9885a0004",
+      "ranges": null,
+      "scope": "complete gate data parsed by newly written evaluator; no submitted checker executed"
+    },
+    {
+      "path": "paper/extracted.md",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "ranges": [
+        [
+          1,
+          64
+        ],
+        [
+          151,
+          203
+        ],
+        [
+          363,
+          448
+        ],
+        [
+          528,
+          586
+        ]
+      ],
+      "scope": "selected primary source statements and proofs"
+    },
+    {
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "sha256": "cf1477e44353bbb796581002e8cacef3199e8e153d43f075fc8047c2934de952",
+      "ranges": [
+        [
+          1,
+          88
+        ]
+      ],
+      "scope": "promise and lower-bound statements"
+    },
+    {
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+      "sha256": "afe53c8bd918d07590f29a947ef044453db73959043135082d1a3c29b2863a35",
+      "ranges": null,
+      "scope": "PDF text of printed page 4 inspected for exact Theorem 1.3/Corollary 1.4 numbering"
+    },
+    {
+      "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+      "sha256": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+      "ranges": null,
+      "scope": "PDF text of printed pages 1–2 inspected for universal quartic theorem"
+    },
+    {
+      "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md",
+      "sha256": "fe50f27a93597951aa0e9577d0315a2b4dcdf022122604139232a952d144aa8f",
+      "ranges": [
+        [
+          2489,
+          2489
+        ]
+      ],
+      "scope": "Conjecture 2 inspected; other search snippets not treated as full reading"
+    },
+    {
+      "path": "writing_literature/drucker-direct-product-1005.0644v2/extracted.md",
+      "sha256": "f95f2bea6d3ef5d198442fb636b5821518fd3f6ed4241e4e9924244cc259a10e",
+      "ranges": [
+        [
+          455,
+          595
+        ]
+      ],
+      "scope": "Lemmas 3.1–3.2, product-potential proof, fair specialization"
+    },
+    {
+      "path": "LINK_MAP.json",
+      "sha256": "2f4145b1ab1f5a9f656aafd20bdf12fa94cc76ce9a31a1e927ecb7a0bf86fd4d",
+      "ranges": null,
+      "scope": "metadata inspection restricted to exposition links and supplied interpretation"
+    }
+  ],
+  "checks": [
+    {
+      "id": "MV-01",
+      "exposition_lines": [
+        55,
+        100
+      ],
+      "claim_checked": "Walsh signs, normalization, three example amplitudes, projection check",
+      "status": "verified_exactly",
+      "reason": "Exact rational amplitudes are 1, 0, -1 and 1/2; projection probabilities are their squares.",
+      "supporting_locations": [
+        "work/finite_example_results.json: projection"
+      ]
+    },
+    {
+      "id": "MV-02",
+      "exposition_lines": [
+        145,
+        165
+      ],
+      "claim_checked": "180-gate circuit, named gate example, 371 local tests",
+      "status": "verified_exactly",
+      "reason": "All 256 input assignments match the rational promise predicate. The gate example and local-test count agree.",
+      "supporting_locations": [
+        "work/finite_example_results.json: circuit, projection, boards",
+        "repository/docs/reasoning_record.md:1926–1946"
+      ]
+    },
+    {
+      "id": "MV-03",
+      "exposition_lines": [
+        135,
+        167
+      ],
+      "claim_checked": "Base and domain-board truth values, failed output tests",
+      "status": "verified_exactly",
+      "reason": "All 16 candidate pairs checked per board; unique base winner and domain-board rejection agree.",
+      "supporting_locations": [
+        "work/finite_example_results.json: boards"
+      ]
+    },
+    {
+      "id": "MV-04",
+      "exposition_lines": [
+        177,
+        188
+      ],
+      "claim_checked": "Repetition error and all-input cap",
+      "status": "verified_by_reasoning",
+      "reason": "Both Chernoff tails are at most exp(-rho*c/16); the ceiling and integer threshold are safe. Fresh retained registers preserve the trial law.",
+      "supporting_locations": [
+        "repository/docs/reasoning_record.md:556–681"
+      ]
+    },
+    {
+      "id": "MV-05",
+      "exposition_lines": [
+        190,
+        204
+      ],
+      "claim_checked": "Circuit promise test, size, and actual bit-length estimate",
+      "status": "verified_by_reasoning",
+      "reason": "Integer threshold equivalence and the linked gate-count derivation support the stated size. The total input has O_k(m^22 log^3 m) bits.",
+      "supporting_locations": [
+        "repository/docs/reasoning_record.md:686–800",
+        "repository/lean/QuarticCorpus/Unconditional/Challenge.lean:229–285"
+      ]
+    },
+    {
+      "id": "MV-06",
+      "exposition_lines": [
+        215,
+        235
+      ],
+      "claim_checked": "Complementarity, off-promise rival dominance, cycle and false-pointer changes",
+      "status": "verified_reasoning_and_finite_examples",
+      "reason": "Canonical pair ordering establishes complementary laws; an all-one genuine winner is never disqualified by a rival pointer. Both mutations have the printed behavior.",
+      "supporting_locations": [
+        "work/finite_example_results.json: boards",
+        "repository/docs/expert_companion.md:156–167"
+      ]
+    },
+    {
+      "id": "MV-07",
+      "exposition_lines": [
+        237,
+        257
+      ],
+      "claim_checked": "Expected halving and missing-winner probability",
+      "status": "verified_by_reasoning",
+      "reason": "Pairing complementary probabilities gives exact drift. Missing the winner implies its weight remains above 1/2; absorption cannot occur before it is listed.",
+      "supporting_locations": [
+        "repository/docs/expert_companion.md:169–182"
+      ]
+    },
+    {
+      "id": "MV-08",
+      "exposition_lines": [
+        259,
+        279
+      ],
+      "claim_checked": "Fresh-register product law and fractional sampling",
+      "status": "verified_reasoning_and_finite_examples",
+      "reason": "Conditional on fixed input, history and label, separate workspaces multiply success probabilities. Orthogonal labels add masses. Fractional values agree exactly.",
+      "supporting_locations": [
+        "work/finite_example_results.json: fractional_matrix",
+        "repository/docs/expert_companion.md:184–191"
+      ]
+    },
+    {
+      "id": "MV-09",
+      "exposition_lines": [
+        281,
+        305
+      ],
+      "claim_checked": "Grover rotation, successful-label preservation, bounded randomized retries",
+      "status": "verified_by_reasoning",
+      "reason": "The printed matrices have correct signs. The bounded schedule has a 9/40 success floor in its guaranteed range and an all-input cap; mixing identical successful laws causes no bias.",
+      "supporting_locations": [
+        "repository/docs/reasoning_record.md:2073–2197"
+      ]
+    },
+    {
+      "id": "MV-10",
+      "exposition_lines": [
+        307,
+        323
+      ],
+      "claim_checked": "Coupling, stopping, retained winner, verification polarity and errors",
+      "status": "verified_by_reasoning",
+      "reason": "Only failures before the winner is listed matter; union bound adds T*epsilon. Nonwinners fail a test at every address. One- and zero-input error accounts are correctly separated.",
+      "supporting_locations": [
+        "repository/docs/expert_companion.md:193–205",
+        "repository/docs/reasoning_record.md:1959–1998"
+      ]
+    },
+    {
+      "id": "MV-11",
+      "exposition_lines": [
+        325,
+        341
+      ],
+      "claim_checked": "Quantum all-branch query count and logarithmic power six",
+      "status": "verified_by_reasoning",
+      "reason": "Tournament and verification add. The intentionally loose replacements yield the printed sixth- and fifth-power costs.",
+      "supporting_locations": [
+        "repository/docs/expert_companion.md:207–211",
+        "repository/docs/reasoning_record.md:2728–2748"
+      ]
+    },
+    {
+      "id": "MV-12",
+      "exposition_lines": [
+        350,
+        363
+      ],
+      "claim_checked": "Common minimax law, planted pair, first-difference coupling",
+      "status": "verified_by_reasoning",
+      "reason": "Finite separation yields one law for all capped trees. Dummy zero and planted one inputs differ only at the two stated locations. Overcounting true-cell visits is safe.",
+      "supporting_locations": [
+        "repository/docs/reasoning_record.md:3270–3313",
+        "repository/docs/expert_companion.md:248–262"
+      ]
+    },
+    {
+      "id": "MV-13",
+      "exposition_lines": [
+        365,
+        377
+      ],
+      "claim_checked": "Erased-zero identity, posterior uniformity, early/late bound",
+      "status": "verified_reasoning_and_finite_examples",
+      "reason": "Independence from the whole dummy run yields E[Z]/m. Transcript constraints preserve unread-row uniformity. Early/late discovery costs give 4G/m^2.",
+      "supporting_locations": [
+        "repository/docs/reasoning_record.md:3438–3502",
+        "work/finite_example_results.json: zero_selection"
+      ]
+    },
+    {
+      "id": "MV-14",
+      "exposition_lines": [
+        381,
+        400
+      ],
+      "claim_checked": "Whole-run lightness and stopped predictor",
+      "status": "verified_by_reasoning",
+      "reason": "The predictor has total target cap L on every tuple, hence separate cap L. Light visit is contained in predictor success; default success prevents equality. No conditioning on compliance is used.",
+      "supporting_locations": [
+        "repository/docs/reasoning_record.md:3567–3600"
+      ]
+    },
+    {
+      "id": "MV-15",
+      "exposition_lines": [
+        402,
+        419
+      ],
+      "claim_checked": "XOR trace and modified exercise",
+      "status": "verified_exactly",
+      "reason": "Enumeration gives 1/8 joint visit, 1/4 predictor success, and 1/8 at each fixed time in the stopping modification. A later target read removes the cheap branch from whole-run lightness.",
+      "supporting_locations": [
+        "work/finite_example_results.json: xor",
+        "repository/docs/reasoning_record.md:3603–3636"
+      ]
+    },
+    {
+      "id": "MV-16",
+      "exposition_lines": [
+        421,
+        450
+      ],
+      "claim_checked": "Direct-product hypotheses and proof; column averaging",
+      "status": "verified_by_reasoning",
+      "reason": "Compatible transcripts factor; one continuation factor changes per query. Separate caps and joint independence are used at the required steps. Averaging over I cancels the m column factor.",
+      "supporting_locations": [
+        "repository/docs/reasoning_record.md:2828–3070,3646–3662",
+        "writing_literature/drucker-direct-product-1005.0644v2/extracted.md:455–595"
+      ]
+    },
+    {
+      "id": "MV-17",
+      "exposition_lines": [
+        455,
+        478
+      ],
+      "claim_checked": "Tail, discrepancy, floors, fixed-parameter ratio",
+      "status": "verified_by_reasoning",
+      "reason": "r=40t gives beta^r <= m^-10; the discrepancy is below 1/3. Integrality gives R>mL/100 directly. Positive exponent d yields divergence after fixing k.",
+      "supporting_locations": [
+        "repository/docs/expert_companion.md:314–342",
+        "repository/docs/reasoning_record.md:3728–3800"
+      ]
+    },
+    {
+      "id": "MV-18",
+      "exposition_lines": [
+        480,
+        494
+      ],
+      "claim_checked": "Endpoint and formal statement strength",
+      "status": "verified_statement_correspondence",
+      "reason": "The compared family has existential log power and a floor lower bound; named-circuit source supplies six and 1/400 on the same function. Growing-k refinement is correctly separated.",
+      "supporting_locations": [
+        "repository/lean/QuarticCorpus/Unconditional/Challenge.lean:295–340",
+        "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean:30–74",
+        "repository/docs/reasoning_record.md:3902–3970"
+      ]
+    },
+    {
+      "id": "MV-19",
+      "exposition_lines": [
+        22,
+        24
+      ],
+      "claim_checked": "n=0 exposition versus n>=1 formal convention",
+      "status": "equivalent_not_error",
+      "reason": "Every length-zero total Boolean function is constant and has R=Q=0. Adding it changes no admissible universal exponent.",
+      "supporting_locations": [
+        "repository/lean/QuarticCorpus/Unconditional/Challenge.lean:128–140,312–318",
+        "repository/docs/reasoning_record.md:285–307,3979–3987"
+      ]
+    },
+    {
+      "id": "MV-20",
+      "exposition_lines": [
+        198,
+        202
+      ],
+      "claim_checked": "Exact Forrelation supplier statement and eventual floor consequence",
+      "status": "verified_supplier_statement_only",
+      "reason": "Supplied PDF printed page 4 confirms Theorem 1.3/Corollary 1.4 and one-sided threshold. Fixed-k ratio grows as log(m)^(1+1/k). The whole analytic proof was not re-audited.",
+      "supporting_locations": [
+        "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf:printed p.4",
+        "repository/docs/reasoning_record.md:854–932"
+      ]
+    }
+  ],
+  "confirmed_mathematical_errors": [],
+  "finite_check_execution": {
+    "script": "work/verify_finite_examples.py",
+    "sha256": "74da9baae2997a3fd7284a3614a275b766e28f49a7f9c4d2298731674e48526c",
+    "command": "python3 work/verify_finite_examples.py",
+    "exit_code": 0,
+    "results": "work/finite_example_results.json",
+    "results_sha256": "0bdf677d32ad9126b420fe95f08861a5a648491cddeb7938d13963b872b07983",
+    "new_execution": true,
+    "uploaded_scripts_executed": false
+  },
+  "proof_link_boundary": {
+    "packaged_counterparts_inspected": true,
+    "pinned_online_prose_retrieved": false,
+    "supplied_map_prose_link_count": 14,
+    "all_marked_different_from_packaged": true,
+    "pin": "8357f268732746d1575e05e7de8c888e20ad3793",
+    "interpretation": "Adequacy of packaged proofs does not certify adequacy of different online pinned prose."
+  },
+  "builds_run": [],
+  "limits": [
+    "No independent audit of the full analytic Forrelation proof or its entire Lean dependency graph.",
+    "Imported universal quartic theorem checked against its primary statement and short derivation, not full spectral proof.",
+    "Supplied historical execution receipts are not new runs.",
+    "No complete audit of all reasoning-record appendices or all literature sources.",
+    "No web retrieval by this verifier; literature evidence comes from supplied primary texts.",
+    "PDF literature pages were inspected as extracted text; this verifier performed no visual layout review."
+  ],
+  "portable_reproduction": {
+    "script": "checks/verify_finite_examples.py",
+    "sha256": "5799330262c5ddcab3d87595258e7aea782f97ea1599479e2aab00fb020e90ac",
+    "data": "checks/circuit.json",
+    "command": "python3 checks/verify_finite_examples.py",
+    "exit_code": 0,
+    "output": "checks/finite_example_results.json",
+    "byte_identical_to_original_review_result": true,
+    "output_sha256": "0bdf677d32ad9126b420fe95f08861a5a648491cddeb7938d13963b872b07983",
+    "original_execution_record_preserved": true
+  }
+}

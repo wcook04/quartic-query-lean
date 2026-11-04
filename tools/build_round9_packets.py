@@ -127,12 +127,30 @@ def render_provenance(root, pdfs):
     return result
 
 
+def add_render_inputs(files, root, provenance):
+    """Close the packet over every input claimed by its native render receipt."""
+    for name, receipt in provenance.items():
+        packaged = {}
+        for relative, expected in receipt['inputs'].items():
+            base.check_packets.check_name(relative)
+            source = base.safe_source(root / relative)
+            if base.digest(source.read_bytes()) != expected:
+                raise ValueError(f'{name}: changed render input {relative}')
+            member = 'repository/' + relative
+            if member in files and files[member][0].read_bytes() != source.read_bytes():
+                raise ValueError(f'{name}: render input collision {member}')
+            files.setdefault(member, (source, 'native_render_input', 'repository:' + relative))
+            packaged[relative] = member
+        receipt['packaged_inputs'] = packaged
+
+
 def inputs(job, **options):
     files = round7.inputs(job, **options)
     root = options['root']
     pdfs = dict(zip(('expert_companion', 'exposition', 'reasoning_record'),
                     (options['expert_pdf'], options['exposition_pdf'], options['record_pdf'])))
     provenance = render_provenance(root, pdfs)
+    add_render_inputs(files, root, provenance)
     generated = Path(state['work']) / job
     generated.mkdir(parents=True, exist_ok=True)
     for name in LEADS.values():

@@ -90,5 +90,5 @@ current manuscript decisions and validation.
 ## Round ten
 
 The [expert return](round10/README.md) is preserved with all 34 members and its
-archive hash. The other two requested reviews remain pending. Maintained
+archive hash. The two later returns add 197 preserved files; their custody and edition limits are recorded in the same guide. Maintained
 [decisions](../adjudication/round10_revision.md) are separate from submitted advice.

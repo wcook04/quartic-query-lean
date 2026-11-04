@@ -31,6 +31,16 @@ DEFAULT_OUTPUT = ROOT.parent / "_builds/quartic-r3/render"
 CODE_LAYOUT = r'''
 local submitted_para = Para
 local submitted_table = Table
+local submitted_header = Header
+function Header(el)
+  local heading = submitted_header and submitted_header(el) or el
+  -- The following lemma's paragraph guard can otherwise strand this heading
+  -- after the newly completed evaluator. Reserve room before both blocks.
+  if pandoc.utils.stringify(el.content) == "5.1. Amplification with a predetermined query cap" then
+    return {pandoc.RawBlock("latex", "\\Needspace{14\\baselineskip}"), heading}
+  end
+  return heading
+end
 function Table(el)
   local table = submitted_table(el) or el
   local gutter = pandoc.utils.stringify(el):find("Quartic coefficient", 1, true) and 9 or 6

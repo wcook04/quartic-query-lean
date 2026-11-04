@@ -215,7 +215,7 @@ The first R10 return contributes 15 manuscript findings and eight method
 observations. The [method dispositions](../research/adjudication/round10_method_revision.json)
 apply them to the existing public authoring, reader-review and long-to-short
 owners. The [revision account](../research/adjudication/round10_revision.md)
-records the actual manuscript changes; the other two R10 reviews remain pending.
+records the first-return manuscript changes; the later two returns are discussed below.
 
 This pass tests the default reading order against the suggested detours: keep a
 complete finite contract, apply it to the construction-specific quantity, then
@@ -249,3 +249,28 @@ tests this distinction on the SK papers and on the architectural companion and
 consumer guide. The existing public authoring guide now checks the reading task
 and retained content separately for each receiving account. These are editorial
 checks, not a new review of the exposition or measured gains in understanding.
+
+## Complete R10 reading routes
+
+The [remaining review decisions](../research/adjudication/round10_remaining_dispositions.json)
+apply the record and exposition returns and the second informal expert
+assessment. The [14 method dispositions](../research/adjudication/round10_remaining_method.json)
+mostly require existing rules to be applied: preserve whole algorithm contracts,
+exact conditional laws and all-input caps while improving order; distinguish a
+worked example from the actual input checked by a linked program; and audit
+constructor summands before printing an exact count.
+
+One refinement belongs in the existing public authoring guide: assess the
+complete reading route separately from entry at a particular proof step. A
+usable shortcut can coexist with a costly default order. Before moving a long
+derivation, list the contracts used before their proofs and the destinations
+that discharge them. An existing interface defeats an absence claim without
+necessarily settling a sequencing concern. This is the change merged at `6c7226e4c5512795c381a661a9c2777f4a2ef1cd` in
+[pull request 46](https://github.com/wcook04/lean-exposition/pull/46), tested against
+the SK argument and the architecture companion's executable consumer route.
+The method record retains those source-grounded transfer checks and their limits.
+
+Neither prospective batching nor retrospective interpretation is relabelled as
+an isolated-sentence first reading. A later correction supplies a current
+locator without rewriting a frozen log. A construction-first order is useful
+here; it is not a universal rule for specialist papers or historical accounts.

@@ -43,7 +43,7 @@ EXTRA_CATALOG = {
     "quartic-ref-08-quantum-lower-bounds-by-polynomials": ("Beals–Buhrman–Cleve–Mosca–de Wolf, Quantum lower bounds by polynomials (JACM 2001)", "supplied PDF"),
     "quartic-ref-24-all-quantum-adversary-methods-are-equivale": ("Špalek–Szegedy, All quantum adversary methods are equivalent (Theory of Computing 2006)", "journal PDF"),
     "quartic-ref-25-graph-properties-and-circular-functions-ho": ("Sun–Yao, Graph properties and circular functions: how low can quantum query complexity go?", "supplied PDF"),
-    "quartic-lit-aaronson-ambainis-bogdanov-quantum-vs-classical": ("Aaronson–Ambainis–Bogdanov–Yeung, On quantum versus classical query complexity", "ECCC TR21-115 rev. 2"),
+    "quartic-lit-aaronson-ambainis-bogdanov-quantum-vs-classical": ("Aaronson–Ambainis–Bogdanov–Cheung–Dinesh, On quantum versus classical query complexity", "ECCC TR21-115 rev. 2"),
     "quartic-lit-aaronson-quantum-implications-of-huangs-sensitivity": ("Aaronson–Ben-David–Kothari–Rao–Tal, quantum implications of Huang's sensitivity theorem (LaTeX source)", "arXiv source"),
     "quartic-lit-ambainis-iraids-kokainis-certificate-v3": ("Ambainis–Iraids–Kokainis, certificate complexity separations, later edition", "arXiv v3 source"),
     "quartic-lit-ben-david-a-super-grover-separation": ("Ben-David, A super-Grover separation between randomized and quantum query complexities", "arXiv source"),

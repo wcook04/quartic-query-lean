@@ -98,6 +98,17 @@ class RoundFiveTests(unittest.TestCase):
         files = MODULE.inputs("exposition_for_students", **self.options)
         self.assertIn("repository/docs/figures/board.svg", files)
         self.assertIn("repository/docs/figures/board.tex", files)
+        _, inventory = MODULE.resolve_draft_links(self.root)
+        image_rows = [r for r in inventory['links'] if r.get('member', '').endswith('/board.svg')]
+        self.assertEqual(len(image_rows), 1)
+        self.assertTrue(image_rows[0]['exists_locally'])
+
+    def test_image_inventory_does_not_duplicate_plain_captions_or_scan_code(self):
+        text = ('![Plain](figures/a.svg)\n'
+                '![Nested $X[2]$](figures/b.svg)\n'
+                '`![Not an image](figures/inline.svg)`\n'
+                '```md\n![Not an image](figures/fenced.svg)\n```\n')
+        self.assertEqual(MODULE.link_targets(text), ['figures/a.svg', 'figures/b.svg'])
 
     def test_private_sources_reader_file_and_annex_metadata_are_excluded(self):
         packet = MODULE.prepare("long_record_navigation", **self.options)

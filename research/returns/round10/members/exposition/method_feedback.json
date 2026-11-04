@@ -1,0 +1,289 @@
+{
+  "schema": "ex10-method-feedback-v1",
+  "scope": "Advice only. No manuscript, skill, metadata generator or historical archive was edited.",
+  "writing_method_commit": "7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7",
+  "method_feedback": [
+    {
+      "id": "EX10-M01",
+      "rule_or_skill": {
+        "path": "skills/record-to-expository/SKILL.md",
+        "lines": [
+          66,
+          102
+        ],
+        "related_rules": [
+          "RG-02",
+          "RG-04",
+          "RG-05",
+          "RG-14"
+        ]
+      },
+      "current_evidence": [
+        {
+          "source": "repository/docs/exposition.md",
+          "lines": [
+            22,
+            51
+          ],
+          "findings": [
+            "EX10-001"
+          ]
+        },
+        {
+          "source": "repository/docs/exposition.md",
+          "lines": [
+            217,
+            313
+          ],
+          "findings": [
+            "EX10-005"
+          ]
+        }
+      ],
+      "failure_mechanism": "Accurate local repairs accumulate before their operational purpose. The first usable board arrives on PDF page 6, and the quantum explanation repeatedly switches between stochastic purpose and coherent implementation.",
+      "existing_rule_vs_new_rule": "Apply an existing rule more strongly; the skill already permits moving or replacing material and placing a precise theorem after its construction. No new general writing rule is needed.",
+      "proposed_general_change": "After closing local findings, perform one dependency-order pass over the whole reading route. Name the next operation the reader can perform; move exact constants or implementation detail to that use; remove a redundant preview when its full explanation moves earlier. Record what the main route still promises and what an optional route may accept.",
+      "limit_or_rejection_case": "Do not move every theorem later by default. An expert introduction with a compact, immediately meaningful statement may benefit from an early formal theorem. No arbitrary page quota or word-count target establishes improvement.",
+      "acceptance_check": "A construction-route reader can check a winning cell before the exact family hierarchy; a quantum-route reader can derive the ideal pivot law before implementing it. The exact theorem remains named and locatable before either bound is used."
+    },
+    {
+      "id": "EX10-M02",
+      "rule_or_skill": {
+        "path": "register/REGISTER_RULES.md",
+        "rule": "RG-26",
+        "lines": [
+          275,
+          285
+        ],
+        "related_skill": "skills/record-to-expository/SKILL.md"
+      },
+      "current_evidence": [
+        {
+          "source": "repository/docs/exposition.md",
+          "lines": [
+            269,
+            315
+          ],
+          "findings": [
+            "EX10-006"
+          ]
+        },
+        {
+          "source": "repository/docs/exposition.md",
+          "lines": [
+            402,
+            419
+          ],
+          "findings": [
+            "EX10-009"
+          ]
+        }
+      ],
+      "failure_mechanism": "An example can be correctly introduced yet lose its identity at a later reentry. Separately, importing a checker coordinate convention can add a translation unrelated to the operation being taught.",
+      "existing_rule_vs_new_rule": "Existing example, state-continuity and evidence-boundary principles; refine their application at reentry points rather than add a disclaimer rule.",
+      "proposed_general_change": "Check every later use, exercise and answer against a compact example-state inventory. Keep the base/domain/false-pointer/cycled variants distinct; identify abstract and schematic objects. Use the local mathematical coordinates throughout a lesson and translate to implementation indices once at the source link.",
+      "limit_or_rejection_case": "Do not erase a model reset or change the example silently. If code indices are themselves the object of instruction, keep the implementation convention on the main route. A table should replace repeated reset prose where possible.",
+      "acceptance_check": "The cycle exercise identifies its board and pivot list without guesswork. The XOR trace retains the total-function, independent-law and cap reset before execution, even if record index translation moves."
+    },
+    {
+      "id": "EX10-M03",
+      "rule_or_skill": {
+        "path": "chronological_reading.md",
+        "sections": [
+          "First pass: record before moving on",
+          "Freeze before retrospective work",
+          "Coverage and return integrity"
+        ]
+      },
+      "current_evidence": [
+        {
+          "source": "freeze.json",
+          "field": "protocol_departures"
+        },
+        {
+          "source": "first_pass/reading_log.md",
+          "sections": [
+            "Procedure and departure",
+            "B07",
+            "B13",
+            "B15"
+          ]
+        }
+      ],
+      "failure_mechanism": "The reviewing interface exposed multiple sentences and, once, part of a solution before their individual notes were saved. A hash can preserve those notes but cannot establish the stricter exposure sequence. Captions also remain composite frozen rows.",
+      "existing_rule_vs_new_rule": "Implementation correction for an existing protocol, not a manuscript defect or a new claim about reader learning.",
+      "proposed_general_change": "For a genuinely prospective next review, use a guarded unit iterator with explicit solution stops and append each encounter before releasing the next unit. If batching is necessary, declare batch-level evidence from the start. Preserve a read/exposure ledger separately from the file-write manifest. Never repair missed chronology by backfilling frozen notes.",
+      "limit_or_rejection_case": "The present session is now informed and cannot be made cold retroactively. Four model perspectives in one context are not four independent people. Mechanical timestamps and hashes certify custody, not mental independence.",
+      "acceptance_check": "A reviewer can identify exactly what was visible before each attempt and which fields are retrospective. Current first_pass digests remain unchanged; the combined attempt stays answer_exposed."
+    },
+    {
+      "id": "EX10-M04",
+      "rule_or_skill": {
+        "path": "skills/quartic-writing-method.md",
+        "section": "Round-nine application and refinement",
+        "lines": [
+          164,
+          178
+        ]
+      },
+      "current_evidence": [
+        {
+          "source": "later_annotations.jsonl",
+          "issues": [
+            "P06",
+            "P12",
+            "P16"
+          ]
+        },
+        {
+          "source": "previous_round_audit.json",
+          "challenges": [
+            "HIST-C01",
+            "HIST-C02"
+          ]
+        },
+        {
+          "source": "feedback.json",
+          "findings": [
+            "EX10-007",
+            "EX10-010"
+          ]
+        }
+      ],
+      "failure_mechanism": "A first hesitation can be mistaken for an enduring omission, and an applied disposition can be mistaken for proof that every part of its original request is closed. A wrong evidence pointer can also be mistaken for a failed repair.",
+      "existing_rule_vs_new_rule": "Apply the existing absence-check and individual-disposition rules. The new artifact is a useful implementation ledger, not a new mathematical-writing rule.",
+      "proposed_general_change": "Map each provisional issue to resolved, residual placement cost, partial prior resolution, or established error. For every reused prior ID, inspect its original concern and individual decision, then verify the current passage. Separate correction of a disposition pointer from judgment of the repair itself.",
+      "limit_or_rejection_case": "Later resolution does not automatically erase a real first-encounter cost; conversely, a signposted dependency need not be expanded at first mention. Do not count a resolved historical item as a fresh recommendation.",
+      "acceptance_check": "The fractional-law and lightness concerns are withdrawn as absence/error claims. EX9034 is challenged only at persistent reentries. EX9130 points to line 494 while its mathematical repair remains recognized."
+    },
+    {
+      "id": "EX10-M05",
+      "rule_or_skill": {
+        "path": "register/REGISTER_RULES.md",
+        "rules": [
+          "RG-20",
+          "RG-21",
+          "RG-23"
+        ],
+        "related_inputs": [
+          "LINK_MAP.json",
+          "SOURCE_STATUS.json"
+        ]
+      },
+      "current_evidence": [
+        {
+          "source": "LINK_MAP.json",
+          "scope": "13 record-link occurrences and one companion link marked pinned_differs_from_packaged"
+        },
+        {
+          "source": "repository/docs/exposition.md",
+          "lines": [
+            490,
+            494
+          ],
+          "finding": "EX10-010"
+        }
+      ],
+      "failure_mechanism": "A packaged current proof counterpart and a pinned online prose destination can contain different revisions. Reading one does not validate the other. A build receipt also does not imply matching Comparator acceptance or fresh execution.",
+      "existing_rule_vs_new_rule": "Operational refinement of existing source/evidence-boundary rules; no additional proof-status disclaimer is needed in the teaching path.",
+      "proposed_general_change": "Maintain the exact source object checked for each claim: statement, edition/commit, local snapshot or online destination, and kind/date of verification. When relocating a status note, supply the relevant pinned snapshot or deliberately update and inspect the destination. Keep existential-family and stronger named-circuit conclusions separate.",
+      "limit_or_rejection_case": "A failed browser retrieval is not proof of a broken link. Do not turn current inability to fetch a source into a mathematical objection. Do not request a new formal build merely to fill a prose-review checkbox.",
+      "acceptance_check": "An auditor can distinguish packaged text, exact pinned prose, historical build evidence and Comparator evidence without inferring one from another. The new review records no Lean/Lake/Comparator execution."
+    },
+    {
+      "id": "EX10-M06",
+      "rule_or_skill": {
+        "path": "literature_standard.md",
+        "section": "Passage-specific comparison",
+        "related_rule": "RG-01"
+      },
+      "current_evidence": [
+        {
+          "source": "literature_comparison.md",
+          "comparisons": [
+            3,
+            4,
+            5,
+            7
+          ]
+        },
+        {
+          "source": "literature_sources.json",
+          "source_ids": [
+            "LC-BHMT",
+            "LC-DRUCKER",
+            "LC-HAMOUDI",
+            "LC-IBM-ANALYSIS"
+          ]
+        }
+      ],
+      "failure_mechanism": "A superficially simpler teaching source may rely on a different task or guarantee. Uniform marked states, a memoryless notation convention, expected stopping cost and a global budget cannot silently replace weighted retained-workspace states, an every-input cap or separate caps.",
+      "existing_rule_vs_new_rule": "Apply the existing genre/task comparison rule; add a rejection case to each major proposed transfer rather than adding another generic style rule.",
+      "proposed_general_change": "For each source-inspired change, record the operation the source teaches, the source assumptions, the corresponding target operation and the assumption that cannot transfer. Use the explanatory order where it helps while keeping the target contract visible.",
+      "limit_or_rejection_case": "Do not copy a named author’s wording or infer measured learning gains from the example. Old open-status remarks and mutable URLs remain dated evidence.",
+      "acceptance_check": "The capped sampler retains its exact conditional law and endpoints after schedule constants move. The direct-product argument retains its actual independence and cap conditions. The literature memo states both uses and non-transfers."
+    },
+    {
+      "id": "EX10-M07",
+      "rule_or_skill": {
+        "path": "Packet-generation and provenance workflow",
+        "related_inputs": [
+          "READ_ME_FIRST.md",
+          "LITERATURE_COVERAGE.json",
+          "LINK_MAP.json",
+          "RENDER_PROVENANCE.json"
+        ]
+      },
+      "current_evidence": [
+        {
+          "source": "READ_ME_FIRST.md",
+          "line": 306,
+          "issue": "Incorrect Aaronson–Ambainis–Bogdanov–Yeung author label for ECCC TR21-115"
+        },
+        {
+          "source": "LITERATURE_COVERAGE.json",
+          "line": 918,
+          "issue": "Same incorrect live label"
+        },
+        {
+          "source": "literature/quartic-lit-aaronson-ambainis-bogdanov-quantum-vs-classical/extracted.md",
+          "lines": [
+            7,
+            8
+          ],
+          "correct_authors": [
+            "Scott Aaronson",
+            "Andris Ambainis",
+            "Andrej Bogdanov",
+            "Tsun Ming Cheung",
+            "Krishnamoorthy Dinesh"
+          ]
+        },
+        {
+          "source": "LINK_MAP.json",
+          "issue": "Current exposition inventory lists figures 1 and 3, but omits source links for figures 2 and 4 at lines 141 and 356"
+        },
+        {
+          "source": "RENDER_PROVENANCE.json",
+          "issue": "References repository/docs/figures/exposition/style.tex, absent from this packet"
+        }
+      ],
+      "failure_mechanism": "Custody of old submissions is being conflated with validation of newly generated packet metadata. A source listing may contain a wrong author string or miss an image even though the actual paper and rendered figure are available. A render-source reference may be absent without corrupting the delivered PDF.",
+      "existing_rule_vs_new_rule": "Packet validation refinement, not a new manuscript-writing rule. Preserve immutable old archives while correcting current generated metadata.",
+      "proposed_general_change": "Derive live bibliography labels from the inspected source title pages; compare image inventories with all parsed Markdown image targets, including bracketed alt text; check existence of each claimed render input. Mark intentionally omitted inputs as such instead of implying a complete reproducibility bundle.",
+      "limit_or_rejection_case": "Do not alter preserved R9 inputs. Do not call the inspected figures broken or the ZIP/PDF corrupted: the archive hashes/CRCs pass and all 24 lead pages were viewed.",
+      "acceptance_check": "The live author list matches the five supplied title-page names; all four exposition figures appear in the inventory; each render-input claim either resolves to a member or has an explicit omission note."
+    }
+  ],
+  "review_limits": [
+    "Initial source lines 1–135 were visible together before any first-pass row was written; those rows are immediate source-order annotations, not sentence-before-next-sentence records.",
+    "Later tool chunks were also batch-visible; the durable chronology is at batch boundaries, not individually blinded sentences.",
+    "Line 223 was inadvertently skipped by a range filter, then retrieved after lines 225–259 had been displayed.",
+    "The combined-explanation task was exposed to the first three rubric sentences in the same retrieval; its response is answer_exposed.",
+    "Figure captions and tables have composite object rows; internal caption sentences are not separately frozen encounter rows.",
+    "The optional Lean exercise prints its target clause and explanation in the prompt paragraph; external links were deferred.",
+    "The paper's own bibliography was read as BibTeX metadata after Markdown completion; rendered reference order will be inspected only after freeze.",
+    "Post-freeze schema check found 15 layout/link-definition rows with ordinal 1 rather than null; original rows remain frozen, and only the root index explicitly normalizes this metadata."
+  ],
+  "assessment": "Most improvements require applying existing rules coherently across the whole route. Evidence and packet-validation refinements are operational, not requests for new mathematical theorems."
+}

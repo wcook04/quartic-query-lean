@@ -1,0 +1,43 @@
+heir sum is at most $1/250$, which is less than $1/3$, and the zero-input bound is smaller still. Since the fresh verifier acts on a fixed classical input, its guarantee remains valid after conditioning on earlier outcomes, and neither this conditioning nor the union bound requires the tournament failures to be independent.
+<!-- /passage:upper-total-error -->
+
+[B0837 L2658-2658]
+### 5.4. Coherent access and the query cap
+
+[B0838 L2661-2662]
+<a id="upper-oracle-access"></a>
+<!-- passage:upper-oracle-access -->
+
+[B0839 L2664-2664]
+Since the algorithm uses addresses and candidate indices in superposition, we spell out their coherent implementation. The input oracle acts on a coordinate register, an answer bit, and workspace by sending $|u,b,z\rangle$ to $|u,b\mathbin\oplus x_u,z\rangle$, and a superposed address is an allowed coordinate state for this same oracle. Computing the coordinate from already stored labels is an input-independent reversible operation, so it costs no query. A pointer is stored in $\ell$ separate input bits, and reading them, reversibly forming the indicated coordinate, and querying that coordinate costs $\ell+1$ ordinary queries before any uncomputation.
+
+[B0840 L2666-2666]
+The [two-query construction in §4.6](#AC-coherent) implements a controlled read: load the selected bit, use it under the desired control, and unload it while preserving the coordinate. It works on superposed coordinates, and even disabled branches execute the cancelling pair. We now apply that common physical cap to the whole algorithm.
+
+[B0841 L2668-2669]
+An exact adaptive local test is made coherent by retaining its previous query answers, using them to compute the next coordinate, and padding its computation to the fixed maximum depth; at a branch that has halted early, the remaining controlled reads are disabled. Every gate thus remains a fixed function of the retained labels, and the query count is at most a constant times the decision-tree depth. Reversing the full circuit gives the inverse at the same cost. These operations implement, within the ordinary bit-oracle model, the coherent comparisons and their inverses, the uniform local-test preparation, and the reflections used by amplification.
+<!-- /passage:upper-oracle-access -->
+
+[B0842 L2671-2672]
+<a id="upper-read-compiler"></a>
+<!-- passage:upper-read-compiler -->
+
+[B0843 L2674-2674]
+The load–use–unload construction above implements one logical read with at most two ordinary queries. [Appendix G.2](#formal-models-map) records the source representation and its embedding into the physical registers.
+
+[B0844 L2676-2676]
+Composing these read implementations adds their caps, and reversing their logical circuit uses the same number of reads, so a circuit of $q$ logical reads is implemented with at most $2q$ ordinary bit queries, also when its indices are superposed. For classical-label continuations, one may measure the complete computational-basis state and then apply a basis permutation taking the known outcome back to the fixed initial basis state, a reset with no query cost. This reset reproduces the classical output law exactly, but because it measures the state it differs from returning the unmeasured original quantum state. The two amplification interfaces discussed in Appendix G.7 reflect this distinction.
+
+[B0845 L2678-2679]
+The final bound thus concerns the same total input function on every bit string, with a syntactic maximum over branches. It bounds the worst-case number of queries, with no averaging, and it gives no bound on the number of elementary gates or the amount of workspace, which are free in the stated query model.
+<!-- /passage:upper-read-compiler -->
+
+[B0846 L2681-2682]
+<a id="upper-finite-budget"></a>
+<!-- passage:upper-finite-budget -->
+
+[B0847 L2684-2684]
+Before simplifying asymptotically, we state an exact finite budget that records the padding and the repetitions together with the compilation constants.
+
+[B0848 L2686-2686]
+An amplification call is on

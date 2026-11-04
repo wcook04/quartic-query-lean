@@ -1,0 +1,50 @@
+l auxiliary-flag success projection and
+
+[B2196 L6518-6521]
+$$
+ \Psi_x=B_x(|h_0\rangle\otimes|j_0\rangle),
+ \qquad s_x=\|\Pi_{\rm out}\Psi_x\|^2.
+$$
+
+[B2197 L6522-6522]
+The required statement is
+
+[B2198 L6523-6534]
+$$
+ \begin{aligned}
+ &0\leq s_x\leq1,\qquad
+   p_x\geq\gamma\Longrightarrow s_x\geq1-\eta,\qquad
+   p_x=0\Longrightarrow\Pi_{\rm out}\Psi_x=0,\\
+ &p_x>0\Longrightarrow s_x\geq p_x/2>0,\\
+ &p_x>0\Longrightarrow
+   \exists\,\xi_x\in J:\quad
+       \Pi_{\rm out}\Psi_x=g_x\otimes\xi_x
+       \quad\hbox{and}\quad\|\xi_x\|^2=s_x.
+ \end{aligned}
+$$
+
+[B2199 L6535-6535]
+Here $M=\lceil10/\sqrt\gamma\rceil$ and $N=\lceil\ln(1/\eta)/\ln(40/31)\rceil$ are the input-independent counts in [the bounded trial schedule](#upper-grover-trial). It must give a logical-read circuit cap $qN(2M+1)$ and transport this same circuit through the physical compiler with cap at most $2qN(2M+1)$ ordinary bit queries, on arbitrary embedded input states and continuations. This arbitrary-state clause concerns correctness of the compiler; the amplification guarantee concerns the specified initial state. All these bounds hold on every input, whether or not $p_x\geq\gamma$.
+
+[B2200 L6537-6537]
+To express the preprint's black-box uniformity, the underlying program with slots for $A$ and $A^{-1}$ must be fixed by $\gamma,\eta$ and the register/query interface before the preparation oracle is supplied. Its branches, $M,N$ and cap cannot depend on $p_x$. The auxiliary space, routing and all non-oracle gates are input-independent. An equivalent adaptive formulation gives the same normalized original-register state, up to phase, on every positive-mass successful history. The finite-coordinate version and an explicitly uncompiled proposed interface are in the [quantum gap record](../research/returns/round3/members/05_quantum_upper/LEAN_GAPS.md).
+
+[B2201 L6539-6540]
+The ordinary fresh-trial/routing argument in §5.1 supplies the mathematical construction. The round-four integration added the [amplifier for opaque preparations][cmp-amplifier], accepted by Comparator: for one selector gate chosen before every opaque unitary, it states the retained-factor identity and the exact success mass, with the zero-mass, $p/2$ and $1-\eta$ clauses and a logical cap. The basis change from a general fixed projector to a coordinate predicate and the literal flag/Hadamard identification remain unproved, so no source-bound Lean theorem of the full physical type displayed above is claimed. In particular, the coherent composition can retain a copy of a successful output label in auxiliary registers, and the measured compilation route reads a complete basis label. What remains is the physical transport and uncomputation statement: after the chosen compiler and any copied labels, the designated physical output subsystem must still have the abstract successful factor $g_x$. The accepted opaque identity alone does not identify that subsystem. This bridge is needed before promoting the physical wrapper to the full state claim. This missing formal bridge is not an extra assumption in the proof of Proposition 3.3: that proof uses only measured labels, whose law is already supplied by the compiled route.
+<!-- /passage:upper-missing-physical-state -->
+
+[B2202 L6542-6542]
+### G.8. The classical lower bound
+
+[B2203 L6544-6555]
+<a id="CL-direct-product-formal"></a>
+<!-- passage:CL-direct-product-formal -->
+The [weighted direct-product development][src-direct-product-module] proves (6.10) by
+unnormalized induction and exports the [weighted direct product][src-direct-product] and its
+finite-mixture versions. The additional
+[conditional-value development][src-conditional-value-module] proves the transcript product
+law, the conditional-value inequality, finite product iteration, and the
+bound on actual terminal success, ending in the
+[capped direct product by conditional values][src-direct-product-capped] and its
+[average over finite seeds][src-direct-product-average]. It expresses finite
+condition

@@ -1,0 +1,71 @@
+frac{999}{1000}>\frac12.
+$$
+
+[B0731 L2337-2337]
+The middle inequality follows by induction on $h$: it is an equality at $h=0$, and multiplying the bound at $h$ by $1-\varepsilon\geq0$ gives $1-(h+1)\varepsilon+h\varepsilon^2\geq1-(h+1)\varepsilon$. Thus, until $s$ is selected, the total weight exceeds one half; in particular, the process stays out of the absorbing zero state before selecting $s$.
+
+[B0732 L2339-2339]
+If $s$ is missing from the ideal list at time $T$, the same argument gives $W_T>1/2$, so the indicator of this event is at most $2W_T$ pointwise. Taking expectations proves equation (14) for every weight distribution:
+
+[B0733 L2341-2341]
+<!-- claim:eq-14 -->
+
+[B0734 L2342-2347]
+$$
+\Pr[s\notin L_T]
+\leq\Pr[W_T\geq1/2]
+\leq2\,\mathbb EW_T
+\leq\frac{2m}{2^T}.
+$$
+
+[B0735 L2349-2350]
+The conclusion uses only complementarity and the lower bounds on the distinguished row, so comparisons between other candidates may be inconsistent with every ordering.
+<!-- /passage:upper-dominant-weight -->
+
+[B0736 L2352-2353]
+<a id="upper-stage-state"></a>
+<!-- passage:upper-stage-state -->
+
+[B0737 L2355-2355]
+One stage prepares the comparison state, amplifies its all-wins component, and measures and appends an index on success; on failure it returns the current list. We first derive the state and its exact successful-index law. Fix the current classical pivot list $p_1,\ldots,p_h$. Only this classical list persists between stages. All quantum comparison registers are freshly prepared, including comparisons with earlier pivots; this recomputation is the reason for the $T^2$ factor in the cost. We prepare a uniform index $i\in[m]$ and, controlled by $i$, run a fresh copy of the comparison with $p_b$ for every $b\leq h$, writing $|\phi(i,p_b)\rangle$ for the full normalized state of that copy, including its outcome bit and all workspace. A self-comparison is the query-free abstract operation setting its outcome bit to false. A common controlled implementation may still execute padded pairs of cancelling physical queries on this branch. The prepared state is equation (15):
+
+[B0738 L2357-2357]
+<!-- claim:eq-15 -->
+
+[B0739 L2358-2361]
+$$
+\frac1{\sqrt m}\sum_{i=1}^m |i\rangle
+ \bigotimes_{b=1}^{h}|\phi(i,p_b)\rangle.
+$$
+
+[B0740 L2363-2364]
+(The empty tensor product at $h=0$ is a one-dimensional state.) We then reversibly compute an additional success bit that is true exactly when every comparison outcome says that $i$ won, keeping the individual outcomes and all the work registers. The preparation is thus a unitary, whose inverse reverses the comparisons and the success computation.
+<!-- /passage:upper-stage-state -->
+
+[B0741 L2366-2367]
+<a id="upper-stage-law"></a>
+<!-- passage:upper-stage-law -->
+
+[B0742 L2369-2369]
+For fixed $i$, the different comparisons act on separate initially fixed registers, so projection onto all successful outcome bits is a tensor product of their success projections. The squared norm of the projected state is therefore the product of their squared norms, namely the product of $a_{ip_b}$, which is $w_i$. Since distinct index values remain orthogonal, summing their squared norms and including the initial factor $1/\sqrt m$ proves:
+
+[B0743 L2371-2371]
+<!-- claim:claim-success-prob -->
+
+[B0744 L2372-2378]
+$$
+\Pr[\text{success and index }i]=\frac{w_i}{m},
+\qquad
+\Pr[\text{success}]=\frac Wm,
+\qquad
+\Pr[i\mid\text{success}]=\frac{w_i}{W}\quad(W>0).
+$$
+
+[B0745 L2380-2381]
+The outcome probability of a comparison already accounts for its entire retained workspace, so decoded outcomes hidden inside it contribute no interference terms. Different pairs may have unrelated orientations: the product multiplies the success probabilities of distinct, fresh uses of their specified circuits at one fixed oracle input.
+<!-- /passage:upper-stage-law -->
+
+[B0746 L2383-2388]
+<a id="upper-cyclic-example"></a>
+<!-- passage:upper-cyclic-example -->
+**An exact four-candidate example.** <!-- claim:r3-q-cyclic-example --> Let the candidates be 

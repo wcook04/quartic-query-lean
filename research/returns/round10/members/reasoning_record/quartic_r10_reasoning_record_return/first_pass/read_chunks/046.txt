@@ -1,0 +1,82 @@
+les. Evaluation at \(x_n=0\) and then \(x_n=1\), followed by induction, gives \(p_0=p_1=0\). We write \(\deg(f)\) for its largest nonzero monomial size and assign degree zero to both constant functions. Invertible affine changes between bits and signs preserve this degree: each direction does not increase degree. Replacing a nonconstant output by its sign \(1-2f\) also preserves degree, since it rescales every nonconstant coefficient by \(-2\).
+
+[B1210 L4002-4002]
+For \(B\subseteq[n]\), let \(x^B\) be obtained from \(x\) by flipping exactly the coordinates in \(B\). A sensitive block at \(x\) is a nonempty \(B\) with \(f(x^B)\ne f(x)\). Define \(\operatorname{bs}(f,x)\) as the largest number of pairwise disjoint sensitive blocks at \(x\), and \(\operatorname{bs}(f)=\max_x\operatorname{bs}(f,x)\).
+
+[B1211 L4004-4004]
+The sensitivity graph has the cube inputs as vertices and an edge between two inputs exactly when they differ in one coordinate and have different function values. Let \(S_f\) be its real adjacency matrix and put
+
+[B1212 L4005-4007]
+\[
+ \lambda(f)=\|S_f\|.
+\]
+
+[B1213 L4008-4008]
+Every matrix norm below is the operator norm for the Euclidean norm; there is no normalization by the number of vertices. These quantities will enter through
+
+[B1214 L4009-4015]
+\[
+ \operatorname{bs}(f)\le 35^2Q(f)^2,
+ \qquad \lambda(f)\le35Q(f),
+ \qquad \deg(f)\le\lambda(f)^2,
+ \qquad D(f)\le\operatorname{bs}(f)\deg(f).
+\tag{A.2}
+\]
+
+[B1215 L4016-4017]
+The two adversary estimates in (A.2) use different matrices: the product $\operatorname{bs}(f)\deg(f)$ is bounded by a $Q^2$ factor from each. In particular, edges corresponding to a sensitive block may flip several coordinates and need not be edges of \(S_f\).
+<!-- /passage:R3-A-DEFINITIONS -->
+
+[B1216 L4019-4019]
+### A.2. The nonnegative adversary bound
+
+[B1217 L4021-4026]
+<a id="ROOT-ADVERSARY-PERRON"></a>
+<a id="ROOT-ADVERSARY-PROGRESS"></a>
+<a id="ROOT-ADVERSARY-FINAL"></a>
+<a id="R3-A-ADVERSARY"></a>
+<!-- passage:R3-A-ADVERSARY -->
+Let \(\Gamma\) be a nonzero real symmetric matrix indexed by cube inputs, with nonnegative entries and \(\Gamma_{xy}=0\) whenever \(f(x)=f(y)\). For a coordinate \(i\), define
+
+[B1218 L4027-4030]
+\[
+ (\Gamma_i)_{xy}=\Gamma_{xy}\mathbf1_{\{x_i\ne y_i\}},
+ \qquad M=\max_i\|\Gamma_i\|.
+\]
+
+[B1219 L4031-4031]
+Then
+
+[B1220 L4032-4037]
+\[
+ Q(f)\ge
+ \frac{1-2\sqrt2/3}{2}\frac{\|\Gamma\|}{M}
+ \ge\frac1{35}\frac{\|\Gamma\|}{M}.
+\tag{A.3}
+\]
+
+[B1221 L4038-4038]
+The denominator is positive: a nonzero entry joins distinct opposite-output inputs, and some coordinate distinguishes those inputs. Its mask is therefore nonzero. In particular, the hypotheses already force \(f\) to be nonconstant and \(n\ge1\).
+
+[B1222 L4040-4040]
+We first choose a nonnegative unit vector \(v\) with \(\Gamma v=\|\Gamma\|v\). By the spectral theorem there is a real unit eigenvector \(w\) whose eigenvalue has absolute value \(\|\Gamma\|\). For \(v=|w|\), entrywise nonnegativity implies
+
+[B1223 L4041-4044]
+\[
+ v^{\mathsf T}\Gamma v\ge
+ |w^{\mathsf T}\Gamma w|=\|\Gamma\|.
+\]
+
+[B1224 L4045-4045]
+The reverse bound follows from the operator norm. Equality in the Rayleigh quotient makes \(v\) an eigenvector for \(\|\Gamma\|\). This argument needs neither irreducibility nor positive definiteness.
+
+[B1225 L4047-4047]
+Consider an algorithm with error at most $1/3$ and query cap $q$. For a finite random selector with probabilities $p_j$, prepare $\sum_j\sqrt{p_j}|j\rangle$ and run the selected procedure controlled by $j$, retaining $j$ as an orthogonal history register. Tracing or measuring that register reproduces the mixture. This is a direct bit-oracle version of the deferred-measurement principle in §2.5, used here to expose the adversary coefficient; we do not apply the two conversions successively. A projective measurement \(\{\Pi,I-\Pi\}\) can be stored coherently by the isometry
+
+[B1226 L4048-4050]
+\[
+\psi\longmapsto \Pi\psi\otimes|1\rangle+(I-\Pi)\psi\otimes|0\rangle.
+\]
+
+[B1227 L4051-4051]
+The t

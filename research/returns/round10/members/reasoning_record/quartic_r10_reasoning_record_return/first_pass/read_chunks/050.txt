@@ -1,0 +1,65 @@
+ratic form of \(S_f\) on the extended vector is the restricted sensitivity quadratic form. Therefore \(\lambda(f)\ge\sqrt d\), proving (A.7).
+
+[B1275 L4201-4202]
+This is the spectral consequence of Huang's construction used in [ABKRT, arXiv v1, Theorem 1 and its §3 proof, printed pp. 6–7][ABKRT2020]. Huang also records the spectral-radius consequence after his proof of Theorem 1.1, printed p. 953. The dimension argument above supplies the needed comparison without a general interlacing theorem.
+<!-- /passage:R3-A-HUANG -->
+
+[B1276 L4204-4204]
+### A.5. Midrijānis's decision tree
+
+[B1277 L4206-4209]
+<a id="ROOT-MONOMIAL-TREE"></a>
+<a id="R3-A-MIDRIJANIS"></a>
+<!-- passage:R3-A-MIDRIJANIS -->
+For every total Boolean function,
+
+[B1278 L4210-4213]
+\[
+ D(f)\le\operatorname{bs}(f)\deg(f).
+\tag{A.11}
+\]
+
+[B1279 L4214-4214]
+The function $f$ is fixed when the decision tree is designed. Its truth table, polynomial representation and restricted polynomials are available to that design; computing them uses no input queries. The algorithm repeatedly considers the restriction determined by the answers so far. If it is constant, it outputs that value. Otherwise it selects a maximum-degree monomial and queries every still-free variable in its support. Fixing a deterministic order for the choices gives an ordinary decision tree. Each nonconstant round queries a nonempty set of new coordinates, so it terminates.
+
+[B1280 L4216-4216]
+Fix one full input \(x\), and consider a round on its execution path. Let \(S\) be the support selected in the current restriction. Fix all other still-free variables to their values in \(x\). As in A.4, the nonzero coefficient on \(S\) survives because a maximum-degree support has no nonzero strict superset. The resulting function of \(S\) is nonconstant and therefore takes a value opposite to its value at \(x|_S\). The coordinates where such an assignment differs from \(x|_S\) form a nonempty block \(B\subseteq S\).
+
+[B1281 L4218-4218]
+All coordinates outside \(B\) have their values from the same original input \(x\), including the earlier query answers. Hence \(f(x^B)\ne f(x)\). Different rounds select disjoint supports, so their resulting blocks are pairwise disjoint sensitive blocks at that original \(x\). The number of rounds on this path is at most \(\operatorname{bs}(f,x)\). Restriction does not increase degree, and each round queries at most \(\deg(f)\) coordinates. Its total query count is at most \(\operatorname{bs}(f,x)\deg(f)\le\operatorname{bs}(f)\deg(f)\), proving (A.11). Constants stop immediately.
+
+[B1282 L4220-4221]
+Midrijānis proves the maximal-monomial property in [Lemma 3 and the product estimate inside the proof of Theorem 4, arXiv:quant-ph/0403168v2, printed pp. 3–4][Midrijanis2004]. Theorem 4's stated conclusion is the further cubic bound in degree. Its algorithm applies the maximal-monomial lemma only to nonconstant restrictions, as above; the empty monomial of a constant function would not supply a sensitive block.
+<!-- /passage:R3-A-MIDRIJANIS -->
+
+[B1283 L4223-4223]
+### A.6. The quartic estimate
+
+[B1284 L4225-4228]
+<a id="ROOT-QUARTIC-UPPER"></a>
+<a id="R3-A-ASSEMBLY"></a>
+<!-- passage:R3-A-ASSEMBLY -->
+Equations (A.6) and (A.7) give \(\deg(f)\le1225Q(f)^2\). Multiplying by (A.5) in (A.11) gives
+
+[B1285 L4229-4232]
+\[
+ D(f)\le(1225Q(f)^2)(1225Q(f)^2)
+       =1{,}500{,}625Q(f)^4.
+\]
+
+[B1286 L4233-4233]
+A deterministic tree is a randomized algorithm whose distribution is concentrated on that tree, so \(R(f)\le D(f)\). This proves (A.1) and supplies the admissible exponent four.
+
+[B1287 L4235-4235]
+<!-- /passage:R3-A-ASSEMBLY -->
+
+[B1288 L4238-4238]
+## Appendix B. Mathematical statement catalogue
+
+[B1289 L4240-4240]
+This appendix indexes every original claim by its identifier, with a link to its proof.
+
+[B1290 L4242-4244]
+<a id="ROOT-CATALOGUE-INTRO"></a>
+<!-- passage:ROOT-CATALOGUE-INTRO -->
+This is a reference catalogue for the argument in §§2–7 and Appendix A. It preserves all 121 original 

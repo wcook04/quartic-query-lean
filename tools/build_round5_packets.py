@@ -203,7 +203,12 @@ def anchors(text):
 def link_targets(text):
     text = re.sub(r"(?ms)^(`{3,}|~{3,}).*?^\1[^\n]*$", "", text)
     text = re.sub(r"`[^`\n]+`", "", text)
-    targets = [m.group(1).strip("<>") for m in repository_checks.LINK.finditer(text)]
+    matches = list(repository_checks.LINK.finditer(text))
+    targets = [m.group(1).strip("<>") for m in matches]
+    # Use the same caption-tolerant targets as figure_sources. Nested brackets
+    # in mathematical alt text must not hide a packaged image from LINK_MAP.
+    target_spans = {m.span(1) for m in matches}
+    targets += [m.group(1) for m in IMAGE.finditer(text) if m.span(1) not in target_spans]
     targets += [m.group(1) or m.group(2) for m in re.finditer(r"(?m)^ {0,3}\[(?!\^)[^\]\n]+\]:\s*(?:<([^>\n]+)>|(\S+))", text)]
     targets += re.findall(r"<(https?://[^>\s]+)>", text)
     return targets

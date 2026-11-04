@@ -1,0 +1,44 @@
+of a particular $s$ appears only in the analysis. This is the bounded-list form of Proposition 3.2. Decoding and verification follow in §5.3, and [§5.5](#upper-continuation-induction) analyzes the variant used by the Lean proof, which verifies the listed candidates in sequence.
+<!-- /passage:upper-tournament-evidence -->
+
+[B0791 L2533-2533]
+**Comparison with earlier search procedures.** The same organization into candidate generation, comparison and certificate checking appears in Ben-David and Kothari [BDK2026, §3, Lemma 5, pp. 3–5] and in Ambainis, Iraids and Kokainis [AIK2026, arXiv v2]; the preprint cites these two certificate-complexity separations as recent work whose comparison-based viewpoint is particularly relevant [OpenAI2026, §1.1, p. 2]. Their comparison concerns certificate complexity $C$, the number of bits in a certificate, rather than randomized query complexity $R$, the cost of a bounded-error algorithm, and they search for a distinguished column by a procedure different from the fractional-weight theorem proved here. Dürr and Høyer's minimum-finding algorithm uses ordered table values and a decreasing rank [DH1999, Theorem 1 and Lemmas 1–2, pp. 1–2], and Mande, Paraashar and Saurabh give a quantum algorithm for finding a king with exact edge-direction queries [MPS2023, Theorem 19, §4, pp. 30:11–30:13]. These are antecedents and comparisons; the fractional-weight argument we follow is the one in OpenAI's Proposition 3.2. In particular, the available comparisons need not be bounded-error evaluations of any fixed orientation.
+
+[B0792 L2535-2535]
+### 5.3. Decoding, comparison, and verification
+
+[B0793 L2538-2539]
+<a id="upper-decode"></a>
+<!-- passage:upper-decode -->
+
+[B0794 L2541-2541]
+We return to the total function $F_{k,m}$. Fix $k\geq2$ and $m=4^t$ with $t\geq1$, and as in the construction write $\ell=2t=\log_2m$ and $r=40t=20\ell$. Each column has $r$ Forrelation instances whose promised values, when all are defined, form its address, and the circuit used for the construction has size $S=O_k(m\ell^2)$. We keep $T,\varepsilon$ as above.
+
+[B0795 L2543-2544]
+To decode an address, we run the quantum algorithm of Lemma 2.1(ii) on each of the $r$ Forrelation instances in the selected column, reducing the error on each promised instance to at most $\varepsilon/r$, and implement its trials and decision rule reversibly, retaining the outcome labels and all intermediate work. The output register always holds an $r$-bit string; when some promises fail, this string may bear no relation to a semantic address. The number of queries is nevertheless capped on every input, and the output label is defined even off promise.
+<!-- /passage:upper-decode -->
+
+[B0796 L2546-2547]
+<a id="upper-decode-cost"></a>
+<!-- passage:upper-decode-cost -->
+
+[B0797 L2549-2549]
+For fixed $k$, each instance is decoded with $O_k(\ln(r/\varepsilon))$ queries, and running the $r$ copies gives:
+
+[B0798 L2551-2551]
+<!-- claim:claim-decode-cost -->
+
+[B0799 L2552-2558]
+$$
+\text{address-decoding queries}
+=O_k\!\left(r\ln(r/\varepsilon)\right),
+\qquad
+\Pr[\text{correct address}]\geq1-\varepsilon
+\quad\text{if all }r\text{ promises hold}.
+$$
+
+[B0800 L2560-2560]
+For the probability assertion, let $E_h$ be the error event for instance $h$, so that $\Pr(E_h)\leq\varepsilon/r$ for promised instances. The event that the address is wrong is the union of these $r$ events, and by the union bound, which holds without independence, its probability is at most their sum, $\varepsilon$. In the source implementation the copies are fresh, so the law of the address string is in fact the product of their Boolean output laws.
+
+[B0801 L2562-2563]
+The source thresholds a retained count of Forrelation outcomes. With $\delta=2^{-5k}$, its repetition count is $q=\lceil16\delta^{-2}\ln(r/\varepsilon)\rceil$, with the natural-number ceiling used by the [formal repetition count][src-repetitions]. Each repetition makes $k$ abstract reads, so the address circuit has $rqk$ such read

@@ -138,4 +138,4 @@ Licensed under [Apache-2.0](LICENSE).
 
 The [round-ten expert revision](research/adjudication/round10_revision.md) acts on
 the first R10 return. Its evidence and dispositions are separate from the two
-supporting-paper reviews still pending.
+supporting-paper reviews recorded in the [complete R10 assimilation](research/adjudication/round10_remaining_revision.md).

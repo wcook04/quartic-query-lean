@@ -1,0 +1,104 @@
+m is attained,
+and since stopping immediately is allowed, $1/2\leq V_h(\tau)\leq1$.
+
+[B0916 L2937-2943]
+Suppose the next query asks coordinate $a$ of input $h$; a query then
+remains in that input's allowance. For each answer $b$ of positive
+conditional probability, we choose a tree attaining $V_h(\tau b)$, where
+$\tau b$ appends this query and answer. The single-input strategy that
+queries $a$ first and then runs the chosen tree uses at most
+$L-q_h(\tau)$ queries, and its conditional success is the average of those
+new optimal values. Optimality in (6.3) therefore gives
+
+[B0917 L2945-2945]
+<!-- claim:eq-16 -->
+
+[B0918 L2946-2951]
+\[
+ \sum_{b:\,\Pr(U_h(a)=b\mid H_\tau)>0}
+   \Pr(U_h(a)=b\mid H_\tau)\,V_h(\tau b)
+   \leq V_h(\tau).
+\tag{6.4}
+\]
+
+[B0919 L2953-2958]
+Inequality (6.4) is the finite form of the preprint's equation (16). A
+branch of conditional probability zero contributes zero, and any tree can
+be installed on that unreachable branch without defining a posterior there.
+If the coordinate was queried earlier, only its already-known answer is
+possible; then the budget decreases while the posterior stays the same,
+which again cannot increase the optimum.
+
+[B0920 L2960-2964]
+For $j\neq h$, the local constraints, posterior and remaining budget stay
+the same, so $V_j(\tau b)=V_j(\tau)$ on every positive-probability child.
+Here we use the transcript product law (6.2): learning a bit of $U_h$
+leaves the conditional law of every other input unchanged.
+<!-- /passage:CL-conditional-values -->
+
+[B0921 L2966-2969]
+<a id="CL-supermartingale"></a>
+<!-- passage:CL-supermartingale -->
+Let $Z(\tau)=\prod_{h=1}^{r}V_h(\tau)$. Since the other factors are
+unchanged and nonnegative, multiplying (6.4) by their product gives
+
+[B0922 L2971-2971]
+<!-- claim:claim-supermartingale -->
+
+[B0923 L2972-2975]
+\[
+ \mathbb E[Z(\tau')\mid H_\tau]\leq Z(\tau),
+\tag{6.5}
+\]
+
+[B0924 L2977-2980]
+where $\tau'$ is the history after the next query. The product inequality
+uses more than the fact that each factor separately has nonincreasing
+expectation: at each step only the queried factor can change, and the
+others are fixed by the current history.
+
+[B0925 L2982-2987]
+The tree makes at most $rL$ queries. We keep $Z$ constant after an early
+stop and sum (6.5) over positive-probability histories at each of these
+finitely many steps, so the expected terminal product is at most its
+initial value. At the empty history each factor is at most $\beta$ by the
+one-input hypothesis, so this initial value is at most $\beta^r$. (Since the
+iteration is finite, it needs no limiting stopping theorem.)
+
+[B0926 L2989-2991]
+Write $U=(U_1,\ldots,U_r)$, and at a terminal history let
+$s=(s_1,\ldots,s_r)$ be the fixed answer vector. The product law at that
+history and the option of stopping immediately give
+
+[B0927 L2993-2993]
+<!-- claim:claim-final-bound -->
+
+[B0928 L2994-3003]
+\[
+\begin{aligned}
+ \Pr[\mathcal A(U)=P^r(U)\mid H_\tau]
+ &=\prod_{h=1}^{r}\Pr[P(U_h)=s_h\mid H_\tau]\\
+ &\leq\prod_{h=1}^{r}\max_{b\in\{0,1\}}
+               \Pr[P(U_h)=b\mid H_\tau]\\
+ &\leq\prod_{h=1}^{r}V_h(\tau)=Z(\tau),
+\end{aligned}
+\tag{6.6}
+\]
+
+[B0929 L3005-3010]
+where $P^r(U)$ denotes $(P(U_1),\ldots,P(U_r))$. Averaging over the terminal
+histories proves (6.1) for the deterministic algorithm. Note that (6.6)
+bounds a conditional probability; the realized success indicator can exceed
+$Z$ pointwise, since it equals one on a successful input, where $Z<1$ is
+possible.
+<!-- /passage:CL-supermartingale -->
+
+[B0930 L3012-3023]
+<a id="CL-independent-information"></a>
+<!-- passage:CL-independent-information -->
+To restore arbitrary independent side information and coins, we group their
+outcomes by the capped deterministic tree they induce. There are only
+finitely many such trees, since their depth is at most $rL$, their query
+labels belong to a finite set and their leaf labels belong to $\{0,1\}^r$;
+the induction on depth used above proves this. If the description of an
+algorithm includes unreachable branch

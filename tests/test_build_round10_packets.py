@@ -17,6 +17,13 @@ SPEC.loader.exec_module(M)
 
 
 class RoundTenTests(unittest.TestCase):
+    def test_live_catalog_matches_the_inspected_five_author_title_page(self):
+        slug = 'quartic-lit-aaronson-ambainis-bogdanov-quantum-vs-classical'
+        label, edition = M.round6.EXTRA_CATALOG[slug]
+        self.assertIn('Aaronson–Ambainis–Bogdanov–Cheung–Dinesh', label)
+        self.assertNotIn('Yeung', label)
+        self.assertEqual(edition, 'ECCC TR21-115 rev. 2')
+
     def tearDown(self):
         M.round8.configure()
         M.base.check_reader_leaks = M.original_reader_leak_check

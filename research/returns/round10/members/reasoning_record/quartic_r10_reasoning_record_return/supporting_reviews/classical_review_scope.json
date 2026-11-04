@@ -1,0 +1,193 @@
+{
+  "role": "classical specialist",
+  "start_utc": "2026-11-04T14:17:26Z",
+  "substantive_reread_complete_utc": "2026-11-04T14:23:59Z",
+  "serial_slot_released": true,
+  "primary_freeze": {
+    "path": "review_work/first_pass/freeze.json",
+    "parent_supplied_sha256": "714edbed6d440767df589d5cc23fcca3fd00b23c244d808ea202fd850b56e472",
+    "freeze_metadata_only_read": true,
+    "primary_encounter_findings_read": false
+  },
+  "prior_exposure": [
+    "Source-only literature preparation before primary freeze; no current manuscripts, prior reviews, dispositions or guidance read in that preparation.",
+    "Parent notified specialist that historical RR9-067 may survive at line 3743, after the specialist had already read the narrowed §3.16 wording.",
+    "Quantum specialist work completed before this reread, but no quantum findings or current review text were opened."
+  ],
+  "current_source": {
+    "path": "/workspace/scratch/2be3286c8998/input_packet/repository/docs/reasoning_record.md",
+    "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07"
+  },
+  "current_read_ranges": [
+    {
+      "lines": [
+        441,
+        556
+      ],
+      "scope": "§3 introduction and promise/integer normalization"
+    },
+    {
+      "lines": [
+        854,
+        1669
+      ],
+      "scope": "§§3.6–3.18, full direct classical lower-bound derivation and source interfaces"
+    },
+    {
+      "lines": [
+        2800,
+        3802
+      ],
+      "scope": "All §6: statement, both direct-product proofs, minimax, coupling, zero searches, simulator, discrepancy and floors"
+    },
+    {
+      "lines": [
+        3803,
+        3971
+      ],
+      "scope": "All §7 fixed-k and growing-k assembly"
+    },
+    {
+      "lines": [
+        4417,
+        4487
+      ],
+      "scope": "Relevant catalogue Forrelation statements; incidental nearby quantum statement rows"
+    },
+    {
+      "lines": [
+        5105,
+        5490
+      ],
+      "scope": "Catalogue B.7–B.9 direct products, planting and exponent statements"
+    },
+    {
+      "lines": [
+        5903,
+        6124
+      ],
+      "scope": "All Appendices D and E"
+    },
+    {
+      "lines": [
+        6360,
+        6460
+      ],
+      "scope": "Relevant statement-status entries in G.4; incidental adjacent quantum entries"
+    },
+    {
+      "lines": [
+        6461,
+        6475
+      ],
+      "scope": "G.5 Forrelation scope"
+    },
+    {
+      "lines": [
+        6542,
+        6648
+      ],
+      "scope": "G.8 direct products/planted comparison and G.9 exponent; incidental Appendix A formal-route entries"
+    },
+    {
+      "lines": [
+        6677,
+        6779
+      ],
+      "scope": "Selected reference-definition searches for cited Lean destinations, not a consecutive substantive read"
+    }
+  ],
+  "structural_exposure": "Headings-only search over the whole lead to locate ranges. No companion manuscript or older review/disposition opened.",
+  "available_lean_statement_reads": [
+    {
+      "path": "repository/lean/QuarticQuery/ForrelationLower/Uniform.lean",
+      "lines": [
+        [
+          515,
+          675
+        ]
+      ],
+      "scope": "Sharp uniform signature, elementary log inequality, older cutoff/floor/explicit-threshold statements and adjacent proof text"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/LowerBound/RealizedCapsExternal.lean",
+      "lines": [
+        [
+          1,
+          45
+        ]
+      ],
+      "scope": "Complete small finite-seed cap-event wrapper"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
+      "lines": [
+        [
+          870,
+          915
+        ]
+      ],
+      "scope": "Capped and finite-average endpoint types plus adjacent proof"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ClassicalPlanted.lean",
+      "lines": [
+        [
+          332,
+          354
+        ]
+      ],
+      "scope": "Equation 21 type and proof interface"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/Eq19Whole.lean",
+      "lines": [
+        [
+          16,
+          36
+        ]
+      ],
+      "scope": "Complete equation 19 conjunction"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "lines": [
+        [
+          1,
+          55
+        ]
+      ],
+      "scope": "Named-family same-circuit type and short assembly"
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean",
+      "lines": [
+        [
+          360,
+          392
+        ]
+      ],
+      "scope": "Named-family ratio and divergence type"
+    }
+  ],
+  "destinations_not_locally_available": [
+    "repository/lean/QuarticQuery/LowerBound/Planted/Main.lean",
+    "repository/lean/QuarticQuery/Paper/Section4.lean",
+    "repository/lean/QuarticQuery/Upper/Bound.lean",
+    "repository/lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean"
+  ],
+  "literature_exposure_addendum": "classical_source_addendum.json; additional source verification continued after the manuscript serial slot was released.",
+  "executions": {
+    "lean": false,
+    "lake": false,
+    "comparator": false,
+    "tests_or_manuscript_checkers": false,
+    "math_method": "AI algebraic reconstruction plus primary-source text comparison; no human reviewer and no probabilistic computation used to certify universal claims."
+  },
+  "limits": [
+    "No claim to have independently reproved the entire SSW Fourier theorem or Bansal–Sinha Gaussian branching machinery.",
+    "No new execution status or complete formal-dependency audit certified.",
+    "Quantum sampler/circuit compiler and universal quartic upper-bound derivations belong to the other perspectives."
+  ],
+  "scope_record_written_utc": "2026-11-04T14:28:07.935768+00:00"
+}

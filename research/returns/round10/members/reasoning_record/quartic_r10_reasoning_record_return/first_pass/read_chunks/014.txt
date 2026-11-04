@@ -1,0 +1,84 @@
+$s,a,b,c$,
+so that $T=\lceil\log_2(4000)\rceil=12$ and
+$\varepsilon=1/12000$. In the following table, the entry in row $i$, column $j$
+is the probability that $i$ defeats $j$.
+
+[B0747 L2390-2395]
+| $a_{ij}$ | $s$ | $a$ | $b$ | $c$ |
+|---|---:|---:|---:|---:|
+| $s$ | $0$ | $1-\varepsilon$ | $1-\varepsilon$ | $1-\varepsilon$ |
+| $a$ | $\varepsilon$ | $0$ | $1$ | $0$ |
+| $b$ | $\varepsilon$ | $0$ | $0$ | $1$ |
+| $c$ | $\varepsilon$ | $1$ | $0$ | $0$ |
+
+[B0748 L2397-2399]
+The candidate $s$ is dominant, while the other three form the cycle in which
+$a$ defeats $b$, $b$ defeats $c$, and $c$ defeats $a$,
+so these three certain comparisons are inconsistent with every total ordering.
+
+[B0749 L2401-2401]
+If the first pivot is $a$, the weights become
+
+[B0750 L2402-2405]
+$$
+ (w_s,w_a,w_b,w_c)=(11999/12000,0,0,1),
+ \qquad W=23999/12000.
+$$
+
+[B0751 L2406-2412]
+The unamplified preparation succeeds with probability
+$W/4=23999/48000$. Conditioned on success, the next pivot is
+$s$ with probability $11999/23999$ and $c$ with probability
+$12000/23999$. Bounded amplification changes the probability of obtaining
+a sample and preserves these two conditional probabilities exactly.
+If the next pivot is $c$, the only remaining positive weight is
+$w_s=(11999/12000)^2$, so the following successful sample is $s$.
+
+[B0752 L2414-2416]
+The first-step total weight is $3\varepsilon$ if the pivot is $s$,
+and $2-\varepsilon$ for each of the other three pivots. Since the first
+pivot is uniform, its expected value is
+
+[B0753 L2417-2420]
+$$
+ \frac{3\varepsilon+3(2-\varepsilon)}4=\frac32
+ =\frac{4^2-4}{2\cdot4}.
+$$
+
+[B0754 L2421-2424]
+This is the exact drift identity in a cyclic example, and the ideal process selects
+$s$ within three pivots with probability one: a first pivot $s$ succeeds immediately, and first pivots $b$ or $c$ follow from the displayed $a$ case by cyclic relabeling. The example illustrates the
+weight calculation and conditional law; it is neither a construction of the
+full addressed-certificate input nor a proof of the general tournament bound.
+
+[B0755 L2426-2426]
+To see genuinely fractional losing weights on the same four candidates, change only $a_{ab}=a_{ba}=1/2$. This is an abstract comparison-table variation, not a new claim about the board in §4.3. After pivot $a$ its weights and success probability are
+
+[B0756 L2427-2430]
+$$
+(w_s,w_a,w_b,w_c)=(11999/12000,0,1/2,1),\qquad
+W=29999/12000,\qquad p=29999/48000.
+$$
+
+[B0757 L2431-2431]
+The next successful pivot has law
+
+[B0758 L2432-2435]
+$$
+(\Pr[s],\Pr[a],\Pr[b],\Pr[c])
+=(11999,0,6000,12000)/29999.
+$$
+
+[B0759 L2436-2437]
+Amplification preserves this entire conditional law, including the fractional losing weights. If the real sampler fails after the first pivot $a$, its returned list $[a]$ misses $s$; this failure is charged in the coupling below. If a successful continuation first yields $s$ and a later sampler fails, the returned list already contains $s$ and that later failure is not charged. The ideal process's certain selection in the preceding deterministic-cycle example is therefore not a certainty claim for the real stopped algorithm.
+<!-- /passage:upper-cyclic-example -->
+
+[B0760 L2440-2441]
+<a id="upper-quantum-tournament"></a>
+<!-- passage:upper-quantum-tournament -->
+
+[B0761 L2443-2443]
+We apply Lemma 3.1 to this preparation with $\gamma=1/(2m)$ and $\eta=\varepsilon$. On reported failure we stop and return the current list; on success we measure the index, append it to the list, and proceed, stopping after at most $T$ appended indices. These instructions define the real sampler for every input and every history, whether or not a dominant vertex exists.
+
+[B0762 L2445-2445]
+Conditioned on success, the amplified state is the normalized success component of the unamplified preparation, so its measured index has exactly the distribution $w_i/W$. The ideal weight calculation needs this exact conditional law; a lower bound on the chance of obtaining some successful index would be too weak. W

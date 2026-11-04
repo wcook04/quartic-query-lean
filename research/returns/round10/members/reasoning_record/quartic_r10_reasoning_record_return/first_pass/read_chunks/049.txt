@@ -1,0 +1,76 @@
+dges form a partial matching: each input has only one neighbor obtained by flipping that coordinate. The masked matrix is a direct sum of matrices \(\left(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right)\) and zeros, so its norm is at most one. If \(f\) is nonconstant, a path in the cube between opposite-output inputs contains a sensitive edge, so \(S_f\ne0\). Applying (A.3) gives
+
+[B1260 L4150-4153]
+\[
+ \lambda(f)\le35Q(f).
+\tag{A.6}
+\]
+
+[B1261 L4154-4155]
+For a constant function, \(S_f=0\) and (A.6) is immediate. This is the sensitivity-graph application in [ABKRT, arXiv v1, Lemma 9, printed p. 8][ABKRT2020]; (A.5) and (A.6) are the two conclusions of OpenAI's Lemma A.3.
+<!-- /passage:R3-A-SPECTRAL -->
+
+[B1262 L4157-4157]
+### A.4. A maximum-degree face and Huang's signed cube
+
+[B1263 L4159-4162]
+<a id="ROOT-HUANG-RESTRICTION"></a>
+<a id="R3-A-FACE"></a>
+<!-- passage:R3-A-FACE -->
+We prove
+
+[B1264 L4163-4166]
+\[
+ \deg(f)\le\lambda(f)^2.
+\tag{A.7}
+\]
+
+[B1265 L4167-4167]
+The assertion is immediate for constants. Otherwise write inputs and outputs as signs, and put \(d=\deg(f)\ge1\). Choose a nonzero monomial with support \(S\) of size \(d\). Fix every coordinate outside \(S\) to any signs. A term contributing to the full \(S\)-coefficient after restriction must originally contain \(S\); maximal degree excludes a nonzero coefficient on a strict superset. Thus the top coefficient survives unchanged for every outside assignment.
+
+[B1266 L4169-4171]
+Let \(g:\{-1,1\}^d\to\{-1,1\}\) be one such restricted function. Products of distinct sign coordinates are orthogonal under uniform averaging, so its top coefficient is
+\(\mathbb E[g(y)y_1\cdots y_d]\ne0\).
+Choose \(\sigma\in\{-1,1\}\) making this correlation positive. Then
+
+[B1267 L4172-4176]
+\[
+ U=\{y:g(y)=\sigma y_1\cdots y_d\}
+ \quad\hbox{satisfies}\quad |U|>2^{d-1}.
+\tag{A.8}
+\]
+
+[B1268 L4177-4178]
+Indeed, the sign \(\sigma g(y)y_1\cdots y_d\) equals \(1\) on \(U\) and \(-1\) off \(U\); its positive mean is exactly the strict majority assertion. Every cube edge internal to \(U\) changes \(g\), because parity changes across that edge.
+<!-- /passage:R3-A-FACE -->
+
+[B1269 L4180-4183]
+<a id="ROOT-HUANG-SPECTRUM"></a>
+<a id="R3-A-HUANG"></a>
+<!-- passage:R3-A-HUANG -->
+Define the signed cube adjacency by
+
+[B1270 L4184-4188]
+\[
+ H'_1=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
+ H'_{j+1}=\begin{pmatrix}H'_j&I\\I&-H'_j\end{pmatrix}.
+\tag{A.9}
+\]
+
+[B1271 L4189-4189]
+It is real symmetric and its entrywise absolute value is ordinary cube adjacency. Block multiplication gives \((H'_j)^2=jI\), since the off-diagonal blocks cancel, and \(\operatorname{tr}H'_j=0\). For \(j\ge1\), its only eigenvalues are the distinct numbers \(\sqrt j\) and \(-\sqrt j\). Their multiplicities sum to \(2^j\), and trace zero makes them equal, hence each is \(2^{j-1}\). This is [Huang's signed-matrix calculation, Annals edition, Lemma 2.2, printed p. 952][Huang2019]. The condition \(j\ge1\) belongs to the multiplicity statement: with the convenient extension \(H'_0=(0)\), there is only the eigenvalue zero on a one-dimensional space.
+
+[B1272 L4191-4191]
+The positive eigenspace of \(H'_d\) has dimension \(2^{d-1}\), while the subspace of vectors supported on \(U\) has dimension \(|U|>2^{d-1}\). Their dimensions sum to more than \(2^d\), so their intersection contains a nonzero real vector \(v\). Put \(u=|v|\) coordinatewise. If \(A_U\) denotes the unsigned cube adjacency induced on \(U\), extended by zero, then
+
+[B1273 L4192-4198]
+\[
+ u^{\mathsf T}A_Uu
+ \ge v^{\mathsf T}H'_dv
+ =\sqrt d\,\|v\|^2
+ =\sqrt d\,\|u\|^2.
+\tag{A.10}
+\]
+
+[B1274 L4199-4199]
+The first inequality follows term by term from \(|H'_d|=A_{\rm cube}\) and the support of \(v\). Every edge of \(A_U\) is a sensitivity edge of \(g\). Because \(u\ge0\), adding the other sensitivity edges can only increase its quadratic form. Embed \(u\) into the original cube by the selected face map and set it to zero elsewhere. The embedding preserves its norm; the quad

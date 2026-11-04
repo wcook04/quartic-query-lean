@@ -1,0 +1,116 @@
+ def-Q
+
+[B1316 L4305-4307]
+<a id="CAT-def-Q"></a>
+<!-- passage:CAT-def-Q -->
+<!-- claim:def-Q -->
+
+[B1317 L4309-4309]
+> Q(f) is the least q such that some quantum algorithm, with unrestricted query-free computation between uses of O_x and with at most q queries on every branch including all measurement outcomes, outputs f(x) with probability >= 2/3 for every x in dom f.
+
+[B1318 L4311-4311]
+**Argument:** [§2.3](#ROOT-ORACLE), [§2.4](#R3-01-ADAPTIVE).
+
+[B1319 L4313-4313]
+<!-- /passage:CAT-def-Q -->
+
+[B1320 L4315-4315]
+#### eq-1
+
+[B1321 L4317-4319]
+<a id="CAT-eq-1"></a>
+<!-- passage:CAT-eq-1 -->
+<!-- claim:eq-1 -->
+
+[B1322 L4321-4321]
+> alpha_tot = inf{alpha >= 0 : exists C_alpha < infinity such that for every n >= 1 and every total f:{0,1}^n->{0,1}, R(f) <= C_alpha (1+Q(f))^alpha}.
+
+[B1323 L4323-4323]
+**Argument:** [§1](#ROOT-RESULT).
+
+[B1324 L4325-4325]
+<!-- /passage:CAT-eq-1 -->
+
+[B1325 L4327-4327]
+#### eq-2
+
+[B1326 L4329-4331]
+<a id="CAT-eq-2"></a>
+<!-- passage:CAT-eq-2 -->
+<!-- claim:eq-2 -->
+
+[B1327 L4333-4333]
+> For fixed integer k>=2 and all sufficiently large powers of four m: Q(F_{k,m}) <= C_k sqrt(m) (log m)^{b_k} and R(F_{k,m}) >= c_k m^{2-1/k}/(log m)^2, with c_k,C_k,b_k>0 depending only on k.
+
+[B1328 L4335-4335]
+**Argument:** [§1](#ROOT-RESULT), [§1.1](#ROOT-ARCHITECTURE), [§7](#ROOT-FAMILY-ASSEMBLY).
+
+[B1329 L4337-4337]
+<!-- /passage:CAT-eq-2 -->
+
+[B1330 L4339-4339]
+#### thm-1.1
+
+[B1331 L4341-4343]
+<a id="CAT-thm-1.1"></a>
+<!-- passage:CAT-thm-1.1 -->
+<!-- claim:thm-1.1 -->
+
+[B1332 L4345-4345]
+> alpha_tot = 4. More precisely, R(f) = O((1+Q(f))^4) for every total Boolean f, and eq-2 holds for each fixed integer k>=2.
+
+[B1333 L4347-4347]
+**Argument:** [§1](#ROOT-RESULT), [§1.1](#ROOT-ARCHITECTURE), [Appendix G.2](#ROOT-EVIDENCE-CONVENTION), [§7](#ROOT-FAMILY-ASSEMBLY), [§7.2](#ROOT-NO-SMALLER).
+
+[B1334 L4349-4349]
+<!-- /passage:CAT-thm-1.1 -->
+
+[B1335 L4351-4351]
+#### cor-cubic-refuted
+
+[B1336 L4353-4355]
+<a id="CAT-cor-cubic-refuted"></a>
+<!-- passage:CAT-cor-cubic-refuted -->
+<!-- claim:cor-cubic-refuted -->
+
+[B1337 L4357-4357]
+> It is false that R(f) = O(Q(f)^3) for all total Boolean f ([3, Conjecture 2]): no C satisfies R(f) <= C Q(f)^3 for all total f.
+
+[B1338 L4359-4359]
+**Argument:** [§1](#ROOT-RESULT), [§7.2](#ROOT-NO-SMALLER), [§1](#R3-01-QUANTIFIERS).
+
+[B1339 L4361-4361]
+<!-- /passage:CAT-cor-cubic-refuted -->
+
+[B1340 L4363-4363]
+### B.2. The Forrelation supplier
+
+[B1341 L4365-4365]
+The literal ledger quotations below number the sign blocks $z_1,\ldots,z_k$; §3 numbers them $z_0,\ldots,z_{k-1}$. The $j$-th quoted block is therefore block $j-1$ in the derivation. This changes no coordinate inside a block.
+
+[B1342 L4367-4367]
+Sections 3.1–3.5 construct the promise procedure and exact circuit; §§3.6–3.16 prove the randomized lower bound. The complete Lemma 2.1 wrapper and its component wrappers are available. Component facts about projection probability, threshold arithmetic and circuit size still require their surrounding definitions and translations: a partial tie to one of these rows is not automatically an exact proof of the whole prose row. The corrected Bansal–Sinha-to-$L$ statement is preserved below; its historical wording and the source-version discrepancy remain visible in the correspondence and §3.18. The ordinary sharp phase implementation costs $qk$, whereas the generic compiled route has the separately proved $2qk$ cap.
+
+[B1343 L4369-4369]
+#### def-walsh-sign
+
+[B1344 L4371-4373]
+<a id="CAT-def-walsh-sign"></a>
+<!-- passage:CAT-def-walsh-sign -->
+<!-- claim:def-walsh-sign -->
+
+[B1345 L4375-4375]
+> m=4^t. H is the m x m normalized Walsh-Hadamard matrix, H_{a,b}=m^{-1/2}(-1)^{<a,b>} for a,b in {0,1}^{log_2 m}. u=m^{-1/2}(1,...,1)^T. A bit a is identified with the sign (-1)^a. For z in {+-1}^m, D_z=diag(z).
+
+[B1346 L4377-4377]
+**Argument:** [§3.1](#forr_definition).
+
+[B1347 L4379-4379]
+<!-- /passage:CAT-def-walsh-sign -->
+
+[B1348 L4381-4381]
+#### eq-3
+
+[B1349 L4383-4385]
+<a id="CAT-eq-3"></a>
+<!-- pa

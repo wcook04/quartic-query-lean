@@ -1,0 +1,29 @@
+{
+  "schema": "quartic-r10-packet-repair-validation-v1",
+  "source_baseline": "0adda9d",
+  "actual_exposition_image_targets": [
+    "figures/exposition/fig1_column.svg",
+    "figures/exposition/fig2_board.svg",
+    "figures/exposition/fig3_tournament.svg",
+    "figures/exposition/fig4_planted.svg"
+  ],
+  "all_four_in_link_inventory": true,
+  "native_render_inputs_materialized": 12,
+  "shared_style_included": true,
+  "unchanged_sent_archives": true,
+  "checks": "Synthetic regression tests plus replay of actual frozen prior render inputs and actual caption-bearing exposition source. No new full review packet built.",
+  "title_page_authors": [
+    "Scott Aaronson",
+    "Andris Ambainis",
+    "Andrej Bogdanov",
+    "Tsun Ming Cheung",
+    "Krishnamoorthy Dinesh"
+  ],
+  "title_page_source": "Original source.pdf in R10 literature/quartic-lit-aaronson-ambainis-bogdanov-quantum-vs-classical (ECCC TR21-115 rev.2).",
+  "reviewer_finite_script": {
+    "sha256": "5799330262c5ddcab3d87595258e7aea782f97ea1599479e2aab00fb020e90ac",
+    "execution": "Read full source, then executed unchanged copied script and gate-list in isolated /tmp directory. Original return untouched. Reviewer-authored code, not independent parent implementation.",
+    "result": "all assertions passed; 256 circuit inputs, four boards",
+    "output_sha256": "0bdf677d32ad9126b420fe95f08861a5a648491cddeb7938d13963b872b07983"
+  }
+}

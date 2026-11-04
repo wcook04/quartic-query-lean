@@ -1,0 +1,102 @@
+1092 L3669-3671]
+<!-- passage:CL-discrepancy -->
+Combining (18), (19) and (22), we obtain an absolute-value strengthening of the preprint's one-sided discrepancy estimate with the same right-hand side:
+<!-- claim:eq-23 -->
+
+[B1093 L3672-3676]
+\[
+\left|\Pr[T(Y^{(1)})=1]-\Pr[T(Y^{(0)})=1]\right|
+\le\frac{4G}{m^2}+\frac{G}{mL}+G(2/3)^r.
+\tag{23}
+\]
+
+[B1094 L3677-3678]
+The alternative search estimate likewise gives
+<!-- claim:new-r2-planted-gap-absolute-two -->
+
+[B1095 L3679-3682]
+\[
+\left|\Pr[T(Y^{(1)})=1]-\Pr[T(Y^{(0)})=1]\right|
+\le\frac{2G}{m^2}+\frac{G}{mL}+G(2/3)^r.
+\]
+
+[B1096 L3683-3685]
+The two displayed bounds have the same event interpretation; the coefficient two uses the alternative zero-search proof. Formal correspondence is recorded in [Appendix G.8](#CL-formal-scope).
+<!-- claim:NCL-checked-gap -->
+<!-- /passage:CL-discrepancy -->
+
+[B1097 L3687-3689]
+<a id="CL-tail-numeric"></a>
+<!-- passage:CL-tail-numeric -->
+Since $1\le L\le m$ and $G\le mL/100$, we have $G\le m^2/100$. The contradiction needs a finite bound valid throughout this range. Using $4/9\le1/2$ and $r=40t$ gives
+
+[B1098 L3690-3692]
+\[
+(2/3)^{40t}\le2^{-20t}=m^{-10}.
+\]
+
+[B1099 L3693-3694]
+Thus
+<!-- claim:claim-numeric -->
+
+[B1100 L3695-3703]
+\[
+\begin{aligned}
+\frac{4G}{m^2}&\le\frac4{100},\qquad
+\frac{G}{mL}\le\frac1{100},\qquad
+G(2/3)^r\le\frac1{100m^8}\le\frac1{100},\\
+\frac{4G}{m^2}+\frac{G}{mL}+G(2/3)^r
+&\le\frac6{100}<\frac13.
+\end{aligned}
+\]
+
+[B1101 L3704-3704]
+The weaker coefficient four already suffices, and this numerical step needs no further large-\(m\) condition once \(1\le L\le m\) is known.
+
+[B1102 L3706-3707]
+For comparison with the preprint, the exact logarithmic form is
+<!-- claim:claim-tail -->
+
+[B1103 L3708-3712]
+\[
+G(2/3)^r
+\le\frac1{100}m^{\,2-20\log_2(3/2)}
+=o(1).
+\]
+
+[B1104 L3713-3713]
+Indeed, \((2/3)^{20\log_2m}=m^{-20\log_2(3/2)}\), and \((3/2)^2>2\) implies \(\log_2(3/2)>1/2\), so the exponent is less than \(-8\).
+
+[B1105 L3715-3715]
+<!-- /passage:CL-tail-numeric -->
+
+[B1106 L3717-3719]
+<a id="CL-randomized-contradiction"></a>
+<!-- passage:CL-randomized-contradiction -->
+Suppose, for contradiction, that a randomized algorithm with worst-case query cost at most \(G\) computed \(F_{P,C,m}\) with error at most \(1/3\) on every input. Since every dummy input is a zero-input and every supported planted input is a one-input, averaging the pointwise correctness requirements gives an output-one probability gap of at least \(2/3-1/3=1/3\).
+
+[B1107 L3721-3721]
+Once we fix the algorithm's random coins, the resulting deterministic tree has depth at most \(G\), so its gap is at most \(6/100\). Averaging over the coins preserves that upper bound, contradicting the preceding lower bound. The total function has finitely many input bits, so reading all of them computes it exactly and its randomized complexity is a finite minimum. Since no algorithm of budget \(G\) exists, \(R(F_{P,C,m})>G\), which proves the generic theorem.
+
+[B1108 L3723-3723]
+(In the finite input model, the random coins can be represented by a finite mixture of bounded-depth trees: there are only finitely many possible trees, so we group the coin outcomes by the tree they induce.)
+
+[B1109 L3725-3726]
+This completes the finite contradiction; readers of the [specialist companion](expert_companion.md) can now return to its §4.5.
+<!-- /passage:CL-randomized-contradiction -->
+
+[B1110 L3728-3730]
+<a id="CL-forrelation-input"></a>
+<!-- passage:CL-forrelation-input -->
+Returning to the Forrelation family, we fix \(k\ge2\), let \(P=P_{k,m}\) on \(km\) bits, and choose
+
+[B1111 L3731-3733]
+\[
+L=\left\lfloor\frac{m^{1-1/k}}{(\log_2m)^2}\right\rfloor.
+\]
+
+[B1112 L3734-3734]
+Use the prerequisite proved in [§3.15](#forr_threshold): $L<R(P_{k,m})$ whenever $m=4^t$ and $t\ge13669k^2$. The floor calculation below additionally requires $t\ge8$, already implied by this explicit threshold for $k\ge2$. The following literature comparison is optional for this application.
+
+[B1113 L3736-3736]
+For 

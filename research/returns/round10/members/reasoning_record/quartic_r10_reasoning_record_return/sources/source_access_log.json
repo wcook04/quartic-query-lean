@@ -1,0 +1,30 @@
+{
+  "checked_on": "2026-11-04",
+  "scope": "Primary-source access checks by the integrating reviewer, separate from supplied-file reading and separate from the primary manuscript encounter log.",
+  "attempts": [
+    {
+      "work": "OpenAI, A Nearly Quartic Separation Between Randomized and Quantum Query Complexity (2026-10-05)",
+      "url": "https://github.com/openai/math/tree/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026",
+      "result": "Official repository title/abstract and overview were returned by search; direct directory open was restricted. The complete nineteen-page supplied source was read. No live byte-identity comparison was made.",
+      "references": ["turn25academia6", "turn25search0", "turn26view0"]
+    },
+    {
+      "work": "Yao, Probabilistic Computations: Toward a Unified Measure of Complexity (Extended Abstract), FOCS1977",
+      "url": "https://doi.org/10.1109/SFCS.1977.24",
+      "result": "Search located publication metadata and citations, not inspected full text. Remains cited-only in this review; the finite minimax step is checked mathematically and against accessible later primary arguments, not attributed to an unread passage.",
+      "references": ["turn27search6"]
+    },
+    {
+      "work": "Nisan, CREW PRAMs and Decision Trees, SIAM Journal on Computing20(6),1991",
+      "url": "https://doi.org/10.1137/0220062",
+      "result": "Publisher abstract located; no inspected full text. A 1989STOC version was found at DOI10.1145/73007.73038, but its abstract is not evidence for the full1991 edition. Remains cited-only.",
+      "references": ["turn27search3", "turn27search4"]
+    },
+    {
+      "work": "Barnum, Saks and Szegedy, Quantum query complexity and semi-definite programming, CCC2003",
+      "url": "https://doi.org/10.1109/CCC.2003.1214419",
+      "result": "Publication metadata located; exact cited edition not read. The packet's earlier2002 source and the accessible2006/2007 treatments must be labelled with their own editions if used.",
+      "references": ["turn27search5", "turn27search7"]
+    }
+  ]
+}

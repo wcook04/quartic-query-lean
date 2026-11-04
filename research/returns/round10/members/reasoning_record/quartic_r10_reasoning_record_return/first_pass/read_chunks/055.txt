@@ -1,0 +1,152 @@
+423 L4561-4561]
+**Argument:** [§4](#CL-construction-context), [§4.2](#CL-layout).
+
+[B1424 L4563-4563]
+<!-- /passage:CAT-def-column-layout -->
+
+[B1425 L4565-4565]
+#### def-eval-transcript
+
+[B1426 L4567-4569]
+<a id="CAT-def-eval-transcript"></a>
+<!-- passage:CAT-def-eval-transcript -->
+<!-- claim:def-eval-transcript -->
+
+[B1427 L4571-4571]
+> An evaluation transcript of C_{k,m} on A_{i,h} has one bit per non-input gate including output gates, and these gates are the count S. It is correct iff every bit equals the true value of that gate on input A_{i,h}.
+
+[B1428 L4573-4573]
+**Argument:** [§4.1](#CL-transcripts).
+
+[B1429 L4575-4575]
+<!-- /passage:CAT-def-eval-transcript -->
+
+[B1430 L4577-4577]
+#### eq-7
+
+[B1431 L4579-4581]
+<a id="CAT-eq-7"></a>
+<!-- passage:CAT-eq-7 -->
+<!-- claim:eq-7 -->
+
+[B1432 L4583-4583]
+> If every P(A_{i,h}) is defined, the true address of column i is s_i=(P(A_{i,1}),...,P(A_{i,r})) in {0,1}^r.
+
+[B1433 L4585-4585]
+**Argument:** [§4.2](#CL-address-winner).
+
+[B1434 L4587-4587]
+<!-- /passage:CAT-eq-7 -->
+
+[B1435 L4589-4589]
+#### eq-8
+
+[B1436 L4591-4593]
+<a id="CAT-eq-8"></a>
+<!-- passage:CAT-eq-8 -->
+<!-- claim:eq-8 -->
+
+[B1437 L4595-4595]
+> Outward pointer condition at address s: X_j[p_{i,s,j}] = 0 for every j != i. Eq. 8 of the paper is the case s=s_i.
+
+[B1438 L4597-4597]
+**Argument:** [§4](#CL-construction-context), [§4.2](#CL-address-winner).
+
+[B1439 L4599-4599]
+<!-- /passage:CAT-eq-8 -->
+
+[B1440 L4601-4601]
+#### def-winner
+
+[B1441 L4603-4605]
+<a id="CAT-def-winner"></a>
+<!-- passage:CAT-def-winner -->
+<!-- claim:def-winner -->
+
+[B1442 L4607-4607]
+> Column i is a winner iff X_i=1^m, every P(A_{i,h}) is defined, and the cell B_{i,s_i} contains correct evaluation transcripts on all A_{i,h} and pointers satisfying eq-8.
+
+[B1443 L4609-4609]
+**Argument:** [§4.2](#CL-address-winner).
+
+[B1444 L4611-4611]
+<!-- /passage:CAT-def-winner -->
+
+[B1445 L4613-4613]
+#### def-F
+
+[B1446 L4615-4617]
+<a id="CAT-def-F"></a>
+<!-- passage:CAT-def-F -->
+<!-- claim:def-F -->
+
+[B1447 L4619-4619]
+> F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.
+
+[B1448 L4621-4621]
+**Argument:** [§4](#CL-construction-context), [§4.2](#CL-address-winner).
+
+[B1449 L4623-4623]
+<!-- /passage:CAT-def-F -->
+
+[B1450 L4625-4625]
+#### cor-unique-winner
+
+[B1451 L4627-4629]
+<a id="CAT-cor-unique-winner"></a>
+<!-- passage:CAT-cor-unique-winner -->
+<!-- claim:cor-unique-winner -->
+
+[B1452 L4631-4631]
+> For every input, at most one column is a winner.
+
+[B1453 L4633-4633]
+**Argument:** [§4.2](#CL-unique).
+
+[B1454 L4635-4635]
+<!-- /passage:CAT-cor-unique-winner -->
+
+[B1455 L4637-4637]
+#### def-win-at-address
+
+[B1456 L4639-4641]
+<a id="CAT-def-win-at-address"></a>
+<!-- passage:CAT-def-win-at-address -->
+<!-- claim:def-win-at-address -->
+
+[B1457 L4643-4643]
+> WinsAt(y,i,s) holds iff X_i=1^m, for every h the transcript in B_{i,s} on A_{i,h} is correct with outputs d=1 and b=s_h, and eq-8 holds at s. The paper's wording, i is a winner and s=s_i, is equivalent by claim-winner-fidelity.
+
+[B1458 L4645-4645]
+**Argument:** [§4.2](#CL-fidelity).
+
+[B1459 L4647-4647]
+<!-- /passage:CAT-def-win-at-address -->
+
+[B1460 L4649-4649]
+#### def-K
+
+[B1461 L4651-4653]
+<a id="CAT-def-K"></a>
+<!-- passage:CAT-def-K -->
+<!-- claim:def-K -->
+
+[B1462 L4655-4655]
+> K_{k,m} = m + (m-1) + r(S_{k,m}+2) = O_k(m (log m)^3).
+
+[B1463 L4657-4657]
+**Argument:** [§4.4](#CL-local-tests), [§5.3](#upper-verifier).
+
+[B1464 L4659-4659]
+<!-- /passage:CAT-def-K -->
+
+[B1465 L4661-4661]
+#### lem-2.2.i
+
+[B1466 L4663-4665]
+<a id="CAT-lem-2.2.i"></a>
+<!-- passage:CAT-lem-2.2.i -->
+<!-- claim:lem-2.2.i -->
+
+[B1467 L4667-4667]
+> For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and

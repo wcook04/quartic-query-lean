@@ -1,0 +1,1067 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-04T14:11:30.339967+00:00",
+  "source_path": "repository/docs/reasoning_record.md",
+  "source_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+  "source_bytes": 495284,
+  "source_words_whitespace_count": 62866,
+  "source_lines": 6781,
+  "complete_text_read": true,
+  "first_line": 1,
+  "last_line": 6781,
+  "block_count": 2234,
+  "block_ids_inventoried": [
+    1,
+    2234
+  ],
+  "unit_count": 4262,
+  "unit_ids_inventoried": [
+    "RR10-U00001",
+    "RR10-U04262"
+  ],
+  "unit_type_counts": {
+    "heading": 250,
+    "sentence_candidate": 3260,
+    "source_marker": 418,
+    "display": 317,
+    "table": 15,
+    "code": 2
+  },
+  "annotation_scope_counts": {
+    "block": 2676,
+    "index_only": 1586
+  },
+  "blocks_with_content_specific_notes": 975,
+  "uncovered_nonblank_lines": [],
+  "blank_separator_lines_outside_blocks": 1936,
+  "candidate_count": 27,
+  "chronological_log_first_write": "2026-11-04T13:35:18.325399+00:00",
+  "chronological_log_last_write": "2026-11-04T14:09:34.551454+00:00",
+  "later_resolution_fields_all_null": true,
+  "quote_word_limit": 25,
+  "original_quote_mismatches": [
+    "RR10-U01500"
+  ],
+  "mechanical_errata_file": "mechanical_errata.json",
+  "source_text_block_match": true,
+  "headings": [
+    {
+      "line": 1,
+      "text": "# A nearly quartic separation between randomized and quantum queries: a complete reasoning record"
+    },
+    {
+      "line": 14,
+      "text": "## Reading guide"
+    },
+    {
+      "line": 44,
+      "text": "## 1. The theorem and the construction"
+    },
+    {
+      "line": 114,
+      "text": "### 1.1. Certificates that disqualify every other candidate"
+    },
+    {
+      "line": 155,
+      "text": "## 2. Models, promises and query budgets"
+    },
+    {
+      "line": 177,
+      "text": "### 2.1. Inputs and partial functions"
+    },
+    {
+      "line": 188,
+      "text": "### 2.2. Deterministic trees and finite random mixtures"
+    },
+    {
+      "line": 237,
+      "text": "### 2.3. The oracle and finite workspaces"
+    },
+    {
+      "line": 261,
+      "text": "### 2.4. Measurements, probability mass and the quantum minimum"
+    },
+    {
+      "line": 312,
+      "text": "### 2.5. Renaming coordinates and deferring measurements"
+    },
+    {
+      "line": 351,
+      "text": "### 2.6. Exact small examples"
+    },
+    {
+      "line": 441,
+      "text": "## 3. Forrelation: promise, circuit, and randomized hardness"
+    },
+    {
+      "line": 464,
+      "text": "### 3.1. The normalized Walsh product and the promise"
+    },
+    {
+      "line": 519,
+      "text": "### 3.2. An integer numerator and exact promise tests"
+    },
+    {
+      "line": 556,
+      "text": "### 3.3. The quantum promise algorithm, error reduction and coherence"
+    },
+    {
+      "line": 688,
+      "text": "### 3.4. The exact Boolean circuit"
+    },
+    {
+      "line": 804,
+      "text": "### 3.5. A complete check of the smallest nontrivial instance"
+    },
+    {
+      "line": 854,
+      "text": "### 3.6. The statement and the proof"
+    },
+    {
+      "line": 933,
+      "text": "### 3.7. Multilinear expectation and derivatives"
+    },
+    {
+      "line": 994,
+      "text": "### 3.8. A bounded Gaussian integration identity"
+    },
+    {
+      "line": 1059,
+      "text": "### 3.9. The rounded Gaussian chain and its zero endpoint"
+    },
+    {
+      "line": 1106,
+      "text": "### 3.10. Moving the derivative through the blocks"
+    },
+    {
+      "line": 1216,
+      "text": "### 3.11. Derivative growth along a decision tree"
+    },
+    {
+      "line": 1365,
+      "text": "### 3.12. Indistinguishability of shallow trees"
+    },
+    {
+      "line": 1387,
+      "text": "### 3.13. The moments that place mass in the promise"
+    },
+    {
+      "line": 1466,
+      "text": "### 3.14. Error reduction and inputs outside the promise"
+    },
+    {
+      "line": 1510,
+      "text": "### 3.15. A uniform estimate and the fixed-parameter threshold"
+    },
+    {
+      "line": 1626,
+      "text": "### 3.16. Relation to the published proofs"
+    },
+    {
+      "line": 1647,
+      "text": "### 3.17. The complete Forrelation ingredient"
+    },
+    {
+      "line": 1663,
+      "text": "### 3.18. Sources for the Forrelation argument"
+    },
+    {
+      "line": 1670,
+      "text": "## 4. Transcripts, addressed certificates, and the total function"
+    },
+    {
+      "line": 1682,
+      "text": "### 4.1. What a transcript certifies"
+    },
+    {
+      "line": 1718,
+      "text": "### 4.2. Columns and their selected cells"
+    },
+    {
+      "line": 1795,
+      "text": "### 4.3. A four-column instance"
+    },
+    {
+      "line": 1855,
+      "text": "### 4.4. The local tests"
+    },
+    {
+      "line": 1948,
+      "text": "### 4.5. Remark: depth and support of a pointer test"
+    },
+    {
+      "line": 1959,
+      "text": "### 4.6. Coherent evaluation of an arbitrary test index"
+    },
+    {
+      "line": 2001,
+      "text": "### 4.7. Why a winner defeats an unpromised opponent"
+    },
+    {
+      "line": 2035,
+      "text": "### 4.8. Antecedents of the construction"
+    },
+    {
+      "line": 2045,
+      "text": "## 5. Quantum evaluation on every input"
+    },
+    {
+      "line": 2073,
+      "text": "### 5.1. Amplification with a predetermined query cap"
+    },
+    {
+      "line": 2222,
+      "text": "### 5.2. A tournament with probabilistic comparisons"
+    },
+    {
+      "line": 2535,
+      "text": "### 5.3. Decoding, comparison, and verification"
+    },
+    {
+      "line": 2658,
+      "text": "### 5.4. Coherent access and the query cap"
+    },
+    {
+      "line": 2753,
+      "text": "### 5.5. Sequential verification of the listed candidates"
+    },
+    {
+      "line": 2800,
+      "text": "## 6. The classical lower bound"
+    },
+    {
+      "line": 2828,
+      "text": "### 6.1. A direct product with a separate query cap on each input"
+    },
+    {
+      "line": 2830,
+      "text": "#### Statement"
+    },
+    {
+      "line": 2869,
+      "text": "#### Proof of Lemma 4.1 by conditional values"
+    },
+    {
+      "line": 3037,
+      "text": "#### The cap-event corollary"
+    },
+    {
+      "line": 3072,
+      "text": "#### An adaptive example"
+    },
+    {
+      "line": 3126,
+      "text": "#### Use in the planted argument"
+    },
+    {
+      "line": 3150,
+      "text": "#### Optional: a second proof with unnormalized weights"
+    },
+    {
+      "line": 3240,
+      "text": "#### Sources"
+    },
+    {
+      "line": 3270,
+      "text": "### 6.2. The hard distribution and the hidden address"
+    },
+    {
+      "line": 3327,
+      "text": "### 6.3. Coupled zero and one inputs"
+    },
+    {
+      "line": 3438,
+      "text": "### 6.4. Discoveries and the erased zero"
+    },
+    {
+      "line": 3506,
+      "text": "#### Optional: alternative search estimates for the erased zero"
+    },
+    {
+      "line": 3567,
+      "text": "### 6.5. A capped simulator for the planted cell"
+    },
+    {
+      "line": 3664,
+      "text": "### 6.6. The discrepancy contradiction and the floors"
+    },
+    {
+      "line": 3803,
+      "text": "## 7. The optimal exponent"
+    },
+    {
+      "line": 3835,
+      "text": "### 7.1. A fixed parameter and a strict exponent gap"
+    },
+    {
+      "line": 3878,
+      "text": "### 7.2. Excluding all smaller universal powers"
+    },
+    {
+      "line": 3902,
+      "text": "### 7.3. Letting $k$ grow with $t$"
+    },
+    {
+      "line": 3972,
+      "text": "## Appendix A. The universal quartic bound"
+    },
+    {
+      "line": 3990,
+      "text": "### A.1. Degree, sensitive blocks and the sensitivity graph"
+    },
+    {
+      "line": 4019,
+      "text": "### A.2. The nonnegative adversary bound"
+    },
+    {
+      "line": 4128,
+      "text": "### A.3. Two applications of the same adversary theorem"
+    },
+    {
+      "line": 4157,
+      "text": "### A.4. A maximum-degree face and Huang's signed cube"
+    },
+    {
+      "line": 4204,
+      "text": "### A.5. Midrijānis's decision tree"
+    },
+    {
+      "line": 4223,
+      "text": "### A.6. The quartic estimate"
+    },
+    {
+      "line": 4238,
+      "text": "## Appendix B. Mathematical statement catalogue"
+    },
+    {
+      "line": 4251,
+      "text": "### B.1. Functions, budgets and separation"
+    },
+    {
+      "line": 4255,
+      "text": "#### def-log-convention"
+    },
+    {
+      "line": 4267,
+      "text": "#### def-partial-query"
+    },
+    {
+      "line": 4279,
+      "text": "#### def-R"
+    },
+    {
+      "line": 4291,
+      "text": "#### def-query-oracle"
+    },
+    {
+      "line": 4303,
+      "text": "#### def-Q"
+    },
+    {
+      "line": 4315,
+      "text": "#### eq-1"
+    },
+    {
+      "line": 4327,
+      "text": "#### eq-2"
+    },
+    {
+      "line": 4339,
+      "text": "#### thm-1.1"
+    },
+    {
+      "line": 4351,
+      "text": "#### cor-cubic-refuted"
+    },
+    {
+      "line": 4363,
+      "text": "### B.2. The Forrelation supplier"
+    },
+    {
+      "line": 4369,
+      "text": "#### def-walsh-sign"
+    },
+    {
+      "line": 4381,
+      "text": "#### eq-3"
+    },
+    {
+      "line": 4393,
+      "text": "#### eq-4"
+    },
+    {
+      "line": 4405,
+      "text": "#### eq-5"
+    },
+    {
+      "line": 4417,
+      "text": "#### claim-bs-to-L"
+    },
+    {
+      "line": 4429,
+      "text": "#### lem-2.1.i"
+    },
+    {
+      "line": 4441,
+      "text": "#### claim-proj-prob"
+    },
+    {
+      "line": 4453,
+      "text": "#### lem-2.1.ii"
+    },
+    {
+      "line": 4465,
+      "text": "#### claim-N-phi"
+    },
+    {
+      "line": 4477,
+      "text": "#### claim-integer-tests"
+    },
+    {
+      "line": 4489,
+      "text": "#### claim-circuit-size"
+    },
+    {
+      "line": 4501,
+      "text": "#### lem-2.1.iii"
+    },
+    {
+      "line": 4513,
+      "text": "#### lem-2.1"
+    },
+    {
+      "line": 4525,
+      "text": "### B.3. The addressed total function"
+    },
+    {
+      "line": 4529,
+      "text": "#### def-transcript"
+    },
+    {
+      "line": 4541,
+      "text": "#### eq-6"
+    },
+    {
+      "line": 4553,
+      "text": "#### def-column-layout"
+    },
+    {
+      "line": 4565,
+      "text": "#### def-eval-transcript"
+    },
+    {
+      "line": 4577,
+      "text": "#### eq-7"
+    },
+    {
+      "line": 4589,
+      "text": "#### eq-8"
+    },
+    {
+      "line": 4601,
+      "text": "#### def-winner"
+    },
+    {
+      "line": 4613,
+      "text": "#### def-F"
+    },
+    {
+      "line": 4625,
+      "text": "#### cor-unique-winner"
+    },
+    {
+      "line": 4637,
+      "text": "#### def-win-at-address"
+    },
+    {
+      "line": 4649,
+      "text": "#### def-K"
+    },
+    {
+      "line": 4661,
+      "text": "#### lem-2.2.i"
+    },
+    {
+      "line": 4673,
+      "text": "#### lem-2.2.ii"
+    },
+    {
+      "line": 4685,
+      "text": "#### lem-2.2"
+    },
+    {
+      "line": 4697,
+      "text": "#### cor-local-dichotomy"
+    },
+    {
+      "line": 4709,
+      "text": "#### claim-winner-fidelity"
+    },
+    {
+      "line": 4721,
+      "text": "### B.4. Amplification and the returned state"
+    },
+    {
+      "line": 4725,
+      "text": "#### def-grover-trial"
+    },
+    {
+      "line": 4737,
+      "text": "#### claim-grover-state"
+    },
+    {
+      "line": 4749,
+      "text": "#### claim-sin2theta"
+    },
+    {
+      "line": 4761,
+      "text": "#### eq-9"
+    },
+    {
+      "line": 4773,
+      "text": "#### lem-3.1"
+    },
+    {
+      "line": 4785,
+      "text": "### B.5. Tournament sampling"
+    },
+    {
+      "line": 4789,
+      "text": "#### def-aij"
+    },
+    {
+      "line": 4801,
+      "text": "#### eq-10"
+    },
+    {
+      "line": 4813,
+      "text": "#### def-T-eps"
+    },
+    {
+      "line": 4825,
+      "text": "#### eq-11"
+    },
+    {
+      "line": 4837,
+      "text": "#### def-ideal-process"
+    },
+    {
+      "line": 4849,
+      "text": "#### eq-12"
+    },
+    {
+      "line": 4861,
+      "text": "#### eq-13"
+    },
+    {
+      "line": 4873,
+      "text": "#### claim-expected-WT"
+    },
+    {
+      "line": 4885,
+      "text": "#### claim-weight-lb"
+    },
+    {
+      "line": 4897,
+      "text": "#### eq-14"
+    },
+    {
+      "line": 4909,
+      "text": "#### construct-sampler"
+    },
+    {
+      "line": 4921,
+      "text": "#### eq-15"
+    },
+    {
+      "line": 4933,
+      "text": "#### claim-success-prob"
+    },
+    {
+      "line": 4945,
+      "text": "#### claim-coupling"
+    },
+    {
+      "line": 4957,
+      "text": "#### claim-tournament-cost"
+    },
+    {
+      "line": 4969,
+      "text": "#### prop-3.2"
+    },
+    {
+      "line": 4981,
+      "text": "### B.6. Decoding and verification"
+    },
+    {
+      "line": 4985,
+      "text": "#### def-decode"
+    },
+    {
+      "line": 4997,
+      "text": "#### claim-decode-cost"
+    },
+    {
+      "line": 5009,
+      "text": "#### def-comparison"
+    },
+    {
+      "line": 5021,
+      "text": "#### claim-comparison-state"
+    },
+    {
+      "line": 5033,
+      "text": "#### claim-winner-dominates"
+    },
+    {
+      "line": 5045,
+      "text": "#### def-verify"
+    },
+    {
+      "line": 5057,
+      "text": "#### claim-verify"
+    },
+    {
+      "line": 5069,
+      "text": "#### claim-error"
+    },
+    {
+      "line": 5081,
+      "text": "#### claim-coherent-access"
+    },
+    {
+      "line": 5093,
+      "text": "#### prop-3.3"
+    },
+    {
+      "line": 5105,
+      "text": "### B.7. Direct product and independent information"
+    },
+    {
+      "line": 5109,
+      "text": "#### claim-product-law"
+    },
+    {
+      "line": 5121,
+      "text": "#### def-value-V"
+    },
+    {
+      "line": 5133,
+      "text": "#### eq-16"
+    },
+    {
+      "line": 5145,
+      "text": "#### claim-supermartingale"
+    },
+    {
+      "line": 5157,
+      "text": "#### claim-final-bound"
+    },
+    {
+      "line": 5169,
+      "text": "#### lem-4.1"
+    },
+    {
+      "line": 5181,
+      "text": "#### claim-minimax-mu"
+    },
+    {
+      "line": 5193,
+      "text": "#### claim-address-guess"
+    },
+    {
+      "line": 5205,
+      "text": "### B.8. Planting, discoveries and truncation"
+    },
+    {
+      "line": 5209,
+      "text": "#### eq-17"
+    },
+    {
+      "line": 5221,
+      "text": "#### def-dummy"
+    },
+    {
+      "line": 5233,
+      "text": "#### def-planted"
+    },
+    {
+      "line": 5245,
+      "text": "#### claim-Y-values"
+    },
+    {
+      "line": 5257,
+      "text": "#### eq-18"
+    },
+    {
+      "line": 5269,
+      "text": "#### def-Z"
+    },
+    {
+      "line": 5281,
+      "text": "#### claim-uniform-zero"
+    },
+    {
+      "line": 5293,
+      "text": "#### claim-EZ"
+    },
+    {
+      "line": 5305,
+      "text": "#### eq-19"
+    },
+    {
+      "line": 5317,
+      "text": "#### def-heavy"
+    },
+    {
+      "line": 5329,
+      "text": "#### eq-20"
+    },
+    {
+      "line": 5341,
+      "text": "#### def-simulator"
+    },
+    {
+      "line": 5353,
+      "text": "#### eq-21"
+    },
+    {
+      "line": 5365,
+      "text": "#### eq-22"
+    },
+    {
+      "line": 5377,
+      "text": "#### eq-23"
+    },
+    {
+      "line": 5389,
+      "text": "#### claim-tail"
+    },
+    {
+      "line": 5401,
+      "text": "#### claim-numeric"
+    },
+    {
+      "line": 5413,
+      "text": "#### prop-4.2"
+    },
+    {
+      "line": 5425,
+      "text": "#### cor-R-omega"
+    },
+    {
+      "line": 5437,
+      "text": "#### prop-4.2-generic"
+    },
+    {
+      "line": 5451,
+      "text": "### B.9. Passing to the exponent"
+    },
+    {
+      "line": 5455,
+      "text": "#### claim-floor"
+    },
+    {
+      "line": 5467,
+      "text": "#### claim-exponent-ratio"
+    },
+    {
+      "line": 5479,
+      "text": "#### claim-no-smaller-exponent"
+    },
+    {
+      "line": 5491,
+      "text": "### B.10. The universal upper bound"
+    },
+    {
+      "line": 5495,
+      "text": "#### def-D"
+    },
+    {
+      "line": 5507,
+      "text": "#### def-deg"
+    },
+    {
+      "line": 5519,
+      "text": "#### def-bs"
+    },
+    {
+      "line": 5531,
+      "text": "#### def-Gamma-i"
+    },
+    {
+      "line": 5543,
+      "text": "#### claim-perron"
+    },
+    {
+      "line": 5555,
+      "text": "#### def-adv-progress"
+    },
+    {
+      "line": 5567,
+      "text": "#### claim-per-query"
+    },
+    {
+      "line": 5579,
+      "text": "#### claim-final-overlap"
+    },
+    {
+      "line": 5591,
+      "text": "#### lem-A.2"
+    },
+    {
+      "line": 5603,
+      "text": "#### def-Sf"
+    },
+    {
+      "line": 5615,
+      "text": "#### lem-A.3.bs"
+    },
+    {
+      "line": 5627,
+      "text": "#### lem-A.3.lambda"
+    },
+    {
+      "line": 5639,
+      "text": "#### lem-A.3"
+    },
+    {
+      "line": 5651,
+      "text": "#### claim-restrict-parity"
+    },
+    {
+      "line": 5663,
+      "text": "#### def-huang"
+    },
+    {
+      "line": 5675,
+      "text": "#### claim-huang-spectrum"
+    },
+    {
+      "line": 5687,
+      "text": "#### claim-interlace"
+    },
+    {
+      "line": 5699,
+      "text": "#### lem-A.4"
+    },
+    {
+      "line": 5711,
+      "text": "#### claim-round-block"
+    },
+    {
+      "line": 5723,
+      "text": "#### lem-A.5"
+    },
+    {
+      "line": 5735,
+      "text": "#### thm-A.1"
+    },
+    {
+      "line": 5747,
+      "text": "## Appendix C. References and inspected editions"
+    },
+    {
+      "line": 5903,
+      "text": "## Appendix D. The earlier sufficient threshold"
+    },
+    {
+      "line": 5999,
+      "text": "## Appendix E. Source comparisons for the Forrelation bound"
+    },
+    {
+      "line": 6004,
+      "text": "#### A displayed step in Bansal–Sinha v3, §5.4"
+    },
+    {
+      "line": 6053,
+      "text": "#### Transferring the Sherstov–Storozhenko–Wu bound to the Walsh promise"
+    },
+    {
+      "line": 6125,
+      "text": "## Appendix F. Execution history"
+    },
+    {
+      "line": 6140,
+      "text": "### F.1. The 2 November receipts and the earlier frozen packet"
+    },
+    {
+      "line": 6169,
+      "text": "### F.2. Forrelation promise and circuit"
+    },
+    {
+      "line": 6181,
+      "text": "### F.3. Addressed construction"
+    },
+    {
+      "line": 6188,
+      "text": "### F.4. Quantum upper bound"
+    },
+    {
+      "line": 6195,
+      "text": "### F.5. Direct product"
+    },
+    {
+      "line": 6213,
+      "text": "### F.6. Exponent and Appendix A"
+    },
+    {
+      "line": 6229,
+      "text": "### F.7. Earlier drafts"
+    },
+    {
+      "line": 6233,
+      "text": "## Appendix G. Formal statements and evidence"
+    },
+    {
+      "line": 6238,
+      "text": "### G.1. Checking one statement"
+    },
+    {
+      "line": 6252,
+      "text": "### G.2. What the formal models establish"
+    },
+    {
+      "line": 6323,
+      "text": "### G.3. Execution evidence and checks of meaning"
+    },
+    {
+      "line": 6345,
+      "text": "### G.4. Central statements and their evidence"
+    },
+    {
+      "line": 6353,
+      "text": "#### The optimal exponent"
+    },
+    {
+      "line": 6358,
+      "text": "#### The separation family"
+    },
+    {
+      "line": 6362,
+      "text": "#### Failure of a cubic bound"
+    },
+    {
+      "line": 6366,
+      "text": "#### Fixed-parameter Forrelation hardness"
+    },
+    {
+      "line": 6380,
+      "text": "#### Explicit constants for the named family"
+    },
+    {
+      "line": 6384,
+      "text": "#### The existential form of Equation (2)"
+    },
+    {
+      "line": 6388,
+      "text": "#### The explicit Forrelation threshold"
+    },
+    {
+      "line": 6392,
+      "text": "#### The uniform Forrelation estimate"
+    },
+    {
+      "line": 6396,
+      "text": "#### The quantum bound with logarithmic exponent six"
+    },
+    {
+      "line": 6400,
+      "text": "#### The quantum bound uniform in the parameter"
+    },
+    {
+      "line": 6404,
+      "text": "#### The bounded tournament theorem"
+    },
+    {
+      "line": 6408,
+      "text": "#### Local certificate tests"
+    },
+    {
+      "line": 6412,
+      "text": "#### Abstract bounded amplification"
+    },
+    {
+      "line": 6416,
+      "text": "#### Amplification returning the successful state"
+    },
+    {
+      "line": 6420,
+      "text": "#### Amplification of measured labels"
+    },
+    {
+      "line": 6424,
+      "text": "#### Direct products with finite averaging"
+    },
+    {
+      "line": 6428,
+      "text": "#### Direct products on the cap event"
+    },
+    {
+      "line": 6432,
+      "text": "#### The erased-zero identity and bound"
+    },
+    {
+      "line": 6436,
+      "text": "#### The stronger charging estimate"
+    },
+    {
+      "line": 6440,
+      "text": "#### The fixed-time planted-cell event"
+    },
+    {
+      "line": 6444,
+      "text": "#### Winner uniqueness and dominance"
+    },
+    {
+      "line": 6448,
+      "text": "#### Controls for the query models"
+    },
+    {
+      "line": 6452,
+      "text": "#### The universal quartic bound"
+    },
+    {
+      "line": 6461,
+      "text": "### G.5. Forrelation"
+    },
+    {
+      "line": 6477,
+      "text": "### G.6. The addressed construction"
+    },
+    {
+      "line": 6488,
+      "text": "### G.7. The quantum upper bound"
+    },
+    {
+      "line": 6542,
+      "text": "### G.8. The classical lower bound"
+    },
+    {
+      "line": 6611,
+      "text": "### G.9. The exponent and Appendix A"
+    },
+    {
+      "line": 6649,
+      "text": "## Use of AI tools"
+    }
+  ],
+  "method": {
+    "reader": "one simulated mathematician outside query complexity; probability, linear algebra, basic algorithms",
+    "not_human_comprehension_evidence": true,
+    "independent_sentence_annotations": false,
+    "sentence_splitting": "Mechanical candidates split at selected punctuation; abbreviations, formulas, and reference definitions are not guaranteed grammatical sentences.",
+    "cognitive_annotation": "975 source blocks have content-specific notes shared by their sentence candidates. Index-only rows explicitly make no separate cognitive-observation claim.",
+    "exposure": "Adjacent source batches visible together. Notes appended at batch boundaries; some next-batch boundary material was visible before the previous receipt. Exact disclosures are retained in each batch receipt.",
+    "ordered_reading": "Publication-order pass, with disclosed within-batch truncation/recovery and boundary overlaps. All omitted tool-output spans were recovered before completion.",
+    "terminal_reference_block": "All128source lines6654–6781 read. Link definitions inventoried together as one block, not individually annotated.",
+    "external_material_opened": false,
+    "other_manuscripts_opened": false,
+    "prior_review_findings_opened": false,
+    "prior_metadata_exposure": "Inherited R8/R9 procedural repair themes and review paradigm, no current manuscript passages or actual prior findings.",
+    "pdf_visual_review": false,
+    "independent_mathematical_verification": false,
+    "linked_source_execution_or_validation": false,
+    "worked_examples": "Read in place, including solutions; no claim of independent exercise solving or computational rerun."
+  }
+}

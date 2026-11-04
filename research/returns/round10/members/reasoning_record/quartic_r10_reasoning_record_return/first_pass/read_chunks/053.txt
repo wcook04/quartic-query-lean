@@ -1,0 +1,143 @@
+ssage:CAT-eq-3 -->
+<!-- claim:eq-3 -->
+
+[B1350 L4387-4387]
+> For z_1,...,z_k in {+-1}^m: Phi(z_1,...,z_k) = u^T D_{z_1} H D_{z_2} H ... H D_{z_k} u (k diagonals, k-1 copies of H), and delta = 2^{-5k}.
+
+[B1351 L4389-4389]
+**Argument:** [§3.1](#forr_definition), [§3.18](#forr_references).
+
+[B1352 L4391-4391]
+<!-- /passage:CAT-eq-3 -->
+
+[B1353 L4393-4393]
+#### eq-4
+
+[B1354 L4395-4397]
+<a id="CAT-eq-4"></a>
+<!-- passage:CAT-eq-4 -->
+<!-- claim:eq-4 -->
+
+[B1355 L4399-4399]
+> P=P_{k,m} is the partial function on km bits with P=1 if Phi>=delta, P=0 if |Phi|<=delta/2, undefined otherwise. The two cases are disjoint.
+
+[B1356 L4401-4401]
+**Argument:** [§3.1](#forr_definition), [§3.18](#forr_references).
+
+[B1357 L4403-4403]
+<!-- /passage:CAT-eq-4 -->
+
+[B1358 L4405-4405]
+#### eq-5
+
+[B1359 L4407-4409]
+<a id="CAT-eq-5"></a>
+<!-- passage:CAT-eq-5 -->
+<!-- claim:eq-5 -->
+
+[B1360 L4411-4411]
+> L = L_{k,m} = floor(m^{1-1/k}/(log_2 m)^2).
+
+[B1361 L4413-4413]
+**Argument:** [§3.1](#forr_definition).
+
+[B1362 L4415-4415]
+<!-- /passage:CAT-eq-5 -->
+
+[B1363 L4417-4417]
+#### claim-bs-to-L
+
+[B1364 L4419-4421]
+<a id="CAT-claim-bs-to-L"></a>
+<!-- passage:CAT-claim-bs-to-L -->
+<!-- claim:claim-bs-to-L -->
+
+[B1365 L4423-4423]
+> For fixed k>=2 and the positive constant c of the Bansal-Sinha bound: for all sufficiently large powers of four m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2).
+
+[B1366 L4425-4425]
+**Argument:** [§3.6](#forr_bs_translation), [§3.18](#forr_references).
+
+[B1367 L4427-4427]
+<!-- /passage:CAT-claim-bs-to-L -->
+
+[B1368 L4429-4429]
+#### lem-2.1.i
+
+[B1369 L4431-4433]
+<a id="CAT-lem-2.1.i"></a>
+<!-- passage:CAT-lem-2.1.i -->
+<!-- claim:lem-2.1.i -->
+
+[B1370 L4435-4435]
+> For fixed k>=2 and all sufficiently large powers of four m, R(P_{k,m})>L with L as in eq-5.
+
+[B1371 L4437-4437]
+**Argument:** [§3.15](#forr_threshold), [§3.16](#forr_attribution), [§3.17](#forr_bundle), [§3.18](#forr_references).
+
+[B1372 L4439-4439]
+<!-- /passage:CAT-lem-2.1.i -->
+
+[B1373 L4441-4441]
+#### claim-proj-prob
+
+[B1374 L4443-4445]
+<a id="CAT-claim-proj-prob"></a>
+<!-- passage:CAT-claim-proj-prob -->
+<!-- claim:claim-proj-prob -->
+
+[B1375 L4447-4447]
+> Prepare u, apply D_{z_1} H ... H D_{z_k} right to left, measure the projection onto u. Each D uses one bit query (phase kickback), H and the projection use none. Success probability is exactly Phi^2: >=delta^2 on 1-inputs, <=delta^2/4 on 0-inputs.
+
+[B1376 L4449-4449]
+**Argument:** [§3.3](#forr_quantum).
+
+[B1377 L4451-4451]
+<!-- /passage:CAT-claim-proj-prob -->
+
+[B1378 L4453-4453]
+#### lem-2.1.ii
+
+[B1379 L4455-4457]
+<a id="CAT-lem-2.1.ii"></a>
+<!-- passage:CAT-lem-2.1.ii -->
+<!-- claim:lem-2.1.ii -->
+
+[B1380 L4459-4459]
+> For every 0<eta<1/2 there is a quantum algorithm using O_k(1+log(1/eta)) bit queries that outputs P_{k,m}(z) with error <=eta for every z in dom P. It has a coherent implementation retaining all workspace. On every input, promised or not, measuring its output register yields a bit.
+
+[B1381 L4461-4461]
+**Argument:** [§3.3](#forr_quantum), [§3.17](#forr_bundle), [§5.3](#upper-decode), [§5.3](#upper-decode-cost), [§3.3](#forr_coherent).
+
+[B1382 L4463-4463]
+<!-- /passage:CAT-lem-2.1.ii -->
+
+[B1383 L4465-4465]
+#### claim-N-phi
+
+[B1384 L4467-4469]
+<a id="CAT-claim-N-phi"></a>
+<!-- passage:CAT-claim-N-phi -->
+<!-- claim:claim-N-phi -->
+
+[B1385 L4471-4471]
+> With W=sqrt(m) H (entries +-1), N = z_1^T W D_{z_2} W ... W D_{z_k} (1,...,1)^T is an integer, Phi=N/M_{k,m}, and M_{k,m}=m (sqrt m)^{k-1} is a positive integer because m is a power of four.
+
+[B1386 L4473-4473]
+**Argument:** [§3.2](#forr_integer).
+
+[B1387 L4475-4475]
+<!-- /passage:CAT-claim-N-phi -->
+
+[B1388 L4477-4477]
+#### claim-integer-tests
+
+[B1389 L4479-4481]
+<a id="CAT-claim-integer-tests"></a>
+<!-- passage:CAT-claim-integer-tests -->
+<!-- claim:claim-integer-tests -->
+
+[B1390 L4483-4483]
+> Phi>=delta iff 2^{5k} N >= M_{k,m}; and |Phi|<=delta/2 iff 2^{5k+1}|N| <= M_{k,m}. d is the disjunction, b the first comparison.
+
+[B1391 L4485-44

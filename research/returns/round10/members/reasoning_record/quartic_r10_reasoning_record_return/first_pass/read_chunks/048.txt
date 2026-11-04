@@ -1,0 +1,79 @@
+The numerical coefficient printed in [Špalek–Szegedy's publisher edition, Theorem 3.1 and equation (3.1), printed p. 6][SS2006], requires the qualification below. The arbitrary-error statement here is an ordinary deduction from the displayed argument; the project exports the fixed-error specialization.
+<!-- /passage:R3-A-ADVERSARY -->
+
+[B1243 L4101-4103]
+<a id="R3-A-PARITY-PREFACTOR"></a>
+<!-- passage:R3-A-PARITY-PREFACTOR -->
+**Optional source check: the prefactor on two bits.** For $f(x_0,x_1)=x_0\oplus x_1$, the [phase-kickback calculation in §2.6](#R3-01-PARITY) gives an exact one-query algorithm. We compare its progress with the following adversary matrix.
+
+[B1244 L4105-4105]
+In input order \(00,01,10,11\), choose
+
+[B1245 L4106-4111]
+\[
+ \Gamma=
+ \begin{pmatrix}
+ 0&1&1&0\\1&0&0&1\\1&0&0&1\\0&1&1&0
+ \end{pmatrix}.
+\]
+
+[B1246 L4112-4112]
+An orthonormal eigenbasis is obtained by dividing the vectors
+
+[B1247 L4113-4116]
+\[
+(1,1,1,1),\quad(1,1,-1,-1),\quad
+(1,-1,1,-1),\quad(1,-1,-1,1)
+\]
+
+[B1248 L4117-4117]
+by two. Their eigenvalues are \(2,0,0,-2\), and each coordinate mask is a permutation matrix consisting of two disjoint edges. Thus \(\|\Gamma\|=2\) and \(M=1\). With \(v=(1,1,1,1)/2\), the progress drops from \(W_0=2\) to \(W_1=0\): every edge joins opposite parities, whose post-query index states are orthogonal. This attains the factor two in (A.4).
+
+[B1249 L4119-4121]
+The Špalek–Szegedy display, under its ordinary bit-oracle convention in §2.1, printed p. 4, would instead imply
+\(Q_\epsilon(f)\ge(1-2\sqrt{\epsilon(1-\epsilon)})\|\Gamma\|/M\).
+At \(\epsilon=1/100\), this gives
+
+[B1250 L4122-4124]
+\[
+ Q_{1/100}(f)\ge2-\frac{\sqrt{99}}{25}>1,
+\]
+
+[B1251 L4125-4126]
+contradicting the explicit exact algorithm. The strict comparison is exact since \(99<625\). Høyer–Lee–Špalek's denominator two agrees with the progress argument and this witness. This discrepancy concerns the printed prefactor; it does not contradict the equivalence of adversary formulations or the quartic asymptotic bound. No author-confirmed erratum is claimed. Neither the sharper progress coefficient nor \(1/35\) is asserted to be the optimal constant over all possible lower-bound arguments. The [exact-arithmetic checks](../research/returns/round3/members/08_reviewed/quartic_r3_08_return/checks/) check the four input states, oracle permutation, masks, eigenbasis, output probabilities and progress drop.
+<!-- /passage:R3-A-PARITY-PREFACTOR -->
+
+[B1252 L4128-4128]
+### A.3. Two applications of the same adversary theorem
+
+[B1253 L4130-4133]
+<a id="ROOT-BS-LAMBDA"></a>
+<a id="R3-A-STAR"></a>
+<!-- passage:R3-A-STAR -->
+Fix an input \(x\) and pairwise disjoint sensitive blocks \(B_1,\ldots,B_b\), first with \(b\geq1\). Their flipped inputs are distinct and have value opposite to \(f(x)\). Form the star with center \(x\), these \(b\) leaves, and no other edges. Its adjacency is an admissible nonzero \(\Gamma\). On the span of the center vector and the normalized sum of leaf vectors it acts by
+
+[B1254 L4134-4136]
+\[
+ \begin{pmatrix}0&\sqrt b\\\sqrt b&0\end{pmatrix};
+\]
+
+[B1255 L4137-4137]
+it vanishes on the orthogonal complement within the leaf coordinates and on all unused vertices. Therefore \(\|\Gamma\|=\sqrt b\). When \(b=0\), the matrix is zero and this identity still holds.
+
+[B1256 L4139-4139]
+A coordinate belongs to at most one of the disjoint blocks, so its mask keeps at most one undirected star edge and has norm at most one. For \(b\ge1\), (A.3) gives \(\sqrt b\le35Q(f)\); the conclusion is automatic at \(b=0\). Taking the maximum over sensitive families and inputs gives
+
+[B1257 L4140-4143]
+\[
+ \operatorname{bs}(f)\le1225Q(f)^2.
+\tag{A.5}
+\]
+
+[B1258 L4144-4145]
+The disjointness condition is essential to the unit mask bound. A family of overlapping blocks can leave several edges in the same mask.
+<!-- /passage:R3-A-STAR -->
+
+[B1259 L4147-4149]
+<a id="R3-A-SPECTRAL"></a>
+<!-- passage:R3-A-SPECTRAL -->
+Now take \(\Gamma=S_f\). For each coordinate, its sensitive e

@@ -1,0 +1,63 @@
+1$ cancels every interior sine term and leaves $\sin(4M\theta)$. Dividing by the nonzero $2\sin(2\theta)$ gives the sum of the cosine terms, and substituting it into the sum of the squared sines and dividing by $M$ proves the identity. Multiplying through by $\sin(2\theta)$ gives a division-free identity that holds also at the endpoints; we use the displayed quotient only when its denominator is nonzero.
+<!-- /passage:upper-average-exact -->
+
+[B0666 L2157-2158]
+<a id="upper-small-probability"></a>
+<!-- passage:upper-small-probability -->
+
+[B0667 L2160-2160]
+Suppose now that $\gamma\leq p\leq1/2$. The sine addition formula and the definitions of $\theta,g,b$ give:
+
+[B0668 L2162-2162]
+<!-- claim:claim-sin2theta -->
+
+[B0669 L2163-2165]
+$$
+\sin(2\theta)=2\sqrt{p(1-p)}\geq\sqrt\gamma.
+$$
+
+[B0670 L2167-2167]
+Indeed, $1-p\geq1/2$, so the square of the left side is $4p(1-p)\geq2p\geq\gamma$, and both sides are nonnegative. Since $M\geq10/\sqrt\gamma$, we obtain $M\sin(2\theta)\geq10$. Because every sine has absolute value at most one, the exact average above implies the slightly weaker equation (9) of the paper, which suffices:
+
+[B0671 L2169-2169]
+<!-- claim:eq-9 -->
+
+[B0672 L2170-2174]
+$$
+\frac1M\sum_{j=0}^{M-1}\sin^2((2j+1)\theta)
+\geq\frac12-\frac{1}{2M|\sin(2\theta)|}
+\geq\frac9{20}.
+$$
+
+[B0673 L2176-2177]
+Thus the half of the trial that chooses a uniform iteration count contributes at least $9/40$ to its success probability. If instead $p\geq1/2$, the half that chooses zero iterations contributes at least $p/2\geq1/4\geq9/40$. Since these two cases cover every $p\geq\gamma$, including $p=1$, a trial fails with probability at most $31/40$ whenever the promise $p\geq\gamma$ holds.
+<!-- /passage:upper-small-probability -->
+
+[B0674 L2179-2180]
+<a id="upper-amplification-proof"></a>
+<!-- passage:upper-amplification-proof -->
+
+[B0675 L2182-2182]
+For a fixed oracle input, each fresh trial has the same failure probability $f$, and the fresh choices and registers make the failures independent. Hence the probability of $N$ failures is $f^N\leq(31/40)^N\leq\eta$, where the last inequality follows by taking logarithms, since $N\ln(40/31)\geq\ln(1/\eta)$. If $p=0$, the endpoint argument above gives $f=1$, hence certain failure.
+
+[B0676 L2184-2184]
+On a successful branch, the state of the successful trial is $g$ up to global phase, whatever its iteration count. Earlier failed trials occupy separate registers, which we may discard once their outcomes are recorded or keep, since in either case the designated output register is in the pure state $g$ up to phase. Mixing over iteration counts and over the index of the first successful trial leaves the density operator $|g\rangle\langle g|$ unchanged, so conditioning on success introduces no bias into any measurement of that output state. This proves every correctness clause of Lemma 3.1.
+
+[B0677 L2186-2186]
+**Optional constant accounting.** Readers needing only the call order may continue at the [returned-register proof](#upper-returned-register). The padded product charged by the implementation satisfies the following bound:
+
+[B0678 L2188-2188]
+<!-- claim:new-upper-call-cap -->
+
+[B0679 L2189-2193]
+$$
+\operatorname{calls}(\gamma,\eta)
+\leq N(2M+1)
+\leq138\,\gamma^{-1/2}\ln(1/\eta).
+$$
+
+[B0680 L2195-2195]
+For $x\geq1$, the derivative of $\ln x-2(x-1)/(x+1)$ is $(x-1)^2/(x(x+1)^2)\geq0$, and the expression vanishes at one; at $x=40/31$ this gives $\ln(40/31)\geq18/71\geq1/4$. Also $\ln2=\int_1^2u^{-1}\,du\geq1/2$, and consequently $N\leq4\ln(1/\eta)+1\leq6\ln(1/\eta)$. Since $M\leq10/\sqrt\gamma+1$ and $\sqrt\gamma\leq1$, we have $2M+1\leq23/\sqrt\gamma$, and multiplying the two bounds gives 138. The estimates are uniform, so the bound holds on every run, including runs whose success probability is small.
+
+[B0681 L2197-2198]
+A positive original success probability also makes the conditioning legitimate, because the zero-iteration half of each trial succeeds with probability at least $p/2>0$ and $N\ge

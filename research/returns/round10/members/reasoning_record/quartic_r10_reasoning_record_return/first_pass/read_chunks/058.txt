@@ -1,0 +1,160 @@
+5]
+<!-- /passage:CAT-eq-11 -->
+
+[B1539 L4837-4837]
+#### def-ideal-process
+
+[B1540 L4839-4841]
+<a id="CAT-def-ideal-process"></a>
+<!-- passage:CAT-def-ideal-process -->
+<!-- claim:def-ideal-process -->
+
+[B1541 L4843-4843]
+> Ideal process: w_i=1 for all i, W=sum_i w_i. While W>0 sample p with probability w_p/W, append p to the list, update by eq-12. If W=0, leave list and weights unchanged. Run T steps.
+
+[B1542 L4845-4845]
+**Argument:** [§5.2](#upper-ideal-process).
+
+[B1543 L4847-4847]
+<!-- /passage:CAT-def-ideal-process -->
+
+[B1544 L4849-4849]
+#### eq-12
+
+[B1545 L4851-4853]
+<a id="CAT-eq-12"></a>
+<!-- passage:CAT-eq-12 -->
+<!-- claim:eq-12 -->
+
+[B1546 L4855-4855]
+> Update w_i <- w_i a_{ip} for all i in [m].
+
+[B1547 L4857-4857]
+**Argument:** [§5.2](#upper-ideal-process).
+
+[B1548 L4859-4859]
+<!-- /passage:CAT-eq-12 -->
+
+[B1549 L4861-4861]
+#### eq-13
+
+[B1550 L4863-4865]
+<a id="CAT-eq-13"></a>
+<!-- passage:CAT-eq-13 -->
+<!-- claim:eq-13 -->
+
+[B1551 L4867-4867]
+> For W>0: E[W_new | w] = (1/W) sum_{p,i} w_p w_i a_{ip} = (W^2 - sum_i w_i^2)/(2W) <= W/2.
+
+[B1552 L4869-4869]
+**Argument:** [§5.2](#upper-weight-drift).
+
+[B1553 L4871-4871]
+<!-- /passage:CAT-eq-13 -->
+
+[B1554 L4873-4873]
+#### claim-expected-WT
+
+[B1555 L4875-4877]
+<a id="CAT-claim-expected-WT"></a>
+<!-- passage:CAT-claim-expected-WT -->
+<!-- claim:claim-expected-WT -->
+
+[B1556 L4879-4879]
+> The bound of eq-13 also holds when W=0, hence E[W_T] <= m/2^T.
+
+[B1557 L4881-4881]
+**Argument:** [§5.2](#upper-weight-drift).
+
+[B1558 L4883-4883]
+<!-- /passage:CAT-claim-expected-WT -->
+
+[B1559 L4885-4885]
+#### claim-weight-lb
+
+[B1560 L4887-4889]
+<a id="CAT-claim-weight-lb"></a>
+<!-- passage:CAT-claim-weight-lb -->
+<!-- claim:claim-weight-lb -->
+
+[B1561 L4891-4891]
+> If i_* satisfies eq-11 and has not been selected in t<=T steps, then w_{i_*} >= (1-epsilon)^t >= 1-T epsilon > 1/2. Hence W>0 until it is selected.
+
+[B1562 L4893-4893]
+**Argument:** [§5.2](#upper-dominant-weight).
+
+[B1563 L4895-4895]
+<!-- /passage:CAT-claim-weight-lb -->
+
+[B1564 L4897-4897]
+#### eq-14
+
+[B1565 L4899-4901]
+<a id="CAT-eq-14"></a>
+<!-- passage:CAT-eq-14 -->
+<!-- claim:eq-14 -->
+
+[B1566 L4903-4903]
+> Pr[i_* absent from the ideal list] <= Pr[W_T >= 1/2] <= 2m/2^T.
+
+[B1567 L4905-4905]
+**Argument:** [§5.2](#upper-dominant-weight).
+
+[B1568 L4907-4907]
+<!-- /passage:CAT-eq-14 -->
+
+[B1569 L4909-4909]
+#### construct-sampler
+
+[B1570 L4911-4913]
+<a id="CAT-construct-sampler"></a>
+<!-- passage:CAT-construct-sampler -->
+<!-- claim:construct-sampler -->
+
+[B1571 L4915-4915]
+> Given pivots p_1,...,p_t with t<T: prepare uniform |i> over [m], compare i with each pivot in a fresh workspace, set the success bit iff every comparison says i defeats its pivot, keeping all garbage. Apply lem-3.1 with gamma=1/(2m), eta=epsilon. On failure stop and return the accumulated list; otherwise measure the index, append, and continue for at most T stages.
+
+[B1572 L4917-4917]
+**Argument:** [§5.2](#upper-stage-state), [§5.2](#upper-quantum-tournament).
+
+[B1573 L4919-4919]
+<!-- /passage:CAT-construct-sampler -->
+
+[B1574 L4921-4921]
+#### eq-15
+
+[B1575 L4923-4925]
+<a id="CAT-eq-15"></a>
+<!-- passage:CAT-eq-15 -->
+<!-- claim:eq-15 -->
+
+[B1576 L4927-4927]
+> Pre-success state: m^{-1/2} sum_{i=1}^m |i> tensor_{b=1}^t |phi(i,p_b)>.
+
+[B1577 L4929-4929]
+**Argument:** [§5.2](#upper-stage-state), [§5.2](#upper-tournament-evidence).
+
+[B1578 L4931-4931]
+<!-- /passage:CAT-eq-15 -->
+
+[B1579 L4933-4933]
+#### claim-success-prob
+
+[B1580 L4935-4937]
+<a id="CAT-claim-success-prob"></a>
+<!-- passage:CAT-claim-success-prob -->
+<!-- claim:claim-success-prob -->
+
+[B1581 L4939-4939]
+> Conditional on index i the success probability is prod_{b=1}^t a_{i p_b} = w_i (empty product 1). Total success probability is W/m, and conditional on success the index has law w_i/W exactly.
+
+[B1582 L4941-4941]
+**Argument:** [§5.2](#upper-stage-law), [§5.2](#upper-tournament-evidence).
+
+[B1583 L4943-4943]
+<!-- /passage:CAT-claim-success-prob -->
+
+[B1584 L4945-4945]
+#### claim-coupling
+
+[B158

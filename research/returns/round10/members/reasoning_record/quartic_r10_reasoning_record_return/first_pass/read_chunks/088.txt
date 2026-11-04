@@ -1,0 +1,48 @@
+ow. The textual review judges it stronger in allowing initially uncapped trees through the joint event of success and compliance, and narrower in allowing only finitely many weighted seeds. Compliance is a recursive predicate; its agreement with per-input query counts is an ordinary identification in [Appendix G.8](#CL-direct-product-formal). The ordinary cap-event proof is in [§6.1](#CL-joint-cap).
+
+[B2160 L6432-6432]
+#### The erased-zero identity and bound
+
+[B2161 L6434-6434]
+The [complete erased-zero theorem][src-equation-19] was compared and passed again on the 3 November sources. Both reviews judge it stronger than Equation (19): it conjoins identity and bound for every $m=2^\ell$, and the textual review also records that the input law is arbitrary. The alternative complete-expectation wrapper is built only. See [§6.4](#CL-erased-zero-identity).
+
+[B2162 L6436-6436]
+#### The stronger charging estimate
+
+[B2163 L6438-6438]
+The [deterministic charging inequality][src-zero-successor] behind $2G/(m(m+1))$ is built and has no corpus row. The textual review judges it weaker than the probability bound: averaging the deterministic estimate remains ordinary mathematics. See [§6.4](#CL-zero-optional).
+
+[B2164 L6440-6440]
+#### The fixed-time planted-cell event
+
+[B2165 L6442-6442]
+The [fixed-time joint-event theorem][src-per-time] is built, exact in the corpus and judged the same by the textual review. It states Equation (21) at one time as a joint event under the original law, with $\beta=2/3$ and the minimax hypothesis on $\mu$ as a premise. Prose query time $q$ corresponds to the source's zero-based index $q-1$; [the joint-event definition](#CL-joint-event) fixes the event before that change of indices. See [§6.5](#CL-simulator).
+
+[B2166 L6444-6444]
+#### Winner uniqueness and dominance
+
+[B2167 L6446-6446]
+The [four winner theorems][cmp-winners] were compared in the Construction bundle. The corpus judges them stronger relative to the unique-winner corollary; the textual review records different statements used beside Lemma 2.2: unique winners, unique gate-consistent transcripts and the two halves of winner dominance. See [§4.2](#AC-total-unique), [§4.7](#AC-comparison).
+
+[B2168 L6448-6448]
+#### Controls for the query models
+
+[B2169 L6450-6450]
+The compared [zero costs][cmp-zero-cost], [degree][cmp-degree] controls have no corpus row. The textual review judges them the same as their ordinary counterparts: $D$, $R$ and $Q$ vanish exactly on functions constant on the promise, and degree means the degree of the unique multilinear representation. See [§2.6](#R3-01-ZERO), [Appendix A.1](#R3-A-DEFINITIONS).
+
+[B2170 L6452-6452]
+#### The universal quartic bound
+
+[B2171 L6454-6454]
+The [formal universal quartic bound][src-universal-power] is compared through the Separation bundle’s configured universal-bound wrapper. The corpus judges it partial for Theorem A.1: it proves that four belongs to the set in (1), but omits $D$. The textual review did not cover it. See [Appendix A](#R3-A-RESULT).
+
+[B2172 L6458-6458]
+A comparison establishes that two statements agree under shared definitions. Whether those definitions model the paper is a separate question, addressed by Appendices G.2–G.3 and the finite controls.
+
+[B2173 L6461-6461]
+### G.5. Forrelation
+
+[B2174 L6463-6465]
+<a id="forr_validation_scope"></a>
+<!-- passage:forr_validation_scope -->
+**Formal implementation of the asymptotic conclusion.** Instantiating the supplied coherent sampler at $q$ repetitions gives $qk$ abstract reads, which its generic compiler implements with at most $2qk$ physical bit queries. The complete Lemma 2.1(ii) wrapper packages this construction with the repetition count $n$ and the law existentially quantified, and its proof chooses $n=q$. The wrapper binds one isometry $F_z$, one initial basis state, one output labeling and the measured law of that isometry, and the physical implementation applies the same $F_z$ before every subsequent continuation, adding at most $2

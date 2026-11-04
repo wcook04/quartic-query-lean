@@ -1,0 +1,30 @@
+t] supplies the essential-coordinate witnesses for the support argument. The maintained [full support wrapper][src-construction-full] conjoins those witnesses with every clause of the complete evaluator theorem. For each pointer test, every bit of the pointer word and every possible target coordinate has two full physical inputs differing only at that coordinate on which the test values differ. The witnesses and the evaluator use the same circuit. The printed Lemma 2.2 asserts the test count and adaptive/coherent query bounds; it does not separately assert this essential-coordinate diagnostic. The diagnostic strengthens the printed lemma and is included in the expanded maintained ledger to exclude the erroneous fixed-support interpretation discussed in §4.5. The older complete evaluator is partial relative to that expanded ledger row, not because the printed lemma requires an additional support clause. Its current source-bound execution evidence is recorded separately in the integration receipt. The clean oracle (4.16) and the explicit finite example have the separate ordinary-proof and computational status stated above.
+
+[B2182 L6485-6486]
+The status of the construction statements is summarized in [Appendix G.4](#checked-statements); the history of their receipts is in [Appendix F](#history-construction).
+<!-- /passage:AC-evidence -->
+
+[B2183 L6488-6488]
+### G.7. The quantum upper bound
+
+[B2184 L6490-6490]
+The proof of Proposition 3.3 in Theorem 1.1 uses only the law of the measured labels. The stronger statement about the returned state at the end of this subsection is not a premise of it. The [bounded-list tournament theorem][src-quantum-tournament] has the order of quantifiers of Proposition 3.2 in §5.2: its sampler is fixed before the input and before the dominant vertex.
+
+[B2185 L6492-6493]
+<a id="upper-current-formal-scope"></a>
+<!-- passage:upper-current-formal-scope -->
+
+[B2186 L6495-6495]
+Two formal routes accompany the ordinary proof of §§5.1–5.4, and they have different roles.
+
+[B2187 L6497-6497]
+**Measured labels and Boolean continuation.** The measured-label amplifier, the tournament continuation and the numerical quantum bound prove the acceptance law of §5.5 and its final budget. This is the route used by the headline proof roots.
+
+[B2188 L6499-6499]
+**Retained states and bounded lists.** The bounded-list tournament theorem and its tensor-stage wrappers prove Proposition 3.2 as a list law, as written in §5.2. They are built separately and are not used by the headline proof roots.
+
+[B2189 L6501-6501]
+The measured-label route suffices for Proposition 3.3; the list theorem is a separately built formal counterpart of the list statement in §5.2. The fully qualified names and exact types are indexed in the correspondence; the shorter declaration names below identify their mathematical roles. The formal upper bound follows the same progression as the ordinary proof: amplify a successful outcome, combine trials into a bounded list, decode and verify a candidate, and then bound the integer budget. The state information carried at each step is part of the claim.
+
+[B2190 L6503-6503]
+**From a successful state to its measured label.** The [abstract amplification theorem][src-amplification] proves the complete assertion of Lemma 3.1 for [abstract procedures][src-proc], including phase-invariant observables, zero wrong-state mass, failure when the success probability is zero, and a uniform call cap. At the physical-program level, the [amplifier of measured labels][src-amplify-measured] supplies the law of the measured label of a [compiled bit-query program][src-runs], which the final bound uses. The [coherent trial loop][src-coherent-amplify] realizes that same label law by a [coherent sampler][src-samples] with retained workspace. Neither of the latter two types identifies a designated physical output subsystem with the original normalized successful state. The abstract theorem and the physical label law therefore support di

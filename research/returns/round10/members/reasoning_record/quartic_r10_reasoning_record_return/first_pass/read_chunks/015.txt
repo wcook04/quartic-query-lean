@@ -1,0 +1,47 @@
+hen $W=0$ the unamplified success probability is zero, and Lemma 3.1 reports failure with certainty.
+
+[B0763 L2447-2447]
+**Correspondence note.** The compiled version rests on a finite-label statement. Let $q_x(b)$ be the unamplified probability of a successful label $b$, and put $q_x=\sum_bq_x(b)$. Then there is a failure probability $f_x\in[0,1]$ such that the output law has the following form:
+
+[B0764 L2449-2449]
+<!-- claim:new-upper-sampler-law -->
+
+[B0765 L2450-2457]
+$$
+\begin{aligned}
+\Pr[\bot]&=f_x,\\
+\Pr[b]&=(1-f_x)\frac{q_x(b)}{q_x} &&(q_x>0),\\
+q_x\geq\gamma&\Longrightarrow f_x\leq\eta,\\
+q_x=0&\Longrightarrow f_x=1.
+\end{aligned}
+$$
+
+[B0766 L2459-2460]
+For the ordinary procedure just proved, this law follows by measuring the successful state. The formal headline proof obtains the required law from its separate measured/reset implementation, the [amplifier of measured labels][src-amplify-measured]; this is a correspondence of output laws, not an identification of returned states or a claim about formal dependency ([Appendix G.7](#upper-current-formal-scope)). For $q_x>0$ and $f_x<1$, which are the hypotheses under which the ratio is a conditional probability, the successful mass is $1-f_x>0$, and dividing by it gives the conditional law $q_x(b)/q_x$. For the bounded procedure above, $p>0$ implies $f_x<1$, and in the tournament the stronger bound $f_x\leq\varepsilon<1$ holds at every history before the dominant vertex has been selected. At $q_x=0$ the only output is failure, and that event receives no conditional law. Substituting $q_x(i)=w_i/m$ gives the ideal pivot law wherever it is used.
+<!-- /passage:upper-quantum-tournament -->
+
+[B0767 L2462-2463]
+<a id="upper-coupling"></a>
+<!-- passage:upper-coupling -->
+
+[B0768 L2465-2465]
+We couple the real process with the ideal one on a common probability space. While their lists agree, let $f(L)$ be the failure probability of the amplified sampler for the common list. If $W>0$, we independently choose a possible ideal next pivot with distribution $w_i/W$ and a Bernoulli variable that reports failure with probability $f(L)$. On nonfailure both processes receive the chosen pivot; on failure the real process stops and the ideal one continues with its ordinary transitions. Each process then has the correct marginal distribution, because the real sampler succeeds with pivot $i$ with probability exactly $(1-f(L))w_i/W$. The independence belongs to the construction of the coupling from that law and asks nothing further of the implementation. If $W=0$, the ideal process appends nothing and the real process stops with certainty, because $f(L)=1$; this defines the coupling at every agreed list.
+
+[B0769 L2467-2467]
+Suppose that $s$ is dominant. At an agreed history of length at most $T$ before $s$ is selected, the preceding lower bound gives $W>1/2$, so $W/m\geq1/(2m)$ and hence $f(L)\leq\varepsilon$. At each of the at most $T$ stages, conditioned on the event that the lists still agree and $s$ has not yet appeared, a new disagreement has probability at most $\varepsilon$. Multiplying by the probability of the conditioning event and summing over the stages gives a total of at most $T\varepsilon$, whatever the dependence among these stage failures.
+
+[B0770 L2469-2469]
+If the ideal process selects $s$ while the two lists still agree, the real list then contains $s$, and a later failure leaves every previous entry in place. Consequently the real miss event is contained in the union of the ideal miss event and a disagreement before selecting $s$, and equation (14) gives:
+
+[B0771 L2471-2471]
+<!-- claim:claim-coupling -->
+
+[B0772 L2472-2475]
+$$
+\Pr[\text{the real list misses }s]
+\leq\frac{2m}{2^T}+T\varepsilon.
+$$
+
+[B0773 L2477-2478]
+The argument stops charging failures once $s$ has appeared. At those later histories the total weight can be arbitrarily small and the sampler may fail with probability above $\varepsilon$, but the claim needs only the recorded occurrence of $s$.
+<!-- /passag

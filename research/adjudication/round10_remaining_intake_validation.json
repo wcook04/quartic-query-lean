@@ -1,0 +1,55 @@
+{
+  "schema": "quartic-remaining-intake-validation-v1",
+  "returns": [
+    {
+      "role": "reasoning_record",
+      "integrity": [
+        {
+          "file": "MANIFEST.json",
+          "verified_entries": 165
+        },
+        {
+          "file": "freeze.json",
+          "verified_entries": 127
+        }
+      ],
+      "reviewed_source_commit": "0d977710556f304ce70fa200cbf36b9beecb78e8",
+      "matched_source_files": [
+        "repository/docs/expert_companion.bib",
+        "repository/docs/expert_companion.md",
+        "repository/docs/exposition.bib",
+        "repository/docs/exposition.md",
+        "repository/docs/reasoning_record.bib",
+        "repository/docs/reasoning_record.md"
+      ],
+      "finding_count": 8,
+      "protocol": "Source-order batch/block exposure; not strict isolated sentence encounters. Frozen evidence preserved unchanged.",
+      "execution": "Independent byte checks; no submitted code executed."
+    },
+    {
+      "role": "exposition",
+      "integrity": [
+        {
+          "file": "MANIFEST.json",
+          "verified_entries": 29
+        },
+        {
+          "file": "freeze.json",
+          "verified_entries": 4
+        }
+      ],
+      "reviewed_source_commit": "0d977710556f304ce70fa200cbf36b9beecb78e8",
+      "matched_source_files": [
+        "repository/docs/expert_companion.bib",
+        "repository/docs/expert_companion.md",
+        "repository/docs/exposition.bib",
+        "repository/docs/exposition.md",
+        "repository/docs/reasoning_record.bib",
+        "repository/docs/reasoning_record.md"
+      ],
+      "finding_count": 11,
+      "protocol": "Source-order batch/block exposure; not strict isolated sentence encounters. Frozen evidence preserved unchanged.",
+      "execution": "Independent byte checks; no submitted code executed."
+    }
+  ]
+}

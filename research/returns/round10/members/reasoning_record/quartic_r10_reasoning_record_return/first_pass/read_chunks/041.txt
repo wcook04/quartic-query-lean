@@ -1,0 +1,96 @@
+comparison, Bansal–Sinha [BansalSinha2021, Theorem 1.3 and Corollary 1.4, printed p. 4](https://arxiv.org/pdf/2008.07003v3) state, with promise threshold \(\delta=2^{-5k}\), a lower bound
+
+[B1114 L3737-3740]
+\[
+\Omega\!\left(k^{-29}
+\left(\frac{m}{\log(km)}\right)^{1-1/k}\right)
+\]
+
+[B1115 L3741-3741]
+at error \(1/3\), where their block dimension is \(m\) and the full input has \(km\) bits. For fixed \(k\) and \(m\ge k\), the ratio of a positive constant multiple of this bound to \(m^{1-1/k}/(\log_2m)^2\) is bounded below by a positive \(k\)-dependent constant times \((\log_2m)^{1+1/k}\), which tends to infinity, so the strict prerequisite holds eventually.
+
+[B1116 L3743-3744]
+This comparison identifies the literature input and the strength we use. The losses in the total-function reduction can now be located precisely: the erased-zero and heavy-column estimates cost only constants once $G=mL/100$ up to rounding; the union over query times is absorbed by $r=20\log_2m$; the two floors cost at most two factors of two. The power $m^{2-1/k}$ and the two logarithms in the stated bound come from multiplying the chosen Forrelation cap $L$ by $m$, not from the direct-product proof. [Appendix E](#forr_bs_mismatch) discusses one displayed step in the proof of that theorem; the stated theorem stands, and this section uses only the fixed-\(k\) prerequisite established in §3.
+<!-- /passage:CL-forrelation-input -->
+
+[B1117 L3746-3748]
+<a id="CL-floors"></a>
+<!-- passage:CL-floors -->
+We verify the remaining arithmetic with a threshold uniform in \(k\), starting from the fact that for every integer \(t\ge8\),
+
+[B1118 L3749-3751]
+\[
+4t^2\le2^t.
+\]
+
+[B1119 L3752-3752]
+Equality holds at \(t=8\). If the inequality holds at some \(t\ge8\), then \((t+1)^2\le2t^2\) because \(t^2-2t-1\ge0\), and hence \(4(t+1)^2\le8t^2\le2^{t+1}\), which completes the induction.
+
+[B1120 L3754-3754]
+We put \(a=m^{1-1/k}/(2t)^2\), where \(m=4^t\). Since \(1/2\le1-1/k\le1\),
+
+[B1121 L3755-3759]
+\[
+m^{1-1/k}\ge\sqrt m=2^t\ge(2t)^2,
+\qquad
+1\le a\le m.
+\]
+
+[B1122 L3760-3760]
+Every real \(x\ge1\) satisfies \(\lfloor x\rfloor\ge x/2\), since if \(b=\lfloor x\rfloor\), then \(b\ge1\) and \(x<b+1\le2b\). Thus \(1\le L\le m\) and \(L\ge a/2\).
+
+[B1123 L3762-3762]
+Also \(mL\ge4^8\ge200\), so the same floor estimate applies to \(mL/100\) and gives
+
+[B1124 L3763-3765]
+\[
+G\ge\frac{mL}{200}\ge\frac{ma}{400}.
+\]
+
+[B1125 L3766-3768]
+Since \(\log_2m=2t\), we obtain the baseline floor statement in explicit form:
+<!-- claim:claim-floor -->
+<!-- claim:NCL-explicit-floor -->
+
+[B1126 L3769-3775]
+\[
+\left\lfloor\frac m{100}
+\left\lfloor\frac{m^{1-1/k}}{(\log_2m)^2}\right\rfloor\right\rfloor
+\ge
+\frac1{400}\frac{m^{2-1/k}}{(\log_2m)^2}
+\quad(k\ge2,\ m=4^t,\ t\ge8).
+\]
+
+[B1127 L3776-3777]
+The two floor estimates each lose at most a factor two; neither changes the power of $m$.
+<!-- /passage:CL-floors -->
+
+[B1128 L3779-3781]
+<a id="CL-concrete-lower"></a>
+<!-- passage:CL-concrete-lower -->
+We choose \(t\) beyond both \(8\) and the fixed-\(k\) Forrelation threshold, and take the circuit $C_{k,t}$ (also denoted $C_{k,m}$ when $m=4^t$) that §4 used to define \(F_{k,m}\) and §5 used to prove its quantum upper bound. Since it realizes the same promise and value, the generic lower theorem applies to this circuit.
+
+[B1129 L3783-3784]
+**Proposition 4.2 (OpenAI).** For each fixed integer \(k\ge2\), for every sufficiently large power of four \(m\), the total function from the construction satisfies
+<!-- claim:prop-4.2 -->
+
+[B1130 L3785-3789]
+\[
+R(F_{k,m})>
+\left\lfloor\frac m{100}
+\left\lfloor\frac{m^{1-1/k}}{(\log_2m)^2}\right\rfloor\right\rfloor.
+\]
+
+[B1131 L3790-3791]
+Together with the floor calculation, this yields
+<!-- claim:cor-R-omega -->
+
+[B1132 L3792-3796]
+\[
+R(F_{k,m})\ge
+\frac1{400}\frac{m^{2-1/k}}{(\log_2m)^2}
+=\Omega_k\!\left(\frac{m^{2-1/k}}{(\log m)^2}\right).
+\]
+
+[B1133 L3797-3797]
+The arithmetic coefficient is uniform in $k$, and $t\ge13669k^2$ is an explicit sufficient combined thres

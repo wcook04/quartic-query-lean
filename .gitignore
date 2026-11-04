@@ -3,6 +3,10 @@
 # Round-ten originals and submitted programs remain local; intake.json binds every byte.
 research/returns/round10/archives/
 research/returns/round10/members/**/*.py
+# Sender-only navigation into ignored submitted programs and checksum list.
+research/returns/round10/members/exposition/checks/README.md
+research/returns/round10/members/exposition/SHA256SUMS
+research/returns/round10/members/exposition/README.md
 .lake/
 /build/
 __pycache__/

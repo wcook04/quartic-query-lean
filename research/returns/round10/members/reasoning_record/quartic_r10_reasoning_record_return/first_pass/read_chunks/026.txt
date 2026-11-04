@@ -1,0 +1,87 @@
+in [OpenAI, §4.1, Lemma 4.1, pp. 11–12][OpenAI2026].
+Its one-input hypothesis concerns every bounded-depth strategy under one
+fixed input law, and the posteriors met during the algorithm may be easier;
+the proof therefore tracks the optimum under each posterior with its
+remaining allowance. (The case $L=0$ allows only constant guesses, and if
+$r=0$ the answer vector is empty and the bound reads $1\leq1$.)
+<!-- /passage:CL-direct-product-statement -->
+
+[B0905 L2869-2869]
+#### Proof of Lemma 4.1 by conditional values
+
+[B0906 L2871-2876]
+<a id="CL-product-law"></a>
+<!-- passage:CL-product-law -->
+We first fix the independent information and coins, which leaves a
+deterministic tree whose internal nodes ask for a coordinate of one input
+and whose leaves output a vector in $\{0,1\}^r$. We return to the average
+over this information once the deterministic case is proved.
+
+[B0907 L2878-2882]
+A history $\tau$ records, in order, each queried input and coordinate
+together with the answer. Write $H_\tau$ for the event that the run has this
+history as a prefix; a terminal history also records that the tree has
+reached its leaf. For each $h$, let $E_h(\tau)\subseteq D$ consist of the
+inputs agreeing with every answer recorded from input $h$.
+
+[B0908 L2884-2890]
+Consider a history with $\Pr(H_\tau)>0$, so that its query schedule is
+compatible with the deterministic tree. Every run with this history
+satisfies all the local constraints. Conversely, any tuple satisfying them
+follows the same history, since its first answer agrees with the record,
+the deterministic choice of the next query is therefore the recorded one,
+and induction repeats the argument at every step. When the history ends at
+a leaf, the same argument also gives the stop and its output. Thus
+
+[B0909 L2892-2892]
+<!-- claim:claim-product-law -->
+
+[B0910 L2893-2899]
+\[
+ H_\tau=\bigcap_{h=1}^{r}\{U_h\in E_h(\tau)\},\qquad
+ \Pr(H_\tau)=\prod_{h=1}^{r}\mu(E_h(\tau)),\qquad
+ \mathcal L(U_1,\ldots,U_r\mid H_\tau)
+   =\bigotimes_{h=1}^{r}\mu(\,\cdot\mid E_h(\tau)).
+\tag{6.2}
+\]
+
+[B0911 L2901-2905]
+For the last identity, we divide the product mass of a compatible tuple by
+$\prod_h\mu(E_h(\tau))$, and the quotient factors into the separate
+conditional masses; every denominator is positive because $H_\tau$ has
+positive probability. The bits within one input may be arbitrarily
+dependent.
+
+[B0912 L2907-2915]
+Compatibility of the schedule matters. An arbitrary string of proposed
+queries can have consistent local bit constraints while asking a different
+first query from the tree, and then its execution event is empty.
+For example, a tree may query $U_{1,0}$ first and choose $U_{1,1}$ after answer zero but $U_{2,0}$ after answer one. The proposed history $(U_{1,0}=0,U_{2,0}=1)$ has compatible local bit values but is not an execution of that tree. Contradictory answers to a repeated query also give an empty event. We
+assign no conditional law to either kind of impossible history; this is
+harmless, because such histories have zero weight in all the finite
+averages below. Repeating a consistent answer leaves the constraint set
+unchanged, although it still spends a query.
+<!-- /passage:CL-product-law -->
+
+[B0913 L2917-2923]
+<a id="CL-conditional-values"></a>
+<!-- passage:CL-conditional-values -->
+Let $q_h(\tau)$ count the queries to input $h$ in $\tau$, including
+repetitions, so that $q_h(\tau)\leq L$ at every positive-probability history
+of the capped algorithm. To measure what can still be learned from that
+input, we define
+<!-- claim:def-value-V -->
+
+[B0914 L2924-2929]
+\[
+ V_h(\tau)=
+ \max_{\operatorname{depth}(T)\leq L-q_h(\tau)}
+ \Pr\!\left[T(U_h)=P(U_h)\mid U_h\in E_h(\tau)\right].
+\tag{6.3}
+\]
+
+[B0915 L2931-2935]
+The maximization ranges over single-input deterministic trees, which are
+finite in number for each fixed depth: a depth-zero tree is one of two
+leaves, and a tree of positive bounded depth is either a leaf or a choice of
+one of $n$ coordinates and two smaller trees. Hence the maximu

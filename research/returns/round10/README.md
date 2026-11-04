@@ -1,7 +1,7 @@
-# Round-ten expert return
+# Round-ten returns
 
-Only the expert-companion return has arrived. The exposition and reasoning-record
-reviews remain pending; this revision does not stand in for either review.
+All three requested returns have arrived. Each review remains bound to the
+original R10 edition it assessed. The first revision covered the expert return.
 The [intake manifest](intake.json) binds the original ZIP and all 34 members.
 The original archive and submitted programs remain local and ignored; the other
 submitted bytes are preserved unchanged under
@@ -30,3 +30,25 @@ concerns the expert PDF. Its [intake receipt](followup_intake.json) records the
 missing exact-edition identifier and the reviewer's stated scope. It is not a
 second full R10 return. The [follow-up revision account](../../adjudication/round10_followup_revision.md)
 tracks its distinct application to the expert paper and exposition.
+
+## Record and exposition returns
+
+The [remaining intake manifest](remaining_intake.json) preserves the original
+ZIP hashes and all 197 member hashes: 166 record files and 31 exposition files.
+Original archives, submitted Python, the exposition checksum list and its two sender-only READMEs remain local ignored inputs. Submitted
+text, findings and logs are unchanged. The [intake validation](../../adjudication/round10_remaining_intake_validation.json)
+checks CRCs, manifests, frozen logs and the six reviewed Markdown/BibTeX editions.
+
+The record return contributes eight manuscript findings and seven method
+observations; the exposition contributes eleven and seven. Both disclose
+block/batch exposure and retrospective diagnosis. The record reports full source
+coverage with shared annotation blocks and index-only rows, all 139 PDF pages
+at overview size and 29 at normal size. The exposition reports all 24 pages,
+with disclosed adjacent-line, caption and answer exposure. These are AI reviews,
+not isolated-sentence certification, human reader studies or fresh proof builds.
+
+The [second informal expert assessment](second_expert_editorial_feedback.md)
+has no exact reviewed-PDF identifier. Its scores are editorial judgments.
+The [remaining revision account](../../adjudication/round10_remaining_revision.md)
+separates current decisions from the original review observations, including
+stale prior-round locators and optional structural suggestions.

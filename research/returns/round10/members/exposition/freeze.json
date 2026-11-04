@@ -1,0 +1,56 @@
+{
+  "schema": "ex10-freeze-v1",
+  "frozen_at_utc": "2026-11-04T16:40:16.221398+00:00",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+    "repository/docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+    "repository/docs/expert_companion.pdf": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+    "repository/docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "repository/docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+    "repository/docs/exposition.pdf": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+    "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+    "repository/docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "repository/docs/reasoning_record.pdf": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+  },
+  "frozen_files": {
+    "first_pass/bibliography_audit.jsonl": "8538a7a00740a22759cba60f8d67006435d5d501ddebe578529f4a3e221131bd",
+    "first_pass/coverage.json": "00fa82bf16fbda88d9770508ef25aa40aab135ef7ba5b2947f05d6e00f41940a",
+    "first_pass/reading_log.md": "70e41ab33b246400b8a9383636678e8b097728740ed2b12d28f1dec64018936c",
+    "first_pass/sentence_audit.jsonl": "59894c2f5b1053bde839306286a187d3a66283d0f1894e90b1893eba9a12099c"
+  },
+  "first_reviewed_locator": {
+    "line": 1,
+    "unit_id": "EX10-U0001"
+  },
+  "last_reviewed_locator": {
+    "line": 535,
+    "unit_id": "EX10-U0805"
+  },
+  "status": "complete Markdown reading; partial compliance with strict chronological protocol",
+  "unreviewed_markdown_ranges": [],
+  "prior_exposures": [
+    "General model knowledge of quantum/query complexity",
+    "Task-title memory without mathematical manuscript content",
+    "Packet instructions, source hashes, archive-entry metadata"
+  ],
+  "detours": [
+    {
+      "departure": "line 222",
+      "accidental_destination": "lines 225–259",
+      "return": "line 223",
+      "reason": "range-filter gap",
+      "imported_information": "later comparison and ideal-weight material in the same section"
+    }
+  ],
+  "protocol_departures": [
+    "Initial source lines 1–135 were visible together before any first-pass row was written; those rows are immediate source-order annotations, not sentence-before-next-sentence records.",
+    "Later tool chunks were also batch-visible; the durable chronology is at batch boundaries, not individually blinded sentences.",
+    "Line 223 was inadvertently skipped by a range filter, then retrieved after lines 225–259 had been displayed.",
+    "The combined-explanation task was exposed to the first three rubric sentences in the same retrieval; its response is answer_exposed.",
+    "Figure captions and tables have composite object rows; internal caption sentences are not separately frozen encounter rows.",
+    "The optional Lean exercise prints its target clause and explanation in the prompt paragraph; external links were deferred.",
+    "The paper's own bibliography was read as BibTeX metadata after Markdown completion; rendered reference order will be inspected only after freeze."
+  ],
+  "stage_boundary": "No other manuscript, prior finding/disposition, writing guide, exemplar or comparison-source body was opened before this file was written. Substantive parallel tasks start only after this freeze.",
+  "procedure": "Append 15 source-order batches of hand-authored demand summaries and explicit issue notes. Preserve files at this boundary. Digests certify byte stability only, not temporal or psychological independence. Do not claim strict sentence-before-next exposure."
+}

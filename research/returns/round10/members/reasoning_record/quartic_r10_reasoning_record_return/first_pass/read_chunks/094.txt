@@ -1,0 +1,27 @@
+dence belongs to each named declaration and is reported in the dated integration receipt. The unchanged returned proposal remains historical provenance; its earlier uncompiled status does not describe a later maintained declaration.
+
+[B2214 L6601-6601]
+**An independently written product experiment.** The [independent specification](../lean/QuarticCorpus/Independent/Eq19/Spec.lean) shares the project's coordinate, query-tree, path and depth interfaces. Within that boundary it independently defines the reference input coordinate by coordinate, the event that a column's zero lies on the query path, and the number of distinct discovered columns. It writes the law as explicit products: all address strings have independent mass $\mu$, every zero position is independently uniform, and the selected column has a further independent factor $1/m$. Its expectations do not use the maintained definitions of the [dummy input][src-dummy], the [event that the dummy run finds a zero][src-found-zero], the [joint average over addresses, zeros and planted column][src-coupled-average], the [number of discovered zeros][src-discovered-zeros] or its [expectation][src-expected-zeros]. The [bridge](../lean/QuarticCorpus/Independent/Eq19/Bridge.lean) identifies each of those objects before transporting the complete conjunction. Separate finite path controls test that declared shared-interface boundary. The direct actual-vocabulary comparison and this explicit-product comparison therefore check different things. Neither identifies the alternative search proof with the paper's early/late argument.
+
+[B2215 L6603-6603]
+**The expectation estimate and its route.** The [theorem on the position of an unseen zero][src-uniform-zero] states its posterior given a transcript of positive probability. The [bound on the expected number of discovered zeros][src-expected-zeros-bound] obtains the endpoint through the stronger zero-search induction. Thus even a complete conjunction theorem for (19) does not formalize the early/late proof of $\mathbb E Z$ in §6.4. The distinction concerns the proof route and the compound expectation row, not the truth of the displayed endpoint.
+
+[B2216 L6605-6605]
+**The simulator and the eventual lower bound.** The Paper wrappers state the absolute form of (18), the individual-time joint event (21), the cell bound (22), and the absolute discrepancy (23). The core one-sided discrepancy theorem remains a separate sufficient endpoint. Prose query time $q$ corresponds to the source's zero-based index $q-1$. The exact logarithmic tail bound, its envelope limit and the elementary finite power estimate have separate statements. Finally, the [two formal forms of Proposition 4.2][src-prop42], for every circuit computing $P$ and for the canonical circuit, supply the eventual fixed-$k$ hardness premise using the Forrelation theorem. The [core planted lower bound][src-planted-core] keeps that premise in its own type. A proof of an unconditional wrapper does not erase the binder of a conditional supplier.
+
+[B2217 L6607-6607]
+The $m+1$ refinement, elementary convex-separation proof, arbitrary-coin finite-behaviour reduction and finite examples are ordinary arguments or computations at their stated scope. They do not acquire formal status from a nearby endpoint theorem. A matching build, an axiom audit, a Comparator result, review of the intended statement and human review are different kinds of evidence.
+
+[B2218 L6609-6609]
+<!-- /passage:CL-formal-scope -->
+
+[B2219 L6611-6611]
+### G.9. The exponent and Appendix A
+
+[B2220 L6613-6613]
+The bound (7.5) of §7.3 is the [quantum upper bound uniform in $k$][src-budget-exponential], which is built and not configured for comparison; the rest of §7.3 is ordinary mathematics.
+
+[B2221 L6615-6617]
+<a id="ROOT-EXPONENT-CORRESPONDENCE"></a>
+<!-- passage:ROOT-EXPONENT-CORRESPONDENCE -->
+The source preprint supplies the attribution for this exponent argument; the supplied Lean sources and frozen execution records support t

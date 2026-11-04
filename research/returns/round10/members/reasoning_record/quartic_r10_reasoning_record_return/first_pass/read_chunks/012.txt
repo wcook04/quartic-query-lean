@@ -1,0 +1,88 @@
+
+
+[B0709 L2277-2277]
+The same error allowance will have three uses: winner-address error in §5.3 gives dominance, stage-sampler failure contributes at most $T\varepsilon$ before the winner is selected, and fresh verification contributes at most $\varepsilon$ for the winner or $T\varepsilon$ on a zero input. The ideal miss term $2m/2^T$ is separate.
+
+[B0710 L2279-2280]
+Only the conclusion of the theorem below is conditional on this property of $s$. Its algorithm runs and obeys its query cap for every comparison table satisfying equation (10), and the property serves only to prove that a particular vertex is likely to occur in the returned list.
+<!-- /passage:upper-tournament-parameters -->
+
+[B0711 L2282-2283]
+<a id="upper-ideal-process"></a>
+*Proof of [Proposition 3.2](#upper-tournament-statement).* Fix the comparison table and parameters just stated. The weights below are analytical quantities of the proof, unavailable to the algorithm. Return to the [specialist companion](expert_companion.md), §3.2.
+
+[B0712 L2285-2285]
+<!-- passage:upper-ideal-process -->
+
+[B0713 L2287-2287]
+We begin with weights $w_i=1$ and an empty ordered list $L$, and write $W=\sum_iw_i$. In one ideal step, if $W>0$, we choose a pivot $p$ with probability $w_p/W$, append it to $L$, and make the update in equation (12):
+
+[B0714 L2289-2289]
+<!-- claim:eq-12 -->
+
+[B0715 L2290-2292]
+$$
+w_i\longleftarrow w_i a_{ip}\qquad(1\leq i\leq m).
+$$
+
+[B0716 L2294-2294]
+If $W=0$, we leave the weights zero and append nothing. Running exactly $T$ steps, with this zero state absorbing, specifies the ideal process on every history. All weights remain nonnegative and at most one, because they are products of numbers in $[0,1]$; after a history $L=(p_1,\ldots,p_h)$,
+
+[B0717 L2295-2297]
+\[
+w_i(L)=\prod_{b=1}^{h}a_{ip_b},\qquad w_i([])=1.
+\]
+
+[B0718 L2298-2299]
+ A selected vertex receives the factor $a_{pp}=0$, so its weight is zero thereafter and it is never again selected on a positive-weight step. These observations also cover histories of probability zero, where they avoid any division by zero.
+<!-- /passage:upper-ideal-process -->
+
+[B0719 L2301-2302]
+<a id="upper-weight-drift"></a>
+<!-- passage:upper-weight-drift -->
+
+[B0720 L2304-2304]
+We condition on any current weights with $W>0$. For pivot $p$ the new total weight is $\sum_iw_ia_{ip}$, and averaging over its probability $w_p/W$ gives the first expression in equation (13). We write its numerator as the sum over ordered pairs $(i,p)$. The diagonal terms vanish because $a_{ii}=0$, and pairing the term for $(i,p)$ with the term for $(p,i)$, for each unordered pair with $i\ne p$, gives $w_iw_p(a_{ip}+a_{pi})=w_iw_p$. Since the sum of the $w_iw_p$ over unordered pairs is half of $W^2-\sum_iw_i^2$, we obtain
+
+[B0721 L2306-2306]
+<!-- claim:eq-13 -->
+
+[B0722 L2307-2312]
+$$
+\mathbb E[W_{\rm new}\mid w]
+ =\frac1W\sum_{p,i}w_pw_i a_{ip}
+ =\frac{W^2-\sum_iw_i^2}{2W}
+ \leq\frac W2.
+$$
+
+[B0723 L2314-2314]
+At $W=0$ both the current and the next total weight are zero, so the last inequality still holds, and taking expectations over histories gives $\mathbb E W_{h+1}\leq\tfrac12\mathbb E W_h$. Starting from $W_0=m$ and applying this inequality $T$ times, we obtain:
+
+[B0724 L2316-2316]
+<!-- claim:claim-expected-WT -->
+
+[B0725 L2317-2319]
+$$
+\mathbb E W_T\leq\frac{m}{2^T}.
+$$
+
+[B0726 L2321-2322]
+Since the calculation uses only complementarity and nonnegativity, it applies equally to deterministic or cyclic tournaments and to comparisons whose probabilities are bounded away from both zero and one.
+<!-- /passage:upper-weight-drift -->
+
+[B0727 L2324-2325]
+<a id="upper-dominant-weight"></a>
+<!-- passage:upper-dominant-weight -->
+
+[B0728 L2327-2327]
+Suppose that $s$ is dominant and has not appeared among the first $h\leq T$ pivots. Then every factor in its weight is at least $1-\varepsilon$, which gives:
+
+[B0729 L2329-2329]
+<!-- claim:claim-weight-lb -->
+
+[B0730 L2330-2335]
+$$
+w_s(h)\geq(1-\varepsilon)^h
+\geq1-h\varepsilon
+\geq1-T\varepsilon
+=\

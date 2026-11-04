@@ -1,0 +1,47 @@
+{
+  "schema": "ex10-return-integrity-v1",
+  "validated_at_utc": "2026-11-04T17:18:37.118206+00:00",
+  "payload_validation": "pass",
+  "required_paths_present": 14,
+  "json_files_parsed": 13,
+  "jsonl_rows_parsed": {
+    "sentence_audit.jsonl": 828,
+    "later_annotations.jsonl": 55,
+    "first_pass/bibliography_audit.jsonl": 23,
+    "first_pass/sentence_audit.jsonl": 805
+  },
+  "source_draft_hashes_matched": 9,
+  "frozen_file_hashes_matched": 4,
+  "frozen_exact_quotes_checked": 828,
+  "finding_exact_quotes_and_anchors_checked": 11,
+  "maximum_quote_words": 25,
+  "encounter_content_unchanged": true,
+  "explicit_retrospective_nonprose_ordinal_normalizations": 15,
+  "annotations_checked": 55,
+  "history": {
+    "inspected_ids": 185,
+    "uninspected_ids": 353,
+    "total_partition": 538,
+    "assessments": {
+      "resolved": 175,
+      "new_consequence": 9,
+      "unresolved": 1
+    },
+    "all_attached_prior_ids_resolve": true
+  },
+  "all_24_lead_pdf_pages_in_inspection_record": true,
+  "portable_finite_check": "Passed; output byte-identical to original reviewer-created evaluation; 256 circuit inputs, zero mismatches.",
+  "internal_markdown_links_checked": 52,
+  "external_markdown_links_present_not_bulk_retrieved": 13,
+  "unsafe_paths_symlinks_empty_files_or_forbidden_control_characters": 0,
+  "protocol_status": "Partial strict first-encounter compliance; not an integrity failure. Original departures and 15 non-prose ordinal corrections are disclosed.",
+  "archive_validation_boundary": "This report records payload checks before final packing. ZIP CRC, a fresh extraction, SHA256SUMS and all extracted bytes are checked after packing. The final ZIP hash is kept outside the ZIP to avoid self-reference.",
+  "not_claimed": [
+    "Every annex read",
+    "Independent human readers",
+    "New formal build",
+    "Full proof certification",
+    "All online links fetched"
+  ],
+  "independent_integration_review": "A separate post-freeze integration worker confirmed the required paths, hashes, quotations, field-level normalizations and coverage counts; its two minor prose observations were corrected before packaging."
+}

@@ -1,0 +1,134 @@
+{
+  "schema": "round-ten-method-feedback-v1",
+  "method_commit": "7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7",
+  "scope": "Concrete application feedback only; no skills or manuscripts edited.",
+  "feedback": [
+    {
+      "id": "MF-001",
+      "rule_or_skill": "chronological_reading.md; reader_principles.md",
+      "current_evidence": [
+        "first_pass/coverage.json: 4262 locator rows, 975 substantive blocks, 1586 index-only rows",
+        "first_pass/README.md: adjacent-chunk batch exposure"
+      ],
+      "failure_mechanism": "A mechanically dense inventory can appear to provide sentence-level cognitive evidence when its notes were produced at a coarser exposure unit.",
+      "existing_rule_vs_new_rule": "Application and reporting of an existing explicit protocol, not a new writing rule.",
+      "proposed_general_change": "Record the actual exposure unit and annotation unit separately; make strict sentence-by-sentence completion a distinct boolean. Preserve raw observations, and never repair a missed protocol by backdating reconstructed rows.",
+      "review_departure_refs": [
+        "PD-01",
+        "PD-02",
+        "PD-03",
+        "PD-04",
+        "PD-05"
+      ]
+    },
+    {
+      "id": "MF-002",
+      "rule_or_skill": "graph-to-long/SKILL.md; quartic-writing-method.md; register RG-01 and RG-02",
+      "current_evidence": [
+        "Lead 454–460 already supplies the three-property contract",
+        "Full supplier proof 854–1669 precedes the complete board at 1795–1854",
+        "FP-018 corrected after reread; RR10-001"
+      ],
+      "failure_mechanism": "A correct navigation interface can coexist with an expensive complete publication-order route; an absence allegation would misidentify the problem.",
+      "existing_rule_vs_new_rule": "Apply existing genre and paragraph/dependency-order guidance.",
+      "proposed_general_change": "Evaluate both the complete route and independent proof entries. Before recommending relocation, list the pending contracts and their discharge points; explicitly search for an existing interface before alleging absence. Do not impose a universal construction-first rule."
+    },
+    {
+      "id": "MF-003",
+      "rule_or_skill": "quartic-writing-method.md; register-stage.md; register RG-02",
+      "current_evidence": [
+        "Lead 2063–2069 versus complete control flow 2599–2616",
+        "Generic formal notation 2447–2459 between exact law and coupling",
+        "RR10-004 and RR10-005"
+      ],
+      "failure_mechanism": "Subroutine detail and formal comparison arrive before the reader has a stable complete program or before the next probabilistic inference has been made.",
+      "existing_rule_vs_new_rule": "Existing guidance on complete contracts, operations, accounting and coherent paragraph movement.",
+      "proposed_general_change": "At an algorithm opening state the bounded control flow once; at a proof bridge state the next transition law in the variables already in use. Relocate duplicate setup and implementation correspondence while preserving cap, failure and state semantics. Test both F=0 and F=1 routes."
+    },
+    {
+      "id": "MF-004",
+      "rule_or_skill": "quartic-writing-method.md; graph-to-long current evidence and history distinction; register RG-21",
+      "current_evidence": [
+        "F 6127–6137 explicitly marks archive and gives snapshot index",
+        "G.1 worked check begins 6238; G.4 inventory begins 6345",
+        "RR10-008 is optional"
+      ],
+      "failure_mechanism": "A resolved disclosure concern can be mistakenly counted again when a stronger optional architecture is preferred.",
+      "existing_rule_vs_new_rule": "Apply existing distinction; no new mandatory status-first rule.",
+      "proposed_general_change": "Separate accuracy of historical labeling from the optional order of current status and archive. Mark the old repair resolved when it meets an allowed remedy, and state the distinct reader benefit and cost of any further reorder."
+    },
+    {
+      "id": "MF-005",
+      "rule_or_skill": "reader_principles.md; source-scope and disposition audit requirements",
+      "current_evidence": [
+        "RR9-067 accepted; narrowed wording at 1642 but residual assertion at 3743",
+        "RR10-007",
+        "EX9104/105/118/121/122/130 have repaired prose but stale evidence locators"
+      ],
+      "failure_mechanism": "An applied label or one repaired occurrence can mask an unrepaired second occurrence; conversely a stale locator can falsely suggest that a real repair is absent.",
+      "existing_rule_vs_new_rule": "Existing evidence-bound disposition practice.",
+      "proposed_general_change": "Verify each claimed occurrence and its current range against the original concern. Distinguish manuscript failure, evidence-locator failure and inaccessible external evidence. Close a claim on inspected text, not on its accepted/applied label."
+    },
+    {
+      "id": "MF-006",
+      "rule_or_skill": "reader_principles.md; register RG-26; quartic-writing-method examples and links",
+      "current_evidence": [
+        "Lead board at 1795–1854; alternate-board notice at 1928",
+        "Exposition checker link at159; EX9039; RR10-003"
+      ],
+      "failure_mechanism": "A technically accurate cross-document warning interrupts the identity of a worked input and does not clearly identify the archived checker target.",
+      "existing_rule_vs_new_rule": "Application of existing literal-object and destination-specificity guidance.",
+      "proposed_general_change": "Name the concrete example where a cross-reference introduces another input. At checker landings distinguish the checked board from the shared circuit/test specification. Do not require all genres to use one board."
+    },
+    {
+      "id": "MF-007",
+      "rule_or_skill": "quartic-writing-method.md; operations and query-accounting guidance",
+      "current_evidence": [
+        "Lead773–779 exact composite S formula; primitive costs earlier",
+        "RR9-033 and RR10-002"
+      ],
+      "failure_mechanism": "A coarse bound can be algebraically checkable while the exact constructor equality on which it starts remains unexplained.",
+      "existing_rule_vs_new_rule": "Existing reconstructibility requirement; no additional theorem gate.",
+      "proposed_general_change": "When exact counts are claimed, map every summand to counted operations. If only an upper bound is needed, use a justified bound and narrow the equality claim. Do not require a ledger for every routine asymptotic estimate."
+    }
+  ],
+  "protocol_departures": [
+    {
+      "id": "PD-01",
+      "requirement": "Record each meaningful sentence before exposing the next",
+      "actual": "Primary notes were appended at batch boundaries after adjacent chunks were visible. Some boundary overlap and truncation recovery occurred.",
+      "effect": "Prospective batch evidence, not independently observed per-sentence cognitive states.",
+      "evidence": "first_pass/README.md; first_pass/reading_log.md; first_pass/batches/"
+    },
+    {
+      "id": "PD-02",
+      "requirement": "Meaning-based sentence rows with individual cognitive annotations",
+      "actual": "Heuristic splitting yielded 3260 sentence candidates. 975 blocks carry shared content-specific notes; 1586 rows are explicitly index-only.",
+      "effect": "4262 rows are an inventory, not 4262 independent observations or a completeness certificate.",
+      "evidence": "first_pass/coverage.json"
+    },
+    {
+      "id": "PD-03",
+      "requirement": "No external or retrospective material before the first-pass freeze",
+      "actual": "The primary did not open those sources. Separate agents and the integrating reviewer read source-only literature and selected code concurrently before the freeze; those results were withheld from the primary. Root prepared historical/current passage pairings without supplying them to the primary.",
+      "effect": "The primary context firewall was maintained, but literal global embargo across all workers was not. No claim of full procedural compliance is made.",
+      "evidence": "supporting_reviews/*_scope*.json; sources/; reading_log.md"
+    },
+    {
+      "id": "PD-04",
+      "requirement": "Attempt questions before seeing answers",
+      "actual": "Worked examples and answers were visible during the textual pass. No isolated cold attempts were recorded. Later mathematical reconstruction was source-informed.",
+      "effect": "Answer-exposed reading, not evidence of independent student exercise success.",
+      "evidence": "first_pass/coverage.json; first_pass/batches/"
+    },
+    {
+      "id": "PD-05",
+      "requirement": "Independent reader perspectives and first exposure",
+      "actual": "All readers are AI simulations. The primary inherited limited R8/R9 procedural themes; specialists had source preparation and later context. Lead specialist rereads were serial; historical cross-document audits ran in parallel after the freeze.",
+      "effect": "Do not treat perspectives as blind human replicates or combine their reading histories into one cold pass.",
+      "evidence": "first_pass/README.md; supporting_reviews/quantum_scopes_read.json; supporting_reviews/classical_review_scope.json; supporting_reviews/formal_review_scope.json; supporting_reviews/ex9_scopes_read.json"
+    }
+  ],
+  "new_rule_recommendation": "No new general writing rule is established by these cases; improve application and honest evidence reporting.",
+  "measurement_limits": "No human reader study, causal learning measurement, or corpus-average score was used to validate editorial preferences."
+}

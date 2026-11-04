@@ -1,0 +1,18 @@
+[
+  {
+    "recorded_at": "2026-11-04T14:11:30.339967+00:00",
+    "kind": "mechanical_quote_erratum",
+    "unit_id": "RR10-U01500",
+    "original_row_preserved": true,
+    "original_quote": "**An exact four-candidate example.**  Let the candidates be $s,a,b,c$,\nso that $T=\\lceil\\log_2(4000)\\rceil=12$ and\n$\\varepsilon=1/12000$.",
+    "original_line_start": 2383,
+    "original_line_end": 2388,
+    "reason": "The logging helper removed an inline HTML claim marker, joining two otherwise exact source spans. The resulting quote is not a literal substring of the raw Markdown. No encounter interpretation or issue was changed.",
+    "corrected_locator": {
+      "line_start": 2385,
+      "line_end": 2385,
+      "quote": "**An exact four-candidate example.** <!-- claim:r3-q-cyclic-example --> Let the candidates be $s,a,b,c$,"
+    },
+    "interpretation_change": null
+  }
+]

@@ -1,0 +1,38 @@
+ 2 fails a domain-output test at every address although all its gate equations are satisfied, and every pointer it directs into column 1 also reaches a one.
+
+[B0596 L1941-1941]
+**Finite-check evidence.** The checker evaluates the partial function from the integer expression (4.7) and the Boolean circuit separately, and compares them on all 256 eight-bit inputs. It also checks all 16 candidate pairs on the board against (4.5), each of the 360 single-bit changes to the selected transcripts, and six witnesses showing that every coordinate of a two-bit-pointer/four-bit-target lookup is essential; the preserved round-three output records these checks as passing.
+
+[B0597 L1943-1943]
+A second board in the output isolates the domain test. Its off-promise column is all ones, stores the true transcripts and has pointers reaching zeros in all other columns, so at the address named by its value-output bits every test except one domain-output test passes. Without the domain tests this column would be accepted incorrectly; with the full test list the board has no winner and the function is zero.
+
+[B0598 L1945-1946]
+The full gate list, complete base board, selected transcripts, test counts and construction of the second board are in [examples/circuit.json](../research/returns/round3/members/04_addressed_construction/examples/circuit.json), [examples/board.json](../research/returns/round3/members/04_addressed_construction/examples/board.json), and [examples/output.json](../research/returns/round3/members/04_addressed_construction/examples/output.json). From the directory of [the preserved construction return](../research/returns/round3/members/04_addressed_construction/), run [`python3 examples/check_example.py`](../research/returns/round3/members/04_addressed_construction/examples/check_example.py) to reproduce the output with the Python standard library and exact integer or rational arithmetic. These finite computational checks are separate from the general proofs above and from the supplied Lean evidence.
+<!-- /passage:AC-example-tests -->
+
+[B0599 L1948-1948]
+### 4.5. Remark: depth and support of a pointer test
+
+[B0600 L1950-1952]
+<a id="AC-pointer-support"></a>
+<!-- passage:AC-pointer-support -->
+The pointer bound measures adaptive depth; it does not give a fixed set of only $\ell+1$ input coordinates on which the test depends. For one pointer test, the complete relevant coordinate set consists of the $\ell$ pointer bits and all $m$ bits of the target column, and each of them is essential when $\ell\geq1$.
+
+[B0601 L1954-1954]
+For a target bit, we set the pointer to that row, hold every other coordinate fixed and flip the selected bit; the test changes. For a pointer bit, we choose two pointer words differing only in that bit, which the pointer bijection sends to distinct rows, assign different Boolean values to those two target bits and hold all other physical coordinates fixed; changing the chosen pointer bit then changes the test. Thus the support is exactly $m+\ell$, although every evaluation path reads only $\ell+1$ bits.
+
+[B0602 L1956-1957]
+In the four-column example a pointer test has six essential coordinates and depth three. The preprint states the lookup bound as a bound on adaptive depth [OpenAI2026, Lemma 2.2, p. 6], so its statement stands as written; the support count matters only for reading the formal statement of Lemma 2.2 in Appendix G.6.
+<!-- /passage:AC-pointer-support -->
+
+[B0603 L1959-1959]
+### 4.6. Coherent evaluation of an arbitrary test index
+
+[B0604 L1961-1961]
+The final verifier searches over local tests in superposition. It needs one reversible evaluator controlled by the test index, including its inverse; a separate classical evaluation for each index would not specify that operation.
+
+[B0605 L1963-1966]
+<a id="CL-coherent-tests"></a>
+<a id="AC-coherent"></a>
+<!-- passage:AC-coherent -->
+Fix $(i,s)$ and hold the test label $e$ in a register. A single coherent implementation evaluates all tests on any superposit

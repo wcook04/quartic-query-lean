@@ -1,0 +1,129 @@
+ dom P, which is in particular nonempty, such that every deterministic tree of depth <=L has success probability <=2/3 under mu.
+
+[B1686 L5189-5189]
+**Argument:** [§6.2](#CL-minimax).
+
+[B1687 L5191-5191]
+<!-- /passage:CAT-claim-minimax-mu -->
+
+[B1688 L5193-5193]
+#### claim-address-guess
+
+[B1689 L5195-5197]
+<a id="CAT-claim-address-guess"></a>
+<!-- passage:CAT-claim-address-guess -->
+<!-- claim:claim-address-guess -->
+
+[B1690 L5199-5199]
+> Under mu from claim-minimax-mu, for U_1,...,U_r iid mu, every classical algorithm making at most L queries to each U_h, given information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=(2/3)^r.
+
+[B1691 L5201-5201]
+**Argument:** [§6.2](#CL-address-guess).
+
+[B1692 L5203-5203]
+<!-- /passage:CAT-claim-address-guess -->
+
+[B1693 L5205-5205]
+### B.8. Planting, discoveries and truncation
+
+[B1694 L5207-5207]
+Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-bound row (19) needs a conjunction theorem; a stronger probability inequality alone does not cover its equality clause. The independently uniform column is essential to that equality, as the finite selection example shows. The early/late proof of $\mathbb E Z$ and the stronger alternative search proof remain different arguments; formal support for the alternative estimate does not formalize the early/late decomposition. Likewise, the planted-average definition accepts a transcript chooser, so correctness of that transcript is an additional separately proved property. The arbitrary independent information in the address guess has the finite-seed boundary described in B.7. Signed and absolute-gap versions are distinguished in the entries and their correspondence.
+
+[B1695 L5209-5209]
+#### eq-17
+
+[B1696 L5211-5213]
+<a id="CAT-eq-17"></a>
+<!-- passage:CAT-eq-17 -->
+<!-- claim:eq-17 -->
+
+[B1697 L5215-5215]
+> G = floor(mL/100).
+
+[B1698 L5217-5217]
+**Argument:** [§6.3](#CL-generic-statement).
+
+[B1699 L5219-5219]
+<!-- /passage:CAT-eq-17 -->
+
+[B1700 L5221-5221]
+#### def-dummy
+
+[B1701 L5223-5225]
+<a id="CAT-def-dummy"></a>
+<!-- passage:CAT-def-dummy -->
+<!-- claim:def-dummy -->
+
+[B1702 L5227-5227]
+> Dummy input Y^(0): independently for each i, J_i uniform in [m], X_i has a single 0 at position J_i. All A_{i,h} are iid mu independent of the J_i. All cells B_{i,s} are one fixed blank pattern.
+
+[B1703 L5229-5229]
+**Argument:** [§6.3](#CL-dummy).
+
+[B1704 L5231-5231]
+<!-- /passage:CAT-def-dummy -->
+
+[B1705 L5233-5233]
+#### def-planted
+
+[B1706 L5235-5237]
+<a id="CAT-def-planted"></a>
+<!-- passage:CAT-def-planted -->
+<!-- claim:def-planted -->
+
+[B1707 L5239-5239]
+> I is uniform in [m] and independent of Y^(0). Y^(1) is Y^(0) with X_I:=1^m and B_{I,s_I} filled with the correct transcripts and pointers p_{I,s_I,j}=J_j for j != I.
+
+[B1708 L5241-5241]
+**Argument:** [§6.3](#CL-planted).
+
+[B1709 L5243-5243]
+<!-- /passage:CAT-def-planted -->
+
+[B1710 L5245-5245]
+#### claim-Y-values
+
+[B1711 L5247-5249]
+<a id="CAT-claim-Y-values"></a>
+<!-- passage:CAT-claim-Y-values -->
+<!-- claim:claim-Y-values -->
+
+[B1712 L5251-5251]
+> F_{k,m}(Y^(0))=0 and F_{k,m}(Y^(1))=1 for all sample points.
+
+[B1713 L5253-5253]
+**Argument:** [§6.3](#CL-planted).
+
+[B1714 L5255-5255]
+<!-- /passage:CAT-claim-Y-values -->
+
+[B1715 L5257-5257]
+#### eq-18
+
+[B1716 L5259-5261]
+<a id="CAT-eq-18"></a>
+<!-- passage:CAT-eq-18 -->
+<!-- claim:eq-18 -->
+
+[B1717 L5263-5263]
+> For a deterministic algorithm with at most G queries, |Pr[outputs 1 on Y^(1)]-Pr[outputs 1 on Y^(0)]| <= Pr(the dummy run queries X_I[J_I]) + Pr(the dummy run queries any bit of B_{I,s_I}).
+
+[B1718 L5265-5265]
+**Argument:** [§6.3](#CL-first-difference).
+
+[B1719 L5267-5267]
+<!-- /passage:CAT-eq-18 -->
+
+[B1720 L5269-5269]
+#### def-Z
+
+[B1721 L5271-5273]
+<a id="CAT-def-Z"></a>
+<!-- passage:CAT-def-Z -->
+<!-- claim:def-Z -->
+
+[B1722 L5275-5275]
+> Z is the number of columns whose zero is discovered in the dummy run.
+
+[B1723 L5277-5277]
+**Argument:** [§6.4](#CL-early-late), [§6.4](#CL-erased-zero-ident

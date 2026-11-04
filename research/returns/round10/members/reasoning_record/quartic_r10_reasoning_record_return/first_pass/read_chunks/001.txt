@@ -1,0 +1,58 @@
+[B0566 L1834-1839]
+| Column $i$ | $X_i$ | $A_{i,1}$ | $A_{i,2}$ | True address |
+|---:|---|---|---|---|
+| $1$ | $1111$ | $00000000$ | $00010010$ | $10$ |
+| $2$ | $0111$ | $11110000$ | $00010010$ | none |
+| $3$ | $1011$ | $00000000$ | $00010010$ | $10$ |
+| $4$ | $1101$ | $00000000$ | $00010010$ | $10$ |
+
+[B0567 L1841-1841]
+We encode the rows $1,2,3,4$ by $00,01,10,11$, respectively, and store in $B_{1,10}$ the true transcripts for column 1 together with the pointer words
+
+[B0568 L1843-1848]
+$$
+p_{1,10,2}=00\longmapsto1,\qquad
+p_{1,10,3}=01\longmapsto2,\qquad
+p_{1,10,4}=10\longmapsto3.
+\tag{4.8}
+$$
+
+[B0569 L1850-1850]
+The three targeted bits are $X_2[1]=X_3[2]=X_4[3]=0$, so column 1 wins at $10$. Every other column contains a zero of its own and is therefore a nonwinner. Column 2 also has an unpromised address instance; its decoder may still output any two-bit string, although that string defines no semantic true address.
+
+[B0570 L1852-1853]
+To fix every remaining input bit, use the following filling rule, implemented by the accompanying checker: every cell of each column stores the two circuit-evaluation transcripts for that column's actual strings, and every existing pointer into columns 2, 3, and 4 goes to its target column's zero row (a column has no pointer into itself). A rival's pointer into column 1 is encoded by that cell's two-bit address, so the four labels cover all four rows. Thus every stored transcript is gate-consistent; in column 2 one of the evaluated transcripts has domain output zero, and the rejection of that rival shows why the circuit needs its domain output.
+<!-- /passage:AC-example-board -->
+
+[B0571 L1855-1855]
+### 4.4. The local tests
+
+[B0572 L1857-1860]
+<a id="CL-local-tests"></a>
+<a id="AC-tests"></a>
+<!-- passage:AC-tests -->
+Fix a candidate pair $(i,s)$. We replace the partial-function conditions in (4.5) by the following tests on the stored transcripts, writing $g_e(y;i,s)=1$ when the test with label $e$ passes.
+
+[B0573 L1862-1862]
+**Column tests.** For each of the $m$ bits of $X_i$ there is one test, which reads that bit with one query and passes exactly when it is one.
+
+[B0574 L1864-1864]
+**Pointer tests.** For each of the $m-1$ other columns, a test reads the selected outward pointer in $B_{i,s}$ and checks that it reaches a zero in its designated target column. It reads the $\ell$ pointer bits, decodes the row without a query, and then reads that target bit, so its worst-case depth is $\ell+1$ although its target coordinate depends on the earlier answers.
+
+[B0575 L1866-1866]
+**Gate tests.** For each of the $r$ stored transcripts and each of its $S$ non-input gates, the test checks that the claimed output equals the gate's truth table on its two predecessors. These $rS$ tests each read the claimed value and at most two predecessor values, so each uses at most three queries; an input predecessor is read from the actual address string, a gate predecessor from the transcript, and a constant costs no query. For example, a gate $v=\operatorname{AND}(x_a,\tau_u)$ is checked by reading the actual input bit $x_a$, the earlier transcript bit $\tau_u$ and the proposed output $\tau_v$, and testing $\tau_v=x_a\land\tau_u$. A proposed value for an input wire is never trusted.
+
+[B0576 L1868-1868]
+**Output tests.** For each $h\in[r]$, one test requires the transcript's domain output to be one, and another requires its value output to equal $s_h$. These $r$ domain tests and $r$ value tests each use one query. They check the meaning of the output bits once gate consistency holds, since consistency alone says neither that the input is promised nor that its value is the chosen address bit.
+
+[B0577 L1870-1870]
+To make the index set the same for every candidate, we list the other columns in increasing order, skipping $i$, and label their pointer tests by $[m-1]$. The common test set is then
+
+[B0578 L1872-1876]
+$$
+E=[m]\;\sqcup\;[m-1]\;\sqcup\;
+\bigl([r]\times([S]\sqcup\{d,b\})\bigr).
+\tag{4.9}
+$$
+
+[B0579 L1878-1878]

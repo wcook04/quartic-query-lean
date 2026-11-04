@@ -1,0 +1,99 @@
+ over the deterministic horizon $q=1,\ldots,G$ gives $\mathbb E\sum_qE_q\le2G/m$.
+
+[B1037 L3484-3485]
+Every late discovery belongs to a column that receives at least \(m/2\) queries. Since the column query counts sum to at most \(G\), every execution has at most \(2G/m\) such columns, each contributing at most one discovery. Writing \(Z=Z_{\mathrm{early}}+Z_{\mathrm{late}}\), we obtain
+<!-- claim:claim-EZ -->
+
+[B1038 L3486-3492]
+\[
+\mathbb EZ_{\mathrm{early}}\le\frac{2G}{m},
+\qquad
+Z_{\mathrm{late}}\le\frac{2G}{m},
+\qquad
+\mathbb EZ\le\frac{4G}{m}.
+\]
+
+[B1039 L3493-3494]
+Combined with the selection identity, this proves the full display of the preprint:
+<!-- claim:eq-19 -->
+
+[B1040 L3495-3500]
+\[
+\Pr[T\text{ on }Y^{(0)}\text{ queries }X_I[J_I]]
+=\frac{\mathbb EZ}{m}
+\le\frac{4G}{m^2}.
+\tag{19}
+\]
+
+[B1041 L3501-3502]
+The identity and the search estimate prove separate parts of (19). [Appendix G.8](#CL-formal-scope) records which formal declarations establish them and which proof route they use.
+<!-- /passage:CL-early-late -->
+
+[B1042 L3504-3504]
+This proves (19), and the proof of Proposition 4.2 continues in [§6.5](#CL-heavy). The rest of §6.4 gives two optional estimates for the same term: the search induction behind the formal endpoint, which improves the coefficient four to two, and a further expectation-cost refinement.
+
+[B1043 L3506-3506]
+#### Optional: alternative search estimates for the erased zero
+
+[B1044 L3508-3510]
+<a id="CL-zero-worlds"></a>
+<!-- passage:CL-zero-worlds -->
+**An alternative search estimate.** Fix a column $i$ and every input bit except its $X_i$ string, including its own $A$ and $B$ fields. For each possible zero position $j$, let $x^j$ have its unique $X_i$ zero at $j$; these worlds agree on every other bit. For $U\subseteq[m]$, let $D_U(T)$ count the worlds $j\in U$ in which $T(x^j)$ queries that zero, and let $Q_U(T)$ count only queries to $X_i$ over those worlds, including repetitions and calls after discovery. In the induction below, a query outside this column means outside its $X_i$ string.
+
+[B1045 L3512-3513]
+We prove by induction on \(T\) that
+<!-- claim:NCL-zero-worlds -->
+
+[B1046 L3514-3516]
+\[
+|U|D_U(T)\le2Q_U(T).
+\]
+
+[B1047 L3517-3517]
+At a leaf both counts are zero. At a query outside the column, all worlds take the same subtree and incur no column query, so the induction hypothesis for that subtree applies. At a column query to \(p\notin U\), all worlds take the answer-one subtree and each incurs one additional query, so the inequality follows again.
+
+[B1048 L3519-3519]
+If \(p\in U\), put \(V=U\setminus\{p\}\), \(n=|V|\), and write \(d=D_V(T_1)\), \(q=Q_V(T_1)\) for the answer-one subtree. Then \(nd\le2q\) by induction, and \(d\le n\). World \(p\) finds its zero immediately and all \(n+1\) worlds pay the root query, so
+
+[B1049 L3520-3522]
+\[
+D_U(T)=1+d,\qquad Q_U(T)\ge n+1+q,
+\]
+
+[B1050 L3523-3523]
+and
+
+[B1051 L3524-3529]
+\[
+(n+1)(1+d)=nd+n+d+1
+\le2q+2n+1
+\le2(q+n+1)
+\le2Q_U(T).
+\]
+
+[B1052 L3530-3531]
+This proves the inequality for every set, including \(U=\varnothing\), and for runs that may continue after finding the zero.
+<!-- /passage:CL-zero-worlds -->
+
+[B1053 L3533-3535]
+<a id="CL-zero-average"></a>
+<!-- passage:CL-zero-average -->
+We take \(U=[m]\) and average uniformly over its \(m\) worlds; the preceding inequality then says that this column's discovery probability is at most \(2/m\) times its expected query count. We then average over the independent outside data and sum over the columns. If \(Q_X\) is the total number of queries to the \(X\)-bits, then \(Q_X\le G\) on every run, so
+
+[B1054 L3536-3538]
+\[
+\mathbb EZ\le\frac{2}{m}\mathbb E Q_X\le\frac{2G}{m}.
+\]
+
+[B1055 L3539-3540]
+The selection identity now yields
+<!-- claim:NCL-erased-zero-two -->
+
+[B1056 L3541-3544]
+\[
+\Pr[T\text{ on }Y^{(0)}\text{ queries }X_I[J_I]]
+\le\frac{2G}{m^2}.
+\]
+
+[B1057 L3545-3546]
+This stronger endpoint has a different proof, so its formal version is silent on whether the early/late decomposition

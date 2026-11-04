@@ -1,0 +1,462 @@
+{
+  "schema_version": 1,
+  "research_role": "retrospective passage-specific literature comparison",
+  "research_date": "2026-11-04",
+  "target": {
+    "path": "input/repository/docs/exposition.md",
+    "sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+    "read_scope": "Selected passages described in the comparison memo; not an independent second complete chronological pass."
+  },
+  "instructions_consulted": [
+    "input/READ_ME_FIRST.md",
+    "input/literature_standard.md",
+    "input/LITERATURE_COVERAGE.json",
+    "input/SUPPLEMENTARY_LITERATURE.json"
+  ],
+  "coverage_boundary": "Inventory presence is not a claim that a source was read. Supplied extraction, supplied original, live HTML, arXiv version, and journal edition are distinguished. Parent-reported sources are not counted as independent child reads.",
+  "external_verbatim_words_total": 0,
+  "sources": [
+    {
+      "id": "LC-KLR",
+      "title": "Mathematical Writing",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "Stanford CS-TR-87-1193; autumn 1987 course report",
+      "url": "https://www-cs-faculty.stanford.edu/~knuth/papers/cs1193.pdf",
+      "local_files": [
+        {
+          "path": "writing_literature/knuth-larrabee-roberts-mathematical-writing/source.pdf",
+          "sha256": "646072129e5c74443447d5de1f8343626bcb7cdefb97758721d3ec15d044f5e0",
+          "bytes": 4783300
+        },
+        {
+          "path": "writing_literature/knuth-larrabee-roberts-mathematical-writing/extracted.md",
+          "sha256": "18afa1384daa525dd248387ab914e5c152a03406962b8d01452166932773e6be",
+          "bytes": 376226
+        }
+      ],
+      "read_scope": [
+        "Section 1, items 5–14, printed pp. 2–3; extracted lines approximately 151–223",
+        "Section 10, printed pp. 20–21; extracted lines approximately 1021–1094"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [],
+      "application": "Reader-state motivation, notation continuity, algorithm purpose and invariants.",
+      "limitations": "General writing guidance; not mathematical evidence for query bounds. OCR occasionally corrupts notation. Rendered PDF pages 7–8 were not visually read and are not counted.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-SU",
+      "title": "Guidelines for Good Mathematical Writing",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "Updated 18 August 2020; three pages",
+      "url": "https://math.hmc.edu/su/wp-content/uploads/sites/10/2020/08/Guidelines-for-Good-Mathematical-Writing.pdf",
+      "local_files": [
+        {
+          "path": "writing_literature/su-mathematical-writing-2020/source.pdf",
+          "sha256": "b1ece2b233160479c49237bda4b8928cec1a946db90e939afd463e082f4ebd02",
+          "bytes": 110818
+        },
+        {
+          "path": "writing_literature/su-mathematical-writing-2020/extracted.md",
+          "sha256": "3578bbd0f91a4b65390e28f2bfac64f0737c1df39350ddc9b3dfa91e9887aac1",
+          "bytes": 11256
+        }
+      ],
+      "read_scope": [
+        "pp. 1–3: audience, distance worked example, structure and running-example guidance"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [],
+      "application": "Allocate detail to interpretation and new operations; do not equate rigor with maximal algebraic display.",
+      "limitations": "A general teaching/writing example, not evidence of this exposition’s observed learning outcomes.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-CHILDS",
+      "title": "Lecture Notes on Quantum Algorithms",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "Title-page date 17 April 2025, verified in supplied text",
+      "url": "https://www.cs.umd.edu/~amchilds/qa/qa.pdf",
+      "local_files": [
+        {
+          "path": "writing_literature/childs-quantum-algorithms-2025/source.pdf",
+          "sha256": "6e3a32f0aede35e954d665c909fec41f716b955f041957e723e2724ae3efabd1",
+          "bytes": 1438768
+        },
+        {
+          "path": "writing_literature/childs-quantum-algorithms-2025/extracted.md",
+          "sha256": "cc8d1e80ddc38938d89a037c2ddd289f3d0b7105a8f75d5b1e2a5579c625f351",
+          "bytes": 674805
+        }
+      ],
+      "read_scope": [
+        "Preface audience statement",
+        "Section 1.4, printed pp. 2–3; extracted lines 352–381"
+      ],
+      "skim_scope": [
+        "Sections 1.1–1.3 orientation"
+      ],
+      "visual_inspection": [],
+      "application": "Reversible computation by retained history; explanation next to the operation using A and its inverse.",
+      "limitations": "Author URL is mutable. Supplied 2025 snapshot was read; no claim about the current URL. Cleaning workspace is not a required defect repair.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-AMBAINIS",
+      "title": "Understanding Quantum Algorithms via Query Complexity",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "arXiv:1712.06349v1, 18 December 2017; supplied header verified",
+      "url": "https://arxiv.org/pdf/1712.06349v1",
+      "local_files": [
+        {
+          "path": "writing_literature/ambainis-query-survey-1712.06349v1/source.pdf",
+          "sha256": "6d2bfa659d7d29617635627ec6ab998b984cec6b5c8ef5cca8db69e226f40f80",
+          "bytes": 499005
+        },
+        {
+          "path": "writing_literature/ambainis-query-survey-1712.06349v1/extracted.md",
+          "sha256": "891704a5ea685f0556883f843741a0153096766785d46037885e832704f425fd",
+          "bytes": 58743
+        }
+      ],
+      "read_scope": [
+        "Section 2.1, printed pp. 3–4; extracted lines approximately 118–199",
+        "Section 4 pointer-function discussion and Theorem 4 neighborhood, printed pp. 10–11; extracted lines approximately 427–551"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [],
+      "application": "Specify task/model and accepting structure before certificate consequences and candidate elimination.",
+      "limitations": "Its chained pointer function differs from the draft’s direct-pointer addressed arrays. Historical bounds are not current-status evidence.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-BHMT",
+      "title": "Quantum Amplitude Amplification and Estimation",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "arXiv:quant-ph/0005055v1, 15 May 2000; title-page date 2 May 2000",
+      "url": "https://arxiv.org/pdf/quant-ph/0005055v1",
+      "local_files": [
+        {
+          "path": "writing_literature/bhmt-amplification-quant-ph-0005055v1/source.pdf",
+          "sha256": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278",
+          "bytes": 295305
+        },
+        {
+          "path": "writing_literature/bhmt-amplification-quant-ph-0005055v1/extracted.md",
+          "sha256": "b54095d2d599d14a5e6f297fb91e6cb1c99843987dd88607242565ec9811627a",
+          "bytes": 79335
+        }
+      ],
+      "read_scope": [
+        "Section 2, printed pp. 4–10: preparation/inverse, Lemma 1, Eq. (8), Theorem 3 and QSearch; extracted lines approximately 140–401"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [
+        "Original supplied PDF p. 5: operator and invariant-plane statement",
+        "Original supplied PDF p. 7: Eq. (8) and QSearch neighborhood"
+      ],
+      "application": "Good/bad invariant subspace and preservation of normalized good state; contrast expected stopping with fixed cap.",
+      "limitations": "QSearch does not terminate at success probability zero. Its expected-cost guarantee cannot replace the draft’s every-input fixed cap. No claim to have re-proved every amplification bound.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-DRUCKER",
+      "title": "Improved Direct Product Theorems for Randomized Query Complexity",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "arXiv:1005.0644v2, 9 May 2014; supplied header verified",
+      "url": "https://arxiv.org/pdf/1005.0644v2",
+      "local_files": [
+        {
+          "path": "writing_literature/drucker-direct-product-1005.0644v2/source.pdf",
+          "sha256": "6a67da06a0f07d0f86bb6389b7143314cade50294e2c0c454f3cc9853643faff",
+          "bytes": 405185
+        },
+        {
+          "path": "writing_literature/drucker-direct-product-1005.0644v2/extracted.md",
+          "sha256": "f95f2bea6d3ef5d198442fb636b5821518fd3f6ed4241e4e9924244cc259a10e",
+          "bytes": 109433
+        }
+      ],
+      "read_scope": [
+        "Section 3, printed pp. 10–13: residual value W, Lemmas 3.1–3.2, adaptive posterior product, multiplicative argument, final fair/separate-cap comment; extracted lines approximately 451–597"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [
+        "Original supplied PDF pp. 11–12: conditional distribution and product equations"
+      ],
+      "application": "Conditional-value proof technique, posterior independence after adaptive transcripts, and precise cap distinction.",
+      "limitations": "This is the supplied 2014 arXiv edition, not verification of the cited 2012 journal pagination. Headline theorem uses a global budget; separately capped claim needs the indicated adapted argument.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-DEWOLF",
+      "title": "Quantum Computing: Lecture Notes",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "arXiv:1907.09415v6, 27 August 2026, as identified by the supplied annex/version metadata",
+      "url": "https://arxiv.org/abs/1907.09415v6",
+      "local_files": [
+        {
+          "path": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/source.tar.gz",
+          "sha256": "2ffd080924542b6de1409a1dbd73efcb85e99bc0d3cc2daac5e3eeba84ef2535",
+          "bytes": 399313
+        },
+        {
+          "path": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/extracted.md",
+          "sha256": "57b133972c5e26ceb41d46e49a77a52ef1b03e0ee522ca1534dd6e48547f7dd5",
+          "bytes": 709914
+        }
+      ],
+      "read_scope": [
+        "Chapter 7, Section 7.2: geometry/algebra and search variants, extracted lines approximately 977–1010",
+        "Chapter 7, Section 7.3: amplitude amplification, extracted lines approximately 1011–1033",
+        "Chapter 7 exercises 1–5 vicinity, extracted lines approximately 1045–1080"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [],
+      "application": "Separate rotation, unknown-probability variants, and runtime control; compare intermediate-state and iteration exercises.",
+      "limitations": "Read supplied extracted source text. The archive was not executed. No invented PDF page locators; edition/date rely on supplied version metadata rather than an independently fetched live PDF.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-PREPRINT",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "provenance": "supplied_attachment",
+      "edition_or_date": "OpenAI; supplied 5 October 2026 preprint",
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "local_files": [
+        {
+          "path": "paper/source.pdf",
+          "sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+          "bytes": 433829
+        },
+        {
+          "path": "paper/extracted.md",
+          "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+          "bytes": 64021
+        }
+      ],
+      "read_scope": [
+        "Introduction, Sections 1 and 1.1–1.3, printed pp. 1–3; extracted lines approximately 16–125"
+      ],
+      "skim_scope": [],
+      "visual_inspection": [],
+      "application": "Distinguish source theorem from exposition’s loose explicit accounting; compare expert introduction with learner sequence.",
+      "limitations": "Only the stated introductory passages were read by this child. Source preprint was supplied, not successfully retrieved live. Not independent certification of the whole result.",
+      "verbatim_words_used": 0,
+      "live_source_read": false
+    },
+    {
+      "id": "LC-HAMOUDI",
+      "title": "Query Complexity, Yassine Hamoudi",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "PDF title page: last update 24 April 2026; linked from PCMI 2023 course page",
+      "url": "https://yassine-hamoudi.github.io/files/publications/QueryComplexity.pdf",
+      "local_files": [],
+      "read_scope": [
+        "Introduction, pp. 1–2",
+        "Section 1.1 models, pp. 2–5",
+        "Section 1.2 examples and total/partial relationship, pp. 6–7"
+      ],
+      "skim_scope": [
+        "Beginning of hybrid-method discussion, p. 7"
+      ],
+      "application": "Model/task boundaries and explicit qualification of workspace simplification.",
+      "limitations": "Do not call the current PDF a 2023 edition. Its old supercubic-open remark is historical relative to the supplied October result. Memoryless notation is not an assumption to import.",
+      "web_refs": [
+        "turn7view1",
+        "turn8view0",
+        "turn9view0",
+        "turn10view0"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "used"
+    },
+    {
+      "id": "LC-HAMOUDI-P1",
+      "title": "PCMI 2023 Problem Session 1: Basics of Query Complexity & The Hybrid Method",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "PCMI 2023 header; Yassine Hamoudi, instructor; Angelos Pelecanos, TA",
+      "url": "https://yassine-hamoudi.github.io/files/pcmi2023/Problems1.pdf",
+      "local_files": [],
+      "read_scope": [
+        "All two pages: error reduction/alphabet; phase queries and parity; sensitivity/certificate/complexity relations"
+      ],
+      "skim_scope": [],
+      "application": "Reuse an operation in a changed setting; motivates a quantitative transfer task.",
+      "limitations": "Exercises are pedagogical analogy, not evidence for the new family.",
+      "web_refs": [
+        "turn7view2",
+        "turn11view0"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "used",
+      "precise_exercise_locators": [
+        "Problem 2, p.1",
+        "Problem 3, pp.1–2"
+      ]
+    },
+    {
+      "id": "LC-IBM-SEARCH",
+      "title": "IBM Quantum Learning: Fundamentals of Quantum Algorithms — Unstructured search",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "Live HTML, no immutable edition/date established",
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/grover-algorithm/unstructured-search",
+      "local_files": [],
+      "read_scope": [
+        "Task definitions, Search/UniqueSearch distinctions, query formulation"
+      ],
+      "skim_scope": [],
+      "application": "Define the output task before giving the algorithm.",
+      "limitations": "No publication date or independently verified named authorship is asserted.",
+      "web_refs": [
+        "turn14view1"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "used"
+    },
+    {
+      "id": "LC-IBM-ALGORITHM",
+      "title": "IBM Quantum Learning: Fundamentals of Quantum Algorithms — Grover algorithm description",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "Live HTML, no immutable edition/date established",
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/grover-algorithm/grover-algorithm-description",
+      "local_files": [],
+      "read_scope": [
+        "Algorithm-description page: phase query, input-independent reflection, initialize/iterate/measure, query count"
+      ],
+      "skim_scope": [],
+      "application": "Separate operational interface from iteration analysis.",
+      "limitations": "Page concerns ordinary unstructured search; not the draft’s weighted sampler.",
+      "web_refs": [
+        "turn14view0"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "used"
+    },
+    {
+      "id": "LC-IBM-ANALYSIS",
+      "title": "IBM Quantum Learning: Fundamentals of Quantum Algorithms — Analysis",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "Live HTML, no immutable edition/date established",
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/grover-algorithm/analysis",
+      "local_files": [],
+      "read_scope": [
+        "Sections on solution/non-solution states, initial-state decomposition, action on the two-dimensional space, and geometric interpretation; substantive lines approximately 20–262"
+      ],
+      "skim_scope": [],
+      "application": "Define normalized subspaces and operator action before geometric explanation.",
+      "limitations": "Uniform marked-state example cannot substitute for nonuniform label masses plus retained workspace. No claim that a further iteration-count page was read.",
+      "web_refs": [
+        "turn19view0",
+        "turn20view0"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "used"
+    },
+    {
+      "id": "LC-IBM-CLASSROOM",
+      "title": "IBM Quantum Learning Qiskit in Classrooms — Grover’s algorithm module",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "Live HTML; no immutable publication date established",
+      "url": "https://quantum.cloud.ibm.com/learning/en/modules/computer-science/grovers",
+      "local_files": [],
+      "read_scope": [
+        "Introduction, theory/two-qubit example, geometry discussion, activities and questions"
+      ],
+      "skim_scope": [],
+      "application": "Consulted while searching for teaching comparators; not a decisive recommendation source.",
+      "limitations": "No code executed; actual images not independently inspected. Informal wording not used as rigorous theorem evidence.",
+      "web_refs": [
+        "turn6view1",
+        "turn7view0",
+        "turn12view0"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "consulted_not_used_decisively"
+    },
+    {
+      "id": "LC-HAMOUDI-SOLUTIONS",
+      "title": "PCMI 2023 Solutions 1",
+      "provenance": "beyond_annex_online_primary_teaching_source",
+      "edition_or_date": "PCMI 2023; ten-page PDF",
+      "url": "https://yassine-hamoudi.github.io/files/pcmi2023/Solutions1.pdf",
+      "local_files": [],
+      "read_scope": [
+        "Problem 2 phase/parity solution neighborhood, pp. 3–4"
+      ],
+      "skim_scope": [
+        "Remaining PDF not read"
+      ],
+      "application": "Limited comparison with problem progression.",
+      "limitations": "Do not claim all ten pages were read. Not used as separate mathematical support.",
+      "web_refs": [
+        "turn7view3"
+      ],
+      "retrieved_on": "2026-11-04",
+      "verbatim_words_used": 0,
+      "live_source_read": true,
+      "decision": "consulted_not_used_decisively"
+    }
+  ],
+  "discovery_or_failed_access_only": [
+    {
+      "url": "https://yassine-hamoudi.github.io/pcmi2023/",
+      "status": "Course index read to discover linked notes and problems; not a separate substantive theorem source.",
+      "web_refs": [
+        "turn6view0",
+        "turn5search0"
+      ]
+    },
+    {
+      "url": "https://johnwatrous.github.io/books-and-courses.html",
+      "status": "Open attempt returned inaccessible; not authorship verification.",
+      "web_refs": [
+        "turn21view0"
+      ]
+    },
+    {
+      "description": "MIT/Aaronson fall-2010 course index",
+      "status": "Index only, no lecture used as evidence.",
+      "web_refs": [
+        "turn2search3",
+        "turn4view1"
+      ]
+    },
+    {
+      "description": "arXiv:2212.14205 and Daniel Grier fall-2025 notes",
+      "status": "Search discoveries only; not substantively read or used."
+    },
+    {
+      "url": "https://www.scottaaronson.com/papers/open.pdf",
+      "status": "Parent independently reported reading introduction and Section 4; not counted as child read. Parent should add its own ledger entry if used.",
+      "parent_refs": [
+        "turn17view0",
+        "turn16search4"
+      ]
+    }
+  ],
+  "path_convention": "All local source paths are relative to the supplied input archive, not this return ZIP. Content availability does not imply a read.",
+  "root_confirmation": {
+    "scope": "Parent independently opened Hamoudi model pp.1–5, Problem Session 1 and the three IBM Grover pages; the detailed source reads remain attributed to the named research roles.",
+    "attribution_boundary": "All delegated work began after the frozen primary pass. These are source verification tasks, not independent simulated reader perspectives."
+  }
+}

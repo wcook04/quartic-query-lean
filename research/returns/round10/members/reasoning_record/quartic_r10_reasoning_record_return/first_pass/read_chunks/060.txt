@@ -1,0 +1,132 @@
+ index. A self-comparison returns false without reading a pointer.
+
+[B1614 L5017-5017]
+**Argument:** [§5.3](#upper-comparator).
+
+[B1615 L5019-5019]
+<!-- /passage:CAT-def-comparison -->
+
+[B1616 L5021-5021]
+#### claim-comparison-state
+
+[B1617 L5023-5025]
+<a id="CAT-claim-comparison-state"></a>
+<!-- passage:CAT-claim-comparison-state -->
+<!-- claim:claim-comparison-state -->
+
+[B1618 L5027-5027]
+> The comparison uses c=(log m)^{O_k(1)} queries; its reversal costs the same. Measurement probabilities agree with the classical description, since later operations are controlled on the decoded registers in the computational basis. The resulting a_{ij} satisfy eq-10.
+
+[B1619 L5029-5029]
+**Argument:** [§5.3](#upper-comparator), [§5.3](#upper-comparison-law).
+
+[B1620 L5031-5031]
+<!-- /passage:CAT-claim-comparison-state -->
+
+[B1621 L5033-5033]
+#### claim-winner-dominates
+
+[B1622 L5035-5037]
+<a id="CAT-claim-winner-dominates"></a>
+<!-- passage:CAT-claim-winner-dominates -->
+<!-- claim:claim-winner-dominates -->
+
+[B1623 L5039-5039]
+> If i_* is a winner then for every j != i_*, a_{i_* j} >= 1-epsilon, on every input, whether or not the opponent's instances are defined.
+
+[B1624 L5041-5041]
+**Argument:** [§5.3](#upper-winner-dominates).
+
+[B1625 L5043-5043]
+<!-- /passage:CAT-claim-winner-dominates -->
+
+[B1626 L5045-5045]
+#### def-verify
+
+[B1627 L5047-5049]
+<a id="CAT-def-verify"></a>
+<!-- passage:CAT-def-verify -->
+<!-- claim:def-verify -->
+
+[B1628 L5051-5051]
+> verify(i): decode and measure an address s afresh. Let A prepare a uniform test index and an exact failing-test flag at (i,s), with K tests. Apply lem-3.1 with gamma=1/K and eta=epsilon. Reject if a failed test is found, otherwise accept. Output 1 iff some listed candidate is accepted.
+
+[B1629 L5053-5053]
+**Argument:** [§5.3](#upper-verifier).
+
+[B1630 L5055-5055]
+<!-- /passage:CAT-def-verify -->
+
+[B1631 L5057-5057]
+#### claim-verify
+
+[B1632 L5059-5061]
+<a id="CAT-claim-verify"></a>
+<!-- passage:CAT-claim-verify -->
+<!-- claim:claim-verify -->
+
+[B1633 L5063-5063]
+> A non-winner is accepted with probability <=epsilon, at every address. A true winner is rejected with probability <=epsilon, only by decoding error. Verification costs O(sqrt(K) log(1/epsilon) log m) = sqrt(m)(log m)^{O_k(1)} queries for the search, plus decoding.
+
+[B1634 L5065-5065]
+**Argument:** [§5.3](#upper-verification-proof).
+
+[B1635 L5067-5067]
+<!-- /passage:CAT-claim-verify -->
+
+[B1636 L5069-5069]
+#### claim-error
+
+[B1637 L5071-5073]
+<a id="CAT-claim-error"></a>
+<!-- passage:CAT-claim-error -->
+<!-- claim:claim-error -->
+
+[B1638 L5075-5075]
+> On a 0-input the error is at most T epsilon. On a 1-input it is at most 2m/2^T + T epsilon + epsilon < 1/3.
+
+[B1639 L5077-5077]
+**Argument:** [§5.5](#upper-continuation-induction), [§5.3](#upper-total-error).
+
+[B1640 L5079-5079]
+<!-- /passage:CAT-claim-error -->
+
+[B1641 L5081-5081]
+#### claim-coherent-access
+
+[B1642 L5083-5085]
+<a id="CAT-claim-coherent-access"></a>
+<!-- passage:CAT-claim-coherent-access -->
+<!-- claim:claim-coherent-access -->
+
+[B1643 L5087-5087]
+> All superposed array accesses are ordinary bit queries. The global bit index is computed reversibly; a pointer is read in O(log m) queries; a controlled query uses load, use, unload, two queries.
+
+[B1644 L5089-5089]
+**Argument:** [§5.4](#upper-oracle-access), [§5.4](#upper-read-compiler).
+
+[B1645 L5091-5091]
+<!-- /passage:CAT-claim-coherent-access -->
+
+[B1646 L5093-5093]
+#### prop-3.3
+
+[B1647 L5095-5097]
+<a id="CAT-prop-3.3"></a>
+<!-- passage:CAT-prop-3.3 -->
+<!-- claim:prop-3.3 -->
+
+[B1648 L5099-5099]
+> For every fixed k>=2, Q(F_{k,m}) <= sqrt(m) (log m)^{O_k(1)}.
+
+[B1649 L5101-5101]
+**Argument:** [§5](#upper-purpose), [§5.4](#upper-finite-budget), [§5.4](#upper-asymptotic-bound), [§5.4](#upper-explicit-log6).
+
+[B1650 L5103-5103]
+<!-- /passage:CAT-prop-3.3 -->
+
+[B1651 L5105-5105]
+### B.7. Direct product and independent information
+
+[B1652 L5107-5107]
+Section 6.1 gives both the conditional-transcript argument and the unn

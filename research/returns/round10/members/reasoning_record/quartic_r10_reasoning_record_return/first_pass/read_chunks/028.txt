@@ -1,0 +1,84 @@
+es, we truncate those branches before
+any excess query, which leaves its actual capped runs unchanged and enforces
+the cap structurally on every branch of the induced tree. Thus even a
+continuous space of independent information yields a finite mixture of
+relevant deterministic behaviors.
+
+[B0931 L3025-3035]
+For each mixture component, independence leaves the input law equal to
+$\mu^{\otimes r}$, so the success bound is $\beta^r$, and the weighted
+average obeys the same bound. The independence required is that of the
+information and the random tape, jointly, from the whole input tuple;
+independence from each input separately is too weak. For example, take
+$P(x)=x$ on one fair bit, $L=0$, and two independent inputs $X,Y$. Their
+parity $S=X\oplus Y$ is independent of each input separately, yet given $S$
+the zero-query answer $(0,S)$ is correct whenever $X=0$, that is, with
+probability $1/2$, which exceeds the bound $(1/2)^2$ for jointly independent
+information. $\square$
+<!-- /passage:CL-independent-information -->
+
+[B0932 L3037-3037]
+#### The cap-event corollary
+
+[B0933 L3039-3046]
+<a id="CL-joint-cap"></a>
+<!-- passage:CL-joint-cap -->
+**Corollary (success together with respecting the caps).** Under the
+one-input and independence hypotheses of Lemma 4.1, let $\mathcal A$ be any
+finite adaptive vector-output algorithm, which need not respect the caps on every
+run.
+Let $Q_h$ be its terminal number of queries to input $h$, counting
+repetitions, and put $E=\{Q_h\leq L\text{ for every }h\}$. Then
+
+[B0934 L3048-3048]
+<!-- claim:NCL-joint-cap -->
+
+[B0935 L3049-3052]
+\[
+ \Pr\!\left[\mathcal A(U)=P^r(U)\ \text{and}\ E\right]\leq\beta^r.
+\tag{6.7}
+\]
+
+[B0936 L3054-3063]
+We construct $\mathcal A^{\leq L}$ by following $\mathcal A$, stopping
+immediately before the first query that would make some count $L+1$, and
+outputting an arbitrary fixed vector at such a stop. The modified algorithm
+obeys every cap on every branch, including branches with inconsistent
+repeated-query answers. On $E$, every prefix count is at most the terminal
+count, so truncation never occurs and the two algorithms produce the same
+output. Hence every original run in the joint event in (6.7) is a
+successful run of $\mathcal A^{\leq L}$, and (6.1) proves (6.7). As before,
+the truncation is performed after fixing the independent information and
+coins, and the bound is then averaged. $\square$
+
+[B0937 L3065-3070]
+The event $E$ stays inside the probability in (6.7), because conditioning
+on $E$ can change both the independence of the inputs and their one-input
+difficulty. A conditional estimate proved by a separate argument would,
+after multiplication by $\Pr(E)$, bound the joint event, but the hypotheses
+of Lemma 4.1 supply no such estimate, as the following example shows.
+<!-- /passage:CL-joint-cap -->
+
+[B0938 L3072-3072]
+#### An adaptive example
+
+[B0939 L3074-3080]
+<a id="CL-adaptive-example"></a>
+<!-- passage:CL-adaptive-example -->
+Let $P(x_0,x_1)=x_0\wedge x_1$ on a uniform pair
+of bits and set $L=1$. A one-query algorithm succeeds with probability at
+most $\beta=3/4$: after reading a zero the answer is known, while after
+reading a one the other fair bit leaves maximum success $1/2$, and averaging
+gives $3/4$, which the constant answer zero also attains.
+
+[B0940 L3082-3086]
+Take independent inputs $A=(A_0,A_1)$ and $B=(B_0,B_1)$. We deliberately use a redundant query to mark runs that violate the cap. The example is an artificial test of conditioning, rather than an algorithm designed to learn efficiently. The algorithm
+queries $A_0=a$, then queries $B_a=t$, and, if $a\neq t$, queries $A_0$
+again; in every case it outputs $(0,0)$. Its second query is chosen adaptively, and
+the repeated query spends budget without gaining information. The cap event
+is $E=\{a=t\}$.
+
+[B0941 L3088-3091]
+Each row of the following table has probability $1/4$; its compatible
+inputs form the rectangle $\{A:A_0=a\}\times\{B:B_a=t\}$, so its
+conditional success is the product of the two separa

@@ -1,0 +1,76 @@
+[B1010 L3387-3390]
+\[
+F_{P,C,m}(Y^{(0)})=0,\qquad
+F_{P,C,m}(Y^{(1)})=1.
+\]
+
+[B1011 L3391-3393]
+(If the finite sums are taken over the whole input cube with \(\mu=0\) outside \(D\), as in the Lean formulation, the second assertion is needed only at sample points of positive weight.)
+<!-- claim:def-planted -->
+<!-- /passage:CL-planted -->
+
+[B1012 L3395-3397]
+<a id="CL-tiny-planted-example"></a>
+<!-- passage:CL-tiny-planted-example -->
+**A four-column instance.** To illustrate the planting operation, we temporarily take \(m=4\), \(r=2\) and \(P(a,b)=a\mathbin{\mathrm{xor}}b\) on all two-bit inputs, computed by a two-gate circuit whose domain output is \(1\) and whose value output is \(a\mathbin{\mathrm{xor}}b\), so that its transcript is \((1,P(a,b))\). This toy is an instance of the generic addressed construction, with later example query budget $4$; it is neither a Forrelation instance nor a choice satisfying $r=40t$ and $G=\lfloor mL/100\rfloor$. Rows and columns carry zero-based labels in this example. Adding one to a row or column label translates it to the convention of §4; the pointer words here encode $0,1,2,3$ directly. The same toy continues at the [capped simulator trace](#CL-simulator-example).
+
+[B1013 L3399-3399]
+We choose the zero positions and strings as follows.
+
+[B1014 L3401-3406]
+| Column \(i\) | \(J_i\) | \(X_i\) in \(Y^{(0)}\) | \(A_{i,1}\) | \(A_{i,2}\) | \(s_i\) |
+|---|---:|---|---|---|---|
+| 0 | 2 | \(1101\) | \(00\) | \(01\) | \(01\) |
+| 1 | 0 | \(0111\) | \(10\) | \(11\) | \(10\) |
+| 2 | 3 | \(1110\) | \(10\) | \(11\) | \(10\) |
+| 3 | 1 | \(1011\) | \(01\) | \(10\) | \(11\) |
+
+[B1015 L3408-3408]
+We plant column \(I=1\). Its string becomes \(1111\), and cell \(B_{1,10}\) receives transcripts \((1,1)\) and \((1,0)\) together with pointers into columns \(0,2,3\) with values \(2,3,1\), encoded as \(10,11,01\). These point to the displayed zeros, so the planted input has value one; all other cells remain blank.
+
+[B1016 L3410-3411]
+**Finite-check evidence.** The files [checks/planted_example.py](../research/returns/round3/members/07_planted_lower_bound/checks/planted_example.py) and [checks/planted_example.json](../research/returns/round3/members/07_planted_lower_bound/checks/planted_example.json) implement all 192 physical bit coordinates of this toy and evaluate its winning predicate directly.
+<!-- /passage:CL-tiny-planted-example -->
+
+[B1017 L3413-3415]
+<a id="CL-first-difference"></a>
+<!-- passage:CL-first-difference -->
+The two coupled inputs can differ only at \(X_I[J_I]\) and inside \(B_{I,s_I}\). Until \(T\) receives different answers on the two inputs, its histories coincide, and so do its next query and stopping decision. Hence, if the dummy execution never queries a differing bit, the two executions end at the same leaf.
+
+[B1018 L3417-3417]
+Since the outputs are Boolean,
+
+[B1019 L3418-3422]
+\[
+\left|\mathbb E T(Y^{(1)})-\mathbb E T(Y^{(0)})\right|
+\le\mathbb E\left|T(Y^{(1)})-T(Y^{(0)})\right|
+=\Pr[T(Y^{(1)})\ne T(Y^{(0)})].
+\]
+
+[B1020 L3423-3424]
+The preceding first-difference implication and a union bound therefore give
+<!-- claim:eq-18 -->
+
+[B1021 L3425-3434]
+\[
+\begin{aligned}
+\left|\Pr[T(Y^{(1)})=1]-\Pr[T(Y^{(0)})=1]\right|
+&\le
+\Pr[T\text{ on }Y^{(0)}\text{ queries }X_I[J_I]]\\
+&\quad+
+\Pr[T\text{ on }Y^{(0)}\text{ queries a bit of }B_{I,s_I}].
+\end{aligned}
+\tag{18}
+\]
+
+[B1022 L3435-3436]
+Inequality (18) is the absolute-value form of the preprint's one-sided first-difference comparison. Its second term counts any visit to the cell, which bounds the event of seeing a changed cell bit (some planted bits can equal their blank values). Every event on the right concerns the dummy run, whose law is independent of \(I\).
+<!-- /passage:CL-first-difference -->
+
+[B1023 L3438-3438]
+### 6.4. Discoveries and the erased zero
+
+[B1024 L3440-3443]
+<a id="CL-erased-zero-identity"></a>
+<!-- passage:CL-erased-zero-identity -->
+Let \(Z\) count the columns whose unique zero is queried during the complete dummy run:

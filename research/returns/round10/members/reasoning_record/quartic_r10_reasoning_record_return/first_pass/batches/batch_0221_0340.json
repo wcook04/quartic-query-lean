@@ -1,0 +1,109 @@
+{
+  "batch_id": "batch_0221_0340",
+  "first_block": 221,
+  "last_block": 340,
+  "line_start": 657,
+  "line_end": 1044,
+  "recorded_at": "2026-11-04T13:40:10.674180+00:00",
+  "notes": {
+    "222": "The coherent output follows the same binomial threshold law as measured trials.",
+    "223": "Polynomial endpoint conventions give a normalized law even off promise.",
+    "225": "The query cap is k times the explicit repetition count.",
+    "226": "Q_eta extends the same all-input cap convention.",
+    "227": "The printed implementation and formal implementation differ by a factor-two physical-query cost.",
+    "228": "The projection and interference experiments have distinct acceptance laws and credits.",
+    "231": "Arithmetic preserves residues first and interprets only final comparison signs.",
+    "234": "Walsh recursion uses sums and differences of smaller transforms.",
+    "235": "Each transform uses m log2 m scalar operations.",
+    "236": "Ideal intermediate integers have polynomial bit length.",
+    "237": "Stored modular residues need not be signed intermediate values.",
+    "238": "A five-gate full adder proves modular addition by carry identities.",
+    "239": "Conditional xor and carry implement subtraction and sign multiplication.",
+    "241": "Exact gate charges include unoptimized conditional-adder overhead.",
+    "243": "Walsh cost satisfies an explicit operation bound.",
+    "244": "The recurrence preserves the numerator modulo the word size.",
+    "245": "Final-sign recovery chooses one common word size.",
+    "248": "Three integers encode the positive and small-absolute-value tests.",
+    "249": "The numerator bound places all three comparisons inside the signed range.",
+    "251": "High bits recover the comparison predicates.",
+    "252": "Three output gates combine endpoint-inclusive tests.",
+    "253": "Exact integer outputs do not rely on floating-point arithmetic.",
+    "254": "Word size and transform operation count imply the circuit asymptotic size.",
+    "257": "The circuit-size coefficient is made explicit.",
+    "258": "Constructor accounting includes sign layers, doublings, comparisons and output gates.",
+    "260": "An exact displayed expression counts the implemented gate list.",
+    "261": "Elementary bounds reduce the gate count to a quadratic function of k times m log²m.",
+    "262": "The estimate337 is rounded to the convenient800 in t-coordinates.",
+    "264": "The cost identity is a printed derivation, not a newly compiled formal theorem.",
+    "266": "The circuit's domain bit is exact and its value is correct on that domain.",
+    "267": "Gate-order induction proves every locally consistent transcript is the unique circuit evaluation.",
+    "270": "The finite census tests sign and normalization; endpoint proofs remain general.",
+    "272": "An explicit Walsh matrix and sign vector make the smallest instance computable.",
+    "275": "Three rows compare exact promise membership to squared-projection behavior.",
+    "276": "Large negative correlation is accepted by the quantum experiment but rejected by the exact domain bit.",
+    "277": "Even-parity second blocks are signed Walsh rows and contribute ±4 numerators.",
+    "278": "Odd-parity second blocks give twice sums of four signs.",
+    "279": "The census combines five numerator multiplicities to256 inputs.",
+    "282": "There are104 yes,48 no and104 undefined inputs.",
+    "283": "Finite semantic checks are separate from parameterized proofs.",
+    "285": "The hardness section restates its input, promise and normalization for independent access.",
+    "288": "Walsh orthogonality again bounds Forrelation by one.",
+    "292": "The promise convention and all-input randomized cap are restated.",
+    "293": "Fixed-k hardness is the local theorem.",
+    "295": "The lower bound exceeds the floored allowance.",
+    "296": "The explicit threshold is13669k².",
+    "299": "The literature bound has polynomial k dependence and a different logarithmic loss.",
+    "300": "A fixed-k ratio compares that bound to the allowance.",
+    "301": "The ratio grows like a positive power of log m.",
+    "302": "The published implication is separated from an audited proof-display mismatch.",
+    "303": "The direct proof compares uniform signs with rounded correlated Gaussians through a first-block interpolation.",
+    "304": "Promise leakage requires amplification before translating mean separation into hardness.",
+    "305": "The proof dependency chain names derivative, tree and moment estimates.",
+    "306": "The proof credits Gaussian chains and decision-tree martingales while specifying its algebraic truncation and interpolation changes.",
+    "310": "The multilinear extension is a product-bias expectation.",
+    "311": "On the bias cube it is an expectation; outside it remains a polynomial.",
+    "313": "A normalized discrete difference removes dependence on its differentiated coordinate.",
+    "316": "Discrete differences commute and match polynomial derivatives; repeated coordinates vanish.",
+    "317": "A two-coordinate monomial illustrates all derivative conventions.",
+    "319": "Centered derivative characters divide by variance rather than its square root.",
+    "323": "Raw derivatives are expectations against centered characters bounded by2 on half-biases.",
+    "324": "The method uses raw derivatives instead of an orthonormal biased Fourier basis.",
+    "326": "A bounded bias transform must support integration by parts.",
+    "328": "Explicit algebraic functions define the bias and its kernel.",
+    "330": "Differentiation gives phi=xPsi−Psi prime.",
+    "331": "Oddness and a squared polynomial identity bound the bias by one half.",
+    "335": "The product kernel is at most3/16.",
+    "336": "The sharp kernel bound is attained at zero.",
+    "337": "Gaussian density converts the algebraic relation into an integration identity.",
+    "339": "The integration identity moves phi onto a derivative with kernelPsi.",
+    "340": "Boundedness justifies vanishing boundaries and later iterated Gaussian expectations."
+  },
+  "issues": {
+    "260": [
+      {
+        "id": "FP-011",
+        "observation": "The exact S identity is introduced as a recovered constructor count, but the reader receives only one large expression. A small accounting table assigning each summand to transforms, sign layers, final sum and comparisons would make the claimed equality reconstructible without source archaeology."
+      }
+    ],
+    "285": [
+      {
+        "id": "FP-012",
+        "observation": "The independent-entry convention repeats definition, normalization, orthogonality, promise and cap in substantial detail shortly after they were proved. Mark a short boxed 'entry assumptions' summary and refer within the complete route, keeping an optional standalone version separate if duplication is a deliberate publishing requirement."
+      }
+    ],
+    "306": [
+      {
+        "id": "FP-013",
+        "observation": "Credit and novelty appear as a long paragraph containing raw derivatives, Fourier levels and a kernel not yet defined. Separate the short provenance claim needed now from the technical comparison after F24, where the reader can evaluate it."
+      }
+    ],
+    "328": [
+      {
+        "id": "FP-014",
+        "observation": "The unusual algebraic bias transform is presented without a design derivation. The stated jobs explain why boundedness and integration by parts matter, but not why choosing Psi=1/(2sqrt(2+x²)) produces the useful phi. A short design line deriving phi=xPsi−Psi prime from the chosen kernel would improve reconstructibility without adding a theorem."
+      }
+    ]
+  },
+  "exposure": "Contiguous block outputs; oversized combined output omitted268–277 and317–318 plus326–340. Those ranges were recovered before advancing. Sentence candidate rows inherit their block commentary and are explicitly not independently written sentence observations.",
+  "summary": "Coherent decoding closes with the exact binomial output law. Circuit verification uses modular arithmetic plus final signed-range bounds, then a full four-coordinate census distinguishes positive, zero and negative correlation. The independent hardness proof restarts its definitions and lays out Gaussian-chain, derivative and martingale dependencies. Multilinear extension identities and an explicit bounded Gaussian bias transform are derived before the integration-by-parts step."
+}

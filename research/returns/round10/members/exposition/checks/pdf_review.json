@@ -1,0 +1,79 @@
+{
+  "source": "repository/docs/exposition.pdf",
+  "pages_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "render_scale": 1.25,
+  "effective_dpi": 90,
+  "pixel_size": [
+    745,
+    1053
+  ],
+  "inspection": "All 24 pages emitted and viewed sequentially in four batches of six. Text, displays, diagrams, tables, references and page transitions inspected. No thumbnail-only completeness claim.",
+  "findings": [
+    {
+      "page": 4,
+      "source_lines": [
+        88,
+        98
+      ],
+      "observation": "The displayed trajectory stops at u before the final H even though the preceding full-operation sentence includes that H. Following prose recovers the stage; labeling it would reduce stage ambiguity."
+    },
+    {
+      "page": 5,
+      "source_lines": [
+        129,
+        135
+      ],
+      "observation": "Quantitative address-hiding preview and credit discussion precede the first concrete board, which begins at the foot and continues onto page 6. The issue is instructional ordering rather than clipping."
+    },
+    {
+      "page": 13,
+      "source_lines": [
+        301,
+        303
+      ],
+      "observation": "The exact schedule with M,N and constants occupies a large paragraph between rotation-law explanation and the construction-specific search-stage guarantee."
+    },
+    {
+      "page": 22,
+      "source_lines": [
+        498,
+        512
+      ],
+      "observation": "Combined rubric appears before Question 1–5 answers on the same page; putting final synthesis feedback last would better match task order."
+    }
+  ],
+  "no_observed_visual_defects": [
+    "No clipped formula or table text in the rendered pages.",
+    "Figures 1–4 have visible labels and captions at the inspected scale.",
+    "No black-square glyph substitution observed."
+  ],
+  "scope_limits": [
+    "No browser/PDF-viewer click interactions were executed. Destinations are audited separately from raw PDF link annotations.",
+    "No PDF was edited or regenerated from source. The original PDF was rendered for inspection only."
+  ]
+}

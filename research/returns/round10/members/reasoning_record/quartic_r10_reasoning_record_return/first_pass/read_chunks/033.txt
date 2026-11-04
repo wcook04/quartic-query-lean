@@ -1,0 +1,83 @@
+\), \(t\ge1\), and \(r=40t\). Let \(P:D\to\{0,1\}\) be a partial Boolean function on a finite set of input coordinates, let \(C\) realize its promise and value, and let \(F_{P,C,m}\) be the addressed function just described. If
+
+[B0992 L3332-3334]
+\[
+1\le L\le m,\qquad L<R(P),
+\]
+
+[B0993 L3335-3336]
+then
+<!-- claim:prop-4.2-generic -->
+
+[B0994 L3337-3339]
+\[
+R(F_{P,C,m})>\left\lfloor\frac{mL}{100}\right\rfloor.
+\]
+
+[B0995 L3340-3340]
+The implication holds whatever the size of the circuit. Thus the classical lower bound pays for the hardness of the address inputs, not for the length of the certificates.
+
+[B0996 L3342-3343]
+Define the budget
+<!-- claim:eq-17 -->
+
+[B0997 L3344-3347]
+\[
+G=\left\lfloor\frac{mL}{100}\right\rfloor
+\tag{17}
+\]
+
+[B0998 L3348-3348]
+and fix a deterministic tree \(T\) of depth at most \(G\), together with the hard distribution \(\mu\) of §6.2. We construct both input distributions on one probability space.
+
+[B0999 L3350-3350]
+The zero positions $J_1,\ldots,J_m$ are independent uniform rows. They are available to the target-column simulator because they are independent of all target address strings. The address strings $A_{i,h}$ are independent samples from the one-input hard law $\mu$: the simulator receives the other columns' strings, but must query the target strings.
+
+[B1000 L3352-3352]
+True addresses and evaluated transcripts are deterministic functions of those strings. Neither the target address nor its transcript is supplied. The planted column $I$ is uniform and independent of the entire dummy input; it enters only in the final average over columns. The filled cell is derived from $I$, its true address, its evaluation transcripts and the zero positions. The simulator itself runs on the blank dummy cells.
+
+[B1001 L3354-3354]
+<!-- /passage:CL-generic-statement -->
+
+[B1002 L3356-3359]
+<a id="CL-dummy"></a>
+<!-- passage:CL-dummy -->
+For each column \(i\), we choose \(J_i\) independently and uniformly from its \(m\) rows, and in the dummy input \(Y^{(0)}\) we put
+<!-- claim:def-dummy -->
+
+[B1003 L3360-3366]
+\[
+X_i[j]=
+\begin{cases}
+0,&j=J_i,\\
+1,&j\ne J_i.
+\end{cases}
+\]
+
+[B1004 L3367-3367]
+Independently, we draw every \(A_{i,h}\) from \(\mu\) and fill every bit of every cell \(B_{i,s}\) with zero, so the blank cells reveal neither a zero location nor any value of \(P\).
+
+[B1005 L3369-3370]
+All these probability spaces are finite, so expectations are finite sums with product weights. For example, the erased-zero identity in §6.4 first fixes all dummy data and then averages the independent uniform column $I$; the simulator in §6.5 similarly fixes data independent of its target strings. In both cases we fix the other coordinates and average the remaining independent variable. Resampling a coordinate from its original law preserves the expectation, because summing first over the old coordinate gives a factor one and leaves the sum over its replacement.
+<!-- /passage:CL-dummy -->
+
+[B1006 L3372-3374]
+<a id="CL-planted"></a>
+<!-- passage:CL-planted -->
+Next we choose \(I\) uniformly from the \(m\) columns, independently of the entire dummy input, and obtain the planted input \(Y^{(1)}\) by replacing \(X_I\) by \(1^m\) and filling only \(B_{I,s_I}\). This cell receives the evaluation transcript of \(C\) on \(A_{I,h}\) in its \(h\)-th transcript field, and its pointer into column \(j\ne I\) receives the value \(J_j\). Since every \(A_{i,h}\) is promised, all true addresses exist.
+
+[B1007 L3376-3376]
+The coupling changes only the following fields.
+
+[B1008 L3378-3383]
+| Field | Dummy input $Y^{(0)}$ | Planted input $Y^{(1)}$ |
+| --- | --- | --- |
+| Address strings and other columns | Sampled once | Unchanged |
+| $X_I[J_I]$ | $0$ | $1$ |
+| Cell $B_{I,s_I}$ | All zero | True transcripts and pointers to $J_j$, $j\ne I$ |
+| Other cells | All zero | Unchanged |
+
+[B1009 L3385-3386]
+Every dummy column has a zero, while column \(I\) of the planted input meets every winning condition. Thus
+<!-- claim:claim-Y-values -->
+

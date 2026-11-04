@@ -1,0 +1,39 @@
+# Formal-methods reread
+
+This is the third specialist perspective, begun after the quantum and classical perspectives had each closed their substantive lead-paper reread. It is informed by those results and by earlier source-only inspection. It is not a blind reader or a new Lean execution. The primary chronological record remains frozen.
+
+## What the compared statement actually says
+
+The current record's §1 and Appendix G.1–G.4 were compared with the complete supplied Unconditional Challenge, Solution and Comparator configuration. The family target at Challenge lines 328–334 is a conjunction: the optimal exponent, membership of four in the universal-power set, and an eventual fixed-k family. Its order is k, then S,A,b,t0, then t, then a circuit C satisfying the realization property, the size estimate and both query bounds. The same circuit occurs in both bounds. The integer lower bound is Gvalue(m,Lvalue), not the explicit real-power coefficient printed later. The separate constants theorem in ConstructionFamily supplies the selected exponent six and coefficient 1/400. Its source header records an earlier unelaborated state; that comment alone cannot override a newer source-bound execution receipt.
+
+The Challenge contains intentional placeholders and the Solution forwards the four targets to the implementation. The Comparator configuration names exactly those four theorems, no definitions, and permits propext, quotient soundness and choice. Separate compilation tests conformity under the shared specification. It cannot establish that an incorrectly shared specification expresses the intended mathematical question. The current text explicitly states this boundary and provides independently specified finite controls.
+
+## Model and transport comparisons
+
+The domain-and-value representation agrees with the supplied public definitions: none imposes no correctness requirement, whereas totalise embeds an already total function. It is not an arbitrary completion of a partial function. The R witness is a finite positive real-weight mixture of bounded-depth trees. The ordinary finite-behavior grouping argument in §2.2 explains the passage from external randomness to this representation. The Q witness is selected before x; the explicit constant-on-promise alternative includes the empty coordinate type. Read-all witnesses, not the default value of an empty infimum, justify the minima.
+
+The actual deferred-measurement endpoint at Bridge/Deferred.lean lines 282–290 gives one enlarged workspace, entry isometry, gate sequence and accepting set before all inputs and starting vectors. It preserves accepting mass. The extra oracle-compatible embedding used in §2.5's induction explains query prepending; an accepting-mass identity alone would be too weak to identify an arbitrary retained output state. The present text does not claim that stronger conclusion.
+
+The successful-label amplifier at Upper/Amplify.lean lines 345–352 gives a failure function, its range and threshold bounds, and a Runs law. It does not identify a physical output subsystem with the original normalized successful state. The separate opaque-amplifier Challenge does give an abstract factor identity with a coordinate success predicate, uniform in the preparation after a selector is chosen. Appendix G.7 distinguishes that assertion from the still-unpackaged physical transport and explains that the headline route only needs the measured-label law. No extra formalization is needed to repair the current exposition.
+
+The complete local-test theorem at Paper/ConstructionFull.lean lines 21–69 was read with its short proof. Its same witnesses carry the exact count, size bound, all-input test equivalence, depth and retained-workspace coherent implementation. The additional essential-coordinate diagnostic is stronger than the printed adaptive-depth claim; it does not change depth into fixed support. The Eq19Whole wrapper states both the erased-zero identity and its bound for one normalized nonnegative law and one depth-capped tree. Its parameter m=2^ell is translated by ell=2t. The finite-seed cap-event Challenge bounds success together with recursive compliance. The current ordinary induction in G.8 explains compliance versus observable counts, and the text does not silently claim that this induction was compiled.
+
+The supplied TheoremA1 implementation was read completely. Its imported route gives D<=20736 Q^4 and hence the universal shifted R bound, using deferred measurement and the dependency's theorem. The printed Appendix A uses a separately described adversary route with coefficient 35^4. Agreement of the final quartic exponent is not identity of the printed and formal proof routes. The current G.9 table makes that distinction, and its entries were inspected at normal readable size on PDF page 138.
+
+## Historical evidence checked
+
+The ordinary and paranoid Unconditional receipts dated 3 November were read for their configured target lists, commands, toolchain, exit status, source hashes and execution modes. Both record successful unsandboxed historical runs; the later one has paranoid mode enabled. No command in either receipt was executed during this review.
+
+A fresh byte comparison, recorded in `checks/formal_receipt_binding.json`, found all 69 receipt-listed files present in this selected packet identical to the later receipt's hashes. The receipt lists 224 files, so 155 entries were not locally available. This verifies the overlap's bytes, not the omitted closure, the historical runtime, or mathematical correctness. Several promised linked modules, including the physical compiler and numerical upper bound, are outside the selected local source subset. Their missing local presence is an access limit, not a finding that the published links are broken. A request for the pinned public record returned DisabledError; no independent remote byte identity was established.
+
+## Editorial consequence
+
+No additional false mathematical statement or misattributed build was established by this perspective. The remaining architectural opportunity is to put the present statement inventory and one worked comparison route before the execution archive. Current Appendix F starts on PDF page 119; the useful current checking route starts on page 124 and the statement inventory on page 129. F explicitly calls itself historical, so the concern is the order and memory burden, not a misleading status assertion. Put G.1 and G.4 first, then model/transport details, then the dated archive. Keep the archive recoverable and the evidence categories distinct. This is application of the existing graph-to-long current-status-first instruction and register rule RG-21, not a demand for more formal targets.
+
+The same separation should be used locally at the sampler-to-coupling transition. Mathematical guarantees needed for the next step remain in §5; the generic formal-label notation and execution correspondence move to their existing G.7 destination. That proposal is consolidated with the quantum finding, rather than counted again for this perspective.
+
+## Read scope and limits
+
+Current lead ranges read here: lines 44–113; 155–350; 4339–4367; and 6125–6653, including all of Appendices F and G. An initially truncated G.1/G.2 output was explicitly recovered. Targeted terminal link definitions were searched. Relevant supplied source definitions had also been read in the quarantined source-only preparation; the later comparison uses actual signatures, not just names or a linkage graph. The detailed file/range inventory is in `formal_review_scope.json`.
+
+This is a selected source-and-statement comparison. It is not a complete Lean proof audit, a dependency-closure replay, or human mathematical review. The source proofs and finite controls inspected support only the observations stated above.

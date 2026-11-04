@@ -1,0 +1,98 @@
+5 L4947-4949]
+<a id="CAT-claim-coupling"></a>
+<!-- passage:CAT-claim-coupling -->
+<!-- claim:claim-coupling -->
+
+[B1586 L4951-4951]
+> Until i_* is first selected, W/m >= 1/(2m), so at each such history the sampler fails with probability <=epsilon and otherwise follows the exact ideal pivot law. The real list contains i_* except with probability <= 2m/2^T + T epsilon.
+
+[B1587 L4953-4953]
+**Argument:** [§5.2](#upper-coupling), [§5.2](#upper-tournament-evidence), [§5.5](#upper-continuation-induction).
+
+[B1588 L4955-4955]
+<!-- /passage:CAT-claim-coupling -->
+
+[B1589 L4957-4957]
+#### claim-tournament-cost
+
+[B1590 L4959-4961]
+<a id="CAT-claim-tournament-cost"></a>
+<!-- passage:CAT-claim-tournament-cost -->
+<!-- claim:claim-tournament-cost -->
+
+[B1591 L4963-4963]
+> Stage t uses O(c(t+1)) queries per call; lem-3.1 uses O(sqrt(m) log(1/epsilon)) calls; the sum over t<T is O(c sqrt(m) T^2 log T), a fixed cap on every branch.
+
+[B1592 L4965-4965]
+**Argument:** [§5.2](#upper-tournament-cost), [§5.4](#upper-finite-budget).
+
+[B1593 L4967-4967]
+<!-- /passage:CAT-claim-tournament-cost -->
+
+[B1594 L4969-4969]
+#### prop-3.2
+
+[B1595 L4971-4973]
+<a id="CAT-prop-3.2"></a>
+<!-- passage:CAT-prop-3.2 -->
+<!-- claim:prop-3.2 -->
+
+[B1596 L4975-4975]
+> Let m>=2, T=ceil(log_2(1000m)), epsilon=1/(1000T). For a coherent comparison circuit controlled by two candidate indices, reversible with all workspace retained, using at most c>=1 bit queries, with probabilities a_{ij} satisfying eq-10, there is a quantum algorithm making O(c sqrt(m) T^2 log T) queries on every branch and returning a list of at most T candidates such that, for every fixed oracle input and every i_* satisfying eq-11, the list contains i_* with probability >= 1-2m/2^T-T epsilon.
+
+[B1597 L4977-4977]
+**Argument:** [§5](#upper-purpose), [§5.2](#upper-comparison-model), [§5.2](#upper-tournament-cost), [§5.2](#upper-tournament-evidence).
+
+[B1598 L4979-4979]
+<!-- /passage:CAT-prop-3.2 -->
+
+[B1599 L4981-4981]
+### B.6. Decoding and verification
+
+[B1600 L4983-4983]
+Sections 5.3–5.4 put decoding, tournament comparison and verification into one algorithm and bound its actual cap. Several source rows describe complete procedures or their state interpretation, while their named ties expose only particular laws or numerical bounds. These partial component correspondences are compatible with the complete final quantum upper endpoint. Promise correctness and all-input budget control have different domains and are retained separately in the ordinary argument and the formal witnesses.
+
+[B1601 L4985-4985]
+#### def-decode
+
+[B1602 L4987-4989]
+<a id="CAT-def-decode"></a>
+<!-- passage:CAT-def-decode -->
+<!-- claim:def-decode -->
+
+[B1603 L4991-4991]
+> decode(i): run the algorithm of lem-2.1.ii on each A_{i,h}, h in [r], with error <= epsilon/r, retaining workspace. Output a string in {0,1}^r on every input.
+
+[B1604 L4993-4993]
+**Argument:** [§5.3](#upper-decode).
+
+[B1605 L4995-4995]
+<!-- /passage:CAT-def-decode -->
+
+[B1606 L4997-4997]
+#### claim-decode-cost
+
+[B1607 L4999-5001]
+<a id="CAT-claim-decode-cost"></a>
+<!-- passage:CAT-claim-decode-cost -->
+<!-- claim:claim-decode-cost -->
+
+[B1608 L5003-5003]
+> decode uses O_k(r log(r/epsilon)) = (log m)^{O_k(1)} queries. If all r instances are defined, the address is correct with probability >=1-epsilon. Otherwise it still returns some address.
+
+[B1609 L5005-5005]
+**Argument:** [§5.3](#upper-decode-cost).
+
+[B1610 L5007-5007]
+<!-- /passage:CAT-claim-decode-cost -->
+
+[B1611 L5009-5009]
+#### def-comparison
+
+[B1612 L5011-5013]
+<a id="CAT-def-comparison"></a>
+<!-- passage:CAT-def-comparison -->
+<!-- claim:def-comparison -->
+
+[B1613 L5015-5015]
+> Comparison of distinct columns, in sorted order: decode each in separate workspaces; read each column's pointer towards the other at its decoded address and inspect the pointed bit of the other's X string. A column disqualifies its opponent if that bit is 0. If exactly one disqualifies the other it is victorious, otherwise the smaller

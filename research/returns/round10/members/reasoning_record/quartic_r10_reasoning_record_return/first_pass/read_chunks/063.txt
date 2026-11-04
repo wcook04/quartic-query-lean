@@ -1,0 +1,174 @@
+ity).
+
+[B1724 L5279-5279]
+<!-- /passage:CAT-def-Z -->
+
+[B1725 L5281-5281]
+#### claim-uniform-zero
+
+[B1726 L5283-5285]
+<a id="CAT-claim-uniform-zero"></a>
+<!-- passage:CAT-claim-uniform-zero -->
+<!-- claim:claim-uniform-zero -->
+
+[B1727 L5287-5287]
+> Before the zero in a column is found, its location is uniform among positions of that column not yet queried, conditional on the full adaptive transcript.
+
+[B1728 L5289-5289]
+**Argument:** [§6.4](#CL-early-late).
+
+[B1729 L5291-5291]
+<!-- /passage:CAT-claim-uniform-zero -->
+
+[B1730 L5293-5293]
+#### claim-EZ
+
+[B1731 L5295-5297]
+<a id="CAT-claim-EZ"></a>
+<!-- passage:CAT-claim-EZ -->
+<!-- claim:claim-EZ -->
+
+[B1732 L5299-5299]
+> E Z <= 4G/m: an early discovery (fewer than m/2 distinct positions queried in that column before it) has probability <=2/m per query, giving <=2G/m in expectation; any other discovery lies in one of at most 2G/m columns receiving >=m/2 queries.
+
+[B1733 L5301-5301]
+**Argument:** [§6.4](#CL-early-late).
+
+[B1734 L5303-5303]
+<!-- /passage:CAT-claim-EZ -->
+
+[B1735 L5305-5305]
+#### eq-19
+
+[B1736 L5307-5309]
+<a id="CAT-eq-19"></a>
+<!-- passage:CAT-eq-19 -->
+<!-- claim:eq-19 -->
+
+[B1737 L5311-5311]
+> Pr(the dummy run queries X_I[J_I]) = E Z/m <= 4G/m^2.
+
+[B1738 L5313-5313]
+**Argument:** [§6.4](#CL-early-late), [§6.4](#CL-zero-worlds), [§6.4](#CL-zero-average).
+
+[B1739 L5315-5315]
+<!-- /passage:CAT-eq-19 -->
+
+[B1740 L5317-5317]
+#### def-heavy
+
+[B1741 L5319-5321]
+<a id="CAT-def-heavy"></a>
+<!-- passage:CAT-def-heavy -->
+<!-- claim:def-heavy -->
+
+[B1742 L5323-5323]
+> Column i is heavy if, over the entire dummy run, the algorithm makes more than L queries in total to A_{i,1},...,A_{i,r}. Repeats count.
+
+[B1743 L5325-5325]
+**Argument:** [§6.5](#CL-heavy).
+
+[B1744 L5327-5327]
+<!-- /passage:CAT-def-heavy -->
+
+[B1745 L5329-5329]
+#### eq-20
+
+[B1746 L5331-5333]
+<a id="CAT-eq-20"></a>
+<!-- passage:CAT-eq-20 -->
+<!-- claim:eq-20 -->
+
+[B1747 L5335-5335]
+> Pr(I is heavy) <= G/(mL).
+
+[B1748 L5337-5337]
+**Argument:** [§6.5](#CL-heavy).
+
+[B1749 L5339-5339]
+<!-- /passage:CAT-eq-20 -->
+
+[B1750 L5341-5341]
+#### def-simulator
+
+[B1751 L5343-5345]
+<a id="CAT-def-simulator"></a>
+<!-- passage:CAT-def-simulator -->
+<!-- claim:def-simulator -->
+
+[B1752 L5347-5347]
+> Fix i and t in {1,...,G}. A simulator receives all of the dummy input outside A_{i,1},...,A_{i,r}, runs the deterministic algorithm up to its proposed t-th query, and aborts before an (L+1)st query to those r strings in total. If it reaches time t and the proposed query is to a cell B_{i,s}, it outputs s; otherwise it outputs a fixed vector.
+
+[B1753 L5349-5349]
+**Argument:** [§6.5](#CL-simulator).
+
+[B1754 L5351-5351]
+<!-- /passage:CAT-def-simulator -->
+
+[B1755 L5353-5353]
+#### eq-21
+
+[B1756 L5355-5357]
+<a id="CAT-eq-21"></a>
+<!-- passage:CAT-eq-21 -->
+<!-- claim:eq-21 -->
+
+[B1757 L5359-5359]
+> For each i and t: Pr(i is nonheavy and the t-th query is in B_{i,s_i}) <= (2/3)^r.
+
+[B1758 L5361-5361]
+**Argument:** [§6.5](#CL-simulator), [§6.5](#CL-joint-event).
+
+[B1759 L5363-5363]
+<!-- /passage:CAT-eq-21 -->
+
+[B1760 L5365-5365]
+#### eq-22
+
+[B1761 L5367-5369]
+<a id="CAT-eq-22"></a>
+<!-- passage:CAT-eq-22 -->
+<!-- claim:eq-22 -->
+
+[B1762 L5371-5371]
+> Pr(the dummy run queries B_{I,s_I}) <= G/(mL) + G(2/3)^r.
+
+[B1763 L5373-5373]
+**Argument:** [§6.5](#CL-cell-union).
+
+[B1764 L5375-5375]
+<!-- /passage:CAT-eq-22 -->
+
+[B1765 L5377-5377]
+#### eq-23
+
+[B1766 L5379-5381]
+<a id="CAT-eq-23"></a>
+<!-- passage:CAT-eq-23 -->
+<!-- claim:eq-23 -->
+
+[B1767 L5383-5383]
+> The output-probability difference is at most 4G/m^2 + G/(mL) + G(2/3)^r.
+
+[B1768 L5385-5385]
+**Argument:** [§6.6](#CL-discrepancy).
+
+[B1769 L5387-5387]
+<!-- /passage:CAT-eq-23 -->
+
+[B1770 L5389-5389]
+#### claim-tail
+
+[B1771 L5391-5393]
+<a id="CAT-claim-tail"></a>
+<!-- passage:CAT-claim-tail -->
+<!-- claim:claim-tail -->
+
+[B1772 L5395-5395]
+> G(2/3)^r <= (1/100) m^{2-20 log_2(3/2)} = o(1).
+
+[B1773 L5397-5397]
+**Argument:** [§6.6](#CL-tail-numeric).
+
+[B1774 L5399-5399]
+<!-- /passage:CAT-claim-

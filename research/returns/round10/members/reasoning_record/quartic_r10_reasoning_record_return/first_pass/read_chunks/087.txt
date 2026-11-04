@@ -1,0 +1,58 @@
+lation estimate
+
+[B2141 L6394-6394]
+The [uniform Forrelation estimate][src-forrelation-uniform] formalizes (F43). It is built but not compared, and has no corpus row. The textual review judges it the same statement: uniform in $k$, with a better power of $k$ and a worse power of the logarithm than Bansal and Sinha. The ordinary proof is in [§3.15](#forr_uniform_assembly).
+
+[B2142 L6396-6396]
+#### The quantum bound with logarithmic exponent six
+
+[B2143 L6398-6398]
+The [quantum upper bound with logarithmic exponent six][src-q-bound] is built but not compared. The corpus judges it stronger than Proposition 3.3 because it gives $C_k2^t(2t)^6$ for the same circuit family. The textual review did not cover it. See [§5.4](#upper-explicit-log6).
+
+[B2144 L6400-6400]
+#### The quantum bound uniform in the parameter
+
+[B2145 L6402-6402]
+The [quantum upper bound uniform in $k$][src-budget-exponential] is built but not compared and has no corpus row. The textual review judges it the same as (7.5): $Q\le2^{53}k\,2^{10k}\sqrt m\,(2t)^6$ for every $t\ge1$. Its ordinary proof is in [§7.3](#ROOT-GROWING-K).
+
+[B2146 L6404-6404]
+#### The bounded tournament theorem
+
+[B2147 L6406-6406]
+The [bounded tournament theorem][src-quantum-tournament] is built but not compared. The corpus judges it stronger than Proposition 3.2 because it supplies a bounded-list law with explicit cap $6072\,c_{\mathrm{rd}}\sqrt m\,T^2\ln T$. The textual review did not cover it. See [§5.2](#upper-tournament-statement).
+
+[B2148 L6408-6408]
+#### Local certificate tests
+
+[B2149 L6410-6410]
+The [local certificate theorem][src-construction-full] was compared in its own bundle and passed again on the 3 November sources. Both reviews judge it stronger than Lemma 2.2: it includes both parts, the test equivalence on every input, the exact count $K$, a size bound, adaptive depth $2t+1$, physical cap $2(2t+1)$ and the essential-coordinate diagnostic for pointers. The coherent clause does not promise to restore the workspace. See [§§4.4–4.6](#CL-local-tests).
+
+[B2150 L6412-6412]
+#### Abstract bounded amplification
+
+[B2151 L6414-6414]
+The [abstract amplification theorem][src-amplification] is built and the corpus judges it exact for Lemma 3.1 in its abstract procedure semantics. That semantics neither compiles to the bit-query model nor identifies a returned subsystem. The textual review did not cover it. See [§5.1](#upper-amplification-proof).
+
+[B2152 L6416-6416]
+#### Amplification returning the successful state
+
+[B2153 L6418-6418]
+The [retained-state amplification theorem][src-opaque-amplifier] was compared on 3 November and has no corpus row. The textual review judges it stronger than Lemma 3.1 in its uniformity and exact success mass: one selector gate is fixed before every opaque preparation unitary, and the successful state returns tensored with an auxiliary vector. Its success event is narrower, being a predicate on basis labels. The routine reduction from a general projector has not been formalized. See [Appendix G.7](#upper-missing-physical-state).
+
+[B2154 L6420-6420]
+#### Amplification of measured labels
+
+[B2155 L6422-6422]
+The [measured-label amplification theorem][src-amplify-measured] is built. The corpus judges it partial for Lemma 3.1, and the textual review judges it weaker: it gives the cap, failure bounds and measured-label law without the state. This is the form used by the proof of Theorem 1.1. See [§5.1](#upper-amplification-proof).
+
+[B2156 L6424-6424]
+#### Direct products with finite averaging
+
+[B2157 L6426-6426]
+The [finite-average direct-product theorem][src-direct-product-average] is built and the corpus judges it partial for Lemma 4.1: it averages over finite seeds without arbitrary external information. The textual review did not cover it. See [§6.1](#CL-direct-product-statement).
+
+[B2158 L6428-6428]
+#### Direct products on the cap event
+
+[B2159 L6430-6430]
+The [direct product on the cap event][src-direct-product-caps] was compared on 3 November and has no corpus r

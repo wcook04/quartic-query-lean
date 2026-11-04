@@ -1,0 +1,109 @@
+85]
+**Argument:** [§3.2](#forr_integer).
+
+[B1392 L4487-4487]
+<!-- /passage:CAT-claim-integer-tests -->
+
+[B1393 L4489-4489]
+#### claim-circuit-size
+
+[B1394 L4491-4493]
+<a id="CAT-claim-circuit-size"></a>
+<!-- passage:CAT-claim-circuit-size -->
+<!-- claim:claim-circuit-size -->
+
+[B1395 L4495-4495]
+> N is computed by k-1 unnormalized Walsh-Hadamard transforms, coordinate sign changes and a final signed sum. Each transform uses O(m log m) additions and subtractions; all intermediate integers have absolute value at most m^{O(k)}, so O_k(log m) bits suffice; hence Boolean size O_k(m (log m)^2).
+
+[B1396 L4497-4497]
+**Argument:** [§3.4](#forr_circuit).
+
+[B1397 L4499-4499]
+<!-- /passage:CAT-claim-circuit-size -->
+
+[B1398 L4501-4501]
+#### lem-2.1.iii
+
+[B1399 L4503-4505]
+<a id="CAT-lem-2.1.iii"></a>
+<!-- passage:CAT-lem-2.1.iii -->
+<!-- claim:lem-2.1.iii -->
+
+[B1400 L4507-4507]
+> There is a Boolean circuit C=C_{k,m} of fan-in at most two and size S=S_{k,m}=O_k(m (log m)^2), counting non-input gates, with output bits d,b such that for every input z: d=1 iff P_{k,m} is defined at z, and d=1 implies b=P_{k,m}(z). The circuit computes these outputs exactly on every input.
+
+[B1401 L4509-4509]
+**Argument:** [§3.4](#forr_circuit), [§3.17](#forr_bundle), [§3.4](#forr_circuit_size).
+
+[B1402 L4511-4511]
+<!-- /passage:CAT-lem-2.1.iii -->
+
+[B1403 L4513-4513]
+#### lem-2.1
+
+[B1404 L4515-4517]
+<a id="CAT-lem-2.1"></a>
+<!-- passage:CAT-lem-2.1 -->
+<!-- claim:lem-2.1 -->
+
+[B1405 L4519-4519]
+> Conjunction of lem-2.1.i, lem-2.1.ii and lem-2.1.iii for each fixed k>=2.
+
+[B1406 L4521-4521]
+**Argument:** [§3.17](#forr_bundle), [§3.18](#forr_references).
+
+[B1407 L4523-4523]
+<!-- /passage:CAT-lem-2.1 -->
+
+[B1408 L4525-4525]
+### B.3. The addressed total function
+
+[B1409 L4527-4527]
+Section 4 constructs one total function from a circuit and explains every local test. The [complete support wrapper][src-construction-full] conjoins physical-coordinate essentiality with the test count, exact evaluation, decision-tree bound and arbitrary-index coherent access. The printed Lemma 2.2 states the count and adaptive/coherent query clauses. Essentiality is an additional diagnostic in the expanded maintained ledger, so the new conjunction strengthens the printed lemma. The older [complete evaluator theorem][src-construction-complete] is partial relative to that expanded row, rather than deficient for omitting a support clause demanded by the original printed lemma. Layout, the addressed predicate and the test-count definition also have component ties; their complete mathematical interpretation is given by the common construction, not by a name alone. The winner-fidelity claim uses the same circuit and its correct transcript.
+
+[B1410 L4529-4529]
+#### def-transcript
+
+[B1411 L4531-4533]
+<a id="CAT-def-transcript"></a>
+<!-- passage:CAT-def-transcript -->
+<!-- claim:def-transcript -->
+
+[B1412 L4535-4535]
+> For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input.
+
+[B1413 L4537-4537]
+**Argument:** [§4.1](#CL-transcripts).
+
+[B1414 L4539-4539]
+<!-- /passage:CAT-def-transcript -->
+
+[B1415 L4541-4541]
+#### eq-6
+
+[B1416 L4543-4545]
+<a id="CAT-eq-6"></a>
+<!-- passage:CAT-eq-6 -->
+<!-- claim:eq-6 -->
+
+[B1417 L4547-4547]
+> r = ceil(20 log_2 m), l = log_2 m.
+
+[B1418 L4549-4549]
+**Argument:** [§4.2](#CL-layout).
+
+[B1419 L4551-4551]
+<!-- /passage:CAT-eq-6 -->
+
+[B1420 L4553-4553]
+#### def-column-layout
+
+[B1421 L4555-4557]
+<a id="CAT-def-column-layout"></a>
+<!-- passage:CAT-def-column-layout -->
+<!-- claim:def-column-layout -->
+
+[B1422 L4559-4559]
+> The input has m columns. Column i contains: X_i in {0,1}^m; strings A_{i,1},...,A_{i,r} in {0,1}^{km} with no promise; and for each s in {0,1}^r a cell B_{i,s} holding, for each j != i, a pointer p_{i,s,j} in [m] encoded in l bits by a fixed bijection, and for each h in [r] an alleged evaluation transcript of C_{k,m} on A_{i,h}.
+
+[B1

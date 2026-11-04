@@ -1,0 +1,83 @@
+d combining it with the lower estimate yields the finite quotient bound
+
+[B1154 L3853-3860]
+\[
+\frac{R(F_{k,m})}{(1+Q(F_{k,m}))^\alpha}
+\geq
+\frac{1}{400(1+C_k)^\alpha}\,
+\frac{m^{\varepsilon_\alpha}}{(\log_2m)^{2+\alpha b_k}}
+\qquad(t\geq\max\{t_0(k),1\}).
+\tag{7.3}
+\]
+
+[B1155 L3862-3862]
+The right side tends to infinity. Here $k$ and the positive power $\varepsilon_\alpha$ are fixed. To see why its logarithmic denominator is harmless, put \(e=2+\alpha b_k\); for \(m=4^t\), the logarithm of the varying factor is
+
+[B1156 L3863-3866]
+\[
+\ln\!\left(\frac{m^{\varepsilon_\alpha}}{(\log_2m)^e}\right)
+=2\varepsilon_\alpha t\ln2-e\ln(2t).
+\]
+
+[B1157 L3867-3867]
+For \(u\geq1\),
+
+[B1158 L3868-3872]
+\[
+\ln u=\int_1^u\frac{ds}{s}
+\leq\int_1^u\frac{ds}{\sqrt s}
+\leq2\sqrt u.
+\]
+
+[B1159 L3873-3873]
+Hence \(\ln(2t)/t\to0\), whereas \(2\varepsilon_\alpha\ln2>0\), so the displayed logarithm tends to infinity, and so does the quotient in (7.3). The argument covers \(\alpha=0\) as well, since it never divides by \(Q\).
+
+[B1160 L3875-3876]
+For a fixed \(k\), the argument applies exactly when \(\alpha<4-2/k\). For example, \(k=2\) supplies the threshold exponent three and \(k=3\) supplies \(10/3\), so \(k=3\) already refutes a cubic universal bound. At \(\alpha=4-2/k\) the power gap \(\varepsilon_\alpha\) vanishes and (7.3) alone gives no divergence; every fixed finite \(k\) in this argument stays below exponent four.
+<!-- /passage:ROOT-RATIO -->
+
+[B1161 L3878-3878]
+### 7.2. Excluding all smaller universal powers
+
+[B1162 L3880-3882]
+<a id="ROOT-NO-SMALLER"></a>
+<!-- passage:ROOT-NO-SMALLER -->
+Let \(K>0\) be any proposed universal constant. With \(k\) already chosen by (7.2), the quotient in (7.3) exceeds \(K\) for every sufficiently large \(t\), so the corresponding function violates
+
+[B1163 L3883-3886]
+\[
+R(f)\leq K(1+Q(f))^\alpha.
+\tag{7.4}
+\]
+
+[B1164 L3887-3887]
+The construction uses a finite nonempty set of input coordinates, and a bijection with \([n]\), where \(n\geq1\) is its cardinality, preserves both query complexities: we rename each queried coordinate and leave every answer, probability and query count unchanged. Consequently the structured function is also a counterexample among the total functions \(\{0,1\}^n\to\{0,1\}\) quantified in (7.4).
+
+[B1165 L3889-3889]
+We have proved that every \(0\leq\alpha<4\) fails the universal bound, and the defining set for \(\alpha_{\mathrm{tot}}\) contains only exponents with \(\alpha\geq0\). Appendix A proves that four belongs to that set. Hence every member of the set is at least four and four is a member, so four is its minimum and therefore its infimum.
+
+[B1166 L3891-3891]
+Consider next the unshifted cubic statement, and suppose some real \(K\) satisfied \(R(f)\leq KQ(f)^3\) for all total \(f\). Because \(Q(f)\geq0\), replacing \(K\) by \(\max\{K,1\}\) and then \(Q(f)^3\) by \((1+Q(f))^3\) would imply (7.4) with \(\alpha=3\) and a positive constant, which the \(k=3\) family contradicts; the argument applies whether or not \(Q(f)>0\). This is the universal cubic conjecture in [Aaronson, Ben-David, Kothari, Rao and Tal, arXiv:2010.12629v1, §7, Conjecture 2, printed p. 20][ABKRT2020].
+
+[B1167 L3893-3893]
+The proof chooses the parameters in the order
+
+[B1168 L3894-3896]
+\[
+\alpha<4\ ;\quad k=k(\alpha)\ ;\quad K>0\ ;\quad t\text{ sufficiently large}.
+\]
+
+[B1169 L3897-3898]
+Letting \(k\) grow with \(t\) requires estimates uniform in \(k\); these go beyond what the theorem just proved requires, and §7.3 shows what they give.
+<!-- /passage:ROOT-NO-SMALLER -->
+
+[B1170 L3902-3902]
+### 7.3. Letting $k$ grow with $t$
+
+[B1171 L3904-3906]
+<a id="ROOT-GROWING-K"></a>
+<!-- passage:ROOT-GROWING-K -->
+For each fixed $k$, §7.1 excludes the powers below $4-2/k$ with constants that depend on $k$. Bounds uniform in $k$ give one family $F_t=F_{k(t),4^t}$ whose exponents tend to four, and we assemble such a family from estimates already proved, writing $m=4^t$ and $\ell=\log_2m=2t$.
+
+[B1172 L3908-3908]
+The schedule is

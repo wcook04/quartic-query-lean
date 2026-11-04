@@ -1,0 +1,172 @@
+{
+  "schema": "round10-independent-finite-checks-v1",
+  "procedure": "Fresh standard-library arithmetic code, exact integers and fractions; supplied gate-list JSON is data only.",
+  "circuit": {
+    "source": "repository/research/returns/round3/members/04_addressed_construction/examples/circuit.json",
+    "sha256": "0f84ef8db3526a5d166307846bf4ef3d9268ad60c8a1e5353005fac9885a0004",
+    "inputs_exhausted": 256,
+    "gates": 180,
+    "mismatches": [],
+    "partial_value_counts": {
+      "1": 104,
+      "None": 104,
+      "0": 48
+    }
+  },
+  "projection": {
+    "amplitudes": {
+      "a_plus": "1",
+      "a_zero": "0",
+      "a_minus": "-1",
+      "projection_exercise": "1/2"
+    },
+    "exercise_probability": "1/4",
+    "gate_1_gate_2_on_a_plus": [
+      1,
+      1
+    ]
+  },
+  "boards": {
+    "base_winners": [
+      [
+        1,
+        "10"
+      ]
+    ],
+    "base_column_1_failure_counts": {
+      "00": 1,
+      "01": 2,
+      "10": 0,
+      "11": 1
+    },
+    "local_tests_per_candidate": 371,
+    "domain_board_winners": [],
+    "domain_column_2_failure_counts": {
+      "00": 1,
+      "01": 2,
+      "10": 2,
+      "11": 3
+    },
+    "false_pointer_board_winners": [],
+    "false_pointer_dominance_under_each_rival_label": true,
+    "cycle_comparison_matrix": [
+      [
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ]
+    ],
+    "cycle_loser_edges_hold_for_all_16_label_pairs": true,
+    "first_pivot_new_total_weights": [
+      0,
+      2,
+      2,
+      2
+    ],
+    "first_pivot_expected_total": "3/2",
+    "cycle_after_pivot_2": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "cycle_after_pivots_2_4": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  "fractional_matrix": {
+    "weights_after_2": [
+      "1",
+      "0",
+      "2/3",
+      "1/4"
+    ],
+    "success_after_2": "23/48",
+    "conditional_after_2": [
+      "12/23",
+      "0",
+      "8/23",
+      "3/23"
+    ],
+    "weights_after_2_4": [
+      "1",
+      "0",
+      "4/15",
+      "0"
+    ],
+    "success_after_2_4": "19/60",
+    "conditional_after_2_4": [
+      "15/19",
+      "0",
+      "4/19",
+      "0"
+    ]
+  },
+  "zero_selection": {
+    "1": {
+      "expected_found": "1",
+      "independent_hit": "1/4",
+      "dependent_hit": "175/256",
+      "dependent_marginal": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ]
+    },
+    "2": {
+      "expected_found": "2",
+      "independent_hit": "1/2",
+      "dependent_hit": "15/16",
+      "dependent_marginal": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ]
+    }
+  },
+  "xor": {
+    "simulator_correct": "1/4",
+    "modified_time3_stop": "1/8",
+    "light_original": "1/8",
+    "modified_time4": "1/8"
+  },
+  "cap_counterexamples": {
+    "promised_AND_one_query_optimum": "2/3",
+    "joint_cheap_and_correct": "1/3",
+    "success_given_cheap": "1",
+    "full_AND_one_query_optimum": "3/4",
+    "pooled_success": "3/4",
+    "separate_cap_product": "9/16",
+    "parity_side_information_success": "1/2"
+  },
+  "outcome": "All asserted finite checks passed.",
+  "limits": [
+    "No submitted checker was executed.",
+    "No asymptotic theorem or quantum implementation was verified by this enumeration.",
+    "No Lean build or Comparator execution was attempted."
+  ]
+}

@@ -1,0 +1,70 @@
+ard pointers of the present function.
+<!-- /passage:CL-entry-interface -->
+
+[B0977 L3287-3289]
+<a id="CL-minimax"></a>
+<!-- passage:CL-minimax -->
+Assume that \(L\) is a nonnegative integer and \(L<R(P)\), where \(R\) is defined with a query cap on every execution and success at least \(2/3\) on every promised input. Then the domain \(D\) is nonempty, since an empty promise has zero-query complexity.
+
+[B0978 L3291-3292]
+The worst-case lower bound says that no mixture of shallow trees succeeds on every promised input. Planting needs the quantifiers in the other order: one input law under which every shallow tree fails often enough. We choose this law only after fixing $P$ and $L$; it may depend on both. Finite convex separation supplies it:
+<!-- claim:claim-minimax-mu -->
+
+[B0979 L3293-3297]
+\[
+\exists\mu\text{ on }D\quad
+\forall T\text{ with }\operatorname{depth}(T)\le L,\qquad
+\Pr_{x\sim\mu}[T(x)=P(x)]\le\frac23.
+\]
+
+[B0980 L3299-3299]
+The minimax step has a finite proof. There are finitely many depth-\(L\) trees on \(n\) coordinates; for each such tree let \(a_T\in\mathbb R^D\) be its vector of correctness indicators, and let \(K\) be the convex hull of these vectors. Equivalently, form the finite payoff matrix with trees as rows, promised inputs as columns and correctness indicators as entries. A row mixture gives its vector of per-input success probabilities, and $K$ consists of exactly those vectors. Each point of \(K\) is the success vector of a randomized mixture of depth-\(L\) trees, so by hypothesis \(K\) is disjoint from the closed orthant \(H=[2/3,\infty)^D\).
+
+[B0981 L3301-3301]
+For \(a\in K\), the nearest point of \(H\) has coordinates \(c_x=\max(a_x,2/3)\). By compactness of \(K\) we choose a pair \(a,c\) of minimum distance, which is positive by disjointness. We set \(v=c-a\), so that \(v_x\ge0\), \(v\ne0\), and \(c_x=2/3\) whenever \(v_x>0\). For \(b\in K\), the point \(a+\theta(b-a)\) stays in \(K\) for \(0\le\theta\le1\). The squared distance \(\|c-a-\theta(b-a)\|^2\) is therefore minimized at \(\theta=0\) on this segment. Its right derivative gives
+
+[B0982 L3302-3304]
+\[
+-2v\cdot(b-a)\ge0,\qquad v\cdot(b-a)\le0.
+\]
+
+[B0983 L3305-3306]
+Consequently,
+<!-- claim:NCL-strict-hard-distribution -->
+
+[B0984 L3307-3311]
+\[
+v\cdot b\le v\cdot a
+=v\cdot c-\|v\|^2
+=\frac23\sum_xv_x-\|v\|^2.
+\]
+
+[B0985 L3312-3313]
+The weights \(\mu(x)=v_x/\sum_yv_y\) form a probability distribution, and dividing the preceding inequality by the positive denominator proves the required bound, with a strict positive margin common to all the trees. The argument is finite and self-contained; the hard measure used in the analytic proof of Forrelation hardness plays no role in it.
+<!-- /passage:CL-minimax -->
+
+[B0986 L3315-3318]
+<a id="CL-address-guess"></a>
+<!-- passage:CL-address-guess -->
+We apply Lemma 4.1 of §6.1 to independent \(U_1,\ldots,U_r\sim\mu\): if an algorithm makes at most \(L\) queries to each \(U_h\) on every execution, then
+<!-- claim:claim-address-guess -->
+
+[B0987 L3319-3321]
+\[
+\Pr[\widehat s=(P(U_1),\ldots,P(U_r))]\le(2/3)^r.
+\]
+
+[B0988 L3322-3322]
+The bits $P(U_h)$ need not be unbiased: their unpredictability is supplied by the one-input success bound under $\mu$, not by uniformity of these labels. The algorithm may interleave its queries and use side information jointly independent of the whole tuple, since fixing that information and its random coins preserves the input law and the deterministic bound can then be averaged.
+
+[B0989 L3324-3325]
+This is the per-input-capped direct product proved in §6.1. Its [source comparison](#CL-literature-and-verification) gives Drucker's alternative global-budget theorem and its quantitative substitution; the present argument assumes no further direct-product result.
+<!-- /passage:CL-address-guess -->
+
+[B0990 L3327-3327]
+### 6.3. Coupled zero and one inputs
+
+[B0991 L3329-3331]
+<a id="CL-generic-statement"></a>
+<!-- passage:CL-generic-statement -->
+**Generic lower bound.** Let \(m=4^t

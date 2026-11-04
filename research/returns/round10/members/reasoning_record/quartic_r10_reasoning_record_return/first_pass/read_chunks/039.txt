@@ -1,0 +1,71 @@
+is the relevant two-input bound.
+
+[B1078 L3621-3621]
+**Finite-check evidence.** The exhaustive enumeration in the [planted example](../research/returns/round3/members/07_planted_lower_bound/checks/planted_example.py) fixes the other columns' \(A\)-strings, ranges over all \(4^4\) zero-position vectors and all \(16\) target tuples, and ranges independently over the four choices of \(I\). It obtains
+
+[B1079 L3622-3626]
+\[
+\mathbb EZ=\frac38,\qquad
+\Pr[\text{erased-zero hit}]=\frac3{32}
+=\frac{\mathbb EZ}{4},
+\]
+
+[B1080 L3627-3627]
+and
+
+[B1081 L3628-3634]
+\[
+\Pr[\text{target 1 nonheavy and time 4 visits its true cell}]
+=\frac18
+\le
+\Pr[\text{capped simulator correct}]
+=\frac14.
+\]
+
+[B1082 L3635-3636]
+These finite computations are exact for this toy and this conditional outside configuration; they illustrate the reduction, and the general inequalities rest on the proofs above.
+<!-- /passage:CL-simulator-example -->
+
+[B1083 L3639-3641]
+<a id="CL-conditioning-counterexample"></a>
+<!-- passage:CL-conditioning-counterexample -->
+The examples test different operations: §6.1 tests loss of a product law under a union of transcripts, the preceding simulator tests extra success from its default, and the example below tests selection of easy inputs by the nonheavy event. The adaptive example in [§6.1](#CL-adaptive-example) shows how a union of transcript rectangles can lose its product law. The following smaller example isolates the nonheavy event used in (21) and shows why success cannot be bounded after conditioning on that event. On the promised two-bit inputs \(\{01,10,11\}\), let \(P\) be AND and let \(\mu\) be uniform. Every one-query algorithm has success at most \(2/3\): after either coordinate is queried, one answer identifies a unique input and the other leaves two equally likely, oppositely labelled inputs.
+
+[B1084 L3643-3644]
+Consider the tree that queries the first bit, stops with the correct output \(0\) on the answer-zero branch, and queries the second bit on the answer-one branch. With cap \(L=1\), the complete original run is nonheavy exactly on input \(01\), so its conditional success given nonheaviness is \(1\). A simulator that aborts before the second query and defaults to \(0\) has unconditional success \(2/3\), while correct-and-nonheavy has probability \(1/3\). Thus the unconditional bound holds, while the conditional bound would read \(1\le2/3\), which is false. The example file checks all three inputs and every deterministic one-query tree.
+<!-- /passage:CL-conditioning-counterexample -->
+
+[B1085 L3646-3649]
+<a id="CL-cell-union"></a>
+<!-- passage:CL-cell-union -->
+If the dummy run visits the true cell of a nonheavy column \(i\), one of its at most \(G\) query times witnesses that visit, so a union bound of (21) over the times gives probability at most \(G(2/3)^r\) for each fixed \(i\). We average over the independent uniform \(I\) and then add (20):
+<!-- claim:eq-22 -->
+
+[B1086 L3650-3654]
+\[
+\Pr[T\text{ on }Y^{(0)}\text{ queries a bit of }B_{I,s_I}]
+\le\frac{G}{mL}+G(2/3)^r.
+\tag{22}
+\]
+
+[B1087 L3655-3655]
+To see the cancellation, let $E_{iq}$ be the joint event in (21). The contribution from nonheavy columns is bounded by
+
+[B1088 L3656-3659]
+\[
+\frac1m\sum_{i=1}^m\sum_{q=1}^G\Pr(E_{iq})
+\le\frac1m\sum_{i=1}^mG(2/3)^r=G(2/3)^r.
+\]
+
+[B1089 L3661-3662]
+A union bound tolerates repeated cell visits, and when \(G=0\) the union of query-time events is empty.
+<!-- /passage:CL-cell-union -->
+
+[B1090 L3664-3664]
+### 6.6. The discrepancy contradiction and the floors
+
+[B1091 L3666-3667]
+<a id="CL-discrepancy"></a>
+To finish the proof of the generic lower bound stated in [§6](#classical-overview), recall that the first-difference bound (18) was proved in [§6.3](#CL-first-difference), the erased-zero bound (19) in [§6.4](#CL-erased-zero-identity), and the planted-cell bound (22) in [§6.5](#CL-heavy) from the capped simulator and the joint event (21). The budget is $G=\lfloor mL/100\rfloor$ with $1\le L\le m$ and $L<R(P)$.
+
+[B

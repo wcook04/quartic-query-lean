@@ -1,0 +1,27 @@
+ld, the dependency export, the five baseline bundles and the five baseline negative controls on the integrated sources, and added dedicated comparisons for the finite-seed direct product, the degree and zero-cost model checks, the real-leaf estimates, the uniform amplifier and the sharp decoder; [the round-four formal adjudication](../research/adjudication/round4_formal.md) lists every receipt. Adding sources changes the global source fingerprint, so the 2 November receipts above describe the earlier sources.
+
+[B2054 L6169-6169]
+### F.2. Forrelation promise and circuit
+
+[B2055 L6171-6173]
+<a id="forr_current_evidence"></a>
+<!-- passage:forr_current_evidence -->
+The source assessed here is the packet snapshot labeled `1dd469dd0042b937b739da3bc211eeb60bdf7462`. Its timestamped root-build receipt matches all 124 supplied local Lean/configuration files; the relevant integrated helper modules also have source-matched native passes. The supplied audit prints the principal helper theorem types and reports only the permitted Lean axioms. These are inspected records of previous runs. The returned section review did not run Lean or Comparator anew, and no Comparator receipt supplied with that return names these Forrelation helper declarations. The round-three integration’s root build of 2 November and exact comparison scope are recorded separately in [F.1](#history-evidence-convention).
+
+[B2056 L6175-6175]
+The reviewed wrappers jointly state the normalization, promise, and integer numerator: the [Walsh definitions][src-walsh], the [alternating product and its threshold][src-forr-product], the [complete promise][src-forr-promise] and the [integer form of the numerator][src-forr-integer]. The two threshold equivalences and the actual all-input output rules are split between the [integer comparisons][src-forr-tests] and the [output rules of the constructed circuit][src-forr-output-bits]. The coherent physical conclusion is the [physical implementation of part (ii)][src-lemma21-ii]. The circuit endpoint and bound are the [existence of the circuit][src-forr-circuit-exists] and the [circuit bound of part (iii)][src-lemma21-iii]. The finite census is recorded in the [checks of small instances][src-forr-census].
+
+[B2057 L6177-6178]
+Two exact correspondences remain narrower than the surrounding ordinary proof: the supplied implementation has a $2qk$, rather than a formally packaged $qk$, bit-query cap; and the arithmetic contracts establish modular representation with correct final signs, rather than a signed interpretation of every intermediate register. Neither qualification weakens Lemma 2.1(ii)–(iii). The packet also contains [Lemma 2.1 as one statement][src-lemma21], a conjunction including the separately proved randomized lower bound; its presence updates the old evidence sentence in §3.17, without supplying a new proof of that lower bound in this section. Exact types, premises, routes, and receipt references are in [correspondence.json](../research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/correspondence.json) and [LEAN_GAPS.md](../research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/LEAN_GAPS.md).
+<!-- /passage:forr_current_evidence -->
+
+[B2058 L6180-6180]
+<a id="history-construction"></a>
+
+[B2059 L6181-6181]
+### F.3. Addressed construction
+
+[B2060 L6183-6186]
+<a id="history-construction-evidence"></a>
+<!-- passage:history-construction-evidence -->
+The frozen packet includes a source-bound successful root-build receipt for the cited declarations. A later selected type/axiom audit includes the newer Paper construction wrappers. Audit membership is recorded name by name in the [construction correspondence](../research/returns/round3/members/04_addressed_construction/correspondence.json); it is not asserted for all older core declarations. Their 124 recorded local Lean/configuration hashes match the supplied packet bytes; 

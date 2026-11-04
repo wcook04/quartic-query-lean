@@ -1,0 +1,45 @@
+). If the simulated run terminates or aborts, or proposes a different kind of coordinate, it outputs a fixed vector. The proposed cell's address is read off the run itself, without a query to the cell's contents.
+<!-- claim:def-simulator -->
+
+[B1069 L3588-3589]
+For every possible tuple of target inputs, this simulator makes at most \(L\) target queries in total, so it satisfies each of the \(r\) separate caps in Lemma 4.1 (also on branches where the original tree would eventually make column \(i\) heavy). Because the outside data are jointly independent of the target tuple, the simulator's unconditional success is at most \((2/3)^r\).
+<!-- /passage:CL-simulator -->
+
+[B1070 L3591-3594]
+<a id="CL-joint-event"></a>
+<!-- passage:CL-joint-event -->
+With the general parameters and the hard distribution of §6.2, suppose the complete dummy run makes column \(i\) nonheavy and proposes a query in \(B_{i,s_i}\) at time \(q\). Then every preceding prefix uses at most \(L\) target queries, so the simulator follows the original run without aborting and outputs \(s_i\). Hence the joint event is contained in the simulator's success event:
+<!-- claim:eq-21 -->
+
+[B1071 L3595-3599]
+\[
+\Pr[i\text{ is nonheavy and query }q\text{ lies in }B_{i,s_i}]
+\le(2/3)^r.
+\tag{21}
+\]
+
+[B1072 L3600-3601]
+Nonheaviness enters as part of the event inside the probability, so the target inputs keep their original distribution. The simulator never tests whether the complete run is nonheavy: that stronger event implies the needed prefix cap and is chosen to match the complete-run heavy-column bound (20).
+<!-- /passage:CL-joint-event -->
+
+[B1073 L3603-3605]
+<a id="CL-simulator-example"></a>
+<!-- passage:CL-simulator-example -->
+A toy instance illustrates the reduction just proved. We return to the four-column XOR example of [§6.3](#CL-tiny-planted-example) and take \(L=1\), with both target strings independently uniform. Readers coming from the examples-first exposition should note two differences from its four-column board: here \(P\) is the total function \(a\mathbin{\mathrm{xor}}b\) on two bits, so every address is defined and only the planting and the cap are illustrated, and rows and columns are numbered from \(0\). Consider a four-query tree that first reads \(X_0[0]\), then the first bit \(a\) of \(A_{1,1}\). If \(a=1\), its third query is \(X_2[1]\); if \(a=0\), its third query is the first bit of \(A_{1,2}\). Its fourth query reads the first transcript's domain bit in \(B_{1,(a,0)}\), and it outputs that bit.
+
+[B1074 L3607-3607]
+In the displayed planted configuration the target first bit is \(1\), and the simulator for \(i=1,q=4\) behaves as follows.
+
+[B1075 L3609-3614]
+| Original time | Proposed query | Answer source | Target calls used | Simulator action |
+| ---: | --- | --- | ---: | --- |
+| 1 | $X_0[0]$ | Outside data: $1$ | 0 | Continue |
+| 2 | First bit of $A_{1,1}$ | Target oracle: $1$ | 1 | Continue |
+| 3 | $X_2[1]$ | Outside data: $1$ | 1 | Continue |
+| 4 | Domain bit in $B_{1,10}$ | No cell answer read | 1 | Output address $10$ |
+
+[B1076 L3616-3616]
+At time four the original tree receives \(0\) on the dummy input and \(1\) on the displayed planted input, while the simulator uses the blank dummy data and stops before that answer. On the other branch, \(a=0\), it aborts before the second target query at time three. Thus the cap is enforced during each execution, with no retrospective selection of the cheap ones.
+
+[B1077 L3618-3618]
+The joint-event and simulator-success probabilities follow directly from the target strings $(a,b)$ and $(c,d)$. On the nonheavy branch $a=1$, the proposed address $(1,0)$ is true exactly when $b=0$ and $c=d$, an event of probability $1/8$. On $a=0$ the simulator truncates and defaults to $(0,0)$; correctness again requires $b=0$ and $c=d$, contributing another $1/8$. Thus the simulator succeeds with probability $1/4$. For uniform two-bit XOR, a one-query algorithm succeeds with probability at most $1/2$, so \(1/4=(1/2)^2\) 

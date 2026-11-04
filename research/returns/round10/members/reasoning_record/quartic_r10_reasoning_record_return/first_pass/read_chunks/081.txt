@@ -1,0 +1,36 @@
+one algorithm for every promised input, success probability at least $2/3$, and a cap that holds on every input and every branch. The classical read-all witnesses of [§2.2](#R3-01-CLASSICAL) and quantum witness of [§2.4](#R3-01-ADAPTIVE) make each complexity the minimum of a nonempty set of caps.
+3. Check that the [solution file][statement-solution] proves the statement by forwarding to an implementation theorem, and that the [configuration][statement-config] names it.
+4. Read the two-bit OR calculation in [§2.6](#R3-01-OR) against these definitions, whose randomized complexity is one because the threshold $2/3$ is inclusive; the semantic controls of Appendix G.3 state such values against the same definitions.
+5. Read [the separation-family paragraph in G.4](#formal-separation-family): confirm its exact configured comparison and distinguish its existential logarithmic exponent from the built explicit-constants theorem.
+
+[B2077 L6249-6249]
+This route exposes the proposed correspondence between the compared type, Theorem 1.1 and the query models of §2 for mathematical inspection. Comparator establishes that the submitted proofs inhabit the configured types under the shared definitions. Deciding that those definitions express the intended theorem is a separate semantic judgment; no human review is claimed.
+
+[B2078 L6251-6251]
+<a id="formal-models-map"></a>
+
+[B2079 L6252-6252]
+### G.2. What the formal models establish
+
+[B2080 L6254-6254]
+The formal model uses the domain-and-value convention of §2.1. The detailed comparison below distinguishes a partial promise from the embedding of an already total function; the [construction domain wrappers][src-construction-models] prove the relevant translation and correctness conditions.
+
+[B2081 L6256-6256]
+The [physical compiler][src-runs] converts an abstract coordinate read into ordinary bit queries. An abstract read consists of a coordinate function on basis labels, an involutive permutation of those labels, and an optional sign, where the permutation preserves both its coordinate and its sign. Given a basis label, the compiler embeds the abstract register into the physical coordinate, answer-bit, and workspace registers, loads the queried bit, applies the indicated signed permutation if that bit is one, queries the unchanged coordinate again, and returns to the chosen embedding. On bit zero it is the identity and on bit one it is exactly the prescribed signed involution, so both actions preserve inner products. The finite isometries used to place the active register extend to unitaries on a sufficiently large finite workspace by completing an orthonormal basis, so the bit queries are the only input-dependent gates.
+
+[B2082 L6259-6259]
+The bridges between the formal models and conventional formulations are of three kinds.
+
+[B2083 L6261-6261]
+**Definitions.** Partial functions with a domain; one algorithm with a global cap; finite mixtures of decision trees for $R$; programs with fixed gates and the bit oracle for $Q$ (§§2.1–2.4).
+
+[B2084 L6263-6263]
+**Proved translations.** Minima of nonempty sets of caps through read-all witnesses; renaming coordinates; deferred measurement as a fixed sequence of controlled phase queries with the same acceptance mass for every input and every starting vector (§2.2, §2.5).
+
+[B2085 L6265-6265]
+**Ordinary identifications.** Finite seed spaces in place of arbitrary randomness and recursive cap compliance as observable query counts interpret the classical reduction. The basis change from a general projector to a basis-label predicate belongs to the stronger successful-state specification in G.7, which is not a premise of the headline measured-label upper bound (Appendices G.7–G.8).
+
+[B2086 L6267-6269]
+<a id="ROOT-EVIDENCE-CONVENTION"></a>
+<!-- passage:ROOT-EVIDENCE-CONVENTION -->
+The formal interpretation starts with the order of the mathematical choices: choose one algorithm, then require its correctness and its query cap for every relevant input. A theorem a

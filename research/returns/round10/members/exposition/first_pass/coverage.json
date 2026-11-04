@@ -1,0 +1,126 @@
+{
+  "schema": "ex10-first-pass-coverage-v1",
+  "status": "complete Markdown reading; partial compliance with strict chronological protocol",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+    "repository/docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+    "repository/docs/expert_companion.pdf": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+    "repository/docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "repository/docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+    "repository/docs/exposition.pdf": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+    "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+    "repository/docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "repository/docs/reasoning_record.pdf": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+  },
+  "source_path": "repository/docs/exposition.md",
+  "first_reviewed_locator": {
+    "line": 1,
+    "unit_id": "EX10-U0001"
+  },
+  "last_reviewed_locator": {
+    "line": 535,
+    "unit_id": "EX10-U0805"
+  },
+  "sections": [
+    {
+      "heading": "# Introduction",
+      "line_start": 10,
+      "line_end": 52
+    },
+    {
+      "heading": "# 1. Three eight-bit inputs",
+      "line_start": 53,
+      "line_end": 103
+    },
+    {
+      "heading": "# 2. One column, then four",
+      "line_start": 104,
+      "line_end": 168
+    },
+    {
+      "heading": "# 3. The general partial function",
+      "line_start": 169,
+      "line_end": 205
+    },
+    {
+      "heading": "# 4. The quantum algorithm: a tournament",
+      "line_start": 206,
+      "line_end": 347
+    },
+    {
+      "heading": "# 5. The classical lower bound: a planted pair",
+      "line_start": 348,
+      "line_end": 465
+    },
+    {
+      "heading": "# 6. Exponent four, and the order of quantifiers",
+      "line_start": 466,
+      "line_end": 487
+    },
+    {
+      "heading": "# 7. The statement in Lean",
+      "line_start": 488,
+      "line_end": 495
+    },
+    {
+      "heading": "# Answers to the questions {.unnumbered}",
+      "line_start": 496,
+      "line_end": 515
+    },
+    {
+      "heading": "# Use of AI tools {.unnumbered}",
+      "line_start": 516,
+      "line_end": 519
+    },
+    {
+      "heading": "# References {.unnumbered}",
+      "line_start": 520,
+      "line_end": 535
+    }
+  ],
+  "counts": {
+    "metadata": 1,
+    "heading": 11,
+    "sentence": 708,
+    "display": 39,
+    "list_item": 19,
+    "figure": 4,
+    "layout": 8,
+    "table": 2,
+    "footnote": 2,
+    "link_definition": 11
+  },
+  "markdown_units": 805,
+  "bibliography_entries": 23,
+  "unreviewed_markdown_ranges": [],
+  "pdf_pages_inspected": [],
+  "perspective": "research mathematician from analysis/combinatorics, simulated with declared general model knowledge",
+  "exercise_attempts": {
+    "projection": "unexposed",
+    "question_1": "unexposed",
+    "question_2": "unexposed",
+    "question_3": "unexposed",
+    "question_4": "unexposed",
+    "question_5": "unexposed",
+    "combined_explanation": "answer_exposed to first three rubric sentences",
+    "optional_Lean_clause": "embedded answer exposure; link not yet followed"
+  },
+  "protocol_departures": [
+    "Initial source lines 1–135 were visible together before any first-pass row was written; those rows are immediate source-order annotations, not sentence-before-next-sentence records.",
+    "Later tool chunks were also batch-visible; the durable chronology is at batch boundaries, not individually blinded sentences.",
+    "Line 223 was inadvertently skipped by a range filter, then retrieved after lines 225–259 had been displayed.",
+    "The combined-explanation task was exposed to the first three rubric sentences in the same retrieval; its response is answer_exposed.",
+    "Figure captions and tables have composite object rows; internal caption sentences are not separately frozen encounter rows.",
+    "The optional Lean exercise prints its target clause and explanation in the prompt paragraph; external links were deferred.",
+    "The paper's own bibliography was read as BibTeX metadata after Markdown completion; rendered reference order will be inspected only after freeze."
+  ],
+  "detours": [
+    {
+      "departure": "line 222",
+      "accidental_destination": "lines 225–259",
+      "return": "line 223",
+      "reason": "range-filter gap",
+      "imported_information": "later comparison and ideal-weight material in the same section"
+    }
+  ]
+}

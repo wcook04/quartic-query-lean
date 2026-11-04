@@ -1,0 +1,39 @@
+hen-check strategy for their cheat-sheet function, including rejection of certificates for unpromised inputs. We prove the properties of the particular multi-column construction (4.5) here, and its later separation bounds are obtained independently of that lemma.
+
+[B0626 L2041-2042]
+Ambainis, Balodis, Belovs, Lee, Santha and Smotrovs discuss direct pointers from a distinguished element to a zero in every other column and explain the exponential alphabet cost of that choice in their encoding [ABBLSS2015, §1.3, “Use of a balanced tree,” pp. 5–6]. Here the routine reads one selected pointer field, paying one query for each of its $\ell$ bits as in §4.4, rather than querying the entire outgoing pointer collection as one alphabet symbol. The full input-length count in §4.2 includes all those fields. These works supply antecedents of the ingredients; the construction analyzed here is the one in OpenAI's preprint.
+<!-- /passage:AC-attribution -->
+
+[B0627 L2045-2045]
+## 5. Quantum evaluation on every input
+
+[B0628 L2047-2047]
+We now prove the quantum upper bound, Proposition 3.3, with a query cap that holds on every input.
+
+[B0629 L2050-2052]
+<a id="upper-section-interface"></a>
+<!-- passage:upper-section-interface -->
+The algorithm and its analysis are due to OpenAI [OpenAI2026, §3, pp. 7–10]. We reconstruct the proof in full, keep every claim of the preprint as stated, and add an exact cyclic example.
+
+[B0630 L2054-2054]
+We work with the ordinary bit oracle and the maximum-over-branches query convention of §2.4. From §4 we take the definition of a winner at an address and its uniqueness, together with the equivalence between winning at that address and passing all the exact local tests. For $m=4^t$, $t\geq1$, these tests number $K=m+(m-1)+r(S+2)$, have decision-tree depth at most $\max\{3,\ell+1\}$, and use $\ell=2t=\log_2m$, $r=40t=20\ell$. From §3 we take the bounded-query Forrelation algorithm with its error reduction, together with the fixed realizing circuit of size $S\leq C_F(k)m\ell^2$; the algorithm is correct on promised inputs, and its query cap holds on all inputs.
+
+[B0631 L2056-2057]
+We prove Proposition 3.3 in the explicit form $Q(F_{k,4^t})\leq C_k2^t(2t)^6$ for each fixed $k\geq2$. Every unqualified logarithm is base two and $\ln$ is natural, and the constants may depend on the fixed $k$. The corresponding Lean statements are described in Appendix G.7.
+<!-- /passage:upper-section-interface -->
+
+[B0632 L2060-2061]
+<a id="upper-purpose"></a>
+<!-- passage:upper-purpose -->
+
+[B0633 L2063-2063]
+The algorithm first produces a short list that is likely to contain the winning column and then checks each listed column. Its central calculation is a drift identity: because comparison probabilities are complementary, the total surviving weight at least halves in expectation, while a true winner keeps almost all its weight until it is selected. The identity holds even when the other columns compare cyclically or have meaningless decoded addresses, and exact local verification then rejects incorrect certificates. Both the search and the verification obey a fixed query cap on every input, including inputs outside all the partial-function promises.
+
+[B0634 L2065-2065]
+The fractional-weight argument is OpenAI’s Proposition 3.2; the comparisons with earlier search procedures follow the proof below.
+
+[B0635 L2067-2067]
+We measure complexity only by the number of calls to the ordinary input bit oracle, so input-independent unitaries, finite work registers, reversible arithmetic on indices and measurements are free. When a bound is first stated in calls to a preparation, we convert it to bit queries once that preparation is implemented.
+
+[B0636 L2069-2070]
+A reader familiar with amplitude amplification can first read the [contract of Lemma 3.1](#upper-amplification-statement), then the [tournament](#upper-tournament-statement) and [verifier](#upper-verifier). The rest of §5.1 proves the predetermined query cap and exact successful-state a

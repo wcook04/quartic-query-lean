@@ -14,6 +14,26 @@ SPEC.loader.exec_module(M)
 
 
 class RoundNineTests(unittest.TestCase):
+    def test_render_receipt_inputs_are_packaged_including_shared_figure_style(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            style = root / 'docs/figures/exposition/style.tex'
+            style.parent.mkdir(parents=True)
+            style.write_text('% shared figure style\n')
+            relative = style.relative_to(root).as_posix()
+            provenance = {'exposition': {'inputs': {relative: M.base.digest(style.read_bytes())}}}
+            files = {}
+            M.add_render_inputs(files, root, provenance)
+            member = 'repository/' + relative
+            self.assertEqual(files[member][0], style)
+            self.assertEqual(provenance['exposition']['packaged_inputs'], {relative: member})
+            style.write_text('% changed\n')
+            with self.assertRaisesRegex(ValueError, 'changed render input'):
+                M.add_render_inputs({}, root, provenance)
+            style.unlink()
+            with self.assertRaisesRegex(ValueError, 'missing or nonregular'):
+                M.add_render_inputs({}, root, provenance)
+
     def tearDown(self):
         M.round8.configure()
 

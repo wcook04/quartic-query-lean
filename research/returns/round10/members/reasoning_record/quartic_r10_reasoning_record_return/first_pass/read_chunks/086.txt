@@ -1,0 +1,62 @@
+e comparison of 3 November in [round5_statement_fidelity.md](../research/adjudication/round5_statement_fidelity.md), made by an AI model that read the declarations and the preprint without running Lean; it does not refresh a corpus binding. Neither source is a human review.
+
+[B2122 L6353-6353]
+#### The optimal exponent
+
+[B2123 L6355-6355]
+The [compared exponent theorem][thm-alpha] states exactly $\alpha_{\mathrm{tot}}=4$. The corpus calls its relation to catalogue claim thm-1.1 partial because that claim also contains the universal bound and the family. The ordinary proof is in [§7.2](#ROOT-NO-SMALLER).
+
+[B2124 L6357-6357]
+<a id="formal-separation-family"></a>
+
+[B2125 L6358-6358]
+#### The separation family
+
+[B2126 L6360-6360]
+The [compared separation theorem][thm-headline] is exact for catalogue claim thm-1.1. It gives $\lfloor mL/100\rfloor<R(F_{k,m})$ and $Q\le A\,2^t(2t)^b$, with $b$ existential and one circuit per size. This implies (2) by the floor calculation of §6.6; it does not state $b=6$ or the coefficient $1/400$. The ordinary assembly is in [§7](#ROOT-FAMILY-ASSEMBLY).
+
+[B2127 L6362-6362]
+#### Failure of a cubic bound
+
+[B2128 L6364-6364]
+The [compared failure of the cubic bound][thm-cubic] states exactly that no real $C$ satisfies $R(f)\le C\,Q(f)^3$ for every $n\ge1$ and every total $f$. See [§7.2](#ROOT-NO-SMALLER) for the ordinary proof.
+
+[B2129 L6366-6366]
+#### Fixed-parameter Forrelation hardness
+
+[B2130 L6368-6368]
+The [compared Forrelation lower bound][thm-forrelation] is exact for Lemma 2.1(i) with an eventual threshold. It is weaker than the ordinary result in [§3.6](#forr_target), which also gives the explicit threshold $13669k^2$.
+
+[B2131 L6370-6370]
+The quantifier order in the compared family statement is $\forall k\ \exists S,A,b,t_0\ \forall t\ \exists\mathcal C$, with one circuit $\mathcal C$ for both bounds, as in §1. The other central statements of this record have their own formal status, recorded by the dated receipts and [the round-four formal adjudication](../research/adjudication/round4_formal.md). The Lean links in this edition use `8357f268732746d1575e05e7de8c888e20ad3793`. Its `lean/` tree is byte-identical to the paranoid receipt revision `9a0a5cdace28594058f6df59b9b2e45a9e7c1a4f`; the editorial revision supplies no fresh Lean or Comparator execution.
+
+[B2132 L6372-6376]
+| Bundle statement file | Imported vocabulary |
+| --- | --- |
+| Unconditional, Construction | Mathlib only |
+| UniformAmplifier, RealizedCaps, ConstructionFull | Modules of the maintained development |
+| Eq19 | Maintained interfaces through its independent specification |
+
+[B2133 L6378-6378]
+Separate compilation has these different source boundaries; it is not a uniform claim of independently authored definitions.
+
+[B2134 L6380-6380]
+#### Explicit constants for the named family
+
+[B2135 L6382-6382]
+The [named-family theorem][src-constants] proves Equation (2) with $b_k=6$, coefficient $1/400$ and a circuit-size bound. It is built and axiom-audited, but not configured for comparison. The 2 November corpus and the 3 November textual review both judge it stronger than (2), because it fixes explicit constants for the named circuit. Its threshold remains existential: no Lean theorem states $t\ge13669k^2$. See [§6.6](#CL-floors), [Appendix G.9](#ROOT-EXPONENT-CORRESPONDENCE).
+
+[B2136 L6384-6384]
+#### The existential form of Equation (2)
+
+[B2137 L6386-6386]
+The [existential family theorem][src-equation-two] packages Equation (2) existentially. It is built, not compared, and the corpus judges it stronger because it adds a circuit-size witness for the same circuit. The textual review did not cover it. See [§7](#ROOT-FAMILY-ASSEMBLY).
+
+[B2138 L6388-6388]
+#### The explicit Forrelation threshold
+
+[B2139 L6390-6390]
+The threshold $t\ge13669k^2$ in (F51) is the ordinary specialization of (F43) proved in [§3.15](#forr_threshold). It has no Lean statement and was not covered by the textual review.
+
+[B2140 L6392-6392]
+#### The uniform Forre

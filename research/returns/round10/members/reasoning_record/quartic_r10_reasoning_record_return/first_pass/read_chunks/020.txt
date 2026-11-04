@@ -1,0 +1,46 @@
+abels are uniform, the search preparation has success probability $h/K$. If $h=0$, the search of Lemma 3.1 has success probability zero and reports failure to find a test with certainty, so the verifier accepts with certainty. If $h\geq1$, its success probability is at least $1/K$, and the verifier accepts with probability at most $\varepsilon$. On the board in [§4.4](#AC-example-tests), $K=371$. The true pair $(1,10)$ has $h=0$, while the three wrong addresses have $h=1,2,1$, giving unamplified detection probabilities $1/371,2/371,1/371$. Thus certainty of accepting the true pair and bounded error on false pairs arise from the same search contract.
+
+[B0826 L2624-2624]
+Lemma 2.2 supplies the needed dichotomy. A nonwinner has at least one failed test at every address, including when its Forrelation strings violate their promises, because if every test at some address passed, circuit consistency and the output tests would make that address a winning address. Averaging over every possible decoded label, we find that a nonwinner is accepted with probability at most $\varepsilon$. A true winner passes all tests at its true address, which its fresh decoder produces with probability at least $1-\varepsilon$, and on that event verification accepts with certainty; hence the true winner is rejected with probability at most $\varepsilon$. Together these give:
+
+[B0827 L2626-2626]
+<!-- claim:claim-verify -->
+
+[B0828 L2627-2631]
+$$
+\Pr[\text{accept a nonwinner}]\leq\varepsilon,
+\qquad
+\Pr[\text{reject the winner}]\leq\varepsilon.
+$$
+
+[B0829 L2633-2633]
+The search makes $O(\sqrt K\ln(1/\varepsilon))$ calls to a uniform-test preparation and its inverse, each costing $O(\ell+1)$ bit queries, and adding the fresh address decoding yields $O_k(r\ln(r/\varepsilon)+\sqrt K\ln(1/\varepsilon)(\ell+1))=\sqrt m(\log m)^{O_k(1)}$ queries. This cap holds for all values of $h$, including zero. The algorithm accepts a nonwinner only by missing a failed test, since every acceptance rests on the tests themselves and on no assumed promise about the candidate.
+
+[B0830 L2635-2636]
+For the tournament use, $m\ge2$ likewise gives $0<1/(2m)\le1/2$; its error parameter is the same $\varepsilon$.
+<!-- /passage:upper-verification-proof -->
+
+[B0831 L2638-2639]
+<a id="upper-total-error"></a>
+<!-- passage:upper-total-error -->
+
+[B0832 L2641-2641]
+We now bound the error for every input of the total function. On a zero input every column is a nonwinner. We condition on the complete tournament transcript and on its list, which has at most $T$ entries; each subsequent fresh verification then accepts its candidate with probability at most $\varepsilon$, whatever the transcript. By the union bound, for any fixed list the probability of at least one false acceptance is at most $T\varepsilon$, and averaging over the tournament transcript preserves this bound. Early stopping at the first acceptance leaves the event that at least one acceptance occurs unchanged.
+
+[B0833 L2643-2643]
+On a one input, uniqueness of the winner gives a column $i^\star$, which the comparison argument makes dominant, so the tournament misses it with probability at most $2m/2^T+T\varepsilon$. If it occurs in the list, its fresh verification accepts with probability at least $1-\varepsilon$, even conditionally on the previous transcript, and any earlier acceptance already gives the correct output one. Thus an erroneous zero output is contained in the union of the miss event and the rejection of $i^\star$ when it is verified, and we obtain
+
+[B0834 L2645-2645]
+<!-- claim:claim-error -->
+
+[B0835 L2646-2652]
+$$
+\begin{aligned}
+\Pr_x[\text{error}]&\leq T\varepsilon &&\text{for every }x\text{ with }F_{k,m}(x)=0,\\
+\Pr_x[\text{error}]&\leq\frac{2m}{2^T}+T\varepsilon+\varepsilon<\frac13
+&&\text{for every }x\text{ with }F_{k,m}(x)=1.
+\end{aligned}
+$$
+
+[B0836 L2654-2655]
+For the last numerical inequality, $2^T\geq1000m$ gives $2m/2^T\leq1/500$, and $T\varepsilon=1/1000$; also $T\geq1$ gives $\varepsilon\leq1/1000$. T

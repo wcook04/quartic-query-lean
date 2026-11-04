@@ -1,0 +1,43 @@
+ss.
+
+[B2097 L6295-6295]
+**Deferring measurements with the same witnesses.** For an adaptive program on $\operatorname{Fin}(n)$ with workspace parameter $w$ and query cap at most $T$, the [fixed-sequence normal form][src-fixed-sequence] supplies an enlarged workspace, an entry map, a fixed sequence $U$ and an output event $S$. All these witnesses are chosen before the input and initial vector. For every $x$ and $\psi$, the mass of $S$ after the length-$T$ sequence on the entered vector equals the original program's true-output mass. For a normalized vector these masses are probabilities. In symbols, the quantifier order is
+
+[B2098 L6296-6301]
+\[
+ \exists W',\operatorname{entry},U,S\quad\forall x,\psi:\qquad
+ \operatorname{measureProb}\bigl(\operatorname{run}
+ U(\operatorname{entry}\psi)\,x\,T,S\bigr)
+ =\operatorname{outputMass}_A(x,\psi,\mathsf{true}).
+\]
+
+[B2099 L6302-6302]
+The full witness types are those of the linked source contract. The stated cap is the only additional premise of this translation. In particular, this output-law theorem should not be read as identifying a designated retained subsystem with an arbitrary normalized successful state; the stronger amplification issue is isolated in Appendix G.7.
+
+[B2100 L6304-6304]
+**The family and the universal exponent.** The [universal power bound][def-universal] is a predicate on real exponents, and the [formal optimal exponent][def-alpha] is the infimum of the exponents satisfying it. Its quantifiers range over total Boolean functions on $\operatorname{Fin}(n)$, with $n\ge1$ and exponent $\alpha\ge0$, as in (1). The finite-constant and infimum formulations are explicitly related by the source wrappers. No Forrelation hypothesis belongs to this definition.
+
+[B2101 L6306-6306]
+For fixed $k\ge2$, the [existential family theorem][src-equation-two] gives the real-power family bound (2), and the [named-family theorem][src-constants] names its circuit and constants. The constants and threshold are chosen after $k$ and before the size, and one circuit at each size satisfies both the quantum upper bound and the randomized lower bound. The fixed-parameter Forrelation estimate is supplied inside the unconditional proof. The [complete unconditional Theorem 1.1][src-theorem] packages the common-circuit eventual family in the integer form
+
+[B2102 L6307-6311]
+\[
+ R(F_{k,m})>\left\lfloor\frac{mL}{100}\right\rfloor,
+ \qquad
+ L=\left\lfloor\frac{m^{1-1/k}}{(\log_2m)^2}\right\rfloor,
+\]
+
+[B2103 L6312-6312]
+together with $\alpha_{\mathrm{tot}}=4$ and the universal power bound at exponent four. Its range and threshold occur inside the conclusion. The floor-removal argument and full types are recorded in the correspondence; the integer statement and the real-power statement should not be conflated merely because they describe the same family.
+
+[B2104 L6314-6314]
+The parameter-free [unconditional exponent theorem][src-alpha] gives the exponent alone. The cubic refutation states that there is no common real constant $C$ for which
+
+[B2105 L6315-6318]
+\[
+ \bigl(R(\operatorname{totalise}f)\bigr)_{\mathbb R}
+ \le C\bigl(Q(\operatorname{totalise}f)\bigr)_{\mathbb R}^{3}
+\]
+
+[B2106 L6319-6319]
+for every $n\ge1$ and total $f$ on $\operatorname{Fin}(n)$. The universal upper endpoint, the [universal quartic power bound][src-universal-power], proves the universal power bound at exponent four; the headline proof uses the imported complexity-library route described in Appendix A. These are unconditional declarations. By contrast, the [conditional family bounds][src-family-conditional] retain the premise $L<R(P_{k,4^t})$, with $L$ the [lower-bound value][def-L] at $m=4^t$, in their lower-bound clause, and the [conditional form of Theorem 1.1][src-theorem-conditional] takes the [Forrelation hardness statement][def-bansal-sinha] as an explicit hypothesis. Citing either of those conditional suppliers alone does not remove its hypothesis. A restriction such as $k\ge2$ and an unproved lower-bound assumption play 

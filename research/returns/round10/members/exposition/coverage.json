@@ -1,0 +1,508 @@
+{
+  "schema": "ex10-final-coverage-v1",
+  "created_at_utc": "2026-11-04T17:09:15.670909+00:00",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+    "repository/docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+    "repository/docs/expert_companion.pdf": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+    "repository/docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "repository/docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+    "repository/docs/exposition.pdf": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+    "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+    "repository/docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "repository/docs/reasoning_record.pdf": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7"
+  },
+  "lead_source_coverage": "Complete Markdown through line 535; all 23 bibliography database entries; complete 24-page PDF inspection after freeze.",
+  "chronology_status": "Partial strict-protocol compliance. Frozen notes were appended in source-order batches, not before every next sentence became visible.",
+  "freeze_reference": {
+    "path": "freeze.json",
+    "sha256": "65fc16923b1e62cd4080c85eab650c0ac2d58127819f6612937c3fb1a2bb4e11",
+    "frozen_at_utc": "2026-11-04T16:40:16.221398+00:00",
+    "files": {
+      "first_pass/bibliography_audit.jsonl": "8538a7a00740a22759cba60f8d67006435d5d501ddebe578529f4a3e221131bd",
+      "first_pass/coverage.json": "00fa82bf16fbda88d9770508ef25aa40aab135ef7ba5b2947f05d6e00f41940a",
+      "first_pass/reading_log.md": "70e41ab33b246400b8a9383636678e8b097728740ed2b12d28f1dec64018936c",
+      "first_pass/sentence_audit.jsonl": "59894c2f5b1053bde839306286a187d3a66283d0f1894e90b1893eba9a12099c"
+    }
+  },
+  "first_reviewed_locator": {
+    "line": 1,
+    "unit_id": "EX10-U0001"
+  },
+  "last_reviewed_locator": {
+    "line": 535,
+    "unit_id": "EX10-U0805"
+  },
+  "front_matter_range": [
+    1,
+    9
+  ],
+  "sections": [
+    {
+      "heading": "# Introduction",
+      "line_start": 10,
+      "line_end": 52
+    },
+    {
+      "heading": "# 1. Three eight-bit inputs",
+      "line_start": 53,
+      "line_end": 103
+    },
+    {
+      "heading": "# 2. One column, then four",
+      "line_start": 104,
+      "line_end": 168
+    },
+    {
+      "heading": "# 3. The general partial function",
+      "line_start": 169,
+      "line_end": 205
+    },
+    {
+      "heading": "# 4. The quantum algorithm: a tournament",
+      "line_start": 206,
+      "line_end": 347
+    },
+    {
+      "heading": "# 5. The classical lower bound: a planted pair",
+      "line_start": 348,
+      "line_end": 465
+    },
+    {
+      "heading": "# 6. Exponent four, and the order of quantifiers",
+      "line_start": 466,
+      "line_end": 487
+    },
+    {
+      "heading": "# 7. The statement in Lean",
+      "line_start": 488,
+      "line_end": 495
+    },
+    {
+      "heading": "# Answers to the questions {.unnumbered}",
+      "line_start": 496,
+      "line_end": 515
+    },
+    {
+      "heading": "# Use of AI tools {.unnumbered}",
+      "line_start": 516,
+      "line_end": 519
+    },
+    {
+      "heading": "# References {.unnumbered}",
+      "line_start": 520,
+      "line_end": 535
+    }
+  ],
+  "appendices": "No separate appendix after the lead reference/link block.",
+  "counts": {
+    "frozen_markdown_units": 805,
+    "frozen_prose_sentence_rows": 708,
+    "frozen_other_rows": 97,
+    "frozen_bibliography_entries": 23,
+    "root_combined_rows": 828,
+    "later_annotations": 55,
+    "rendered_cited_references": 20
+  },
+  "sentence_granularity_limit": "Captions and tables are composite object rows. Their internal sentences were not separately frozen; no retrospective row is represented as a new first encounter.",
+  "pdf": {
+    "source": "repository/docs/exposition.pdf",
+    "pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "render_scale": 1.25,
+    "effective_dpi": 90,
+    "pixel_size": [
+      745,
+      1053
+    ],
+    "inspection": "All 24 pages emitted and viewed sequentially in four batches of six. Text, displays, diagrams, tables, references and page transitions inspected. No thumbnail-only completeness claim.",
+    "findings": [
+      {
+        "page": 4,
+        "source_lines": [
+          88,
+          98
+        ],
+        "observation": "The displayed trajectory stops at u before the final H even though the preceding full-operation sentence includes that H. Following prose recovers the stage; labeling it would reduce stage ambiguity."
+      },
+      {
+        "page": 5,
+        "source_lines": [
+          129,
+          135
+        ],
+        "observation": "Quantitative address-hiding preview and credit discussion precede the first concrete board, which begins at the foot and continues onto page 6. The issue is instructional ordering rather than clipping."
+      },
+      {
+        "page": 13,
+        "source_lines": [
+          301,
+          303
+        ],
+        "observation": "The exact schedule with M,N and constants occupies a large paragraph between rotation-law explanation and the construction-specific search-stage guarantee."
+      },
+      {
+        "page": 22,
+        "source_lines": [
+          498,
+          512
+        ],
+        "observation": "Combined rubric appears before Question 1–5 answers on the same page; putting final synthesis feedback last would better match task order."
+      }
+    ],
+    "no_observed_visual_defects": [
+      "No clipped formula or table text in the rendered pages.",
+      "Figures 1–4 have visible labels and captions at the inspected scale.",
+      "No black-square glyph substitution observed."
+    ],
+    "scope_limits": [
+      "No browser/PDF-viewer click interactions were executed. Destinations are audited separately from raw PDF link annotations.",
+      "No PDF was edited or regenerated from source. The original PDF was rendered for inspection only."
+    ]
+  },
+  "perspectives": [
+    {
+      "order": 1,
+      "name": "Research mathematician in analysis/combinatorics",
+      "scope": "Complete lead Markdown and own bibliography metadata",
+      "exposure": "General model knowledge; declared batch exposures; six local exercise attempts saved before answers",
+      "record": "first_pass/reading_log.md"
+    },
+    {
+      "order": 2,
+      "name": "Final-year undergraduate",
+      "scope": "All 24 PDF pages in order, informed visual reread",
+      "exposure": "Whole Markdown and all answers already known",
+      "record": "perspectives.md"
+    },
+    {
+      "order": 3,
+      "name": "Physicist/engineer",
+      "scope": "Informed targeted reconsideration of already-read ranges 14–51,76–102,114–167,177–204,208–341,350–400,466–494",
+      "exposure": "Shared context and known answers; not a new serial retrieval",
+      "record": "perspectives.md"
+    },
+    {
+      "order": 4,
+      "name": "Lecturer",
+      "scope": "Informed section-opening/exercise/route reconsideration; already-viewed PDF pp.7–8,11–14,17–22",
+      "exposure": "Shared context; not an independent learner or measured course trial",
+      "record": "perspectives.md"
+    }
+  ],
+  "exercise_attempts": {
+    "projection": "unexposed",
+    "question_1": "unexposed",
+    "question_2": "unexposed",
+    "question_3": "unexposed",
+    "question_4": "unexposed",
+    "question_5": "unexposed",
+    "combined_explanation": "answer_exposed to first three rubric sentences",
+    "optional_Lean_clause": "embedded answer exposure; link not yet followed"
+  },
+  "detours": [
+    {
+      "departure": "line 222",
+      "accidental_destination": "lines 225–259",
+      "return": "line 223",
+      "reason": "range-filter gap",
+      "imported_information": "later comparison and ideal-weight material in the same section"
+    }
+  ],
+  "protocol_departures": [
+    "Initial source lines 1–135 were visible together before any first-pass row was written; those rows are immediate source-order annotations, not sentence-before-next-sentence records.",
+    "Later tool chunks were also batch-visible; the durable chronology is at batch boundaries, not individually blinded sentences.",
+    "Line 223 was inadvertently skipped by a range filter, then retrieved after lines 225–259 had been displayed.",
+    "The combined-explanation task was exposed to the first three rubric sentences in the same retrieval; its response is answer_exposed.",
+    "Figure captions and tables have composite object rows; internal caption sentences are not separately frozen encounter rows.",
+    "The optional Lean exercise prints its target clause and explanation in the prompt paragraph; external links were deferred.",
+    "The paper's own bibliography was read as BibTeX metadata after Markdown completion; rendered reference order will be inspected only after freeze.",
+    "Post-freeze schema check found 15 layout/link-definition rows with ordinal 1 rather than null; original rows remain frozen, and only the root index explicitly normalizes this metadata."
+  ],
+  "unreviewed_lead_markdown_ranges": [],
+  "unreviewed_lead_pdf_pages": [],
+  "other_manuscript_coverage": {
+    "repository/docs/expert_companion.md": {
+      "explicitly_recorded_read_ranges": [
+        [
+          1,
+          95
+        ],
+        [
+          142,
+          342
+        ],
+        [
+          393,
+          404
+        ]
+      ],
+      "unreviewed_or_not_claimed_reviewed_ranges": [
+        [
+          96,
+          141
+        ],
+        [
+          343,
+          392
+        ],
+        [
+          405,
+          478
+        ]
+      ],
+      "total_lines": 478,
+      "pdf_pages_inspected": [],
+      "note": "Conservative union of explicit reads by named roles; unlisted surrounding snippets do not expand the claimed coverage."
+    },
+    "repository/docs/reasoning_record.md": {
+      "explicitly_recorded_read_ranges": [
+        [
+          1,
+          85
+        ],
+        [
+          186,
+          350
+        ],
+        [
+          556,
+          800
+        ],
+        [
+          854,
+          932
+        ],
+        [
+          1795,
+          2033
+        ],
+        [
+          2073,
+          2220
+        ],
+        [
+          2728,
+          2748
+        ],
+        [
+          2756,
+          2796
+        ],
+        [
+          2828,
+          3070
+        ],
+        [
+          3270,
+          3313
+        ],
+        [
+          3322,
+          3322
+        ],
+        [
+          3324,
+          3324
+        ],
+        [
+          3438,
+          3502
+        ],
+        [
+          3504,
+          3504
+        ],
+        [
+          3510,
+          3510
+        ],
+        [
+          3550,
+          3550
+        ],
+        [
+          3567,
+          3662
+        ],
+        [
+          3677,
+          3677
+        ],
+        [
+          3691,
+          3710
+        ],
+        [
+          3714,
+          3800
+        ],
+        [
+          3902,
+          3988
+        ],
+        [
+          3990,
+          4000
+        ]
+      ],
+      "unreviewed_or_not_claimed_reviewed_ranges": [
+        [
+          86,
+          185
+        ],
+        [
+          351,
+          555
+        ],
+        [
+          801,
+          853
+        ],
+        [
+          933,
+          1794
+        ],
+        [
+          2034,
+          2072
+        ],
+        [
+          2221,
+          2727
+        ],
+        [
+          2749,
+          2755
+        ],
+        [
+          2797,
+          2827
+        ],
+        [
+          3071,
+          3269
+        ],
+        [
+          3314,
+          3321
+        ],
+        [
+          3323,
+          3323
+        ],
+        [
+          3325,
+          3437
+        ],
+        [
+          3503,
+          3503
+        ],
+        [
+          3505,
+          3509
+        ],
+        [
+          3511,
+          3549
+        ],
+        [
+          3551,
+          3566
+        ],
+        [
+          3663,
+          3676
+        ],
+        [
+          3678,
+          3690
+        ],
+        [
+          3711,
+          3713
+        ],
+        [
+          3801,
+          3901
+        ],
+        [
+          3989,
+          3989
+        ],
+        [
+          4001,
+          6781
+        ]
+      ],
+      "total_lines": 6781,
+      "pdf_pages_inspected": [],
+      "note": "Conservative union of explicit reads by named roles; unlisted surrounding snippets do not expand the claimed coverage."
+    }
+  },
+  "literature_boundary": "Six required writing/teaching selections substantively compared, selected primary theorem passages checked, beyond-annex online teaching sources read. Full scopes and unread/source-edition limits are in literature_sources.json and source_inventory.json.",
+  "historical_coverage": {
+    "inspected": 185,
+    "all_exposition_ids": 135,
+    "selected_record_ids": 49,
+    "selected_companion_ids": 1,
+    "uninspected_ids": 353,
+    "details": "previous_round_audit.json"
+  },
+  "limits": [
+    "No independent human readers or learning outcomes.",
+    "No new Lean, Lake or Comparator run.",
+    "No full analytic Forrelation/universal-bound or repository-wide proof audit.",
+    "Exact pinned online prose not retrieved; current packaged counterparts inspected.",
+    "No whole-corpus register measurement or exemplar comparison is claimed."
+  ],
+  "continuation_if_expanded": "Lead reading is complete. A broader review would start with the enumerated 353 uninspected XP9/RR9 IDs and the unreviewed companion/record ranges; a strict fresh chronology cannot be recovered from this informed session.",
+  "post_freeze_schema_corrections": {
+    "affected_unit_ids": [
+      "EX10-U0664",
+      "EX10-U0683",
+      "EX10-U0793",
+      "EX10-U0794",
+      "EX10-U0795",
+      "EX10-U0796",
+      "EX10-U0797",
+      "EX10-U0798",
+      "EX10-U0799",
+      "EX10-U0800",
+      "EX10-U0801",
+      "EX10-U0802",
+      "EX10-U0803",
+      "EX10-U0804",
+      "EX10-U0805"
+    ],
+    "field": "sentence_in_paragraph",
+    "frozen_value": 1,
+    "root_normalized_value": null,
+    "status": "15 non-prose ordinals normalized retrospectively in the root index only. Frozen hashes unchanged."
+  }
+}

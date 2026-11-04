@@ -1,0 +1,60 @@
+ hidden division by the number of surviving variables.
+
+[B2031 L6090-6090]
+For comparison with a variable-error statement, let $R_\varepsilon$ denote the same worst-case query model at error $\varepsilon$. If a depth-$D$ algorithm has error $(1-\eta)/2$, where $0<\eta\le1$, majority of $2\tau$ independent runs has error at most $(1-\eta^2)^\tau\le e^{-\tau\eta^2}$. For $0<\eta<1$ the first inequality follows by applying Markov's inequality to the exponential of the error count with multiplier $(1+\eta)/(1-\eta)$; at $\eta=1$ every run is correct.
+
+[B2032 L6092-6092]
+This ordinary comparison uses only the normalized Walsh matrix, which exists in every power-of-two dimension; it does not extend the frozen Lean definition. Assume $k\ge2$ and that $m$ is a power of two with $m\ge2^{15k+2}$, and take
+
+[B2033 L6093-6096]
+\[
+\tau=\lceil5k\ln2/\eta^2\rceil
+\le5k\ln2/\eta^2+1<4k/\eta^2.
+\]
+
+[B2034 L6097-6099]
+For the strict last step, $\ln2<7/10$ gives $5\ln2<7/2$, while $1\le k/(2\eta^2)$ follows from $k\ge2$ and $0<\eta\le1$.
+The amplified error and the uniform exceptional mass are both at most $\delta$. The proof of (F42) therefore gives a gap $\Gamma\ge a_k-4\delta\ge7a_k/8$. If $2\tau D<k$, (F58) is zero, a contradiction. Otherwise use
+$\binom{2\tau D}{k}\le(2e\tau D/k)^k$ and solve (F58):
+
+[B2035 L6101-6111]
+\[
+\begin{aligned}
+D&\ge\frac{k}{2e\tau C^2}
+ \left(\frac{\Gamma4^{k-1}}3\right)^{2/k}
+ \left(\frac m{1+\ln(km)}\right)^{1-1/k},\\
+\left(\frac{\Gamma4^{k-1}}3\right)^{2/k}
+&\ge\frac4{81}\left(\frac{21}{16}\right)^{2/k}
+\ge\frac4{81}.
+\end{aligned}
+\tag{F59}
+\]
+
+[B2036 L6113-6113]
+Consequently, for every integer $k\ge2$, power of two $m\ge2^{15k+2}$ and $0<\eta\le1$, the comparison route proves the following consequence of the external theorem (F56), with its same unspecified absolute constant $C\ge1$:
+
+[B2037 L6115-6120]
+\[
+R_{(1-\eta)/2}(P_{k,m})
+\ge\frac{\eta^2}{162eC^2}
+\left(\frac m{1+\ln(km)}\right)^{1-1/k}.
+\tag{F60}
+\]
+
+[B2038 L6122-6123]
+The extension from powers of four to powers of two in this ordinary calculation uses only the existence of the normalized Walsh matrix; it is not an extension of the frozen Lean definition. After taking the $2/k$ power, the binomial estimate supplies a factor of $k$ that cancels the order-$k/\eta^2$ amplification cost. The elementary derivative bound also carries its own factor of $k$, explaining its larger loss. Tal's earlier Fourier-growth work provides historical context, but its random-orthogonal distribution and “good matrix” hypothesis are not a theorem for the explicit Walsh promise [Tal2019v1, §§5.1–5.2, Theorem 5.1 and Definition 5.5, pp. 13–14]. Neither that distribution theorem nor SSW's rorrelation distribution theorem is being transferred here. The only external mathematical input to (F60), beyond the proof above, is (F56).
+<!-- /passage:forr_ssw_comparison -->
+
+[B2039 L6125-6125]
+## Appendix F. Execution history
+
+[B2040 L6127-6128]
+<a id="execution-history"></a>
+This appendix records how the formal evidence accumulated. The current compared statements and their status are in [Appendix G.4](#checked-statements), and instructions for reproducing the checks are in the repository's [README](../README.md#reproducing-the-formal-checks). The passages below are an archive of earlier observations, not the current statement inventory. Use the following snapshot index before comparing their counts.
+
+[B2041 L6130-6136]
+| Observation | Scope of the recorded observation | Where to read it |
+| --- | --- | --- |
+| Earlier supplied packet | 124 local Lean/configuration files; byte agreement across packet, receipt and dependency records, despite differing commit labels | [F.4](#history-upper-evidence) |
+| 2 November targeted integration | 18 inspected declarations; named construction and Equation (19) comparisons | [F.1](#history-evidence-convention) and its individual receipts |
+| 2 November global integration | Root build, five named bundles and a separate Unconditional paranoid run; 12

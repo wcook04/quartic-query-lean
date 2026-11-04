@@ -1,0 +1,20 @@
+fferent conclusions; the missing identification is stated precisely below.
+
+[B2191 L6505-6505]
+**Fresh registers and a bounded list.** The literal tensor construction in equation (15) is supplied by the [formal tensor preparation][src-equation-15]. The [common workspace for finitely many samplers][src-common-workspace] and the [tensor stage built from samplers][src-tensor-stage] realize its stages in a common workspace. The alternative [stage sampler of the tournament][src-stage-sampler] may omit later work after failure: it gives the same successful index law, without equality of the full retained states. Proposition 3.2 only needs the specified list law. The [bounded-list tournament theorem][src-quantum-tournament] supplies an actual finite coherent sampler for the bounded list, its compiled bit-query implementation, a normalized nonnegative law, the dominant-membership estimate and the explicit 6072 query bound. The current theorem therefore supplies the list law as well as its physical query cap.
+
+[B2192 L6507-6507]
+**Decoding, verification and the final budget.** The formal statements of [decoder correctness][src-decoder], the [comparison state][src-comparison-state], [winner dominance][src-winner-dominates], the [verifier][src-verifier] and the [error of the complete algorithm][src-error-bound] expose the corresponding laws and all-input budgets. Correctness premises for promised Forrelation instances remain explicit; the budget does not disappear on unpromised inputs. For $k=l+1$, $m=4^t$ and $t\ge1$, the [algorithmic form of Proposition 3.3][src-prop33] gives its upper bound for the canonical circuit, the [quantum query bound][src-q-bound] gives its numerical complexity form, and the [explicit quantum budget][src-budget] bounds the actual integer budget by the expression with logarithmic exponent six. These steps use the measured laws already available, so the remaining full-state specification is not an extra assumption of the final upper bound.
+
+[B2193 L6509-6510]
+The supplied dependency export for the [unconditional Theorem 1.1][src-theorem] and the [unconditional failure of the cubic bound][src-cubic] reaches the older measured/Boolean upper-bound route, including the [amplifier of measured labels][src-amplify-measured] and the [quantum query bound][src-q-bound]. It does not reach the new list and tensor wrappers. This is a fact about those specified proof roots; it does not negate the wrappers' compilation or their mathematical statements. Exact-name Comparator coverage is narrower again: in particular, the Tournament bundle compares two drift wrappers, not the new list theorem. The companion files record declaration membership, complete available types and these evidence dimensions separately. Historical “UNELABORATED” comments in integrated source files do not override newer source-bound passing receipts.
+<!-- /passage:upper-current-formal-scope -->
+
+[B2194 L6512-6514]
+<a id="upper-missing-physical-state"></a>
+<!-- passage:upper-missing-physical-state -->
+The remaining formal target for the complete physical reading of Lemma 3.1 can be stated without ambiguity. Fix a finite original Hilbert space $H$ with its computational basis, a basis state $h_0$, a fixed success projector $\Pi$ on $H$, and a concrete oracle-dependent unitary circuit $A_x$ with at most $q$ logical reads. Put $p_x=\|\Pi A_x|h_0\rangle\|^2$ and, only when $p_x>0$, put $g_x=\Pi A_x|h_0\rangle/\sqrt{p_x}$.
+
+[B2195 L6516-6517]
+<!-- claim:r3-q-physical-state-bridge -->
+For fixed $0<\gamma\leq1/2$ and $0<\eta<1/2$, the desired theorem must construct a finite-dimensional auxiliary Hilbert space $J$, with a specified finite computational basis and fixed initial state $j_0$, a final success predicate on $J$, and a coherent unitary $B_x$ on $H\otimes J$. The construction includes a specified input-independent routing that places the complete first successful original register in the designated $H$ slot. Write $\Pi_{\rm out}=I_H\otimes\Pi_J$ for the fina

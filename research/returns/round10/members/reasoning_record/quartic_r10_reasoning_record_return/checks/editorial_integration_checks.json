@@ -1,0 +1,24 @@
+{
+  "created_at": "2026-11-04T14:53:42.825454+00:00",
+  "final_findings": 8,
+  "primary_candidates": 27,
+  "all_first_pass_files_original": true,
+  "original_freeze_sha256": "714edbed6d440767df589d5cc23fcca3fd00b23c244d808ea202fd850b56e472",
+  "final_QA_corrections": [
+    "RR10-005 kernel restricted to active |L|<T; deterministic horizon retained.",
+    "RR10-004 total F=0/F=1 language and measured fixed address retained.",
+    "RR10-006 PDF page corrected to69; sharper constants not needed for main contradiction, not wholly unused.",
+    "RR10-003 original EX9039 relocation acknowledged; receiving-link consequence distinct.",
+    "RR10-008 optional in title/advice; targets explicitly Unconditional; low editorial severity."
+  ],
+  "nonfindings_explicitly_rejected": [
+    "FP-026: §3.18 and its anchor exist.",
+    "FP-015: analytic law versus promised hard law already distinguished at1091.",
+    "FP-024: XOR toy scope and +1 label translation already explicit at3397.",
+    "FP-018: missing early interface allegation withdrawn; only order proposal retained.",
+    "FP-027: historical disclosure repair resolved; further ordering proposal optional."
+  ],
+  "finding_quotes": "All8 exact against current submitted Markdown, <=25 words; PDF pages separately checked.",
+  "builds_or_submitted_scripts_executed": false,
+  "validator_qa": "21 isolated cases:2 accepted baselines,19 correctly rejected cases; this does not substitute for validation of the final archive."
+}

@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "scope": "Artifact-validator QA only; no manuscript tests or Lean executions. Fixture contents were temporary and are not retained.",
+  "started_at": "2026-11-04T14:45:56.851240+00:00",
+  "completed_at": "2026-11-04T14:46:02.827302+00:00",
+  "validator_path": "checks/validate_return.py",
+  "tested_script_sha256": "9c8eac8200b5deac825bb573a2a275cddb14084860c942a00f785d3f42324f94",
+  "script_bytes": 30493,
+  "source_status_sha256": "a91f81249be2f04a3c1aca2fb554879814af79d4b0a539593ad7eddcf8995839",
+  "original_freeze_sha256": "714edbed6d440767df589d5cc23fcca3fd00b23c244d808ea202fd850b56e472",
+  "case_count": 21,
+  "accepted_baselines": 2,
+  "rejected_negative_cases": 19,
+  "all_checks_passed": true,
+  "cases": [
+    {
+      "case": "valid package including exact immutable erratum",
+      "expectation": "accept",
+      "passed": true,
+      "actual_errors": [],
+      "actual_counts": {
+        "findings": 1,
+        "frozen_units": 4262,
+        "audit_units": 4262,
+        "later_annotations": 1,
+        "files": 142,
+        "frozen_files": 127,
+        "recorded_quote_errata": 1,
+        "source_checks": "verified"
+      }
+    },
+    {
+      "case": "unlisted changed encounter field",
+      "expectation": "reject",
+      "passed": true,
+      "expected_error_fragment": "original field changed",
+      "actual_errors": [
+        "combined RR10-U00001: original field changed without the authorized erratum: available_before"
+      ]
+    },
+    {
+      "case": "wrong encounter reference",
+      "expectation": "reject",
+      "passed": true,
+      "expected_error_fragment": "encounter_ref does not identify",
+      "actual_errors": [
+        "combined RR10-U00001: encounter_ref does not identify the preserved row"
+      ]
+    },
+    {
+      "case": "unlisted retrospective field",
+      "expectation": "reject",
+      "passed": true,
+      "expected_error_fragment": "retrospective_fields does not list",
+      "actual_errors": [
+        "combined RR10-U00001: retrospective_fields does not list exactly the added fields"
+      ]
+    },
+    {
+      "case": "arbitrary quotation under allowed erratum unit",
+      "expectation": "reject",
+      "passed": true,
+      "expected_error_fragment": "original field changed",
+      "actual_errors": [
+        "combined RR10-U01500: quote not in exact source range",
+        "combined RR10-U01500: original field changed without the authorized erratum: quote"
+      ]
+    },
+    {
+      "case": "wrapper omits frozen file",
+      "expectation": "reject",
+      "passed": true,
+      "expected_error_fragment": "Wrapper freeze membership differs",
+      "actual_errors": [
+        "Wrapper freeze membership differs from prefixed original files plus original freeze"
+      ]
+    },
+    {
+      "case": "empty root coverage",
+      "expectation": "reject",
+      "passed": true,
+      "expected_error_fragment": "coverage.json missing",
+      "actual_errors": [
+        "coverage source_sha256 differs from SOURCE_STATUS drafts",
+        "coverage.json missing source_sha256",
+        "coverage.json missing first_pass",
+        "coverage.json missing sections",
+        "coverage.json missing pdf_inspection",
+        "coverage.json missing perspectives",
+        "coverage.json missing protocol_departures",
+        "coverage.json missing unreviewed_ranges",
+        "Root coverage and feedback source hashes disagree"
+      ]
+    },
+    {
+      "case": "nonnumeric finding ID",
+      "expectation": "reject",
+      "passed": true,
+      "expected_error_fragment": "Invalid numeric finding ID",
+      "actual_errors": [
+        "Invalid numeric finding ID 'RR10-invalid'",
+        "Annotation A001: duplicate/unknown final finding reference"
+      ]
+    },
+    {
+      "case": "empty finding quote",
+      "expectation": "reject",
+      "passed": true,
+      "expected_error_fragment": "quote must be a nonempty string",
+      "actual_errors": [
+        "RR10-001 locator: quote must be a nonempty string",
+        "RR10-001: invalid/nonexact source locator"
+      ]
+    },
+    {
+      "case": "missing structural-proposal fields",
+      "expectation": "reject",
+      "passed": true,
+      "expected_error_fragment": "structural finding missing",
+      "actual_errors": [
+        "RR10-001: structural finding missing affected_locators",
+        "RR10-001: structural finding missing dependency_constraints",
+        "RR10-001: structural finding missing acceptance_check",
+        "RR10-001: affected_locators must be an array"
+      ]
+    },
+    {
+      "case": "unknown later finding reference",
+      "expectation": "reject",
+      "passed": true,
+      "expected_error_fragment": "unknown final finding",
+      "actual_errors": [
+        "Annotation A001: duplicate/unknown final finding reference"
+      ]
+    },
+    {
+      "case": "NUL in text file",
+      "expectation": "reject",
+      "passed": true,
+      "expected_error_fragment": "NUL byte",
+      "actual_errors": [
+        "Parse/text failure README.md: NUL byte in text artifact"
+      ]
+    },
+    {
+      "case": "duplicate JSON key",
+      "expectation": "reject",
+      "passed": true,
+      "expected_error_fragment": "Duplicate JSON key",
+      "actual_errors": [
+        "Parse/text failure checks/input_integrity.json: Duplicate JSON key: x"
+      ]
+    },
+    {
+      "case": "unmanifested extra payload",
+      "expectation": "reject",
+      "passed": true,
+      "actual_errors": [
+        "MANIFEST.json is not closed: omitted=['unexpected.txt'], extra=[]"
+      ]
+    },
+    {
+      "case": "missing complete manifest",
+      "expectation": "reject",
+      "passed": true,
+      "actual_errors": [
+        "Missing required artifact: MANIFEST.json"
+      ]
+    },
+    {
+      "case": "nine noncanonical or unsafe path forms",
+      "expectation": "reject",
+      "passed": true,
+      "actual_safe_name_results": {
+        "a//b": false,
+        "a/./b": false,
+        "./feedback.json": false,
+        ".": false,
+        "C:/feedback.json": false,
+        "a\u0000b": false,
+        "../outside": false,
+        "/absolute": false,
+        "a\\b": false
+      }
+    },
+    {
+      "case": "ZIP CRC + fresh extraction + closed manifests",
+      "expectation": "accept",
+      "passed": true,
+      "exit_code": 0,
+      "actual_report": {
+        "status": "passed",
+        "zip_sha256": "61e49393fba6d567a8723a8afd19b108ccca02520db1e87cadba52c71c8b6999",
+        "zip_bytes": 13240537,
+        "zip_members": 142,
+        "crc": "passed",
+        "fresh_extraction": true,
+        "counts": {
+          "findings": 1,
+          "frozen_units": 4262,
+          "audit_units": 4262,
+          "later_annotations": 1,
+          "files": 142,
+          "frozen_files": 127,
+          "recorded_quote_errata": 1,
+          "source_checks": "verified"
+        },
+        "errors": []
+      },
+      "stderr": ""
+    },
+    {
+      "case": "one-byte ZIP payload corruption",
+      "expectation": "reject",
+      "passed": true,
+      "exit_code": 1,
+      "actual_report": {
+        "status": "failed",
+        "counts": {},
+        "errors": [
+          "ZIP CRC failed: README.md"
+        ]
+      },
+      "stderr": ""
+    },
+    {
+      "case": "normalized alias",
+      "expectation": "reject",
+      "passed": true,
+      "actual_errors": [
+        "Unsafe/noncanonical ZIP member: './feedback.json'"
+      ]
+    },
+    {
+      "case": "ZIP symlink",
+      "expectation": "reject",
+      "passed": true,
+      "actual_errors": [
+        "Nonregular ZIP member: 'link'"
+      ]
+    },
+    {
+      "case": "payload outside sole review subdirectory",
+      "expectation": "reject",
+      "passed": true,
+      "actual_errors": [
+        "ZIP payload is not one complete review root"
+      ]
+    }
+  ],
+  "limitations": [
+    "This validates internal provenance and packaging, not mathematical truth, actual reader learning, or completeness inferred from hashes.",
+    "The ZIP used in the acceptance test is a temporary fixture; the final deliverable requires its own CRC, fresh-extraction and manifest validation."
+  ]
+}

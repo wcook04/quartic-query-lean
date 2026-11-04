@@ -1,0 +1,62 @@
+27<32^{-k}/4$. This proves a corrected sufficient comparison from those estimates. Its logarithmic exponent is less than two, so, for each fixed $k$, even this weaker estimate eventually dominates the target in (F3), after the stated order-$k$ amplification cost. The direct proof above provides a separate route with explicit constants.
+
+[B2017 L6043-6043]
+**The exceptional-probability term.** A separate reciprocal error occurs in the displayed equation (5.31), physical `main.tex` line 1173. It subtracts $\delta^2/(4N)$; Theorem 3.1 gives the exceptional uniform probability $4/(N\delta^2)$. Using acceptance in $[0,1]$ on all inputs, a safe lower gap is
+
+[B2018 L6045-6048]
+\[
+6\delta-2\delta-\frac4{N\delta^2},
+\tag{F55}
+\]
+
+[B2019 L6050-6051]
+which is at least $3\delta$ when $N\ge4/\delta^3$. The need to retain the exceptional mass is the same reason for keeping the last term of (F42). The statement here concerns the identified v3 displays; it is not an assertion about an author-approved correction or an exhaustive search of later versions.
+<!-- /passage:forr_bs_mismatch -->
+
+[B2020 L6053-6053]
+#### Transferring the Sherstov–Storozhenko–Wu bound to the Walsh promise
+
+[B2021 L6055-6057]
+<a id="forr_ssw_comparison"></a>
+<!-- passage:forr_ssw_comparison -->
+Sherstov, Storozhenko, and Pei Wu prove a stronger Fourier-growth theorem. The version read here is arXiv:2008.10223v4: PDF Corollaries 4.14 and 4.15, printed pp. 35–36; the corresponding HTML conversion calls them Corollaries 4.12 and 4.13. There is an absolute $C\ge1$ such that every depth-$d$ tree $g$ on $n\ge1$ coordinates, with leaves in $[-1,1]$, satisfies, for $1\le r\le n$,
+
+[B2022 L6059-6063]
+\[
+\sum_{|S|=r}|\widehat g(S)|
+\le C^r\sqrt{\binom dr}\,(1+\ln n)^{(r-1)/2}.
+\tag{F56}
+\]
+
+[B2023 L6065-6065]
+The cited corollary does not give a certified numerical value of $C$. This is an **external theorem used only for the following comparison**; the proof of (F43) does not assume it.
+
+[B2024 L6067-6067]
+The transfer gives the variable-error estimate (F60), in which the binomial estimate supplies a factor $k$ canceling the multiplicative $k$ in the order-$k/\eta^2$ amplification cost; the absolute constant $C$ of (F56) remains unspecified.
+
+[B2025 L6069-6069]
+Independently, coordinate $i$ is free with probability $p_i$, fixed to $+1$ with probability $(1-p_i+\mu_i)/2$, and fixed to $-1$ with probability $(1-p_i-\mu_i)/2$. The three probabilities sum to one and are nonnegative when $0\le p_i\le1$ and $|\mu_i|\le1-p_i$.
+
+[B2026 L6071-6071]
+Set $\widehat {g_\rho}(S)=0$ unless all coordinates of $S$ are free. Otherwise use the ordinary Fourier coefficient on the free cube. For a monomial on $T\supseteq S$, obtaining its $S$ coefficient requires each coordinate of $S$ to remain free and each coordinate of $T\setminus S$ to be fixed. The first operation contributes $\prod_{i\in S}p_i$; the unconditional fixed-sign mean at coordinate $i$ is $\mu_i$. Thus its expected coefficient is $(\prod_{i\in S}p_i)(\prod_{i\in T\setminus S}\mu_i)$. Monomials not containing $S$ contribute zero. Linearity gives
+
+[B2027 L6073-6077]
+\[
+\mathbb E_\rho\widehat {g_\rho}(S)
+=\left(\prod_{i\in S}p_i\right)\partial_S F_g(\mu).
+\tag{F57}
+\]
+
+[B2028 L6079-6079]
+At the path biases, $|\mu_i|\le1/2$ on the first and last blocks and $|\mu_i|\le1/4$ on the interior blocks. Taking $p_i=1/2$ at the endpoints and $p_i=3/4$ inside therefore satisfies $|\mu_i|\le1-p_i$, at the extremal allowed biases. Every path has free-probability product $\frac14(3/4)^{k-2}$. The path sets are distinct, so the triangle inequality, (F56)–(F57), (F11), and (F22)–(F23) give
+
+[B2029 L6081-6086]
+\[
+\left|\mathbb E_{\nu_1}g-\mathbb E_{\nu_0}g\right|
+\le\frac{3C^k}{4^{k-1}}\sqrt{\binom dk}
+\left(\frac{1+\ln(km)}m\right)^{(k-1)/2}.
+\tag{F58}
+\]
+
+[B2030 L6088-6088]
+This uses $(3/16)^{k-1}\,4(4/3)^{k-2}=3/4^{k-1}$. Restrictions do not increase depth; a restriction with no free coordinates contributes zero at positive degree. Thus there is no

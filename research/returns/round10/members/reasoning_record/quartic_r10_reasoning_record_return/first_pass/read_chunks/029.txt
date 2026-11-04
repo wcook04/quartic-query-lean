@@ -1,0 +1,82 @@
+te best-guess
+probabilities.
+
+[B0942 L3093-3098]
+| $a$ | Second query | $t$ | Conditional success | Terminal counts | $E$ |
+|---:|:---:|---:|:---:|:---:|:---:|
+| 0 | $B_0$ | 0 | $1$ | $(1,1)$ | yes |
+| 0 | $B_0$ | 1 | $1/2$ | $(2,1)$ | no |
+| 1 | $B_1$ | 0 | $1/2$ | $(2,1)$ | no |
+| 1 | $B_1$ | 1 | $1/4$ | $(1,1)$ | yes |
+
+[B0943 L3100-3101]
+Let $C$ be the event that the output vector is correct; the first and last
+rows give
+
+[B0944 L3103-3103]
+<!-- claim:NCL-adaptive-cap-example -->
+
+[B0945 L3104-3109]
+\[
+ \Pr(E)=\frac12,\qquad
+ \Pr(C\cap E)=\frac5{16}\leq\frac9{16}=\beta^2,
+ \qquad \Pr(C\mid E)=\frac58>\beta^2.
+\tag{6.8}
+\]
+
+[B0946 L3111-3116]
+The cap event selects a union of rectangles, which carries dependence
+between the inputs: under $E$, the probabilities of $A_0=0$
+and $B_0=0$ are $1/2$ and $3/4$, while their joint probability is $1/2$,
+which differs from the product $3/8$. Truncating before the repeated query,
+with output $(0,0)$ at the new stops, gives a valid capped tree with success
+$9/16$, which proves the required upper bound on $5/16$.
+
+[B0947 L3118-3118]
+The same distribution separates the two budget conditions. With a total budget $rL=2$, an algorithm can compute $P(A)$ exactly and guess zero for $P(B)$, succeeding with probability $3/4>9/16$, whereas a total budget $L=1$ implies the separate caps and so falls under Lemma 4.1.
+
+[B0948 L3120-3124]
+**Finite-check evidence.** The exact calculation and enumeration in [worked_example.md](../research/returns/round3/members/06_direct_product/worked_example.md)
+check all 16 input pairs, all 10 one-input trees of depth at most one and
+all 5,188 vector-output trees satisfying the separate caps; this finite
+check illustrates the proof and its limits, and the preceding argument proves the general theorem.
+<!-- /passage:CL-adaptive-example -->
+
+[B0949 L3126-3126]
+#### Use in the planted argument
+
+[B0950 L3128-3136]
+<a id="CL-planted-interface"></a>
+<!-- passage:CL-planted-interface -->
+In §6.5 a simulator fixes the dummy data outside a target column and treats
+that column's $r$ partial-function inputs as independent samples from the
+hard law. It stops before its $(L+1)$-st target query in total,
+which implies the separate allowance $L$ for every target input. Its
+outside data must be independent of the whole target tuple, and so may not
+include the hidden true address. With $\beta=2/3$, Lemma 4.1 then bounds the
+simulator's probability of outputting the true address by $(2/3)^r$.
+
+[B0951 L3138-3145]
+If the original dummy run is nonheavy and its proposed query at a fixed
+time visits the true-address cell, the simulator reaches that query without
+truncation and outputs its address, so the joint event is contained in
+simulator success. This gives the fixed-time bound used in equation (21) of
+the preprint, and §6.5 then takes a union over query times. The hard input
+law is never conditioned on nonheaviness, and the queries made at different
+times may be dependent.
+<!-- /passage:CL-planted-interface -->
+
+[B0952 L3148-3148]
+The planted argument uses the proof above. A second proof, by induction on unnormalized weights, avoids dividing by the mass of a history, so impossible branches contribute zero automatically, and the identity (6.11) at its end shows that the two proofs compute the same quantity. The Lean proof of (6.10) follows this second route.
+
+[B0953 L3150-3150]
+#### Optional: a second proof with unnormalized weights
+
+[B0954 L3152-3154]
+<a id="CL-weighted-values"></a>
+<!-- passage:CL-weighted-values -->
+For a nonnegative weight $\nu$ of positive mass, the weighted optimum below will satisfy $W_c(\nu)=\operatorname{mass}(\nu)$ times the optimum under the normalized law $\nu/\operatorname{mass}(\nu)$. At zero mass every weighted success is zero. This is the relation to the conditional-value proof; (6.11) applies it to each history.
+
+[B0955 L3156-3159]
+We extend $\mu$ by zero outside $D$ and regard $P$ as a partial Boolean
+function on the full cube, so that off-promise inpu

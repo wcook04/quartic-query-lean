@@ -1,0 +1,67 @@
+{
+  "activity": "Historical cross-document disposition audit; separate from all serial lead-manuscript specialist perspectives",
+  "timing": {
+    "started_after": "2026-11-04T14:20:06Z",
+    "ended_utc": "2026-11-04T14:30:28.275749+00:00",
+    "started_after_completed_quantum_specialist": true,
+    "parallel_activity": "Classical specialist on the lead reasoning record; this audit did not reopen the lead during that perspective."
+  },
+  "source_bindings": {
+    "original_findings": {
+      "path": "previous_round/returns/exposition/quartic_r9_exposition_return/feedback.json",
+      "sha256": "fd40d29ae76ad3101af95c3c3697647f694d1975a2fc9e14ece9e7354976b7f2",
+      "count": 135
+    },
+    "individual_dispositions": {
+      "path": "repository/research/adjudication/round9_dispositions/exposition.json",
+      "sha256": "9cf1fa1ef81d48df6a7777806c67adcb17297d48787c453432e2242f5ebaa3b5",
+      "count": 135
+    },
+    "current_exposition": {
+      "path": "repository/docs/exposition.md",
+      "sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+      "lines": 535
+    },
+    "current_pdf": {
+      "path": "repository/docs/exposition.pdf",
+      "sha256": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+      "pages": 24
+    }
+  },
+  "scope": {
+    "current_markdown_read_in_full": true,
+    "current_pdf_pages_visually_inspected": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      10,
+      16,
+      17,
+      20,
+      22
+    ],
+    "pdf_pages_not_visually_inspected": [
+      3,
+      6,
+      8,
+      9,
+      11,
+      12,
+      13,
+      14,
+      15,
+      18,
+      19,
+      21,
+      23,
+      24
+    ],
+    "additional_formal_source": "ConstructionFamily.lean lines 1-65; source only, no build",
+    "lead_cross_reference_evidence": "Only observations already made in the closed quantum specialist pass were reused for Q-03; no new serial perspective on the lead was run.",
+    "other_manuscripts": "Expert companion not opened. Exposition exposure began only during this historical audit.",
+    "prior_feedback_scope": "All EX9 findings and their individual round-nine dispositions were read. No claim of a cold reading or of inspecting every older subsidiary audit."
+  },
+  "uninspected_original_ids": []
+}

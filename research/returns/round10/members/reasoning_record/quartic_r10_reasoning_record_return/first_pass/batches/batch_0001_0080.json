@@ -1,0 +1,117 @@
+{
+  "batch_id": "batch_0001_0080",
+  "first_block": 1,
+  "last_block": 80,
+  "line_start": 1,
+  "line_end": 211,
+  "recorded_at": "2026-11-04T13:35:18.325399+00:00",
+  "notes": {
+    "1": "Title promises a complete reconstruction of a nearly quartic query separation.",
+    "2": "Universal quartic upper bound and fixed-k lower constructions identify the theorem and its attribution.",
+    "3": "Column addresses, outward certificates, quantum comparisons and planted classical changes preview the two exponents.",
+    "4": "Constants and uniform-k refinement are announced before the corresponding parameters are defined.",
+    "5": "Small examples and Lean statement comparison are assigned later destinations.",
+    "6": "AI authorship and lack of human review are declared.",
+    "9": "The proof dependency branches are listed by section.",
+    "10": "Four different reading routes are offered.",
+    "11": "Construction route imports Forrelation hardness and universal upper bound; the exact source-display limitation is signposted.",
+    "12": "Complete route promises no specialized imported query-complexity theorem.",
+    "13": "Model route includes renaming, deferred measurement and minima.",
+    "14": "Formal-statement route narrows a reader's stopping condition.",
+    "15": "Optional census, gate arithmetic, historical threshold and evidence appendices are distinguished from the main derivation.",
+    "16": "Direct entries answer common questions brought from shorter accounts.",
+    "17": "Totality is deferred to the winning predicate.",
+    "18": "Meaningless rival addresses are deferred to the outward-pointer inclusion.",
+    "19": "Exact comparison sampling is deferred to stage preparation.",
+    "20": "Joint-event treatment of light columns is deferred to cap and simulation lemmas.",
+    "21": "Exponent comparison and universal upper bound are separate destinations.",
+    "22": "Historical threshold appendix is explicitly superseded.",
+    "24": "Optimality credit is separated from the deterministic upper bound that implies the randomized one.",
+    "25": "Query cost uses worst-case caps over coins and measurement branches.",
+    "27": "The exponent is an infimum over uniform all-function bounds, with a shifted quantum cost.",
+    "28": "The shift handles constants; positive witnesses can replace finite real witnesses.",
+    "29": "The theorem asserts the optimal exponent four.",
+    "30": "Universal bound is stated independently of the constructed lower family.",
+    "31": "Choose k first, then constants and a threshold, then powers-of-four m.",
+    "33": "Quantum cost is at most square-root m times logs; randomized cost is at least m to the power 2−1/k divided by logs.",
+    "34": "Physical length differs from m; both inequalities concern one identical function family.",
+    "35": "A proposed exponent below four chooses a sufficiently large fixed k.",
+    "37": "The chosen k makes the power gap strictly positive.",
+    "38": "Polynomial growth beats the fixed logarithmic penalty, excluding the proposed universal exponent.",
+    "39": "No fixed k reaches four; varying k is a separately uniform argument.",
+    "40": "k=3 is enough to contradict a cubic universal bound.",
+    "41": "The unshifted universal cubic statement is explicitly negated.",
+    "42": "A hypothetical unshifted cubic bound would imply the already excluded shifted bound.",
+    "45": "Certificate cells contain circuit transcripts verifying their own addresses.",
+    "46": "Totality and uniqueness follow from the winning predicate and outward zero pointers.",
+    "47": "Winner reliability survives arbitrary rival addresses; complementary comparisons among losers support later weights.",
+    "48": "The lower bound couples a blank board to a planted winner and looks for the first changed query.",
+    "49": "Finite model examples and a four-column board have distinct purposes.",
+    "50": "The dependency index repeats the main proof stages as linked ingredients.",
+    "51": "Model definitions precede complexity claims.",
+    "52": "One-sided Forrelation and its circuit provide certified addresses.",
+    "53": "A one-instance hard law at cap L is needed.",
+    "54": "Both bounds must apply to the same total function.",
+    "55": "Complementary comparisons and label sampling provide an all-input quantum cap.",
+    "56": "Product hardness and planting provide the randomized bound.",
+    "57": "Fixed-k quotient plus universal upper bound give optimality.",
+    "58": "A catalogue indexes original claims.",
+    "59": "Formal statement comparison is deferred to Appendix G.",
+    "60": "The two shorter accounts link into statement-led proof destinations.",
+    "61": "Earlier cubic constructions and the new per-column addressed arrays explain what changes in the arithmetic.",
+    "63": "Models, promises and caps are the immediate goal.",
+    "64": "Logarithm base and m=4^t make floors and square roots exact; totalized source values outside scope do not imply hardness.",
+    "65": "Local section numbers differ from preprint theorem and equation numbering.",
+    "66": "A list maps preprint equations to this record's displays.",
+    "69": "Partial functions are equivalent to optional Boolean outputs on a finite cube.",
+    "70": "One fixed algorithm must work on all promised inputs and respect a cap even off promise.",
+    "71": "A total function has the whole cube as domain; arbitrary algorithm behavior does not extend the promise.",
+    "74": "A deterministic tree queries coordinates at internal nodes and labels its leaves.",
+    "75": "Syntactic depth is one plus the maximum subtree depth.",
+    "76": "Pruning repeated inconsistent queries preserves evaluation and aligns minimum syntactic and realizable worst-case depths.",
+    "77": "A deterministic budget is an existential tree with one uniform depth cap.",
+    "78": "D is the minimum successful deterministic budget.",
+    "79": "Randomized programs are finite positive mixtures; one cap applies to all trees.",
+    "80": "R budget demands success at least two thirds on every promised input."
+  },
+  "issues": {
+    "3": [
+      {
+        "id": "FP-001",
+        "observation": "The opening synopsis introduces the numeric r=20 log2 m, allowance L, a fixed-time joint event, heavy columns and the union bound before a column/address example exists. The broad mechanism is understandable, but the precise event is an opaque miniature proof. Consider moving the fixed-time event and coefficients to a first-proof map while retaining the mL versus sqrt(m) synopsis."
+      }
+    ],
+    "9": [
+      {
+        "id": "FP-002",
+        "observation": "The paragraph says the proof has two branches 'after the same total function is constructed' but immediately lists §3 ingredients before §4 construction. This is a dependency description rather than publication order; say so or order the sentence by construction then branches."
+      }
+    ],
+    "11": [
+      {
+        "id": "FP-003",
+        "observation": "The route requires a source-display audit and imported lower bound before the reader has seen the construction. The route itself is longer and harder to retain than the main proof preview; a compact prerequisite table could distinguish imported and locally rebuilt ingredients without repeated nested section ranges."
+      }
+    ],
+    "14": [
+      {
+        "id": "FP-004",
+        "observation": "Four route descriptions, five direct questions, §1.1's mechanism and a second dependency index precede the model development. Most links are individually useful but jointly produce a high navigation tax; consolidate repeated entry guidance while preserving full routes in one location."
+      }
+    ],
+    "45": [
+      {
+        "id": "FP-005",
+        "observation": "'A circuit transcript in the cell certifies the values' first asks an outsider to accept a cheap certification of a classically hard function. A short bridge should distinguish querying a supplied transcript from computing it and flag the one-sided definition that makes the certification possible."
+      }
+    ],
+    "65": [
+      {
+        "id": "FP-006",
+        "observation": "Multiple incompatible numbering namespaces impose a persistent lookup cost. The explanation is precise but the reader must remember that Lemma4.1 belongs to §6.1 and bare equations to another paper; add role names at subsequent lemma citations or adopt local named labels consistently."
+      }
+    ]
+  },
+  "exposure": "First tool output for blocks 1–80 was truncated; blocks 15–63 were requested again, then blocks 38–46 to recover the remaining truncated span. Thus some later opening/model paragraphs were visible before missing middle paragraphs. This is disclosed as a local reading-order departure, not a strictly cold sentence pass. All lines 1–211 were recovered before this log was written.",
+  "summary": "The opening supplies the target exponent, the two competing costs, a certificate design and a forward map. I can reconstruct the fixed-k contradiction immediately from the stated bounds. I cannot yet reconstruct the address circuit, the comparison law or the light-column cap; these are explicitly deferred. The main reading burden is three overlapping navigation layers before any model is built. The first technical section makes promise quantifiers and syntactic versus realized tree depth explicit."
+}

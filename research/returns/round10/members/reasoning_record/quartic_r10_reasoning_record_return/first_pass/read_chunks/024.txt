@@ -1,0 +1,54 @@
+ariant under permutation, so the two storage conventions give the same quantities. From this recursion, $0\leq V(L)\leq1$; if $s\in L$, then $V(L)\geq v(s)$; and if all $v(i)\leq\varepsilon$, then $V(L)\leq|L|\varepsilon$. Each assertion follows by induction on the list, or equivalently by the union bound for the verifier outcomes.
+
+[B0876 L2766-2766]
+Let $R_n(L)$ be the acceptance probability with $n$ tournament stages still available after history $L$. The recursion is
+
+[B0877 L2767-2774]
+\[
+\begin{aligned}
+R_0(L)&=V(L),\\
+R_n(L)&=f(L)V(L)+(1-f(L))\sum_i\frac{w_i}{W}R_{n-1}(i::L)
+&& (n>0,\ W>0),\\
+R_n(L)&=V(L) &&(n>0,\ W=0).
+\end{aligned}
+\]
+
+[B0878 L2775-2775]
+The two terms for positive $W$ are immediate sampler failure followed by verification, and a successful pivot followed by continuation. At $W=0$ the guaranteed $f(L)=1$ forces the third line. For positive $W$, the weights in the sum are nonnegative and sum to one. It follows inductively that $R_n(L)\in[0,1]$. If all $v(i)\leq\varepsilon$, the same recursion gives $R_n(L)\leq(|L|+n)\varepsilon$, because an immediate stop has bound $|L|\varepsilon$, each successful successor has bound $(|L|+1+n-1)\varepsilon$, and a convex combination preserves the larger bound.
+
+[B0879 L2777-2777]
+For the lower bound, let $I_n(L)$ be the probability that $s$ is absent after $n$ further ideal stages. Suppose that $0\leq\varepsilon\leq1$, that $s$ is dominant, that $v(s)\geq1-\varepsilon$, and that a total horizon $T_0$ satisfies $T_0\varepsilon<1/2$. Suppose also that $f(L)\leq\varepsilon$ for every history of length at most $T_0$ missing $s$, and $f(L)=1$ whenever $W=0$. The inductive assertion is
+
+[B0880 L2779-2779]
+<!-- claim:new-upper-continuation-bound -->
+
+[B0881 L2780-2783]
+$$
+R_n(L)\geq(1-\varepsilon)\bigl(1-I_n(L)-n\varepsilon\bigr)
+\qquad(|L|+n\leq T_0).
+$$
+
+[B0882 L2785-2785]
+At $n=0$, if $s$ is in $L$, the right side is $1-\varepsilon$, which is at most $V(L)$; otherwise $I_0(L)=1$ and the right side is zero. For a positive number of stages, a history that already contains $s$ keeps it after every pivot and at every stopping point, so induction in the recursion gives $R_n(L)\geq v(s)\geq1-\varepsilon$, which suffices because the right side is at most $1-\varepsilon$.
+
+[B0883 L2787-2787]
+For a history missing $s$, its dominant weight is at least $1-|L|\varepsilon>1/2$, so $W>0$. Since the ideal miss probability is the weighted mean of the successor miss probabilities, averaging the inductive lower bounds at successors gives a lower bound $B=(1-\varepsilon)(1-I_n(L)-(n-1)\varepsilon)$ for the successful continuation, and since the immediate-stop term is nonnegative, $R_n(L)\geq(1-f(L))B$. We always have $B\leq1-\varepsilon$, even when $B$ is negative. The sign cases give
+
+[B0884 L2788-2794]
+\[
+f(L)B\le
+\begin{cases}
+\varepsilon B\le\varepsilon(1-\varepsilon),&B\ge0,\\
+0\le\varepsilon(1-\varepsilon),&B<0.
+\end{cases}
+\]
+
+[B0885 L2795-2795]
+Subtracting the common upper bound from $B$ yields exactly the desired lower bound with $n\varepsilon$. The induction thus holds whether or not the failure probabilities at different histories are equal or independent.
+
+[B0886 L2797-2798]
+At the empty history with $n=T_0=T$, the ideal estimate gives $I_T([])\leq2m/2^T$, and expanding the product in the lower bound and discarding its nonnegative cross term gives $R_T([])\geq1-2m/2^T-T\varepsilon-\varepsilon$. This is the [acceptance guarantee of the formal tournament][src-tournament-runs], and it accounts for that theorem's additional verifier error. For a list-membership event, we use the perfect indicator $v(i)=\mathbf1_{\{i=s\}}$, in this analysis only; the same induction then starts from $1-I_0(L)$ without the factor $1-\varepsilon$ and yields $1-I_n(L)-n\varepsilon$, which is the list guarantee with no extra verifier error. This indicator is an analytical choice and is never supplied to the sampler as an oracle.
+<!-- /passage:upper-continuation-induction -->
+
+[B0887 L2800-2800]
+## 6. The 

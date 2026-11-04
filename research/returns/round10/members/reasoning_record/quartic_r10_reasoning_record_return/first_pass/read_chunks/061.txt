@@ -1,0 +1,114 @@
+ormalized-mass induction. The product law and terminal estimates have exact suppliers, while the value function, one-step calculation and supermartingale rows require several components. In particular, equation (16) includes both the queried factor and the unchanged factors. The available direct-product and address-guess declarations quantify finite seed spaces. The rows below allow arbitrary independent information: their ordinary reduction to a finite distribution on bounded-depth behaviours is supplied in §6.1, but no formal pushforward theorem identifying those two interfaces is asserted.
+
+[B1653 L5109-5109]
+#### claim-product-law
+
+[B1654 L5111-5113]
+<a id="CAT-claim-product-law"></a>
+<!-- passage:CAT-claim-product-law -->
+<!-- claim:claim-product-law -->
+
+[B1655 L5115-5115]
+> For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.
+
+[B1656 L5117-5117]
+**Argument:** [§6.1](#CL-product-law).
+
+[B1657 L5119-5119]
+<!-- /passage:CAT-claim-product-law -->
+
+[B1658 L5121-5121]
+#### def-value-V
+
+[B1659 L5123-5125]
+<a id="CAT-def-value-V"></a>
+<!-- passage:CAT-def-value-V -->
+<!-- claim:def-value-V -->
+
+[B1660 L5127-5127]
+> With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.
+
+[B1661 L5129-5129]
+**Argument:** [§6.1](#CL-conditional-values).
+
+[B1662 L5131-5131]
+<!-- /passage:CAT-def-value-V -->
+
+[B1663 L5133-5133]
+#### eq-16
+
+[B1664 L5135-5137]
+<a id="CAT-eq-16"></a>
+<!-- passage:CAT-eq-16 -->
+<!-- claim:eq-16 -->
+
+[B1665 L5139-5139]
+> If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.
+
+[B1666 L5141-5141]
+**Argument:** [§6.1](#CL-conditional-values).
+
+[B1667 L5143-5143]
+<!-- /passage:CAT-eq-16 -->
+
+[B1668 L5145-5145]
+#### claim-supermartingale
+
+[B1669 L5147-5149]
+<a id="CAT-claim-supermartingale"></a>
+<!-- passage:CAT-claim-supermartingale -->
+<!-- claim:claim-supermartingale -->
+
+[B1670 L5151-5151]
+> E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.
+
+[B1671 L5153-5153]
+**Argument:** [§6.1](#CL-supermartingale).
+
+[B1672 L5155-5155]
+<!-- /passage:CAT-claim-supermartingale -->
+
+[B1673 L5157-5157]
+#### claim-final-bound
+
+[B1674 L5159-5161]
+<a id="CAT-claim-final-bound"></a>
+<!-- passage:CAT-claim-final-bound -->
+<!-- claim:claim-final-bound -->
+
+[B1675 L5163-5163]
+> At the final transcript tau, Pr[chosen vector correct | tau] <= prod_h max_b Pr(P(U_h)=b | tau) <= prod_h V_h(tau).
+
+[B1676 L5165-5165]
+**Argument:** [§6.1](#CL-supermartingale).
+
+[B1677 L5167-5167]
+<!-- /passage:CAT-claim-final-bound -->
+
+[B1678 L5169-5169]
+#### lem-4.1
+
+[B1679 L5171-5173]
+<a id="CAT-lem-4.1"></a>
+<!-- passage:CAT-lem-4.1 -->
+<!-- claim:lem-4.1 -->
+
+[B1680 L5175-5175]
+> Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on D, L a nonnegative integer. Suppose every deterministic algorithm making at most L queries computes P under mu with success probability <=beta. If U_1,...,U_r are iid mu, every classical algorithm making at most L queries to each U_h, possibly randomized, adaptive among the r inputs, and given arbitrary additional information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=beta^r.
+
+[B1681 L5177-5177]
+**Argument:** [§6.1](#CL-direct-product-statement), [§6.1](#CL-supermartingale), [§6.1](#CL-weighted-values), [§6.1](#CL-weighted-product), [§6.1](#CL-independent-information).
+
+[B1682 L5179-5179]
+<!-- /passage:CAT-lem-4.1 -->
+
+[B1683 L5181-5181]
+#### claim-minimax-mu
+
+[B1684 L5183-5185]
+<a id="CAT-claim-minimax-mu"></a>
+<!-- passage:CAT-claim-minimax-mu -->
+<!-- claim:claim-minimax-mu -->
+
+[B1685 L5187-5187]
+> If L<R(P), there is a distribution mu on

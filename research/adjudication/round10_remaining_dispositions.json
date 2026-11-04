@@ -1,0 +1,783 @@
+{
+  "schema": "quartic-round10-remaining-dispositions-v1",
+  "baseline_revision": "0adda9d",
+  "sources": [
+    {
+      "path": "research/returns/round10/members/reasoning_record/quartic_r10_reasoning_record_return/feedback.json",
+      "sha256": "39c829ca9a7a3434958204f3e80e8de68834bf32993214f3397fe7759270f678"
+    },
+    {
+      "path": "research/returns/round10/members/exposition/feedback.json",
+      "sha256": "3e8d6c8f64b02b0ea9ccf9c3c968444688a7355106cd98295f38256026aea464"
+    },
+    {
+      "path": "research/returns/round10/second_expert_editorial_feedback.md",
+      "sha256": "cc904c6c2daab181286cb311ac8f95c8716a1a3dbccb78ee5fbf3a74281198a6"
+    }
+  ],
+  "source_scope": "Two immutable full-review returns assessed the older 0d97771 manuscript edition. Decisions are against the current 0adda9d baseline, including intervening followup repairs. The later informal expert assessment has no hash-identified reviewed PDF. All advice is advisory evidence, not instruction or proof.",
+  "authorship_scope": "Three-manuscript source revision and informed author review. No blind reader, independent learner, human review, newly proved theorem, fresh Lean build or Comparator execution is claimed.",
+  "manuscript_sha256": {
+    "docs/reasoning_record.md": "c5a50a0783c2b5c6f442e1989f00bf1fc39375375ea8c25a453b6a950c771d2a",
+    "docs/exposition.md": "032a2818baf0c0310d460114935c5ebdf7706d78946295dead0673ef688c2247",
+    "docs/expert_companion.md": "f0f11c0c50846ae77327ba6a74288d76e0d02f25539519f1079270a280de8a87"
+  },
+  "hash_scope": "Final manuscript bytes after immutable source-link binding; byte identity is not fresh semantic certification.",
+  "section_map": {
+    "record_old3.1": "3.1",
+    "record_old3.2": "8.1",
+    "record_old3.3": "8.2",
+    "record_old3.4": "8.3",
+    "record_old3.5": "8.4",
+    "record_old3.6": "8.5",
+    "record_old3.7": "8.6",
+    "record_old3.8": "8.7",
+    "record_old3.9": "8.8",
+    "record_old3.10": "8.9",
+    "record_old3.11": "8.10",
+    "record_old3.12": "8.11",
+    "record_old3.13": "8.12",
+    "record_old3.14": "8.13",
+    "record_old3.15": "8.14",
+    "record_old3.16": "8.15",
+    "record_old3.17": "3.2",
+    "record_old3.18": "3.3",
+    "record_optional_zero_proofs_and_Drucker_substitution": "6.7",
+    "record_appendices_F_G": "retained",
+    "exposition_exact_family_theorem": "end of3",
+    "exposition_finite_amplification_schedule": "A.3"
+  },
+  "findings": [
+    {
+      "id": "RR10-001",
+      "status": "applied",
+      "decision": "Replace the long front-loaded supplier chapter with promise plus common-witness contract; move all integer, circuit, decoder and analytic proofs to §8 after the construction and both reductions. Simplify the opening synopsis and construction/complete routes.",
+      "rationale": "The explicit ingredient was already present. The repair changes the actual reading order, preserving the exact promise, circuit witness, all-input cap, fixed-k thresholds, full proofs and every old proof anchor. §8 explicitly closes the deferred obligations; an eventual published hardness input is distinguished from the direct explicit threshold.",
+      "locators": [
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "3",
+          "quote": "The total construction needs one partial function",
+          "line": 443
+        },
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "3.2",
+          "quote": "### 3.2. The complete Forrelation ingredient",
+          "line": 508,
+          "anchor": "forr_bundle"
+        },
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "8",
+          "quote": "## 8. Proofs of the Forrelation ingredient",
+          "line": 2841
+        },
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "Reading guide",
+          "quote": "**The complete proof.**",
+          "line": 22
+        }
+      ],
+      "limits": "This is an editorial reorganization, not a new hardness proof or a measured reader outcome. Parent must rebind generated correspondence and exact-edition links."
+    },
+    {
+      "id": "RR10-002",
+      "status": "applied",
+      "decision": "Expand the exact size identity into a constructor-cost ledger, including both constants, both subtraction overheads, repeated doublings and three output gates.",
+      "rationale": "Read forrCore/coreSize/layers/layerCost/whtCost in the actual Circuit.lean source. The ledger sums to the existing identity and explains the implementation parameter l=k-1 and full width. The sufficient 200 bound and its arithmetic remain unchanged.",
+      "locators": [
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "8.3",
+          "quote": "The following ledger expands `layerCost` and `coreSize`",
+          "line": 3101,
+          "anchor": "forr_circuit_size"
+        }
+      ],
+      "limits": "Hand accounting from inspected constructors; no new Lean theorem or build. Parent render must inspect the ledger at reading size."
+    },
+    {
+      "id": "RR10-003",
+      "status": "applied",
+      "decision": "Complete the §4.3 board test census before the companion-board scope note; give the exposition a precise checker-scope anchor.",
+      "rationale": "The local board has Phi=±1/2, whereas the teaching board has Phi=±1. The same 180-gate circuit and 371 tests transfer, not their board-specific decoder law.",
+      "locators": [
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "4.4",
+          "quote": "On the board of §4.3, the supplied finite circuit",
+          "line": 789,
+          "anchor": "AC-example-tests"
+        },
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "4.4",
+          "quote": "**Which board was checked?**",
+          "line": 799,
+          "anchor": "AC-example-check-scope"
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "2",
+          "quote": "*Optional circuit census.*",
+          "line": 142,
+          "anchor": "circuit-check"
+        }
+      ]
+    },
+    {
+      "id": "RR10-004",
+      "status": "applied",
+      "decision": "Put one complete bounded evaluator in the §5 opening; consolidate the repeated parameter introduction while retaining its claim markers and budget interpretation.",
+      "rationale": "The reader can see list retention, sampler failure, fresh measured verification address, defect-search semantics and total default output before reading the subroutine proofs. Both amplification parameter pairs are explicit; expected remaining weight is at most half, not deterministic halving.",
+      "locators": [
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "5",
+          "quote": "**The bounded evaluator.**",
+          "line": 929
+        },
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "5.2",
+          "quote": "Recall the theorem's parameters and dominance condition:",
+          "line": 1130,
+          "anchor": "upper-tournament-parameters"
+        }
+      ],
+      "limits": "Later subroutine control flow is retained where it establishes a standalone proof interface; this is selective consolidation, not deletion of all repetition."
+    },
+    {
+      "id": "RR10-005",
+      "status": "applied",
+      "decision": "Replace the generic label-law interlude before coupling with the active-history transition kernel; move the finite-label correspondence discussion to G.7.",
+      "rationale": "Uses the same L,w,W,f notation as the immediately following coupling, states absorption at W=0 and deterministic return at length T, and restricts the epsilon guarantee to W/m above threshold. It does not globally condition away failure or assume independent stage failures.",
+      "locators": [
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "5.2",
+          "quote": "**The transition law at an active history.**",
+          "line": 1313,
+          "anchor": "upper-quantum-tournament"
+        },
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "G.7",
+          "quote": "**Correspondence note.**",
+          "line": 6532,
+          "anchor": "upper-current-formal-scope"
+        }
+      ]
+    },
+    {
+      "id": "RR10-006",
+      "status": "applied",
+      "decision": "Move both optional erased-zero search proofs and the detailed Drucker global-budget substitution to §6.7 after the full contradiction and floor calculation.",
+      "rationale": "Equation(19) supplies the sufficient coefficient4, then the main route proceeds directly to the capped predictor. The new alternatives entry restores the dummy law, selected-column independence and X-query units. Exact-search and expectation-cost distinctions, source credit, proof text and old anchors remain.",
+      "locators": [
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "6.4",
+          "quote": "Equation (19) is sufficient for the contradiction below.",
+          "line": 2356,
+          "anchor": "CL-early-late"
+        },
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "6.7",
+          "quote": "### 6.7. Alternative search estimates",
+          "line": 2594,
+          "anchor": "CL-zero-worlds"
+        },
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "6.7",
+          "quote": "#### Alternative: a single global budget",
+          "line": 2658,
+          "anchor": "CL-drucker-alternative"
+        }
+      ]
+    },
+    {
+      "id": "RR10-007",
+      "status": "applied",
+      "decision": "Remove the surviving assertion that the external theorem stands; state only what the displayed-step audit establishes.",
+      "rationale": "A defect in one checked step neither refutes nor independently certifies the source theorem. The total reduction uses the independently proved fixed-k prerequisite. The source-comparison discussion in §8.15 and Appendix E remains bounded.",
+      "locators": [
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "6.6",
+          "quote": "that displayed-step defect does not by itself refute the published theorem.",
+          "line": 2534,
+          "anchor": "CL-forrelation-input"
+        }
+      ]
+    },
+    {
+      "id": "RR10-008",
+      "status": "retained_with_navigation_repair",
+      "decision": "Retain historical Appendix F and current Appendix G in their stable lettered order; add an explicit current-statement entry at F before the execution chronology.",
+      "rationale": "The review marks reordering optional and recognizes that history is already labeled. The opening guide already routes a formal reader directly to G.1; moving or renumbering the two large appendices would disrupt established print citations without improving the main proof route. Strong current destinations plus a short F entry serve this task.",
+      "locators": [
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "Reading guide",
+          "quote": "**One formal statement.**",
+          "line": 26
+        },
+        {
+          "path": "docs/reasoning_record.md",
+          "section": "F",
+          "quote": "For the current mathematical statements and their evidence, start with",
+          "line": 6157
+        }
+      ],
+      "limits": "No new execution evidence or human review implied."
+    },
+    {
+      "id": "EX10-001",
+      "status": "applied_to_current_state",
+      "decision": "Keep the previous followup’s basic access model and qualitative mechanism, move the exact family theorem to the end of §3, and introduce concrete four-column fields/winning rules before general dimensions. Move the premature stopped-simulator vocabulary to its classical use.",
+      "rationale": "The prior infimum relocation was already complete. This pass changes the remaining substantive order, retains m,r,S before symbolic test counts and uses the same circuit for both inequalities. The r=2 board is explicitly illustrative, not a hardness instance.",
+      "locators": [
+        {
+          "path": "docs/exposition.md",
+          "section": "2",
+          "quote": "Begin with four columns.",
+          "line": 83
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "2",
+          "quote": "**The general layout.**",
+          "line": 108
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "3",
+          "quote": "**Theorem**",
+          "line": 183
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "5",
+          "quote": "**Three charges.**",
+          "line": 364
+        }
+      ]
+    },
+    {
+      "id": "EX10-002",
+      "status": "applied",
+      "decision": "Identify the displayed projection trajectory as the state before final H.",
+      "rationale": "The following basis measurement remains one final operation, and the experiment still uses two input queries. This repairs stage ambiguity without changing the state or probability.",
+      "locators": [
+        {
+          "path": "docs/exposition.md",
+          "section": "1",
+          "quote": "Before applying the final $H$, measuring whether the displayed state lies along $u$",
+          "line": 71
+        }
+      ]
+    },
+    {
+      "id": "EX10-003",
+      "status": "applied",
+      "decision": "Teach the connected NOT/OR tests using gate roles and last-two-input values; gather the180/371 census, zero-based IDs and archived checker scope in an optional paragraph.",
+      "rationale": "The first-false-value induction is the local lesson. The exact gate census remains inspectable, including input and output IDs, without becoming a premise for understanding consistency.",
+      "locators": [
+        {
+          "path": "docs/exposition.md",
+          "section": "2",
+          "quote": "For a concrete gate check, use a NOT gate followed by an OR gate",
+          "line": 134
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "2",
+          "quote": "*Optional circuit census.*",
+          "line": 142,
+          "anchor": "circuit-check"
+        }
+      ]
+    },
+    {
+      "id": "EX10-004",
+      "status": "already_resolved",
+      "decision": "Retain the corrected “Thus each error is at most” transition from the prior followup; no additional rewrite for this finding.",
+      "rationale": "The supplied review assessed an older source edition. The duplicated “Thus so” connective is absent from current source.",
+      "locators": [
+        {
+          "path": "docs/exposition.md",
+          "section": "3",
+          "quote": "Thus each error is at most",
+          "line": 165
+        }
+      ]
+    },
+    {
+      "id": "EX10-005",
+      "status": "applied",
+      "decision": "Order comparison reliability and counterexamples before the ideal law; state the exact capped sampler contract, then place the retained-register implementation beside its preparation. Move only numerical M,N/9/40 schedule details to Appendix A.3.",
+      "rationale": "The teaching route keeps the two-reflection derivation, all workspace, exact successful law under mixed counts/first success, q=0 and q=1, below-threshold cap, list retention and verification. It motivates the stochastic interface before its realization.",
+      "locators": [
+        {
+          "path": "docs/exposition.md",
+          "section": "4",
+          "quote": "**What the sampler must do.**",
+          "line": 246
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "4",
+          "quote": "The comparison runs as a reversible circuit.",
+          "line": 248
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "4",
+          "quote": "**Amplification with a fixed cap.**",
+          "line": 278
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "A.3",
+          "quote": "## A.3 A finite amplification schedule",
+          "line": 554,
+          "anchor": "amplification-schedule"
+        }
+      ]
+    },
+    {
+      "id": "EX10-006",
+      "status": "applied",
+      "decision": "Name the cycled board and pivot list at each preparation/stage/exercise reentry; add one compact reference table of distinct examples.",
+      "rationale": "Each mutation starts from the base board. The abstract fractional matrix is not a physical board, and the planting picture keeps its separate small-size limitation.",
+      "locators": [
+        {
+          "path": "docs/exposition.md",
+          "section": "4",
+          "quote": "Each board mutation starts from the base board",
+          "line": 214
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "4",
+          "quote": "**A preparation on the cycled board.**",
+          "line": 266
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "4",
+          "quote": "**Question 2 (conditional sampling and overshoot).**",
+          "line": 312
+        }
+      ],
+      "limits": "The table replaces the need to reconstruct state from several distant mutations; it does not claim a new realization of the fractional law."
+    },
+    {
+      "id": "EX10-007",
+      "status": "applied",
+      "decision": "Replace the dense repeated error paragraph with alternative F=1/F=0 rows and a short explanation of history conditioning and no double count. Retain the current common-unit cost sum in A.1.",
+      "rationale": "The comparison decoder errors remain inside a_ij; premature sampling failure and fresh winner decoding appear only in the one-input row, missed violations in the zero-input row. The previous followup had already separated detailed cost accounting from the main mechanism.",
+      "locators": [
+        {
+          "path": "docs/exposition.md",
+          "section": "4",
+          "quote": "**Error budget.**",
+          "line": 322
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "A.1",
+          "quote": "In bit-query units the two costs add:",
+          "line": 530,
+          "anchor": "quantum-query-count"
+        }
+      ]
+    },
+    {
+      "id": "EX10-008",
+      "status": "applied",
+      "decision": "After the first-difference inequality, define whole-run heaviness and preview the three overlapping charges; extend the existing combined task and worked rubric to derive the mL scale.",
+      "rationale": "The synthesis computes4c+c+c/m^8 for an integer budget G≤cmL, using L≤m and r=20log2m, and explains cancellation of m by averaging over the independent planted column. No new exercise count or modified family is needed.",
+      "locators": [
+        {
+          "path": "docs/exposition.md",
+          "section": "5",
+          "quote": "**Three charges.**",
+          "line": 364
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "6",
+          "quote": "**Combined explanation.**",
+          "line": 484
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "Answers",
+          "quote": "To recover the scale, take an integer budget",
+          "line": 512,
+          "anchor": "answer-combined"
+        }
+      ],
+      "limits": "The three events are upper-bound charges, not a disjoint partition. No learner performance is claimed."
+    },
+    {
+      "id": "EX10-009",
+      "status": "applied",
+      "decision": "Use target column i consistently in the XOR toy, trace and changed-case question; omit the distracting 0-based/1-based translation from the teaching proof.",
+      "rationale": "The record remains linked as a separate toy. Relabeling a column changes no tuple law, address, stop-before-read instruction, default, or global-time count.",
+      "locators": [
+        {
+          "path": "docs/exposition.md",
+          "section": "5",
+          "quote": "Use column $i$ as the target.",
+          "line": 411
+        },
+        {
+          "path": "docs/exposition.md",
+          "section": "5",
+          "quote": "**Question 4 (two clocks and the capped event).**",
+          "line": 428
+        }
+      ]
+    },
+    {
+      "id": "EX10-010",
+      "status": "applied_to_current_state",
+      "decision": "Keep the compact formal-scope discussion established in the prior followup, removing the residual historical-header phrase from the local teaching text.",
+      "rationale": "The exact compared existential family and separately built explicit constants remain distinct. The record destination still carries the chronology for readers who need it.",
+      "locators": [
+        {
+          "path": "docs/exposition.md",
+          "section": "7",
+          "quote": "identifies the exact statement and that evidence.",
+          "line": 492
+        }
+      ]
+    },
+    {
+      "id": "EX10-011",
+      "status": "applied",
+      "decision": "Place projection answer, Questions1–5 and then the combined rubric; label the rubric as guided feedback.",
+      "rationale": "Task and answer order now agree. The source change does not prove that PDF navigation prevents answer exposure; parent must inspect answer-link page neighborhoods.",
+      "locators": [
+        {
+          "path": "docs/exposition.md",
+          "section": "Answers",
+          "quote": "**Combined-explanation rubric (guided feedback).**",
+          "line": 512,
+          "anchor": "answer-combined"
+        }
+      ],
+      "limits": "No fresh unexposed exercise attempt or reader comprehension result claimed."
+    },
+    {
+      "id": "XF10-001",
+      "status": "applied",
+      "decision": "Add an explicit contributions/scope paragraph that separates OpenAI’s theorem/reductions, reconstruction, chosen estimates, optional consequence and formal checks.",
+      "rationale": "The opening now explains the relationship among the paper’s four roles before technical definitions. It claims no new discovery of the original result.",
+      "locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "1",
+          "quote": "**Contribution and scope.**",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "id": "XF10-002",
+      "status": "applied",
+      "decision": "Shorten the abstract around the two mechanisms and their paired scales; leave detailed thresholds and formal distinctions to their named entries.",
+      "rationale": "The abstract remains mathematically qualified by fixed k and reports upper/lower bounds, not matching complexities or a quantified readability score.",
+      "locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "Abstract",
+          "quote": "We reconstruct its two mechanisms: quantum comparisons",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "id": "XF10-003",
+      "status": "retained_with_targeted_repair",
+      "decision": "Retain §1.1 as the mechanism roadmap, improve the entry to §3 instead of adding another one-page overview.",
+      "rationale": "The requested page length is advisory. A second global roadmap would repeat the successful §1.1 explanation; the actual local difficulty is connecting arbitrary comparisons to a sampler that preserves relative weights.",
+      "locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "1.1",
+          "quote": "### 1.1 Why the construction works",
+          "line": 40
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "3",
+          "quote": "A certificate check is expensive because it searches all the local tests.",
+          "line": 117
+        }
+      ]
+    },
+    {
+      "id": "XF10-004",
+      "status": "applied",
+      "decision": "Give early readable links to the compared exponent/family specifications, and exact endpoint identifiers in the §6 inspection note. Explain the abstract-factor versus physical-subsystem boundary locally.",
+      "rationale": "The main route does not require raw identifiers. The detailed note identifies the actual challenge names and preserves the separation between specification comparison, build evidence and physical correspondence. The headline proof depends on measured labels, not the unresolved full-state identification.",
+      "locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "1",
+          "quote": "Its [optimal-exponent statement]",
+          "line": 16
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "6",
+          "quote": "For exact-name inspection",
+          "line": 316
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "6",
+          "quote": "It does not yet identify that factor with the designated original physical subsystem",
+          "line": 322
+        }
+      ]
+    },
+    {
+      "id": "XF10-005",
+      "status": "applied",
+      "decision": "Add the decoder-versus-certification transition in §2 and replace §3’s terse opening with the comparison-to-relative-weight bridge; clarify §4’s local direct-product proof destination.",
+      "rationale": "Signposting names what each next argument must establish rather than adding another summary of section titles. The exact probability identities and cap-event argument remain intact.",
+      "locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "2",
+          "quote": "The decoder locates a proposed certificate;",
+          "line": 90
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "3",
+          "quote": "Its quantum implementation must reproduce the *relative* surviving weights exactly",
+          "line": 117
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "4.1",
+          "quote": "Appendix D proves this contract by induction",
+          "line": 206
+        }
+      ]
+    },
+    {
+      "id": "XF10-006",
+      "status": "applied_selectively",
+      "decision": "Keep principal tournament and planted proofs with local amplification/direct-product appendices; state the physical correspondence limitation directly in §6 and update every moved supplier reference.",
+      "rationale": "Specialists can follow the principal proof with the named Forrelation/minimax/universal inputs. Detailed arithmetic and the full analytic supplier proof remain legitimate exact-destination references, not an attempt to make a short paper duplicate the entire record.",
+      "locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "3.2",
+          "quote": "The finite schedule and exact-law proof are in Appendix C.",
+          "line": 165
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "4.1",
+          "quote": "Appendix D proves this contract by induction",
+          "line": 206
+        },
+        {
+          "path": "docs/expert_companion.md",
+          "section": "6",
+          "quote": "The [retained-state comparison]",
+          "line": 322
+        }
+      ]
+    },
+    {
+      "id": "XF10-007",
+      "status": "parent_owned",
+      "decision": "Delegate printed edition metadata to the parent’s already assigned bibliography scope; retain original source/theorem scope in authored manuscript prose.",
+      "rationale": "Publication and inspected preprint editions must remain distinguishable. No new paper-reading claim or imported theorem is licensed by bibliographic clarification.",
+      "locators": [
+        {
+          "path": "docs/expert_companion.md",
+          "section": "References",
+          "quote": "## References",
+          "line": 326
+        }
+      ],
+      "limits": "Parent owns bib edits, edition validation and rendered bibliography inspection; not marked complete by this author."
+    }
+  ],
+  "source_review": {
+    "method": "Informed revision of previously read manuscripts, focused re-reading of changed/moved units and their contracts; grouped editorial decisions below. Not represented as a fresh sentence-isolated pass or full independent verification of the long analytic proof.",
+    "review_units": [
+      {
+        "path": "docs/reasoning_record.md",
+        "semantic_unit": "Opening and reading guide",
+        "decision": "replace/consolidate",
+        "reason": "Shortened the compressed technical synopsis; construction and complete routes now follow the actual deferred-proof order."
+      },
+      {
+        "path": "docs/reasoning_record.md",
+        "semantic_unit": "§§1–2",
+        "decision": "retain with reference repairs",
+        "reason": "Retain theorem/quantifiers, model definitions and exact examples; update supplier destinations and numbering key. No fresh independent proof audit of these unchanged derivations."
+      },
+      {
+        "path": "docs/reasoning_record.md",
+        "semantic_unit": "§3 and new §8",
+        "decision": "reorder; locally expand circuit ledger",
+        "reason": "Preserve promise and common witnesses, all supplier proof text/claims; inspect changed entries, source citations, credit and exits. The long analytic derivation is carried intact, not claimed freshly independently verified."
+      },
+      {
+        "path": "docs/reasoning_record.md",
+        "semantic_unit": "§4",
+        "decision": "retain; repair board identity",
+        "reason": "Local proof and exact tests unchanged; inspect board census, checker limitation and teaching return link."
+      },
+      {
+        "path": "docs/reasoning_record.md",
+        "semantic_unit": "§5",
+        "decision": "replace transition; move formal aside",
+        "reason": "Review complete evaluator, parameters, history kernel and coupling against existing proof; retain full-state proof and query accounting."
+      },
+      {
+        "path": "docs/reasoning_record.md",
+        "semantic_unit": "§6",
+        "decision": "move alternatives; narrow external audit",
+        "reason": "Review exit from sufficient bound into simulator, new6.7 entry and source credit, same-circuit conclusion and floor constants."
+      },
+      {
+        "path": "docs/reasoning_record.md",
+        "semantic_unit": "§7 and AppendicesA–E",
+        "decision": "retain; repair references",
+        "reason": "Exponent and universal proofs unchanged. Check dependent supplier section labels and fixed/growing-k distinction; no fresh independent analytic audit claimed."
+      },
+      {
+        "path": "docs/reasoning_record.md",
+        "semantic_unit": "AppendicesF–G",
+        "decision": "retain stable structure; move correspondence note",
+        "reason": "Keep chronology separate, insert direct current-entry pointer, preserve measured-law versus physical-state distinction."
+      },
+      {
+        "path": "docs/exposition.md",
+        "semantic_unit": "Introduction and§1",
+        "decision": "move precision layer; repair stage label",
+        "reason": "Retain access model, illustrative projection, one-sided promise and two-query count."
+      },
+      {
+        "path": "docs/exposition.md",
+        "semantic_unit": "§2",
+        "decision": "reorder; simplify local notation",
+        "reason": "Concrete fields and win conditions before general dimensions; retain schematic/board order, gate induction and optional census."
+      },
+      {
+        "path": "docs/exposition.md",
+        "semantic_unit": "§3",
+        "decision": "retain supplier contracts; receive theorem",
+        "reason": "Preserve Chernoff/all-input cap, circuit guarantee, asymptotic hardness and input-length count. Exact family theorem moves here unchanged."
+      },
+      {
+        "path": "docs/exposition.md",
+        "semantic_unit": "§4",
+        "decision": "reorder and compare alternatives",
+        "reason": "Review retained-register, tensor law, rotation, mixed trials, histories, verification and error table; explicit numerical schedule movesA.3; existing query count staysA.1."
+      },
+      {
+        "path": "docs/exposition.md",
+        "semantic_unit": "§5",
+        "decision": "add synthesis; normalize toy target",
+        "reason": "Review first-difference map, overlapping charges, whole-run lightness, independent side data, cap/default trace and averaging; mathematical bounds unchanged."
+      },
+      {
+        "path": "docs/exposition.md",
+        "semantic_unit": "§§6–7 and Answers",
+        "decision": "extend existing task; move rubric",
+        "reason": "Preserve quantifier exercise and formal scope; inspect new4c+c+c/m^8 worked calculation and all Q1–Q5 answer locators."
+      },
+      {
+        "path": "docs/exposition.md",
+        "semantic_unit": "AppendicesA–B",
+        "decision": "retain derivations; add moved schedule",
+        "reason": "Cost sum, historical comparison and separate-cap proof remain; moved finite schedule has its explicit source/accepted estimate."
+      },
+      {
+        "path": "docs/expert_companion.md",
+        "semantic_unit": "Abstract and§1",
+        "decision": "replace/compress; separate contributions",
+        "reason": "Retain original result credit, definitions, theorem and existing intuitive roadmap; add early bounded formal scope."
+      },
+      {
+        "path": "docs/expert_companion.md",
+        "semantic_unit": "§§2–4",
+        "decision": "retain proofs; strengthen transitions",
+        "reason": "Retain exact comparator, conditional law, ideal drift, cap-event predictor and three charges; add purpose bridges and local appendix route."
+      },
+      {
+        "path": "docs/expert_companion.md",
+        "semantic_unit": "§§5–6",
+        "decision": "retain exponent; make formal boundary local",
+        "reason": "Preserve order of quantifiers and same circuit. Exact challenge names inspected in current source; no fresh build claimed."
+      },
+      {
+        "path": "docs/expert_companion.md",
+        "semantic_unit": "AppendicesA–E",
+        "decision": "retain with supplier locator repair",
+        "reason": "Counterexamples, alternative recipe, full amplifier/direct-product proofs and optional uniform refinement retained from prior pass. No new source reading implied by unchanged citations."
+      }
+    ],
+    "constructor_sources": [
+      "lean/QuarticQuery/Forrelation/Circuit.lean::whtCost,layers,layerCost,forrCore,coreSize",
+      "lean/QuarticCorpus/Unconditional/Challenge.lean::alpha_tot_eq_four,theorem_one_one"
+    ],
+    "mechanical_checks": {
+      "record_original_anchors_preserved": 367,
+      "record_original_claim_markers_preserved": 261,
+      "record_original_passage_delimiters_preserved": 596,
+      "explicit_record_internal_anchor_targets": "all resolve at author freeze",
+      "manuscript_control_characters": "none other than newline/tab"
+    },
+    "register": "Parent owns genre-matched profile and numeric comparison. Detector flags are descriptive prompts for source inspection, not evidence of quality, novelty or comprehension. No score target is adopted.",
+    "render_status": "Pending parent render and inspection. In particular inspect record8.3 ledger, exposition2 board adjacency, comparison/error/charge tables, answer-link neighborhoods and printed expert bibliography.",
+    "remaining_checks": [
+      "Parent regenerated correspondence/claim locators after record movement",
+      "Parent exact-edition source bindings and final manuscript hashes",
+      "Parent tests/render inspection and final acceptance"
+    ],
+    "receiving_corrections": [
+      {
+        "finding": "Broad local-section replacement also touched other-document and source bibliography numbers.",
+        "repair": "Restored Appendix C verbatim from baseline; restored named external in-text sections; specialist return now targets companion3.2, not record8.1.",
+        "verification": "Appendix C byte equality checked; all record outbound manuscript links inspected."
+      },
+      {
+        "finding": "Insertion of schedule A.3 displaced the direct-product-proof anchor.",
+        "repair": "Moved the anchor directly before Appendix B; changed record schedule return to the exact A.3 destination.",
+        "verification": "Inspected source adjacency and both incoming/return links; final PDF navigation remains a parent check."
+      }
+    ],
+    "source_sensitive_checks": [
+      "Circuit ledger: read whtCost/layerCost/layers/forrCore/coreSize, translate l=k-1 and full width, sum two constants + two subtraction overheads + three outputs to7; existing size inequality unchanged.",
+      "Evaluator: sampler failure returns existing list, horizonT is unconditional, fresh measured address fixed per verification, defect failure accepts, exhausted/empty list returns0; pairs(1/(2m),epsilon) and(1/K,epsilon).",
+      "Kernel: W=0 forces failure, lengthT forces return; epsilon applies only above threshold; coupling charges disagreement only before winner inclusion, with no global nonabort conditioning.",
+      "Classical: same independent dummy law and selected column, whole-run joint light event, all-input stopped cap and total default, union over times then average over columns; integer budget synthesis uses L<=m and r=20log2m.",
+      "Source locators: external OpenAI3.3, AA3.2, Buhrman–de Wolf3.1–3.3 and Beals3.2 restored; full Appendix C copied unchanged. Theorem/lemma/proposition IDs and equation labels preserved.",
+      "Formal scope: exact challenge endpoints inspected; compared family retains existential logarithmic power and same circuit, named constants separately built; no promotion of abstract successful factor to physical output subsystem."
+    ]
+  },
+  "parent_acceptance": {
+    "validation": "research/adjudication/round10_remaining_validation.json",
+    "status": "source edits, bindings, finite checks, renders and targeted receiving review accepted",
+    "new_proof_execution": false
+  }
+}

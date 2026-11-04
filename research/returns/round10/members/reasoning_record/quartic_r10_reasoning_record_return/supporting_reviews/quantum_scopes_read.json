@@ -1,0 +1,115 @@
+{
+  "schema": "specialist-scope-v1",
+  "agent": "quantum_source_research",
+  "role": "First specialist, quantum",
+  "current_reading_started_after_primary_freeze": true,
+  "cold_read_claim": false,
+  "source_preparation": "quantum_source_notes.md and quantum_sources.json were written behind the primary firewall. Source rereading preceded current-manuscript reading.",
+  "current_manuscripts": [
+    {
+      "path": "input_packet/repository/docs/reasoning_record.md",
+      "sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "medium": "Numbered Markdown reading/reasoning_record.lines.txt; headings searched in raw Markdown",
+      "read_ranges_inclusive": [
+        [
+          155,
+          853
+        ],
+        [
+          1647,
+          2799
+        ],
+        [
+          4251,
+          4315
+        ],
+        [
+          4429,
+          4515
+        ],
+        [
+          4649,
+          5104
+        ],
+        [
+          5747,
+          5902
+        ],
+        [
+          6233,
+          6541
+        ]
+      ],
+      "additional_targeted_search": "Reference-definition lines for named quantum/model Lean destinations; all heading labels obtained via a heading-only search.",
+      "reading_order": "Initially 320–530; then 155–319 and 519–853 (565–589 reread to recover truncated display); then 1647–2221, 2222–2534, 2535–2799; then relevant catalogue and G passages, Appendix C and targeted formal types.",
+      "not_read": "Most of §3 lower-bound proof, §6, §7, Appendix A, most other catalogue groups, Appendices D–F, remainder of G. No full-PDF reading."
+    },
+    {
+      "path": "input_packet/repository/docs/expert_companion.md",
+      "read": false
+    },
+    {
+      "path": "input_packet/repository/docs/exposition.md",
+      "read": false
+    }
+  ],
+  "formal_sources_read": [
+    {
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "range": [
+        110,
+        145
+      ],
+      "scope": "Actual adaptive cap/mass, constant case, QLe and Q definitions."
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/UniformEndpoint.lean",
+      "range": [
+        1,
+        105
+      ],
+      "scope": "uniformOpaqueAmplifier full type and proof body; logical IsCirc cap and retained original-register factor."
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+      "range": [
+        310,
+        390
+      ],
+      "scope": "Tail of attempts proof and full Samples.amplify type/proof; file ends before range bound."
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "range": [
+        230,
+        320
+      ],
+      "scope": "End of cost estimate, quantumTournament_cost, quantumTournament type/proof; file ends before range bound."
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ConstructionFull.lean",
+      "range": [
+        1,
+        100
+      ],
+      "scope": "Full construction_lemma_2_2_with_support statement and short wrapper proof; file ends before range bound."
+    },
+    {
+      "path": "repository/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+      "range": [
+        45,
+        100
+      ],
+      "scope": "End of coherent part-(ii) wrapper proof and complete Lemma 2.1 type/proof; file ends before range bound."
+    }
+  ],
+  "formal_destinations_not_available_in_local_subset": [
+    "repository/lean/QuarticQuery/Upper/Compile.lean",
+    "repository/lean/QuarticQuery/Upper/Tournament.lean",
+    "repository/lean/QuarticQuery/Upper/Bound.lean",
+    "repository/lean/QuarticQuery/Paper/QuantumComparison.lean"
+  ],
+  "limitations": "No Lean build, Comparator run, full proof dependency validation, or current linked website hash verification was performed. Local source types support only the clauses actually read. Historical dispositions and prior feedback files were not opened. Current Appendix G reports historical evidence, but that prose was not independently turned into fresh execution evidence.",
+  "specialist_main_pass_complete": true,
+  "subsequent_reading_stop": "Stopped lead-specialist rereading before the classical specialist began; only saved candidates and scope after notification."
+}
