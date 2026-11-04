@@ -137,3 +137,7 @@ The [round-eight returns](returns/round8/README.md) have
 [finding-by-finding dispositions](adjudication/round8_synthesis.json) and
 [revision and validation notes](adjudication/round8_revision.md). The maintained
 papers, proof-link destinations and writing method consume those decisions.
+
+The [round-nine returns](returns/round9/README.md) extend the review to all three
+maintained manuscripts. Their [revision account](adjudication/round9_revision.md)
+links individual decisions, source correspondence and editorial validation.

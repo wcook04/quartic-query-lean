@@ -1,0 +1,104 @@
+{
+  "scope": "Surviving consolidated origin F candidates with lead line_start<6168; only concrete overstatements/unsupported absence or severity corrections listed. Other organization advice not rejected.",
+  "items": [
+    {
+      "id": "F038",
+      "decision": "drop_as_worded",
+      "lines": [
+        6120,
+        6127,
+        6522
+      ],
+      "reason": "The normal-form paragraph already links the exact declaration Bridge/Deferred.lean#L282-L290. Its local source gives W′, entry isometry, unitary sequence and finite event types. The generic-contract-link diagnosis is false; omitting formal types from the readable display is not itself a missing interface."
+    },
+    {
+      "id": "F039",
+      "decision": "drop",
+      "lines": [
+        6131,
+        6144
+      ],
+      "reason": "Hardness supplied inside the unconditional proof is stated at 6131; 6144 explicitly contrasts unconditional endpoints and conditional suppliers, names their assumptions and warns that citation does not discharge them."
+    },
+    {
+      "id": "F043",
+      "decision": "drop",
+      "lines": [
+        6157,
+        6160
+      ],
+      "reason": "The quoted sentence already identifies that frozen record, followed by a separate paragraph explicitly beginning maintained semantic controls. The historical/current subject distinction is supplied."
+    },
+    {
+      "id": "F041",
+      "decision": "drop_as_worded",
+      "lines": [
+        6152,
+        6157
+      ],
+      "reason": "6152 is the first explicit four-part taxonomy located in the current Markdown. An optional repetition repair could target the final recap at 6157, but the assertion that 6152 repeats an already-stated taxonomy is unsupported."
+    },
+    {
+      "id": "F015",
+      "decision": "downgrade",
+      "suggested_severity": "low",
+      "lines": [
+        5973
+      ],
+      "reason": "Appendix F first routes to the current G.4 inventory. Moving current status before history remains optional organization advice, not a high-severity blocked evidence route."
+    },
+    {
+      "id": "F018",
+      "decision": "downgrade_and_narrow",
+      "suggested_severity": "low",
+      "lines": [
+        5981,
+        5989
+      ],
+      "reason": "not_run is explicitly qualified as a catalogue-row evidence-policy state, not proof that no historical comparison occurred. unknown at 5981 concerns absent named declaration comparisons. If retained, clarify the object/status mapping; do not presume synonyms or demand one label."
+    },
+    {
+      "id": "F024",
+      "decision": "downgrade",
+      "suggested_severity": "low",
+      "lines": [
+        6004
+      ],
+      "reason": "The historical editorial wording can be simplified, but it does not establish that the evidence sentence still awaits an update."
+    },
+    {
+      "id": "F029",
+      "decision": "downgrade_and_narrow",
+      "suggested_severity": "low",
+      "lines": [
+        6054,
+        6056
+      ],
+      "reason": "Archive status is already explicit in the section heading and repeated earlier/advisory/not-refreshed wording. Only the convenience of adding current-version links survives."
+    },
+    {
+      "id": "F008",
+      "decision": "narrow",
+      "lines": [
+        159,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167
+      ],
+      "reason": "There is already a preprint-display/record-section crosswalk immediately after the numbering paragraph. Narrow to theorem/proposition-number versus record-section-number navigation; do not claim no crosswalk exists."
+    },
+    {
+      "id": "F031",
+      "decision": "correct_advice",
+      "lines": [
+        6068
+      ],
+      "source_evidence": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean lines 328–334",
+      "reason": "This remains a valid local glossary issue. Formal S is a circuit-size coefficient in C.size ≤ S*m*(2*t)^2, not the actual number of gates denoted S in the mathematical construction."
+    }
+  ]
+}

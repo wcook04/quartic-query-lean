@@ -1,0 +1,2111 @@
+{
+  "review_date": "2026-11-04",
+  "scope": "Selected round-eight expert-paper XP findings checked against current passages after first-pass freeze; not a full audit of every XP/EX item or the supporting manuscripts.",
+  "decision_policy": "Decisions attach to the exact subissue and current evidence described in each row. Several perspectives may inspect the same prior ID. Repeated assessments are not separate new advice.",
+  "counts": {
+    "assessments": 87,
+    "unique_prior_ids": 83,
+    "by_assessment_decision": {
+      "resolved": 53,
+      "unresolved": 17,
+      "new-consequence": 17
+    }
+  },
+  "repeated_prior_ids": [
+    {
+      "prior_id": "XP183",
+      "assessment_ids": [
+        "PRA-029",
+        "PRA-086"
+      ],
+      "decisions": [
+        "resolved"
+      ],
+      "interpretation": "Read the stated subissue and current evidence; this is not a single blanket status."
+    },
+    {
+      "prior_id": "XP186",
+      "assessment_ids": [
+        "PRA-031",
+        "PRA-087"
+      ],
+      "decisions": [
+        "resolved"
+      ],
+      "interpretation": "Read the stated subissue and current evidence; this is not a single blanket status."
+    },
+    {
+      "prior_id": "XP052",
+      "assessment_ids": [
+        "PRA-056",
+        "PRA-060"
+      ],
+      "decisions": [
+        "new-consequence",
+        "resolved"
+      ],
+      "interpretation": "Read the stated subissue and current evidence; this is not a single blanket status."
+    },
+    {
+      "prior_id": "XP054",
+      "assessment_ids": [
+        "PRA-057",
+        "PRA-061"
+      ],
+      "decisions": [
+        "resolved"
+      ],
+      "interpretation": "Read the stated subissue and current evidence; this is not a single blanket status."
+    }
+  ],
+  "findings": [
+    {
+      "prior_id": "XP001",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "The square-root summary is accurate at the level of the leading power for fixed k, but neither the fixed-parameter convention nor the suppressed logarithms is visible in this sentence. Later the same paper varies k and pays an exponential decoder cost. The abstract makes these two regimes look closer than they are.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "Abstract",
+        "line_start": 9,
+        "line_end": 9,
+        "quote": "For fixed $k$"
+      },
+      "current_evidence": "Abstract now explicitly fixes k and suppresses logarithms. The new request to identify what k denotes is a separate first-encounter issue, not a repetition of the missing fixed-k qualifier.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-001"
+    },
+    {
+      "prior_id": "XP002",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "The tests themselves are exact; searching for a failing test is bounded error. This last sentence is susceptible to the reading that the final certificate verification is exact, even though §3.3 correctly explains that a false candidate can be accepted by missing a defect.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "Abstract",
+        "line_start": 9,
+        "line_end": 9,
+        "quote": "bounded-error search over exact local certificate tests"
+      },
+      "current_evidence": "Abstract now distinguishes the search error from exact individual predicates.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-002"
+    },
+    {
+      "prior_id": "XP129",
+      "prior_panel": "expert_paper",
+      "prior_kind": "credit",
+      "prior_feedback": "The displayed theorem is a sharpened quantitative reconstruction of the cited theorem: the next paragraph explicitly says that six and 1/400 are choices made here. A standalone citation to the source theorem in the heading can suggest that its printed statement already contains these constants.",
+      "prior_adjudication_status": "applied",
+      "decision": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "1. Introduction",
+        "line_start": 24,
+        "line_end": 32,
+        "quote": "**Theorem 1** [@OpenAI2026, Theorem 1.1]"
+      },
+      "current_evidence": "The source-only heading still precedes the explicit constants; their reconstruction provenance is supplied after the theorem.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E004"
+      ],
+      "current_finding_ids": [
+        "XP9-008"
+      ],
+      "assessment_id": "PRA-003"
+    },
+    {
+      "prior_id": "XP131",
+      "prior_panel": "expert_paper",
+      "prior_kind": "prose",
+      "prior_feedback": "This long imported-input inventory arrives before the reader has a picture of the construction. It is accurate, but makes the contribution paragraph end as a dependency catalogue. The separation between proved reductions and cited suppliers is valuable; the sentence could express that distinction by mathematical role.",
+      "prior_adjudication_status": "applied",
+      "decision": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "1. Introduction",
+        "line_start": 34,
+        "line_end": 34,
+        "quote": "The Forrelation hardness theorem, its efficient quantum algorithm and exact circuit"
+      },
+      "current_evidence": "The supplier inventory remains in the contribution paragraph before the construction overview.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E007"
+      ],
+      "current_finding_ids": [
+        "XP9-014"
+      ],
+      "assessment_id": "PRA-004"
+    },
+    {
+      "prior_id": "XP132",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "The first detailed construction a reader encounters is the predecessor’s, with a new n, m-prime, g, h and f. The present function has not yet been pictured. The algebra is useful, but its current position makes the reader learn two size calculations before understanding which change buys the extra power.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "1.1 Overview of the construction",
+        "line_start": 36,
+        "line_end": 59,
+        "quote": "### 1.1 Overview of the construction"
+      },
+      "current_evidence": "The present construction now precedes the predecessor parameter calculation, with Earlier separations at §1.2.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-005"
+    },
+    {
+      "prior_id": "XP133",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "This very broad summary leaves the loss in the transformation implicit. The ensuing formula does describe a particular usable recipe, but the opening phrase can suggest preservation of an arbitrary separation without qualifications. The supplied cheat-sheet introduction explicitly describes the resulting total separation as weaker.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "1.2 Earlier separations",
+        "line_start": 53,
+        "line_end": 57,
+        "quote": "with certificate and query costs determining how much of a separation survives"
+      },
+      "current_evidence": "The transformation is qualified by certificate/query losses, and the cubic ceiling is attached to the AND–OR recipe.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-006"
+    },
+    {
+      "prior_id": "XP134",
+      "prior_panel": "expert_paper",
+      "prior_kind": "overweighted",
+      "prior_feedback": "The final paragraph repeats most of the exponent history just narrated in the preceding paragraph. Replacing the earlier table with full-width prose solved the cramped-table problem, but it also left two consecutive historical summaries. This is a new consequence of the presentation change, not a request to restore the table.",
+      "prior_adjudication_status": "applied",
+      "decision": "new-consequence",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "1.2 Earlier separations",
+        "line_start": 57,
+        "line_end": 59,
+        "quote": "$5/2$, $8/3-o(1)$ and $3-o(1)$"
+      },
+      "current_evidence": "The earlier long second chronology has been removed. The repair leaves a much smaller duplication: the immediately derived exponent sequence is restated as a paragraph ending. This is a low-impact residual, not the old overweighted paragraph.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E013"
+      ],
+      "current_finding_ids": [
+        "XP9-026"
+      ],
+      "assessment_id": "PRA-007"
+    },
+    {
+      "prior_id": "XP135",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "“Certifies these answers” does not yet tell me what kind of object the certificate is. I understand its role, but the difference between a stored claimed answer and a checkable transcript is the main totalisation device. The first explanation of transcripts comes later.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "1.1 Overview of the construction",
+        "line_start": 38,
+        "line_end": 38,
+        "quote": "gate-value transcripts certifying these answers"
+      },
+      "current_evidence": "The first construction summary now names gate-value transcripts rather than an unexplained certificate.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-008"
+    },
+    {
+      "prior_id": "XP136",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "This wording can suggest the algorithm reads or estimates the probabilities and stores numerical weights. Section 3.2 later explains that it does neither. That distinction is one of the central achievements and should not first be repaired several pages later.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "1.1 Overview of the construction",
+        "line_start": 42,
+        "line_end": 42,
+        "quote": "without estimating them"
+      },
+      "current_evidence": "The overview explicitly says the weighted law is sampled without estimating the weights.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-009"
+    },
+    {
+      "prior_id": "XP138",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "“Available hardness scale” is an abstract noun phrase where a concrete query budget would help. L is later an integer cap that a hard distribution defeats, not an informal measure of hardness or the exact value of R(P).",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "1.1 Overview of the construction",
+        "line_start": 46,
+        "line_end": 46,
+        "quote": "let $1\\le L\\le m$ be a query budget with $L<R(P)$"
+      },
+      "current_evidence": "The overview now gives L a concrete integer-cap role and the strict hardness condition.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-010"
+    },
+    {
+      "prior_id": "XP140",
+      "prior_panel": "expert_paper",
+      "prior_kind": "overweighted",
+      "prior_feedback": "This predecessor-variant detail is accurate, and the earlier audit’s correction should be retained wherever the detail appears. In the opening, however, the back-pointer story, balanced tree, no-back-pointer variant and alphabet issue compete for space before the reader has seen the actual local tests.",
+      "prior_adjudication_status": "not_adopted",
+      "decision": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "1.3 Relation to earlier constructions",
+        "line_start": 65,
+        "line_end": 65,
+        "quote": "A balanced tree leads to the highlighted leaves"
+      },
+      "current_evidence": "The historical variant sequence remains essentially intact before the exact local tests.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E014"
+      ],
+      "current_finding_ids": [
+        "XP9-028"
+      ],
+      "assessment_id": "PRA-011"
+    },
+    {
+      "prior_id": "XP142",
+      "prior_panel": "expert_paper",
+      "prior_kind": "overweighted",
+      "prior_feedback": "The paragraph now compares four alternatives after identifying the closest surviving-set antecedent. Each statement is relevant, but the sequence reads as an answer to accumulated referee questions rather than a single route into Proposition 3.",
+      "prior_adjudication_status": "not_adopted",
+      "decision": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "1.3 Relation to earlier constructions",
+        "line_start": 69,
+        "line_end": 69,
+        "quote": "Minimum finding assumes a total order"
+      },
+      "current_evidence": "The paragraph still follows the closest antecedent with several other algorithm-contract comparisons.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E016"
+      ],
+      "current_finding_ids": [
+        "XP9-031"
+      ],
+      "assessment_id": "PRA-012"
+    },
+    {
+      "prior_id": "XP143",
+      "prior_panel": "expert_paper",
+      "prior_kind": "credit",
+      "prior_feedback": "This is a specific, useful citation. Because the cited AIK preprint has changed title and internal structure across versions, the section locator is reliable only together with a version. The bibliography currently gives the bare arXiv identifier.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "1.3 Relation to earlier constructions",
+        "line_start": 69,
+        "line_end": 69,
+        "quote": "[@AIK2026, §6.1]"
+      },
+      "current_evidence": "The current bibliography pins AIK2026 to arXiv:2609.11664v3 and §6.1; the online primary edition was opened and its candidate-set equations inspected.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-013"
+    },
+    {
+      "prior_id": "XP145",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "The three-property interface is a good abstraction, but it arrives after the full Walsh product and is interleaved with proof sketches. A specialist trying to understand the totalisation needs the supplier roles first: classical hardness, quantum decoding and a small exact certificate circuit.",
+      "prior_adjudication_status": "applied",
+      "decision": "new-consequence",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "2. The Forrelation promise and the total function",
+        "line_start": 86,
+        "line_end": 99,
+        "quote": "Hardness hides an address"
+      },
+      "current_evidence": "The requested three-role orienting sentence is now present. It introduces the new ambiguity about certifying unpromised inputs, while substantial proof sketches remain interleaved with the contracts. The present findings concern those current effects.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E021"
+      ],
+      "current_finding_ids": [
+        "XP9-037"
+      ],
+      "assessment_id": "PRA-014"
+    },
+    {
+      "prior_id": "XP146",
+      "prior_panel": "expert_paper",
+      "prior_kind": "overweighted",
+      "prior_feedback": "The alternative decoder is informative, but it interrupts the three-property interface with a second quantum algorithm that is not subsequently used. The reason the selected squared-amplitude decoder is sufficient has already been stated.",
+      "prior_adjudication_status": "not_adopted",
+      "decision": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "2. The Forrelation promise and the total function",
+        "line_start": 97,
+        "line_end": 97,
+        "quote": "The interference test of Aaronson and Ambainis"
+      },
+      "current_evidence": "The second decoder remains in the supplier interface without identifying which implementation supplies the later explicit constant.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E023"
+      ],
+      "current_finding_ids": [
+        "XP9-044"
+      ],
+      "assessment_id": "PRA-015"
+    },
+    {
+      "prior_id": "XP151",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "The paragraph combines test census, topological induction, all-address rejection, bit-query costs and coherent implementation. These are five different jobs with one visual paragraph. The issue is not that any of the content is unnecessary.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "2. The Forrelation promise and the total function",
+        "line_start": 110,
+        "line_end": 116,
+        "quote": "A gate test reads the proposed output"
+      },
+      "current_evidence": "The exact-test census and correctness now form one paragraph, followed by a separate paragraph for evaluation cost and coherent access.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-016"
+    },
+    {
+      "prior_id": "XP152",
+      "prior_panel": "expert_paper",
+      "prior_kind": "prose",
+      "prior_feedback": "The roles of T and epsilon are not named when the constants first appear. They are the list-length cap and per-stage error allowance, respectively. Naming those roles would reduce rereading without changing a single parameter.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3. The quantum upper bound",
+        "line_start": 120,
+        "line_end": 120,
+        "quote": "for the maximum list length"
+      },
+      "current_evidence": "T is named as the list-length cap and epsilon as each stage’s failure allowance.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-017"
+    },
+    {
+      "prior_id": "XP153",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "Section 3 promises an algorithm for columns, then pauses for a general amplification lemma before defining the comparison experiment. This is defensible, but the reader has not yet seen the rare event being amplified.",
+      "prior_adjudication_status": "applied",
+      "decision": "new-consequence",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3. The quantum upper bound",
+        "line_start": 122,
+        "line_end": 147,
+        "quote": "the preparation succeeds with probability $W/m$"
+      },
+      "current_evidence": "The preface now explains the success-law purpose, implementing the suggested preview. It introduces W without defining it until the ideal-process paragraph; the new finding concerns this narrower first-encounter problem.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E029"
+      ],
+      "current_finding_ids": [
+        "XP9-059"
+      ],
+      "assessment_id": "PRA-018"
+    },
+    {
+      "prior_id": "XP156",
+      "prior_panel": "expert_paper",
+      "prior_kind": "prose",
+      "prior_feedback": "“We assign” is reasonable mathematical language, but the algorithm/analysis boundary would be clearer if the analytical nature of these weights were stated before the product is introduced. The later sentence that the algorithm never computes them is excellent, just late.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.2 A tournament with probabilistic comparisons",
+        "line_start": 143,
+        "line_end": 143,
+        "quote": "These are analysis quantities"
+      },
+      "current_evidence": "The text labels weights as analysis quantities and says the algorithm never computes them before giving their probability interpretation.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-019"
+    },
+    {
+      "prior_id": "XP160",
+      "prior_panel": "expert_paper",
+      "prior_kind": "prose",
+      "prior_feedback": "The coupling paragraph changes abruptly from probability to cost and reuses n, which previously meant input length in the general model and predecessor block size. The local definition makes it legal, but j or h would be easier to track as a stage count.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.2 A tournament with probabilistic comparisons",
+        "line_start": 163,
+        "line_end": 165,
+        "quote": "With $n$ previous pivots"
+      },
+      "current_evidence": "The cost discussion is now a separate paragraph from coupling. No new finding is counted merely because n is reused locally.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-020"
+    },
+    {
+      "prior_id": "XP163",
+      "prior_panel": "expert_paper",
+      "prior_kind": "overweighted",
+      "prior_feedback": "The huge explicit constant is useful only for the growing-k branch. In the main fixed-k analysis it breaks the argument’s otherwise clean emphasis on dependence rather than numeric padding.",
+      "prior_adjudication_status": "applied",
+      "decision": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.3 Verification and the query count",
+        "line_start": 177,
+        "line_end": 177,
+        "quote": "gives $C_k\\le2^{53}k\\,2^{10k}$"
+      },
+      "current_evidence": "The envelope now points to the correct record §7.3 destination, but its placement still interrupts the fixed-k conclusion before its growing-k use.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E042"
+      ],
+      "current_finding_ids": [
+        "XP9-091"
+      ],
+      "assessment_id": "PRA-021"
+    },
+    {
+      "prior_id": "XP165",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "The generic notation hides several inherited conditions: r remains 20 log_2 m, m is still a power of four, and the circuit still computes the domain and value. These are recoverable from §2, but the unnumbered theorem-like display can be mistaken for a more general reduction.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "4. The randomized lower bound",
+        "line_start": 181,
+        "line_end": 185,
+        "quote": "**Proposition 4 (classical reduction).**"
+      },
+      "current_evidence": "The abstract reduction is now a labelled proposition with finite P, circuit semantics, powers of four, address length, and cap hypotheses stated locally.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-022"
+    },
+    {
+      "prior_id": "XP175",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "The simulator paragraph now contains a complete algorithm, which is good, but its fixed-column/fixed-time scope is easy to lose in the long paragraph. The next paragraph then starts the success proof without a visual break at the simulator’s output cases.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "4.4 The planted cell",
+        "line_start": 247,
+        "line_end": 251,
+        "quote": "It runs $\\mathcal T$"
+      },
+      "current_evidence": "Setup, simulator operation and success implication are now separate paragraphs. The missing early-halt fallback is a different current issue.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-023"
+    },
+    {
+      "prior_id": "XP178",
+      "prior_panel": "expert_paper",
+      "prior_kind": "overweighted",
+      "prior_feedback": "The sharper erased-zero estimate does not feed the displayed theorem and arrives at the moment the classical proof should end. It is correctly marked optional, but it still sends a specialist away from the main argument for a constant-factor refinement.",
+      "prior_adjudication_status": "not_adopted",
+      "decision": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "4.5 The contradiction and the constants",
+        "line_start": 282,
+        "line_end": 282,
+        "quote": "The optional improvement of the erased-zero probability"
+      },
+      "current_evidence": "The unused sharper bound still closes the classical proof paragraph.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E051"
+      ],
+      "current_finding_ids": [
+        "XP9-129"
+      ],
+      "assessment_id": "PRA-024"
+    },
+    {
+      "prior_id": "XP179",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "At this sentence the fixed-k proof has all the ingredients needed to finish the main theorem. Instead of completing it, the paper starts a separate uniform analytic refinement and only returns to the exponent in §6. The refinement is worthwhile, but the main route now inherits its full cognitive cost.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "5. Completing the fixed-parameter proof",
+        "line_start": 284,
+        "line_end": 297,
+        "quote": "## 5. Completing the fixed-parameter proof"
+      },
+      "current_evidence": "The fixed-k exponent proof now completes in §5 before the optional uniform refinement in §6.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-025"
+    },
+    {
+      "prior_id": "XP180",
+      "prior_panel": "expert_paper",
+      "prior_kind": "underweighted",
+      "prior_feedback": "This is a quantitatively substantive refinement, yet the opening contribution paragraph refers to it only as an additional estimate. The paper should decide whether it is a secondary mathematical result worth reviewing in this short account or supporting machinery for the explicit threshold and schedule.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "6. Optional uniform refinement",
+        "line_start": 302,
+        "line_end": 302,
+        "quote": "Its purpose here is to give an explicit sufficient threshold"
+      },
+      "current_evidence": "The section now states the purposes of the estimate—an explicit threshold and growing-k schedule—and disclaims dominance or priority. The current proof-responsibility question is distinct.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-026"
+    },
+    {
+      "prior_id": "XP181",
+      "prior_panel": "expert_paper",
+      "prior_kind": "underweighted",
+      "prior_feedback": "The clause names the point where this reconstruction departs from its source, but the operative change is not visible in the short account. The record explains a different truncation and first-block interpolation; the companion only shows the resulting estimates.",
+      "prior_adjudication_status": "not_adopted",
+      "decision": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "6. Optional uniform refinement",
+        "line_start": 304,
+        "line_end": 304,
+        "quote": "It uses a different algebraic truncation"
+      },
+      "current_evidence": "The operative advantage of the changed truncation is still not stated locally.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E055"
+      ],
+      "current_finding_ids": [
+        "XP9-132"
+      ],
+      "assessment_id": "PRA-027"
+    },
+    {
+      "prior_id": "XP182",
+      "prior_panel": "expert_paper",
+      "prior_kind": "prose",
+      "prior_feedback": "The phrase attaches “at most” to an interval inequality rather than to the error parameter. The intended premise is clear after rereading, but the sentence is grammatically awkward at a delicate logical bridge.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "6. Optional uniform refinement",
+        "line_start": 312,
+        "line_end": 312,
+        "quote": "Let $0\\le\\eta\\le1/2$."
+      },
+      "current_evidence": "The error premise is now a clear two-sentence mathematical statement.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-028"
+    },
+    {
+      "prior_id": "XP183",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "This distinction is correct, but it comes only after both gap inequalities. When nu_1 first appears, a lower-bound reader has just spent §4 with a hard law supported on the promise and may carry that expectation into §5.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "6. Optional uniform refinement",
+        "line_start": 304,
+        "line_end": 304,
+        "quote": "is not the minimax law $\\mu$ of §4"
+      },
+      "current_evidence": "The first appearance of nu_1 immediately distinguishes its off-promise mass and its role from the hard law mu.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-029"
+    },
+    {
+      "prior_id": "XP184",
+      "prior_panel": "expert_paper",
+      "prior_kind": "consistency",
+      "prior_feedback": "This makes the core exponent proof appear to depend on the explicit threshold from the optional uniform argument in §5. Theorem 1 and the cited fixed-k hardness estimate require only an eventual threshold. Both routes are valid, but their logical independence is no longer visible.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "5. Completing the fixed-parameter proof",
+        "line_start": 286,
+        "line_end": 293,
+        "quote": "for every fixed $k$ and all sufficiently large $m$"
+      },
+      "current_evidence": "The main exponent proof now uses only eventual fixed-k hardness and no longer appears to depend on the optional explicit threshold.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-030"
+    },
+    {
+      "prior_id": "XP186",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "The remark has a different mathematical dependency chain from the preceding proof, but it is presented as the final paragraph of the same main conclusion. It also reaches back to an explicit quantum constant introduced much earlier.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "6. Optional uniform refinement",
+        "line_start": 295,
+        "line_end": 329,
+        "quote": "## 6. Optional uniform refinement"
+      },
+      "current_evidence": "The growing-k result now sits in its own optional uniform section after the main fixed-k proof. Its unstated changed budget is a separate issue.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-031"
+    },
+    {
+      "prior_id": "XP188",
+      "prior_panel": "expert_paper",
+      "prior_kind": "overweighted",
+      "prior_feedback": "This is a correct foundational observation but not a material difference between the printed theorem and the formal one. It takes space in the section whose main job is to explain such differences.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "7. The formal statement",
+        "line_start": 335,
+        "line_end": 335,
+        "quote": "These identifications preserve the query cap and the output law."
+      },
+      "current_evidence": "The foundational nonemptiness aside is removed; the model-bridge paragraph now retains the preservation claims.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-032"
+    },
+    {
+      "prior_id": "XP190",
+      "prior_panel": "expert_paper",
+      "prior_kind": "overweighted",
+      "prior_feedback": "The distinctions are real, but this fourth paragraph becomes a compressed formalisation audit: measured/reset output, retained state, basis-label tests, weighted finite seeds and recursive compliance all appear in a few lines. The paragraph is hard to use without opening the record.",
+      "prior_adjudication_status": "not_adopted",
+      "decision": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "7. The formal statement",
+        "line_start": 339,
+        "line_end": 339,
+        "quote": "Two auxiliary interfaces merit distinction."
+      },
+      "current_evidence": "The paragraph still compresses several auxiliary interfaces into a single audit-like block.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E064"
+      ],
+      "current_finding_ids": [
+        "XP9-151"
+      ],
+      "assessment_id": "PRA-033"
+    },
+    {
+      "prior_id": "XP191",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "“Ordinary” does not say what is established on paper, what is covered by the Lean development, and what is an interpretation of a recursive formal definition. The record may settle this, but the short wording asks the reader to supply an evidence classification.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "7. The formal statement",
+        "line_start": 339,
+        "line_end": 339,
+        "quote": "The record proves in ordinary mathematics"
+      },
+      "current_evidence": "The finite-seed and cap-compliance bridges are now explicitly assigned ordinary-paper status, with their mathematical content stated.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-034"
+    },
+    {
+      "prior_id": "XP192",
+      "prior_panel": "expert_paper",
+      "prior_kind": "evidence_presentation",
+      "prior_feedback": "The disclosure accurately names assistance, but it does not specify who takes responsibility for the mathematical assertions and source interpretation. “Directed the reconstruction” describes a workflow rather than responsibility for the final account.",
+      "prior_adjudication_status": "not_adopted",
+      "decision": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "Use of AI tools",
+        "line_start": 343,
+        "line_end": 343,
+        "quote": "Will Cook directed the reconstruction"
+      },
+      "current_evidence": "The text describes direction and AI work but still does not state author responsibility; any addition must be truthful and accepted by the author.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [
+        "E065"
+      ],
+      "current_finding_ids": [
+        "XP9-156"
+      ],
+      "assessment_id": "PRA-035"
+    },
+    {
+      "prior_id": "XP193",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "Converting the former table to readable prose was the right presentation repair. The resulting appendix now combines construction-specific traps with generic probability and quantifier lessons. Those groups have different value for the named expert reader.",
+      "prior_adjudication_status": "not_adopted",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "Appendix A. Simplifications that fail",
+        "line_start": 353,
+        "line_end": 353,
+        "quote": "A.1–A.3 concern construction and verification"
+      },
+      "current_evidence": "The appendix opening now groups the examples by the inference they protect. No new finding is counted simply for retaining all eight.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-036"
+    },
+    {
+      "prior_id": "XP194",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "The sentence is about the given fair comparison experiment, not an impossibility of assigning some fixed edge orientation. That distinction is inferable, but the unqualified formulation can sound stronger than the example demonstrates.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "A.2 Comparisons need not describe an order or fixed orientation",
+        "line_start": 361,
+        "line_end": 361,
+        "quote": "this comparator's output law"
+      },
+      "current_evidence": "The current sentence limits the statement to the fair comparator’s own law rather than implying no orientation can be assigned.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after editor first-pass freeze; prior applied labels not treated as evidence of repair.",
+      "review_role": "editor",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-037"
+    },
+    {
+      "prior_id": "XP010",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "This paragraph compares surviving sets, exact probability products, minimum finding, king finding, fixed candidate claims and bounded-error search before the paper has defined its comparison circuit. A specialist recognizes the named tools but cannot yet test their contracts against this construction.",
+      "prior_advice": "Keep a short antecedent identification here and put the detailed contract comparison after §3.1 or beside Proposition 3. Do not remove the credit.",
+      "decision": "unresolved",
+      "prior_request_status": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "1.3 Relation to earlier constructions",
+        "line_start": 69,
+        "line_end": 69,
+        "quote": "The closest comparison-search antecedent"
+      },
+      "current_evidence": "The detailed task/oracle taxonomy still precedes the concrete comparator. The fixed-direction terminology itself has improved; the remaining advice concerns placement.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [
+        "Q006"
+      ],
+      "current_finding_ids": [
+        "XP9-031"
+      ],
+      "assessment_id": "PRA-038"
+    },
+    {
+      "prior_id": "XP013",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The fixed-k claim needs only an unspecified constant, but the paper later displays a 2^{10k} quantum constant and chooses a growing k. This sentence gives no clue why the repetition cost scales with the inverse small probability rather than the inverse square of an additive gap. The record and the exposition supply the needed multiplicative-tail calculation.",
+      "prior_advice": "At the first point where the explicit k dependence matters, identify the multiplicative-tail estimate giving O(delta^{-2} log(1/eta)) repetitions. Keep its arithmetic in the record.",
+      "decision": "new-consequence",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "2. The Forrelation promise and the total function",
+        "line_start": 97,
+        "line_end": 97,
+        "quote": "a multiplicative Chernoff bound"
+      },
+      "current_evidence": "The text now states the multiplicative-tail basis and delta^-2 repetition order. Q010 concerns convenient access to the explicit k-dependent budget, not the previously missing concentration explanation.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [
+        "Q010"
+      ],
+      "current_finding_ids": [
+        "XP9-039"
+      ],
+      "assessment_id": "PRA-039"
+    },
+    {
+      "prior_id": "XP016",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The numerical size bound is supplied, but the short justification leaves its two logarithmic factors implicit. The useful point for this paper is that fast transforms use O(m log m) elementary arithmetic operations and each operation has logarithmic bit width at fixed k.",
+      "prior_advice": "Explain the two sources of logarithmic cost in a brief phrase; leave the coefficient 200 and binary-arithmetic details at the linked proof.",
+      "decision": "resolved",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "2. The Forrelation promise and the total function",
+        "line_start": 99,
+        "line_end": 99,
+        "quote": "The transform has $O(\\ell)$ layers"
+      },
+      "current_evidence": "The current sentence names both O(ell) transform layers and O_k(ell) bit cost per addition. No repeat request for the two logarithmic sources is counted.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-040"
+    },
+    {
+      "prior_id": "XP021",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The text uses a uniform superposition over a fixed list of tests later. The count K is given, but it is worth making explicit that their indexing and coordinate lookup are fixed from (i,s) and the chosen circuit, not discovered by querying the input.",
+      "prior_advice": "State that the test enumeration and wire locations are fixed and query-free; the detailed reversible implementation can remain linked.",
+      "decision": "resolved",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "2. The Forrelation promise and the total function",
+        "line_start": 116,
+        "line_end": 116,
+        "quote": "The enumeration of tests and wire locations is fixed and query-free."
+      },
+      "current_evidence": "The enumeration and queried coordinate locations are now explicitly fixed and query-free.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-041"
+    },
+    {
+      "prior_id": "XP022",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The quantum section immediately interrupts its candidate-generation story with a standard amplifier contract and proof, before defining the column comparison whose law it will amplify. The previous revision successfully removed numerical trial arithmetic; the remaining placement still front-loads a tool before the mathematical object it serves.",
+      "prior_advice": "Consider defining the comparator first, then giving the amplifier contract just before exact sampling. Keep the exact conditional-law clause even if the standard proof moves to the record.",
+      "decision": "unresolved",
+      "prior_request_status": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3. The quantum upper bound",
+        "line_start": 122,
+        "line_end": 122,
+        "quote": "The sampling step uses the following bounded form of amplitude amplification."
+      },
+      "current_evidence": "The amplifier still precedes the comparator whose law it will amplify.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [
+        "Q022"
+      ],
+      "current_finding_ids": [
+        "XP9-058"
+      ],
+      "assessment_id": "PRA-042"
+    },
+    {
+      "prior_id": "XP023",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "This is the correct accessible-flag restriction added in the previous round. The wording can still sound as though the underlying success predicate itself must be input-independent, whereas the preparation has already queried the input and written a flag.",
+      "prior_advice": "Clarify that the fixed test reads the designated flag produced by the preparation. Do not weaken or delete the input-independent reflection requirement.",
+      "decision": "resolved",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3. The quantum upper bound",
+        "line_start": 124,
+        "line_end": 124,
+        "quote": "the designated flag produced by $\\mathcal A$"
+      },
+      "current_evidence": "The fixed test now expressly reads the flag produced by the input-dependent preparation.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-043"
+    },
+    {
+      "prior_id": "XP024",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "“Its original law under A” can denote the unconditional label law of A. The needed and proved assertion is equality with A’s label law conditional on A succeeding. The section introduction and proof make the intended statement recoverable, so this is an ambiguity in a reusable lemma contract, not a counterexample to the theorem.",
+      "prior_advice": "Name the original successful-label law explicitly in the lemma statement.",
+      "decision": "resolved",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3. The quantum upper bound",
+        "line_start": 124,
+        "line_end": 124,
+        "quote": "conditional on the original preparation succeeding"
+      },
+      "current_evidence": "The original law is now unambiguously the original conditional successful-label law.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-044"
+    },
+    {
+      "prior_id": "XP025",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The proof writes a normalized good/bad decomposition for all positive p, whereas the nontrivial two-dimensional argument concerns 0<p<1. At p=1 the unsuccessful normalized component has no canonical definition; the direct-measurement argument already handles that endpoint.",
+      "prior_advice": "Confine the two-component normalization to 0<p<1 and dispose of p=1 in a few words, as the record does. This does not require a new lemma.",
+      "decision": "resolved",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3. The quantum upper bound",
+        "line_start": 126,
+        "line_end": 126,
+        "quote": "For $0<p<1$"
+      },
+      "current_evidence": "The decomposition is restricted to its valid range; the endpoint p=1 is addressed separately.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-045"
+    },
+    {
+      "prior_id": "XP026",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The two branches of the trial are named but their mixing probability is not. A fixed nonzero constant such as one half is all the proof needs, yet an arbitrary mixture could give a negligible chance to the branch required in one parameter regime.",
+      "prior_advice": "State the constant mixing probability. Keep the detailed cutoff constant in the record.",
+      "decision": "resolved",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3. The quantum upper bound",
+        "line_start": 126,
+        "line_end": 126,
+        "quote": "with probability $1/2$"
+      },
+      "current_evidence": "The direct-measurement branch now has an explicit constant mixing probability.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-046"
+    },
+    {
+      "prior_id": "XP032",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The labels remain available as controls during pointer lookup and winner computation. That retained-label condition, not the mere fact that different intermediate states once were orthogonal, ensures that the measured probability is a sum over label blocks.",
+      "prior_advice": "Attach the no-erasure/control-only role of these label registers to the probability sentence. Do not call the full pure state a classical mixture.",
+      "decision": "new-consequence",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.1 Comparing two columns",
+        "line_start": 137,
+        "line_end": 137,
+        "quote": "unchanged controls in orthogonal registers"
+      },
+      "current_evidence": "The non-erasure/control role is now explicit. Q031 is a new readability consequence of the longer repaired sentence, not a repeated no-erasure allegation.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [
+        "Q031"
+      ],
+      "current_finding_ids": [
+        "XP9-068"
+      ],
+      "assessment_id": "PRA-047"
+    },
+    {
+      "prior_id": "XP034",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "For use as a standalone proposition, the cost interface should also cover the inverse comparison. The intended reversible bit-query circuit automatically has an inverse with the same query count, and the record states both directions explicitly.",
+      "prior_advice": "Name the inverse cap in the proposition or add the one-sentence observation that reversing the circuit costs the same.",
+      "decision": "resolved",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.2 A tournament with probabilistic comparisons",
+        "line_start": 141,
+        "line_end": 141,
+        "quote": "as does its inverse"
+      },
+      "current_evidence": "The proposition now charges both comparison directions explicitly.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-048"
+    },
+    {
+      "prior_id": "XP040",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The proof says that each comparison gets fresh workspace, but is less explicit that only the measured pivot history persists between stages and that all comparisons with old pivots are recomputed. The record says this directly.",
+      "prior_advice": "Briefly identify the persistent state and fresh state when introducing (9).",
+      "decision": "new-consequence",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.2 A tournament with probabilistic comparisons",
+        "line_start": 154,
+        "line_end": 154,
+        "quote": "Only the measured pivot list persists between stages."
+      },
+      "current_evidence": "The persistent classical history and reset policy are explicit. Q040 asks to connect reset to rebuilding/query cost at this encounter; it does not allege that the reset policy is absent.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [
+        "Q040"
+      ],
+      "current_finding_ids": [
+        "XP9-079"
+      ],
+      "assessment_id": "PRA-049"
+    },
+    {
+      "prior_id": "XP041",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The example verifies a normalized fractional law after one pivot, but one pivot alone cannot demonstrate the product-of-history update: the weights are just the corresponding comparison probabilities. One listed pair probability, a_34=2/5, is never used.",
+      "prior_advice": "If this example stays, use a second selected pivot as a compact reader operation. With pivot 4 next, the remaining weights are (1,0,4/15,0), so the next successful law is (15/19,0,4/19,0). This is an illustrative calculation for the existing example, not a proposed theorem.",
+      "decision": "new-consequence",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.2 A tournament with probabilistic comparisons",
+        "line_start": 161,
+        "line_end": 161,
+        "quote": "If pivot $4$ is selected next"
+      },
+      "current_evidence": "A second pivot now demonstrates multiplication using a_34. Q043 only proposes a compact table for the resulting dense numerical paragraph.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [
+        "Q043"
+      ],
+      "current_finding_ids": [
+        "XP9-081"
+      ],
+      "assessment_id": "PRA-050"
+    },
+    {
+      "prior_id": "XP043",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "This is the decisive transition-law statement. The subsequent warning about history-dependent failures is correct, but the real transition itself remains verbal: success with label i has mass (1−f(history))w_i/W. The record makes that factorization explicit.",
+      "prior_advice": "If the coupling paragraph is revised, spend its space on this transition-law factorization rather than another general warning about dependence.",
+      "decision": "unresolved",
+      "prior_request_status": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.2 A tournament with probabilistic comparisons",
+        "line_start": 163,
+        "line_end": 163,
+        "quote": "otherwise draws a pivot with the ideal law"
+      },
+      "current_evidence": "The decisive success-label mass (1-f(history))w_i/W remains verbal rather than displayed. The coupling is correct; the proposed action is proof presentation.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [
+        "Q044"
+      ],
+      "current_finding_ids": [
+        "XP9-082"
+      ],
+      "assessment_id": "PRA-051"
+    },
+    {
+      "prior_id": "XP045",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The T-squared cost is mathematically recoverable from the preceding stage bound, but its operational cause is hidden in “summing”: each new stage rebuilds comparisons against the whole current pivot history.",
+      "prior_advice": "Name the repeated-history cost in a short phrase. Keep the exact summation in the record.",
+      "decision": "resolved",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.2 A tournament with probabilistic comparisons",
+        "line_start": 165,
+        "line_end": 165,
+        "quote": "rebuilding their comparison history"
+      },
+      "current_evidence": "The operational reason for the quadratic stage sum is named. Q040 cross-references it earlier; Q045 concerns the dense cost sentence, not a missing reason.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-052"
+    },
+    {
+      "prior_id": "XP046",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The hyperlink goes to reasoning_record.md#upper-quantum-tournament. In the supplied current record, that anchor begins at the real amplified sampler, after the proposition, the ideal process, the drift calculation, the dominant-weight bound and the exact sampling law. It is not the beginning of the promised full proof.",
+      "prior_advice": "For the whole proof, target #upper-tournament-statement or #upper-ideal-process; reserve #upper-quantum-tournament for a link specifically promising the implemented sampler.",
+      "decision": "new-consequence",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.2 A tournament with probabilistic comparisons",
+        "line_start": 165,
+        "line_end": 165,
+        "quote": "#upper-tournament-statement"
+      },
+      "current_evidence": "The longer-proof link now targets the actual beginning of the proposition/proof. Q046 concerns optional link-label specificity only.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [
+        "Q046"
+      ],
+      "current_finding_ids": [
+        "XP9-084"
+      ],
+      "assessment_id": "PRA-053"
+    },
+    {
+      "prior_id": "XP048",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The list is itself chosen from input-dependent quantum outcomes. The claimed union bound is valid because the verifier bound holds for each fixed candidate and address after any previous history, but that conditional formulation is spelled out only for the true winner in the next sentence.",
+      "prior_advice": "Say that the false-candidate bound is uniform conditional on the selected list/history, then average. This is a clarification of the existing correct proof.",
+      "decision": "new-consequence",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.3 Verification and the query count",
+        "line_start": 171,
+        "line_end": 171,
+        "quote": "conditional on any selected list and prior history"
+      },
+      "current_evidence": "The false-acceptance bound is now expressly conditional on list and history. Q049 asks for the fixed-input/fresh-workspace reason, not another insertion of the conditional qualifier.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [
+        "Q049"
+      ],
+      "current_finding_ids": [
+        "XP9-086"
+      ],
+      "assessment_id": "PRA-054"
+    },
+    {
+      "prior_id": "XP051",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The bit-oracle implementation appears after the correctness analysis, although coherent pointer lookup was already used to define the comparator and the stage preparation. Its position makes it look like an afterthought about implementation rather than part of the query-cost contract.",
+      "prior_advice": "Place the concise oracle-access explanation beside the first coherent comparator or local-test use, and keep the longer implementation in the record.",
+      "decision": "unresolved",
+      "prior_request_status": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.3 Verification and the query count",
+        "line_start": 171,
+        "line_end": 171,
+        "quote": "Pointers are read bit by bit"
+      },
+      "current_evidence": "The concise access explanation remains after correctness although the coherent pointer operation was used in §3.1.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [
+        "Q051"
+      ],
+      "current_finding_ids": [
+        "XP9-088"
+      ],
+      "assessment_id": "PRA-055"
+    },
+    {
+      "prior_id": "XP052",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The linked record §5.4 (#upper-explicit-log6) gives a sum-of-constants expression for C_k. The further domination C_k≤N k 2^{10k}, with N=5707107503019240<2^{53}, is actually supplied in record §7.3 (#ROOT-GROWING-K). The claim is supported, but the advertised proof location does not contain the stated envelope.",
+      "prior_advice": "Point the exponential envelope to §7.3, or name §5.4 for the count and §7.3 for its uniform simplification.",
+      "decision": "new-consequence",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3.3 Verification and the query count",
+        "line_start": 177,
+        "line_end": 177,
+        "quote": "uniform simplification in record §7.3"
+      },
+      "current_evidence": "The exponential envelope now goes to the correct destination. Q054 is a new request to expose that envelope’s all-parameter quantifier, not to repair the link again.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [
+        "Q054"
+      ],
+      "current_finding_ids": [
+        "XP9-092"
+      ],
+      "assessment_id": "PRA-056"
+    },
+    {
+      "prior_id": "XP054",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The schedule is precise but unexplained in the short paper. The record supplies a simple reason: it balances the leading losses 40k from raising the quantum decoder cost to the fourth power and ell/k from the classical bound.",
+      "prior_advice": "Give the balancing reason in a sentence and leave the floor and finite-exponent arithmetic at §7.3. This explains an existing choice rather than suggesting a stronger bound.",
+      "decision": "resolved",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "6. Optional uniform refinement",
+        "line_start": 329,
+        "line_end": 329,
+        "quote": "This choice balances"
+      },
+      "current_evidence": "The balancing reason is now supplied locally. Q061 asks only to name the scale of the existing finite exponent loss.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-057"
+    },
+    {
+      "prior_id": "XP055",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "For a quantum referee, the relevant question is which observable the formal upper bound supplies. The answer is the exact measured-label law, matching the printed Lemma 2. The separate retained-state result and the finite-seed direct-product bridge are then discussed at nearly equal weight, although they serve different readers and dependencies.",
+      "prior_advice": "Keep the measured-law-to-Lemma-2 relationship in the main account. Route the retained-state variant and detailed bridge taxonomy through one well-labelled record destination.",
+      "decision": "unresolved",
+      "prior_request_status": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "7. The formal statement",
+        "line_start": 339,
+        "line_end": 339,
+        "quote": "Two auxiliary interfaces merit distinction."
+      },
+      "current_evidence": "The auxiliary taxonomy still gives multiple formal interfaces in one dense paragraph. This quantum pass does not count the same relocation request again; Q063 and Q064 instead identify two precise evidence-scope distinctions not stated here.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [
+        "Q063",
+        "Q064"
+      ],
+      "current_finding_ids": [
+        "XP9-153",
+        "XP9-152"
+      ],
+      "assessment_id": "PRA-058"
+    },
+    {
+      "prior_id": "XP059",
+      "prior_panel": "expert_paper",
+      "prior_feedback": "The stated locator is verified in arXiv:quant-ph/9605034v1, but the bibliography gives only the 1998 journal edition and no arXiv edition. A later Wiley book version numbers “Unknown Number of Solutions” as §6. I have not inspected the full journal PDF, so I am not asserting that its §4 is wrong; the reproducible issue is that the inspected version is not identified.",
+      "prior_advice": "Identify the arXiv v1 location explicitly in the citation or bibliography, while retaining the journal publication metadata.",
+      "decision": "resolved",
+      "prior_request_status": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "section": "3. The quantum upper bound",
+        "line_start": 126,
+        "line_end": 126,
+        "quote": "arXiv v1, §4, Lemma 2"
+      },
+      "current_evidence": "The inspected BBHT version is now named explicitly; no repeat version-identification request is counted.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source checked after first-pass freeze; prior labels were not accepted as proof of resolution.",
+      "review_role": "quantum",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-059"
+    },
+    {
+      "prior_id": "XP052",
+      "prior_panel": "expert_paper",
+      "prior_kind": "funnel",
+      "prior_feedback": "The linked record §5.4 (#upper-explicit-log6) gives a sum-of-constants expression for C_k. The further domination C_k≤N k 2^{10k}, with N=5707107503019240<2^{53}, is actually supplied in record §7.3 (#ROOT-GROWING-K). The claim is supported, but the advertised proof location does not contain the stated envelope.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 177,
+        "line_end": 177,
+        "quote": "uniform simplification in record §7.3"
+      },
+      "current_evidence": "The exponential envelope now points to ROOT-GROWING-K, where its derivation appears. No current criticism of this old destination remains.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-060"
+    },
+    {
+      "prior_id": "XP054",
+      "prior_panel": "expert_paper",
+      "prior_kind": "underweighted",
+      "prior_feedback": "The schedule is precise but unexplained in the short paper. The record supplies a simple reason: it balances the leading losses 40k from raising the quantum decoder cost to the fourth power and ell/k from the classical bound.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 329,
+        "line_end": 329,
+        "quote": "This choice balances the classical exponent loss"
+      },
+      "current_evidence": "The companion now explains the balance 1/k against k/t. C060 instead concerns the new allowance needed before using the schedule; it does not repeat the old request for a balancing reason.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-061"
+    },
+    {
+      "prior_id": "XP066",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "The text has just chosen m prime equal to n. It has not said why changing that balance would not improve the exponent delivered by these estimates. I can reconstruct the two cases m prime at most n and at least n, but this is the exact point on which the claimed bottleneck depends.",
+      "prior_adjudication_status": "applied",
+      "decision": "new-consequence",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 57,
+        "line_end": 57,
+        "quote": "moving either way cannot improve the exponent certified by these estimates"
+      },
+      "current_evidence": "The requested balancing sentence is present. C009 is an optional finer check: the two-regime exponent calculation is still implicit. The old wording request is resolved.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [
+        "C009"
+      ],
+      "current_finding_ids": [
+        "XP9-025"
+      ],
+      "assessment_id": "PRA-062"
+    },
+    {
+      "prior_id": "XP072",
+      "prior_panel": "expert_paper",
+      "prior_kind": "missing",
+      "prior_feedback": "I would like the overview to say why logarithmically many address instances are used. The word each is correct, but the qualitative role of r is currently divided between §2 and the final arithmetic of §4.5.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 46,
+        "line_end": 46,
+        "quote": "enough for a union bound over all query times"
+      },
+      "current_evidence": "The purpose of logarithmically many independent answers is now explicit before the formula for the exponent.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-063"
+    },
+    {
+      "prior_id": "XP081",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "The generic bound is a valuable reusable statement, but its displayed hypotheses name only L and m. The surrounding phrase refers back to a construction introduced for P on km bits, while the argument actually works for an arbitrary finite partial Boolean function and any circuit realizing its promise and value. The record states that interface precisely.",
+      "prior_adjudication_status": "applied",
+      "decision": "new-consequence",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 181,
+        "line_end": 181,
+        "quote": "**Proposition 4 (classical reduction).**"
+      },
+      "current_evidence": "The generic reduction is named and locally specifies a finite domain, circuit semantics and m,r conventions. C021 is a remaining type detail: L is not explicitly declared integer.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [
+        "C021"
+      ],
+      "current_finding_ids": [
+        "XP9-094"
+      ],
+      "assessment_id": "PRA-064"
+    },
+    {
+      "prior_id": "XP083",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "Independence of the samples does not make the answer bits unbiased, so the true address need not be uniform over the array. The proof correctly uses a prediction bound instead of address uniformity, but this is easy to misremember from the phrase hide an address.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 188,
+        "line_end": 188,
+        "quote": "even constant-output trees are covered by the success bound"
+      },
+      "current_evidence": "The paper now gives both nonuniformity and the replacement constant-output argument. Former candidate C023 was withdrawn during verification because this clause answers it.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-065"
+    },
+    {
+      "prior_id": "XP084",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "The statement is precise in context, but the proof arrives before the paper has shown the actual vector-output algorithm it will constrain. I know direct products; the novel burden here is recognizing an address-bearing query as the output of such an algorithm.",
+      "prior_adjudication_status": "applied",
+      "decision": "new-consequence",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 192,
+        "line_end": 192,
+        "quote": "the proof may be read after the simulator in §4.4"
+      },
+      "current_evidence": "The predictor is previewed and the optional detour is explicitly offered. C024 asks for the return point of that new route, rather than repeating the old request to preview the application.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [
+        "C024"
+      ],
+      "current_finding_ids": [
+        "XP9-097"
+      ],
+      "assessment_id": "PRA-066"
+    },
+    {
+      "prior_id": "XP087",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "T and alpha already have meanings in the tournament and optimal-exponent discussions. Here they are source-paper parameters, but the sentence switches conventions without explicitly saying so.",
+      "prior_adjudication_status": "applied",
+      "decision": "new-consequence",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 210,
+        "line_end": 210,
+        "quote": "Drucker's parameters"
+      },
+      "current_evidence": "The source-parameter naming ambiguity is repaired. C033 asks for the actual two numerical substitutions as a small source-reading convenience, not for the already-present qualifier.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [
+        "C033"
+      ],
+      "current_finding_ids": [
+        "XP9-106"
+      ],
+      "assessment_id": "PRA-067"
+    },
+    {
+      "prior_id": "XP088",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "The alternative theorem is correctly sufficient. The displayed coarse summands in (14) could nevertheless make a quick reader think doubling the third term changes 6/100 to 7/100. The stronger tail estimate makes the stated 6/100 safe for the present m range.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 210,
+        "line_end": 210,
+        "quote": "The extra factor two still leaves the discrepancy below"
+      },
+      "current_evidence": "The text uses the weaker sufficient below-one-third conclusion, removing the old 6/100 bookkeeping ambiguity.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-068"
+    },
+    {
+      "prior_id": "XP093",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "The definition is intended to use the complete original dummy run, including queries after a proposed true-cell visit. That is recoverable from the wording, but adding complete or terminal would make the contrast with the prefix simulator immediate.",
+      "prior_adjudication_status": "applied",
+      "decision": "new-consequence",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 245,
+        "line_end": 245,
+        "quote": "the terminal number of queries in the whole dummy run"
+      },
+      "current_evidence": "Terminal whole-run lightness is now explicit. C039 only addresses the resulting duplicated run phrase within the long definition; C042 separately asks for the prefix-count implication.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [
+        "C039"
+      ],
+      "current_finding_ids": [
+        "XP9-114"
+      ],
+      "assessment_id": "PRA-069"
+    },
+    {
+      "prior_id": "XP094",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "This free information includes the zero locations, including J_i. That initially feels stronger than the hiding argument should allow, but it is harmless because the simulator predicts address values and the J variables are independent of them. The record spells this out; the short paragraph leaves the reader to notice it.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 247,
+        "line_end": 247,
+        "quote": "outside address inputs, zero locations and blank cells"
+      },
+      "current_evidence": "The allowed side information is enumerated and the original tree is restricted to requested replies. There is no current claim that J_i leaks an address.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-070"
+    },
+    {
+      "prior_id": "XP095",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "There are two clocks: the original tree’s query slot tau and the simulator’s counter of charged target queries. Answering outside queries for free does not skip their slots in the original transcript.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 247,
+        "line_end": 247,
+        "quote": "This clock counts all queries"
+      },
+      "current_evidence": "Original-tree time and charged target-query count are now explicitly distinguished.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-071"
+    },
+    {
+      "prior_id": "XP096",
+      "prior_panel": "expert_paper",
+      "prior_kind": "missing_example",
+      "prior_feedback": "The default output is logically important because the predictor must return a vector on every branch. It can accidentally be correct after aborting, which is why the true-cell/light event is contained in predictor success rather than equal to it. A reader gets several counterexamples in Appendix A but no short execution of this central reduction in the companion itself.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 267,
+        "line_end": 267,
+        "quote": "The record traces this simulator on a small example"
+      },
+      "current_evidence": "The requested precise example route is now present. C041 is a different total-definition omission: a tree that halts before tau needs an output; it is not a request for another example.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-072"
+    },
+    {
+      "prior_id": "XP099",
+      "prior_panel": "expert_paper",
+      "prior_kind": "funnel",
+      "prior_feedback": "The link’s visible promise is a worked example, but its fragment is CL-simulator, which lands at the general definition in record §6.5. The worked trace begins at the distinct fragment CL-simulator-example a little later.",
+      "prior_adjudication_status": "applied",
+      "decision": "new-consequence",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 267,
+        "line_end": 267,
+        "quote": "#CL-simulator-example"
+      },
+      "current_evidence": "The anchor is corrected. C046 concerns the changed toy supplier and zero-based labels at this now-working detour; the old destination failure is resolved.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [
+        "C046"
+      ],
+      "current_finding_ids": [
+        "XP9-122"
+      ],
+      "assessment_id": "PRA-073"
+    },
+    {
+      "prior_id": "XP100",
+      "prior_panel": "expert_paper",
+      "prior_kind": "overweighted",
+      "prior_feedback": "The sharper erased-zero estimate has already been moved out of the proof’s middle, which is an improvement. Even here it is the last thing the reader sees before the analytic hardness section, although it changes neither the exponent nor the stated constant used in the proof.",
+      "prior_adjudication_status": "not_adopted",
+      "decision": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 282,
+        "line_end": 282,
+        "quote": "The optional improvement of the erased-zero probability"
+      },
+      "current_evidence": "The optional refinement remains at the end of the main lower-bound assembly. C052 repeats this unresolved placement cost with a precise relocation target; it is not counted as newly discovered mathematics.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [
+        "C052"
+      ],
+      "current_finding_ids": [
+        "XP9-129"
+      ],
+      "assessment_id": "PRA-074"
+    },
+    {
+      "prior_id": "XP103",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "After §4 completes the second main reduction, I expect the exponent conclusion. Instead the paper inserts a substantial independent analytic reconstruction before §6. The first paragraph of §5 already says the cited fixed-k theorem is sufficient; the remaining material serves an explicit threshold and a growing-k refinement.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 295,
+        "line_end": 295,
+        "quote": "## 6. Optional uniform refinement"
+      },
+      "current_evidence": "The fixed-k exponent proof is now §5, before the optional analytic route. The high-impact order complaint is repaired.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-075"
+    },
+    {
+      "prior_id": "XP104",
+      "prior_panel": "expert_paper",
+      "prior_kind": "credit",
+      "prior_feedback": "This is a potentially interesting quantitative difference, but the introduction says the theorem, construction and two analyses are OpenAI’s and describes the paper as a reconstruction. I need a precise attribution of this estimate and its changed proof ingredients, even if no priority claim is intended.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 304,
+        "line_end": 304,
+        "quote": "the required moment estimates are proved afresh"
+      },
+      "current_evidence": "The text identifies the changed truncation, newly reconstructed moments and borrowed analytic ingredients, and provides a source comparison at line323. Former C054 was withdrawn after this check.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-076"
+    },
+    {
+      "prior_id": "XP105",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "The tradeoff is acknowledged, which is good. It remains easy to hear improves as a pointwise strengthening. For fixed k the different logarithmic powers eventually matter, so neither the smaller k exponent alone nor the word further orders the two bounds in all regimes.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 302,
+        "line_end": 302,
+        "quote": "not a claim of dominance or priority"
+      },
+      "current_evidence": "The comparison now explicitly describes different parameter dependence without a pointwise-improvement or priority claim.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-077"
+    },
+    {
+      "prior_id": "XP107",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "A denotes the probability of output one, while the lower bound later amplifies an arbitrary solver. Saying this explicitly would connect the analytic test function to the randomized algorithm whose cap is being contradicted.",
+      "prior_adjudication_status": "applied",
+      "decision": "unresolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 304,
+        "line_end": 304,
+        "quote": "the acceptance function $A$ of a depth-$d$ decision tree"
+      },
+      "current_evidence": "The acceptance function is named, but the extension to randomized mixtures is still absent before a low-error randomized solver is inserted. C056 isolates this remaining part; current record line1370 supplies the omitted averaging bridge.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [
+        "C056"
+      ],
+      "current_finding_ids": [
+        "XP9-135"
+      ],
+      "assessment_id": "PRA-078"
+    },
+    {
+      "prior_id": "XP112",
+      "prior_panel": "expert_paper",
+      "prior_kind": "overweighted",
+      "prior_feedback": "The precise threshold is valid but does no work in the fixed-k exponent argument beyond being finite. Its reappearance makes the elementary endpoint seem dependent on the optional analytic calculation of §5 rather than on the cited eventual hardness theorem.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 289,
+        "line_end": 289,
+        "quote": "For all sufficiently large $t$"
+      },
+      "current_evidence": "The main fixed-k proof no longer imports the explicit threshold. The numerical threshold is reserved for optional §6.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-079"
+    },
+    {
+      "prior_id": "XP113",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "This is an asymptotic family, but the displayed formula gives k less than two at small t, outside the construction’s stated range. The record starts the uniform calculation at t at least 80.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 325,
+        "line_end": 325,
+        "quote": "For sufficiently large $t$"
+      },
+      "current_evidence": "The schedule is explicitly eventual. C060 does not allege an invalid small-t family definition; it identifies the distinct allowance change needed for the eventual schedule.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-080"
+    },
+    {
+      "prior_id": "XP115",
+      "prior_panel": "expert_paper",
+      "prior_kind": "evidence_presentation",
+      "prior_feedback": "The phrase ordinary bridges is vague for a reader deciding what the formal theorem actually covers. Here the two jobs are specific: finite-seed representation of independent randomness, and interpretation of recursive compliance as per-input query counts.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 339,
+        "line_end": 339,
+        "quote": "arbitrary independent randomness reduces to finite seeds"
+      },
+      "current_evidence": "Both ordinary bridge jobs are named, with the record location. C062 concerns specializing the formal joint-cap-event bound to an always-capped algorithm, a further interface step.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-081"
+    },
+    {
+      "prior_id": "XP116",
+      "prior_panel": "expert_paper",
+      "prior_kind": "teaching",
+      "prior_feedback": "The counterexample is effective, but the fraction 175/256 arrives as a finished number. Its meaning is simply the probability that at least one of four independent row queries finds a zero.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 371,
+        "line_end": 371,
+        "quote": "1-(3/4)^4"
+      },
+      "current_evidence": "The exact arithmetic requested in round eight now precedes 175/256. C063 and C064 instead request the local sampling law and marginal-symmetry justification.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-082"
+    },
+    {
+      "prior_id": "XP119",
+      "prior_panel": "expert_paper",
+      "prior_kind": "teaching",
+      "prior_feedback": "This is the first place the example’s controlling event is summarized, but the event itself is never named algebraically. Writing that compliance means A_0 equals B indexed by A_0 would make the eight-input count immediate.",
+      "prior_adjudication_status": "applied",
+      "decision": "new-consequence",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 389,
+        "line_end": 389,
+        "quote": "The caps therefore hold on the two equal-answer branches"
+      },
+      "current_evidence": "The compliance event and eight-input count are now visible. C067 asks for the distinct remaining count, four successful 00 cases plus one 11 case, that yields five.",
+      "counted_as_new_advice": true,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [
+        "C067"
+      ],
+      "current_finding_ids": [
+        "XP9-164"
+      ],
+      "assessment_id": "PRA-083"
+    },
+    {
+      "prior_id": "XP120",
+      "prior_panel": "expert_paper",
+      "prior_kind": "unclear",
+      "prior_feedback": "The deliberately repeated query is a useful device, but it looks pointless until the reader infers that it marks the branches that violate the cap. Because repeated queries spend budget, it is an engineered event selector rather than an attempt at an efficient solver.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 389,
+        "line_end": 389,
+        "quote": "The redundant repeat query makes the run noncompliant"
+      },
+      "current_evidence": "The purpose of the repeat query is now explained. C067 is not a repeated complaint about wasting a query.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-084"
+    },
+    {
+      "prior_id": "XP122",
+      "prior_panel": "expert_paper",
+      "prior_kind": "funnel",
+      "prior_feedback": "The short proof uses V for an unnormalised value, whereas the main conditional proof in record §6.1 uses V for a normalized continuation probability and introduces W in its optional weighted proof. The mathematics agrees, but the same letter refers to different quantities on the first route a reader encounters.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 208,
+        "line_end": 208,
+        "quote": "#CL-weighted-values"
+      },
+      "current_evidence": "The source link now targets the matching unnormalized proof. No normalization defect is alleged in the current recurrence.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-085"
+    },
+    {
+      "prior_id": "XP183",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "This distinction is correct, but it comes only after both gap inequalities. When nu_1 first appears, a lower-bound reader has just spent §4 with a hard law supported on the promise and may carry that expectation into §5.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 304,
+        "line_end": 304,
+        "quote": "which can have off-promise mass and is not the minimax law"
+      },
+      "current_evidence": "The distinction now appears when nu_1 is introduced, before either expectation comparison.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-086"
+    },
+    {
+      "prior_id": "XP186",
+      "prior_panel": "expert_paper",
+      "prior_kind": "structure",
+      "prior_feedback": "The remark has a different mathematical dependency chain from the preceding proof, but it is presented as the final paragraph of the same main conclusion. It also reaches back to an explicit quantum constant introduced much earlier.",
+      "prior_adjudication_status": "applied",
+      "decision": "resolved",
+      "current_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 295,
+        "line_end": 295,
+        "quote": "## 6. Optional uniform refinement"
+      },
+      "current_evidence": "The growing-k remark is separated from the completed main fixed-k proof by an explicitly optional section.",
+      "counted_as_new_advice": false,
+      "audit_scope": "Current source inspected after first-pass freeze; historical applied status is metadata, not evidence that the repair succeeded.",
+      "review_role": "classical",
+      "source_candidate_ids": [],
+      "current_finding_ids": [],
+      "assessment_id": "PRA-087"
+    }
+  ],
+  "verification_withdrawals": [
+    {
+      "review_role": "classical",
+      "items": [
+        {
+          "candidate_id": "C023",
+          "reason": "Current line188 already explicitly includes constant-output trees, supplying the omitted-looking argument.",
+          "prior_id": "XP083"
+        },
+        {
+          "candidate_id": "C054",
+          "reason": "Current lines296,302,304,323 already establish reconstruction status and changed/borrowed ingredients.",
+          "prior_ids": [
+            "XP104",
+            "XP105"
+          ]
+        },
+        {
+          "candidate_id": "C019",
+          "reason": "Winning already guards promisedness, and line114 gives local-test definedness and nonwinner failure; no additional guard objection survives verification."
+        }
+      ]
+    }
+  ]
+}

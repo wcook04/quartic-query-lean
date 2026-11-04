@@ -34,6 +34,11 @@ python3 tools/build_round9_packets.py --annexes /path/to/annexes \
 python3 tools/check_packets.py /path/to/new-batch
 ```
 
+The local writing guide is retained at `repository/docs/writing_method.md`.
+Its compatibility copy at `skills/quartic-writing-method.md` has relative links
+rebased to the packaged repository paths, and the builder includes their source
+closure. Frozen packets retain the exact bytes originally sent.
+
 Outputs stay outside the checkout; use a volume that satisfies the renderer's
 space reserve. The command reuses the frozen round-eight writer and existing
 link/private-name checks. Nothing is sent. Omit `--dest` for input validation.

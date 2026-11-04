@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "ok": true,
+  "review_base": ".",
+  "source_packet": "Original supplied packet, identified by verification/input_integrity.json",
+  "mode": "internal_and_original_sources",
+  "counts": {
+    "audit_units": 541,
+    "findings": 166,
+    "first_pass_files_hashed": 4,
+    "json_files_parsed": 12,
+    "jsonl_files_parsed": 1,
+    "jsonl_records_parsed": 541,
+    "original_source_files_hashed": 9,
+    "source_line_ranges_checked": 850,
+    "source_quotes_checked": 821
+  },
+  "error_count": 0,
+  "errors": [],
+  "warnings": [
+    "manifest.json is absent; manifest inventory and hashes were not checked."
+  ],
+  "limits": [
+    "Checks file structure, references, counts, hashes and exact quoted source spans; it does not certify mathematical correctness or actual reading.",
+    "Does not require or infer literal contemporaneous sentence-by-sentence chronology.",
+    "ZIP structure and CRC checks must be performed separately before extraction."
+  ],
+  "stage": "Payload structure and original-source validation before the manifest and archive were frozen",
+  "generated_utc": "2026-11-04T11:20:18.540619+00:00",
+  "archive_note": "Archive CRC, extraction, manifest and source checks are performed after this report is frozen, avoiding a self-referential archive hash. Re-run verify_return.py on the extracted deliverable to check the final manifest."
+}

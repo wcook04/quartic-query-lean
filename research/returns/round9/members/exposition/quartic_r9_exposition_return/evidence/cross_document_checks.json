@@ -1,0 +1,198 @@
+{
+  "packet_revision": "7772e4f2b98149a38ed69b88397982620f94bdac",
+  "embedded_url_revision": "b8db5326715e5a4ce6996cde0768b92b5fcd5177",
+  "important_version_boundary": "The current packaged record differs from the revision named by embedded URLs. Local target inspection does not independently verify that remote pinned content. LINK_MAP.json reports that its builder checked the pinned revision; that report is historical.",
+  "record_targets": [
+    {
+      "anchor": "AC-example-tests",
+      "source_path": "repository/docs/reasoning_record.md",
+      "line_start": 1908,
+      "line_end": 1929,
+      "task_checked": "Circuit truth-table and gate/local-test checks; explicitly distinguishes the record's board from the exposition's amplitudes.",
+      "local_landing_found": true,
+      "reading_extent": "targeted landing and stated excerpt only"
+    },
+    {
+      "anchor": "forr_circuit",
+      "source_path": "repository/docs/reasoning_record.md",
+      "line_start": 680,
+      "line_end": 701,
+      "task_checked": "Integer arithmetic and fast Walsh recurrence; arithmetic/gate-count landing.",
+      "local_landing_found": true,
+      "reading_extent": "targeted landing and stated excerpt only"
+    },
+    {
+      "anchor": "forr_target",
+      "source_path": "repository/docs/reasoning_record.md",
+      "line_start": 848,
+      "line_end": 869,
+      "task_checked": "One-sided promise and analytic-hardness target; full analytic proof not read.",
+      "local_landing_found": true,
+      "reading_extent": "targeted landing and stated excerpt only"
+    },
+    {
+      "anchor": "upper-grover-trial",
+      "source_path": "repository/docs/reasoning_record.md",
+      "line_start": 2092,
+      "line_end": 2126,
+      "task_checked": "Concrete bounded iteration schedule and cap; a direct-measurement branch plus bounded-uniform Grover counts and finite retries.",
+      "local_landing_found": true,
+      "reading_extent": "targeted landing and stated excerpt only"
+    },
+    {
+      "anchor": "AC-coherent",
+      "source_path": "repository/docs/reasoning_record.md",
+      "line_start": 1944,
+      "line_end": 1977,
+      "task_checked": "Retained-workspace controlled tester and optional separate clean-oracle interface; two ordinary calls for a controlled read.",
+      "local_landing_found": true,
+      "reading_extent": "targeted landing and stated excerpt only"
+    },
+    {
+      "anchor": "upper-explicit-log6",
+      "source_path": "repository/docs/reasoning_record.md",
+      "line_start": 2666,
+      "line_end": 2703,
+      "task_checked": "Deliberately loose logarithmic accounting, rather than just an earlier cost estimate.",
+      "local_landing_found": true,
+      "reading_extent": "targeted landing and stated excerpt only"
+    },
+    {
+      "anchor": "CL-minimax",
+      "source_path": "repository/docs/reasoning_record.md",
+      "line_start": 3190,
+      "line_end": 3211,
+      "task_checked": "Finite common-distribution minimax interface.",
+      "local_landing_found": true,
+      "reading_extent": "targeted landing and stated excerpt only"
+    },
+    {
+      "anchor": "CL-early-late",
+      "source_path": "repository/docs/reasoning_record.md",
+      "line_start": 3352,
+      "line_end": 3373,
+      "task_checked": "Fixed-prefix posterior argument and early/late zero-discovery bound.",
+      "local_landing_found": true,
+      "reading_extent": "targeted landing and stated excerpt only"
+    },
+    {
+      "anchor": "CL-simulator-example",
+      "source_path": "repository/docs/reasoning_record.md",
+      "line_start": 3487,
+      "line_end": 3512,
+      "task_checked": "XOR example, target-query clock and fixed global time.",
+      "local_landing_found": true,
+      "reading_extent": "targeted landing and stated excerpt only"
+    },
+    {
+      "anchor": "R3-A-RESULT",
+      "source_path": "repository/docs/reasoning_record.md",
+      "line_start": 3831,
+      "line_end": 3852,
+      "task_checked": "Universal quartic upper-bound reconstruction landing; no new audit of its full proof.",
+      "local_landing_found": true,
+      "reading_extent": "targeted landing and stated excerpt only"
+    },
+    {
+      "anchor": "R3-01-CLASSICAL",
+      "source_path": "repository/docs/reasoning_record.md",
+      "line_start": 180,
+      "line_end": 201,
+      "task_checked": "Deterministic tree and syntactic query-depth model.",
+      "local_landing_found": true,
+      "reading_extent": "targeted landing and stated excerpt only"
+    }
+  ],
+  "formal_target_ranges": [
+    {
+      "source_path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "line_start": 71,
+      "line_end": 74,
+      "purpose": "R definition"
+    },
+    {
+      "source_path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "line_start": 139,
+      "line_end": 140,
+      "purpose": "Q definition"
+    },
+    {
+      "source_path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "line_start": 262,
+      "line_end": 285,
+      "purpose": "winning and total-function definitions"
+    },
+    {
+      "source_path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "line_start": 317,
+      "line_end": 340,
+      "purpose": "exponent and four challenge statements"
+    },
+    {
+      "source_path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "line_start": 1,
+      "line_end": 65,
+      "purpose": "explicit fixed-circuit declaration and status header"
+    }
+  ],
+  "formal_evidence_issue": {
+    "file": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+    "status_header_lines": [
+      9,
+      11
+    ],
+    "header": "Status: unelaborated; no Lean or Lake executable available at preparation.",
+    "sha256": "b7e1203086e38c00b964355ac71537a7fc5be7053d537ccd56cba8017cdd085a",
+    "historical_dependency_manifest_contains_same_hash_and_declaration": true,
+    "interpretation": "Reconcile status presentation; neither the header alone nor the manifest is a new compilation by this reviewer."
+  },
+  "supporting_file_issues": [
+    {
+      "file": "repository/docs/exposition.bib",
+      "lines": [
+        103
+      ],
+      "issue": "A second standalone closing brace follows the BHMT entry.",
+      "scope": "Low-impact source hygiene; the supplied PDF bibliography renders. No build failure is claimed."
+    },
+    {
+      "file": "READ_ME_FIRST.md",
+      "issue": "The ECCC TR21-115 author label is incorrect.",
+      "actual_source_authors": [
+        "Scott Aaronson",
+        "Andris Ambainis",
+        "Andrej Bogdanov",
+        "Tsun Ming Cheung",
+        "Krishnamoorthy Dinesh"
+      ],
+      "source": "S11, actual supplied title page and online report metadata."
+    },
+    {
+      "file": "LINK_MAP.json",
+      "issue": "Its lead image-link inventory omits links whose alt text contains bracketed indices.",
+      "actual_image_links": [
+        "figures/exposition/fig1_column.svg",
+        "figures/exposition/fig2_board.svg",
+        "figures/exposition/fig3_tournament.svg",
+        "figures/exposition/fig4_planted.svg"
+      ],
+      "missing_from_supplied_inventory": [
+        "figures/exposition/fig2_board.svg",
+        "figures/exposition/fig4_planted.svg"
+      ],
+      "scope": "All four image targets exist and were visually inspected. This is an inventory coverage issue, not a broken image."
+    }
+  ],
+  "remote_fetches": {
+    "status": "Some GitHub fetches restricted by the web environment",
+    "consequence": "No remote broken-link verdict. Local copies and historical metadata are distinguished."
+  },
+  "not_performed": [
+    "Lean compilation",
+    "Comparator execution",
+    "repository build",
+    "full proof audit of every linked section",
+    "verification of the live pinned GitHub revision"
+  ],
+  "source_files_unchanged": true
+}

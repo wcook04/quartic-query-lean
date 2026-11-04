@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-04",
+  "reviewer": "root independent execution",
+  "scope": "Supplied verification scripts inspected and rerun against original round-nine packet bytes; artifact and finite-example checks only.",
+  "results": [
+    {
+      "name": "expert",
+      "chunk_id": "274210",
+      "wall_time_seconds": 1.2375e-05,
+      "exit_code": 0,
+      "original_token_count": 243,
+      "output": "{\n  \"schema_version\": 1,\n  \"ok\": true,\n  \"review_base\": \"/private/tmp/quartic-r9-intake-20261104/expert_paper\",\n  \"source_packet\": \"/private/tmp/quartic-r9-source-packets-20261104/expert_paper\",\n  \"mode\": \"internal_and_original_sources\",\n  \"counts\": {\n    \"audit_units\": 541,\n    \"findings\": 166,\n    \"first_pass_files_hashed\": 4,\n    \"json_files_parsed\": 14,\n    \"jsonl_files_parsed\": 1,\n    \"jsonl_records_parsed\": 541,\n    \"manifest_files_hashed\": 27,\n    \"original_source_files_hashed\": 9,\n    \"source_line_ranges_checked\": 850,\n    \"source_quotes_checked\": 821\n  },\n  \"error_count\": 0,\n  \"errors\": [],\n  \"warnings\": [],\n  \"limits\": [\n    \"Checks file structure, references, counts, hashes and exact quoted source spans; it does not certify mathematical correctness or actual reading.\",\n    \"Does not require or infer literal contemporaneous sentence-by-sentence chronology.\",\n    \"ZIP structure and CRC checks must be performed separately before extraction.\"\n  ]\n}\n"
+    },
+    {
+      "name": "exposition",
+      "chunk_id": "11faf6",
+      "wall_time_seconds": 0.200327667,
+      "exit_code": 0,
+      "original_token_count": 145,
+      "output": "{\n  \"status\": \"all_checks_passed\",\n  \"mode\": \"directory\",\n  \"manifest_members_verified\": 23,\n  \"json_files_parsed\": 14,\n  \"jsonl_rows\": 730,\n  \"findings\": 135,\n  \"sentence_units\": 604,\n  \"prior_checks\": 172,\n  \"method_items\": 15,\n  \"frozen_first_pass_segments_verified\": 4,\n  \"collective_pdf_pages\": 21,\n  \"exact_example_check_groups\": 18,\n  \"source_verified\": true,\n  \"source_locator_checks\": 1222,\n  \"original_manifest_members_verified\": 460,\n  \"scope\": \"Artifact integrity, exact source bindings and finite example checks; no theorem certification or human learning trial.\"\n}\n"
+    },
+    {
+      "name": "record",
+      "chunk_id": "66fcd5",
+      "wall_time_seconds": 0.111984542,
+      "exit_code": 0,
+      "original_token_count": 110,
+      "output": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"files\": 39,\n  \"findings\": 237,\n  \"audit_units\": 5276,\n  \"severities\": {\n    \"medium\": 111,\n    \"low\": 123,\n    \"high\": 3\n  },\n  \"source_quotes_checked\": 5513,\n  \"source_offset_units_checked\": 5276,\n  \"source_nonblank_characters_uncovered\": 0,\n  \"prior_current_quotes_checked\": 138,\n  \"source_check_performed\": true,\n  \"mathematical_certification\": false,\n  \"native_Lean_or_Comparator_execution\": false\n}\n"
+    },
+    {
+      "name": "finite",
+      "chunk_id": "af434d",
+      "wall_time_seconds": 6.833e-06,
+      "exit_code": 0,
+      "original_token_count": 1646,
+      "output": "{\n  \"scope\": \"Exact finite examples and elementary constants only; no Lean, Comparator, randomized simulation or theorem certification.\",\n  \"checks\": {\n    \"A1_forrelation\": {\n      \"phi\": \"-1\",\n      \"projection_probability\": \"1\",\n      \"pass\": true\n    },\n    \"fractional_tournament\": {\n      \"first_weights\": [\n        \"1\",\n        \"0\",\n        \"2/3\",\n        \"1/4\"\n      ],\n      \"first_success\": \"23/48\",\n      \"first_conditional_law\": [\n        \"12/23\",\n        \"0\",\n        \"8/23\",\n        \"3/23\"\n      ],\n      \"second_weights\": [\n        \"1\",\n        \"0\",\n        \"4/15\",\n        \"0\"\n      ],\n      \"second_success\": \"19/60\",\n      \"second_conditional_law\": [\n        \"15/19\",\n        \"0\",\n        \"4/19\",\n        \"0\"\n      ],\n      \"pass\": true\n    },\n    \"half_drift_example\": {\n      \"direct\": \"13/23\",\n      \"identity\": \"13/23\",\n      \"half_mass\": \"23/24\",\n      \"pass\": true\n    },\n    \"A4_selected_zero\": {\n      \"marginal_I\": [\n        \"1/4\",\n        \"1/4\",\n        \"1/4\",\n        \"1/4\"\n      ],\n      \"selected_zero_found\": \"175/256\",\n      \"EZ_over_m\": \"1/4\",\n      \"pass\": true\n    },\n    \"A3_dominance\": {\n      \"possible_pointer_bits\": [\n        [\n          0,\n          1\n        ],\n        [\n          1,\n          1\n        ]\n      ],\n      \"rule\": \"(0,1) wins; (1,1) ties and smaller index1 wins\",\n      \"pass\": true\n    },\n    \"A5_expected_caps\": {\n      \"assumed_law\": \"two independent uniform two-bit parity inputs\",\n      \"single_instance_cap1_optimum\": \"1/2\",\n      \"expected_queries_per_instance\": \"1\",\n      \"joint_success\": \"5/8\",\n      \"pass\": true\n    },\n    \"A6_xor_information\": {\n      \"joint_success\": \"1/2\",\n      \"independent_product_optimum\": \"1/4\",\n      \"pass\": true\n    },\n    \"A7_compliance\": {\n      \"inputs\": 16,\n      \"compliant\": 8,\n      \"correct_and_compliant\": 5,\n      \"joint\": \"5/16\",\n      \"conditional\": \"5/8\",\n      \"beta_squared\": \"9/16\",\n      \"pass\": true,\n      \"trace\": [\n        {\n          \"A\": [\n            0,\n            0\n          ],\n          \"B\": [\n            0,\n            0\n          ],\n          \"B_A0\": 0,\n          \"repeat_A0\": false,\n          \"compliant\": true,\n          \"correct\": true\n        },\n        {\n          \"A\": [\n            0,\n            0\n          ],\n          \"B\": [\n            0,\n            1\n          ],\n          \"B_A0\": 0,\n          \"repeat_A0\": false,\n          \"compliant\": true,\n          \"correct\": true\n        },\n        {\n          \"A\": [\n            0,\n            0\n          ],\n          \"B\": [\n            1,\n            0\n          ],\n          \"B_A0\": 1,\n          \"repeat_A0\": true,\n          \"compliant\": false,\n          \"correct\": true\n        },\n        {\n          \"A\": [\n            0,\n            0\n          ],\n          \"B\": [\n            1,\n            1\n          ],\n          \"B_A0\": 1,\n          \"repeat_A0\": true,\n          \"compliant\": false,\n          \"correct\": false\n        },\n        {\n          \"A\": [\n            0,\n            1\n          ],\n          \"B\": [\n            0,\n            0\n          ],\n          \"B_A0\": 0,\n          \"repeat_A0\": false,\n          \"compliant\": true,\n          \"correct\": true\n        },\n        {\n          \"A\": [\n            0,\n            1\n          ],\n          \"B\": [\n            0,\n            1\n          ],\n          \"B_A0\": 0,\n          \"repeat_A0\": false,\n          \"compliant\": true,\n          \"correct\": true\n        },\n        {\n          \"A\": [\n            0,\n            1\n          ],\n          \"B\": [\n            1,\n            0\n          ],\n          \"B_A0\": 1,\n          \"repeat_A0\": true,\n          \"compliant\": false,\n          \"correct\": true\n        },\n        {\n          \"A\": [\n            0,\n            1\n          ],\n          \"B\": [\n            1,\n            1\n          ],\n          \"B_A0\": 1,\n          \"repeat_A0\": true,\n          \"compliant\": false,\n          \"correct\": false\n        },\n        {\n          \"A\": [\n            1,\n            0\n          ],\n          \"B\": [\n            0,\n            0\n          ],\n          \"B_A0\": 0,\n          \"repeat_A0\": true,\n          \"compliant\": false,\n          \"correct\": true\n        },\n        {\n          \"A\": [\n            1,\n            0\n          ],\n          \"B\": [\n            0,\n            1\n          ],\n          \"B_A0\": 1,\n          \"repeat_A0\": false,\n          \"compliant\": true,\n          \"correct\": true\n        },\n        {\n          \"A\": [\n            1,\n            0\n          ],\n          \"B\": [\n            1,\n            0\n          ],\n          \"B_A0\": 0,\n          \"repeat_A0\": true,\n          \"compliant\": false,\n          \"correct\": true\n        },\n        {\n          \"A\": [\n            1,\n            0\n          ],\n          \"B\": [\n            1,\n            1\n          ],\n          \"B_A0\": 1,\n          \"repeat_A0\": false,\n          \"compliant\": true,\n          \"correct\": false\n        },\n        {\n          \"A\": [\n            1,\n            1\n          ],\n          \"B\": [\n            0,\n            0\n          ],\n          \"B_A0\": 0,\n          \"repeat_A0\": true,\n          \"compliant\": false,\n          \"correct\": false\n        },\n        {\n          \"A\": [\n            1,\n            1\n          ],\n          \"B\": [\n            0,\n            1\n          ],\n          \"B_A0\": 1,\n          \"repeat_A0\": false,\n          \"compliant\": true,\n          \"correct\": false\n        },\n        {\n          \"A\": [\n            1,\n            1\n          ],\n          \"B\": [\n            1,\n            0\n          ],\n          \"B_A0\": 0,\n          \"repeat_A0\": true,\n          \"compliant\": false,\n          \"correct\": false\n        },\n        {\n          \"A\": [\n            1,\n            1\n          ],\n          \"B\": [\n            1,\n            1\n          ],\n          \"B_A0\": 1,\n          \"repeat_A0\": false,\n          \"compliant\": true,\n          \"correct\": false\n        }\n      ]\n    },\n    \"beta_address_exponent\": {\n      \"inequality\": \"(2/3)^20 <= 2^-10; raise both sides to ell\",\n      \"left\": \"1048576/3486784401\",\n      \"right\": \"1/1024\",\n      \"pass\": true\n    },\n    \"quantum_uniform_constant\": {\n      \"sum\": 5707107503019240,\n      \"envelope\": 9007199254740992,\n      \"pass\": true\n    },\n    \"growing_k_L_switch\": {\n      \"conclusion\": \"Use L=floor((2/18225)m^(1-1/k)/(k\u00b2 ln(4km))) from record7.3, not L of(5).\",\n      \"evidence\": \"reasoning_record.md lines3788\u20133797\",\n      \"test_type\": \"manual source reconciliation, not a numerical proof\",\n      \"automated\": false,\n      \"pass\": true\n    }\n  },\n  \"all_pass\": true,\n  \"automated_check_count\": 10,\n  \"manual_source_checks\": 1\n}\n"
+    }
+  ],
+  "original_archives": {
+    "expert_paper": {
+      "sha256": "34bc5cab82770d9e529224043b0040694f2b019bdf61b04691dfaa8f0c5a0aaf",
+      "members": 28,
+      "crc_ok": true,
+      "unique_members": true
+    },
+    "exposition": {
+      "sha256": "544fd68ac8984087857f6734d49465fc3389dc6959972531edb5c59180f8f65b",
+      "members": 24,
+      "crc_ok": true,
+      "unique_members": true
+    },
+    "reasoning_record": {
+      "sha256": "91deaea95a6d430b4f119b0630a293522a5b93a6884333fc3306d7f1ae792e54",
+      "members": 39,
+      "crc_ok": true,
+      "unique_members": true
+    }
+  },
+  "custody": "All archive and extracted member bytes verified with existing intake_round7_returns.digest/unpack functions configured for round9; no submitted code run during custody.",
+  "independent_final_custody": [
+    {
+      "return": "expert_paper",
+      "archive_equal": true,
+      "all_members_equal": true,
+      "members": 28
+    },
+    {
+      "return": "exposition",
+      "archive_equal": true,
+      "all_members_equal": true,
+      "members": 24
+    },
+    {
+      "return": "reasoning_record",
+      "archive_equal": true,
+      "all_members_equal": true,
+      "members": 39
+    }
+  ]
+}

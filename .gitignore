@@ -36,3 +36,9 @@ research/returns/round7/members/**/*.sha256
 research/returns/round8/archives/
 research/returns/round8/members/**/*.py
 research/returns/round8/members/**/SHA256SUMS
+
+# Round-nine originals and submitted code/checksum lists stay local; intake.json binds all bytes.
+research/returns/round9/archives/
+research/returns/round9/members/**/*.py
+research/returns/round9/members/**/*.sha256
+research/returns/round9/members/**/SHA256SUMS.txt

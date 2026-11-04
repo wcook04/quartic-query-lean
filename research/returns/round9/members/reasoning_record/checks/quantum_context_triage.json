@@ -1,0 +1,814 @@
+{
+  "scope": "Final validity triage of primary quantum-scoped candidates, no new literature or new advice count. Current adjacent source checked.",
+  "items": [
+    {
+      "primary_id": "CA007",
+      "decision": "merge",
+      "reason": "Optional representation-placement issue; combine with one model/source organization finding, not an absent definition.",
+      "current_evidence": {
+        "line_start": 173,
+        "line_end": 173,
+        "quote": "Equivalently, it is a map from"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q005"
+      ]
+    },
+    {
+      "primary_id": "CA008",
+      "decision": "drop",
+      "reason": "The adjacent paragraph already explains the unreachable-branch mechanism, consistent pruning and unchanged minimum. A new tiny tree is optional illustration, not a concrete missing bridge.",
+      "current_evidence": {
+        "line_start": 193,
+        "line_end": 193,
+        "quote": "A repeated query can create a branch inconsistent with answers already obtained;"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA009",
+      "decision": "drop",
+      "reason": "The requested one-line reason concerning bounded fair flips and exact error thresholds is already at the cited paragraph’s end.",
+      "current_evidence": {
+        "line_start": 216,
+        "line_end": 216,
+        "quote": "They use the allowed arbitrary real biases;"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA010",
+      "decision": "merge",
+      "reason": "The mathematical nonemptiness proof is already contiguous before the source paragraph. Only relocating source commentary survives; merge with model/evidence organization.",
+      "current_evidence": {
+        "line_start": 218,
+        "line_end": 218,
+        "quote": "The minima exist. Query all coordinates once,"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q005"
+      ]
+    },
+    {
+      "primary_id": "CA011",
+      "decision": "drop",
+      "reason": "The bit-oracle/phase calculation and explicit H_b P_x H_b identity already precede the controlled-versus-bare distinction. No missing small computation is established.",
+      "current_evidence": {
+        "line_start": 248,
+        "line_end": 248,
+        "quote": "If $H_b$ denotes a Hadamard on that bit,"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA012",
+      "decision": "drop",
+      "reason": "The exact requested two-outcome 1/4–3/4 mass/conditional-state example already precedes the recursion.",
+      "current_evidence": {
+        "line_start": 259,
+        "line_end": 259,
+        "quote": "For example, if a normalized state splits into two orthogonal branches"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA013",
+      "decision": "drop",
+      "reason": "Main correctness/cap convention is stated first, then the empty-coordinate clause is motivated and explained in its own paragraph. A missing boundary-case distinction is not supported.",
+      "current_evidence": {
+        "line_start": 279,
+        "line_end": 279,
+        "quote": "On a nonempty coordinate set, a budget $q$ is admissible"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA014",
+      "decision": "merge",
+      "reason": "A compact input/output statement already exists at 318–324; the genuine improvement is bringing the strengthened J invariant and map types forward.",
+      "current_evidence": {
+        "line_start": 326,
+        "line_end": 326,
+        "quote": "The source induction retains, besides the entry map, an embedding that commutes with the oracle."
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q009",
+        "Q010"
+      ]
+    },
+    {
+      "primary_id": "CA015",
+      "decision": "drop",
+      "reason": "This is explicit in the first subsection paragraph, and repeated with a §5.1 pointer at line 340.",
+      "current_evidence": {
+        "line_start": 308,
+        "line_end": 308,
+        "quote": "the final states need not agree."
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA016",
+      "decision": "drop",
+      "reason": "These are presented as worked examples, not reader questions with concealed answers. Do not recast visible worked outcomes as failed exercise design.",
+      "current_evidence": {
+        "line_start": 347,
+        "line_end": 347,
+        "quote": "Each example below tests one convention against a plausible misreading."
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA017",
+      "decision": "merge",
+      "reason": "The parity derivation is already contiguous and this source paragraph already comes after it. Only a more specific proposal to relocate edition history survives.",
+      "current_evidence": {
+        "line_start": 431,
+        "line_end": 431,
+        "quote": "The supplied 1998 version of Beals et al."
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q013"
+      ]
+    },
+    {
+      "primary_id": "CA018",
+      "decision": "drop",
+      "reason": "The decoder/circuit downstream jobs are explicit in line 443; line 454 additionally links circuit size to transcript length, local tests and verification cost.",
+      "current_evidence": {
+        "line_start": 443,
+        "line_end": 443,
+        "quote": "A quantum procedure proposes its value with small error"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA019",
+      "decision": "drop",
+      "reason": "The next sentence explicitly says this is harmless on the stated promise; line 497 has already excluded large negative Φ.",
+      "current_evidence": {
+        "line_start": 580,
+        "line_end": 580,
+        "quote": "Squaring removes the sign of $\\Phi$."
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA020",
+      "decision": "drop",
+      "reason": "The numerator/denominator are locally defined; reuse of M,N much later in another subsection is not a concrete ambiguity. Claim that the uses are close is weak.",
+      "current_evidence": {
+        "line_start": 523,
+        "line_end": 523,
+        "quote": "M&=m(\\sqrt m)^{k-1}"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA021",
+      "decision": "drop",
+      "reason": "The current sentence literally lists the chronological sequence of every diagonal and Walsh transform with the same block indices.",
+      "current_evidence": {
+        "line_start": 559,
+        "line_end": 559,
+        "quote": "For $k=3$, the successive states are"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA022",
+      "decision": "drop",
+      "reason": "The same paragraph labels it a different test and says the version used here retains Φ². My Q018 is also weak and may be omitted.",
+      "current_evidence": {
+        "line_start": 677,
+        "line_end": 677,
+        "quote": "Aaronson and Ambainis also give an interference procedure, a different test,"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA023",
+      "decision": "drop",
+      "reason": "The requested representation invariant is already written before the operation table. Q019 survives only as optional table formatting, not a missing invariant.",
+      "current_evidence": {
+        "line_start": 700,
+        "line_end": 700,
+        "quote": "each $w$-bit word represents the intended integer modulo $2^w$"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA024",
+      "decision": "merge",
+      "reason": "The reconciliation of five-gate full adders and six-gates-per-bit addition is a genuine local accounting clarification.",
+      "current_evidence": {
+        "line_start": 713,
+        "line_end": 713,
+        "quote": "A+B\\pmod{2^w}&6w"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q020"
+      ]
+    },
+    {
+      "primary_id": "CA025",
+      "decision": "drop",
+      "reason": "The local paragraph and following display already list the absorption inequalities and 337≤800 calculation. Q022 concerns the different missing term-to-constructor map.",
+      "current_evidence": {
+        "line_start": 775,
+        "line_end": 775,
+        "quote": "Since $t\\ge1$, we have $w\\le6at$"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA026",
+      "decision": "keep_low",
+      "reason": "A structural option: move one worked Φ calculation forward while leaving the census here. Do not say the definition lacks a sign/gap warning; line 497 already previews it.",
+      "current_evidence": {
+        "line_start": 798,
+        "line_end": 798,
+        "quote": "### 3.5. A complete check of the smallest nontrivial instance"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA027",
+      "decision": "drop",
+      "reason": "Three representative high-positive, zero and negative rows are already shown at 817–821 before the census starts at 825.",
+      "current_evidence": {
+        "line_start": 813,
+        "line_end": 813,
+        "quote": "Holding the second block equal to $g$, we compute"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA046",
+      "decision": "keep_low",
+      "reason": "There is a useful example later at the local tests. Reframe as moving this existing input/gate-predecessor example to the first transcript definition, not demanding another invented example.",
+      "current_evidence": {
+        "line_start": 1848,
+        "line_end": 1848,
+        "quote": "For example, a gate $v=\\operatorname{AND}(x_a,\\tau_u)$"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA047",
+      "decision": "keep_low",
+      "reason": "A one-column schematic is a valid optional aid for this nested array. The text already gives a complete definition; this is visual organization only.",
+      "current_evidence": {
+        "line_start": 1716,
+        "line_end": 1716,
+        "quote": "Column $i$ contains the following disjoint blocks of input bits."
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA048",
+      "decision": "drop",
+      "reason": "The explanation requested is directly adjacent to the physical input count, after the layout; the opening query model also makes computation free.",
+      "current_evidence": {
+        "line_start": 1727,
+        "line_end": 1727,
+        "quote": "Coordinate arithmetic is free in the query model;"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA049",
+      "decision": "merge",
+      "reason": "The forward pointer from Theorem 1.1 can help. Renaming input length to N is unnecessary and risks another N collision.",
+      "current_evidence": {
+        "line_start": 1727,
+        "line_end": 1727,
+        "quote": "The input therefore has"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q004"
+      ]
+    },
+    {
+      "primary_id": "CA050",
+      "decision": "drop",
+      "reason": "The very next sentence introduces arbitrary candidate address s before W is defined. Both notions are already juxtaposed.",
+      "current_evidence": {
+        "line_start": 1740,
+        "line_end": 1740,
+        "quote": "If any of these instances is unpromised, the column has no true address."
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA051",
+      "decision": "drop",
+      "reason": "Before the matrix and board, the paragraph explicitly says family r=40 at m=4 and states that this is only a generic-construction illustration.",
+      "current_evidence": {
+        "line_start": 1783,
+        "line_end": 1783,
+        "quote": "To keep the cells visible we take $r=2$"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA052",
+      "decision": "drop",
+      "reason": "The row conversion is printed beside the board; line 1779 explicitly warns that other finite examples use different conventions.",
+      "current_evidence": {
+        "line_start": 1823,
+        "line_end": 1823,
+        "quote": "We encode the rows $1,2,3,4$ by $00,01,10,11$"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA053",
+      "decision": "keep_low",
+      "reason": "A compact count/location/depth table is optional presentation improvement. All four pieces of information are already supplied by the adjacent bold-labeled paragraphs, so do not call their accounting absent.",
+      "current_evidence": {
+        "line_start": 1844,
+        "line_end": 1844,
+        "quote": "**Column tests.**"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA054",
+      "decision": "merge",
+      "reason": "Consolidate one placement repair: a short warning at the first pointer bound and the support proof in its formal-comparison context.",
+      "current_evidence": {
+        "line_start": 1932,
+        "line_end": 1932,
+        "quote": "The pointer bound measures adaptive depth;"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q030"
+      ]
+    },
+    {
+      "primary_id": "CA055",
+      "decision": "drop",
+      "reason": "Separate signatures (4.15)/(4.16), workspace behaviors and caps are already printed. Q031’s optional-versus-required role is a distinct, narrower issue.",
+      "current_evidence": {
+        "line_start": 1946,
+        "line_end": 1946,
+        "quote": "in its retained-workspace form it acts as"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA056",
+      "decision": "merge",
+      "reason": "The intervening noisy-decoder sentence makes the antecedent ambiguous.",
+      "current_evidence": {
+        "line_start": 1973,
+        "line_end": 1973,
+        "quote": "By linearity it also holds on arbitrary superpositions of the label and target."
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q032"
+      ]
+    },
+    {
+      "primary_id": "CA057",
+      "decision": "merge",
+      "reason": "The repeated event-inclusion argument can be replaced by invoking the prior concrete implication; optional structural consolidation only.",
+      "current_evidence": {
+        "line_start": 2535,
+        "line_end": 2535,
+        "quote": "Suppose now that $i^\\star$ is a winning column."
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q060"
+      ]
+    },
+    {
+      "primary_id": "CA058",
+      "decision": "keep_low",
+      "reason": "Optional shortening/relocation of detailed hypothesis comparisons. Keep a short lineage paragraph so the repair does not remove attribution; this is not a proof gap.",
+      "current_evidence": {
+        "line_start": 2015,
+        "line_end": 2015,
+        "quote": "### 4.8. Antecedents of the construction"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA059",
+      "decision": "merge",
+      "reason": "Specify original subsystem at the contract, with the existing routing proof retained as the later resolution.",
+      "current_evidence": {
+        "line_start": 2061,
+        "line_end": 2061,
+        "quote": "the designated output register contains the normalized success component"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q036"
+      ]
+    },
+    {
+      "primary_id": "CA060",
+      "decision": "drop",
+      "reason": "The normalized g,b proof begins with this assumption; line 2089 handles p=0 and p=1 separately without normalizing a zero component.",
+      "current_evidence": {
+        "line_start": 2073,
+        "line_end": 2073,
+        "quote": "First suppose $0<p<1$"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA061",
+      "decision": "merge",
+      "reason": "The numerical calculation separates measured correctness from its later coherent-register interpretation; one relocation finding suffices.",
+      "current_evidence": {
+        "line_start": 2155,
+        "line_end": 2155,
+        "quote": "**Constant accounting.**"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q042"
+      ]
+    },
+    {
+      "primary_id": "CA062",
+      "decision": "merge",
+      "reason": "Valid dense-statement restructuring issue.",
+      "current_evidence": {
+        "line_start": 2189,
+        "line_end": 2189,
+        "quote": "**Proposition 3.2 (statement).**"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q045"
+      ]
+    },
+    {
+      "primary_id": "CA063",
+      "decision": "drop",
+      "reason": "This operational consequence is stated exactly when the weights/update are first introduced; it need not precede the definition of weights.",
+      "current_evidence": {
+        "line_start": 2250,
+        "line_end": 2250,
+        "quote": "A selected vertex receives the factor $a_{pp}=0$"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA064",
+      "decision": "drop",
+      "reason": "Lines 2171–2173 name routed original register and auxiliary histories BEFORE factorization and explain coherent control. Candidate locator 2208 is unrelated.",
+      "current_evidence": {
+        "line_start": 2171,
+        "line_end": 2171,
+        "quote": "We now interpret the retained registers."
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA065",
+      "decision": "drop",
+      "reason": "The paragraph before the formula explicitly groups ordered pairs and explains the half-sum and diagonal subtraction.",
+      "current_evidence": {
+        "line_start": 2256,
+        "line_end": 2256,
+        "quote": "The diagonal terms vanish because $a_{ii}=0$,"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA066",
+      "decision": "drop",
+      "reason": "The proof consistently says before selection/missing from the list and explicitly identifies the charging boundary. No concrete inconsistent event was found; introducing a new stopping-time symbol is optional notation only.",
+      "current_evidence": {
+        "line_start": 2430,
+        "line_end": 2430,
+        "quote": "The argument stops charging failures once $s$ has appeared."
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA067",
+      "decision": "drop",
+      "reason": "The state preparation explicitly controls each fresh comparison by the shared i; the following derivation fixes i for tensor multiplication then sums orthogonal index masses.",
+      "current_evidence": {
+        "line_start": 2307,
+        "line_end": 2307,
+        "quote": "We prepare a uniform index $i\\in[m]$ and, controlled by $i$,"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA068",
+      "decision": "merge",
+      "reason": "The long example can be boxed or summarized, but its ending already names the conditional-law distinction. Merge with earlier stage outline/example table suggestions.",
+      "current_evidence": {
+        "line_start": 2337,
+        "line_end": 2337,
+        "quote": "**An exact four-candidate example.**"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q050",
+        "Q052"
+      ]
+    },
+    {
+      "primary_id": "CA069",
+      "decision": "drop",
+      "reason": "The ratio display has W>0 and this paragraph gives certain failure. Q055 is only optional explicit completion of the local coupling recipe, not an unhandled branch.",
+      "current_evidence": {
+        "line_start": 2397,
+        "line_end": 2397,
+        "quote": "When $W=0$ the unamplified success probability is zero,"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA070",
+      "decision": "merge",
+      "reason": "Correct the primary wording: c_rd is logical reads, not physical read cost. The conversion already exists; Q056 asks for an earlier consolidated unit legend.",
+      "current_evidence": {
+        "line_start": 2450,
+        "line_end": 2450,
+        "quote": "let $c_{\\mathrm{rd}}$ be the number of logical reads in a comparison"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q056"
+      ]
+    },
+    {
+      "primary_id": "CA071",
+      "decision": "merge",
+      "reason": "Optional relocation of formal witness restatement after the completed mathematical theorem.",
+      "current_evidence": {
+        "line_start": 2474,
+        "line_end": 2474,
+        "quote": "There is one input-independent bounded sampler, with output law $\\lambda_x$"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q057"
+      ]
+    },
+    {
+      "primary_id": "CA072",
+      "decision": "drop",
+      "reason": "The preceding lines say all r values form the address, and this paragraph explicitly derives the ε/r union bound. The requested argument is already local.",
+      "current_evidence": {
+        "line_start": 2511,
+        "line_end": 2511,
+        "quote": "For the probability assertion, let $E_h$ be the error event"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA073",
+      "decision": "drop",
+      "reason": "The quoted line 2494 is decoder prose and does not introduce a candidate-list L. Distant scoped reuse alone does not support this complaint.",
+      "current_evidence": {
+        "line_start": 2494,
+        "line_end": 2494,
+        "quote": "To decode an address, we run the quantum algorithm of Lemma 2.1(ii)"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA074",
+      "decision": "drop",
+      "reason": "§3.3 separates repeated-trial bounds from a complete coherent tensor construction and then displays the exact measured output law. Line 2494 applies this already established interface.",
+      "current_evidence": {
+        "line_start": 627,
+        "line_end": 627,
+        "quote": "**The same preparation with its workspace retained.**"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA075",
+      "decision": "drop",
+      "reason": "The construction already isolates the correct-winner-address event; §5.3 repeats the implication and explicitly dismisses the numerical tie convention.",
+      "current_evidence": {
+        "line_start": 2001,
+        "line_end": 2001,
+        "quote": "so the rival is disqualified and the tie rule plays no part on this event."
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA076",
+      "decision": "drop",
+      "reason": "The two following labeled paragraphs already give the requested tournament/verification accept-fail meanings before the cost analysis.",
+      "current_evidence": {
+        "line_start": 2561,
+        "line_end": 2561,
+        "quote": "The same amplification subroutine has different caller meanings in the two uses:"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA077",
+      "decision": "drop",
+      "reason": "The verifier entry already says afresh; this sentence explicitly makes every listed candidate’s verifier fresh, and the total-error proof conditions on full prior history.",
+      "current_evidence": {
+        "line_start": 2567,
+        "line_end": 2567,
+        "quote": "Every column in the returned tournament list is decoded and verified with fresh randomness,"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA078",
+      "decision": "merge",
+      "reason": "One consolidated first-use proof and later budget reference is a valid repetition/placement repair.",
+      "current_evidence": {
+        "line_start": 2616,
+        "line_end": 2616,
+        "quote": "A controlled read can always be implemented with two ordinary bit queries."
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q064"
+      ]
+    },
+    {
+      "primary_id": "CA079",
+      "decision": "merge",
+      "reason": "As worded, the primary complaint is wrong: named contributions and unexpanded C_k are already at 2677–2683; full expansion is in §7.3. Retain only Q067’s ledger-formatting suggestion.",
+      "current_evidence": {
+        "line_start": 2683,
+        "line_end": 2683,
+        "quote": "We insert these bounds into the two brackets of $B_{k,t}$."
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q067"
+      ]
+    },
+    {
+      "primary_id": "CA080",
+      "decision": "drop",
+      "reason": "The opening immediately specifies Boolean continuation output and says this is the same sequential algorithm with another proof interface. Requested orientation is already present.",
+      "current_evidence": {
+        "line_start": 2693,
+        "line_end": 2693,
+        "quote": "The proofs of Propositions 3.2 and 3.3 above are complete without this subsection."
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA118",
+      "decision": "keep_low",
+      "reason": "One tiny example relating the defined measures is optional help for nonexperts. Do not relabel these newly defined measures as prerequisites or claim a missing proof dependency.",
+      "current_evidence": {
+        "line_start": 3849,
+        "line_end": 3849,
+        "quote": "Let \\(f:\\{0,1\\}^n\\to\\{0,1\\}\\) be total."
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA119",
+      "decision": "keep_low",
+      "reason": "Narrow to saying this is the difference of two multilinear polynomials, with p0,p1 multilinear on n−1 variables. The omitted trivial induction base is not a substantive proof failure.",
+      "current_evidence": {
+        "line_start": 3854,
+        "line_end": 3854,
+        "quote": "For uniqueness, write a polynomial vanishing on the cube"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA120",
+      "decision": "keep_low",
+      "reason": "A dependency table is optional preview/summary. The distinction is already explicit here and both norms/mask norms are proved in A.3; do not call the roles absent.",
+      "current_evidence": {
+        "line_start": 3870,
+        "line_end": 3870,
+        "quote": "The two adversary estimates in (A.2) use different matrices:"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA121",
+      "decision": "drop",
+      "reason": "M and W_t are locally defined in this appendix. Reusing letters from a distant subsection does not establish a concrete ambiguity.",
+      "current_evidence": {
+        "line_start": 3882,
+        "line_end": 3882,
+        "quote": "(\\Gamma_i)_{xy}=\\Gamma_{xy}\\mathbf1_{\\{x_i\\ne y_i\\}},"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA122",
+      "decision": "merge",
+      "reason": "The four transformations can be separated, but combine with the concrete finite-randomness bridge and normal-form correspondence rather than adding another generic density complaint.",
+      "current_evidence": {
+        "line_start": 3901,
+        "line_end": 3901,
+        "quote": "Randomness can be purified."
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q072",
+        "Q073"
+      ]
+    },
+    {
+      "primary_id": "CA123",
+      "decision": "merge",
+      "reason": "A low-impact conjugate-pair reality note is mathematically valid; no wrong inequality is claimed.",
+      "current_evidence": {
+        "line_start": 3907,
+        "line_end": 3907,
+        "quote": "Track the complex-valued progress"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q074"
+      ]
+    },
+    {
+      "primary_id": "CA124",
+      "decision": "merge",
+      "reason": "Explicit allowed angle intervals would make this numeric extremum easier to verify.",
+      "current_evidence": {
+        "line_start": 3932,
+        "line_end": 3932,
+        "quote": "the constraints force its maximum to occur at"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q075"
+      ]
+    },
+    {
+      "primary_id": "CA125",
+      "decision": "merge",
+      "reason": "Valid placement issue for detailed source audit within the quartic deduction.",
+      "current_evidence": {
+        "line_start": 3957,
+        "line_end": 3957,
+        "quote": "**The prefactor can be checked on two bits.**"
+      },
+      "source_path": "repository/docs/reasoning_record.md",
+      "merge_with": [
+        "Q076"
+      ]
+    },
+    {
+      "primary_id": "CA126",
+      "decision": "drop",
+      "reason": "A.1 already supplies the bit/sign and output-rescaling degree argument; A.4 separately proves the maximal coefficient survives restriction before defining g.",
+      "current_evidence": {
+        "line_start": 3854,
+        "line_end": 3854,
+        "quote": "Invertible affine changes between bits and signs preserve this degree:"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA127",
+      "decision": "drop",
+      "reason": "The adjacent paragraph explicitly gives both dimensions and this dimension-sum inequality. The ambient 2^d-dimensional space is identified by H_d; no missing dimension step exists.",
+      "current_evidence": {
+        "line_start": 4045,
+        "line_end": 4045,
+        "quote": "Their dimensions sum to more than \\(2^d\\)"
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    },
+    {
+      "primary_id": "CA128",
+      "decision": "drop",
+      "reason": "The preceding paragraph defines the algorithm querying S; this sentence explicitly switches to path analysis before choosing B. My Q079 is likewise only an optional extra label and may be omitted.",
+      "current_evidence": {
+        "line_start": 4070,
+        "line_end": 4070,
+        "quote": "Fix one full input \\(x\\), and consider a round on its execution path."
+      },
+      "source_path": "repository/docs/reasoning_record.md"
+    }
+  ],
+  "optional_specialist_pruning": [
+    "Q018 is weak because the alternative/procedure choice is already identified at line 677.",
+    "Q019 is optional invariant formatting; do not claim an invariant is absent.",
+    "Q079 is weak because the text already switches explicitly to fixed-input path analysis.",
+    "Q055 is optional coupling-recipe completeness only; no zero-mass mathematical defect."
+  ]
+}

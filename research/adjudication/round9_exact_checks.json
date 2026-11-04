@@ -1,0 +1,39 @@
+{
+  "scope": "Exact enumeration of sixteen fair XOR input tuples; no formal theorem verification.",
+  "xor_two_clocks": {
+    "base_light_true_cell_inputs": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ]
+    ],
+    "base_probability": "1/8",
+    "early_stopped_branch_inputs": [
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        1
+      ]
+    ],
+    "early_stopped_branch_probability": "1/8",
+    "total_if_stop_after_early_cell": "1/4",
+    "total_if_read_c_afterwards": "1/8",
+    "simulator_success": "1/4",
+    "supersedes": "round8_validation.json exact_checks.xor_exhaustive_16_inputs.new_total=1/4 is inapplicable when the changed branch later reads c and becomes heavy."
+  }
+}

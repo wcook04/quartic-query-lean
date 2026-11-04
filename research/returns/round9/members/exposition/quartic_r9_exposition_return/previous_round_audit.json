@@ -1,0 +1,3157 @@
+{
+  "schema": "quartic-round9-previous-round-audit-v1",
+  "lead_source_sha256": "ce1887b35542c06e98132ac843f12eb78e9c4c224e7fb49f8da96255c21b240e",
+  "scope": "All 164 prior EX improvement items were compared with current passages. The 76 praise-only items are excluded from this improvement audit and were not treated as new advice. Selected XP cross-document checks are added separately. This is a current-passage audit, not acceptance of historical applied labels.",
+  "prior_ex_improvement_items_inspected": 164,
+  "prior_praise_items_not_in_improvement_audit": [
+    "EX004",
+    "EX005",
+    "EX008",
+    "EX010",
+    "EX015",
+    "EX018",
+    "EX020",
+    "EX024",
+    "EX026",
+    "EX033",
+    "EX035",
+    "EX036",
+    "EX037",
+    "EX040",
+    "EX043",
+    "EX044",
+    "EX047",
+    "EX049",
+    "EX051",
+    "EX052",
+    "EX055",
+    "EX058",
+    "EX059",
+    "EX061",
+    "EX065",
+    "EX069",
+    "EX076",
+    "EX079",
+    "EX084",
+    "EX090",
+    "EX095",
+    "EX097",
+    "EX100",
+    "EX103",
+    "EX108",
+    "EX109",
+    "EX112",
+    "EX116",
+    "EX119",
+    "EX125",
+    "EX129",
+    "EX134",
+    "EX138",
+    "EX140",
+    "EX146",
+    "EX149",
+    "EX152",
+    "EX154",
+    "EX155",
+    "EX157",
+    "EX162",
+    "EX163",
+    "EX166",
+    "EX169",
+    "EX174",
+    "EX176",
+    "EX178",
+    "EX179",
+    "EX185",
+    "EX186",
+    "EX190",
+    "EX191",
+    "EX193",
+    "EX195",
+    "EX198",
+    "EX203",
+    "EX205",
+    "EX207",
+    "EX211",
+    "EX214",
+    "EX218",
+    "EX221",
+    "EX230",
+    "EX233",
+    "EX236",
+    "EX239"
+  ],
+  "remote_destination_limit": "Repository URLs were not fetchable through web retrieval. Packaged landing text and historical LINK_MAP metadata were inspected; no claim of successful live remote navigation is made.",
+  "records": [
+    {
+      "prior_id": "EX001",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 14,
+        "line_end": 14,
+        "quote": "**What a query costs.** Suppose four hidden bits are $0010$, and we want to know whether at least one is"
+      },
+      "decision": "resolved",
+      "reason": "A concrete OR query walk now precedes the optimal-exponent assertion. Remaining introduction length is a separate scope issue, not the old ordering defect.",
+      "audit_group": "R8G001",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX002",
+      "prior_panel": "exposition",
+      "prior_kind": "prose",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 16,
+        "line_end": 16,
+        "quote": "The optimal power relating randomized and quantum query complexity of total Boolean functions is four [@OpenAI2026, Theorem 1.1]. For some"
+      },
+      "decision": "resolved",
+      "reason": "The first speedup description now includes probability at least 2/3 on every input.",
+      "audit_group": "R8G002",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX003",
+      "prior_panel": "exposition",
+      "prior_kind": "underweighted",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 14,
+        "line_end": 14,
+        "quote": "**What a query costs.** Suppose four hidden bits are $0010$, and we want to know whether at least one is"
+      },
+      "decision": "resolved",
+      "reason": "The paragraph now gives the positive purpose of the access model: isolate information obtained and prove classical-access limits.",
+      "audit_group": "R8G003",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX006",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 28,
+        "line_end": 28,
+        "quote": "**Theorem** [@OpenAI2026, Theorem 1.1]. $\\alpha_{\\rm tot}=4$. For every fixed integer $k\\ge2$ there are total functions $F_{k,m}$, for all sufficiently large"
+      },
+      "decision": "unresolved",
+      "reason": "The exact display still precedes the caveat about locally chosen constants, and the PDF puts that caveat on the next page. The quantitative statement itself is unchanged and is not alleged false.",
+      "audit_group": "R8G004",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX007",
+      "prior_panel": "exposition",
+      "prior_kind": "missing",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 47,
+        "line_end": 47,
+        "quote": "This account introduces quantum states and measurements in Section 1, phase queries in Section 3, and the amplitude-amplification operation in"
+      },
+      "decision": "resolved",
+      "reason": "The three deeper imported results have named roles; concentration and bounded amplification are expressly explained only to the extent used.",
+      "audit_group": "R8G005",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX009",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 70,
+        "line_end": 70,
+        "quote": "They share the second block $g=(-1,1,1,1)$, for which $Wg=(2,-2,-2,-2)$. Their first blocks $(1,-1,-1,-1)$, $(1,-1,1,1)$ and $g$ have inner products $8$,"
+      },
+      "decision": "unresolved",
+      "reason": "Bit/sign data are available in adjacent prose, but there is still no compact lookup next to the three strings. This is a low-impact presentation option, not an undefined sign convention.",
+      "audit_group": "R8G006",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX011",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 74,
+        "line_end": 74,
+        "quote": "**From vectors to a query experiment.** The pure quantum states used here are unit vectors over the complex numbers; this"
+      },
+      "decision": "resolved",
+      "reason": "The primer now explicitly restricts its unit-vector description to pure states, allows complex amplitudes and identifies the real special case.",
+      "audit_group": "R8G007",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX012",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 80,
+        "line_end": 80,
+        "quote": "A register stores one component of the basis label; the tuple $(j,b,w)$ indexes the larger state space. The workspace $w$"
+      },
+      "decision": "resolved",
+      "reason": "A register is explained as one component of a larger basis label; workspace examples and a concrete basis-state query have been added.",
+      "audit_group": "R8G008",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX013",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 80,
+        "line_end": 80,
+        "quote": "A register stores one component of the basis label; the tuple $(j,b,w)$ indexes the larger state space. The workspace $w$"
+      },
+      "decision": "resolved",
+      "reason": "The phase-query identity is explicitly borrowed provisionally from Section 3 at its first use. Moving it earlier is an optional alternative, not an unacknowledged dependency.",
+      "audit_group": "R8G009",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX014",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 92,
+        "line_end": 92,
+        "quote": "A final $H$ sends $u$ to $|00\\rangle$, so measuring the computational basis and asking for outcome $00$ performs this test."
+      },
+      "decision": "resolved",
+      "reason": "Projection success is now named separately from correct decoding, and the half-amplitude example is worked out.",
+      "audit_group": "R8G010",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX016",
+      "prior_panel": "exposition",
+      "prior_kind": "prose",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 96,
+        "line_end": 96,
+        "quote": "This small example illustrates the sign convention and the promise. It does not exhibit an asymptotic separation. The classical query"
+      },
+      "decision": "resolved",
+      "reason": "The text now says directly that the small example does not exhibit an asymptotic separation before retaining L=0.",
+      "audit_group": "R8G011",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX017",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 105,
+        "line_end": 105,
+        "quote": "- $r$ inputs $A_{i,1},\\dots,A_{i,r}$ to the partial function $P=P_{k,m}$, each of $km$ bits (Section 3 defines the general family; here"
+      },
+      "decision": "resolved",
+      "reason": "The field inventory explicitly points to Section 3 for the general family and says only its promise and output are needed here.",
+      "audit_group": "R8G012",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX019",
+      "prior_panel": "exposition",
+      "prior_kind": "overweighted",
+      "prior_severity": "medium",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 121,
+        "line_end": 121,
+        "quote": "The addressing comes from the cheat sheets of Aaronson, Ben-David and Kothari, who store a certificate at the address formed"
+      },
+      "decision": "unresolved",
+      "reason": "The paragraph still combines credit, r=20 log m, a future hard-distribution union bound, array size, pointer ancestry and alphabet costs. The prior structural burden remains.",
+      "audit_group": "R8G013",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX021",
+      "prior_panel": "exposition",
+      "prior_kind": "missing",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 133,
+        "line_end": 133,
+        "quote": "**Transcripts.** Fix a circuit $C$ of fan-in two (each gate receives at most two values) that outputs a domain bit"
+      },
+      "decision": "resolved",
+      "reason": "The circuit is now stated to be acyclic and ordered after predecessors, making the induction’s starting structure explicit.",
+      "audit_group": "R8G014",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX022",
+      "prior_panel": "exposition",
+      "prior_kind": "funnel",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 133,
+        "line_end": 133,
+        "quote": "**Transcripts.** Fix a circuit $C$ of fan-in two (each gate receives at most two values) that outputs a domain bit"
+      },
+      "decision": "resolved",
+      "reason": "The link label now identifies the circuit truth-table check. The record landing at AC-example-tests states exactly which circuit/test data transfer and gives a return to exposition Section 2; the board-specific decoder law remains distinguished.",
+      "audit_group": "R8G015",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX023",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 143,
+        "line_end": 143,
+        "quote": "For a concrete gate check, use gates $1$ and $2$ of the supplied circuit, whose gate and input indices start"
+      },
+      "decision": "unresolved",
+      "reason": "Zero-based indexing is disclosed, but no visual mapping accompanies the eight-bit string. The complaint is only the lookup burden, not incorrect indices.",
+      "audit_group": "R8G016",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX025",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 135,
+        "line_end": 135,
+        "quote": "**The domain-bit change.** Starting from the base board in Figure 2, set $X_1=0111$ and $X_2=1111$, and make every pointer into"
+      },
+      "decision": "resolved",
+      "reason": "The base, domain-bit, false-pointer and cycle boards now have explicit names, and Question 1 names the domain-bit board.",
+      "audit_group": "R8G017",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX027",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 153,
+        "line_end": 153,
+        "quote": "**Why the AND–OR recipe stops at a cube.** In the cheat-sheet construction [@ABK2016, §3.1], each of the $n$ input bits"
+      },
+      "decision": "resolved",
+      "reason": "The AND–OR truth condition, n inner copies, and n^3 composed input size are now explicit before the cost claim.",
+      "audit_group": "R8G018",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX028",
+      "prior_panel": "exposition",
+      "prior_kind": "prose",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 153,
+        "line_end": 153,
+        "quote": "**Why the AND–OR recipe stops at a cube.** In the cheat-sheet construction [@ABK2016, §3.1], each of the $n$ input bits"
+      },
+      "decision": "resolved",
+      "reason": "The heading now describes the limit of the AND–OR recipe rather than its initially achieved historical exponent.",
+      "audit_group": "R8G019",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX029",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 169,
+        "line_end": 169,
+        "quote": "By linearity, the position register acquires exactly the diagonal signs; this is *phase kickback*. Thus each sign diagonal costs one"
+      },
+      "decision": "resolved",
+      "reason": "The exponential factor 2^(10k) is retained and cheap is explicitly scoped to fixed k with growing m.",
+      "audit_group": "R8G020",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX030",
+      "prior_panel": "exposition",
+      "prior_kind": "underweighted",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 177,
+        "line_end": 177,
+        "quote": "The circuit uses integer arithmetic. The two factors $1/\\sqrt m$ in $u$ and the $k-1$ internal Walsh factors give $\\Phi=N/2^{t(k+1)}$"
+      },
+      "decision": "resolved",
+      "reason": "The recurrence is summarized as transforming two halves and adding/subtracting corresponding entries; the record link begins at that recurrence.",
+      "audit_group": "R8G021",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX031",
+      "prior_panel": "exposition",
+      "prior_kind": "underweighted",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 183,
+        "line_end": 183,
+        "quote": "This is the consequence of the randomized lower bound of Bansal and Sinha for this one-sided promise [-@BansalSinha2021, Theorem 1.3"
+      },
+      "decision": "resolved",
+      "reason": "A shallow decision tree is now explained operationally, and the law-versus-hidden-sample distinction precedes the warning that correlation intuition is not a proof.",
+      "audit_group": "R8G022",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX032",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 185,
+        "line_end": 185,
+        "quote": "With these choices the general function has $n=m\\bigl[m+rkm+2^r((m-1)\\ell+rS)\\bigr]$ input bits, which is $O_k(m^{22}(\\log m)^3)$ since $2^r=m^{20}$. Thus the total input"
+      },
+      "decision": "resolved",
+      "reason": "The actual input length n and the query-scale parameter m are distinguished, and the three payload contributions are identified.",
+      "audit_group": "R8G023",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX034",
+      "prior_panel": "exposition",
+      "prior_kind": "missing_example",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 193,
+        "line_end": 193,
+        "quote": "The comparison runs as a reversible circuit. A deterministic bit $f(z)$ can be recorded reversibly by $|z,b\\rangle\\mapsto|z,b\\oplus f(z)\\rangle$: on a"
+      },
+      "decision": "resolved",
+      "reason": "The reversible fresh-bit XOR map now demonstrates computing and uncomputing a deterministic output while retaining its inputs.",
+      "audit_group": "R8G024",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX038",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 213,
+        "line_end": 213,
+        "quote": "Pivot $1$ lists the winner and absorbs the process at once. Each pivot has probability $1/4$, so the expected new"
+      },
+      "decision": "resolved",
+      "reason": "The ordered off-diagonal sum is now related explicitly to the unordered pair sum before the drift equation.",
+      "audit_group": "R8G025",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX039",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 229,
+        "line_end": 229,
+        "quote": "**Sampling a pivot.** The algorithm realises the ideal pivot law without knowing the weights. With no previous pivots the success"
+      },
+      "decision": "resolved",
+      "reason": "A two-pivot tensor-product preparation is displayed. The text states that the product is a probability, not an amplitude, and explains addition across orthogonal candidate labels.",
+      "audit_group": "R8G026",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX041",
+      "prior_panel": "exposition",
+      "prior_kind": "prose",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 247,
+        "line_end": 247,
+        "quote": "**Amplification with a fixed cap.** A single preparation may rarely succeed. Amplitude amplification increases its chance of success while preserving"
+      },
+      "decision": "resolved",
+      "reason": "The amplification success probability is consistently named q rather than reusing the pivot label p.",
+      "audit_group": "R8G027",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX042",
+      "prior_panel": "exposition",
+      "prior_kind": "funnel",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 262,
+        "line_end": 262,
+        "quote": "Since $q$ is unknown, we cannot choose the best rotation count: too many iterations can rotate past the success direction."
+      },
+      "decision": "resolved",
+      "reason": "The trial-count invitation now targets upper-grover-trial. The packaged landing gives M and N, the half-direct trial mixture and the cap, plus a return route. Pinned remote content could not be independently fetched.",
+      "audit_group": "R8G028",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX045",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 294,
+        "line_end": 294,
+        "quote": "The tournament and short-list verification costs add, in place of the earlier nested search product $\\sqrt m\\sqrt K$. Here $m$"
+      },
+      "decision": "resolved",
+      "reason": "The quantum section now closes on addition of tournament and short-list verification costs instead of the nested product, while preserving the deliberately loose logarithmic count.",
+      "audit_group": "R8G029",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX046",
+      "prior_panel": "exposition",
+      "prior_kind": "prose",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 298,
+        "line_end": 298,
+        "quote": "We now show that $R(F_{k,m})>\\lfloor mL/100\\rfloor$, by planting a winner in a random column. Fix $k$, let $m$ be sufficiently"
+      },
+      "decision": "resolved",
+      "reason": "The minimax statement now says at most L queries, consistent with the cap model.",
+      "audit_group": "R8G030",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX048",
+      "prior_panel": "exposition",
+      "prior_kind": "consistency",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 302,
+        "line_end": 302,
+        "quote": "Figure 4 shows a schematic realization of the planting operation, using the geometry of Section 2. Its displayed address is"
+      },
+      "decision": "resolved",
+      "reason": "The plant is called a schematic realization, its address and transcripts belong to the new sample, and Figure 4 precedes the deterministic-tree comparison. No positive-budget hardness at m=4 is claimed.",
+      "audit_group": "R8G031",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX050",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 317,
+        "line_end": 317,
+        "quote": "To bound $\\mathbb EZ$, condition on the entire transcript prefix immediately before the next query, including earlier queries to every"
+      },
+      "decision": "resolved",
+      "reason": "The late-discovery argument explicitly charges m/2 distinct string reads from the same total G budget.",
+      "audit_group": "R8G032",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX053",
+      "prior_panel": "exposition",
+      "prior_kind": "prose",
+      "prior_severity": "medium",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 327,
+        "line_end": 327,
+        "quote": "Both hypotheses are needed. Take AND on two independent inputs, each uniform on all four two-bit strings; one query to"
+      },
+      "decision": "unresolved",
+      "reason": "The transition still says both hypotheses after a lemma containing several conditions. Naming separate caps and joint independence at that transition remains a small clarity repair.",
+      "audit_group": "R8G033",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX054",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 330,
+        "line_end": 330,
+        "quote": "Fix the coins and side information. By joint independence the samples are still independent with law $\\mu$, and the algorithm"
+      },
+      "decision": "resolved",
+      "reason": "Posterior factorization is in its own paragraph, followed by the best remaining success interpretation and an AND calculation before the continuation-value inequality.",
+      "audit_group": "R8G034",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX056",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 352,
+        "line_end": 352,
+        "quote": "A small trace makes the cap concrete. Use the [record's XOR example](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-simulator-example), which changes the partial function to $P(a,b)=a\\oplus b$"
+      },
+      "decision": "resolved",
+      "reason": "The trace now says it is a separate XOR example and identifies the second column, labelled 1. A more visible role heading would be an additional teaching choice.",
+      "audit_group": "R8G035",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX057",
+      "prior_panel": "exposition",
+      "prior_kind": "question",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 360,
+        "line_end": 360,
+        "quote": "[]{#question-4}**Question 4 (two clocks and the capped event).** Change the $a=0$ branch so that it proposes a query in $B_{1,00}$"
+      },
+      "decision": "resolved",
+      "reason": "Question 4 now asks separately for the changed branch, the combined event, and the later c-query variant. The answer’s missing final residual total is a new incompleteness, not the old question wording.",
+      "audit_group": "R8G036",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX060",
+      "prior_panel": "exposition",
+      "prior_kind": "evidence_presentation",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 404,
+        "line_end": 404,
+        "quote": "The changed board of Section 2 gives a concrete way to inspect the formal statement. Open the [winning condition][def-wins] and"
+      },
+      "decision": "resolved",
+      "reason": "The actual Option-valued winning clause is quoted, and some versus none is explained in ordinary language.",
+      "audit_group": "R8G037",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX062",
+      "prior_panel": "exposition",
+      "prior_kind": "funnel",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 49,
+        "line_end": 49,
+        "quote": "Section 1 supplies three small inputs. Section 2 turns them into a total function, including a false certificate that explains"
+      },
+      "decision": "resolved",
+      "reason": "Overview and detailed repository links now use the same pinned revision. Local targets were checked; the remote revision was not independently retrievable during this review.",
+      "audit_group": "R8G038",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX063",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 14,
+        "line_end": 14,
+        "quote": "**What a query costs.** Suppose four hidden bits are $0010$, and we want to know whether at least one is"
+      },
+      "decision": "resolved",
+      "reason": "A concrete OR query walk now precedes the optimal-exponent assertion. Remaining introduction length is a separate scope issue, not the old ordering defect.",
+      "audit_group": "R8G001",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX064",
+      "prior_panel": "exposition",
+      "prior_kind": "prose",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 16,
+        "line_end": 16,
+        "quote": "The optimal power relating randomized and quantum query complexity of total Boolean functions is four [@OpenAI2026, Theorem 1.1]. For some"
+      },
+      "decision": "unresolved",
+      "reason": "For some tasks fixes an existence ambiguity, but describing quantum cost as input bits inspected still risks identifying oracle calls with observed bits.",
+      "audit_group": "R8G039",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX066",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "high",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 22,
+        "line_end": 22,
+        "quote": "For a partial function, the algorithm owes a correct answer only on a specified set of inputs, its *promise*. For"
+      },
+      "decision": "resolved",
+      "reason": "The Boolean promise includes zero and one marked bit, and the separate index-search task is distinguished from constant exactly-one OR decision.",
+      "audit_group": "R8G040",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX067",
+      "prior_panel": "exposition",
+      "prior_kind": "overweighted",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 24,
+        "line_end": 24,
+        "quote": "\\alpha_{\\rm tot}=\\inf\\bigl\\{\\alpha\\ge0:\\ \\exists C>0\\ \\forall\\text{ total }f,\\quad R(f)\\le C(1+Q(f))^\\alpha\\bigr\\}."
+      },
+      "decision": "unresolved",
+      "reason": "The formal infimum remains in the first-page route. Moving or visually separating it is a genre decision; it is not a mathematical fault.",
+      "audit_group": "R8G041",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX068",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 294,
+        "line_end": 294,
+        "quote": "The tournament and short-list verification costs add, in place of the earlier nested search product $\\sqrt m\\sqrt K$. Here $m$"
+      },
+      "decision": "resolved",
+      "reason": "The count explicitly repeats that m counts columns, while Section 3 identifies the actual input length.",
+      "audit_group": "R8G042",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX070",
+      "prior_panel": "exposition",
+      "prior_kind": "missing",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 47,
+        "line_end": 47,
+        "quote": "This account introduces quantum states and measurements in Section 1, phase queries in Section 3, and the amplitude-amplification operation in"
+      },
+      "decision": "resolved",
+      "reason": "The three deeper imported results have named roles; concentration and bounded amplification are expressly explained only to the extent used.",
+      "audit_group": "R8G005",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX071",
+      "prior_panel": "exposition",
+      "prior_kind": "lost_here",
+      "prior_severity": "high",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 53,
+        "line_end": 53,
+        "quote": "We begin with the partial function at its smallest size, $k=2$ and $m=4$, where every value can be checked by"
+      },
+      "decision": "resolved",
+      "reason": "A fixed change of basis comparing a hidden pattern with a transform is now motivated before the matrix.",
+      "audit_group": "R8G043",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX072",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 68,
+        "line_end": 68,
+        "quote": "a^+=0111\\,1000,\\qquad a^0=0100\\,1000,\\qquad a^-=1000\\,1000."
+      },
+      "decision": "resolved",
+      "reason": "The three inputs use a visible block separator and the following paragraph gives the block sign vectors. No missing convention is inferred.",
+      "audit_group": "R8G044",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX073",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 64,
+        "line_end": 64,
+        "quote": "The partial function $P=P_{2,4}$ takes the value $1$ when $\\Phi\\ge\\delta$ and $0$ when $|\\Phi|\\le\\delta/2$; every other input lies outside its"
+      },
+      "decision": "resolved",
+      "reason": "The simplification to positive versus zero is explicitly restricted to promised inputs at the small size.",
+      "audit_group": "R8G045",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX074",
+      "prior_panel": "exposition",
+      "prior_kind": "missing_example",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 82,
+        "line_end": 82,
+        "quote": "Start in $u$, apply $D_{z_2}$, then $H$, then $D_{z_1}$. On $a^+$ these vectors are, in order,"
+      },
+      "decision": "resolved",
+      "reason": "The a-plus input is now carried through the normalized three-operation trajectory to u.",
+      "audit_group": "R8G046",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX075",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 80,
+        "line_end": 80,
+        "quote": "A register stores one component of the basis label; the tuple $(j,b,w)$ indexes the larger state space. The workspace $w$"
+      },
+      "decision": "resolved",
+      "reason": "A register is explained as one component of a larger basis label; workspace examples and a concrete basis-state query have been added.",
+      "audit_group": "R8G008",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX077",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 92,
+        "line_end": 92,
+        "quote": "A final $H$ sends $u$ to $|00\\rangle$, so measuring the computational basis and asking for outcome $00$ performs this test."
+      },
+      "decision": "resolved",
+      "reason": "Projection success is now named separately from correct decoding, and the half-amplitude example is worked out.",
+      "audit_group": "R8G010",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX078",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "medium",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 102,
+        "line_end": 102,
+        "quote": "**One column.** Fix $k\\ge2$, let $m=4^t$ and $\\ell=\\log_2m$. The input has $m$ columns, and column $i$ holds"
+      },
+      "decision": "unresolved",
+      "reason": "The paper still introduces the general field inventory before the concrete board. This can be retained, but its first-encounter load has not been removed by the revision.",
+      "audit_group": "R8G047",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX080",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 119,
+        "line_end": 119,
+        "quote": "Writing $y$ for the entire board of input bits, the total function is $F(y)=1$ exactly when some column wins at"
+      },
+      "decision": "resolved",
+      "reason": "y is explicitly the whole board of input bits when F is defined.",
+      "audit_group": "R8G048",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX081",
+      "prior_panel": "exposition",
+      "prior_kind": "overweighted",
+      "prior_severity": "medium",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 121,
+        "line_end": 121,
+        "quote": "The addressing comes from the cheat sheets of Aaronson, Ben-David and Kothari, who store a certificate at the address formed"
+      },
+      "decision": "unresolved",
+      "reason": "The paragraph still combines credit, r=20 log m, a future hard-distribution union bound, array size, pointer ancestry and alphabet costs. The prior structural burden remains.",
+      "audit_group": "R8G013",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX082",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 143,
+        "line_end": 143,
+        "quote": "For a concrete gate check, use gates $1$ and $2$ of the supplied circuit, whose gate and input indices start"
+      },
+      "decision": "resolved",
+      "reason": "Corrupting t2 is now explicitly called an allowed input assignment, tying the example back to totality.",
+      "audit_group": "R8G049",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX083",
+      "prior_panel": "exposition",
+      "prior_kind": "funnel",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 133,
+        "line_end": 133,
+        "quote": "**Transcripts.** Fix a circuit $C$ of fan-in two (each gate receives at most two values) that outputs a domain bit"
+      },
+      "decision": "resolved",
+      "reason": "The link label now identifies the circuit truth-table check. The record landing at AC-example-tests states exactly which circuit/test data transfer and gives a return to exposition Section 2; the board-specific decoder law remains distinguished.",
+      "audit_group": "R8G015",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX085",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 143,
+        "line_end": 143,
+        "quote": "For a concrete gate check, use gates $1$ and $2$ of the supplied circuit, whose gate and input indices start"
+      },
+      "decision": "unresolved",
+      "reason": "Zero-based indexing is disclosed, but no visual mapping accompanies the eight-bit string. The complaint is only the lookup burden, not incorrect indices.",
+      "audit_group": "R8G016",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX086",
+      "prior_panel": "exposition",
+      "prior_kind": "overweighted",
+      "prior_severity": "low",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 149,
+        "line_end": 149,
+        "quote": "tests, each reading at most $\\max(3,\\ell+1)$ bits, and they all pass exactly when $(i,s)$ wins. A nonwinner therefore fails at"
+      },
+      "decision": "resolved",
+      "reason": "The paragraph finishes by explaining why the single failed domain test matters rather than finishing on the number 371.",
+      "audit_group": "R8G050",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX087",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "high",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 153,
+        "line_end": 153,
+        "quote": "**Why the AND–OR recipe stops at a cube.** In the cheat-sheet construction [@ABK2016, §3.1], each of the $n$ input bits"
+      },
+      "decision": "resolved",
+      "reason": "The AND–OR truth condition, n inner copies, and n^3 composed input size are now explicit before the cost claim.",
+      "audit_group": "R8G018",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX088",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 159,
+        "line_end": 159,
+        "quote": "The construction uses $k$-fold Forrelation through three facts, which we now state. For general $k$ and $m=4^t$, index each of"
+      },
+      "decision": "unresolved",
+      "reason": "The general indexing and multiple normalizations still arrive in one long sentence; the added qubit count does not separate those tasks.",
+      "audit_group": "R8G051",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX089",
+      "prior_panel": "exposition",
+      "prior_kind": "underweighted",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 169,
+        "line_end": 169,
+        "quote": "By linearity, the position register acquires exactly the diagonal signs; this is *phase kickback*. Thus each sign diagonal costs one"
+      },
+      "decision": "resolved",
+      "reason": "The scalar tail estimate exp(−rho c/16) and substitution of the displayed repetition count are now stated.",
+      "audit_group": "R8G052",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX091",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 183,
+        "line_end": 183,
+        "quote": "This is the consequence of the randomized lower bound of Bansal and Sinha for this one-sided promise [-@BansalSinha2021, Theorem 1.3"
+      },
+      "decision": "resolved",
+      "reason": "A shallow decision tree is now explained operationally, and the law-versus-hidden-sample distinction precedes the warning that correlation intuition is not a proof.",
+      "audit_group": "R8G022",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX092",
+      "prior_panel": "exposition",
+      "prior_kind": "consistency",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 189,
+        "line_end": 189,
+        "quote": "The quantum algorithm has to find the winner, if there is one, among $m$ columns, and a direct search costs"
+      },
+      "decision": "resolved",
+      "reason": "The direct-search calculation is now described as the exponent certified by these particular upper and lower bounds, not as matching query complexities.",
+      "audit_group": "R8G053",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX093",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 191,
+        "line_end": 191,
+        "quote": "**Comparing two columns.** We decode the $r$ address inputs of each column with error $\\varepsilon/r$ each, so that a promised"
+      },
+      "decision": "resolved",
+      "reason": "Both tie cases and the canonical unordered-pair experiment are explicit, and exactly one comparison winner is declared.",
+      "audit_group": "R8G054",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX094",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 266,
+        "line_end": 266,
+        "quote": "**A stage of the search.** Each stage amplifies the preparation with threshold $\\gamma=1/(2m)$ and failure parameter $\\varepsilon$, at a cost"
+      },
+      "decision": "resolved",
+      "reason": "The stage description says the successful column register is measured to form a classical pivot value used by later preparations, unlike retained decoder workspaces.",
+      "audit_group": "R8G055",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX096",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 135,
+        "line_end": 135,
+        "quote": "**The domain-bit change.** Starting from the base board in Figure 2, set $X_1=0111$ and $X_2=1111$, and make every pointer into"
+      },
+      "decision": "resolved",
+      "reason": "The base, domain-bit, false-pointer and cycle boards now have explicit names, and Question 1 names the domain-bit board.",
+      "audit_group": "R8G017",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX098",
+      "prior_panel": "exposition",
+      "prior_kind": "missing_example",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 213,
+        "line_end": 213,
+        "quote": "Pivot $1$ lists the winner and absorbs the process at once. Each pivot has probability $1/4$, so the expected new"
+      },
+      "decision": "resolved",
+      "reason": "The ordered off-diagonal sum is now related explicitly to the unordered pair sum before the drift equation.",
+      "audit_group": "R8G025",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX099",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 223,
+        "line_end": 223,
+        "quote": "Then the winner keeps weight above $1/2$, so the process cannot be absorbed before the winner is listed, and if"
+      },
+      "decision": "resolved",
+      "reason": "The text explicitly says an unlisted winner forces total weight above one half, then applies Markov to small expected total weight.",
+      "audit_group": "R8G056",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX101",
+      "prior_panel": "exposition",
+      "prior_kind": "missing_example",
+      "prior_severity": "high",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 252,
+        "line_end": 252,
+        "quote": "where $g$ and $b$ are unit vectors in the success and failure subspaces. Both include the column register and **all**"
+      },
+      "decision": "unresolved",
+      "reason": "The conjugated reflection now explains implementation, but the two-reflection rotation in the good/bad plane remains asserted without a local diagram or two-by-two calculation. The issue is the geometric teaching bridge, not validity of amplitude amplification.",
+      "audit_group": "R8G057",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX102",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 270,
+        "line_end": 270,
+        "quote": "After the winner is listed, $|w|$ may be tiny or zero and the sampler may fail with certainty, but stopping"
+      },
+      "decision": "resolved",
+      "reason": "Line 270 explicitly constructs the joint runs by using the same pivot after each successful real stage because the conditional pivot laws agree, stops the real process on failure, and bounds failure conditional on each common history before the winner is listed. The requested coupling explanation is already present; naming the construction before explaining it does not leave a separate unresolved gap.",
+      "audit_group": "R8G058",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX104",
+      "prior_panel": "exposition",
+      "prior_kind": "overweighted",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 294,
+        "line_end": 294,
+        "quote": "The tournament and short-list verification costs add, in place of the earlier nested search product $\\sqrt m\\sqrt K$. Here $m$"
+      },
+      "decision": "resolved",
+      "reason": "The quantum section now closes on addition of tournament and short-list verification costs instead of the nested product, while preserving the deliberately loose logarithmic count.",
+      "audit_group": "R8G029",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX105",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 298,
+        "line_end": 298,
+        "quote": "We now show that $R(F_{k,m})>\\lfloor mL/100\\rfloor$, by planting a winner in a random column. Fix $k$, let $m$ be sufficiently"
+      },
+      "decision": "resolved",
+      "reason": "Knowing the law is distinguished from observing the hidden sample, and pointwise success is explicitly related to average success under that law.",
+      "audit_group": "R8G059",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX106",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 306,
+        "line_end": 306,
+        "quote": "Fixing all the coins of a randomized algorithm gives a deterministic decision tree. We first bound each such tree, then"
+      },
+      "decision": "unresolved",
+      "reason": "The shared-path assertion is stated, but no concrete common transcript or one-step induction is shown. The requested first-divergence teaching example remains absent.",
+      "audit_group": "R8G060",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX107",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 317,
+        "line_end": 317,
+        "quote": "To bound $\\mathbb EZ$, condition on the entire transcript prefix immediately before the next query, including earlier queries to every"
+      },
+      "decision": "unresolved",
+      "reason": "The early/late charge is expanded, but the proposed near-exhausted-column illustration is not present. This is an optional intuition repair, not an invalid bound.",
+      "audit_group": "R8G061",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX110",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "medium",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 325,
+        "line_end": 325,
+        "quote": "**Direct product with separate caps.** *Let $U_1,\\dots,U_r$ be independent samples from $\\mu$, and suppose every deterministic algorithm making at most"
+      },
+      "decision": "unresolved",
+      "reason": "The lemma, both hypothesis counterexamples and optional proof still precede its use by the capped simulator. The main reduction remains interrupted before its application is visible.",
+      "audit_group": "R8G062",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX111",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "high",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 330,
+        "line_end": 330,
+        "quote": "Fix the coins and side information. By joint independence the samples are still independent with law $\\mu$, and the algorithm"
+      },
+      "decision": "resolved",
+      "reason": "Posterior factorization is in its own paragraph, followed by the best remaining success interpretation and an AND calculation before the continuation-value inequality.",
+      "audit_group": "R8G034",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX113",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 352,
+        "line_end": 352,
+        "quote": "A small trace makes the cap concrete. Use the [record's XOR example](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-simulator-example), which changes the partial function to $P(a,b)=a\\oplus b$"
+      },
+      "decision": "resolved",
+      "reason": "The trace now says it is a separate XOR example and identifies the second column, labelled 1. A more visible role heading would be an additional teaching choice.",
+      "audit_group": "R8G035",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX114",
+      "prior_panel": "exposition",
+      "prior_kind": "question",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 360,
+        "line_end": 360,
+        "quote": "[]{#question-4}**Question 4 (two clocks and the capped event).** Change the $a=0$ branch so that it proposes a query in $B_{1,00}$"
+      },
+      "decision": "resolved",
+      "reason": "Question 4 now asks separately for the changed branch, the combined event, and the later c-query variant. The answer’s missing final residual total is a new incompleteness, not the old question wording.",
+      "audit_group": "R8G036",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX115",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 366,
+        "line_end": 366,
+        "quote": "There is no extra factor of $m$: we ask whether the independently selected column is hit, not whether any column"
+      },
+      "decision": "resolved",
+      "reason": "The text now explicitly distinguishes hitting the independently selected column from hitting any column, adjacent to the average with no extra m factor.",
+      "audit_group": "R8G063",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX117",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "low",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 394,
+        "line_end": 394,
+        "quote": "All constants, including $C_k$ and the point from which the Forrelation bound holds, depend on $k$, so a $k$ that"
+      },
+      "decision": "resolved",
+      "reason": "The fixed-k argument is completed before the optional varying-k extension is mentioned, and the order alpha, k, m is repeated explicitly.",
+      "audit_group": "R8G064",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX118",
+      "prior_panel": "exposition",
+      "prior_kind": "evidence_presentation",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 404,
+        "line_end": 404,
+        "quote": "The changed board of Section 2 gives a concrete way to inspect the formal statement. Open the [winning condition][def-wins] and"
+      },
+      "decision": "resolved",
+      "reason": "The actual Option-valued winning clause is quoted, and some versus none is explained in ordinary language.",
+      "audit_group": "R8G037",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX120",
+      "prior_panel": "exposition",
+      "prior_kind": "figure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 110,
+        "line_end": 110,
+        "quote": "![Schematic bit strips (not literal lengths). The strings of all columns, and the address inputs and cells of a winning"
+      },
+      "decision": "unresolved",
+      "reason": "Figure 1 still contains first-use payload and address labels well below body-text size at normal page scale. This is a residual visual issue after label edits.",
+      "audit_group": "R8G065",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX121",
+      "prior_panel": "exposition",
+      "prior_kind": "figure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 203,
+        "line_end": 203,
+        "quote": "![Comparisons on the board with cycled loser pointers. An arrow $i\\to j$ means that $i$ beats $j$; a dot in"
+      },
+      "decision": "resolved",
+      "reason": "The tournament figure now immediately follows its source cycle paragraph in publication order and precedes the ideal process. Its excess internal spacing is a separate layout consequence.",
+      "audit_group": "R8G066",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX122",
+      "prior_panel": "exposition",
+      "prior_kind": "figure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 302,
+        "line_end": 302,
+        "quote": "Figure 4 shows a schematic realization of the planting operation, using the geometry of Section 2. Its displayed address is"
+      },
+      "decision": "resolved",
+      "reason": "The plant is called a schematic realization, its address and transcripts belong to the new sample, and Figure 4 precedes the deterministic-tree comparison. No positive-budget hardness at m=4 is claimed.",
+      "audit_group": "R8G031",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX123",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 396,
+        "line_end": 396,
+        "quote": "[]{#question-5}**Question 5.** What does $k=4$ prove about $\\alpha_{\\rm tot}$? Which $k$ makes the displayed argument exclude the endpoint bound $R(f)\\le"
+      },
+      "decision": "unresolved",
+      "reason": "Questions 1–4 gained concept labels, but Question 5 remains unlabelled. The repair is incomplete only at the final question.",
+      "audit_group": "R8G067",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX124",
+      "prior_panel": "exposition",
+      "prior_kind": "prose",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 424,
+        "line_end": 424,
+        "quote": "# References {.unnumbered}"
+      },
+      "decision": "resolved",
+      "reason": "The rendered bibliography uses readable source labels and the inspected final pages show complete entries without the old long visible preprint path.",
+      "audit_group": "R8G068",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX126",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 16,
+        "line_end": 16,
+        "quote": "The optimal power relating randomized and quantum query complexity of total Boolean functions is four [@OpenAI2026, Theorem 1.1]. For some"
+      },
+      "decision": "resolved",
+      "reason": "The first speedup description now includes probability at least 2/3 on every input.",
+      "audit_group": "R8G002",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX127",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 22,
+        "line_end": 22,
+        "quote": "For a partial function, the algorithm owes a correct answer only on a specified set of inputs, its *promise*. For"
+      },
+      "decision": "resolved",
+      "reason": "The Boolean promise includes zero and one marked bit, and the separate index-search task is distinguished from constant exactly-one OR decision.",
+      "audit_group": "R8G040",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX128",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 28,
+        "line_end": 28,
+        "quote": "**Theorem** [@OpenAI2026, Theorem 1.1]. $\\alpha_{\\rm tot}=4$. For every fixed integer $k\\ge2$ there are total functions $F_{k,m}$, for all sufficiently large"
+      },
+      "decision": "unresolved",
+      "reason": "The exact display still precedes the caveat about locally chosen constants, and the PDF puts that caveat on the next page. The quantitative statement itself is unchanged and is not alleged false.",
+      "audit_group": "R8G004",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX130",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 72,
+        "line_end": 72,
+        "quote": "Let us read $\\Phi$ geometrically. Write $u=\\tfrac12(1,1,1,1)$ and $H=W/2$, the Walsh transform scaled to preserve length (equivalently, two single-qubit Hadamard"
+      },
+      "decision": "resolved",
+      "reason": "H is explicitly identified with two single-qubit Hadamard gates in the stated coordinate order.",
+      "audit_group": "R8G069",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX131",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 64,
+        "line_end": 64,
+        "quote": "The partial function $P=P_{2,4}$ takes the value $1$ when $\\Phi\\ge\\delta$ and $0$ when $|\\Phi|\\le\\delta/2$; every other input lies outside its"
+      },
+      "decision": "resolved",
+      "reason": "The inherited tiny threshold is explained, and the reader is told the examples are far from it.",
+      "audit_group": "R8G070",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX132",
+      "prior_panel": "exposition",
+      "prior_kind": "missing_example",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 92,
+        "line_end": 92,
+        "quote": "A final $H$ sends $u$ to $|00\\rangle$, so measuring the computational basis and asking for outcome $00$ performs this test."
+      },
+      "decision": "resolved",
+      "reason": "The final H and measured outcome 00 are named explicitly.",
+      "audit_group": "R8G071",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX133",
+      "prior_panel": "exposition",
+      "prior_kind": "missing_example",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 92,
+        "line_end": 92,
+        "quote": "A final $H$ sends $u$ to $|00\\rangle$, so measuring the computational basis and asking for outcome $00$ performs this test."
+      },
+      "decision": "resolved",
+      "reason": "The half-amplitude input’s dot product, amplitude 1/2 and success 1/4 are now shown.",
+      "audit_group": "R8G072",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX135",
+      "prior_panel": "exposition",
+      "prior_kind": "lost_here",
+      "prior_severity": "high",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 108,
+        "line_end": 108,
+        "quote": "Every bit is an input bit, and every assignment is allowed. In particular, stored certificates may be false. When all"
+      },
+      "decision": "resolved",
+      "reason": "The first transcript parenthesis now says that the circuit computes both domain membership and the answer bit.",
+      "audit_group": "R8G073",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX136",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 102,
+        "line_end": 102,
+        "quote": "**One column.** Fix $k\\ge2$, let $m=4^t$ and $\\ell=\\log_2m$. The input has $m$ columns, and column $i$ holds"
+      },
+      "decision": "unresolved",
+      "reason": "The common parameter m still has several roles across the inventory and general primitive. A single early identification of those roles remains absent, although each can be recovered later.",
+      "audit_group": "R8G074",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX137",
+      "prior_panel": "exposition",
+      "prior_kind": "overweighted",
+      "prior_severity": "medium",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 121,
+        "line_end": 121,
+        "quote": "The addressing comes from the cheat sheets of Aaronson, Ben-David and Kothari, who store a certificate at the address formed"
+      },
+      "decision": "unresolved",
+      "reason": "The paragraph still combines credit, r=20 log m, a future hard-distribution union bound, array size, pointer ancestry and alphabet costs. The prior structural burden remains.",
+      "audit_group": "R8G013",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX139",
+      "prior_panel": "exposition",
+      "prior_kind": "funnel",
+      "prior_severity": "high",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 133,
+        "line_end": 133,
+        "quote": "**Transcripts.** Fix a circuit $C$ of fan-in two (each gate receives at most two values) that outputs a domain bit"
+      },
+      "decision": "resolved",
+      "reason": "The link label now identifies the circuit truth-table check. The record landing at AC-example-tests states exactly which circuit/test data transfer and gives a return to exposition Section 2; the board-specific decoder law remains distinguished.",
+      "audit_group": "R8G015",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX141",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 143,
+        "line_end": 143,
+        "quote": "For a concrete gate check, use gates $1$ and $2$ of the supplied circuit, whose gate and input indices start"
+      },
+      "decision": "resolved",
+      "reason": "The two cited input bits are explicitly said to be zero before the gate equation. A marked string would be an additional visual improvement, not a missing value.",
+      "audit_group": "R8G075",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX142",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 141,
+        "line_end": 141,
+        "quote": "For a circuit with $S$ gates, the $r$ transcripts supply $rS$ gate tests. Each reads the proposed gate value and"
+      },
+      "decision": "resolved",
+      "reason": "Gate consistency and the output requirements for a winning certificate are now distinguished before the output-test count.",
+      "audit_group": "R8G076",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX143",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 153,
+        "line_end": 153,
+        "quote": "**Why the AND–OR recipe stops at a cube.** In the cheat-sheet construction [@ABK2016, §3.1], each of the $n$ input bits"
+      },
+      "decision": "resolved",
+      "reason": "The AND–OR truth condition, n inner copies, and n^3 composed input size are now explicit before the cost claim.",
+      "audit_group": "R8G018",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX144",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 159,
+        "line_end": 159,
+        "quote": "The construction uses $k$-fold Forrelation through three facts, which we now state. For general $k$ and $m=4^t$, index each of"
+      },
+      "decision": "resolved",
+      "reason": "The binary index is identified as a 2t-qubit position register.",
+      "audit_group": "R8G077",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX145",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 169,
+        "line_end": 169,
+        "quote": "By linearity, the position register acquires exactly the diagonal signs; this is *phase kickback*. Thus each sign diagonal costs one"
+      },
+      "decision": "resolved",
+      "reason": "The threshold c/2 is explicitly located between promised projection rates c/4 and c.",
+      "audit_group": "R8G078",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX147",
+      "prior_panel": "exposition",
+      "prior_kind": "underweighted",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 177,
+        "line_end": 177,
+        "quote": "The circuit uses integer arithmetic. The two factors $1/\\sqrt m$ in $u$ and the $k-1$ internal Walsh factors give $\\Phi=N/2^{t(k+1)}$"
+      },
+      "decision": "resolved",
+      "reason": "The recurrence is summarized as transforming two halves and adding/subtracting corresponding entries; the record link begins at that recurrence.",
+      "audit_group": "R8G021",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX148",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 183,
+        "line_end": 183,
+        "quote": "This is the consequence of the randomized lower bound of Bansal and Sinha for this one-sided promise [-@BansalSinha2021, Theorem 1.3"
+      },
+      "decision": "resolved",
+      "reason": "A shallow decision tree is now explained operationally, and the law-versus-hidden-sample distinction precedes the warning that correlation intuition is not a proof.",
+      "audit_group": "R8G022",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX150",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "medium",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 189,
+        "line_end": 189,
+        "quote": "The quantum algorithm has to find the winner, if there is one, among $m$ columns, and a direct search costs"
+      },
+      "decision": "unresolved",
+      "reason": "The algorithm loop remains one prose sentence rather than separately visible initialize/sample/stop/verify steps. Measurement timing is clarified later, but the overview is still difficult to execute from memory.",
+      "audit_group": "R8G079",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX151",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 191,
+        "line_end": 191,
+        "quote": "**Comparing two columns.** We decode the $r$ address inputs of each column with error $\\varepsilon/r$ each, so that a promised"
+      },
+      "decision": "resolved",
+      "reason": "Both tie cases and the canonical unordered-pair experiment are explicit, and exactly one comparison winner is declared.",
+      "audit_group": "R8G054",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX153",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 193,
+        "line_end": 193,
+        "quote": "The comparison runs as a reversible circuit. A deterministic bit $f(z)$ can be recorded reversibly by $|z,b\\rangle\\mapsto|z,b\\oplus f(z)\\rangle$: on a"
+      },
+      "decision": "resolved",
+      "reason": "A reversible bit-copy transformation is now supplied, and the later two-pivot state explicitly retains workspace. A more extensive comparison diagram would be optional, not the original missing implementation cue.",
+      "audit_group": "R8G080",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX156",
+      "prior_panel": "exposition",
+      "prior_kind": "overweighted",
+      "prior_severity": "low",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 205,
+        "line_end": 205,
+        "quote": "Quantum minimum finding [@DH1996] needs a total order, and using quantum search with bounded-error inputs [@HMW2003] on these pair orientations"
+      },
+      "decision": "unresolved",
+      "reason": "The HMW fixed-edge distinction remains on the newcomer’s main route. Moving this literature-contract comparison to a note is still a viable scope reduction.",
+      "audit_group": "R8G081",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX158",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 213,
+        "line_end": 213,
+        "quote": "Pivot $1$ lists the winner and absorbs the process at once. Each pivot has probability $1/4$, so the expected new"
+      },
+      "decision": "resolved",
+      "reason": "The ordered off-diagonal sum is now related explicitly to the unordered pair sum before the drift equation.",
+      "audit_group": "R8G025",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX159",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 219,
+        "line_end": 219,
+        "quote": "There is one factor in a candidate's weight per selected pivot, even though the implementation may call the comparison circuit"
+      },
+      "decision": "resolved",
+      "reason": "The text explicitly distinguishes one weight factor per pivot from repeated physical calls while sampling.",
+      "audit_group": "R8G082",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX160",
+      "prior_panel": "exposition",
+      "prior_kind": "missing_example",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 229,
+        "line_end": 229,
+        "quote": "**Sampling a pivot.** The algorithm realises the ideal pivot law without knowing the weights. With no previous pivots the success"
+      },
+      "decision": "resolved",
+      "reason": "A two-pivot tensor-product preparation is displayed. The text states that the product is a probability, not an amplitude, and explains addition across orthogonal candidate labels.",
+      "audit_group": "R8G026",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX161",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 229,
+        "line_end": 229,
+        "quote": "**Sampling a pivot.** The algorithm realises the ideal pivot law without knowing the weights. With no previous pivots the success"
+      },
+      "decision": "resolved",
+      "reason": "A two-pivot tensor-product preparation is displayed. The text states that the product is a probability, not an amplitude, and explains addition across orthogonal candidate labels.",
+      "audit_group": "R8G026",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX164",
+      "prior_panel": "exposition",
+      "prior_kind": "figure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 254,
+        "line_end": 254,
+        "quote": "R_{A0}=A(2|0\\rangle\\langle0|-I)A^{-1}."
+      },
+      "decision": "resolved",
+      "reason": "The conjugation by the full preparation and its inverse is displayed and its order is explained.",
+      "audit_group": "R8G083",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX165",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "medium",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 264,
+        "line_end": 264,
+        "quote": "On the board after pivot $2$, $q=1/2$ and $\\theta=\\pi/4$, so $\\sin^2((2j+1)\\pi/4)=1/2$ for every $j$. This case shows preservation of the"
+      },
+      "decision": "unresolved",
+      "reason": "The nonimproving q=1/2 example still precedes the q=1/4 success example, which is left to the exercise. This is a teaching-order alternative, not a defect in the calculations.",
+      "audit_group": "R8G084",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX167",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 268,
+        "line_end": 268,
+        "quote": "Before the winner is listed its weight exceeds $1/2$, so $|w|/m\\ge\\gamma$ and a stage fails with probability at most $\\varepsilon$."
+      },
+      "decision": "resolved",
+      "reason": "The before-winner and after-winner cases are now in separate paragraphs before the coupled failure estimate.",
+      "audit_group": "R8G085",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX168",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 280,
+        "line_end": 280,
+        "quote": "A nonwinner fails some test at **every** address, even a meaningless label decoded off promise. An input-independent unitary prepares the"
+      },
+      "decision": "resolved",
+      "reason": "An input-independent uniform K-label preparation and its zero query cost are explicitly stated.",
+      "audit_group": "R8G086",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX170",
+      "prior_panel": "exposition",
+      "prior_kind": "underweighted",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 294,
+        "line_end": 294,
+        "quote": "The tournament and short-list verification costs add, in place of the earlier nested search product $\\sqrt m\\sqrt K$. Here $m$"
+      },
+      "decision": "resolved",
+      "reason": "The quantum section now closes on addition of tournament and short-list verification costs instead of the nested product, while preserving the deliberately loose logarithmic count.",
+      "audit_group": "R8G029",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX171",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 298,
+        "line_end": 298,
+        "quote": "We now show that $R(F_{k,m})>\\lfloor mL/100\\rfloor$, by planting a winner in a random column. Fix $k$, let $m$ be sufficiently"
+      },
+      "decision": "resolved",
+      "reason": "Knowing the law is distinguished from observing the hidden sample, and pointwise success is explicitly related to average success under that law.",
+      "audit_group": "R8G059",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX172",
+      "prior_panel": "exposition",
+      "prior_kind": "figure",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 302,
+        "line_end": 302,
+        "quote": "Figure 4 shows a schematic realization of the planting operation, using the geometry of Section 2. Its displayed address is"
+      },
+      "decision": "resolved",
+      "reason": "The plant is called a schematic realization, its address and transcripts belong to the new sample, and Figure 4 precedes the deterministic-tree comparison. No positive-budget hardness at m=4 is claimed.",
+      "audit_group": "R8G031",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX173",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 306,
+        "line_end": 306,
+        "quote": "Fixing all the coins of a randomized algorithm gives a deterministic decision tree. We first bound each such tree, then"
+      },
+      "decision": "unresolved",
+      "reason": "The shared-path assertion is stated, but no concrete common transcript or one-step induction is shown. The requested first-divergence teaching example remains absent.",
+      "audit_group": "R8G060",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX175",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 330,
+        "line_end": 330,
+        "quote": "Fix the coins and side information. By joint independence the samples are still independent with law $\\mu$, and the algorithm"
+      },
+      "decision": "resolved",
+      "reason": "Posterior factorization is in its own paragraph, followed by the best remaining success interpretation and an AND calculation before the continuation-value inequality.",
+      "audit_group": "R8G034",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX177",
+      "prior_panel": "exposition",
+      "prior_kind": "question",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 360,
+        "line_end": 360,
+        "quote": "[]{#question-4}**Question 4 (two clocks and the capped event).** Change the $a=0$ branch so that it proposes a query in $B_{1,00}$"
+      },
+      "decision": "resolved",
+      "reason": "Question 4 now asks separately for the changed branch, the combined event, and the later c-query variant. The answer’s missing final residual total is a new incompleteness, not the old question wording.",
+      "audit_group": "R8G036",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX180",
+      "prior_panel": "exposition",
+      "prior_kind": "evidence_presentation",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 406,
+        "line_end": 406,
+        "quote": "The [four formal theorems][thm-all] establish $\\alpha_{\\rm tot}=4$, failure of every universal cubic bound, the Forrelation lower bound used here, and"
+      },
+      "decision": "resolved",
+      "reason": "Comparator is described as checking separately compiled challenge-statement matching rather than every prose step.",
+      "audit_group": "R8G087",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX181",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "high",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 49,
+        "line_end": 49,
+        "quote": "Section 1 supplies three small inputs. Section 2 turns them into a total function, including a false certificate that explains"
+      },
+      "decision": "unresolved",
+      "reason": "The new OR entrance addresses the first action, but nearly two pages of theorem, constants, mechanism and route still precede the eight-bit example. The proposed shorter path has not been adopted.",
+      "audit_group": "R8G088",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX182",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "high",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 22,
+        "line_end": 22,
+        "quote": "For a partial function, the algorithm owes a correct answer only on a specified set of inputs, its *promise*. For"
+      },
+      "decision": "resolved",
+      "reason": "The Boolean promise includes zero and one marked bit, and the separate index-search task is distinguished from constant exactly-one OR decision.",
+      "audit_group": "R8G040",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX183",
+      "prior_panel": "exposition",
+      "prior_kind": "figure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 24,
+        "line_end": 24,
+        "quote": "\\alpha_{\\rm tot}=\\inf\\bigl\\{\\alpha\\ge0:\\ \\exists C>0\\ \\forall\\text{ total }f,\\quad R(f)\\le C(1+Q(f))^\\alpha\\bigr\\}."
+      },
+      "decision": "resolved",
+      "reason": "The definition is rendered as a compact full display with an adjacent quantifier sentence rather than the previous long explanatory text inside the formula.",
+      "audit_group": "R8G089",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX184",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 12,
+        "line_end": 12,
+        "quote": "We assume finite-dimensional linear algebra, elementary conditional probability and asymptotic notation."
+      },
+      "decision": "resolved",
+      "reason": "The prerequisite sentence now appears before the opening query example.",
+      "audit_group": "R8G090",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX187",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 49,
+        "line_end": 49,
+        "quote": "Section 1 supplies three small inputs. Section 2 turns them into a total function, including a false certificate that explains"
+      },
+      "decision": "resolved",
+      "reason": "The routes name a common rejoin, assign questions and reserve the combined teach-back for both mechanisms.",
+      "audit_group": "R8G091",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX188",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 92,
+        "line_end": 92,
+        "quote": "A final $H$ sends $u$ to $|00\\rangle$, so measuring the computational basis and asking for outcome $00$ performs this test."
+      },
+      "decision": "new-consequence",
+      "reason": "The added local check supplies every answer immediately, so it demonstrates the calculation but does not test independent transfer. A real attempt opportunity remains to be created.",
+      "audit_group": "R8G092",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX189",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 80,
+        "line_end": 80,
+        "quote": "A register stores one component of the basis label; the tuple $(j,b,w)$ indexes the larger state space. The workspace $w$"
+      },
+      "decision": "resolved",
+      "reason": "A register is explained as one component of a larger basis label; workspace examples and a concrete basis-state query have been added.",
+      "audit_group": "R8G008",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX192",
+      "prior_panel": "exposition",
+      "prior_kind": "overweighted",
+      "prior_severity": "medium",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 121,
+        "line_end": 121,
+        "quote": "The addressing comes from the cheat sheets of Aaronson, Ben-David and Kothari, who store a certificate at the address formed"
+      },
+      "decision": "unresolved",
+      "reason": "The paragraph still combines credit, r=20 log m, a future hard-distribution union bound, array size, pointer ancestry and alphabet costs. The prior structural burden remains.",
+      "audit_group": "R8G013",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX194",
+      "prior_panel": "exposition",
+      "prior_kind": "figure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 110,
+        "line_end": 110,
+        "quote": "![Schematic bit strips (not literal lengths). The strings of all columns, and the address inputs and cells of a winning"
+      },
+      "decision": "unresolved",
+      "reason": "Figure 1 still contains first-use payload and address labels well below body-text size at normal page scale. This is a residual visual issue after label edits.",
+      "audit_group": "R8G065",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX196",
+      "prior_panel": "exposition",
+      "prior_kind": "prose",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 133,
+        "line_end": 133,
+        "quote": "**Transcripts.** Fix a circuit $C$ of fan-in two (each gate receives at most two values) that outputs a domain bit"
+      },
+      "decision": "resolved",
+      "reason": "The link label now identifies the circuit truth-table check. The record landing at AC-example-tests states exactly which circuit/test data transfer and gives a return to exposition Section 2; the board-specific decoder law remains distinguished.",
+      "audit_group": "R8G015",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX197",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 141,
+        "line_end": 141,
+        "quote": "For a circuit with $S$ gates, the $r$ transcripts supply $rS$ gate tests. Each reads the proposed gate value and"
+      },
+      "decision": "resolved",
+      "reason": "Gate consistency and the output requirements for a winning certificate are now distinguished before the output-test count.",
+      "audit_group": "R8G076",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX199",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 143,
+        "line_end": 143,
+        "quote": "For a concrete gate check, use gates $1$ and $2$ of the supplied circuit, whose gate and input indices start"
+      },
+      "decision": "resolved",
+      "reason": "The changed t1,t2 example now shows a later gate equation passing while the earliest false value is caught.",
+      "audit_group": "R8G093",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX200",
+      "prior_panel": "exposition",
+      "prior_kind": "question",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 135,
+        "line_end": 135,
+        "quote": "**The domain-bit change.** Starting from the base board in Figure 2, set $X_1=0111$ and $X_2=1111$, and make every pointer into"
+      },
+      "decision": "resolved",
+      "reason": "The base, domain-bit, false-pointer and cycle boards now have explicit names, and Question 1 names the domain-bit board.",
+      "audit_group": "R8G017",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX201",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 153,
+        "line_end": 153,
+        "quote": "**Why the AND–OR recipe stops at a cube.** In the cheat-sheet construction [@ABK2016, §3.1], each of the $n$ input bits"
+      },
+      "decision": "resolved",
+      "reason": "The AND–OR truth condition, n inner copies, and n^3 composed input size are now explicit before the cost claim.",
+      "audit_group": "R8G018",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX202",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 155,
+        "line_end": 155,
+        "quote": "Up to logarithmic factors, the cited composition and cheat-sheet argument supplies randomized lower bound $R(g)n^2$ and quantum upper bound $n$"
+      },
+      "decision": "resolved",
+      "reason": "The old lower/upper costs are explicitly attributed to the cited composition and cheat-sheet argument, separate from the elementary certificate count.",
+      "audit_group": "R8G094",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX204",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 169,
+        "line_end": 169,
+        "quote": "By linearity, the position register acquires exactly the diagonal signs; this is *phase kickback*. Thus each sign diagonal costs one"
+      },
+      "decision": "resolved",
+      "reason": "The scalar tail estimate exp(−rho c/16) and substitution of the displayed repetition count are now stated.",
+      "audit_group": "R8G052",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX206",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 185,
+        "line_end": 185,
+        "quote": "With these choices the general function has $n=m\\bigl[m+rkm+2^r((m-1)\\ell+rS)\\bigr]$ input bits, which is $O_k(m^{22}(\\log m)^3)$ since $2^r=m^{20}$. Thus the total input"
+      },
+      "decision": "resolved",
+      "reason": "The actual input length n and the query-scale parameter m are distinguished, and the three payload contributions are identified.",
+      "audit_group": "R8G023",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX208",
+      "prior_panel": "exposition",
+      "prior_kind": "underweighted",
+      "prior_severity": "high",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 193,
+        "line_end": 193,
+        "quote": "The comparison runs as a reversible circuit. A deterministic bit $f(z)$ can be recorded reversibly by $|z,b\\rangle\\mapsto|z,b\\oplus f(z)\\rangle$: on a"
+      },
+      "decision": "resolved",
+      "reason": "A reversible bit-copy transformation is now supplied, and the later two-pivot state explicitly retains workspace. A more extensive comparison diagram would be optional, not the original missing implementation cue.",
+      "audit_group": "R8G080",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX209",
+      "prior_panel": "exposition",
+      "prior_kind": "figure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 203,
+        "line_end": 203,
+        "quote": "![Comparisons on the board with cycled loser pointers. An arrow $i\\to j$ means that $i$ beats $j$; a dot in"
+      },
+      "decision": "resolved",
+      "reason": "The tournament figure now immediately follows its source cycle paragraph in publication order and precedes the ideal process. Its excess internal spacing is a separate layout consequence.",
+      "audit_group": "R8G066",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX210",
+      "prior_panel": "exposition",
+      "prior_kind": "figure",
+      "prior_severity": "low",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 203,
+        "line_end": 203,
+        "quote": "![Comparisons on the board with cycled loser pointers. An arrow $i\\to j$ means that $i$ beats $j$; a dot in"
+      },
+      "decision": "resolved",
+      "reason": "The caption explicitly identifies the changed reverse pointers described in the nearby text as reaching ones.",
+      "audit_group": "R8G095",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX212",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 274,
+        "line_end": 274,
+        "quote": "[]{#question-2}**Question 2 (conditional sampling and overshoot).** Suppose instead that the measured pivot is $4$. Find the new weights, the success"
+      },
+      "decision": "resolved",
+      "reason": "Question 2 now requests a second pivot in the abstract fractional matrix, including joint masses and conditional probabilities.",
+      "audit_group": "R8G096",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX213",
+      "prior_panel": "exposition",
+      "prior_kind": "figure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 252,
+        "line_end": 252,
+        "quote": "where $g$ and $b$ are unit vectors in the success and failure subspaces. Both include the column register and **all**"
+      },
+      "decision": "unresolved",
+      "reason": "The conjugated reflection now explains implementation, but the two-reflection rotation in the good/bad plane remains asserted without a local diagram or two-by-two calculation. The issue is the geometric teaching bridge, not validity of amplitude amplification.",
+      "audit_group": "R8G057",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX215",
+      "prior_panel": "exposition",
+      "prior_kind": "question",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 274,
+        "line_end": 274,
+        "quote": "[]{#question-2}**Question 2 (conditional sampling and overshoot).** Suppose instead that the measured pivot is $4$. Find the new weights, the success"
+      },
+      "decision": "resolved",
+      "reason": "The question now asks for both one and two Grover iterations, testing overshoot on the existing data.",
+      "audit_group": "R8G097",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX216",
+      "prior_panel": "exposition",
+      "prior_kind": "funnel",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 262,
+        "line_end": 262,
+        "quote": "Since $q$ is unknown, we cannot choose the best rotation count: too many iterations can rotate past the success direction."
+      },
+      "decision": "resolved",
+      "reason": "The trial-count invitation now targets upper-grover-trial. The packaged landing gives M and N, the half-direct trial mixture and the cap, plus a return route. Pinned remote content could not be independently fetched.",
+      "audit_group": "R8G028",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX217",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 274,
+        "line_end": 274,
+        "quote": "[]{#question-2}**Question 2 (conditional sampling and overshoot).** Suppose instead that the measured pivot is $4$. Find the new weights, the success"
+      },
+      "decision": "resolved",
+      "reason": "The question explicitly distinguishes a Grover iteration from one bit query.",
+      "audit_group": "R8G098",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX219",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 282,
+        "line_end": 282,
+        "quote": "When $F=1$, the output is wrong only if the list misses the winner or the winner's fresh decoding fails, with"
+      },
+      "decision": "new-consequence",
+      "reason": "The added error-accounting check uses Tε after both a one-input and a zero-input bound, then describes only sampler failures. The check needs a case label; neither bound is alleged wrong.",
+      "audit_group": "R8G099",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX220",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 294,
+        "line_end": 294,
+        "quote": "The tournament and short-list verification costs add, in place of the earlier nested search product $\\sqrt m\\sqrt K$. Here $m$"
+      },
+      "decision": "resolved",
+      "reason": "The quantum section now closes on addition of tournament and short-list verification costs instead of the nested product, while preserving the deliberately loose logarithmic count.",
+      "audit_group": "R8G029",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX222",
+      "prior_panel": "exposition",
+      "prior_kind": "figure",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 302,
+        "line_end": 302,
+        "quote": "Figure 4 shows a schematic realization of the planting operation, using the geometry of Section 2. Its displayed address is"
+      },
+      "decision": "resolved",
+      "reason": "The plant is called a schematic realization, its address and transcripts belong to the new sample, and Figure 4 precedes the deterministic-tree comparison. No positive-budget hardness at m=4 is claimed.",
+      "audit_group": "R8G031",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX223",
+      "prior_panel": "exposition",
+      "prior_kind": "figure",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 302,
+        "line_end": 302,
+        "quote": "Figure 4 shows a schematic realization of the planting operation, using the geometry of Section 2. Its displayed address is"
+      },
+      "decision": "resolved",
+      "reason": "The plant is called a schematic realization, its address and transcripts belong to the new sample, and Figure 4 precedes the deterministic-tree comparison. No positive-budget hardness at m=4 is claimed.",
+      "audit_group": "R8G031",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX224",
+      "prior_panel": "exposition",
+      "prior_kind": "question",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 321,
+        "line_end": 321,
+        "quote": "[]{#question-3}**Question 3 (independent planting).** With two fixed positions queried per column, how often is an independent $I$ hit, and how"
+      },
+      "decision": "resolved",
+      "reason": "Question 3 now includes adaptive queries and asks which identity remains valid for independent I.",
+      "audit_group": "R8G100",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX225",
+      "prior_panel": "exposition",
+      "prior_kind": "unclear",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 323,
+        "line_end": 323,
+        "quote": "**The true cell.** The algorithm need not compute $s_I$ to reach $B_{I,s_I}$: it may guess an address or visit many"
+      },
+      "decision": "resolved",
+      "reason": "Heaviness is explicitly defined using the whole dummy run.",
+      "audit_group": "R8G101",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX226",
+      "prior_panel": "exposition",
+      "prior_kind": "structure",
+      "prior_severity": "medium",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 325,
+        "line_end": 325,
+        "quote": "**Direct product with separate caps.** *Let $U_1,\\dots,U_r$ be independent samples from $\\mu$, and suppose every deterministic algorithm making at most"
+      },
+      "decision": "unresolved",
+      "reason": "The lemma, both hypothesis counterexamples and optional proof still precede its use by the capped simulator. The main reduction remains interrupted before its application is visible.",
+      "audit_group": "R8G062",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX227",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 330,
+        "line_end": 330,
+        "quote": "Fix the coins and side information. By joint independence the samples are still independent with law $\\mu$, and the algorithm"
+      },
+      "decision": "resolved",
+      "reason": "Posterior factorization is in its own paragraph, followed by the best remaining success interpretation and an AND calculation before the continuation-value inequality.",
+      "audit_group": "R8G034",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX228",
+      "prior_panel": "exposition",
+      "prior_kind": "prose",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 330,
+        "line_end": 330,
+        "quote": "Fix the coins and side information. By joint independence the samples are still independent with law $\\mu$, and the algorithm"
+      },
+      "decision": "resolved",
+      "reason": "Posterior factorization is in its own paragraph, followed by the best remaining success interpretation and an AND calculation before the continuation-value inequality.",
+      "audit_group": "R8G034",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX229",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 350,
+        "line_end": 350,
+        "quote": "with lightness inside the probability. The independent side information deliberately makes the simulator more informed than the original tree; the"
+      },
+      "decision": "resolved",
+      "reason": "The extra independent information is expressly described as making the simulator more informed without escaping the direct-product bound.",
+      "audit_group": "R8G102",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX231",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 352,
+        "line_end": 352,
+        "quote": "A small trace makes the cap concrete. Use the [record's XOR example](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-simulator-example), which changes the partial function to $P(a,b)=a\\oplus b$"
+      },
+      "decision": "resolved",
+      "reason": "The trace now says it is a separate XOR example and identifies the second column, labelled 1. A more visible role heading would be an additional teaching choice.",
+      "audit_group": "R8G035",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX232",
+      "prior_panel": "exposition",
+      "prior_kind": "question",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 360,
+        "line_end": 360,
+        "quote": "[]{#question-4}**Question 4 (two clocks and the capped event).** Change the $a=0$ branch so that it proposes a query in $B_{1,00}$"
+      },
+      "decision": "resolved",
+      "reason": "Question 4 now asks separately for the changed branch, the combined event, and the later c-query variant. The answer’s missing final residual total is a new incompleteness, not the old question wording.",
+      "audit_group": "R8G036",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX234",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 366,
+        "line_end": 366,
+        "quote": "There is no extra factor of $m$: we ask whether the independently selected column is hit, not whether any column"
+      },
+      "decision": "resolved",
+      "reason": "The text now explicitly distinguishes hitting the independently selected column from hitting any column, adjacent to the average with no extra m factor.",
+      "audit_group": "R8G063",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX235",
+      "prior_panel": "exposition",
+      "prior_kind": "prose",
+      "prior_severity": "low",
+      "historical_disposition": "not_adopted",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 384,
+        "line_end": 384,
+        "quote": "Let us combine the two bounds. Insert $L=\\lfloor m^{1-1/k}/(\\log_2m)^2\\rfloor$ and use $\\lfloor x\\rfloor\\ge x/2$ for real $x\\ge1$, once for $L$"
+      },
+      "decision": "resolved",
+      "reason": "Both floor estimates have an eventual-growth justification for fixed k.",
+      "audit_group": "R8G103",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX237",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "high",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 400,
+        "line_end": 400,
+        "quote": "Before leaving the argument, try to explain it using the two examples. Why can the classical algorithm notice the plant"
+      },
+      "decision": "new-consequence",
+      "reason": "The new teach-back checklist appears in the same paragraph as the prompt, exposing the target vocabulary before an unaided attempt. Separate prompt and rubric if assessment is intended.",
+      "audit_group": "R8G104",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX238",
+      "prior_panel": "exposition",
+      "prior_kind": "teaching",
+      "prior_severity": "medium",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 404,
+        "line_end": 404,
+        "quote": "The changed board of Section 2 gives a concrete way to inspect the formal statement. Open the [winning condition][def-wins] and"
+      },
+      "decision": "resolved",
+      "reason": "The actual Option-valued winning clause is quoted, and some versus none is explained in ordinary language.",
+      "audit_group": "R8G037",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "EX240",
+      "prior_panel": "exposition",
+      "prior_kind": "funnel",
+      "prior_severity": "low",
+      "historical_disposition": "applied",
+      "inspection_scope": "prior locator and requested advice; current matching passage and relevant supplied landing/render",
+      "present_locator": {
+        "source_path": "repository/docs/exposition.md",
+        "line_start": 49,
+        "line_end": 49,
+        "quote": "Section 1 supplies three small inputs. Section 2 turns them into a total function, including a false certificate that explains"
+      },
+      "decision": "resolved",
+      "reason": "Overview and detailed repository links now use the same pinned revision. Local targets were checked; the remote revision was not independently retrievable during this review.",
+      "audit_group": "R8G038",
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "XP001",
+      "paper": "expert_companion",
+      "decision": "resolved",
+      "evidence": "The abstract explicitly fixes k and says the logarithmic factors are suppressed; the earlier missing qualification is resolved.",
+      "relationship_to_lead": "Supporting-account check only; not added to the lead improvement count.",
+      "present_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 9,
+        "line_end": 9,
+        "quote": "For fixed $k$"
+      },
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "XP002",
+      "paper": "expert_companion",
+      "decision": "resolved",
+      "evidence": "The abstract now distinguishes bounded-error search from exact individual predicates.",
+      "relationship_to_lead": "Supporting-account check only; not added to the lead improvement count.",
+      "present_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 9,
+        "line_end": 9,
+        "quote": "bounded-error search over exact local certificate tests"
+      },
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "XP007",
+      "paper": "expert_companion",
+      "decision": "resolved",
+      "evidence": "The overview uses logarithmic address length; the exact factor 20 appears with its union-bound role in the construction.",
+      "relationship_to_lead": "Supporting-account check only; not added to the lead improvement count.",
+      "present_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 38,
+        "line_end": 38,
+        "quote": "$r=O(\\log m)$"
+      },
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "XP008",
+      "paper": "expert_companion",
+      "decision": "resolved",
+      "evidence": "The overview describes accumulated survival probabilities and says the coherent tournament samples their normalized law without estimating the weights.",
+      "relationship_to_lead": "Supporting-account check only; not added to the lead improvement count.",
+      "present_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 42,
+        "line_end": 42,
+        "quote": "accumulated survival probabilities"
+      },
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "XP013",
+      "paper": "expert_companion",
+      "decision": "resolved",
+      "evidence": "The decoder paragraph supplies the δ⁻² logarithmic repetition scale and labels the tail estimate.",
+      "relationship_to_lead": "Supporting-account check only; not added to the lead improvement count.",
+      "present_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 97,
+        "line_end": 97,
+        "quote": "multiplicative Chernoff bound"
+      },
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "XP024",
+      "paper": "expert_companion",
+      "decision": "resolved",
+      "evidence": "The reusable lemma explicitly names the original success conditioning.",
+      "relationship_to_lead": "Supporting-account check only; not added to the lead improvement count.",
+      "present_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 124,
+        "line_end": 124,
+        "quote": "conditional on the original preparation succeeding"
+      },
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "XP025",
+      "paper": "expert_companion",
+      "decision": "resolved",
+      "evidence": "The nondegenerate decomposition is restricted to 0<p<1 and the direct branch handles p=1.",
+      "relationship_to_lead": "Supporting-account check only; not added to the lead improvement count.",
+      "present_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 126,
+        "line_end": 126,
+        "quote": "The direct branch also covers the endpoint $p=1$"
+      },
+      "count_as_new_finding": false
+    },
+    {
+      "prior_id": "XP026",
+      "paper": "expert_companion",
+      "decision": "resolved",
+      "evidence": "The mixing probability is now explicitly one half.",
+      "relationship_to_lead": "Supporting-account check only; not added to the lead improvement count.",
+      "present_locator": {
+        "source_path": "repository/docs/expert_companion.md",
+        "line_start": 126,
+        "line_end": 126,
+        "quote": "probability $1/2$ a direct measurement"
+      },
+      "count_as_new_finding": false
+    }
+  ],
+  "selected_xp_items_inspected": 8,
+  "decision_counts": {
+    "resolved": 140,
+    "unresolved": 29,
+    "new-consequence": 3
+  }
+}

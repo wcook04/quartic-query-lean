@@ -1,0 +1,371 @@
+{
+  "counts": {
+    "candidate_findings": 219,
+    "accepted_distinct_findings": 166,
+    "merged_duplicate_candidates": 46,
+    "rejected_candidates": 7,
+    "panel_withdrawals_before_assembly": [
+      "C019",
+      "C023",
+      "C054"
+    ],
+    "target": 200,
+    "target_policy": "Depth prompt, not permission to invent or duplicate findings."
+  },
+  "decisions": [
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "Q001",
+        "C003"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E016",
+        "Q006"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E020",
+        "Q009",
+        "C012"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E023",
+        "Q013"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E024",
+        "Q004",
+        "Q015",
+        "C014"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E026",
+        "Q016",
+        "C015"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E028",
+        "Q019"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E029",
+        "Q021"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E031",
+        "Q026"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E032",
+        "Q029"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E033",
+        "Q035"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E035",
+        "Q036"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E037",
+        "Q043"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E038",
+        "Q045"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E039",
+        "Q047"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E040",
+        "Q051"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E041",
+        "Q053"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E047",
+        "Q055",
+        "C041"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "C060",
+        "E059",
+        "Q057",
+        "Q060"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "C056",
+        "Q058"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "C058",
+        "E057",
+        "Q059"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E066",
+        "Q008",
+        "Q065"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E067",
+        "Q066"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E070",
+        "Q067",
+        "C065"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E012",
+        "C009"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E044",
+        "C033"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E045",
+        "C038"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E046",
+        "C039"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E049",
+        "C047"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E050",
+        "C050"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E051",
+        "C052"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E052",
+        "C053"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E068",
+        "C063"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E069",
+        "C064"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E071",
+        "C067"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "merged",
+      "source_finding_ids": [
+        "E072",
+        "C068"
+      ],
+      "reason": "Same underlying repair; secondary locators or useful implementation suggestions retained without multiplying the count."
+    },
+    {
+      "action": "not_counted",
+      "source_finding_ids": [
+        "E030"
+      ],
+      "reason": "The lemma already explicitly handles p=0; a blanket extra conditioning convention adds little reader benefit beyond its existing endpoint contract."
+    },
+    {
+      "action": "not_counted",
+      "source_finding_ids": [
+        "E053"
+      ],
+      "reason": "The present text already calls this a reconstruction supplied by the record and explicitly identifies the changed truncation, new moments and source-comparison destination; retain the specific missing analytic bridges instead."
+    },
+    {
+      "action": "not_counted",
+      "source_finding_ids": [
+        "E058"
+      ],
+      "reason": "The current uniform section already identifies its reconstruction and source comparison; another general provenance relocation would duplicate a repaired complaint."
+    },
+    {
+      "action": "not_counted",
+      "source_finding_ids": [
+        "Q042"
+      ],
+      "reason": "Lemma 2 already makes p=0 certain failure; the algorithm returns the accumulated list, and the ideal zero state is absorbing. The displayed law is conditional on success."
+    },
+    {
+      "action": "not_counted",
+      "source_finding_ids": [
+        "Q048"
+      ],
+      "reason": "The claimed reachable empty list is unsupported: the first stage is the empty-product preparation with p=1, and the supplied sampler succeeds in that case."
+    },
+    {
+      "action": "not_counted",
+      "source_finding_ids": [
+        "Q056"
+      ],
+      "reason": "The present text already identifies the reconstruction and source comparison; the concrete missing mixture/depth/budget steps remain findings."
+    },
+    {
+      "action": "not_counted",
+      "source_finding_ids": [
+        "R013"
+      ],
+      "reason": "Line 339 explicitly says ordinary mathematics, and its exact linked destination twice says that the transports are not Lean theorems. The alleged scope omission is absent."
+    }
+  ],
+  "discarded_initial_hypotheses": [
+    {
+      "hypothesis": "A.3 sure dominance might require a correct decoder.",
+      "disposition": "rejected after checking the exact two-bit comparison rule",
+      "reason": "Every rival pointer into all-one X1 reads1. Own pointer reads0 or1. Both(0,1) and(1,1) select the smallest-index column1."
+    }
+  ]
+}

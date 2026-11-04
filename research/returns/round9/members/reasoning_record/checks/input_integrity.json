@@ -1,0 +1,52 @@
+{
+  "input_archive": {
+    "name": "quartic_r9_reasoning_record(2).zip",
+    "bytes": 15564870,
+    "sha256": "991bd65ee54fde7c8b57a81ceaa908202557561907707c8120ed0e73cb616e30",
+    "file_count": 491,
+    "crc_error": null,
+    "duplicate_members": 0,
+    "unsafe_paths": []
+  },
+  "manifest": {
+    "listed_members": 489,
+    "all_member_sizes_and_sha256_match": true,
+    "manifest_sha256": "13d9114359b9be1683af0472517e7a3aa863cf743428bf331221be95c9749f48"
+  },
+  "pasted_context": {
+    "name": "Pasted text(20261104-103751).txt",
+    "bytes": 279571,
+    "sha256": "5f93de0693617e6e87b7b33a6aa6ee252fcdf7ddacd18c604a5059c2515aec2a",
+    "interpretation": "Historical integration/build context, not fresh proof evidence or an instruction to modify the manuscripts. All user/assistant messages read; compressed command evidence references not reconstructed."
+  },
+  "source_status": {
+    "acceptance_gate": "not applied: these hashes bind the packet to the exact bytes supplied; no human review of these editions is claimed.",
+    "drafts": {
+      "repository/docs/expert_companion.bib": "03a8022966eb3427bc41a1b70cca58f8822fdbe1dd28b1b287486402e91f6b2f",
+      "repository/docs/expert_companion.md": "7fddfa0c37f7d038ba58adde4e7685263f3ba7733d0fd87a8a3eea4ce653f8ab",
+      "repository/docs/expert_companion.pdf": "e9b2aa243c8b8f3dfefdfbe3e4f277fd2ee5bda3e3e742e60d190a8e208e6d35",
+      "repository/docs/exposition.bib": "4d5e850843df803c15df72578e35fdb86694035dba684ee21b1ca6ee48a9efa9",
+      "repository/docs/exposition.md": "ce1887b35542c06e98132ac843f12eb78e9c4c224e7fb49f8da96255c21b240e",
+      "repository/docs/exposition.pdf": "c011fdbe8cf59578eb295370e22b76b59b113e2d66eb9e5ded5bbbf0366ccdd6",
+      "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+      "repository/docs/reasoning_record.md": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+      "repository/docs/reasoning_record.pdf": "ba8002cd4765371c67654b2fd98bbea9dff3704e3a518828e715ce9c69fb24eb"
+    },
+    "record": {
+      "accepted_review_record_sha256": "c2b6f11a7a4b3f318ebf419a9959c1d154f8e2b74e3ec02a8e25fb92ba9cfd25",
+      "markdown_matches_accepted_review": false,
+      "markdown_sha256": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+      "pdf_rendered_from": "the current Markdown at repository commit 7772e4f2b98149a38ed69b88397982620f94bdac",
+      "pdf_sha256": "ba8002cd4765371c67654b2fd98bbea9dff3704e3a518828e715ce9c69fb24eb"
+    },
+    "repository_commit": "7772e4f2b98149a38ed69b88397982620f94bdac",
+    "schema": "quartic-round5-source-status-v1",
+    "status": "unreviewed working drafts"
+  },
+  "new_Lean_or_Comparator_run": false,
+  "post_review_input_check": {
+    "members_rechecked": 489,
+    "mismatches": [],
+    "source_files_unchanged": true
+  }
+}

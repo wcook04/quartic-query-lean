@@ -41,9 +41,10 @@ what is already known. No person has reviewed it yet.
   complete argument and its source correspondence. Its review sidecar identifies
   the assessed edition; the original returned drafts remain immutable evidence.
 
-The [round-nine review campaign](research/requests/round9/SELECTION.md) asks for
-chronological, sentence-by-sentence improvement feedback on each of the three
-papers, using fresh PDFs and the complete round-eight feedback and decisions.
+The [round-nine revision](research/adjudication/round9_revision.md) incorporates
+the three [advisory returns](research/returns/round9/README.md) with individual
+dispositions. It revises the mathematical explanations and reading routes;
+these editorial checks are separate from the recorded formal proof checks.
 
 ## What is checked, and what that means
 
@@ -107,13 +108,13 @@ python3 tools/run_comparator.py
 ## Reproducing the formal checks
 
 The two papers and the record link to Lean sources and record passages pinned
-at the round-eight source edition `b8db5326715e5a4ce6996cde0768b92b5fcd5177`.
+at the round-nine source edition `8357f268732746d1575e05e7de8c888e20ad3793`.
 The recorded Comparator run of the headline bundle
 ([its receipt](corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json))
 was made at commit `9a0a5cdace28594058f6df59b9b2e45a9e7c1a4f`, in Comparator's
 `--paranoid` mode and without a sandboxing tool (`--inadvisably-no-sandbox`).
 The `lean/` directory is byte-identical between that checked revision and the
-linked source edition; the round-eight changes are editorial. No fresh Lean or
+linked source edition; the round-nine changes are editorial. No fresh Lean or
 Comparator run is claimed for them.
 The toolchain is `leanprover/lean4:v4.36.0-rc2` and Mathlib is pinned at
 `69552756cd8a2d2d48763cf7279fd814d6a1224d`.

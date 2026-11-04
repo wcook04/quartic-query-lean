@@ -96,12 +96,12 @@ class FilterTests(unittest.TestCase):
         ast = json.loads(subprocess.run([PANDOC, str(RECORD), "--from=" + MODULE.READER, "--to=json"],
                                         capture_output=True, text=True, check=True).stdout)
         navigation = MODULE.navigation_inputs(ast, RECORD)
-        self.assertEqual((navigation["authored_anchors"], navigation["internal_links"]), (365, 327))
+        self.assertEqual((navigation["authored_anchors"], navigation["internal_links"]), (366, 359))
         self.assertEqual(len(navigation["directory_links_retargeted"]), 5)
         with tempfile.TemporaryDirectory() as folder:
             tex = latex(RECORD, folder)
         anchors = MODULE.ANCHOR.findall(RECORD.read_text(encoding="utf-8"))
-        self.assertEqual(MODULE.check_latex_navigation(tex, anchors), {"latex_hypertargets": 365})
+        self.assertEqual(MODULE.check_latex_navigation(tex, anchors), {"latex_hypertargets": 366})
         self.assertEqual(hashlib.sha256(RECORD.read_bytes()).hexdigest(), before)
 
     def test_every_recorded_passage_keeps_its_anchor(self):

@@ -1,0 +1,829 @@
+{
+  "access_date": "2026-11-04",
+  "entries": [
+    {
+      "id": "ROOT-S01",
+      "title": "Lead reasoning record",
+      "path": "repository/docs/reasoning_record.md",
+      "status": "read scoped",
+      "scope": "Root formal-methods pass: lines 1–434 and 5970–6587; separate primary reader covers all lines. Selected further passages used for cross-checks are named in findings.",
+      "edition": "packet commit 7772e4f2b98149a38ed69b88397982620f94bdac; SHA-256 7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-S02",
+      "title": "Lead PDF",
+      "path": "repository/docs/reasoning_record.pdf",
+      "status": "visually inspected selected pages",
+      "scope": "Pages 1,2,85,86,114,117,118,121,122,125,128,131,132 at approximately normal page size; no new manuscript PDF created.",
+      "edition": "supplied 132-page PDF; SHA-256 ba8002cd4765371c67654b2fd98bbea9dff3704e3a518828e715ce9c69fb24eb",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-S03",
+      "title": "Formal headline challenge, solution and configuration",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean; repository/lean/QuarticCorpus/Unconditional/Solution.lean; repository/lean/QuarticCorpus/Unconditional/comparator.json",
+      "status": "read",
+      "scope": "Complete source definitions and four theorem types; textual agreement check and forwarding inspection. No native execution.",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-S04",
+      "title": "Explicit-circuit family declarations",
+      "path": "repository/lean/QuarticQuery/Paper/ConstructionFamily.lean",
+      "status": "read",
+      "scope": "Complete file; named constant family and existential family endpoint, ordinary parameter map. No native execution.",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-S05",
+      "title": "Recorded paranoid Unconditional comparison",
+      "path": "repository/corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+      "status": "read metadata and source bindings",
+      "scope": "Command, mode, target list, status, commit and toolchain; 70 present source hashes matched; 154 referenced source paths absent from the review packet. This is inspection of a historical record.",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-S06",
+      "title": "Expert companion",
+      "path": "repository/docs/expert_companion.md",
+      "status": "read selected passages",
+      "scope": "Current formal-statement §7 and exact cross-document destination sentences at lines 86,165,177,208,267,329,333–339. No claim to root whole-paper reading.",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-S07",
+      "title": "Exposition",
+      "path": "repository/docs/exposition.md",
+      "status": "read selected passages",
+      "scope": "Current routing paragraph line 49, §7 lines 402–406, and answer section through references. Answers exposed; not a cold student attempt.",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-S08",
+      "title": "OpenAI, A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "path": "paper/extracted.md; paper/source.pdf",
+      "status": "read selected text",
+      "scope": "Extracted pp. 1–3: abstract, Theorem 1.1, historical context, construction and conventions. Specialist agents read the proof passages they cite.",
+      "edition": "5 October 2026 supplied preprint; no claim of independent public availability check",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-S09",
+      "title": "Round-eight feedback and dispositions",
+      "path": "previous_round/returns/expert_paper/feedback.json; previous_round/returns/exposition/feedback.json; previous_round/round8_synthesis.json; previous_round/round8_revision.md",
+      "status": "selected findings read; revision note read",
+      "scope": "15 exact XP/EX findings in root previous_round_audit.json, plus indexed metadata; no root claim to reading every prior finding.",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-S10",
+      "title": "Writing method and reader principles",
+      "path": "skills/graph-to-long/SKILL.md; skills/register/SKILL.md; skills/register-stage.md; skills/quartic-writing-method.md; skills/README.md; reader_principles.md",
+      "status": "read",
+      "scope": "Complete graph-to-long, register, register-stage and local method; method index and all reader principles. Consulted only after scoped first-pass freeze.",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-S11",
+      "title": "Register rule inventory and draft measurements",
+      "path": "register/register_rules.json; register/REGISTER_RULES.md; register/measurement.txt",
+      "status": "read selected rules and inspected measurement headings/specimens",
+      "scope": "RG-02,06,07,10,11,14,15,18,21,23,26 rule and limit fields; broad inventory and first measurement regions. No new numeric benchmark or claim to complete corpus reading.",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-S12",
+      "title": "Supplied SK long-record exemplar",
+      "path": "exemplars/long-reasoning-record.md",
+      "status": "read selected passages",
+      "scope": "Opening lines 1–90 and §12.1–12.2, lines 5142–5258: prerequisites, separation of printed/formal scope, sampled-to-ordinary derivative bridge and finite-index dictionary.",
+      "edition": "26 October 2026 draft",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-W01",
+      "title": "Lean Language Reference: Validating a Lean Proof",
+      "url": "https://lean-lang.org/doc/reference/latest/ValidatingProofs/",
+      "status": "read relevant sections online",
+      "scope": "Printing Axioms; Gold Standard: comparator and external checkers; Trust and Remaining Issues. Current documentation corroborates the conceptual distinction; it is not an audit of the historical run.",
+      "accessed": "2026-11-04",
+      "web_refs": [
+        "turn1view0",
+        "turn2view0"
+      ],
+      "version_note": "Exact /4.36.0-rc2/ValidatingProofs/ address was inaccessible through the web tool; only current page read.",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-W02",
+      "title": "Avigad, Commelin, Macbeth and Topaz, Anatomy of a Formal Proof",
+      "url": "https://arxiv.org/html/2411.11885v1",
+      "status": "read selected sections online",
+      "scope": "Introduction and opening of Understanding the proof: mathematical eigenvector argument, formal statement, binders and hypotheses.",
+      "edition": "arXiv:2411.11885v1, 5 November 2024",
+      "accessed": "2026-11-04",
+      "web_refs": [
+        "turn1view1",
+        "turn2view1"
+      ],
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-W03",
+      "title": "Lean Comparator package documentation",
+      "url": "https://reservoir.lean-lang.org/%40leanprover/Comparator",
+      "status": "searched and inspected returned primary documentation excerpt",
+      "scope": "Configuration fields, same-statement guarantee and permitted-axiom scope; not treated as the pinned executable used in receipts.",
+      "accessed": "2026-11-04",
+      "web_refs": [
+        "turn1search1"
+      ],
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "ROOT-U01",
+      "title": "Pinned GitHub Challenge link",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "status": "online retrieval unavailable; packaged bytes read",
+      "scope": "Web tool returned DisabledError; no remote page or HTTP validity claim. The exact supplied Challenge file was read locally.",
+      "review_observer": "formal/root"
+    },
+    {
+      "id": "Q-S01",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "authors": "OpenAI",
+      "edition": "Preprint dated 5 October 2026, supplied PDF",
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "exact_locators": [
+        "§3.1–§3.3, pp. 7–10",
+        "Appendix A proof passages, pp. 15–17",
+        "extracted.md lines 304–509 and 735–866"
+      ],
+      "status": "read selected passages",
+      "actually_read": "Quantum amplification, probabilistic tournament, final verification, and Appendix A adversary/degree/decision-tree arguments.",
+      "access_date": "2026-11-04",
+      "use": "Baseline mathematical construction and distinction between original asymptotic statements and record refinements.",
+      "supplied_paths": [
+        "paper/source.pdf",
+        "paper/extracted.md"
+      ],
+      "supplied_hashes": {
+        "paper/source.pdf": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+        "paper/extracted.md": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a"
+      },
+      "limits": "Did not open the remote GitHub edition in this specialist pass; supplied bytes are the basis. No claim of full-paper reading.",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-S02",
+      "title": "Tight Bounds on Quantum Searching",
+      "authors": "Michel Boyer; Gilles Brassard; Peter Høyer; Alain Tapp",
+      "edition": "arXiv:quant-ph/9605034v1, 1996; distinct from journal pagination",
+      "url": "https://arxiv.org/abs/quant-ph/9605034v1",
+      "exact_locators": [
+        "§4, Lemma 2 and Theorem 3, printed pp. 3–4",
+        "supplied extracted.md lines 160–296"
+      ],
+      "status": "read selected section",
+      "actually_read": "Unknown-solution Grover iteration distribution, exact averaged success identity, expected-cost analysis and timeout discussion.",
+      "access_date": "2026-11-04",
+      "use": "Check exact averaging formula and narrow the historical comparison around the all-branch cap.",
+      "supplied_paths": [
+        "literature/quartic-ref-11-tight-bounds-on-quantum-searching/source.pdf",
+        "literature/quartic-ref-11-tight-bounds-on-quantum-searching/extracted.md"
+      ],
+      "supplied_hashes": {
+        "literature/quartic-ref-11-tight-bounds-on-quantum-searching/source.pdf": "badd64e3db8079ee2428fc9f869e202d584412b0a003be64464437019d252fde",
+        "literature/quartic-ref-11-tight-bounds-on-quantum-searching/extracted.md": "5f3d4a8f2e6038392ea75490bafdf58150e3d8b2a76c063841cc158531233c8b"
+      },
+      "limits": "Read supplied extraction; no new source PDF rendering performed.",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-S03",
+      "title": "Forrelation: A Problem That Optimally Separates Quantum from Classical Computing",
+      "authors": "Scott Aaronson; Andris Ambainis",
+      "edition": "arXiv:1411.5729v1, 21 November 2014; journal article 2018",
+      "url": "https://arxiv.org/abs/1411.5729v1",
+      "exact_locators": [
+        "§3.2, Figure 1 and Proposition 6, pp. 13–14",
+        "extracted.md lines 640–740"
+      ],
+      "status": "read selected section",
+      "actually_read": "Projection experiment and separate interference construction.",
+      "access_date": "2026-11-04",
+      "use": "Verify Φ² versus (1+Φ)/2 probabilities and the record’s source attribution.",
+      "supplied_paths": [
+        "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md",
+        "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/source.pdf"
+      ],
+      "supplied_hashes": {
+        "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md": "3d4e3dc004cfcc018ddd31bc1d750395b31ab84b9accffd4b764db7f6934c8ab",
+        "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/source.pdf": "c27966b5b6cf12d61e3877f6ac23b48c9a21fe0a86e6b96ef527b02503e4e1fe"
+      },
+      "limits": "Did not inspect the source paper’s entire proof or classical lower bound.",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-S04",
+      "title": "Quantum Search on Bounded-Error Inputs",
+      "authors": "Peter Høyer; Michele Mosca; Ronald de Wolf",
+      "edition": "arXiv:quant-ph/0304052v2, 14 April 2003; ICALP 2003",
+      "url": "https://arxiv.org/abs/quant-ph/0304052v2",
+      "exact_locators": [
+        "§1, pp. 1–3",
+        "§2 and §3 Facts 1–2, pp. 3–7",
+        "§5 generalization; selected extracted text",
+        "online arXiv metadata lines 8–29"
+      ],
+      "status": "read selected sections",
+      "actually_read": "Read introduction, standard bit-query model, bounded-error predicate assumptions, amplitude/error-reduction interface and generalization; skimmed the AND–OR application.",
+      "access_date": "2026-11-04",
+      "use": "Check why this result is not a direct oracle replacement for arbitrary 1/2-biased loser comparisons.",
+      "supplied_paths": [
+        "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/extracted.md",
+        "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/source.tar.gz"
+      ],
+      "supplied_hashes": {
+        "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/extracted.md": "cb04695fcd47585c3989bd3fcb37cfa4d332d691e27763b567d36e5ed976c04b",
+        "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/source.tar.gz": "05d60dca2deb862e7d43848b4dc181422ab62dcc14b6a0e92e19db8c7a2e0907"
+      },
+      "retrieval_refs": [
+        "turn14view0"
+      ],
+      "limits": "The file named source.tar.gz is gzip-compressed hmw03.tex, not a tar archive; format was checked and the header read. This is not a corrupted ZIP claim. No whole-source code read or PDF render.",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-S05",
+      "title": "Quantum Amplitude Amplification and Estimation",
+      "authors": "Gilles Brassard; Peter Høyer; Michele Mosca; Alain Tapp",
+      "edition": "arXiv:quant-ph/0005055v1, May 2000; publication 2002",
+      "url": "https://arxiv.org/abs/quant-ph/0005055v1",
+      "exact_locators": [
+        "§2, Lemma 1 and equation (8), pp. 5–7",
+        "§2, Theorems 2–3 and QSearch",
+        "extracted.md lines 21–155"
+      ],
+      "status": "read selected section",
+      "actually_read": "Two-dimensional good/bad geometry, success-conditioned state, known/unknown probability routines and expected-cost statement.",
+      "access_date": "2026-11-04",
+      "use": "Verify reflection convention, the successful-state claim, and limits of expected-cost comparison.",
+      "supplied_paths": [
+        "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+        "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.pdf"
+      ],
+      "supplied_hashes": {
+        "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md": "9fd98e35695c4bf763e4faa35ac146b18c74c3caf0dee24e3e208923aff71a86",
+        "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/source.pdf": "badedce80b0fe53e6cd93f915ce79c9680e375bb6565f83d2f572bc4114b0278"
+      },
+      "limits": "Source.tex first header lines checked only; do not count that as a full TeX read.",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-S06",
+      "title": "Degree vs. Approximate Degree and Quantum Implications of Huang's Sensitivity Theorem",
+      "authors": "Scott Aaronson; Shalev Ben-David; Robin Kothari; Shravas Rao; Avishay Tal",
+      "edition": "arXiv:2010.12629v1, 23 October 2020",
+      "url": "https://arxiv.org/abs/2010.12629v1",
+      "exact_locators": [
+        "Original PDF §3, Theorem 1 proof pp. 6–7",
+        "Original PDF Definition 8 and Lemma 9, pp. 7–8",
+        "extracted.md lines 1947–2009 read but not used for numbering"
+      ],
+      "status": "read selected original PDF pages as text",
+      "actually_read": "Definition of spectral sensitivity, degree-to-spectral inequality via signed cube, and spectral adversary application.",
+      "access_date": "2026-11-04",
+      "use": "Confirm Appendix A’s theorem locators and distinguish extraction renumbering from a citation error.",
+      "supplied_paths": [
+        "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf",
+        "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md"
+      ],
+      "supplied_hashes": {
+        "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/source.pdf": "445a34b0653042ad482bd95bc2c333d476df7ade6ce5d9ec45714f5b249e39ab",
+        "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md": "fe50f27a93597951aa0e9577d0315a2b4dcdf022122604139232a952d144aa8f"
+      },
+      "limits": "pdftotext output from original PDF pp. 6–8 was read; no source-page raster inspection. Flattened extraction has collapsed mathematical macros and different numbering; original PDF controls.",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-S07",
+      "title": "A Quantum Algorithm for Finding the Minimum",
+      "authors": "Christoph Dürr; Peter Høyer",
+      "edition": "arXiv:quant-ph/9607014v2, 7 January 1999",
+      "url": "https://arxiv.org/pdf/quant-ph/9607014v2",
+      "exact_locators": [
+        "§2, Theorem 1, algorithm and Lemmas 1–2, pp. 1–2",
+        "§3 final remarks, p. 2"
+      ],
+      "status": "read",
+      "actually_read": "Read the two-page algorithm and analysis: ordered values, rank process, successful uniform sampling, and explicit interrupted budget.",
+      "access_date": "2026-11-04",
+      "use": "Compare the current weighted process with rank-based minimum finding; a fixed timeout alone is not the distinctive obstacle.",
+      "retrieval_refs": [
+        "turn9view1",
+        "turn10view1",
+        "turn13view1"
+      ],
+      "limits": "Online extracted PDF text; no screenshot inspection. Search metadata and theorem content both checked.",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-S08",
+      "title": "Randomized and Quantum Query Complexities of Finding a King in a Tournament",
+      "authors": "Nikhil S. Mande; Manaswi Paraashar; Nitin Saurabh",
+      "edition": "FSTTCS 2023, LIPIcs volume 284, article 30; published 12 December 2023",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.30/LIPIcs.FSTTCS.2023.30.pdf",
+      "exact_locators": [
+        "§4, Theorem 19 and proof, pp. 30:11–30:12",
+        "Algorithm 4, p. 30:13"
+      ],
+      "status": "read selected theorem and algorithm",
+      "actually_read": "Read the quantum king-finding theorem, its proof and algorithm; its oracle gives exact edge directions.",
+      "access_date": "2026-11-04",
+      "use": "Distinguish deterministic tournament-edge access from fresh probabilistic comparisons without a fixed orientation.",
+      "retrieval_refs": [
+        "turn8view2",
+        "turn9view0",
+        "turn10view3",
+        "turn10view4"
+      ],
+      "limits": "No claim of full-paper reading or inspection of lower-bound sections.",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-S09",
+      "title": "All Quantum Adversary Methods Are Equivalent",
+      "authors": "Robert Špalek; Mario Szegedy",
+      "edition": "Theory of Computing 2 (2006), 1–18, publisher PDF",
+      "url": "https://theoryofcomputing.org/articles/v002a001/v002a001.pdf",
+      "exact_locators": [
+        "§2.1 oracle convention, p. 4",
+        "§3, Theorem 3.1 and equation (3.1), p. 6",
+        "selected proof passage pp. 13–14"
+      ],
+      "status": "read selected definitions/theorem; skimmed proof comparison",
+      "actually_read": "Checked the ordinary bit-oracle convention and the printed coefficient in the adversary theorem.",
+      "access_date": "2026-11-04",
+      "use": "Verify the record’s exact edition-specific prefactor concern.",
+      "retrieval_refs": [
+        "turn8view0",
+        "turn9view2",
+        "turn9view4"
+      ],
+      "limits": "No author-confirmed erratum was located or claimed; equivalence theorem not independently audited in full.",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-S10",
+      "title": "Negative Weights Make Adversaries Stronger",
+      "authors": "Peter Høyer; Troy Lee; Robert Špalek",
+      "edition": "29-page author-hosted PDF corresponding to 2007 work",
+      "url": "https://www.ucw.cz/~robert/papers/madv.pdf",
+      "exact_locators": [
+        "§1.1, Definition 1 and Theorem 1, printed p. 3"
+      ],
+      "status": "read selected statement",
+      "actually_read": "Checked the nonnegative adversary definition and error-dependent coefficient containing denominator 2.",
+      "access_date": "2026-11-04",
+      "use": "Independent primary comparison for the coefficient used in Appendix A.",
+      "retrieval_refs": [
+        "turn8view1",
+        "turn9view3",
+        "turn10view0"
+      ],
+      "limits": "No claim of reading the full negative-weight construction.",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-S11",
+      "title": "Fixed-Point Quantum Search with an Optimal Number of Queries",
+      "authors": "Theodore J. Yoder; Guang Hao Low; Isaac L. Chuang",
+      "edition": "arXiv:1409.3305v2, 24 November 2014; Phys. Rev. Lett. 113, 210501 (2014)",
+      "url": "https://arxiv.org/pdf/1409.3305v2",
+      "exact_locators": [
+        "Abstract and opening, p. 1",
+        "equations (1)–(3), pp. 1–2",
+        "equations (4)–(11) and circuit discussion, pp. 2–3"
+      ],
+      "status": "read opening and quantitative contract; skimmed construction",
+      "actually_read": "Read the lower-overlap/error-tolerance contract and scaling, then the two-dimensional state description and selected phase construction.",
+      "access_date": "2026-11-04",
+      "use": "New beyond-supplied comparison: fixed-budget amplification can also be organized around a guaranteed overlap range. Mention as optional context, not a demand to replace the proved routine.",
+      "retrieval_refs": [
+        "turn9search0",
+        "turn10view2",
+        "turn13view0"
+      ],
+      "limits": "Did not audit the full phase-polynomial construction or optimality proof. Its oracle units are not automatically identical to the record’s A/A-inverse call count.",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-I01",
+      "path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "status": "read selected ranges",
+      "ranges": [
+        [
+          1,
+          180
+        ],
+        [
+          224,
+          343
+        ]
+      ],
+      "use": "Check model conventions, total addressed-function layout and quantifier order in the generated target statement. Template sorry declarations are not interpreted as missing implementation proofs.",
+      "sha256": "c88be0b70754cb6f93448694002a16e1eb6a25135fa71648d4651f01104e399d",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-I02",
+      "path": "repository/lean/QuarticQuery/Paper/QuantumAmplification.lean",
+      "status": "read selected ranges",
+      "ranges": [
+        [
+          1,
+          32
+        ],
+        [
+          197,
+          244
+        ],
+        [
+          344,
+          425
+        ]
+      ],
+      "use": "Check separate label/state interfaces and explicit two-query read transport. Header labels this wrapper unelaborated; no build claim.",
+      "sha256": "95d89237e766b59ffdd52f1324e440e2127b06353b2c8de2482b9f55c4adb30b",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-I03",
+      "path": "repository/lean/QuarticQuery/Upper/Amplify.lean",
+      "status": "read theorem statement and proof",
+      "ranges": [
+        [
+          346,
+          361
+        ]
+      ],
+      "use": "Samples.amplify returns Runs law through measured/reset implementation; no compiler invocation.",
+      "sha256": "49e808cc6acbb47ad066b1dcf33ac8d47da2f28d88c51d537564e6591eb0d9e1",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-I04",
+      "path": "repository/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
+      "status": "read selected range",
+      "ranges": [
+        [
+          275,
+          312
+        ]
+      ],
+      "use": "Read finite list theorem and its 6072 budget interface; wrapper explicitly unelaborated.",
+      "sha256": "79170491c693d64bc2775acb6de2e5e4fc051f66408ac63a1c7d6b94964046ef",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-I05",
+      "path": "repository/docs/expert_companion.md",
+      "status": "read selected ranges after freeze",
+      "ranges": [
+        [
+          73,
+          178
+        ]
+      ],
+      "use": "Selective cross-document and prior XP audit only.",
+      "sha256": "7fddfa0c37f7d038ba58adde4e7685263f3ba7733d0fd87a8a3eea4ce653f8ab",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-I06",
+      "path": "repository/docs/exposition.md",
+      "status": "read selected ranges after freeze",
+      "ranges": [
+        [
+          51,
+          97
+        ],
+        [
+          157,
+          295
+        ]
+      ],
+      "use": "Selective EX audit; no cold exercise attempt and no answer-lookup claim.",
+      "sha256": "ce1887b35542c06e98132ac843f12eb78e9c4c224e7fb49f8da96255c21b240e",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "Q-I07",
+      "path": "repository/docs/reasoning_record.md",
+      "status": "read selected second-pass ranges",
+      "ranges": [
+        [
+          3773,
+          3825
+        ],
+        [
+          5600,
+          5645
+        ]
+      ],
+      "use": "Verify C_k envelope for XP052 and edition identifiers. These ranges are not added to the frozen chronological scope.",
+      "sha256": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+      "review_observer": "quantum"
+    },
+    {
+      "id": "BS-v3",
+      "title": "Nikhil Bansal and Makrand Sinha, k-Forrelation optimally separates quantum and classical query complexity",
+      "edition": "arXiv:2008.07003v3; revised 17 November 2020; supplied source archive and PDF; STOC 2021 publication is not substituted for this edition",
+      "url": "https://arxiv.org/pdf/2008.07003v3",
+      "access_date": "2026-11-04",
+      "read_status": "read_selected_passages",
+      "actual_read_scope": [
+        "Theorem 1.3 and Corollaries 1.4–1.5, printed PDF p. 4; PDF text read directly.",
+        "Selected introduction and promise definition in supplied extracted.md lines 1–100.",
+        "Theorem 3.1 uniform exceptional-probability and positive-promise-mass statements, located in supplied extract.",
+        "main.tex physical lines 1120–1200, §5.3–5.4, including equation (5.31) and the two successive depth comparisons.",
+        "Printed PDF p. 38 visually checked against the source equations."
+      ],
+      "used_for": [
+        "Verify the exact cited quantitative statement and source attribution.",
+        "Independently confirm the source display loses a log factor Λ^((r/k−1)/2) and writes δ²/(4N) in place of the exceptional-probability scale 4/(Nδ²).",
+        "Restrict the conclusion to the identified v3 displays; no claim that the source theorem is disproved or that authors approved a correction."
+      ],
+      "beyond_supplied_packet": false,
+      "local_sources": [
+        "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.pdf",
+        "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/source.tar.gz"
+      ],
+      "web_reference_ids": [
+        "turn3search0"
+      ],
+      "pdf_pages_visually_inspected": [
+        38
+      ],
+      "limits": "Only the selected theorem and proof passages were audited. No claim of a complete review of all source lemmas or all later editions.",
+      "supplied_source_archive_sha256": "f48a3225662484d12e19bf03412478cf87a388f7c2e33c69a4d7f2078202e015",
+      "review_observer": "classical"
+    },
+    {
+      "id": "Drucker-v2",
+      "title": "Andrew Drucker, Improved direct product theorems for randomized query complexity",
+      "edition": "arXiv:1005.0644v2; supplied edition, distinct from the separately supplied journal-era supplement",
+      "url": "https://arxiv.org/pdf/1005.0644v2",
+      "access_date": "2026-11-04",
+      "read_status": "read_selected_passages",
+      "actual_read_scope": [
+        "§§1.1–1.3: direct-product/XOR distinction, Theorem 1.1, partial-function applicability and the gambler/continuation-value overview.",
+        "Selected §3 proof, supplied extracted.md lines 142–204, including conditional factorization, optimal continuation values and the fair specialization in the final paragraph."
+      ],
+      "used_for": [
+        "Check the every-input cap interpretation and the alternate substitution T=L, ε=1/3, α=3/r, giving 2(2/3)^r.",
+        "Compare the record’s full product proof with the source’s conditional-value mechanism."
+      ],
+      "beyond_supplied_packet": false,
+      "local_sources": [
+        "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+        "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/source.tex"
+      ],
+      "limits": "Selected extracted/source text read; no Drucker PDF page is claimed visually inspected. One combined retrieval truncated a short tangential passage, not the theorem or proof passages used.",
+      "review_observer": "classical"
+    },
+    {
+      "id": "Shaltiel-TR01-009",
+      "title": "Ronen Shaltiel, Towards proving strong direct product theorems",
+      "edition": "ECCC TR01-009 (2001 report); exact report numbering, not later publication numbering",
+      "url": "https://eccc.weizmann.ac.il/report/2001/009/",
+      "access_date": "2026-11-04",
+      "read_status": "read_selected_passages",
+      "actual_read_scope": [
+        "§5, Definition 4, Theorem 5, Lemma 7 and its two-input induction; supplied extracted.md lines 660–723, printed pp. 11–12."
+      ],
+      "used_for": [
+        "Check that fairness is a per-root-to-leaf per-input allowance.",
+        "Distinguish the source’s XOR-advantage formulation from the record’s vector-success formulation."
+      ],
+      "beyond_supplied_packet": false,
+      "local_sources": [
+        "literature/quartic-ref-22-towards-proving-strong-direct-product-theo/extracted.md"
+      ],
+      "limits": "Text selected from supplied report; not a whole-paper reading or visual PDF inspection.",
+      "review_observer": "classical"
+    },
+    {
+      "id": "GTW-v2",
+      "title": "Uma Girish, Avishay Tal and Kewen Wu, Fourier Growth of Parity Decision Trees",
+      "edition": "arXiv:2103.11604v2; ordinary-tree discussion §1.3, Lemma 1.9; conference numbering cited separately as Lemma 9",
+      "url": "https://arxiv.org/abs/2103.11604v2",
+      "access_date": "2026-11-04",
+      "read_status": "read_selected_passages",
+      "actual_read_scope": [
+        "Supplied extracted.md lines 97–163: ordinary decision-tree warm-up, contracted coefficient arrays, martingale induction and stopping.",
+        "The stopping-versus-conditioning footnote located in the supplied converted text, around line 1072."
+      ],
+      "used_for": [
+        "Check the martingale-method attribution and the reason to stop before bad coefficient increments.",
+        "Do not attribute the record’s exact biased raw-derivative theorem and elementary constants verbatim to this source."
+      ],
+      "beyond_supplied_packet": false,
+      "local_sources": [
+        "literature/arxiv-2103-11604/extracted.md",
+        "literature/arxiv-2103-11604/source.tar.gz"
+      ],
+      "limits": "The full parity-decision-tree proof was not read. Conversion footnote numbering differs from printed numbering; the finding requests an edition/page locator rather than asserting the citation is false.",
+      "review_observer": "classical"
+    },
+    {
+      "id": "SSW-v4",
+      "title": "Alexander Sherstov, Andrey Storozhenko and Pei Wu, An optimal separation of randomized and quantum query complexity",
+      "edition": "arXiv:2008.10223v4; PDF Corollaries 4.14–4.15, printed pp. 35–36; later SICOMP 2023 publication",
+      "url": "https://arxiv.org/pdf/2008.10223v4",
+      "access_date": "2026-11-04",
+      "read_status": "read_selected_passages",
+      "actual_read_scope": [
+        "Selected introduction passages distinguishing rorrelation from explicit Forrelation.",
+        "Source quantum-classical-query.tex physical lines 2250–2318, Corollaries 4.14–4.15 and bounded-real-leaf extension.",
+        "Printed PDF pp. 35–36 visually inspected, including the convex-mixture proof of the real-valued extension and the start of the query-model definitions."
+      ],
+      "used_for": [
+        "Verify the exact F56 Fourier-growth input, its leaf-value range and binomial dependence.",
+        "Audit the record’s separate random-restriction transfer and variable-error calculation without importing a rorrelation distribution theorem."
+      ],
+      "beyond_supplied_packet": false,
+      "local_sources": [
+        "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/source.pdf",
+        "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/source.tar.gz"
+      ],
+      "pdf_pages_visually_inspected": [
+        35,
+        36
+      ],
+      "limits": "No certified numerical value of the absolute C is claimed. Selected source theorem and extension read, not the whole paper.",
+      "review_observer": "classical"
+    },
+    {
+      "id": "ABK-v2",
+      "title": "Scott Aaronson, Shalev Ben-David and Robin Kothari, Separations in query complexity using cheat sheets",
+      "edition": "arXiv:1511.01937v2; STOC 2016",
+      "url": "https://arxiv.org/pdf/1511.01937v2",
+      "access_date": "2026-11-04",
+      "read_status": "read_selected_passages",
+      "actual_read_scope": [
+        "PDF text of printed pp. 20–22: §6.1 Definitions 14–15, Theorem 16 and §6.2 Lemma 17 proof; later Lemma 18 opening also visible but not used."
+      ],
+      "used_for": [
+        "Verify address/certificate antecedent and exact cited lemma numbering.",
+        "Check that Lemma 17 is an upper-bound lemma, not the planted lower theorem of this record."
+      ],
+      "beyond_supplied_packet": false,
+      "local_sources": [
+        "literature/quartic-ref-02-separations-in-query-complexity-using-chea/source.pdf"
+      ],
+      "limits": "Read through PDF text extraction; these pages were not visually inspected. The converted Markdown renumbers some statements, so PDF numbering governs.",
+      "review_observer": "classical"
+    },
+    {
+      "id": "OpenAI-preprint-2026",
+      "title": "OpenAI, A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "edition": "Supplied preprint dated 5 October 2026",
+      "url": null,
+      "access_date": "2026-11-04",
+      "read_status": "read_selected_passages",
+      "actual_read_scope": [
+        "Supplied extracted.md lines 515–715, printed pp. 11–14: Lemma 4.1, finite minimax step, Proposition 4.2 coupling, early/late search, capped simulator and fixed-exponent conclusion."
+      ],
+      "used_for": [
+        "Compare the reconstructed ordinary argument with the supplied preprint and its event conventions."
+      ],
+      "beyond_supplied_packet": false,
+      "local_sources": [
+        "paper/extracted.md",
+        "paper/source.pdf"
+      ],
+      "limits": "The source is supplied locally. No external canonical URL or independent publication status is inferred; the full preprint was not reread by this specialist.",
+      "review_observer": "classical"
+    },
+    {
+      "id": "BD-Blais-DPT-2025",
+      "title": "Shalev Ben-David and Eric Blais, Direct Product Theorems for Randomized Query Complexity",
+      "edition": "arXiv:2512.08268v1, submitted 9 December 2025; FOCS 2025 publication metadata",
+      "url": "https://arxiv.org/html/2512.08268v1",
+      "access_date": "2026-11-04",
+      "read_status": "read_selected_passages",
+      "actual_read_scope": [
+        "Abstract and introduction, HTML lines approximately 114–137: explicit worst-case-over-input-and-coins definition of cost and contrast with expected-cost regimes.",
+        "Selected introductory discussion in §1.1, through approximately line 290; mathematical rendering contains diagram markup, so this is not treated as a proof reading."
+      ],
+      "used_for": [
+        "A new primary source beyond the packet supporting the importance of specifying the cost regime before comparing direct-product statements."
+      ],
+      "beyond_supplied_packet": true,
+      "web_reference_ids": [
+        "turn4academia6",
+        "turn5view0",
+        "turn6view0",
+        "turn6view1"
+      ],
+      "limits": "No theorem from this paper is needed to repair or strengthen the record. Only introductory definitions/comparisons are used; no full technical proof review.",
+      "review_observer": "classical"
+    },
+    {
+      "id": "BD-Blais-minimax-2023",
+      "title": "Shalev Ben-David and Eric Blais, A New Minimax Theorem for Randomized Algorithms",
+      "edition": "Author-hosted 59-page manuscript associated with the 2023 JACM publication; retrieved 4 November 2026",
+      "url": "https://cs.uwaterloo.ca/~eblais/assets/pdf/minimax.pdf",
+      "access_date": "2026-11-04",
+      "read_status": "read_selected_passages",
+      "actual_read_scope": [
+        "Abstract and introduction, printed pp. 1–2: classical minimax context and caveats concerning the dependence of hard distributions on error parameters and balance."
+      ],
+      "used_for": [
+        "A new primary source beyond the packet used to sharpen the explanation of which parameters are fixed before choosing µ."
+      ],
+      "beyond_supplied_packet": true,
+      "web_reference_ids": [
+        "turn4search1",
+        "turn6view2"
+      ],
+      "limits": "The stronger new minimax theorem is not imported. An attempted arXiv HTML route https://arxiv.org/html/2002.10802v3 returned DisabledError; the author PDF fallback was accessible. PDF was read through browser extraction, not rendered locally.",
+      "review_observer": "classical"
+    },
+    {
+      "id": "ManySamples-ICALP2020",
+      "title": "Andrew Bassilakis, Andrew Drucker, Mika Göös, Lunjia Hu, Weiyun Ma and Li-Yang Tan, The Power of Many Samples in Query Complexity",
+      "edition": "ICALP 2020, LIPIcs 168, article 9; DOI 10.4230/LIPIcs.ICALP.2020.9",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2020.9",
+      "access_date": "2026-11-04",
+      "read_status": "skimmed_metadata_and_abstract",
+      "actual_read_scope": [
+        "Official publisher metadata and abstract only."
+      ],
+      "used_for": [
+        "Contextual search lead; no technical theorem is used in the findings."
+      ],
+      "beyond_supplied_packet": true,
+      "web_reference_ids": [
+        "turn5view2"
+      ],
+      "limits": "Do not list this as a paper whose proof was read.",
+      "review_observer": "classical"
+    },
+    {
+      "id": "PRIMARY-LEAD",
+      "title": "Lead reasoning record",
+      "path": "repository/docs/reasoning_record.md",
+      "status": "complete source reading",
+      "scope": "Lines 1–6587, including all catalogue entries and reference definitions. Per-unit state fields reconstructed after narrative freeze.",
+      "sha256": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+      "review_observer": "primary outside mathematician"
+    }
+  ],
+  "rule": "Each scope is the actual reading performed by its named simulated perspective. Repeated editions are separate observer records, not extra independent sources. Unlisted supplied works are not claimed as read.",
+  "root_followup_web_checks": [
+    {
+      "url": "https://arxiv.org/html/2512.08268v1",
+      "scope": "Abstract and opening cost definition, through HTML line120",
+      "ref": "turn15view0"
+    },
+    {
+      "url": "https://cs.uwaterloo.ca/~eblais/assets/pdf/minimax.pdf",
+      "scope": "Abstract and introduction, printed pp1–2",
+      "ref": "turn15view1"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1409.3305v2",
+      "scope": "Opening and equations1–3, pp1–2",
+      "ref": "turn15view2"
+    },
+    {
+      "url": "https://theoryofcomputing.org/articles/v002a001/v002a001.pdf",
+      "scope": "Theorem3.1/equation3.1, printed p6",
+      "ref": "turn16view0"
+    },
+    {
+      "url": "https://www.ucw.cz/~robert/papers/madv.pdf",
+      "scope": "Definition1 and Theorem1, printed p3",
+      "ref": "turn16view1"
+    },
+    {
+      "url": "https://arxiv.org/pdf/quant-ph/9607014v2",
+      "scope": "Algorithm and interrupted budget; initial rank calculation, pp1–2",
+      "ref": "turn16view2"
+    },
+    {
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.30/LIPIcs.FSTTCS.2023.30.pdf",
+      "scope": "Theorem19 and Algorithm4, pp30:11–30:13",
+      "ref": "turn17view0"
+    },
+    {
+      "url": "https://arxiv.org/abs/quant-ph/0304052v2",
+      "scope": "Version metadata and abstract only; specialist read the supplied selected text",
+      "ref": "turn17view1"
+    }
+  ]
+}

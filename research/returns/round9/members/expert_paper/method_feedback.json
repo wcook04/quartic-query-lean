@@ -1,0 +1,218 @@
+{
+  "review_date": "2026-11-04",
+  "method_feedback": [
+    {
+      "id": "METHOD-01",
+      "rule_or_skill": "long-to-short: model the reader and distinguish contribution from source",
+      "classification": "better application of existing rule",
+      "current_evidence": [
+        "expert_companion.md:34; XP9-011",
+        "OpenAI source §3.1 and §4.2 already prove the two named reductions"
+      ],
+      "mechanism_of_failure": "Naming an inherited mechanism as the focal contribution does not explain the value added by a reconstruction.",
+      "proposed_general_change": "Compare the proposed contribution sentence directly with the primary source’s theorem and proof claims; name existing added derivations, examples, constants or correspondence separately.",
+      "limits": "A reconstruction need not claim a new theorem. Do not manufacture novelty or downgrade the original result.",
+      "source_method_id": "ED-M01"
+    },
+    {
+      "id": "METHOD-02",
+      "rule_or_skill": "long-to-short Procedure 2: title, abstract and theorem state the same scope",
+      "classification": "better application of existing rule",
+      "current_evidence": [
+        "expert_companion.md:9,24–30,325–329; XP9-001,XP9-139"
+      ],
+      "mechanism_of_failure": "The abstract uses a one-family asymptotic while the main theorem supplies fixed-parameter families and the one-family proof is called optional.",
+      "proposed_general_change": "Map every abstract formula to the exact body statement and dependency route that proves it, including whether a varying parameter needs an extra uniform input.",
+      "limits": "An abstract may compress quantifiers, but must not silently merge genuinely different conclusions.",
+      "source_method_id": "ED-M02"
+    },
+    {
+      "id": "METHOD-03",
+      "rule_or_skill": "source-to-graph credit; long-to-short portable theorem statements",
+      "classification": "refinement of existing rule",
+      "current_evidence": [
+        "expert_companion.md:24–32,99; XP9-008,XP9-046"
+      ],
+      "mechanism_of_failure": "Credit placed only in a following paragraph is lost when a theorem or supplier statement is quoted independently.",
+      "proposed_general_change": "Bind original attribution and reconstructed numeric refinements at the statement that contains them.",
+      "limits": "Do not repeat a provenance disclaimer after every routine consequence; apply to actual strengthened or newly explicit statements.",
+      "source_method_id": "ED-M03"
+    },
+    {
+      "id": "METHOD-04",
+      "rule_or_skill": "long-to-short local interfaces and optional-route navigation",
+      "classification": "refinement of existing rule",
+      "current_evidence": [
+        "expert_companion.md:302,325; XP9-140",
+        "current reasoning_record.md:3788–3797"
+      ],
+      "mechanism_of_failure": "A route cites the right theorems but changes the budget variable without saying so; the preceding threshold then looks violated.",
+      "proposed_general_change": "At a route change, identify which inherited parameter value is retained and which is replaced, before giving the downstream conclusion.",
+      "limits": "Do not demand new theorems or formalisation; here the needed floor(X) choice already exists in the record.",
+      "source_method_id": "ED-M04"
+    },
+    {
+      "id": "METHOD-05",
+      "rule_or_skill": "chronological first-encounter review; register line editing",
+      "classification": "better application of existing rule",
+      "current_evidence": [
+        "expert_companion.md:122,147; XP9-059",
+        "prior XP153 repaired placement by previewing W/m"
+      ],
+      "mechanism_of_failure": "A local repair resolves motivation while introducing an undefined symbol earlier than its definition.",
+      "proposed_general_change": "After a repair, rerun the first-use check from the preceding sentence, including newly introduced symbols and referents.",
+      "limits": "Definitions may be intentionally deferred in an abstract or overview when their mathematical roles are given in words.",
+      "source_method_id": "ED-M05"
+    },
+    {
+      "id": "METHOD-06",
+      "rule_or_skill": "graph-to-long complete algorithms; local operation reconstruction",
+      "classification": "better application of existing rule",
+      "current_evidence": [
+        "expert_companion.md:126; XP9-063",
+        "OpenAI source §3.1 gives an actual integer cutoff"
+      ],
+      "mechanism_of_failure": "Asymptotic notation is used inside an operational sampling instruction whose success requires a particular constant.",
+      "proposed_general_change": "Distinguish a resource bound from a parameter choice: supply an admissible value for the latter, even when reporting the final resource asymptotically.",
+      "limits": "Do not expand every standard algorithm; insist only when the missing constant determines validity of the described procedure.",
+      "source_method_id": "ED-M06"
+    },
+    {
+      "id": "METHOD-07",
+      "rule_or_skill": "source-to-graph and long-to-short: preserve all boundary cases",
+      "classification": "better application of existing rule",
+      "current_evidence": [
+        "expert_companion.md:249; XP9-117",
+        "source preprint explicitly handles a stopped simulated run"
+      ],
+      "mechanism_of_failure": "Condensation retains abort and wrong-query cases but drops early termination before the nominated time.",
+      "proposed_general_change": "When transferring an algorithm, check each source exit condition against the revised procedure’s total output contract.",
+      "limits": "Treat a missing stated branch as a repairable completeness issue unless it actually invalidates the argument.",
+      "source_method_id": "ED-M07"
+    },
+    {
+      "id": "METHOD-08",
+      "rule_or_skill": "formal statement reporting; statement_evidence_contract.md",
+      "classification": "better application of existing rule",
+      "current_evidence": [
+        "expert_companion.md:333,337; XP9-144"
+      ],
+      "mechanism_of_failure": "A readable link label says separating family immediately after a growing-k family, although its target quantifies fixed k.",
+      "proposed_general_change": "Choose natural-language link labels that identify the material quantifier distinction, not merely the common topic.",
+      "limits": "Keep toolchain details out of the main paper; do not relabel a built result as compared or infer new checks.",
+      "source_method_id": "ED-M08"
+    },
+    {
+      "id": "METHOD-09",
+      "rule_or_skill": "round-eight example input/domain/output/resource rule",
+      "classification": "better application of existing rule",
+      "current_evidence": [
+        "expert_companion.md:369,377; XP9-160,XP9-162"
+      ],
+      "mechanism_of_failure": "Small probability examples inherit a sampling law from distant text while claiming exact finite optima locally.",
+      "proposed_general_change": "State the actual random-input law at each standalone probability counterexample, especially when independence alone is insufficient.",
+      "limits": "Do not repeat an entire model definition; one local phrase can suffice.",
+      "source_method_id": "ED-M09"
+    },
+    {
+      "id": "METHOD-10",
+      "rule_or_skill": "method packet self-containment and link-destination checking",
+      "classification": "better application of existing rule",
+      "current_evidence": [
+        "skills/quartic-writing-method.md links to statement_evidence_contract.md as a sibling",
+        "That sibling is absent; the available file is repository/docs/statement_evidence_contract.md"
+      ],
+      "mechanism_of_failure": "Copying a guide to a new directory preserves its bytes but breaks relative destinations.",
+      "proposed_general_change": "Validate relative links from the delivered location, or package the guide with its original sibling tree; provide a declared relocation map when necessary.",
+      "limits": "This is a packaging defect in the supplied method copy, not evidence against the mathematics or a request to change the manuscript.",
+      "source_method_id": "ED-M10"
+    },
+    {
+      "id": "METHOD-11",
+      "rule_or_skill": "chronological review: simulation and measurement limits",
+      "classification": "limit on method claims",
+      "current_evidence": [
+        "reviews/editor_first_pass.md frozen before verification",
+        "reviews/editor_units.json annotated afterward from frozen notes",
+        "Multiple model perspectives share inherited context"
+      ],
+      "mechanism_of_failure": "A complete coverage file can be mistaken for an observed fresh human protocol or for notes recorded before every sentence.",
+      "proposed_general_change": "Distinguish the original frozen encounter log, later reconstructed unit annotations, supporting-source checks and actual human observations in coverage metadata.",
+      "limits": "No number of emulated perspectives creates independent blinded human readers or demonstrates improved comprehension.",
+      "source_method_id": "ED-M11"
+    },
+    {
+      "id": "METHOD-12",
+      "rule_or_skill": "round-nine no-padding requirement and severity ranking",
+      "classification": "better application of existing rule",
+      "current_evidence": [
+        "73 editor findings include many low-impact ordering and wording options",
+        "Current paper already resolves 24 of 37 inspected previous findings"
+      ],
+      "mechanism_of_failure": "A high target count can turn useful alternatives into categorical defects and recycle repaired complaints.",
+      "proposed_general_change": "Record confidence, reader-specific cost and concrete repair direction; permit rejection of low-impact preferences and keep resolved history outside the improvement count.",
+      "limits": "The advice count measures reported opportunities only, not error prevalence or review completeness.",
+      "source_method_id": "ED-M12"
+    },
+    {
+      "id": "METHOD-13",
+      "rule_or_skill": "register: quantitative detectors are not editorial verdicts",
+      "classification": "better application of existing rule",
+      "current_evidence": [
+        "Supplied pointer and quartic-upper-bound extractions contain broken macros",
+        "No new numerical register baseline computed in this review"
+      ],
+      "mechanism_of_failure": "Measuring damaged extraction can make source-dependent notation failures look like style differences.",
+      "proposed_general_change": "Inspect any passage used for a quantitative comparison against its original edition before computing or applying a threshold. Use qualitative task-matched comparisons when extraction is unsuitable.",
+      "limits": "Do not claim the present qualitative comparisons outperform a corpus average or predict referee response.",
+      "source_method_id": "ED-M13"
+    },
+    {
+      "rule_or_skill": "Mathematical criticism: test the exact defined operation before diagnosing an error",
+      "classification": "better application of existing rule",
+      "current_evidence": [
+        "Expert companion A.3, line 365; frozen root and quantum hypothesis; verification/finite_checks.json A3_dominance"
+      ],
+      "mechanism_of_failure": "The initial suspicion imported a need for correct decoding into a comparator whose tie rule already makes that need irrelevant.",
+      "proposed_general_change": "Enumerate the operation’s reachable output cases, including tie-breaking, before upgrading an uncertainty to an error. Preserve the initial uncertainty and append the corrected disposition.",
+      "limits": "Finite case analysis settles this example only; it is not general theorem certification.",
+      "id": "METHOD-14"
+    },
+    {
+      "rule_or_skill": "Exact-probability interfaces and dependency graphs",
+      "classification": "refinement of existing rule",
+      "current_evidence": [
+        "XP9-135, XP9-137, XP9-140",
+        "Current reasoning record §3.12 and §7.3"
+      ],
+      "mechanism_of_failure": "A statement changes representation—from a deterministic tree to a randomized acceptance function—or changes a resource parameter without restating the connecting map.",
+      "proposed_general_change": "At each change of algorithm model or parameter regime, show the existing averaging, amplification-depth or substitution identity before applying the next theorem.",
+      "limits": "The request is to expose already established bridges, not introduce stronger hypotheses or new results.",
+      "id": "METHOD-15"
+    },
+    {
+      "rule_or_skill": "Chronological protocol and coverage reporting",
+      "classification": "limit on method claims",
+      "current_evidence": [
+        "coverage.json protocol_limits; first_pass/; sentence_audit.jsonl annotation_mode"
+      ],
+      "mechanism_of_failure": "Parallel simulated perspectives and retrospective expansion of frozen notes do not instantiate a serial, contemporaneous sentence-by-sentence human reading.",
+      "proposed_general_change": "Specify the protocol actually followed, distinguish frozen observation from later annotation, and record generated-reference order and pre-exposure. If strict serial first-encounter measurement is essential, obtain it before exposing later materials.",
+      "limits": "This review cannot retrospectively recover an unobserved reading state or claim independent blind readers.",
+      "id": "METHOD-16"
+    },
+    {
+      "rule_or_skill": "Review-count targets and semantic consolidation",
+      "classification": "better application of existing rule",
+      "current_evidence": [
+        "feedback.json counting; verification/new_finding_adjudication.json; reviews of already-repaired endpoints and guarded promises"
+      ],
+      "mechanism_of_failure": "Different lenses can restate one repair or mistake a locally available endpoint convention for a new defect.",
+      "proposed_general_change": "Consolidate by the action a reviser would perform, preserve useful secondary locators, and report withdrawals and residual gaps separately from the action count.",
+      "limits": "The accepted count is not a defect rate, proof of completeness or measure of the manuscript’s mathematical correctness.",
+      "id": "METHOD-17"
+    }
+  ],
+  "skills_changed": false,
+  "classification_note": "Most findings call for more faithful application of existing instructions; proposed refinements are bounded and have not been validated by a human reader study."
+}

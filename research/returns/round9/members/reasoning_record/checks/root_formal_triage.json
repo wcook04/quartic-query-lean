@@ -1,0 +1,112 @@
+{
+  "scope": "Independent requested followup verification of ten root candidates; current tail text read after frozen scoped encounter. No new findings.",
+  "items": [
+    {
+      "id": "F015",
+      "verdict": "retain_downgrade",
+      "suggested_severity": "medium",
+      "current_evidence_lines": [
+        5973
+      ],
+      "reason": "The current-status link is explicit before the history. Retain only publication-order criticism; remove any claim that readers must traverse history to locate status."
+    },
+    {
+      "id": "F045",
+      "verdict": "retain_downgrade",
+      "suggested_severity": "medium",
+      "current_evidence_lines": [
+        6168,
+        6188,
+        6192
+      ],
+      "reason": "The heading is broader than the heterogeneous section, but transition and individual entries distinguish evidence. Rename for scanning accuracy, not missing status."
+    },
+    {
+      "id": "F049",
+      "verdict": "retain",
+      "suggested_severity": "high",
+      "current_evidence_lines": [
+        6188,
+        6461,
+        6586
+      ],
+      "reason": "Independent metadata scan finds 126 Lean reference definitions, all pinned to b8db5326715e5a4ce6996cde0768b92b5fcd5177. d234866 occurs only in the narrative at 6188. This establishes a stated-pin mismatch, not source-byte or mathematical inequality."
+    },
+    {
+      "id": "F053",
+      "verdict": "drop",
+      "suggested_severity": null,
+      "current_evidence_lines": [
+        6228
+      ],
+      "reason": "The stronger judgment is expressly limited to uniformity and exact success mass, with narrower event representation immediately stated."
+    },
+    {
+      "id": "F054",
+      "verdict": "drop",
+      "suggested_severity": null,
+      "current_evidence_lines": [
+        6240
+      ],
+      "reason": "Stronger and narrower occur in the same sentence, followed by recursive compliance and the ordinary identification link. The claimed separation is not present."
+    },
+    {
+      "id": "F060",
+      "verdict": "drop",
+      "suggested_severity": null,
+      "current_evidence_lines": [
+        6293
+      ],
+      "reason": "The paragraph explicitly distinguishes the printed lemma, added diagnostic, expanded ledger and why partial applies only to that expanded row. No silent expansion or missing scope explanation survives."
+    },
+    {
+      "id": "F061",
+      "verdict": "drop",
+      "suggested_severity": null,
+      "current_evidence_lines": [
+        6307,
+        6309,
+        6311
+      ],
+      "reason": "Headline measured route and separately built unused list route are distinguished repeatedly before the shared mathematical-stage sentence. No missing dependency distinction."
+    },
+    {
+      "id": "F067",
+      "verdict": "drop_broad_absence_claim",
+      "suggested_severity": null,
+      "current_evidence_lines": [
+        6339,
+        6342,
+        6347,
+        6349
+      ],
+      "reason": "The successful-factor equality, proposed-interface destination and physical compiler/copied-label/uncomputation obligation are explicit. Only an isolated terminology preference could remain."
+    },
+    {
+      "id": "F068",
+      "verdict": "retain_downgrade",
+      "suggested_severity": "low",
+      "current_evidence_lines": [
+        6376,
+        6377,
+        6378,
+        6379,
+        6380,
+        6383
+      ],
+      "reason": "Ordinary induction and no-Lean status are present. Separate presentation can improve findability; do not call the bridge absent."
+    },
+    {
+      "id": "F070",
+      "verdict": "retain",
+      "suggested_severity": "medium",
+      "current_evidence_lines": [
+        6394,
+        6395,
+        6404,
+        6405
+      ],
+      "reason": "The paragraph genuinely accumulates declaration history, alternatives, premises and dimension translation before the displays. Reordering is valid organization advice without a missing-scope claim."
+    }
+  ]
+}

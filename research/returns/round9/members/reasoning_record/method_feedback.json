@@ -1,0 +1,323 @@
+{
+  "scope": "Review advice only. No skill files were changed. These proposals arise from the current packet; source precedents and simulated reconstruction do not establish improved human learning.",
+  "items": [
+    {
+      "id": "MF01",
+      "rule_or_skill": "graph-to-long: Audit the formal statement, final bullet; local writing method: proof-link edition",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          6188,
+          6461,
+          6586
+        ],
+        "observation": "The version sentence names d234866 while the current Lean links name b8db532... ."
+      },
+      "mechanism_of_failure": "Generated destinations were updated without updating nearby prose that names their edition. A working anchor check cannot detect this semantic contradiction.",
+      "proposed_general_change": "Reapply the existing published-set rule with a check comparing human-facing version claims to actual link pins; inspect any claimed source-byte equivalence separately.",
+      "classification": "better application of existing rule",
+      "transfer_test": "Use both a paper-to-code pin and a dataset-version sentence; require agreement in each.",
+      "exception": "Do not equate a changed repository commit with changed proof bytes when a declared closure is byte-identical.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF02",
+      "rule_or_skill": "RG-21 and graph-to-long: Audit the formal statement",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          5970,
+          6058,
+          6168
+        ],
+        "observation": "Execution history precedes the current bounded statement-check route; the compared-statements heading includes ordinary-only entries."
+      },
+      "mechanism_of_failure": "Moving bookkeeping to an appendix can preserve its original accumulation order rather than the reader's current task.",
+      "proposed_general_change": "Order an evidence appendix by current question, current claim/status, then optional history; use headings that match the scope of every entry.",
+      "classification": "refinement of existing rule",
+      "transfer_test": "Apply to a mathematical formalization and to a replicated experimental paper with many run logs.",
+      "exception": "A historical study may legitimately put chronology first when chronology is its research object.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF03",
+      "rule_or_skill": "graph-to-long: fidelity comparison along separate axes",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          4639,
+          6174,
+          6264,
+          6452
+        ],
+        "observation": "The record already explains clause-relative coverage, but an individual catalogue row requires several lookups to recover its current support."
+      },
+      "mechanism_of_failure": "Scope explanations distributed across group notes and a later evidence appendix do not automatically accompany an extracted row.",
+      "proposed_general_change": "Add a stable crosswalk separating original claim clauses, supplying declarations and single-primary versus aggregate support, while preserving literal historical quotations.",
+      "classification": "better application of existing rule",
+      "transfer_test": "Compare finite versus measurable seed laws and sampled versus ordinary derivatives in the supplied SK exemplar.",
+      "exception": "A single exact type match with identical hypotheses needs no multidimensional table.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF04",
+      "rule_or_skill": "RG-15 and RG-21",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          6004,
+          6152,
+          6284,
+          6315,
+          6458
+        ],
+        "observation": "Historical correction sentences and repeated generic evidence limits interrupt current contracts."
+      },
+      "mechanism_of_failure": "A rule to preserve every earlier correction can turn provenance into repeated reader-facing prose.",
+      "proposed_general_change": "Retain the archival evidence while giving each current limitation one authoritative local statement and targeted links from other entries.",
+      "classification": "better application of existing rule",
+      "transfer_test": "Use a corrected source citation and an upgraded laboratory calibration as two cases.",
+      "exception": "Repeat a boundary when a second entry has a materially different reader or a materially different implication at risk.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF05",
+      "rule_or_skill": "RG-06; graph-to-long: bounded task with a stopping point",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          14,
+          22,
+          6068,
+          6072
+        ],
+        "observation": "The long record has several prose maps, while the five-step formal route ends with a broad section destination."
+      },
+      "mechanism_of_failure": "Presence of a route map is tested, but completing the promised operation is not.",
+      "proposed_general_change": "Test each route by its final observable: identify the precise contract, perform the omitted inference and return to one exact continuation. Add page-aware navigation for long PDFs.",
+      "classification": "better application of existing rule",
+      "transfer_test": "Trace a proof detour in a theorem record and a methods detour in an empirical supplement.",
+      "exception": "Do not require every short document to contain a route map or contents page.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF06",
+      "rule_or_skill": "RG-11; graph-to-long steps 3–4",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          155,
+          326,
+          6068,
+          6327,
+          6345
+        ],
+        "observation": "Aliases, invariant maps and auxiliary register symbols arrive without their complete local dictionary."
+      },
+      "mechanism_of_failure": "A definition exists somewhere in the record, but the entry being audited does not establish the needed type or role.",
+      "proposed_general_change": "Check first availability relative to each authorized entry point, and recall only the minimal type, index conversion and invariant needed there.",
+      "classification": "better application of existing rule",
+      "transfer_test": "Use J as a Hilbert-space factor and a zero-based finite-sum index as contrasting tests.",
+      "exception": "Do not repeat a full definition at every occurrence on an uninterrupted sequential route.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF07",
+      "rule_or_skill": "RG-07 and graph-to-long source-comparison rules",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          7,
+          1612,
+          5857
+        ],
+        "observation": "The record describes an independent reconstruction and discusses errors in two cited source displays."
+      },
+      "mechanism_of_failure": "Independence of reconstruction, methodological novelty and validity of the cited theorem are different claims that can be merged by a single verb.",
+      "proposed_general_change": "Require the contribution statement and each source-error conclusion to identify exactly what was reconstructed, borrowed, checked or left undecided.",
+      "classification": "better application of existing rule",
+      "transfer_test": "Compare a repaired inequality in a published proof and an independently implemented numerical method.",
+      "exception": "Do not weaken a theorem claim merely because a harmless typographical error has a verified local correction.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF08",
+      "rule_or_skill": "RG-10 and register stage: paragraph boundaries",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          5989,
+          6150,
+          6319,
+          6394
+        ],
+        "observation": "Some paragraphs combine status taxonomy, source history, theorem transport and reader instructions."
+      },
+      "mechanism_of_failure": "A raw token threshold can split the wrong place, while treating a contract as indivisible can leave several tasks fused.",
+      "proposed_general_change": "Split at changes of mathematical or evidential task and preserve each hypothesis with its use; interpret the existing approximate length heuristic through that criterion.",
+      "classification": "refinement of existing rule",
+      "transfer_test": "Test a probability-conditioning argument and a formal-claim status paragraph.",
+      "exception": "A long induction contract can remain one paragraph when splitting it would detach the hypotheses from their conclusion.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF09",
+      "rule_or_skill": "RG-21 and graph-to-long trust/evidence scope",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          6170
+        ],
+        "observation": "The receipt says sandboxed=false while the prose reports paranoid mode and external checking."
+      },
+      "mechanism_of_failure": "Two independent dimensions of a recorded procedure are conflated in a reassuring mode name.",
+      "proposed_general_change": "Report the actual relevant run mode next to the dated result and keep process isolation, checker choice and statement scope distinct.",
+      "classification": "better application of existing rule",
+      "transfer_test": "Compare an unsandboxed proof check and an offline benchmark with a separately controlled data boundary.",
+      "exception": "This rule does not require new runs, a security warning, or dismissal of a mathematical result merely because its execution mode differs.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF10",
+      "rule_or_skill": "register skill §§1–3; register-stage.md final paragraphs",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          6150,
+          6168,
+          6436
+        ],
+        "observation": "The packet's mixed 42-document profile spans all three genres, while apparatus has its own task in the long record."
+      },
+      "mechanism_of_failure": "A whole-document status-word score can penalize precisely the evidence vocabulary required by the formal appendix.",
+      "proposed_general_change": "Use the existing genre/region distinction before interpreting any measurement; keep broad metrics as context and prefer exact task-matched comparisons.",
+      "classification": "better application of existing rule",
+      "transfer_test": "Compare a proof body and its evidence appendix separately, then compare a teaching answer key and a research abstract separately.",
+      "exception": "Do not prescribe a target rate of negations, sentences, status words or we.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF11",
+      "rule_or_skill": "chronological_reading.md: first pass and simulation limits",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          3,
+          349,
+          5970
+        ],
+        "observation": "One primary source-order pass and three scoped passes were frozen; inherited transcript exposure remained, and the per-unit states were reconstructed after the complete reading."
+      },
+      "mechanism_of_failure": "Calling every perspective cold or independent would inflate the evidence; retrospective checks could silently overwrite the encounter log.",
+      "proposed_general_change": "Preserve immutable first-pass files and hashes, disclose inherited exposure and scoped jumps, and append resolutions with their locators instead of editing the initial state.",
+      "classification": "better application of existing protocol",
+      "transfer_test": "Test a later-defined symbol and an answer-exposed exercise; in both cases preserve the original knowledge boundary.",
+      "exception": "A simulated log is editorial evidence even when complete; it is not an observed human comprehension study.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF12",
+      "rule_or_skill": "chronological_reading.md: sentence coverage",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          158,
+          386,
+          4092,
+          6460
+        ],
+        "observation": "The source includes prose sentences, math displays, table rows, catalogue quotations, HTML anchors and reference definitions."
+      },
+      "mechanism_of_failure": "Automatic punctuation splitting can merge unrelated sentences, split formulas, or count source markers as reading events.",
+      "proposed_general_change": "Keep a source-span partition, manually inspect semantic sentence boundaries, classify rendered and nonrendered objects separately, and report the coverage unit count independently of finding count.",
+      "classification": "refinement of existing protocol",
+      "transfer_test": "Use an abbreviated citation inside prose and a multi-line equation followed by a catalogue entry.",
+      "exception": "Mechanical segmentation is useful indexing but does not prove that the semantic units were read.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF13",
+      "rule_or_skill": "READ_ME_FIRST finding target and RG-02",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          1,
+          6587
+        ],
+        "observation": "The assignment asks for about 400 improvements but explicitly rejects padding and duplicated complaints."
+      },
+      "mechanism_of_failure": "A numerical target can cause one structural issue to be split into many near-identical findings or repeated across personas.",
+      "proposed_general_change": "After collection, merge findings that have the same repair and reader cost; retain separate IDs only when a distinct local operation, scope or repair remains. State any shortfall and coverage separately.",
+      "classification": "better application of existing rule",
+      "transfer_test": "Compare recurring vague referents with a single missing notation dictionary; test whether one repair resolves them all.",
+      "exception": "Distinct mathematical uses of the same symbol can need separate repairs, and may remain separate when their missing hypotheses differ.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF14",
+      "rule_or_skill": "RG-26 and register skill §6",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          6436,
+          6168,
+          6150
+        ],
+        "observation": "A compact numerical route table reads clearly, while full-width evidence paragraphs can still be dense."
+      },
+      "mechanism_of_failure": "Converting every table into prose treats format as the cause and ignores the comparison the reader needs.",
+      "proposed_general_change": "Choose compact tables for orthogonal status axes and numeric routes, and prose for transport arguments; inspect both at final reading size.",
+      "classification": "better application of existing rule",
+      "transfer_test": "Use the three quartic coefficients and the compared/built/used status of three quantum targets.",
+      "exception": "Do not force multi-sentence hypotheses or a proof into narrow cells.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF15",
+      "rule_or_skill": "graph-to-long step 6; local method proof-link task",
+      "current_evidence": {
+        "source_path": "repository/docs/reasoning_record.md",
+        "lines": [
+          144,
+          6072,
+          6332
+        ],
+        "observation": "Several links are technically valid but need exact task labels and return instructions."
+      },
+      "mechanism_of_failure": "Anchor existence is weaker than a proof destination performing the promised derivation.",
+      "proposed_general_change": "Record each link's promise—statement, proof, calculation, example or evidence—and check the delivered destination plus the return point.",
+      "classification": "better application of existing rule",
+      "transfer_test": "Use a full tournament proof versus its sampler subsection, and a constant envelope versus its unsimplified count.",
+      "exception": "A broad overview link may intentionally lead to a document start when it promises orientation rather than one inference.",
+      "evidence_kind": "editorial reconstruction and source inspection; not measured human learning"
+    },
+    {
+      "id": "MF16",
+      "rule_or_skill": "chronological_reading.md verification phase and READ_ME_FIRST distinct-actionable-finding requirement",
+      "current_evidence": {
+        "examples": [
+          "CA012: exact mass example already at line259",
+          "CA033: reflection already specified at1081",
+          "CA083: factorization and domination displayed at2895–2909",
+          "F060: ledger target expansion expressly explained at6293"
+        ],
+        "consolidated_rejections": 138
+      },
+      "mechanism_of_failure": "A plausible first-impression complaint can turn into a false absence claim when a verifier inspects only its quoted trigger or summarizes too much context. Retrospective reconstruction increases this risk.",
+      "proposed_general_change": "For every absence claim, inspect the preceding definition, the rest of its paragraph and its immediate mathematical continuation; classify already-present information separately from delayed information and optional reformatting. Remove a complaint when its proposed repair is already performed.",
+      "classification": "better application of existing verification rule",
+      "transfer_test": "Apply to a probability boundary case, a circuit invariant and a historical status caveat. Each should survive only if a specific unmet reader operation remains.",
+      "exception": "A later explanation can resolve truth while leaving a real long-distance first-encounter cost; preserve that cost only with its exact later-resolution locator.",
+      "evidence_kind": "Observed failure mode of this simulated review, not measured human learning"
+    }
+  ],
+  "simulation_limits": [
+    "The chronological reader is an AI model with generic mathematical knowledge and inherited project context.",
+    "The four perspectives are explicitly simulated; scoped specialists are not four independent full-paper blind readers.",
+    "No stopwatch timings or student comprehension outcomes were measured.",
+    "Coverage rows record inspection, not theorem certification; a row with no issue is not an approval.",
+    "No deliberate literature or prior-review lookup was made during each declared first-pass scope; inherited exposure is disclosed, and subsequent verification is separate.",
+    "The strict prospective per-sentence protocol was not satisfied. No contemporaneous state is recoverable for the 5276 individual units; reconstructed passage context must not be mistaken for one.",
+    "Many rough absence claims failed local-context verification. Their rejection is documented; frozen notes are retained as history and do not override the accepted findings."
+  ]
+}

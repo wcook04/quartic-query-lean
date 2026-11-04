@@ -150,3 +150,61 @@ blind readers by adopting several perspectives in the same context. This is a
 new review procedure to test, not evidence that reader comprehension improved.
 The [round-nine protocol](../research/requests/round9/chronological_reading.md)
 defines the reading-state and coverage records used to assess it.
+
+## Round-nine application and refinement
+
+The [round-nine manuscript decisions](../research/adjudication/round9_revision.md)
+apply this method separately to the expert companion, the teaching article and
+the complete record. The [48 method decisions and transfer cases](../research/adjudication/round9_method_revision.json)
+bind the reusable changes to `lean-exposition` commit
+`7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7`, merged in [pull request 44](https://github.com/wcook04/lean-exposition/pull/44), in its existing authoring guide,
+reader-review guide and three stage skills. Many findings require an existing
+rule to be applied more carefully; they do not justify another parallel guide.
+
+Before accepting a claim that an explanation is missing, read the preceding
+definition, the whole paragraph and its continuation. Distinguish absence from
+late resolution and from a preference for a different presentation. Group
+repairs by the inference they restore, keep individual dispositions, and reread
+from immediately before each repair through its next use. A preview that moves
+a formula earlier must not introduce unexplained notation of its own.
+
+At a change of parameter regime or algorithm model, state what is fixed and
+what changes, then give the connecting substitution or averaging step. The
+expert paper's growing-parameter family replaces the fixed-parameter allowance;
+the randomized argument averages deterministic trees under one unchanged cap.
+In an operational description, give an admissible parameter choice and every
+exit's output contract. An asymptotic cost estimate alone does not define the
+bounded algorithm. Retained workspace is sufficient when the consuming proof
+uses its output law; do not impose a clean-output operation that the proof does
+not need.
+
+These choices have specific literary precedents. Knuth, Larrabee and Roberts,
+[*Mathematical Writing*](https://www-cs-faculty.stanford.edu/~knuth/papers/cs1193.pdf),
+§1 items 5 and 10–14 (printed pp. 2–3), connect self-contained statements,
+first-use definitions and the reader's available knowledge. Their §10 (pp.
+20–21) motivates visible algorithm steps and invariants without prescribing a
+named style. Francis Su's
+[*Guidelines for Good Mathematical Writing*](https://math.hmc.edu/su/wp-content/uploads/sites/10/2020/08/Guidelines-for-Good-Mathematical-Writing.pdf),
+18 August 2020, pp. 1–3, distinguishes useful omitted algebra from assumptions
+and explanations the intended reader needs. We use that distinction to repair
+inferential gaps while retaining concise routine calculations. Childs's
+[*Lecture Notes on Quantum Algorithms*](https://www.cs.umd.edu/~amchilds/qa/qa.pdf),
+17 April 2025, §1.4, distinguishes retained intermediate values from clean output
+through their actual maps. That example informs the exposition's account of
+retained registers and rejects an unnecessary cleaning requirement. The
+manuscript revision notes record further inspected, genre-matched passages.
+These readings guide composition; they are neither proofs of our mathematical
+claims nor measurements of learning.
+
+Keep a review's frozen encounter log separate from retrospective annotations,
+source-assisted corrections and later render inspection. Preserve the real
+order and any exposure to solutions or earlier feedback. Current-status-first
+formal appendices should identify the checked object and evidence boundary,
+then distinguish historical states. Their technical vocabulary serves a
+separate task from the main mathematical argument.
+
+Finally, test links from the distributed artifact's location. The packet builder
+now retains the source writing guide at its repository path and rebases the
+compatibility copy's links, including their packaged dependency closure. A link
+that works beside the source may fail after relocation; the original round-nine
+packets remain immutable evidence of what was actually sent.

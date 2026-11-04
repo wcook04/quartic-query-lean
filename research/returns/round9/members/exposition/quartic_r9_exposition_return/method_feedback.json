@@ -1,0 +1,482 @@
+{
+  "schema": "quartic-round9-method-feedback-v1",
+  "items": [
+    {
+      "id": "M01",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "line_start": 47,
+        "line_end": 58,
+        "quote": "A level such as “graduate” or a list of defined terms is\nnot this prerequisite ladder.",
+        "source_path": "skills/record-to-expository/SKILL.md"
+      },
+      "evidence": {
+        "finding_ids": [
+          "EX9001",
+          "EX9060",
+          "EX9077",
+          "EX9079",
+          "EX9083"
+        ],
+        "lead_lines": [
+          12,
+          80,
+          193,
+          262,
+          278
+        ],
+        "observation": "The opening at line 47 already maps locally taught quantum topics and accepted results. Within that map, the two-label retained state, tensor coordinates and constant-overhead controlled read are not worked operations; the bounded schedule remains a supplied contract."
+      },
+      "failure_mechanism": "A topic-level prerequisite and accepted-result map can leave the depth of a few consequential operations unspecified. The missing test is operational execution, not the absence of any map.",
+      "general_repair_direction": "For every first consequential operation, record one of prior skill, locally taught operation, or accepted contract. Test the chosen category with one minimal calculation. Substitute a useful state trace for less necessary early inventory rather than expand every prerequisite.",
+      "why_this_is_not_a_new_rule": "The existing rule already makes the relevant teaching decision. The proposed change makes its acceptance test concrete for this manuscript rather than adding another normative rule.",
+      "verification_or_transfer_probe": {
+        "this_manuscript": "Ask for the probability of a flag in a two-label retained-work state and for the effect of reversing the full preparation. For the capped schedule, ask for its guarantees in q=0, 0<q<gamma and q>=gamma regimes.",
+        "different_shape": "In the supplied SK opening and finite example, check whether probability density and expectation are introduced before later use; the same skill/teach/accept classification applies without any quantum notation."
+      },
+      "exception_or_limit": "A quantum-information class already fluent in coherent control and amplitude amplification should receive a short accepted contract, not remedial instruction.",
+      "source_precedent": [
+        {
+          "source": "de Wolf, Quantum Computing: Lecture Notes, supplied v6",
+          "locator": "query-model passage and chapter 7 amplitude-amplification section",
+          "role": "Worked operational precedent, not a learning-effect estimate."
+        }
+      ]
+    },
+    {
+      "id": "M02",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "line_start": 217,
+        "line_end": 233,
+        "quote": "include at least one task that reaches the promised\n   key inference without its answer beside it.",
+        "source_path": "skills/record-to-expository/SKILL.md"
+      },
+      "evidence": {
+        "finding_ids": [
+          "EX9069",
+          "EX9071",
+          "EX9081",
+          "EX9104",
+          "EX9105",
+          "EX9121"
+        ],
+        "lead_lines": [
+          215,
+          229,
+          274,
+          344,
+          400
+        ],
+        "observation": "Q1–Q5 test useful changed cases. The promised combined understanding also requires the halving identity, law-preserving sampler and light-visit reduction, but these are not independently reconstructed by those questions."
+      },
+      "failure_mechanism": "Exercise presence and correct model answers are mistaken for coverage of the central construct. Arithmetic success can coexist with inability to explain why the reduction suffices.",
+      "general_repair_direction": "Make a small outcome-to-task matrix. For each headline inference choose one task requiring its reconstruction, classify current questions as practice, near transfer or proof reconstruction, and replace redundant work before adding tasks.",
+      "why_this_is_not_a_new_rule": "The existing rule already makes the relevant teaching decision. The proposed change makes its acceptance test concrete for this manuscript rather than adding another normative rule.",
+      "verification_or_transfer_probe": {
+        "this_manuscript": "Use unequal weights to derive the halving identity and reconstruct the capped predictor from a fixed-column fixed-time event without showing the XOR trace.",
+        "different_shape": "The SK changed-chord task makes the old constant-chord shortcut unavailable and asks which integral argument remains; use that as a structural comparison."
+      },
+      "exception_or_limit": "Not every lemma needs a standalone exercise. A survey intended only for informed orientation may explicitly promise recognition instead of proof reconstruction.",
+      "source_precedent": [
+        {
+          "source": "Supplied SK exemplar",
+          "locator": "exemplars/expository.md lines 981–1008 and 1343–1387",
+          "role": "A changed hypothesis tests the proof mechanism rather than only a repeated numerical result."
+        },
+        {
+          "source": "de Wolf lecture notes",
+          "locator": "chapter 7 exercises on intermediate states and one/two iterations",
+          "role": "Examples of observable learner operations."
+        }
+      ]
+    },
+    {
+      "id": "M03",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "line_start": 83,
+        "line_end": 88,
+        "quote": "Name changes of board or supplier when they occur, then\nreuse those names.",
+        "source_path": "skills/quartic-writing-method.md"
+      },
+      "evidence": {
+        "finding_ids": [
+          "EX9034",
+          "EX9103",
+          "EX9132"
+        ],
+        "lead_lines": [
+          123,
+          241,
+          342,
+          412
+        ],
+        "observation": "The prose generally labels its base, domain-bit, false-pointer, cycle, abstract-matrix and XOR objects. A2 nevertheless returns from an abstract probability matrix to physical-board verification without identifying the reset."
+      },
+      "failure_mechanism": "A local rule was checked in the main exposition but not in the answer apparatus. A worked answer silently inherits fields that its currently active abstract object does not possess.",
+      "general_repair_direction": "Apply the active-object ledger to captions, questions and answers as well as main paragraphs. At every return identify which object supplies each claimed field, law and predicate.",
+      "why_this_is_not_a_new_rule": "The existing rule already makes the relevant teaching decision. The proposed change makes its acceptance test concrete for this manuscript rather than adding another normative rule.",
+      "verification_or_transfer_probe": {
+        "this_manuscript": "Read A2 alone after the fractional-matrix subquestion and identify the object that gives X2 and X4 their string zeros.",
+        "different_shape": "In the SK example, keep a reduced calculus countermodel distinct from an actual SK moment function when answering the changed-case question."
+      },
+      "exception_or_limit": "If a question remains within a single named object, repeating its full specification would add clutter; mark genuine switches only.",
+      "source_precedent": []
+    },
+    {
+      "id": "M04",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "line_start": 119,
+        "line_end": 123,
+        "quote": "Inspect page transitions as well as isolated figures.",
+        "source_path": "skills/quartic-writing-method.md"
+      },
+      "evidence": {
+        "finding_ids": [
+          "EX9029",
+          "EX9041",
+          "EX9094",
+          "EX9101"
+        ],
+        "lead_lines": [
+          112,
+          143,
+          319,
+          329
+        ],
+        "observation": "Actual PDF inspection found a winning-definition lead-in stranded before the entire list, a gate example split after “On,” a split independence calculation, and an optional proof continuing without a continuation label."
+      },
+      "failure_mechanism": "Individual figures and single-page fitting can pass while a logical teaching unit is broken at the page boundary.",
+      "general_repair_direction": "Inspect adjacent-page pairs around definitions, compact examples, optional boxes and answers. Use narrow keep-with-next or continuation treatments rather than a blanket policy forcing every block onto one page.",
+      "why_this_is_not_a_new_rule": "The existing rule already makes the relevant teaching decision. The proposed change makes its acceptance test concrete for this manuscript rather than adding another normative rule.",
+      "verification_or_transfer_probe": {
+        "this_manuscript": "Reinspect pages 4–5, 6–7, 15–16 and 16–17 after any layout edit, checking that setup and first operation remain connected.",
+        "different_shape": "For a long table in a nontechnical report, check that a repeated header keeps the comparison dimensions visible after a page break."
+      },
+      "exception_or_limit": "An unavoidable break inside a long proof is acceptable when the continuation and return to the main route are explicit.",
+      "source_precedent": []
+    },
+    {
+      "id": "M05",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "line_start": 183,
+        "line_end": 190,
+        "quote": "name each route's objective: using\n   an imported result, following a full proof, or auditing the evidence.",
+        "source_path": "skills/record-to-expository/SKILL.md"
+      },
+      "evidence": {
+        "finding_ids": [
+          "EX9012",
+          "EX9077",
+          "EX9079",
+          "EX9124"
+        ],
+        "lead_lines": [
+          49,
+          262,
+          404
+        ],
+        "observation": "The route choice occurs at line 49 and the permission to quote the other bound is explicit at line 400. The remaining route choices concern using the bounded sampler contract versus reconstructing its schedule, and choosing a concrete task for optional formal-source inspection."
+      },
+      "failure_mechanism": "A link or an optional label may be read as either required background repair or optional depth, and the instructor cannot assign the route consistently without deciding which.",
+      "general_repair_direction": "At each route departure name the accepted statement, the operation expected after returning, and the specific optional purpose of the link. Keep the supplied contract visible on the main route.",
+      "why_this_is_not_a_new_rule": "The existing rule already makes the relevant teaching decision. The proposed change makes its acceptance test concrete for this manuscript rather than adding another normative rule.",
+      "verification_or_transfer_probe": {
+        "this_manuscript": "Have a quantum-route reader state the unknown-q routine contract without reconstructing its randomized schedule, then use it correctly in the stopped-list proof.",
+        "different_shape": "For an analysis exposition, let a reader accept a concentration estimate but require them to check the local hypotheses and finish the elementary argument."
+      },
+      "exception_or_limit": "Do not multiply navigation notes at every citation. Add a route marker only when the expected obligation changes.",
+      "source_precedent": []
+    },
+    {
+      "id": "M06",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "line_start": 275,
+        "line_end": 282,
+        "quote": "name the operation the figure should help the reader perform.",
+        "source_path": "register/REGISTER_RULES.md"
+      },
+      "evidence": {
+        "finding_ids": [
+          "EX9040",
+          "EX9065",
+          "EX9108"
+        ],
+        "lead_lines": [
+          135,
+          203,
+          252,
+          352
+        ],
+        "observation": "The existing diagrams support layout, comparisons and changed locations. They do not show the good/bad reflection plane or the two query clocks; Figure 3 also calls local zero-hitting pointers “winning.”"
+      },
+      "failure_mechanism": "A figure can faithfully show objects while omitting the transformation a learner must execute, or reuse a technical word with a weaker visual meaning.",
+      "general_repair_direction": "Choose figures by the next reader operation: locate a field, follow a change, compute a rotation or align counters. Label marks at the same logical level as the claim, and use a table when comparison dimensions are the real need.",
+      "why_this_is_not_a_new_rule": "The existing rule already makes the relevant teaching decision. The proposed change makes its acceptance test concrete for this manuscript rather than adding another normative rule.",
+      "verification_or_transfer_probe": {
+        "this_manuscript": "Ask a reader to mark the reflected prepared direction and to track global time versus forwarded-query count from the visual alone.",
+        "different_shape": "For the SK gap argument, test whether the diagram supports the area comparison rather than merely decorating a curve."
+      },
+      "exception_or_limit": "There is no quota requiring more figures. An executable short equation or table may be clearer than a diagram, and all current figures need not be replaced.",
+      "source_precedent": [
+        {
+          "source": "de Wolf chapter 7 and CMU 2015 Lecture 4",
+          "locator": "Grover reflections and two-dimensional geometry",
+          "role": "Primary teaching precedents for linking transformations to pictures."
+        }
+      ]
+    },
+    {
+      "id": "M07",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "line_start": 79,
+        "line_end": 86,
+        "quote": "Put detailed history and refined constants\nwhere the construction makes their significance visible",
+        "source_path": "skills/record-to-expository/SKILL.md"
+      },
+      "evidence": {
+        "finding_ids": [
+          "EX9008",
+          "EX9033",
+          "EX9044",
+          "EX9111"
+        ],
+        "lead_lines": [
+          34,
+          36,
+          121,
+          153,
+          384
+        ],
+        "observation": "The introduction and the long history/address-length paragraph introduce credit, constants, data layout and future bounds before the four-column board has stabilized. The early AND–OR comparison also changes several meanings of size at once."
+      },
+      "failure_mechanism": "Accurate detail is inserted before the reader has the objects needed to organize it, so the burden is remembering rather than reasoning.",
+      "general_repair_direction": "Preserve immediate attribution and the exact theorem, but stage detailed historical and constant comparisons after the relevant mechanism. Use a small cost table only for genuinely comparable quantities.",
+      "why_this_is_not_a_new_rule": "The existing rule already makes the relevant teaching decision. The proposed change makes its acceptance test concrete for this manuscript rather than adding another normative rule.",
+      "verification_or_transfer_probe": {
+        "this_manuscript": "After reading the opening, ask what the next example will let the learner do; after the board, ask why r controls guesses and why the array remains polynomial.",
+        "different_shape": "In a different mathematical exposition, compare the historical inventory before versus after one concrete instance without assuming a paragraph-count target."
+      },
+      "exception_or_limit": "A history-focused course may deliberately foreground development. The issue is alignment with this article's examples-first teaching promise, not a universal ban on history.",
+      "source_precedent": []
+    },
+    {
+      "id": "M08",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "line_start": 232,
+        "line_end": 237,
+        "quote": "Distinguish a false conclusion from an inconclusive test or a proof that no\n   longer applies.",
+        "source_path": "skills/record-to-expository/SKILL.md"
+      },
+      "evidence": {
+        "finding_ids": [
+          "EX9133",
+          "EX9134",
+          "EX9135"
+        ],
+        "lead_lines": [
+          414,
+          416,
+          418
+        ],
+        "observation": "The answers are arithmetically correct under stated or logged assumptions, but A4 has ambiguous event language and A5 omits the ratio-level reason for the endpoint limitation."
+      },
+      "failure_mechanism": "A compact answer may confirm the number while failing to diagnose the exact mistaken inference the changed case was designed to prevent.",
+      "general_repair_direction": "For each answer, identify the tempting wrong inference, state the assumption or event that changes, and show the one calculation that separates a false claim from a bound that simply does not decide it.",
+      "why_this_is_not_a_new_rule": "The existing rule already makes the relevant teaching decision. The proposed change makes its acceptance test concrete for this manuscript rather than adding another normative rule.",
+      "verification_or_transfer_probe": {
+        "this_manuscript": "Require A4 to remove the whole heavy branch from the light event and give the new total 1/8; require A5 to show d=0 versus d=1/20.",
+        "different_shape": "The SK tilted-chord answer distinguishes an impossible datum from a changed slope compatible with strict convexity; preserve that diagnostic role."
+      },
+      "exception_or_limit": "Answers to simple recall checks need not become essays; use the shortest diagnostic that distinguishes the plausible error.",
+      "source_precedent": []
+    },
+    {
+      "id": "M09",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "line_start": 137,
+        "line_end": 150,
+        "quote": "Keep sentence-level coverage separate\nfrom improvement findings;",
+        "source_path": "skills/quartic-writing-method.md"
+      },
+      "evidence": {
+        "finding_ids": [],
+        "lead_lines": [],
+        "observation": "The four first-pass logs were frozen before most second-pass work; the detailed 730-row index was expanded afterward. Root had already read reader_principles.md and the method index. The perspectives ran concurrently in separate contexts rather than literally one at a time. These are declared protocol deviations."
+      },
+      "failure_mechanism": "Fine-grained coverage can be reconstructed after reading, while the file format alone makes it look contemporaneous. Volume also encourages invented faults if empty issue arrays are treated as failure.",
+      "general_repair_direction": "Retain an immutable first-pass artifact, identify every later annotation phase, and keep coverage counts independent of issue counts. Report model familiarity, assistance and answer exposure in a separate inventory.",
+      "why_this_is_not_a_new_rule": "The existing rule already makes the relevant teaching decision. The proposed change makes its acceptance test concrete for this manuscript rather than adding another normative rule.",
+      "verification_or_transfer_probe": {
+        "this_manuscript": "Verify the frozen file hash; ensure the audit slice states that its row-level expansion occurred afterward; allow units with no new issue.",
+        "different_shape": "In a code review, distinguish a post-hoc file-coverage matrix from tests or observations performed before seeing the fix."
+      },
+      "exception_or_limit": "A retrospective matrix remains useful as an audit aid when labelled honestly; it should not be discarded merely because it is not a fresh reader experiment.",
+      "source_precedent": []
+    },
+    {
+      "id": "M10",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "line_start": 330,
+        "line_end": 333,
+        "quote": "replace or reorder the passage at the point of need\nbefore adding new material.",
+        "source_path": "skills/record-to-expository/SKILL.md"
+      },
+      "evidence": {
+        "finding_ids": [
+          "EX9001",
+          "EX9033",
+          "EX9081",
+          "EX9121"
+        ],
+        "lead_lines": [
+          12,
+          121,
+          274,
+          400,
+          424
+        ],
+        "observation": "The 77 findings contain several possible microtasks, tables and diagrams. Implementing every one additively would make the article substantially longer and dilute its main route."
+      },
+      "failure_mechanism": "A thorough review can unintentionally become a mandate to append one repair per issue, even where several findings share one underlying teaching need.",
+      "general_repair_direction": "Cluster findings by the reader operation they repair. Choose a small number of replacement passages and representative assessments, preserve successful existing bridges, and keep optional alternatives in an instructor resource.",
+      "why_this_is_not_a_new_rule": "The existing rule already makes the relevant teaching decision. The proposed change makes its acceptance test concrete for this manuscript rather than adding another normative rule.",
+      "verification_or_transfer_probe": {
+        "this_manuscript": "A single worked retained-workspace example can address multiple prerequisite and sampling findings; a single outcome rubric can consolidate several proposed checkpoints.",
+        "different_shape": "For a research report, one well-designed comparison table may replace several repetitive caveat paragraphs rather than adding to them."
+      },
+      "exception_or_limit": "When a genuinely necessary operation is missing, length may need to increase. A word budget is not a reason to hide that dependency.",
+      "source_precedent": []
+    },
+    {
+      "id": "M11",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "source_path": "skills/quartic-writing-method.md",
+        "line_start": 102,
+        "line_end": 102,
+        "quote": "Attribute the inherited theorem, reconstructed constants and borrowed analytic"
+      },
+      "evidence": {
+        "finding_ids": [
+          "EX9007",
+          "EX9130"
+        ],
+        "observation": "The first-page theorem is followed on the next page by its reconstruction-constant qualification. The linked explicit-circuit source also has a stale status header."
+      },
+      "failure_mechanism": "Accurate statements can acquire the wrong provenance when the qualification is physically separated or a link landing presents a conflicting edition/status.",
+      "general_repair_direction": "Audit each assertion together with its visible citation, qualifier, page break and landing. Distinguish the source theorem, local estimates, statement matching and semantic review at the claim that consumes them.",
+      "verification_or_transfer_probe": "For another empirical report, keep an externally measured result and a locally modeled estimate distinguishable even if they share a table.",
+      "exception_or_limit": "Do not expand a teaching article into a receipt catalogue. The detailed evidence record remains a separate destination."
+    },
+    {
+      "id": "M12",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "source_path": "skills/record-to-expository/SKILL.md",
+        "line_start": 206,
+        "line_end": 206,
+        "quote": "Inspect hidden conventions when they affect the statement or next operation:"
+      },
+      "evidence": {
+        "finding_ids": [
+          "EX9025",
+          "EX9114"
+        ],
+        "observation": "The lead's m=4^t setup omits positive integer t, though later formulas use a positive logarithm and the record explicitly assumes t≥1."
+      },
+      "failure_mechanism": "An asymptotic headline's sufficiently-large qualifier is silently borrowed by earlier finite construction claims.",
+      "general_repair_direction": "Before publishing a finite setup, test the smallest admitted parameter and each denominator or index set. Put the actual domain beside the first definition; separately describe the eventual asymptotic range.",
+      "verification_or_transfer_probe": "Apply the same check to a statistical formula with n−1 in its denominator or a normalized vector with potentially zero norm.",
+      "exception_or_limit": "A boundary check is not evidence against a theorem that excludes that boundary. Do not demand new results to cover an unintended case."
+    },
+    {
+      "id": "M13",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "source_path": "skills/quartic-writing-method.md",
+        "line_start": 106,
+        "line_end": 106,
+        "quote": "Open the delivered edition at the anchor and check"
+      },
+      "evidence": {
+        "finding_ids": [],
+        "observation": "Embedded links name b8db532, while the packet revision is 7772e4f and the record differs. Local copies were inspectable; remote fetches were restricted. LINK_MAP also misses two image links whose alt text has bracketed indices."
+      },
+      "failure_mechanism": "File existence, an anchor in the current copy, and the promised passage in a pinned remote edition are different verification states; a parser can also omit links while reporting zero problems.",
+      "general_repair_direction": "Record target edition and task separately, declare inaccessible destinations, and compare a link inventory with the actual rendered/reference-bearing objects rather than trusting zero reported problems.",
+      "verification_or_transfer_probe": "Test an inventory with image alt text containing brackets and with a valid anchor whose old and new contents differ.",
+      "exception_or_limit": "Do not label a fetch restriction a broken link or rerun costly formal builds merely to review a prose destination."
+    },
+    {
+      "id": "M14",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "source_path": "chronological_reading.md",
+        "line_start": 63,
+        "line_end": 63,
+        "quote": "Validate mathematical criticisms before calling them errors."
+      },
+      "evidence": {
+        "finding_ids": [],
+        "observation": "Adversarial review withdrew candidate objections already answered by the current source, including the claimed absence of a stochastic decoder example and a supposed mandatory copy before inverse execution."
+      },
+      "failure_mechanism": "A reviewer can impose a familiar implementation pattern on a different valid interface, or remember an earlier draft while describing the current one.",
+      "general_repair_direction": "For each mathematical objection, state the exact demanded contract, attempt the smallest relevant calculation, inspect the current local wording and supporting interface, and record a withdrawal rather than quietly converting it into a different complaint.",
+      "verification_or_transfer_probe": "Test a retained-workspace implementation and a clean-output implementation separately; determine which interface the consuming algorithm actually needs.",
+      "exception_or_limit": "Finite checks validate examples and can refute a criticism; they do not establish the full general theorem."
+    },
+    {
+      "id": "M15",
+      "status": "implementation_or_operationalization_of_existing_rule",
+      "new_rule_needed": false,
+      "existing_rule": {
+        "source_path": "skills/quartic-writing-method.md",
+        "line_start": 144,
+        "line_end": 144,
+        "quote": "A numerical target is a prompt for thoroughness, never a reason to fabricate a"
+      },
+      "evidence": {
+        "finding_ids": [],
+        "observation": "The team produced 275 candidates before consolidation. Shared observations and current-source repairs were removed from the final finding count."
+      },
+      "failure_mechanism": "A per-reader or numeric target can reward duplication, generic requests for another example, and assertions that an already supplied explanation is absent.",
+      "general_repair_direction": "Report unique retained findings, merged overlaps and withdrawals separately. Keep coverage independent of issue volume and allow a below-target return with its reasoning stated.",
+      "verification_or_transfer_probe": "Verify that a single missing operation observed by four simulated readers remains one actionable finding with four supporting perspectives.",
+      "exception_or_limit": "Do not use deduplication as a reason to skip source ranges. This return accounts for the whole lead; it does not claim to meet the suggested 250 distinct-finding target."
+    }
+  ],
+  "new_rule_proposals": [],
+  "judgment": "The evidence supports better application and more explicit verification of existing rules. It does not establish a new universally effective writing rule.",
+  "simulation_limits": [
+    "Four model-emulated perspectives, not human participants or independent blind experiments.",
+    "General model knowledge can exceed the stipulated reader background.",
+    "Root opened reader_principles.md and skills/README.md before first-pass freeze.",
+    "Perspectives ran concurrently in separate model contexts, rather than literally one at a time as requested.",
+    "Detailed audit rows were expanded after freezes; original logs remain byte-preserved.",
+    "Five questions were attempted before answers; the capstone was rubric-exposed.",
+    "No learning gain, retention, actual student time or causal effect of a revision was measured."
+  ]
+}

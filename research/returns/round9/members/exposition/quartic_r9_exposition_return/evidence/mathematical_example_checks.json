@@ -1,0 +1,115 @@
+{
+  "status": "all_assertions_passed",
+  "scope": "Exact finite examples and identity instances only; not a proof of the general lower bound or a formal build.",
+  "results": {
+    "projection_amplitudes": {
+      "01111000": "1",
+      "01001000": "0",
+      "10001000": "-1",
+      "11111000": "1/2"
+    },
+    "projection_probabilities": {
+      "01111000": "1",
+      "01001000": "0",
+      "10001000": "1",
+      "11111000": "1/4"
+    },
+    "eight_bit_inputs_checked": 256,
+    "eight_bit_score_values": [
+      "-1",
+      "-1/2",
+      "0",
+      "1/2",
+      "1"
+    ],
+    "question_1_failing_tests": {
+      "00": [
+        "domain_1"
+      ],
+      "01": [
+        "domain_1",
+        "value_2"
+      ],
+      "10": [
+        "domain_1",
+        "value_1"
+      ],
+      "11": [
+        "domain_1",
+        "value_1",
+        "value_2"
+      ]
+    },
+    "local_test_count": 371,
+    "toy_board_input_bits": 5936,
+    "question_2_cycle": {
+      "weights": [
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      "q": "1/4",
+      "one_iteration": "1",
+      "two_iterations": "1/4",
+      "conditional_pivot": 1
+    },
+    "question_2_fractional": {
+      "weights": [
+        "1",
+        "0",
+        "4/15",
+        "0"
+      ],
+      "joint_masses": [
+        "1/4",
+        "0",
+        "1/15",
+        "0"
+      ],
+      "q": "19/60",
+      "conditional_law": [
+        "15/19",
+        "0",
+        "4/19",
+        "0"
+      ]
+    },
+    "finite_drift_identities_checked": 192,
+    "planting_1_distinct_reads_per_column": {
+      "EZ": "1",
+      "independent_hit": "1/4",
+      "dependent_hit": "175/256"
+    },
+    "planting_2_distinct_reads_per_column": {
+      "EZ": "2",
+      "independent_hit": "1/2",
+      "dependent_hit": "15/16"
+    },
+    "question_4_xor_probabilities": {
+      "original_light_visit": "1/8",
+      "predictor_correct": "1/4",
+      "changed_branch_visit": "1/8",
+      "changed_stopped_any_light_visit": "1/4",
+      "changed_continued_any_light_visit": "1/8"
+    },
+    "one_query_AND_success": {
+      "uniform_all_four": "3/4",
+      "uniform_01_10_11": "2/3"
+    },
+    "pooled_two_query_AND_counterexample": {
+      "success": "3/4",
+      "separate_cap_benchmark": "9/16"
+    },
+    "conditional_value_product_average": "9/16",
+    "question_5": {
+      "k4_threshold": "7/2",
+      "smallest_k_excluding_endpoint_7_over_2": 5,
+      "positive_m_power_for_k5": "1/20"
+    },
+    "algebraic_gap_envelope_for_m_at_least_four": {
+      "envelope": "327681/6553600",
+      "qualification": "Only the numerical envelope is checked. The hardness assumptions are separate and do not hold for the four-column toy, whose L is zero."
+    }
+  }
+}

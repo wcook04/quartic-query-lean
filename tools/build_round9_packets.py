@@ -8,10 +8,13 @@ to the current manuscript. Outputs must be a new directory outside the checkout.
 import argparse
 import json
 from pathlib import Path
+import posixpath
+import re
 import subprocess
 import sys
 import tempfile
 import zipfile
+from urllib.parse import quote, unquote, urlsplit, urlunsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_round8_packets as round8
@@ -49,6 +52,46 @@ PREVIOUS = {
     **{name.replace('previous_round/', 'earlier_round7/', 1): path for name, path in round8.PREVIOUS.items()},
 }
 state = {'work': None}
+
+
+def add_local_writing_method(files, root, generated):
+    """Keep the original guide and rebase its compatibility copy's local links.
+
+    Reuse the reading-source closure so linked guides stay at their repository
+    paths. The manifest binds both the unchanged source and the relocated copy.
+    Frozen packets are never modified by this builder.
+    """
+    source = root / 'docs/writing_method.md'
+    member = 'repository/docs/writing_method.md'
+    closure, _ = base.round4.linked_sources(root, {member: (source, 'writing_method')})
+    for name, (path, role) in closure.items():
+        files.setdefault(name, (base.safe_source(path), role, 'repository:' + name.split('/', 1)[1]))
+
+    text = source.read_text(encoding='utf-8')
+    references = re.compile(r'(?m)^ {0,3}\[[^\]\n]+\]:\s*(<[^>\n]+>|\S+)')
+    replacements = []
+    for pattern in (base.repository_checks.LINK, references):
+        for match in pattern.finditer(text):
+            raw = match.group(1)
+            target = urlsplit(raw.strip('<>'))
+            if target.scheme or target.netloc or not target.path:
+                continue
+            # linked_sources above has already rejected missing/escaping paths.
+            path = (source.parent / unquote(target.path)).resolve()
+            destination = 'repository/' + path.relative_to(root.resolve()).as_posix()
+            if destination not in files and not any(n.startswith(destination.rstrip('/') + '/') for n in files):
+                raise ValueError(f'writing-method link not packaged: {raw}')
+            relative = quote(posixpath.relpath(destination, 'skills'), safe='/')
+            value = urlunsplit(('', '', relative, target.query, target.fragment))
+            if raw.startswith('<'):
+                value = '<' + value + '>'
+            replacements.append((match.start(1), match.end(1), value))
+    for start, end, value in sorted(replacements, reverse=True):
+        text = text[:start] + value + text[end:]
+    relocated = generated / 'quartic-writing-method.md'
+    relocated.write_text(text, encoding='utf-8')
+    files['skills/quartic-writing-method.md'] = (
+        relocated, 'relocated_writing_method', 'generated:repository:docs/writing_method.md')
 
 
 def render_provenance(root, pdfs):
@@ -110,8 +153,7 @@ def inputs(job, **options):
     files['src/lean_exposition/resources/register/rules.json'] = (
         Path(round7.state['register']) / 'register_rules.json', 'sanitized_register_rules',
         'generated:register/register_rules.json')
-    files['skills/quartic-writing-method.md'] = (root / 'docs/writing_method.md', 'writing_method',
-                                               'repository:docs/writing_method.md')
+    add_local_writing_method(files, root, generated)
     return files
 
 

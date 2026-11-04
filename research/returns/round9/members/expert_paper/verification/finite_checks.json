@@ -1,0 +1,338 @@
+{
+  "scope": "Exact finite examples and elementary constants only; no Lean, Comparator, randomized simulation or theorem certification.",
+  "checks": {
+    "A1_forrelation": {
+      "phi": "-1",
+      "projection_probability": "1",
+      "pass": true
+    },
+    "fractional_tournament": {
+      "first_weights": [
+        "1",
+        "0",
+        "2/3",
+        "1/4"
+      ],
+      "first_success": "23/48",
+      "first_conditional_law": [
+        "12/23",
+        "0",
+        "8/23",
+        "3/23"
+      ],
+      "second_weights": [
+        "1",
+        "0",
+        "4/15",
+        "0"
+      ],
+      "second_success": "19/60",
+      "second_conditional_law": [
+        "15/19",
+        "0",
+        "4/19",
+        "0"
+      ],
+      "pass": true
+    },
+    "half_drift_example": {
+      "direct": "13/23",
+      "identity": "13/23",
+      "half_mass": "23/24",
+      "pass": true
+    },
+    "A4_selected_zero": {
+      "marginal_I": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "selected_zero_found": "175/256",
+      "EZ_over_m": "1/4",
+      "pass": true
+    },
+    "A3_dominance": {
+      "possible_pointer_bits": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "rule": "(0,1) wins; (1,1) ties and smaller index1 wins",
+      "pass": true
+    },
+    "A5_expected_caps": {
+      "assumed_law": "two independent uniform two-bit parity inputs",
+      "single_instance_cap1_optimum": "1/2",
+      "expected_queries_per_instance": "1",
+      "joint_success": "5/8",
+      "pass": true
+    },
+    "A6_xor_information": {
+      "joint_success": "1/2",
+      "independent_product_optimum": "1/4",
+      "pass": true
+    },
+    "A7_compliance": {
+      "inputs": 16,
+      "compliant": 8,
+      "correct_and_compliant": 5,
+      "joint": "5/16",
+      "conditional": "5/8",
+      "beta_squared": "9/16",
+      "pass": true,
+      "trace": [
+        {
+          "A": [
+            0,
+            0
+          ],
+          "B": [
+            0,
+            0
+          ],
+          "B_A0": 0,
+          "repeat_A0": false,
+          "compliant": true,
+          "correct": true
+        },
+        {
+          "A": [
+            0,
+            0
+          ],
+          "B": [
+            0,
+            1
+          ],
+          "B_A0": 0,
+          "repeat_A0": false,
+          "compliant": true,
+          "correct": true
+        },
+        {
+          "A": [
+            0,
+            0
+          ],
+          "B": [
+            1,
+            0
+          ],
+          "B_A0": 1,
+          "repeat_A0": true,
+          "compliant": false,
+          "correct": true
+        },
+        {
+          "A": [
+            0,
+            0
+          ],
+          "B": [
+            1,
+            1
+          ],
+          "B_A0": 1,
+          "repeat_A0": true,
+          "compliant": false,
+          "correct": false
+        },
+        {
+          "A": [
+            0,
+            1
+          ],
+          "B": [
+            0,
+            0
+          ],
+          "B_A0": 0,
+          "repeat_A0": false,
+          "compliant": true,
+          "correct": true
+        },
+        {
+          "A": [
+            0,
+            1
+          ],
+          "B": [
+            0,
+            1
+          ],
+          "B_A0": 0,
+          "repeat_A0": false,
+          "compliant": true,
+          "correct": true
+        },
+        {
+          "A": [
+            0,
+            1
+          ],
+          "B": [
+            1,
+            0
+          ],
+          "B_A0": 1,
+          "repeat_A0": true,
+          "compliant": false,
+          "correct": true
+        },
+        {
+          "A": [
+            0,
+            1
+          ],
+          "B": [
+            1,
+            1
+          ],
+          "B_A0": 1,
+          "repeat_A0": true,
+          "compliant": false,
+          "correct": false
+        },
+        {
+          "A": [
+            1,
+            0
+          ],
+          "B": [
+            0,
+            0
+          ],
+          "B_A0": 0,
+          "repeat_A0": true,
+          "compliant": false,
+          "correct": true
+        },
+        {
+          "A": [
+            1,
+            0
+          ],
+          "B": [
+            0,
+            1
+          ],
+          "B_A0": 1,
+          "repeat_A0": false,
+          "compliant": true,
+          "correct": true
+        },
+        {
+          "A": [
+            1,
+            0
+          ],
+          "B": [
+            1,
+            0
+          ],
+          "B_A0": 0,
+          "repeat_A0": true,
+          "compliant": false,
+          "correct": true
+        },
+        {
+          "A": [
+            1,
+            0
+          ],
+          "B": [
+            1,
+            1
+          ],
+          "B_A0": 1,
+          "repeat_A0": false,
+          "compliant": true,
+          "correct": false
+        },
+        {
+          "A": [
+            1,
+            1
+          ],
+          "B": [
+            0,
+            0
+          ],
+          "B_A0": 0,
+          "repeat_A0": true,
+          "compliant": false,
+          "correct": false
+        },
+        {
+          "A": [
+            1,
+            1
+          ],
+          "B": [
+            0,
+            1
+          ],
+          "B_A0": 1,
+          "repeat_A0": false,
+          "compliant": true,
+          "correct": false
+        },
+        {
+          "A": [
+            1,
+            1
+          ],
+          "B": [
+            1,
+            0
+          ],
+          "B_A0": 0,
+          "repeat_A0": true,
+          "compliant": false,
+          "correct": false
+        },
+        {
+          "A": [
+            1,
+            1
+          ],
+          "B": [
+            1,
+            1
+          ],
+          "B_A0": 1,
+          "repeat_A0": false,
+          "compliant": true,
+          "correct": false
+        }
+      ]
+    },
+    "beta_address_exponent": {
+      "inequality": "(2/3)^20 <= 2^-10; raise both sides to ell",
+      "left": "1048576/3486784401",
+      "right": "1/1024",
+      "pass": true
+    },
+    "quantum_uniform_constant": {
+      "sum": 5707107503019240,
+      "envelope": 9007199254740992,
+      "pass": true
+    },
+    "growing_k_L_switch": {
+      "conclusion": "Use L=floor((2/18225)m^(1-1/k)/(k² ln(4km))) from record7.3, not L of(5).",
+      "evidence": "reasoning_record.md lines3788–3797",
+      "test_type": "manual source reconciliation, not a numerical proof",
+      "automated": false,
+      "pass": true
+    }
+  },
+  "all_pass": true,
+  "automated_check_count": 10,
+  "manual_source_checks": 1
+}

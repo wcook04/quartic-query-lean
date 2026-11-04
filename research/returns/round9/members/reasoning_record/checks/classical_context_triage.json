@@ -1,0 +1,443 @@
+{
+  "scope": "Requested targeted absence-claim triage only; no new findings. All remaining CA028–045 and CA081–117 were screened, but only drops/overstatements/later-resolution limits are listed.",
+  "items": [
+    {
+      "id": "CA028",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          850,
+          850
+        ]
+      ],
+      "reason": "Recap and independent-reading purpose are explicitly announced."
+    },
+    {
+      "id": "CA029",
+      "action": "retain_only_as_encounter_placement",
+      "current_resolution_lines": [
+        [
+          911,
+          911
+        ]
+      ],
+      "reason": "The source-display qualification is supplied shortly after the comparison; do not claim it is absent."
+    },
+    {
+      "id": "CA031",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          916,
+          920
+        ]
+      ],
+      "reason": "The interpolation and derivative purpose is given immediately before the extension."
+    },
+    {
+      "id": "CA032",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          1025,
+          1044
+        ],
+        [
+          1178,
+          1178
+        ]
+      ],
+      "reason": "The proof uses scalar Stein identities on independent U layers, not covariance differentiation; the claimed missing covariance dictionary is not a proof requirement."
+    },
+    {
+      "id": "CA033",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          1081,
+          1083
+        ]
+      ],
+      "reason": "The reflected layer, affected coordinates and cleared-bias reason are explicit."
+    },
+    {
+      "id": "CA035",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          920,
+          920
+        ],
+        [
+          1189,
+          1201
+        ]
+      ],
+      "reason": "Higher uniform Fourier levels are flagged in the proof spine and justified later."
+    },
+    {
+      "id": "CA037",
+      "action": "merge_and_relocate",
+      "current_resolution_lines": [
+        [
+          1285,
+          1294
+        ],
+        [
+          1305,
+          1311
+        ]
+      ],
+      "reason": "Distinguish threshold crossing of Z after observation from predictable stopping before an unsafe coefficient increment; only the latter is relevant to the proposed repair."
+    },
+    {
+      "id": "CA038",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          1329,
+          1334
+        ]
+      ],
+      "reason": "F32 already decomposes the expectation into ordinary-size and crude-size-times-bad-event terms; the residual is not unrevealed coefficients."
+    },
+    {
+      "id": "CA039",
+      "action": "drop_as_absence_claim",
+      "current_resolution_lines": [
+        [
+          1357,
+          1359
+        ]
+      ],
+      "reason": "Every factor in the substitution and the pointwise derivative-bound application is already identified."
+    },
+    {
+      "id": "CA040",
+      "action": "drop_as_absence_claim",
+      "current_resolution_lines": [
+        [
+          916,
+          918
+        ],
+        [
+          1079,
+          1079
+        ]
+      ],
+      "reason": "Whole-cube support and off-promise mass are explicitly supplied before the moments."
+    },
+    {
+      "id": "CA041",
+      "action": "overstated",
+      "current_resolution_lines": [
+        [
+          1454,
+          1454
+        ]
+      ],
+      "reason": "The target error scale and reason for amplification already appear at the section opening; another order is an editorial preference."
+    },
+    {
+      "id": "CA042",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          1502,
+          1512
+        ],
+        [
+          1580,
+          1588
+        ]
+      ],
+      "reason": "Uniform domain and separate fixed-k specialization are explicit."
+    },
+    {
+      "id": "CA044",
+      "action": "drop_as_absence_claim",
+      "current_resolution_lines": [
+        [
+          1633,
+          1642
+        ]
+      ],
+      "reason": "The three-item contract includes parameter ranges, common threshold and accuracy quantifier order."
+    },
+    {
+      "id": "CA045",
+      "action": "overstated",
+      "current_resolution_lines": [
+        [
+          1649,
+          1649
+        ]
+      ],
+      "reason": "This is already a short role index sending exact locators to Appendix C and detailed attribution to §3.16."
+    },
+    {
+      "id": "CA081",
+      "action": "overstated",
+      "current_resolution_lines": [
+        [
+          2757,
+          2758
+        ],
+        [
+          3034,
+          3048
+        ]
+      ],
+      "reason": "Exact separate-cap hypothesis and stronger-total-cap comparison are already stated; only verified visual prominence could remain."
+    },
+    {
+      "id": "CA082",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          2888,
+          2893
+        ]
+      ],
+      "reason": "Deterministic rL horizon, padding and absence of a limiting stopping theorem are explicit."
+    },
+    {
+      "id": "CA083",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          2895,
+          2909
+        ]
+      ],
+      "reason": "Fixed answer vector, factorization, bitwise maximization and continuation domination appear as separate displayed steps."
+    },
+    {
+      "id": "CA084",
+      "action": "overstated",
+      "current_resolution_lines": [
+        [
+          2947,
+          2947
+        ]
+      ],
+      "reason": "The joint-event corollary is already named in bold; adding a box is an optional formatting change."
+    },
+    {
+      "id": "CA085",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          2988,
+          2997
+        ]
+      ],
+      "reason": "The tree and cap event precede the table and final probabilities; the earlier β is the one-input premise."
+    },
+    {
+      "id": "CA088",
+      "action": "overstated",
+      "current_resolution_lines": [
+        [
+          3177,
+          3177
+        ]
+      ],
+      "reason": "The restart is already labeled Local recap for the lower bound."
+    },
+    {
+      "id": "CA089",
+      "action": "later_resolved_or_merge",
+      "current_resolution_lines": [
+        [
+          3211,
+          3211
+        ]
+      ],
+      "reason": "The analytic/minimax distinction is explicit after the short minimax proof; prefer the earlier ν1 first-use placement finding."
+    },
+    {
+      "id": "CA090",
+      "action": "overstated",
+      "current_resolution_lines": [
+        [
+          3194,
+          3202
+        ]
+      ],
+      "reason": "The hard-law contract is displayed before the finite proof; optional proof placement is separate from an absent contract."
+    },
+    {
+      "id": "CA092",
+      "action": "overstated",
+      "current_resolution_lines": [
+        [
+          3251,
+          3251
+        ],
+        [
+          3273,
+          3273
+        ]
+      ],
+      "reason": "Independence of I from the whole dummy input is stated twice before use, not confined to an isolated clause."
+    },
+    {
+      "id": "CA093",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          3287,
+          3287
+        ],
+        [
+          3291,
+          3291
+        ]
+      ],
+      "reason": "Toy function, parameters, labels and coordinate translation all precede the board."
+    },
+    {
+      "id": "CA094",
+      "action": "drop_or_mark_immediate_resolution",
+      "current_resolution_lines": [
+        [
+          3319,
+          3319
+        ]
+      ],
+      "reason": "The paragraph immediately after (18) explicitly distinguishes a cell visit from a changed-bit query."
+    },
+    {
+      "id": "CA095",
+      "action": "drop_reset_demand",
+      "current_resolution_lines": [
+        [
+          3332,
+          3332
+        ]
+      ],
+      "reason": "A local Z notation reset is already stated; a distinct renaming preference may survive."
+    },
+    {
+      "id": "CA096",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          3364,
+          3368
+        ]
+      ],
+      "reason": "Repeats exclude nothing and discover nothing; charged queries enter the budget count."
+    },
+    {
+      "id": "CA097",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          3354,
+          3354
+        ]
+      ],
+      "reason": "The cited paragraph itself gives transcript factoring, independence and blank-cell noninformation before the posterior formula."
+    },
+    {
+      "id": "CA098",
+      "action": "drop_labeling_demand",
+      "current_resolution_lines": [
+        [
+          3388,
+          3388
+        ]
+      ],
+      "reason": "Active coefficient-four proof and two optional refinements are already labeled; relocation preference survives separately."
+    },
+    {
+      "id": "CA099",
+      "action": "later_resolved_or_merge",
+      "current_resolution_lines": [
+        [
+          3477,
+          3484
+        ]
+      ],
+      "reason": "Complete-run nonheaviness guarantees every earlier prefix fits; the intersection and original-law interpretation are explicit."
+    },
+    {
+      "id": "CA100",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          3467,
+          3467
+        ]
+      ],
+      "reason": "The preceding paragraph lists allowed dummy fields and excludes the target address and transcript."
+    },
+    {
+      "id": "CA101",
+      "action": "drop_as_absence_claim",
+      "current_resolution_lines": [
+        [
+          3469,
+          3469
+        ],
+        [
+          3493,
+          3495
+        ]
+      ],
+      "reason": "Before-content output timing is explicit in both operational definition and trace."
+    },
+    {
+      "id": "CA109",
+      "action": "overstated",
+      "current_resolution_lines": [
+        [
+          3710,
+          3718
+        ]
+      ],
+      "reason": "The strict positive exponent gap is imposed before the ratio; placing the k=3 illustration earlier is optional."
+    },
+    {
+      "id": "CA110",
+      "action": "not_determined",
+      "current_resolution_lines": [],
+      "reason": "The proposed missing link at the first structured-function definition falls in this specialist’s omitted §4 coverage."
+    },
+    {
+      "id": "CA113",
+      "action": "merge_narrowly",
+      "current_resolution_lines": [
+        [
+          3793,
+          3793
+        ]
+      ],
+      "reason": "The meaningful missing scalar chain is the logarithm estimate; X<m follows immediately from the displayed expression and parameter range."
+    },
+    {
+      "id": "CA114",
+      "action": "overstated",
+      "current_resolution_lines": [
+        [
+          3800,
+          3800
+        ]
+      ],
+      "reason": "The paragraph already identifies origins of both leading losses before balancing; demanding full algebra first is an ordering preference."
+    },
+    {
+      "id": "CA115",
+      "action": "drop",
+      "current_resolution_lines": [
+        [
+          3814,
+          3814
+        ]
+      ],
+      "reason": "The displayed inequalities explicitly give each decimal rounding direction."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+# Reading log and appended verification
+
+## Status of this record
+
+The block below preserves the primary first-pass narrative, frozen before that reader opened companions, earlier reviews or external literature. Its exact standalone copy and hash are in `review_logs/primary_first_pass.md` and `checks/frozen_logs.json`. Inherited context, tool previews and recovered output omissions prevent a claim of an independent blind read.
+
+**The strict prospective per-sentence protocol was not satisfied.** The source was read through line 6587, but individual JSONL states were reconstructed after the narrative freeze. They are a source index with contextual reading tasks, not a contemporaneous thought record. Full nonblank-character coverage is mechanical accounting and is not proof of mathematical verification.
+
+The frozen narrative includes impressions later rejected. Only the 237 accepted items in `feedback.json` constitute the final advice. The original 455 proposals were reduced by 80 merges and 138 rejections. This is below the suggested 400; no replacement issues were manufactured.
+
+## Frozen primary narrative — begin
+
+# Simulated chronological encounter log (in progress)
+
+This is one model's source-order simulation, not an observed human cold read and not four independent readers. Before assignment the inherited context had already exposed truncated portions of the pasted integration transcript; it therefore cannot be called blind. No prior-review file, companion manuscript, literature file, or method file has been opened in this pass.
+
+Read protocol: manuscript source only; tool-output truncation was detected and omitted ranges were reread. The first oversized read exposed §2.6 before all of §2 was visible, and the §3.1–3.5 read exposed the small-instance table before the circuit subsection was fully visible. These are accidental preview exposures, not silent sequential coverage. Their intervening material was then recovered; those examples are answer-exposed. There are no claimed timed or independent human exercise attempts.
+
+## Title through §2 (lines 1–434)
+The title promises a complete reasoning record. The opening supplies the power comparison before defining a total Boolean function, then introduces L, r, t, and three numerical constants before specifying their roles. The distinction between proving an ordinary theorem and formalizing its implementation is promised, not yet discharged. The routes, question entries, §1.1 dependency list, and second shorter-account list create several competing navigation layers. The theorem's order of quantifiers and the distinction between fixed k and growing k become explicit in §1. At this stage m is a construction parameter; its relation to the Boolean input length remains unknown. The source-specific representation details in §2 interrupt the ordinary models but explain empty promises, syntactic caps, and real probabilities. The deferred-measurement paragraph is substantially denser than the elementary models around it: the roles of E, J, L, and Z require reconstruction. The OR2 exact threshold example is already answer-exposed by the preview table; parity likewise. The zero-query arguments close their own prerequisites.
+
+## §3.1–§3.5 (lines 435–845)
+The three-property contract is now available. Walsh normalization, positive promise, integer numerator, coherent decoder, and exact circuit are developed in that order. The distinction between projection probability Phi^2 and signed threshold is recoverable only once the promise is held in mind. The gate-cost section alternates ideal arithmetic, residue arithmetic, source constructors and a numerical S bound; the reader has to preserve which object each claim concerns. Small-instance values were visible before complete intermediate recovery, so these checks are answer-exposed. No proof has yet supplied hardness; the manuscript expressly postpones it.
+
+## §3.6–§3.10 (lines 846–1203)
+The promise is restarted for independent entry. The published theorem is stated and then qualified by a later source mismatch; the first-pass reader cannot assess that mismatch without an Appendix E detour, which was not taken. The direct route announces Gaussian interpolation, martingale derivatives, and the two differences from Bansal–Sinha. Multilinear extension and Stein identity are established before the chain. The zero endpoint requires reflection of a correlated Gaussian layer, not independence of the bias coordinates. The k=3 calculation helps recover the block induction, but notation changes U/U', indexed blocks, paths and raw derivatives increase the local translation burden. F24 explains why order-k biased derivatives retain higher Fourier levels.
+
+## §3.11–§3.18 (lines 1204–1651)
+The interpolation has reduced the distribution gap to path derivatives. The martingale growth argument introduces revealed-coordinate sets, coefficient arrays and a stopped process; I have to keep the stopping threshold and the original tree depth separate. The finite-leaf residual is a second contribution, not another bound on the stopped term. Moment estimates supply positive promise mass under the rounded distribution even though that distribution is not supported on the promise. This makes the off-promise bounded acceptance condition necessary in the amplification comparison. The uniform estimate gives a stronger usable ingredient than the fixed-k literature comparison; the subsequent explicit threshold mixes t, k and the chosen cap L. The section ends by repeating the three-property contract and the distinction between ordinary and formal realizations.
+
+## §4 (lines 1652–2024)
+The exact circuit now explains why the giant address space is useful: it hides a certificate at the true vector of promise outputs, while every local claim can still be tested with few queries. The initial abstraction P,C is specialized to Forrelation after the construction has already begun. The physical input length first appears here; its exponent is much larger than the column parameter m. The worked four-column board fixes r=2 rather than the separation's r=40, and changes index conventions. These are legitimate toy choices but must remain visible while reading the pointers. The gate tests have fixed support; a pointer test has small adaptive depth and large essential support. Coherent evaluation retains workspace; the stronger clean oracle has a different cost. The winner argument requires only the winner's address to be correct, while arbitrary opponent addresses cannot disqualify an all-one X block.
+
+## §5.1–§5.2 (lines 2025–2485)
+The bounded amplifier replaces unknown-success expected-time search with a fixed trial count. Its useful output is the original successful register, with auxiliary registers retained; the state formula and the all-branch cost are separate obligations. The ideal tournament is a proof device: its weights need not be computed. Complementarity of each unordered pair gives the drift identity even in cycles. The tensor-stage law then realizes sampling proportional to these weights. Before the dominant vertex is selected, its weight supplies the success floor needed for amplification. The coupling only needs this prefix of the run. The list-law theorem and the measured continuation route are distinct formal descriptions, although their acceptance consequences coincide. The long example and source comparisons occur while these interfaces are still being assembled.
+
+## §5.3–§5.5 (lines 2486–2716)
+Decoding is guaranteed only on promised inputs but returns a label and obeys its cap everywhere. Opponents can therefore be compared even when their own promises fail. Verification searches for failure: amplifier failure means acceptance here, although it means stopping in the tournament. The total error combines missing the winner with rejecting its fresh decoding. A second sequence of compiler constants leads to exponent six; the parameter names r, T, q, L and c carry several meanings across the argument. The continuation proof restates the algorithm in a form matched to the formal headline route, after the ordinary list-based proof has already closed.
+
+## §6.1 (lines 2717–3172)
+The direct-product hypothesis is a separate cap on each independent input. Conditional transcript rectangles preserve a product law, but conditioning on the cap event need not preserve hardness. The value-function product controls terminal success without assuming that the algorithm's chosen outputs are independently optimal. The AND example makes total-budget and cap-event distinctions explicit. The unnormalized alternative proves the same endpoint with a different object. The Drucker comparison shows that an existing global-budget theorem can also suffice for this application; it is a comparison rather than a premise of the preceding proof. None of these observations allows a conditional claim on the nonheavy event.
+
+## §6.2–§6.5 (lines 3173–3533)
+The minimax distribution is supported on the promise, unlike the rounded Gaussian distribution used earlier. The dummy input and independently selected column are coupled before alteration. First difference charges two locations only: an erased zero or the planted address cell. Adaptive discoveries prevent replacing the first charge by marginal uniformity; independence of I from the whole dummy experiment is needed. Both the early/late and stronger alternate zero-search estimates are given. The fixed-time simulator receives only information independent of its target promise strings, aborts before exceeding the total cap, and outputs a proposed address before reading a cell. It bounds a joint event under the original law. Union over query times costs G but averaging the independent column introduces no further m factor.
+
+## §6.6–§7 (lines 3534–3825)
+The three discrepancy terms now share one cap G, and the coarse constants already lie below one third. Randomized coins are averaged only after each deterministic cap has been controlled. The two floors lose two factors of two. The same realizing circuit is explicitly used in both complexity estimates. The fixed-k proof chooses alpha, then k, then the proposed constant, then t; it rules out every subquartic universal exponent without reaching fourth power for a fixed k. Section 7.3 separately balances the exponential decoder loss against the classical m^{-1/k} loss, checks the floor and obtains one growing-k family. This extension carries a substantially more numerical burden and is not needed for the headline infimum.
+
+## Appendix A (lines 3826–4091)
+The universal upper endpoint is reconstructed by two uses of the same adversary inequality, followed by the degree/sensitivity and deterministic-tree inequalities. The ordinary bit oracle and the phase implementation share the cap-preserving deferred measurement bridge. The parity example detects the disputed prefactor locally. The maximum-degree face, parity correlation and signed-cube eigenspace intersection each make a different transition and require keeping the original and restricted inputs separate. The formal route used by the headline is not yet described; that comparison is deferred to G.9.
+
+## Appendix B (lines 4092–5598)
+Every catalogue entry was read in order. The catalogue is a literal ledger reproduction, not fresh proof text. Its plain-text signs, indices and notation sometimes differ from the main exposition. Introductory paragraphs repeatedly qualify exact/stronger/partial source ties before the relevant rows; the rows themselves carry only argument links. The catalogue preserves 121 original IDs while newer results live elsewhere. That makes it hard to infer a current complete inventory from the catalogue title alone. Several entries contain multiple complete sentences and conjunctions, which are treated as individual prose units in the coverage index. Argument links, entry headings and claim tags are separate nonprose units, not silently counted as sentences.
+
+## Appendix C (lines 5599–5754)
+Every reference entry and link definition was read. The entries combine publication metadata, inspected-version metadata, local hashes, locators and historical caveats. Most references pin an edition, but the same visual label covers a preprint, an author PDF, a publisher version or metadata only. The BSS item expressly says no original full-text inspection, despite the common 'Inspected edition or source' link label. The bibliography thus requires the prose qualification to determine what was actually assessed. No listed external work was opened during this pass.
+
+## Appendices D–E (lines 5755–5969)
+The historical threshold retains the old proof with delta and tau freshly parameterized, then returns to the frozen promise and earlier constants. It is optional to the present proof but occupies the next chronological block. The Bansal–Sinha comparison isolates two displayed errors while expressly preserving the stated theorem; this is an assessment of displayed upper bounds, not a counterexample to hardness. The SSW transfer introduces a new random restriction, variable error and powers-of-two scope. Its absolute constant remains unspecified. The transfer derives a useful comparison but is not a formal endpoint or an input to the elementary route.
+
+## Appendix F (lines 5970–6057)
+The chronological execution history is read as historical evidence only. It contains several snapshots, commit labels, file counts, dates, compilation receipts and comparison memberships. F.1's round-three results and its later round-four paragraph are distinct observations; none is independently re-executed here. The old unelaborated comments are repeatedly reconciled with newer receipts. The narrative is difficult to summarize without a snapshot table because 'the supplied packet', 'the integration', and 'the returned review' vary in referent across sections.
+
+## Appendix G and disclosure (lines 6058–6458)
+The opening finally gives a concrete statement-inspection route. Definitions, translations and ordinary identifications are separated, but then much of G.2 repeats the same models in greater detail. G.4 contains current-looking headings with several evidence clocks: 2 November corpus judgments, 3 November textual judgments and exact configured comparisons. The text explicitly withholds general physical-state transport, arbitrary-information formalization, and early/late proof-route identity. The retained-state amplifier is stronger on an abstract interface but narrower on the success event and lacks the complete physical transport. The headline uses measured labels, so that formal gap is not a premise of the main upper bound. G.8 distinguishes equality-plus-bound conjunctions from a stronger inequality and distinguishes a theorem's truth from a particular proof route. G.9 explains the three quartic coefficients and the headline's actual route. The AI disclosure denies human mathematical review and publication submission.
+
+## Source metadata tail (lines 6459–6587)
+Every end-of-file Lean link definition was inspected as a metadata unit. The links use full b8db532... commit URLs, whereas G.4's prose describes Lean links as pinned to d234866 with equal-source receipts at 659b571. That is a concrete source-version consistency question, not a fetched-source conclusion. No linked Lean file was opened during this pass.
+
+## Limits, recovery and freeze
+This log was completed after reading all 6587 source lines, including all catalogue rows, all bibliography entries, execution/formal appendices, HTML comments/anchors and end link definitions. Blank lines are layout, not prose. The source was read in consecutive chunks except for recovery of tool-truncated ranges. Truncated outputs previewed later material before the omitted text was recovered; examples in §2.6 and §3.5 and parts of Appendix F were therefore answer-exposed. Further middle-output omissions in §§7.3, C, F.1, G.3, G.5 and the link tail were explicitly reread. Two short recovery ranges in §§5.1 and 5.3 were reread at the end. No prior-review, method, companion or external source file was opened before this freeze.
+
+The record is a model simulation of reading and cognitive dependencies. It is not an empirical reader study, a fresh Lean/Comparator run, an external source audit, or a proof of every sentence. Sentence segmentation and precise line accounting will be generated after freezing this narrative, using the already read source; the unit records will label derived reader-state reconstructions rather than pretending each was written live. Specific editing candidates will likewise be transcribed from these observations with exact source anchors.
+
+
+## Frozen primary narrative — end
+
+## Verification appended after the freeze
+
+The three scoped first-pass logs are preserved separately: `review_logs/quantum_first_pass.md`, `review_logs/classical_first_pass.md`, and `review_logs/formal_first_pass.md`. Their ranges and skipped ranges are in `coverage.json`. All four perspectives are simulations, not four independent full human reviews.
+
+### Corrections to initial impressions
+
+Local rereads rejected assertions that the manuscript omitted the branch-mass example, reflection direction, circuit residue invariant, terminal product factorization, zero-success cases, finite horizon, dummy side-information boundary, and several formal-scope distinctions. The exact IDs and evidence are in `checks/consolidation.json` and the three context-triage files. These corrections were appended rather than editing the frozen narrative. A later resolution is recorded as such; information already present at the alleged gap removes that allegation.
+
+### Exercise and example exposure
+
+Worked examples generally arrived with their outcomes in the same source display. Their calculations were examined with those answers visible. No unexposed test performance is claimed. The exposition question consulted in the historical audit was also answer-exposed. Worked demonstrations are not criticized merely for revealing their results.
+
+### Mathematical and literature checks
+
+Quantum verification examined circuit accounting, amplifier endpoints and returned-register semantics, the exact conditional sampler law, complementarity, winner selection and fresh verification, and the ordinary Appendix A route. Classical verification examined interpolation and tree growth, minimax support, conditional-value direct product, original-law capped events, the two simulator clocks, the column/time sum and the finite/uniform parameter calculations. Detailed scope and limitations are in `checks/mathematical_verification.md`.
+
+The source comparisons distinguish a defective printed display from the truth of a cited theorem. Primary sources outside the packet were searched and selected passages read; current official documentation is not treated as evidence of an old executable run. Every source entry records its edition and actual read scope in `checks/sources.json`.
+
+### Formal source and historical evidence
+
+The configured four Challenge/Solution target types were compared textually, and the forwarding structure and configuration were inspected. This is not elaboration or kernel checking. The historical paranoid receipt records an unsandboxed run. Of its 224 source-hash entries,70 files are present and match in this packet;154 are absent from the selective packet. No whole-closure replay is asserted. Current Lean link definitions all use b8db532..., while the prose names d234866; the concrete finding is the narrative pin mismatch, not an inference about remote byte equality.
+
+### Rendering and final artifact checks
+
+The supplied PDF was selectively rasterized and the listed pages viewed at normal reading size; it was not rebuilt. Unviewed pages remain listed. The input archive and its manifest were checked, and the final return is independently extracted and checked for CRC, member uniqueness, safe paths, hashes, JSON parseability, source quotations and crosslinks. These checks establish artifact integrity and traceability only.

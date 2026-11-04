@@ -89,6 +89,10 @@ class RepositoryTests(unittest.TestCase):
     def errors(self, index=False, archive_dir=None):
         return CHECKER.check(CHECKER.GitView(self.root, index), archive_dir)
 
+    def test_jsonl_review_evidence_is_admitted_but_executable_is_not(self):
+        self.assertIsNone(CHECKER.placement("research/returns/round9/members/expert/sentence_audit.jsonl"))
+        self.assertIsNotNone(CHECKER.placement("research/returns/round9/members/expert/check.py"))
+
     def make_archives(self, archive_dir):
         for name, snapshot in self.manifest["snapshots"].items():
             path = Path(archive_dir) / snapshot["archive"]["name"]

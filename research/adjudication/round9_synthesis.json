@@ -1,0 +1,3816 @@
+{
+  "schema": "quartic-round9-adjudication-v1",
+  "baseline_commit": "7772e4f2b98149a38ed69b88397982620f94bdac",
+  "source_edition": "8357f268732746d1575e05e7de8c888e20ad3793",
+  "scope": "538 returned current manuscript findings individually adjudicated, with prior-round/cross-document observations separately retained. Editorial validation is distinct from proof compilation, Comparator acceptance and human review.",
+  "manuscripts": {
+    "expert_companion": {
+      "dispositions": "research/adjudication/round9_dispositions/expert_companion.json",
+      "current_findings": 166,
+      "statuses": {
+        "applied": 161,
+        "applied_alternative": 1,
+        "retained": 4
+      },
+      "manuscript_sha256": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "cross_document_dispositions": 58
+    },
+    "exposition": {
+      "dispositions": "research/adjudication/round9_dispositions/exposition.json",
+      "current_findings": 135,
+      "statuses": {
+        "applied": 126,
+        "not_adopted": 9
+      },
+      "manuscript_sha256": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+      "previous_round_audit_dispositions": 164,
+      "supporting_audit_dispositions": 18
+    },
+    "reasoning_record": {
+      "dispositions": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "current_findings": 237,
+      "statuses": {
+        "accepted": 197,
+        "retained": 40
+      },
+      "manuscript_sha256": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+      "cross_document_dispositions": 3,
+      "ancillary_dispositions": 47
+    }
+  },
+  "findings": [
+    {
+      "id": "XP9-001",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/0"
+    },
+    {
+      "id": "XP9-002",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/1"
+    },
+    {
+      "id": "XP9-003",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/2"
+    },
+    {
+      "id": "XP9-004",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/3"
+    },
+    {
+      "id": "XP9-005",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/4"
+    },
+    {
+      "id": "XP9-006",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/5"
+    },
+    {
+      "id": "XP9-007",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/6"
+    },
+    {
+      "id": "XP9-008",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/7"
+    },
+    {
+      "id": "XP9-009",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/8"
+    },
+    {
+      "id": "XP9-010",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/9"
+    },
+    {
+      "id": "XP9-011",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/10"
+    },
+    {
+      "id": "XP9-012",
+      "paper": "expert_companion",
+      "status": "applied_alternative",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/11"
+    },
+    {
+      "id": "XP9-013",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/12"
+    },
+    {
+      "id": "XP9-014",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/13"
+    },
+    {
+      "id": "XP9-015",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/14"
+    },
+    {
+      "id": "XP9-016",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/15"
+    },
+    {
+      "id": "XP9-017",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/16"
+    },
+    {
+      "id": "XP9-018",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/17"
+    },
+    {
+      "id": "XP9-019",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/18"
+    },
+    {
+      "id": "XP9-020",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/19"
+    },
+    {
+      "id": "XP9-021",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/20"
+    },
+    {
+      "id": "XP9-022",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/21"
+    },
+    {
+      "id": "XP9-023",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/22"
+    },
+    {
+      "id": "XP9-024",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/23"
+    },
+    {
+      "id": "XP9-025",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/24"
+    },
+    {
+      "id": "XP9-026",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/25"
+    },
+    {
+      "id": "XP9-027",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/26"
+    },
+    {
+      "id": "XP9-028",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/27"
+    },
+    {
+      "id": "XP9-029",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/28"
+    },
+    {
+      "id": "XP9-030",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/29"
+    },
+    {
+      "id": "XP9-031",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/30"
+    },
+    {
+      "id": "XP9-032",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/31"
+    },
+    {
+      "id": "XP9-033",
+      "paper": "expert_companion",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/32"
+    },
+    {
+      "id": "XP9-034",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/33"
+    },
+    {
+      "id": "XP9-035",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/34"
+    },
+    {
+      "id": "XP9-036",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/35"
+    },
+    {
+      "id": "XP9-037",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/36"
+    },
+    {
+      "id": "XP9-038",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/37"
+    },
+    {
+      "id": "XP9-039",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/38"
+    },
+    {
+      "id": "XP9-040",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/39"
+    },
+    {
+      "id": "XP9-041",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/40"
+    },
+    {
+      "id": "XP9-042",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/41"
+    },
+    {
+      "id": "XP9-043",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/42"
+    },
+    {
+      "id": "XP9-044",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/43"
+    },
+    {
+      "id": "XP9-045",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/44"
+    },
+    {
+      "id": "XP9-046",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/45"
+    },
+    {
+      "id": "XP9-047",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/46"
+    },
+    {
+      "id": "XP9-048",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/47"
+    },
+    {
+      "id": "XP9-049",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/48"
+    },
+    {
+      "id": "XP9-050",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/49"
+    },
+    {
+      "id": "XP9-051",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/50"
+    },
+    {
+      "id": "XP9-052",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/51"
+    },
+    {
+      "id": "XP9-053",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/52"
+    },
+    {
+      "id": "XP9-054",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/53"
+    },
+    {
+      "id": "XP9-055",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/54"
+    },
+    {
+      "id": "XP9-056",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/55"
+    },
+    {
+      "id": "XP9-057",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/56"
+    },
+    {
+      "id": "XP9-058",
+      "paper": "expert_companion",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/57"
+    },
+    {
+      "id": "XP9-059",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/58"
+    },
+    {
+      "id": "XP9-060",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/59"
+    },
+    {
+      "id": "XP9-061",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/60"
+    },
+    {
+      "id": "XP9-062",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/61"
+    },
+    {
+      "id": "XP9-063",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/62"
+    },
+    {
+      "id": "XP9-064",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/63"
+    },
+    {
+      "id": "XP9-065",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/64"
+    },
+    {
+      "id": "XP9-066",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/65"
+    },
+    {
+      "id": "XP9-067",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/66"
+    },
+    {
+      "id": "XP9-068",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/67"
+    },
+    {
+      "id": "XP9-069",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/68"
+    },
+    {
+      "id": "XP9-070",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/69"
+    },
+    {
+      "id": "XP9-071",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/70"
+    },
+    {
+      "id": "XP9-072",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/71"
+    },
+    {
+      "id": "XP9-073",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/72"
+    },
+    {
+      "id": "XP9-074",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/73"
+    },
+    {
+      "id": "XP9-075",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/74"
+    },
+    {
+      "id": "XP9-076",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/75"
+    },
+    {
+      "id": "XP9-077",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/76"
+    },
+    {
+      "id": "XP9-078",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/77"
+    },
+    {
+      "id": "XP9-079",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/78"
+    },
+    {
+      "id": "XP9-080",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/79"
+    },
+    {
+      "id": "XP9-081",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/80"
+    },
+    {
+      "id": "XP9-082",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/81"
+    },
+    {
+      "id": "XP9-083",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/82"
+    },
+    {
+      "id": "XP9-084",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/83"
+    },
+    {
+      "id": "XP9-085",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/84"
+    },
+    {
+      "id": "XP9-086",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/85"
+    },
+    {
+      "id": "XP9-087",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/86"
+    },
+    {
+      "id": "XP9-088",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/87"
+    },
+    {
+      "id": "XP9-089",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/88"
+    },
+    {
+      "id": "XP9-090",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/89"
+    },
+    {
+      "id": "XP9-091",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/90"
+    },
+    {
+      "id": "XP9-092",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/91"
+    },
+    {
+      "id": "XP9-093",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/92"
+    },
+    {
+      "id": "XP9-094",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/93"
+    },
+    {
+      "id": "XP9-095",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/94"
+    },
+    {
+      "id": "XP9-096",
+      "paper": "expert_companion",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/95"
+    },
+    {
+      "id": "XP9-097",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/96"
+    },
+    {
+      "id": "XP9-098",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/97"
+    },
+    {
+      "id": "XP9-099",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/98"
+    },
+    {
+      "id": "XP9-100",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/99"
+    },
+    {
+      "id": "XP9-101",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/100"
+    },
+    {
+      "id": "XP9-102",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/101"
+    },
+    {
+      "id": "XP9-103",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/102"
+    },
+    {
+      "id": "XP9-104",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/103"
+    },
+    {
+      "id": "XP9-105",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/104"
+    },
+    {
+      "id": "XP9-106",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/105"
+    },
+    {
+      "id": "XP9-107",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/106"
+    },
+    {
+      "id": "XP9-108",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/107"
+    },
+    {
+      "id": "XP9-109",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/108"
+    },
+    {
+      "id": "XP9-110",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/109"
+    },
+    {
+      "id": "XP9-111",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/110"
+    },
+    {
+      "id": "XP9-112",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/111"
+    },
+    {
+      "id": "XP9-113",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/112"
+    },
+    {
+      "id": "XP9-114",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/113"
+    },
+    {
+      "id": "XP9-115",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/114"
+    },
+    {
+      "id": "XP9-116",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/115"
+    },
+    {
+      "id": "XP9-117",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/116"
+    },
+    {
+      "id": "XP9-118",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/117"
+    },
+    {
+      "id": "XP9-119",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/118"
+    },
+    {
+      "id": "XP9-120",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/119"
+    },
+    {
+      "id": "XP9-121",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/120"
+    },
+    {
+      "id": "XP9-122",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/121"
+    },
+    {
+      "id": "XP9-123",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/122"
+    },
+    {
+      "id": "XP9-124",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/123"
+    },
+    {
+      "id": "XP9-125",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/124"
+    },
+    {
+      "id": "XP9-126",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/125"
+    },
+    {
+      "id": "XP9-127",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/126"
+    },
+    {
+      "id": "XP9-128",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/127"
+    },
+    {
+      "id": "XP9-129",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/128"
+    },
+    {
+      "id": "XP9-130",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/129"
+    },
+    {
+      "id": "XP9-131",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/130"
+    },
+    {
+      "id": "XP9-132",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/131"
+    },
+    {
+      "id": "XP9-133",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/132"
+    },
+    {
+      "id": "XP9-134",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/133"
+    },
+    {
+      "id": "XP9-135",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/134"
+    },
+    {
+      "id": "XP9-136",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/135"
+    },
+    {
+      "id": "XP9-137",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/136"
+    },
+    {
+      "id": "XP9-138",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/137"
+    },
+    {
+      "id": "XP9-139",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/138"
+    },
+    {
+      "id": "XP9-140",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/139"
+    },
+    {
+      "id": "XP9-141",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/140"
+    },
+    {
+      "id": "XP9-142",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/141"
+    },
+    {
+      "id": "XP9-143",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/142"
+    },
+    {
+      "id": "XP9-144",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/143"
+    },
+    {
+      "id": "XP9-145",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/144"
+    },
+    {
+      "id": "XP9-146",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/145"
+    },
+    {
+      "id": "XP9-147",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/146"
+    },
+    {
+      "id": "XP9-148",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/147"
+    },
+    {
+      "id": "XP9-149",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/148"
+    },
+    {
+      "id": "XP9-150",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/149"
+    },
+    {
+      "id": "XP9-151",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/150"
+    },
+    {
+      "id": "XP9-152",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/151"
+    },
+    {
+      "id": "XP9-153",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/152"
+    },
+    {
+      "id": "XP9-154",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/153"
+    },
+    {
+      "id": "XP9-155",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/154"
+    },
+    {
+      "id": "XP9-156",
+      "paper": "expert_companion",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/155"
+    },
+    {
+      "id": "XP9-157",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/156"
+    },
+    {
+      "id": "XP9-158",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/157"
+    },
+    {
+      "id": "XP9-159",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/158"
+    },
+    {
+      "id": "XP9-160",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/159"
+    },
+    {
+      "id": "XP9-161",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/160"
+    },
+    {
+      "id": "XP9-162",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/161"
+    },
+    {
+      "id": "XP9-163",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/162"
+    },
+    {
+      "id": "XP9-164",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/163"
+    },
+    {
+      "id": "XP9-165",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/164"
+    },
+    {
+      "id": "XP9-166",
+      "paper": "expert_companion",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/expert_companion.json",
+      "json_pointer": "/dispositions/165"
+    },
+    {
+      "id": "EX9001",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/0"
+    },
+    {
+      "id": "EX9002",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/1"
+    },
+    {
+      "id": "EX9003",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/2"
+    },
+    {
+      "id": "EX9004",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/3"
+    },
+    {
+      "id": "EX9005",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/4"
+    },
+    {
+      "id": "EX9006",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/5"
+    },
+    {
+      "id": "EX9007",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/6"
+    },
+    {
+      "id": "EX9008",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/7"
+    },
+    {
+      "id": "EX9009",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/8"
+    },
+    {
+      "id": "EX9010",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/9"
+    },
+    {
+      "id": "EX9011",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/10"
+    },
+    {
+      "id": "EX9012",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/11"
+    },
+    {
+      "id": "EX9013",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/12"
+    },
+    {
+      "id": "EX9014",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/13"
+    },
+    {
+      "id": "EX9015",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/14"
+    },
+    {
+      "id": "EX9016",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/15"
+    },
+    {
+      "id": "EX9017",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/16"
+    },
+    {
+      "id": "EX9018",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/17"
+    },
+    {
+      "id": "EX9019",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/18"
+    },
+    {
+      "id": "EX9020",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/19"
+    },
+    {
+      "id": "EX9021",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/20"
+    },
+    {
+      "id": "EX9022",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/21"
+    },
+    {
+      "id": "EX9023",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/22"
+    },
+    {
+      "id": "EX9024",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/23"
+    },
+    {
+      "id": "EX9025",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/24"
+    },
+    {
+      "id": "EX9026",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/25"
+    },
+    {
+      "id": "EX9027",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/26"
+    },
+    {
+      "id": "EX9028",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/27"
+    },
+    {
+      "id": "EX9029",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/28"
+    },
+    {
+      "id": "EX9030",
+      "paper": "exposition",
+      "status": "not_adopted",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/29"
+    },
+    {
+      "id": "EX9031",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/30"
+    },
+    {
+      "id": "EX9032",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/31"
+    },
+    {
+      "id": "EX9033",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/32"
+    },
+    {
+      "id": "EX9034",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/33"
+    },
+    {
+      "id": "EX9035",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/34"
+    },
+    {
+      "id": "EX9036",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/35"
+    },
+    {
+      "id": "EX9037",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/36"
+    },
+    {
+      "id": "EX9038",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/37"
+    },
+    {
+      "id": "EX9039",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/38"
+    },
+    {
+      "id": "EX9040",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/39"
+    },
+    {
+      "id": "EX9041",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/40"
+    },
+    {
+      "id": "EX9042",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/41"
+    },
+    {
+      "id": "EX9043",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/42"
+    },
+    {
+      "id": "EX9044",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/43"
+    },
+    {
+      "id": "EX9045",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/44"
+    },
+    {
+      "id": "EX9046",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/45"
+    },
+    {
+      "id": "EX9047",
+      "paper": "exposition",
+      "status": "not_adopted",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/46"
+    },
+    {
+      "id": "EX9048",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/47"
+    },
+    {
+      "id": "EX9049",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/48"
+    },
+    {
+      "id": "EX9050",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/49"
+    },
+    {
+      "id": "EX9051",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/50"
+    },
+    {
+      "id": "EX9052",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/51"
+    },
+    {
+      "id": "EX9053",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/52"
+    },
+    {
+      "id": "EX9054",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/53"
+    },
+    {
+      "id": "EX9055",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/54"
+    },
+    {
+      "id": "EX9056",
+      "paper": "exposition",
+      "status": "not_adopted",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/55"
+    },
+    {
+      "id": "EX9057",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/56"
+    },
+    {
+      "id": "EX9058",
+      "paper": "exposition",
+      "status": "not_adopted",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/57"
+    },
+    {
+      "id": "EX9059",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/58"
+    },
+    {
+      "id": "EX9060",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/59"
+    },
+    {
+      "id": "EX9061",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/60"
+    },
+    {
+      "id": "EX9062",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/61"
+    },
+    {
+      "id": "EX9063",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/62"
+    },
+    {
+      "id": "EX9064",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/63"
+    },
+    {
+      "id": "EX9065",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/64"
+    },
+    {
+      "id": "EX9066",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/65"
+    },
+    {
+      "id": "EX9067",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/66"
+    },
+    {
+      "id": "EX9068",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/67"
+    },
+    {
+      "id": "EX9069",
+      "paper": "exposition",
+      "status": "not_adopted",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/68"
+    },
+    {
+      "id": "EX9070",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/69"
+    },
+    {
+      "id": "EX9071",
+      "paper": "exposition",
+      "status": "not_adopted",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/70"
+    },
+    {
+      "id": "EX9072",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/71"
+    },
+    {
+      "id": "EX9073",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/72"
+    },
+    {
+      "id": "EX9074",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/73"
+    },
+    {
+      "id": "EX9075",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/74"
+    },
+    {
+      "id": "EX9076",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/75"
+    },
+    {
+      "id": "EX9077",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/76"
+    },
+    {
+      "id": "EX9078",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/77"
+    },
+    {
+      "id": "EX9079",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/78"
+    },
+    {
+      "id": "EX9080",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/79"
+    },
+    {
+      "id": "EX9081",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/80"
+    },
+    {
+      "id": "EX9082",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/81"
+    },
+    {
+      "id": "EX9083",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/82"
+    },
+    {
+      "id": "EX9084",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/83"
+    },
+    {
+      "id": "EX9085",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/84"
+    },
+    {
+      "id": "EX9086",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/85"
+    },
+    {
+      "id": "EX9087",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/86"
+    },
+    {
+      "id": "EX9088",
+      "paper": "exposition",
+      "status": "not_adopted",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/87"
+    },
+    {
+      "id": "EX9089",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/88"
+    },
+    {
+      "id": "EX9090",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/89"
+    },
+    {
+      "id": "EX9091",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/90"
+    },
+    {
+      "id": "EX9092",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/91"
+    },
+    {
+      "id": "EX9093",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/92"
+    },
+    {
+      "id": "EX9094",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/93"
+    },
+    {
+      "id": "EX9095",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/94"
+    },
+    {
+      "id": "EX9096",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/95"
+    },
+    {
+      "id": "EX9097",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/96"
+    },
+    {
+      "id": "EX9098",
+      "paper": "exposition",
+      "status": "not_adopted",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/97"
+    },
+    {
+      "id": "EX9099",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/98"
+    },
+    {
+      "id": "EX9100",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/99"
+    },
+    {
+      "id": "EX9101",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/100"
+    },
+    {
+      "id": "EX9102",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/101"
+    },
+    {
+      "id": "EX9103",
+      "paper": "exposition",
+      "status": "not_adopted",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/102"
+    },
+    {
+      "id": "EX9104",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/103"
+    },
+    {
+      "id": "EX9105",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/104"
+    },
+    {
+      "id": "EX9106",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/105"
+    },
+    {
+      "id": "EX9107",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/106"
+    },
+    {
+      "id": "EX9108",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/107"
+    },
+    {
+      "id": "EX9109",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/108"
+    },
+    {
+      "id": "EX9110",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/109"
+    },
+    {
+      "id": "EX9111",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/110"
+    },
+    {
+      "id": "EX9112",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/111"
+    },
+    {
+      "id": "EX9113",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/112"
+    },
+    {
+      "id": "EX9114",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/113"
+    },
+    {
+      "id": "EX9115",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/114"
+    },
+    {
+      "id": "EX9116",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/115"
+    },
+    {
+      "id": "EX9117",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/116"
+    },
+    {
+      "id": "EX9118",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/117"
+    },
+    {
+      "id": "EX9119",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/118"
+    },
+    {
+      "id": "EX9120",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/119"
+    },
+    {
+      "id": "EX9121",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/120"
+    },
+    {
+      "id": "EX9122",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/121"
+    },
+    {
+      "id": "EX9123",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/122"
+    },
+    {
+      "id": "EX9124",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/123"
+    },
+    {
+      "id": "EX9125",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/124"
+    },
+    {
+      "id": "EX9126",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/125"
+    },
+    {
+      "id": "EX9127",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/126"
+    },
+    {
+      "id": "EX9128",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/127"
+    },
+    {
+      "id": "EX9129",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/128"
+    },
+    {
+      "id": "EX9130",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/129"
+    },
+    {
+      "id": "EX9131",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/130"
+    },
+    {
+      "id": "EX9132",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/131"
+    },
+    {
+      "id": "EX9133",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/132"
+    },
+    {
+      "id": "EX9134",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/133"
+    },
+    {
+      "id": "EX9135",
+      "paper": "exposition",
+      "status": "applied",
+      "disposition_file": "research/adjudication/round9_dispositions/exposition.json",
+      "json_pointer": "/findings/134"
+    },
+    {
+      "id": "RR9-001",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/0"
+    },
+    {
+      "id": "RR9-002",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/1"
+    },
+    {
+      "id": "RR9-003",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/2"
+    },
+    {
+      "id": "RR9-004",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/3"
+    },
+    {
+      "id": "RR9-005",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/4"
+    },
+    {
+      "id": "RR9-006",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/5"
+    },
+    {
+      "id": "RR9-007",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/6"
+    },
+    {
+      "id": "RR9-008",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/7"
+    },
+    {
+      "id": "RR9-009",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/8"
+    },
+    {
+      "id": "RR9-010",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/9"
+    },
+    {
+      "id": "RR9-011",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/10"
+    },
+    {
+      "id": "RR9-012",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/11"
+    },
+    {
+      "id": "RR9-013",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/12"
+    },
+    {
+      "id": "RR9-014",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/13"
+    },
+    {
+      "id": "RR9-015",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/14"
+    },
+    {
+      "id": "RR9-016",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/15"
+    },
+    {
+      "id": "RR9-017",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/16"
+    },
+    {
+      "id": "RR9-018",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/17"
+    },
+    {
+      "id": "RR9-019",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/18"
+    },
+    {
+      "id": "RR9-020",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/19"
+    },
+    {
+      "id": "RR9-021",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/20"
+    },
+    {
+      "id": "RR9-022",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/21"
+    },
+    {
+      "id": "RR9-023",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/22"
+    },
+    {
+      "id": "RR9-024",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/23"
+    },
+    {
+      "id": "RR9-025",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/24"
+    },
+    {
+      "id": "RR9-026",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/25"
+    },
+    {
+      "id": "RR9-027",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/26"
+    },
+    {
+      "id": "RR9-028",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/27"
+    },
+    {
+      "id": "RR9-029",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/28"
+    },
+    {
+      "id": "RR9-030",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/29"
+    },
+    {
+      "id": "RR9-031",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/30"
+    },
+    {
+      "id": "RR9-032",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/31"
+    },
+    {
+      "id": "RR9-033",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/32"
+    },
+    {
+      "id": "RR9-034",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/33"
+    },
+    {
+      "id": "RR9-035",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/34"
+    },
+    {
+      "id": "RR9-036",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/35"
+    },
+    {
+      "id": "RR9-037",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/36"
+    },
+    {
+      "id": "RR9-038",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/37"
+    },
+    {
+      "id": "RR9-039",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/38"
+    },
+    {
+      "id": "RR9-040",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/39"
+    },
+    {
+      "id": "RR9-041",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/40"
+    },
+    {
+      "id": "RR9-042",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/41"
+    },
+    {
+      "id": "RR9-043",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/42"
+    },
+    {
+      "id": "RR9-044",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/43"
+    },
+    {
+      "id": "RR9-045",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/44"
+    },
+    {
+      "id": "RR9-046",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/45"
+    },
+    {
+      "id": "RR9-047",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/46"
+    },
+    {
+      "id": "RR9-048",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/47"
+    },
+    {
+      "id": "RR9-049",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/48"
+    },
+    {
+      "id": "RR9-050",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/49"
+    },
+    {
+      "id": "RR9-051",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/50"
+    },
+    {
+      "id": "RR9-052",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/51"
+    },
+    {
+      "id": "RR9-053",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/52"
+    },
+    {
+      "id": "RR9-054",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/53"
+    },
+    {
+      "id": "RR9-055",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/54"
+    },
+    {
+      "id": "RR9-056",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/55"
+    },
+    {
+      "id": "RR9-057",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/56"
+    },
+    {
+      "id": "RR9-058",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/57"
+    },
+    {
+      "id": "RR9-059",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/58"
+    },
+    {
+      "id": "RR9-060",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/59"
+    },
+    {
+      "id": "RR9-061",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/60"
+    },
+    {
+      "id": "RR9-062",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/61"
+    },
+    {
+      "id": "RR9-063",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/62"
+    },
+    {
+      "id": "RR9-064",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/63"
+    },
+    {
+      "id": "RR9-065",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/64"
+    },
+    {
+      "id": "RR9-066",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/65"
+    },
+    {
+      "id": "RR9-067",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/66"
+    },
+    {
+      "id": "RR9-068",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/67"
+    },
+    {
+      "id": "RR9-069",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/68"
+    },
+    {
+      "id": "RR9-070",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/69"
+    },
+    {
+      "id": "RR9-071",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/70"
+    },
+    {
+      "id": "RR9-072",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/71"
+    },
+    {
+      "id": "RR9-073",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/72"
+    },
+    {
+      "id": "RR9-074",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/73"
+    },
+    {
+      "id": "RR9-075",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/74"
+    },
+    {
+      "id": "RR9-076",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/75"
+    },
+    {
+      "id": "RR9-077",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/76"
+    },
+    {
+      "id": "RR9-078",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/77"
+    },
+    {
+      "id": "RR9-079",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/78"
+    },
+    {
+      "id": "RR9-080",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/79"
+    },
+    {
+      "id": "RR9-081",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/80"
+    },
+    {
+      "id": "RR9-082",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/81"
+    },
+    {
+      "id": "RR9-083",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/82"
+    },
+    {
+      "id": "RR9-084",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/83"
+    },
+    {
+      "id": "RR9-085",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/84"
+    },
+    {
+      "id": "RR9-086",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/85"
+    },
+    {
+      "id": "RR9-087",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/86"
+    },
+    {
+      "id": "RR9-088",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/87"
+    },
+    {
+      "id": "RR9-089",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/88"
+    },
+    {
+      "id": "RR9-090",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/89"
+    },
+    {
+      "id": "RR9-091",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/90"
+    },
+    {
+      "id": "RR9-092",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/91"
+    },
+    {
+      "id": "RR9-093",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/92"
+    },
+    {
+      "id": "RR9-094",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/93"
+    },
+    {
+      "id": "RR9-095",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/94"
+    },
+    {
+      "id": "RR9-096",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/95"
+    },
+    {
+      "id": "RR9-097",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/96"
+    },
+    {
+      "id": "RR9-098",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/97"
+    },
+    {
+      "id": "RR9-099",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/98"
+    },
+    {
+      "id": "RR9-100",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/99"
+    },
+    {
+      "id": "RR9-101",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/100"
+    },
+    {
+      "id": "RR9-102",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/101"
+    },
+    {
+      "id": "RR9-103",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/102"
+    },
+    {
+      "id": "RR9-104",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/103"
+    },
+    {
+      "id": "RR9-105",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/104"
+    },
+    {
+      "id": "RR9-106",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/105"
+    },
+    {
+      "id": "RR9-107",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/106"
+    },
+    {
+      "id": "RR9-108",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/107"
+    },
+    {
+      "id": "RR9-109",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/108"
+    },
+    {
+      "id": "RR9-110",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/109"
+    },
+    {
+      "id": "RR9-111",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/110"
+    },
+    {
+      "id": "RR9-112",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/111"
+    },
+    {
+      "id": "RR9-113",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/112"
+    },
+    {
+      "id": "RR9-114",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/113"
+    },
+    {
+      "id": "RR9-115",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/114"
+    },
+    {
+      "id": "RR9-116",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/115"
+    },
+    {
+      "id": "RR9-117",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/116"
+    },
+    {
+      "id": "RR9-118",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/117"
+    },
+    {
+      "id": "RR9-119",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/118"
+    },
+    {
+      "id": "RR9-120",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/119"
+    },
+    {
+      "id": "RR9-121",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/120"
+    },
+    {
+      "id": "RR9-122",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/121"
+    },
+    {
+      "id": "RR9-123",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/122"
+    },
+    {
+      "id": "RR9-124",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/123"
+    },
+    {
+      "id": "RR9-125",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/124"
+    },
+    {
+      "id": "RR9-126",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/125"
+    },
+    {
+      "id": "RR9-127",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/126"
+    },
+    {
+      "id": "RR9-128",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/127"
+    },
+    {
+      "id": "RR9-129",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/128"
+    },
+    {
+      "id": "RR9-130",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/129"
+    },
+    {
+      "id": "RR9-131",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/130"
+    },
+    {
+      "id": "RR9-132",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/131"
+    },
+    {
+      "id": "RR9-133",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/132"
+    },
+    {
+      "id": "RR9-134",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/133"
+    },
+    {
+      "id": "RR9-135",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/134"
+    },
+    {
+      "id": "RR9-136",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/135"
+    },
+    {
+      "id": "RR9-137",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/136"
+    },
+    {
+      "id": "RR9-138",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/137"
+    },
+    {
+      "id": "RR9-139",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/138"
+    },
+    {
+      "id": "RR9-140",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/139"
+    },
+    {
+      "id": "RR9-141",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/140"
+    },
+    {
+      "id": "RR9-142",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/141"
+    },
+    {
+      "id": "RR9-143",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/142"
+    },
+    {
+      "id": "RR9-144",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/143"
+    },
+    {
+      "id": "RR9-145",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/144"
+    },
+    {
+      "id": "RR9-146",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/145"
+    },
+    {
+      "id": "RR9-147",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/146"
+    },
+    {
+      "id": "RR9-148",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/147"
+    },
+    {
+      "id": "RR9-149",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/148"
+    },
+    {
+      "id": "RR9-150",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/149"
+    },
+    {
+      "id": "RR9-151",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/150"
+    },
+    {
+      "id": "RR9-152",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/151"
+    },
+    {
+      "id": "RR9-153",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/152"
+    },
+    {
+      "id": "RR9-154",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/153"
+    },
+    {
+      "id": "RR9-155",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/154"
+    },
+    {
+      "id": "RR9-156",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/155"
+    },
+    {
+      "id": "RR9-157",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/156"
+    },
+    {
+      "id": "RR9-158",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/157"
+    },
+    {
+      "id": "RR9-159",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/158"
+    },
+    {
+      "id": "RR9-160",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/159"
+    },
+    {
+      "id": "RR9-161",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/160"
+    },
+    {
+      "id": "RR9-162",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/161"
+    },
+    {
+      "id": "RR9-163",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/162"
+    },
+    {
+      "id": "RR9-164",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/163"
+    },
+    {
+      "id": "RR9-165",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/164"
+    },
+    {
+      "id": "RR9-166",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/165"
+    },
+    {
+      "id": "RR9-167",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/166"
+    },
+    {
+      "id": "RR9-168",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/167"
+    },
+    {
+      "id": "RR9-169",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/168"
+    },
+    {
+      "id": "RR9-170",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/169"
+    },
+    {
+      "id": "RR9-171",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/170"
+    },
+    {
+      "id": "RR9-172",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/171"
+    },
+    {
+      "id": "RR9-173",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/172"
+    },
+    {
+      "id": "RR9-174",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/173"
+    },
+    {
+      "id": "RR9-175",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/174"
+    },
+    {
+      "id": "RR9-176",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/175"
+    },
+    {
+      "id": "RR9-177",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/176"
+    },
+    {
+      "id": "RR9-178",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/177"
+    },
+    {
+      "id": "RR9-179",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/178"
+    },
+    {
+      "id": "RR9-180",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/179"
+    },
+    {
+      "id": "RR9-181",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/180"
+    },
+    {
+      "id": "RR9-182",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/181"
+    },
+    {
+      "id": "RR9-183",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/182"
+    },
+    {
+      "id": "RR9-184",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/183"
+    },
+    {
+      "id": "RR9-185",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/184"
+    },
+    {
+      "id": "RR9-186",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/185"
+    },
+    {
+      "id": "RR9-187",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/186"
+    },
+    {
+      "id": "RR9-188",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/187"
+    },
+    {
+      "id": "RR9-189",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/188"
+    },
+    {
+      "id": "RR9-190",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/189"
+    },
+    {
+      "id": "RR9-191",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/190"
+    },
+    {
+      "id": "RR9-192",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/191"
+    },
+    {
+      "id": "RR9-193",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/192"
+    },
+    {
+      "id": "RR9-194",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/193"
+    },
+    {
+      "id": "RR9-195",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/194"
+    },
+    {
+      "id": "RR9-196",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/195"
+    },
+    {
+      "id": "RR9-197",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/196"
+    },
+    {
+      "id": "RR9-198",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/197"
+    },
+    {
+      "id": "RR9-199",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/198"
+    },
+    {
+      "id": "RR9-200",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/199"
+    },
+    {
+      "id": "RR9-201",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/200"
+    },
+    {
+      "id": "RR9-202",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/201"
+    },
+    {
+      "id": "RR9-203",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/202"
+    },
+    {
+      "id": "RR9-204",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/203"
+    },
+    {
+      "id": "RR9-205",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/204"
+    },
+    {
+      "id": "RR9-206",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/205"
+    },
+    {
+      "id": "RR9-207",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/206"
+    },
+    {
+      "id": "RR9-208",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/207"
+    },
+    {
+      "id": "RR9-209",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/208"
+    },
+    {
+      "id": "RR9-210",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/209"
+    },
+    {
+      "id": "RR9-211",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/210"
+    },
+    {
+      "id": "RR9-212",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/211"
+    },
+    {
+      "id": "RR9-213",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/212"
+    },
+    {
+      "id": "RR9-214",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/213"
+    },
+    {
+      "id": "RR9-215",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/214"
+    },
+    {
+      "id": "RR9-216",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/215"
+    },
+    {
+      "id": "RR9-217",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/216"
+    },
+    {
+      "id": "RR9-218",
+      "paper": "reasoning_record",
+      "status": "retained",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/217"
+    },
+    {
+      "id": "RR9-219",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/218"
+    },
+    {
+      "id": "RR9-220",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/219"
+    },
+    {
+      "id": "RR9-221",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/220"
+    },
+    {
+      "id": "RR9-222",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/221"
+    },
+    {
+      "id": "RR9-223",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/222"
+    },
+    {
+      "id": "RR9-224",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/223"
+    },
+    {
+      "id": "RR9-225",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/224"
+    },
+    {
+      "id": "RR9-226",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/225"
+    },
+    {
+      "id": "RR9-227",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/226"
+    },
+    {
+      "id": "RR9-228",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/227"
+    },
+    {
+      "id": "RR9-229",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/228"
+    },
+    {
+      "id": "RR9-230",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/229"
+    },
+    {
+      "id": "RR9-231",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/230"
+    },
+    {
+      "id": "RR9-232",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/231"
+    },
+    {
+      "id": "RR9-233",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/232"
+    },
+    {
+      "id": "RR9-234",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/233"
+    },
+    {
+      "id": "RR9-235",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/234"
+    },
+    {
+      "id": "RR9-236",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/235"
+    },
+    {
+      "id": "RR9-237",
+      "paper": "reasoning_record",
+      "status": "accepted",
+      "disposition_file": "research/adjudication/round9_dispositions/reasoning_record.json",
+      "json_pointer": "/findings/236"
+    }
+  ],
+  "method": {
+    "dispositions": "research/adjudication/round9_method_revision.json",
+    "findings": 48,
+    "published_commit": "7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7",
+    "pull_request": "https://github.com/wcook04/lean-exposition/pull/44"
+  },
+  "validation": "research/adjudication/round9_validation.json"
+}

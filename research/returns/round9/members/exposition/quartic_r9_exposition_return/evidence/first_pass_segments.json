@@ -1,0 +1,43 @@
+{
+  "schema": "quartic-first-pass-segments-v1",
+  "container": "reading_log.md",
+  "hash_policy": "Original frozen bytes appear unchanged within the consolidated reading log; appended validation does not overwrite them.",
+  "segments": [
+    {
+      "perspective": "mathematician_other_field",
+      "container": "reading_log.md",
+      "byte_offset": 1792,
+      "byte_length": 23844,
+      "sha256": "4da4cd2411e9234e729a98953b1b824d7d22fd0d54b0c3bafc661ff6f23d8624",
+      "frozen_at_utc": "2026-11-04T10:43:20.407887+00:00",
+      "locator_policy": "Offsets are zero-based UTF-8 byte offsets, not character offsets."
+    },
+    {
+      "perspective": "undergraduate",
+      "container": "reading_log.md",
+      "byte_offset": 25727,
+      "byte_length": 45904,
+      "sha256": "6c6673918248be6ee8107712f327470c46ca77fdd3489227d9642865261c9cbb",
+      "frozen_at_utc": "2026-11-04T10:51:47.448014+00:00",
+      "locator_policy": "Offsets are zero-based UTF-8 byte offsets, not character offsets."
+    },
+    {
+      "perspective": "physicist_engineer",
+      "container": "reading_log.md",
+      "byte_offset": 71696,
+      "byte_length": 52485,
+      "sha256": "b76c42307b72bc33efd9792c5ea217515de5645c9bc8ae224b872953dba6ca95",
+      "frozen_at_utc": "2026-11-04T10:48:43.259204+00:00",
+      "locator_policy": "Offsets are zero-based UTF-8 byte offsets, not character offsets."
+    },
+    {
+      "perspective": "lecturer",
+      "container": "reading_log.md",
+      "byte_offset": 124285,
+      "byte_length": 47830,
+      "sha256": "d4c65b46cba321f9eca50589fa99dedc53029fc7183238b83364d7d3b5c9322d",
+      "frozen_at_utc": null,
+      "locator_policy": "Offsets are zero-based UTF-8 byte offsets, not character offsets."
+    }
+  ]
+}

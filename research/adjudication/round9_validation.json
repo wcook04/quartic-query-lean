@@ -1,0 +1,511 @@
+{
+  "schema": "quartic-round9-validation-v1",
+  "source_edition": "8357f268732746d1575e05e7de8c888e20ad3793",
+  "scope": "Editorial revision, exact finite-example checks, source/link and PDF validation. No new Lean/Comparator execution or human-review/learning claim.",
+  "disposition_audit": {
+    "source_edition": "8357f268732746d1575e05e7de8c888e20ad3793",
+    "synthesis_pointers_verified": 538,
+    "current_locators_verified": 828,
+    "source_hashes_match": true,
+    "manuscript_sha256": {
+      "expert_companion": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+      "exposition": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+      "reasoning_record": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07"
+    }
+  },
+  "intake": "research/adjudication/round9_intake_validation.json",
+  "exact_checks": "research/adjudication/round9_exact_checks.json",
+  "lean_preservation": {
+    "baseline": "7772e4f",
+    "paths_checked": 225,
+    "current_worktree_byte_equal": true,
+    "lean_tree": "6ef6338d2b37b89904509f2a1bbeef9371b9b084"
+  },
+  "checks": {
+    "make_check": {
+      "result": "passed",
+      "tests": 248,
+      "skipped": 2,
+      "seconds": 34.111,
+      "log": "Local /tmp/quartic-r9-make-check.log; command and result recorded here, log not a clone dependency."
+    },
+    "generated_links": "156 labels pinned; correspondence and Comparator reading map regenerated and checked",
+    "renderer_regression": "Updated expected record edition to366 anchors/359 internal links while retaining destination/immutability checks.",
+    "packet_method_relocation": {
+      "focused_tests": 7,
+      "final_relative_links_resolved": 7,
+      "final_closure_members": 12,
+      "original_sent_packets_modified": false
+    },
+    "index_layout": "passed against final scoped staged paths"
+  },
+  "independent_render_bindings": {
+    "expert_companion": {
+      "pdf_sha256": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+      "inputs": {
+        "docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+        "docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+        "tools/render_papers.py": "e3b311d62d401f0dc58b178a9efa213f44ac7d270b3e4fd16bfb8d1550edefb7",
+        "docs/figures/expert_column.tex": "2b04f8d05910d176ac8a5f3c581baa98fef0d994385aca4dc1e3e7dd950026eb",
+        "docs/figures/expert_planted.tex": "7765359db5724588a2459ab5d68b33dd3a744049f2a973269a85f7752dc339f8"
+      },
+      "visual_acceptance": "separate human/agent page inspection; not established by these hashes"
+    },
+    "exposition": {
+      "pdf_sha256": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+      "inputs": {
+        "docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+        "docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+        "tools/render_papers.py": "e3b311d62d401f0dc58b178a9efa213f44ac7d270b3e4fd16bfb8d1550edefb7",
+        "docs/figures/exposition/fig1_column.tex": "38b7ffa995a54c1450d8c81eee1972102af2d055b3df1df74e6d5a30afd608f7",
+        "docs/figures/exposition/fig2_board.tex": "b07957d1341efed364feafe0cc80931ac2e9f7bfee03b021d9eee5cb843be8b7",
+        "docs/figures/exposition/fig3_tournament.tex": "8d7f225f7003d9e0fc9687ab733f78ae91a98913f3efb0a68735c9043a2385c3",
+        "docs/figures/exposition/fig4_planted.tex": "78158ce0e8e219ef3ab71f5027143a9ad0627e348f43c1326abf87037687ed70",
+        "docs/figures/exposition/style.tex": "b63231827c3f07218f2004beba07a62deba4d7bef1ef1b12c7d8dbb425b34380"
+      },
+      "visual_acceptance": "separate human/agent page inspection; not established by these hashes"
+    },
+    "reasoning_record": {
+      "pdf_sha256": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7",
+      "inputs": {
+        "docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+        "tools/render_reasoning_record.py": "1c46bf4047f4f2d9ecc93bd8369c0fd7f1c3d4ca693197a4cc6ed01e383bb901",
+        "research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/render_section.py": "f52c6ae0ee39915ccce36953afd00c76071f19bb43d6407651694c61032edaab",
+        "research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_header.tex": "9817af5f1cbe1ae754962776f5f5a9cd94c5cda1243a4844fb4810544261e468",
+        "research/returns/round3/members/02_forrelation_promise_circuit/quartic_r3_02_forrelation_promise_circuit_return/checks/pdf_layout.lua": "fa01ab1345f461ecea15aba9bd4855b55c4683797dbd4040348b045d47557253"
+      },
+      "visual_acceptance": "separate human/agent page inspection; not established by these hashes"
+    }
+  },
+  "render": {
+    "expert_companion": {
+      "pdf": "/Users/willcook/Downloads/quartic_round9_revised_20261104/expert/expert_companion.pdf",
+      "pdf_sha256": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+      "pages": 18,
+      "render_receipt_sha256": "0a6f013cf64a450f3d3558396851097ad14eed812b0740e684801942fd6ae80e",
+      "inspection": {
+        "pdf": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/expert/expert_companion.pdf",
+        "pdf_sha256": "4cf95ae890234852ca08837f31671f8fae01ff59d807feb58eca03ff96abbb8a",
+        "pages": 18,
+        "contact_sheets": [
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/expert/inspection/sheet-001.png",
+            "pages": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "sha256": "32ce8720cb6d68c2facd2888cd4bb2298fe78bf8d517a5dee71f55c8f726a0f3"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/expert/inspection/sheet-007.png",
+            "pages": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "sha256": "32e23bb761b87fd4b689226a2b4bafe9ce313091dbbe27da1cd443aa8af853d9"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/expert/inspection/sheet-013.png",
+            "pages": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "sha256": "510357cc77cf06961500164b5d2b53374451edb6b70ad5b9eb5cb24cbd2630d7"
+          }
+        ],
+        "full_size_pages": [
+          1,
+          2,
+          6,
+          11,
+          14,
+          15,
+          16,
+          18
+        ],
+        "purpose": "Exact-final-PDF raster generation; visual acceptance recorded separately."
+      },
+      "visual_acceptance": "Integrating Astra inspected every final page in the listed contact sheets; selected difficult passages and figures were inspected at full size. No clipping or unresolved layout defect found. Contact sheets are hash-bound to this exact PDF, not an earlier render.",
+      "full_size_integrating_checks": [
+        11,
+        14
+      ],
+      "grayscale_checks": [
+        11
+      ],
+      "receiving_agent_checks": [
+        1,
+        11
+      ],
+      "receiving_agent_result": "Parent independently verified render provenance and freshly rasterized these selected pages at1300\u20131500px; accepted with no clipping/new defect. Scope is selected pages plus earlier contact inspection, not independent full proof reading. Parent also inspected all18 final pages in contact sheets."
+    },
+    "exposition": {
+      "pdf": "/Users/willcook/Downloads/quartic_round9_revised_20261104/exposition/exposition.pdf",
+      "pdf_sha256": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+      "pages": 24,
+      "render_receipt_sha256": "a951e41816f12ed712d51133a6d702501267c4ed832b028e8943e054a209f0a7",
+      "inspection": {
+        "pdf": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/exposition/exposition.pdf",
+        "pdf_sha256": "784683dc467eb43ee540b7ff0f2a7536747cc9f984a9e8eb02dafccc7247e354",
+        "pages": 24,
+        "contact_sheets": [
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/exposition/inspection/sheet-001.png",
+            "pages": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "sha256": "40436bcdc1e9a4caf8b153ff2273184216df582ae9ceecd3755ca604c8b223c4"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/exposition/inspection/sheet-007.png",
+            "pages": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "sha256": "ce38bbc0ccbda374f41d763c442722927fd2b1a5ab04b2fe1f2f0ff269dc9274"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/exposition/inspection/sheet-013.png",
+            "pages": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "sha256": "a9523c03c24e399bc7cf137c57053ad82d4fa4bc2414e890ae06d6335bbffbe9"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/exposition/inspection/sheet-019.png",
+            "pages": [
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "sha256": "6df5b96e7d67a2d1983677dc5d31fdf174936b29356c3260b7fee24c05013737"
+          }
+        ],
+        "full_size_pages": [
+          1,
+          5,
+          10,
+          16,
+          18,
+          22,
+          23,
+          24
+        ],
+        "purpose": "Exact-final-PDF raster generation; visual acceptance recorded separately."
+      },
+      "visual_acceptance": "Integrating Astra inspected every final page in the listed contact sheets; selected difficult passages and figures were inspected at full size. No clipping or unresolved layout defect found. Contact sheets are hash-bound to this exact PDF, not an earlier render.",
+      "full_size_integrating_checks": [
+        5,
+        16,
+        18
+      ],
+      "grayscale_checks": [
+        5,
+        16
+      ],
+      "receiving_agent_checks": [
+        1,
+        22
+      ],
+      "receiving_agent_result": "Parent independently verified render provenance and freshly rasterized these selected pages at1300\u20131500px; accepted with no clipping/new defect. Scope is selected pages plus earlier contact inspection, not independent full proof reading."
+    },
+    "reasoning_record": {
+      "pdf": "/Users/willcook/Downloads/quartic_round9_revised_20261104/record/reasoning_record.pdf",
+      "pdf_sha256": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7",
+      "pages": 139,
+      "render_receipt_sha256": "a8b5cd3cb63ffa5c6ed22fcb5e62830c4d0df60d1c7a1bfddd5ffd798fe46a5e",
+      "inspection": {
+        "pdf": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/reasoning_record.pdf",
+        "pdf_sha256": "4122ef4f803437bf68093a0b0b1bdbccae64004ff0747eecd6a54ee50f9769a7",
+        "pages": 139,
+        "contact_sheets": [
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/inspection/sheet-001.png",
+            "pages": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "sha256": "6975376f637c456bb27fbe13bb9085c2c946fcd4132cd3deac580483f3b999f2"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/inspection/sheet-013.png",
+            "pages": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "sha256": "0e1c0a6f7050513888a748961010d6c5853ae34d8e33c832b15d0bd38ace29b9"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/inspection/sheet-025.png",
+            "pages": [
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36
+            ],
+            "sha256": "ae33b462804f8902bdf21f653e1c42ac21cf7ada5b407628d18e6afd1e03eb1b"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/inspection/sheet-037.png",
+            "pages": [
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48
+            ],
+            "sha256": "be0e93c148754ccd7fed2aee04c3efc9ff51451b8773f531168d5c6b9ef60e8e"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/inspection/sheet-049.png",
+            "pages": [
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "sha256": "8a5f97ca8bb1f3d8ec775351c5ac2e77181290dcf5de1468009274f8a2f9de48"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/inspection/sheet-061.png",
+            "pages": [
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72
+            ],
+            "sha256": "9d1a4a5b7fdcbef938a48fc8b4a992d1bd3352595fb8649dcca0be6a954d5697"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/inspection/sheet-073.png",
+            "pages": [
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84
+            ],
+            "sha256": "85301896a33863cec8e5db16dcb4aed0fa0fc76514ebd429d7f38ffee707327f"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/inspection/sheet-085.png",
+            "pages": [
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96
+            ],
+            "sha256": "1a725b7eb803a6308b6d8edb52def0f250cf420e0a16b2f2dbf46ec1c779cefe"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/inspection/sheet-097.png",
+            "pages": [
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "sha256": "aad59658992cbb76da8be23fdc426ccd61dc0119daca027a45658dbd34f34673"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/inspection/sheet-109.png",
+            "pages": [
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120
+            ],
+            "sha256": "50f1a6ba48d59765b9329ede2ffff8cd824db446c3cf311c37611413135024a1"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/inspection/sheet-121.png",
+            "pages": [
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130,
+              131,
+              132
+            ],
+            "sha256": "eecde40fc3f9fccd2574b239dcd89101c16c1465be048f1d1238395e126a80be"
+          },
+          {
+            "path": "/Volumes/Demo Take Media/quartic_round9_revised_20261104/record/inspection/sheet-133.png",
+            "pages": [
+              133,
+              134,
+              135,
+              136,
+              137,
+              138,
+              139
+            ],
+            "sha256": "310ac87575a72d1f7e221826281af839b566cccc88c8065b3a315b593b7ce6d2"
+          }
+        ],
+        "full_size_pages": [
+          1,
+          60,
+          63,
+          64,
+          77,
+          83,
+          124,
+          129,
+          130,
+          134,
+          136,
+          138
+        ],
+        "purpose": "Exact-final-PDF raster generation; visual acceptance recorded separately."
+      },
+      "visual_acceptance": "Integrating Astra inspected every final page in the listed contact sheets; selected difficult passages and figures were inspected at full size. No clipping or unresolved layout defect found. Contact sheets are hash-bound to this exact PDF, not an earlier render.",
+      "full_size_integrating_checks": [
+        64
+      ],
+      "grayscale_checks": [],
+      "receiving_agent_checks": [
+        64,
+        129
+      ],
+      "receiving_agent_result": "Parent independently verified render provenance and freshly rasterized these selected pages at1300\u20131500px; accepted with no clipping/new defect. Scope is selected pages plus earlier contact inspection, not independent full proof reading. Parent additionally inspected final contact sheet covering pages61\u201372.",
+      "page_box_check": {
+        "pages": 139,
+        "words": 68679,
+        "outside_page": []
+      },
+      "layout_diagnostics": []
+    }
+  },
+  "final_source_hashes": {
+    "docs/expert_companion.md": "8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d",
+    "docs/expert_companion.bib": "31702a7b39b12b775005b311544b69a1d3e0544d669a009a6a80c56e235cca6a",
+    "docs/exposition.md": "e034aae7c7a74529656a84289b41767bcc4f06cbe1a3d2926fc8a01f918918b8",
+    "docs/exposition.bib": "76ab8492f33bb8136150d54ef2b12e3ea434d48186ad3d39624e8079eb2630eb",
+    "docs/reasoning_record.md": "19a92fa5d5b2859855450074bbc840a6c0734490a0dc501be24efb8e72de5b07",
+    "docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491"
+  },
+  "source_acceptance": {
+    "record": "Read-only scout inspected high-severity law, source-error, workspace, controlled-read, simulator and growing-parameter criteria; source5f3428eaffb4be28673e8cc8429e29f5f3a039eac7724e4a89b2fdcf654beb47. Later samepage/pin/whitespace changes separately validated.",
+    "exposition": "Read-only scout accepted final pre-pin sourcefde23692a9a3c4b23c0eba4608b771f93244a80dc9967fd63838951df4698beb after punctuation and exact destination fixes.",
+    "expert": "Read-only scout accepted headline, theorem, randomized averaging, cap and growing-parameter criteria; receiving review then narrowed the trace description to its actual linked operation. Parent reread final8c29b8d9a4adbc7b93fbe50f1cbb6d27afb11f0afd44172342bdfb1c3a42cc8d with no remaining source objection.",
+    "limit": "Bounded AI source acceptance; no human or fresh formal proof review."
+  }
+}

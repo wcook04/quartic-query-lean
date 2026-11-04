@@ -1,0 +1,357 @@
+{
+  "packet": "expert_paper",
+  "campaign": "round9",
+  "source_sha256": {
+    "repository/docs/expert_companion.bib": "03a8022966eb3427bc41a1b70cca58f8822fdbe1dd28b1b287486402e91f6b2f",
+    "repository/docs/expert_companion.md": "7fddfa0c37f7d038ba58adde4e7685263f3ba7733d0fd87a8a3eea4ce653f8ab",
+    "repository/docs/expert_companion.pdf": "e9b2aa243c8b8f3dfefdfbe3e4f277fd2ee5bda3e3e742e60d190a8e208e6d35",
+    "repository/docs/exposition.bib": "4d5e850843df803c15df72578e35fdb86694035dba684ee21b1ca6ee48a9efa9",
+    "repository/docs/exposition.md": "ce1887b35542c06e98132ac843f12eb78e9c4c224e7fb49f8da96255c21b240e",
+    "repository/docs/exposition.pdf": "c011fdbe8cf59578eb295370e22b76b59b113e2d66eb9e5ded5bbbf0366ccdd6",
+    "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+    "repository/docs/reasoning_record.md": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+    "repository/docs/reasoning_record.pdf": "ba8002cd4765371c67654b2fd98bbea9dff3704e3a518828e715ce9c69fb24eb"
+  },
+  "review_mode": "Model-emulated chronological review with independent role scopes, not independent human readers or a controlled blind study.",
+  "first_reviewed_locator": {
+    "source_path": "repository/docs/expert_companion.md",
+    "line_start": 2,
+    "unit_id": "EC-0001"
+  },
+  "last_narrative_reviewed_locator": {
+    "source_path": "repository/docs/expert_companion.md",
+    "line_start": 399,
+    "unit_id": "EC-0500"
+  },
+  "last_source_metadata_reviewed_locator": {
+    "source_path": "repository/docs/expert_companion.md",
+    "line_start": 415,
+    "unit_id": "EC-0515"
+  },
+  "counts": {
+    "total_units": 541,
+    "source_units": 515,
+    "rendered_bibliography_entries": 26,
+    "sentence_units": 414,
+    "caption_sentences": 7,
+    "nonprose_and_continuation_units": 120,
+    "by_type": {
+      "front_matter": 4,
+      "sentence": 414,
+      "heading": 29,
+      "display": 33,
+      "figure": 2,
+      "caption_sentence": 7,
+      "sentence_continuation": 7,
+      "proof_end": 2,
+      "bibliography_placeholder": 2,
+      "bibliography_entry": 26,
+      "anchor": 2,
+      "link_definition": 13
+    },
+    "distinct_findings": 166
+  },
+  "segmentation": "Each prose sentence has a parent row; sentences containing a display extend across its source range. Displays receive additional rows. Seven post-display prose continuations point back to their parent. Each figure has an object row plus individual caption-sentence rows. Generated bibliography entries are mapped to the .bib source and inserted at the render placeholder in printed reference order.",
+  "section_and_appendix_ranges": [
+    {
+      "section": "1. Introduction",
+      "line_start": 12,
+      "line_end": 35,
+      "unit_count": 27,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "1.1 Overview of the construction",
+      "line_start": 36,
+      "line_end": 50,
+      "unit_count": 33,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "1.2 Earlier separations",
+      "line_start": 51,
+      "line_end": 60,
+      "unit_count": 14,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "1.3 Relation to earlier constructions",
+      "line_start": 61,
+      "line_end": 72,
+      "unit_count": 27,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "2. The Forrelation promise and the total function",
+      "line_start": 73,
+      "line_end": 117,
+      "unit_count": 49,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "3. The quantum upper bound",
+      "line_start": 118,
+      "line_end": 129,
+      "unit_count": 25,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "3.1 Comparing two columns",
+      "line_start": 130,
+      "line_end": 138,
+      "unit_count": 17,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "3.2 A tournament with probabilistic comparisons",
+      "line_start": 139,
+      "line_end": 166,
+      "unit_count": 43,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "3.3 Verification and the query count",
+      "line_start": 167,
+      "line_end": 178,
+      "unit_count": 19,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "4. The randomized lower bound",
+      "line_start": 179,
+      "line_end": 189,
+      "unit_count": 13,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "4.1 A direct product with separate caps",
+      "line_start": 190,
+      "line_end": 211,
+      "unit_count": 27,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "4.2 Planting a winner",
+      "line_start": 212,
+      "line_end": 227,
+      "unit_count": 19,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "4.3 The erased zero",
+      "line_start": 228,
+      "line_end": 242,
+      "unit_count": 12,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "4.4 The planted cell",
+      "line_start": 243,
+      "line_end": 268,
+      "unit_count": 24,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "4.5 The contradiction and the constants",
+      "line_start": 269,
+      "line_end": 283,
+      "unit_count": 12,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "5. Completing the fixed-parameter proof",
+      "line_start": 284,
+      "line_end": 294,
+      "unit_count": 12,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "6. Optional uniform refinement",
+      "line_start": 295,
+      "line_end": 330,
+      "unit_count": 36,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "7. The formal statement",
+      "line_start": 331,
+      "line_end": 340,
+      "unit_count": 18,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "Use of AI tools",
+      "line_start": 341,
+      "line_end": 344,
+      "unit_count": 4,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "References",
+      "line_start": 345,
+      "line_end": 350,
+      "unit_count": 3,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "Appendix A. Simplifications that fail",
+      "line_start": 351,
+      "line_end": 354,
+      "unit_count": 5,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "A.1 The projection statistic does not test the promise",
+      "line_start": 355,
+      "line_end": 358,
+      "unit_count": 5,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "A.2 Comparisons need not describe an order or fixed orientation",
+      "line_start": 359,
+      "line_end": 362,
+      "unit_count": 5,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "A.3 A dominant column need not win",
+      "line_start": 363,
+      "line_end": 366,
+      "unit_count": 5,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "A.4 A uniform marginal choice need not be independent",
+      "line_start": 367,
+      "line_end": 374,
+      "unit_count": 7,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "A.5 Expected caps do not give the direct-product bound",
+      "line_start": 375,
+      "line_end": 382,
+      "unit_count": 7,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "A.6 Separate independence does not imply joint independence",
+      "line_start": 383,
+      "line_end": 386,
+      "unit_count": 6,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "A.7 Conditioning on compliance changes the success probability",
+      "line_start": 387,
+      "line_end": 396,
+      "unit_count": 11,
+      "status": "reviewed source text; PDF inspected second-pass"
+    },
+    {
+      "section": "A.8 Fixed-parameter thresholds do not justify a growing parameter",
+      "line_start": 397,
+      "line_end": 399,
+      "unit_count": 3,
+      "status": "reviewed source text; PDF inspected second-pass"
+    }
+  ],
+  "front_matter": {
+    "line_start": 2,
+    "line_end": 9,
+    "status": "title,subtitle,author,date and every abstract sentence reviewed"
+  },
+  "nonprinting_navigation_metadata": {
+    "line_start": 401,
+    "line_end": 415,
+    "status": "all13 link definitions inspected as metadata"
+  },
+  "excluded_nonreading_syntax": [
+    "Blank lines",
+    "YAML delimiter lines1,10",
+    "YAML bibliography/link-citation configuration at6–8; rendered bibliography separately audited"
+  ],
+  "perspective_coverage": [
+    {
+      "perspective": "quantum_algorithms",
+      "lead_markdown_read": "lines1–415",
+      "full_first_pass_log": "first_pass/quantum_first_pass.md",
+      "unit_annotations_authored": "EC-0163..EC-0266",
+      "other_scope": "Quantum primary sources and record bridges, as sources_read records"
+    },
+    {
+      "perspective": "randomized_lower_bounds",
+      "lead_markdown_read": "lines1–415",
+      "full_first_pass_log": "first_pass/classical_first_pass.md",
+      "unit_annotations_authored": "EC-0267..EC-0385",
+      "other_scope": "Classical primary sources and record bridges, as sources_read records",
+      "preexposure": "An initial combined tool output exposed part of lines46–145 before the ordered reread; recorded in the frozen log."
+    },
+    {
+      "perspective": "handling_editor",
+      "lead_markdown_read": "lines1–415",
+      "full_first_pass_log": "first_pass/editor_first_pass.md",
+      "unit_annotations_authored": "EC-0001..EC-0162",
+      "other_scope": "Credit, source editions, writing method and prior feedback"
+    },
+    {
+      "perspective": "root_synthesis",
+      "lead_markdown_read": "lines1–415",
+      "full_first_pass_log": "first_pass/root_first_pass.md",
+      "unit_annotations_authored": "EC-0386..EC-0515 plus26 rendered references",
+      "pdf": "all16 pages at100dpi; source/receipt/hash and exact finite checks"
+    }
+  ],
+  "detours": {
+    "first_pass_supporting_sources": "None opened before each role's first-pass narrative freeze.",
+    "generated_references": "The source-only pass encountered placeholders; actual entries were read after AppendixA in a second pass, not in original printed order.",
+    "second_pass": "Record/primary-source/method/prior-review destinations and actual scope are in sources_read.json."
+  },
+  "answer_exposure": {
+    "explicit_exercises_in_lead": 0,
+    "worked_examples": "All were written with their answers inline; later arithmetic is answer-exposed recomputation, never a cold exercise attempt."
+  },
+  "unreviewed_ranges": {
+    "lead_markdown_narrative": [],
+    "lead_pdf_pages": [],
+    "first_pass_generated_bibliography": [
+      {
+        "source_path": "repository/docs/expert_companion.pdf",
+        "pages": [
+          13,
+          14,
+          15
+        ],
+        "later_read": true
+      }
+    ],
+    "supporting_documents": "No full-source coverage claim for the exposition, the473KB reasoning record, every supplied paper or all historical feedback. Exact sections actually read are listed."
+  },
+  "protocol_limits": [
+    "The detailed per-sentence rows were written after freezing narrative first-pass logs; this is not literal contemporaneous per-sentence recording.",
+    "Role perspectives share model/context background and are not independent human observations.",
+    "The first-pass printed reference order was not preserved.",
+    "The specialist contexts ran in parallel with separate logs; the requested one-at-a-time panel sequence was not implemented."
+  ],
+  "verification_limits": [
+    "No Lean/Lake build",
+    "No Comparator rerun",
+    "No new manuscript PDF render",
+    "No exhaustive verification of every formal dependency or full analytic reconstruction"
+  ],
+  "continuation_locator": null,
+  "depth_target": {
+    "candidate_findings": 219,
+    "accepted_distinct_findings": 166,
+    "merged_duplicate_candidates": 46,
+    "rejected_candidates": 7,
+    "panel_withdrawals_before_assembly": [
+      "C019",
+      "C023",
+      "C054"
+    ],
+    "target": 200,
+    "target_policy": "Depth prompt, not permission to invent or duplicate findings."
+  }
+}

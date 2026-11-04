@@ -1,0 +1,3138 @@
+{
+  "scope": "Actual selected XP/EX objects compared with current lead/supporting passages after freezes; reading dispositions alone is not credited as verification.",
+  "inspected_unique_count": 69,
+  "independent_observations": 74,
+  "decision_counts": {
+    "resolved": 56,
+    "unresolved": 9,
+    "new-consequence": 4
+  },
+  "available_prior_ids_indexed": 448,
+  "uninspected_prior_ids": [
+    "EX001",
+    "EX002",
+    "EX003",
+    "EX004",
+    "EX005",
+    "EX006",
+    "EX007",
+    "EX008",
+    "EX009",
+    "EX010",
+    "EX011",
+    "EX012",
+    "EX014",
+    "EX015",
+    "EX016",
+    "EX017",
+    "EX018",
+    "EX019",
+    "EX020",
+    "EX021",
+    "EX022",
+    "EX023",
+    "EX024",
+    "EX025",
+    "EX026",
+    "EX027",
+    "EX028",
+    "EX029",
+    "EX030",
+    "EX031",
+    "EX032",
+    "EX033",
+    "EX035",
+    "EX036",
+    "EX037",
+    "EX040",
+    "EX043",
+    "EX044",
+    "EX045",
+    "EX046",
+    "EX047",
+    "EX048",
+    "EX049",
+    "EX050",
+    "EX051",
+    "EX052",
+    "EX053",
+    "EX054",
+    "EX055",
+    "EX056",
+    "EX057",
+    "EX058",
+    "EX059",
+    "EX060",
+    "EX061",
+    "EX062",
+    "EX063",
+    "EX064",
+    "EX065",
+    "EX066",
+    "EX067",
+    "EX068",
+    "EX069",
+    "EX070",
+    "EX071",
+    "EX072",
+    "EX073",
+    "EX074",
+    "EX075",
+    "EX076",
+    "EX077",
+    "EX078",
+    "EX079",
+    "EX080",
+    "EX081",
+    "EX082",
+    "EX083",
+    "EX084",
+    "EX085",
+    "EX086",
+    "EX087",
+    "EX088",
+    "EX089",
+    "EX090",
+    "EX091",
+    "EX093",
+    "EX095",
+    "EX096",
+    "EX097",
+    "EX099",
+    "EX100",
+    "EX103",
+    "EX104",
+    "EX105",
+    "EX106",
+    "EX107",
+    "EX108",
+    "EX109",
+    "EX110",
+    "EX111",
+    "EX112",
+    "EX113",
+    "EX114",
+    "EX115",
+    "EX116",
+    "EX117",
+    "EX119",
+    "EX120",
+    "EX121",
+    "EX122",
+    "EX123",
+    "EX124",
+    "EX125",
+    "EX126",
+    "EX127",
+    "EX128",
+    "EX129",
+    "EX130",
+    "EX131",
+    "EX132",
+    "EX133",
+    "EX134",
+    "EX135",
+    "EX136",
+    "EX137",
+    "EX138",
+    "EX139",
+    "EX140",
+    "EX141",
+    "EX142",
+    "EX143",
+    "EX144",
+    "EX146",
+    "EX147",
+    "EX148",
+    "EX149",
+    "EX152",
+    "EX153",
+    "EX154",
+    "EX155",
+    "EX156",
+    "EX157",
+    "EX158",
+    "EX159",
+    "EX160",
+    "EX161",
+    "EX162",
+    "EX163",
+    "EX164",
+    "EX165",
+    "EX166",
+    "EX167",
+    "EX168",
+    "EX169",
+    "EX170",
+    "EX171",
+    "EX172",
+    "EX173",
+    "EX174",
+    "EX175",
+    "EX176",
+    "EX178",
+    "EX179",
+    "EX181",
+    "EX182",
+    "EX183",
+    "EX184",
+    "EX185",
+    "EX186",
+    "EX187",
+    "EX188",
+    "EX189",
+    "EX190",
+    "EX191",
+    "EX192",
+    "EX193",
+    "EX194",
+    "EX195",
+    "EX196",
+    "EX197",
+    "EX198",
+    "EX199",
+    "EX200",
+    "EX201",
+    "EX202",
+    "EX203",
+    "EX204",
+    "EX205",
+    "EX206",
+    "EX207",
+    "EX208",
+    "EX209",
+    "EX210",
+    "EX211",
+    "EX212",
+    "EX213",
+    "EX214",
+    "EX215",
+    "EX216",
+    "EX217",
+    "EX218",
+    "EX219",
+    "EX220",
+    "EX221",
+    "EX222",
+    "EX223",
+    "EX224",
+    "EX225",
+    "EX226",
+    "EX227",
+    "EX228",
+    "EX229",
+    "EX230",
+    "EX231",
+    "EX232",
+    "EX233",
+    "EX234",
+    "EX235",
+    "EX236",
+    "EX237",
+    "EX238",
+    "EX239",
+    "XP001",
+    "XP002",
+    "XP003",
+    "XP004",
+    "XP005",
+    "XP006",
+    "XP007",
+    "XP008",
+    "XP009",
+    "XP010",
+    "XP011",
+    "XP012",
+    "XP013",
+    "XP014",
+    "XP015",
+    "XP016",
+    "XP017",
+    "XP018",
+    "XP019",
+    "XP020",
+    "XP021",
+    "XP022",
+    "XP023",
+    "XP024",
+    "XP025",
+    "XP026",
+    "XP027",
+    "XP028",
+    "XP033",
+    "XP037",
+    "XP038",
+    "XP039",
+    "XP042",
+    "XP044",
+    "XP045",
+    "XP047",
+    "XP049",
+    "XP050",
+    "XP053",
+    "XP054",
+    "XP056",
+    "XP057",
+    "XP060",
+    "XP061",
+    "XP062",
+    "XP063",
+    "XP064",
+    "XP065",
+    "XP066",
+    "XP067",
+    "XP068",
+    "XP070",
+    "XP071",
+    "XP073",
+    "XP074",
+    "XP075",
+    "XP076",
+    "XP077",
+    "XP078",
+    "XP079",
+    "XP080",
+    "XP082",
+    "XP085",
+    "XP086",
+    "XP089",
+    "XP090",
+    "XP092",
+    "XP097",
+    "XP098",
+    "XP101",
+    "XP102",
+    "XP108",
+    "XP110",
+    "XP111",
+    "XP114",
+    "XP116",
+    "XP117",
+    "XP118",
+    "XP121",
+    "XP123",
+    "XP124",
+    "XP125",
+    "XP126",
+    "XP127",
+    "XP128",
+    "XP129",
+    "XP130",
+    "XP131",
+    "XP132",
+    "XP133",
+    "XP134",
+    "XP135",
+    "XP136",
+    "XP137",
+    "XP138",
+    "XP139",
+    "XP140",
+    "XP141",
+    "XP142",
+    "XP143",
+    "XP144",
+    "XP145",
+    "XP146",
+    "XP147",
+    "XP148",
+    "XP149",
+    "XP150",
+    "XP151",
+    "XP154",
+    "XP155",
+    "XP156",
+    "XP157",
+    "XP158",
+    "XP159",
+    "XP160",
+    "XP161",
+    "XP162",
+    "XP164",
+    "XP165",
+    "XP166",
+    "XP167",
+    "XP168",
+    "XP169",
+    "XP170",
+    "XP171",
+    "XP172",
+    "XP173",
+    "XP174",
+    "XP175",
+    "XP176",
+    "XP177",
+    "XP178",
+    "XP179",
+    "XP180",
+    "XP181",
+    "XP182",
+    "XP183",
+    "XP184",
+    "XP185",
+    "XP186",
+    "XP189",
+    "XP192",
+    "XP193",
+    "XP194",
+    "XP195",
+    "XP197",
+    "XP198",
+    "XP199",
+    "XP200",
+    "XP201",
+    "XP202",
+    "XP203",
+    "XP204",
+    "XP205",
+    "XP206",
+    "XP207",
+    "XP208"
+  ],
+  "resolved_items_count_as_new_findings": false,
+  "audit": [
+    {
+      "prior_finding_id": "EX013",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX013",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "teaching",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "For now we use the phase-query identity proved in Section 3:",
+              "line_start": 80,
+              "line_end": 80
+            }
+          ],
+          "assessment": "The first diagonal-query use is explicitly provisional and points to the later derivation.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX034",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX034",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "missing_example",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "A deterministic bit $f(z)$ can be recorded reversibly",
+              "line_start": 193,
+              "line_end": 193
+            }
+          ],
+          "assessment": "A concrete XOR recording map now explains the fresh target bit and its reversible erasure while retaining the input.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX038",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX038",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "teaching",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "The ordered off-diagonal sum counts each pair twice:",
+              "line_start": 213,
+              "line_end": 213
+            }
+          ],
+          "assessment": "The factor-two pairing is now explicit in words and a displayed identity.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX039",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX039",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "teaching",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "For two previous pivots, the preparation before computing the flag is",
+              "line_start": 229,
+              "line_end": 229
+            }
+          ],
+          "assessment": "The two-pivot tensor-product state is shown and its workspace factors are explained before the probability formula.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX041",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX041",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "prose",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "Write $q$ for the preparation's success probability, to distinguish it from a pivot label.",
+              "line_start": 247,
+              "line_end": 247
+            }
+          ],
+          "assessment": "The amplification probability now has a distinct symbol and the reason for it is explicit.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX042",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX042",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "funnel",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "The [bounded amplification proof in record §5.1]",
+              "line_start": 262,
+              "line_end": 262
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "quote": "For one amplification trial, choose the following two integers",
+              "line_start": 2097,
+              "line_end": 2097
+            }
+          ],
+          "assessment": "The destination suffix is #upper-grover-trial, where M, N and the randomized iteration procedure begin. This check concerns the packaged target; remote pinned bytes were not fetched.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX092",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX092",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "consistency",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "from these upper and lower bounds.",
+              "line_start": 189,
+              "line_end": 189
+            }
+          ],
+          "assessment": "The nested-search exponent is explicitly described as the separation certified by these one-sided bounds, not an equality of complexities.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX094",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX094",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "unclear",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "without measuring them.",
+              "line_start": 193,
+              "line_end": 193
+            }
+          ],
+          "assessment": "The retained comparison labels are explicitly unmeasured, while the stage subsection says the sampled pivot becomes a classical value. The previously blurred measurement boundary is repaired.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX098",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX098",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "missing_example",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "$\\sum_{i\\ne p}w_iw_p=2\\sum_{i<p}w_iw_p$",
+              "line_start": 213,
+              "line_end": 213
+            }
+          ],
+          "assessment": "The current formula correctly relates the ordered off-diagonal sum to the unordered sum, and the prose identifies the vanished diagonal. No extra derivation is needed for this historical complaint.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX101",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX101",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "missing_example",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "R_{A0}=A(2|0\\rangle\\langle0|-I)A^{-1}.",
+              "line_start": 254,
+              "line_end": 254
+            }
+          ],
+          "assessment": "The new reflection formula and right-to-left explanation satisfy the requested minimal geometric bridge. This is not a claim that a full rotation-matrix proof has been added to the exposition.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX102",
+      "decision": "unresolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX102",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "unclear",
+          "status": "unresolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "To couple the real and ideal processes",
+              "line_start": 270,
+              "line_end": 270
+            }
+          ],
+          "assessment": "The exposition still introduces the technical verb couple before an ordinary-language joint-run explanation. The following same-pivot recipe reduces the difficulty, so the remaining issue is low-impact sequencing, not a missing probability proof.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX118",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_id": "EX118",
+          "prior_paper": "exposition",
+          "prior_feedback": "This is a good concrete invitation, but I have not been taught Lean syntax. I can follow a link and recognize a few names without being able to locate the promised-domain clause reliably.",
+          "prior_advice": "Give a tiny plain-language guide to the relevant clause or identify the local mathematical phrase to match, keeping technical names behind the link. No new formalization is needed.",
+          "prior_disposition": "applied",
+          "current_locator": {
+            "source_path": "repository/docs/exposition.md",
+            "line_start": 404,
+            "line_end": 404,
+            "quote": "Look for `f (readA x i h) = some (s h)`"
+          },
+          "decision": "resolved",
+          "evidence": "The current prose supplies the exact clause and explains some/none, then identifies the concrete off-promise board column rejected by it. This is a directly performable source-reading task.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX145",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX145",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "teaching",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "The threshold $c/2$ lies between the promised projection rates $c/4$ and $c$.",
+              "line_start": 169,
+              "line_end": 169
+            }
+          ],
+          "assessment": "The threshold is identified relative to the promised rates, and the exponential repetition dependence on k is now explicit.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX150",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX150",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "structure",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "**A stage of the search.**",
+              "line_start": 266,
+              "line_end": 266
+            }
+          ],
+          "assessment": "A separate operational subparagraph now labels measure/append, the classical pivot boundary, failure return and the T-pivot cap. The initial overview remains compact, but the substantive requested loop clarification is present.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX151",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX151",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_kind": "teaching",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "quote": "if both are disqualified or neither is",
+              "line_start": 191,
+              "line_end": 191
+            }
+          ],
+          "assessment": "The prose now names both tie cases explicitly.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX177",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "EX177",
+          "prior_source": "previous_round/returns/exposition/feedback.json",
+          "prior_locator": {
+            "section": "5. The classical lower bound: a planted pair",
+            "quote": "Can that run now contribute to the light true-cell event?"
+          },
+          "prior_feedback": "I initially read the exercise as asking only for the new a=0 branch, and obtained 1/8; the answer then also gives 1/4 including the unchanged branch. Both numbers are appropriate, but the requested event is underspecified on a first read.",
+          "prior_advice": "Ask separately for the changed branch’s probability and the probability of any light true-cell visit over both branches, with whole-run lightness explicit.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Stated at-most-L minimax, clarified the schematic plant and whole-run lightness, separated posterior factorization from remaining-budget value, identified the XOR toy indexing and split Question 4 into branch, total and later-query cases.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3489,
+              "line_end": 3489,
+              "quote": "A toy instance illustrates the reduction just proved. We return to the four-column XOR example of [§6.3](#CL-tiny-planted-example) and take \\(L=1\\),"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3511,
+              "line_end": 3511,
+              "quote": "These last two probabilities can also be read directly from the target strings $(a,b)$ and $(c,d)$. On the nonheavy branch"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "line_start": 360,
+              "line_end": 360,
+              "quote": "[]{#question-4}**Question 4 (two clocks and the capped event).** Change the $a=0$ branch so that it proposes a query in $B_{1,00}$"
+            },
+            {
+              "paper": "exposition",
+              "source_path": "repository/docs/exposition.md",
+              "line_start": 416,
+              "line_end": 416,
+              "quote": "[]{#answer-4}**[Question 4](#question-4).** First assume that the changed branch stops after the cell query. The cell query now occurs after only"
+            }
+          ],
+          "assessment": "Question 4 now separately asks for the changed branch, the total over both branches and the effect of a later target query. The answer explicitly gives 1/8 and 1/4 and treats whole-run heaviness. The ambiguity identified in the previous review is repaired.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "qualification": "Question and answer were read together in this verification; this was answer-exposed and is not claimed as a blind exercise attempt.",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX180",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_id": "EX180",
+          "prior_paper": "exposition",
+          "prior_feedback": "This is compact but still uses challenge statements as unexplained specialist vocabulary. The preceding distinction between the printed logarithmic power and the formal existential power is useful; the remaining tool sentence is harder for a physicist to interpret.",
+          "prior_advice": "Explain its limited statement-matching role in ordinary words and keep the next sentence about inspecting definitions. Do not expand the section into a receipt inventory.",
+          "prior_disposition": "applied",
+          "current_locator": {
+            "source_path": "repository/docs/exposition.md",
+            "line_start": 406,
+            "line_end": 406,
+            "quote": "this checks statement matching, not every step of the prose explanation"
+          },
+          "decision": "resolved",
+          "evidence": "The comparison sentence now identifies statement matching and immediately retains the separate semantic task of reading definitions.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "EX240",
+      "decision": "new-consequence",
+      "observations": [
+        {
+          "prior_id": "EX240",
+          "prior_paper": "exposition",
+          "prior_feedback": "The introductory route uses the mutable main branch, while the section-specific proof links are pinned to c16d5d. I did not establish that the two currently disagree, but an assigned reading can later send students to two different editions of the same companion.",
+          "prior_advice": "Resolve the overview and specific proof links to the same intended edition behind their ordinary readable link text. No visible hash is needed in the paper.",
+          "prior_disposition": "applied",
+          "current_locator": {
+            "source_path": "repository/docs/exposition.md",
+            "line_start": 49,
+            "line_end": 49,
+            "quote": "The [long reasoning record]"
+          },
+          "decision": "new-consequence",
+          "evidence": "The original mutable-main overview link is fixed: the overview and specific proof links use b8db532... in the delivered text. A separate human-facing version statement in record G.4 still names d234866, despite its actual Lean links also using b8db532... . The original short-paper defect is resolved; the residual consequence is in a different reading surface.",
+          "counted_as_new_finding": false,
+          "new_consequence": {
+            "source_path": "repository/docs/reasoning_record.md",
+            "line_start": 6188,
+            "line_end": 6188,
+            "temporary_finding_id": "F049",
+            "note": "Resolve final RR9 ID by the pin-mismatch finding, not by this temporary identifier."
+          },
+          "observer": "formal"
+        }
+      ],
+      "new_finding_ids": [
+        "RR9-224"
+      ],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP029",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP029",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "unclear",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "The pointer from $i$ reads a bit of $X_j$",
+              "line_start": 132,
+              "line_end": 132
+            }
+          ],
+          "assessment": "The first observed target and reverse target are named before the (0,1)/(1,0) cases; the orientation problem is repaired.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP030",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP030",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "keep",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "Both orders run the same circuit",
+              "line_start": 132,
+              "line_end": 132
+            }
+          ],
+          "assessment": "This prior entry was praise/keep, not a defect. The same-circuit and tie convention remain explicit. It is recorded only as a checked historical item and contributes no new advice.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP031",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP031",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "underweighted",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "This comparison reads pointers, not gate transcripts;",
+              "line_start": 137,
+              "line_end": 137
+            }
+          ],
+          "assessment": "The new sentence directly connects cheap comparison to deferred transcript verification. Lead §5.3 still benefits from importing this concise explanation; that is a cross-document consequence, not an unresolved support-paper complaint.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP032",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP032",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "unclear",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "The decoded labels remain as unchanged controls in orthogonal registers",
+              "line_start": 137,
+              "line_end": 137
+            }
+          ],
+          "assessment": "No-erasure and control-only roles now accompany the probability claim, which does not call the full pure state a classical mixture.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP034",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP034",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "unclear",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "as does its inverse.",
+              "line_start": 141,
+              "line_end": 141
+            }
+          ],
+          "assessment": "The proposition now includes the inverse query cap explicitly.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP035",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP035",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "prose",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "$w_i=\\prod_{b=1}^n a_{i\\rho_b}$",
+              "line_start": 143,
+              "line_end": 143
+            }
+          ],
+          "assessment": "The history length n is bound and the product is over its positions, so repeated or indexed pivot histories are unambiguous.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP036",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP036",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "underweighted",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "The selected pivot's weight becomes zero, so it cannot be selected again.",
+              "line_start": 147,
+              "line_end": 147
+            }
+          ],
+          "assessment": "The no-repeat consequence is now stated at the update rule.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP040",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP040",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "unclear",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "Only the measured pivot list persists between stages.",
+              "line_start": 154,
+              "line_end": 154
+            }
+          ],
+          "assessment": "The persistent classical list and fresh quantum registers are now explicitly separated.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP041",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP041",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "missing_example",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "$(1,0,4/15,0)$",
+              "line_start": 161,
+              "line_end": 161
+            }
+          ],
+          "assessment": "The second pivot 4 is worked with the correct weights, total success probability 19/60 and successful-label law (15/19,0,4/19,0).",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP043",
+      "decision": "unresolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP043",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "underweighted",
+          "status": "unresolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "we couple the two processes stage by stage, conditional on the entire past.",
+              "line_start": 163,
+              "line_end": 163
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "quote": "the real sampler succeeds with pivot $i$ with probability exactly $(1-f(L))w_i/W$",
+              "line_start": 2418,
+              "line_end": 2418
+            }
+          ],
+          "assessment": "The short-paper coupling remains verbal and does not show its joint transition mass (1−f(L))w_i/W. The lead already gives that mass and an explicit construction, so this is a support-paper clarification only.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP046",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_id": "XP046",
+          "prior_paper": "expert_companion",
+          "prior_feedback": "The hyperlink goes to reasoning_record.md#upper-quantum-tournament. In the supplied current record, that anchor begins at the real amplified sampler, after the proposition, the ideal process, the drift calculation, the dominant-weight bound and the exact sampling law. It is not the beginning of the promised full proof.",
+          "prior_advice": "For the whole proof, target #upper-tournament-statement or #upper-ideal-process; reserve #upper-quantum-tournament for a link specifically promising the implemented sampler.",
+          "prior_disposition": "applied",
+          "current_locator": {
+            "source_path": "repository/docs/expert_companion.md",
+            "line_start": 165,
+            "line_end": 165,
+            "quote": "A longer version of this proof is in"
+          },
+          "decision": "resolved",
+          "evidence": "The delivered hyperlink now targets upper-tournament-statement, the start of Proposition 3.2 and its complete proof. Packaged target lines 2184 onward were inspected by the quantum specialist. This is a semantic destination check, not a claim of HTTP success.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        },
+        {
+          "prior_finding_id": "XP046",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "funnel",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "A longer version of this proof is in [§5.2 of the record]",
+              "line_start": 165,
+              "line_end": 165
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "quote": "**Proposition 3.2 (statement).**",
+              "line_start": 2189,
+              "line_end": 2189
+            }
+          ],
+          "assessment": "The destination suffix is now #upper-tournament-statement, the correct local entry for the whole proof. Only the packaged semantic target is checked here; the remotely pinned commit bytes were not fetched.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP048",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP048",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "unclear",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "conditional on any selected list and prior history",
+              "line_start": 171,
+              "line_end": 171
+            }
+          ],
+          "assessment": "The false-acceptance bound is now explicitly uniform conditional on prior history before the averaging argument.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP051",
+      "decision": "unresolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP051",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "structure",
+          "status": "unresolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "Pointers are read bit by bit, array indices are computed reversibly",
+              "line_start": 171,
+              "line_end": 171
+            }
+          ],
+          "assessment": "The concise physical-oracle explanation still appears after the comparator, tournament and verification error argument, rather than beside the first coherent comparator use. The lead provides coherent tests before §5, so this is not automatically a lead dependency gap.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP052",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_id": "XP052",
+          "prior_paper": "expert_companion",
+          "prior_feedback": "The linked record §5.4 (#upper-explicit-log6) gives a sum-of-constants expression for C_k. The further domination C_k≤N k 2^{10k}, with N=5707107503019240<2^{53}, is actually supplied in record §7.3 (#ROOT-GROWING-K). The claim is supported, but the advertised proof location does not contain the stated envelope.",
+          "prior_advice": "Point the exponential envelope to §7.3, or name §5.4 for the count and §7.3 for its uniform simplification.",
+          "prior_disposition": "applied",
+          "current_locator": {
+            "source_path": "repository/docs/expert_companion.md",
+            "line_start": 177,
+            "line_end": 177,
+            "quote": "uniform simplification in record §7.3"
+          },
+          "decision": "resolved",
+          "evidence": "The current link points to ROOT-GROWING-K, where the exponential envelope is derived, rather than only the §5.4 polynomial-log count.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        },
+        {
+          "prior_finding_id": "XP052",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "funnel",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "The [uniform simplification in record §7.3]",
+              "line_start": 177,
+              "line_end": 177
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "quote": "Q(F_{k,4^t})\\le2^{53}k\\,2^{10k}",
+              "line_start": 3785,
+              "line_end": 3785
+            }
+          ],
+          "assessment": "The envelope is linked to #ROOT-GROWING-K and the current packaged lead gives the claimed C_k envelope there. Remote pinned-commit content is outside this check.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP055",
+      "decision": "unresolved",
+      "observations": [
+        {
+          "prior_id": "XP055",
+          "prior_paper": "expert_companion",
+          "prior_feedback": "For a quantum referee, the relevant question is which observable the formal upper bound supplies. The answer is the exact measured-label law, matching the printed Lemma 2. The separate retained-state result and the finite-seed direct-product bridge are then discussed at nearly equal weight, although they serve different readers and dependencies.",
+          "prior_advice": "Keep the measured-law-to-Lemma-2 relationship in the main account. Route the retained-state variant and detailed bridge taxonomy through one well-labelled record destination.",
+          "prior_disposition": "not_adopted",
+          "current_locator": {
+            "source_path": "repository/docs/expert_companion.md",
+            "line_start": 339,
+            "line_end": 339,
+            "quote": "Two auxiliary interfaces merit distinction."
+          },
+          "decision": "unresolved",
+          "evidence": "The content is more precise, but the paragraph still gives measured labels, retained states, basis-label tests, finite seed laws and recursive compliance comparable space. The earlier weighting issue persists as editorial advice, not a mathematical error. Root findings concern the long-record destination and do not recount this as a new short-paper finding.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP058",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_id": "XP058",
+          "prior_paper": "expert_companion",
+          "prior_feedback": "The link labelled §3.3 targets #forr_repetition, which begins at the repeated-trial tail bound rather than #forr_quantum, where the preparation and projection probability are defined. It is an appropriate destination for the error bound, but too late for the complete property (ii) that the link promises.",
+          "prior_advice": "Target #forr_quantum for property (ii), or narrow the link label to the repetition/error calculation.",
+          "prior_disposition": "applied",
+          "current_locator": {
+            "source_path": "repository/docs/expert_companion.md",
+            "line_start": 86,
+            "line_end": 86,
+            "quote": "properties (ii) and (iii) are proved in"
+          },
+          "decision": "resolved",
+          "evidence": "The two current links target forr_quantum and forr_circuit, respectively. The former starts at the actual quantum construction rather than its repetition tail bound.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        },
+        {
+          "prior_finding_id": "XP058",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "funnel",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "properties (ii) and (iii) are proved in §§[3.3]",
+              "line_start": 86,
+              "line_end": 86
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "quote": "### 3.3. The quantum promise algorithm, including amplification and coherence",
+              "line_start": 550,
+              "line_end": 550
+            }
+          ],
+          "assessment": "Property (ii) now targets #forr_quantum, the single-trial quantum construction rather than only its repetition calculation.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP059",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP059",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "credit",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "[@BBHT1998, arXiv v1, §4, Lemma 2]",
+              "line_start": 126,
+              "line_end": 126
+            }
+          ],
+          "assessment": "The citation names arXiv v1 and the exact lemma. The supplied v1 has the averaging identity at that location.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP069",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP069",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "1.2 Overview of the construction",
+            "quote": "let $L<R(P)$ be the available hardness scale",
+            "markdown_line": 58,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The overview gives only L less than R(P), whereas the generic reduction in §4 also uses 1 at most L at most m. The upper restriction is what lets the erased-zero term fit the mL budget. The intended Forrelation choice satisfies it, but the overview sounds generic at this point.",
+          "prior_advice": "Include the range used by the reduction, or identify L here explicitly as the later chosen Forrelation scale. This is a hypothesis-placement repair, not a stronger lower bound.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Revised the abstract and contribution, led with the present construction, retained the predecessor calculation after it, and qualified fixed parameters, certificate costs and the recipe-specific ceiling.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 2722,
+              "line_end": 2722,
+              "quote": "The argument gives a generic bound. Let $m=4^t$ with $t\\ge1$, put $r=40t$, let $P:D\\to\\{0,1\\}$ be a partial function realized by"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3230,
+              "line_end": 3230,
+              "quote": "**Generic lower bound.** Let \\(m=4^t\\), \\(t\\ge1\\), and \\(r=40t\\). Let \\(P:D\\to\\{0,1\\}\\) be a partial Boolean function on a finite set of"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 46,
+              "line_end": 46,
+              "quote": "For the filled cell, let $1\\le L\\le m$ be a query budget with $L<R(P)$. A total budget much smaller than"
+            },
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 181,
+              "line_end": 185,
+              "quote": "**Proposition 4 (classical reduction).** Let $P:D\\to\\{0,1\\}$, with $D\\subseteq\\{0,1\\}^n$, be a finite partial Boolean function. Fix an exact fan-in-two circuit $\\mathcal"
+            }
+          ],
+          "assessment": "The companion overview now gives 1≤L≤m before L<R(P), and its named classical proposition supplies the generic interface. The record has the same range in both theorem entries. No old range-omission finding is repeated.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP072",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP072",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "1.2 Overview of the construction",
+            "quote": "A direct product bound makes each such guess unlikely",
+            "markdown_line": 58,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "I would like the overview to say why logarithmically many address instances are used. The word each is correct, but the qualitative role of r is currently divided between §2 and the final arithmetic of §4.5.",
+          "prior_advice": "Connect logarithmically many independent answers to a polynomially small guessing probability that survives the time union. No constants are needed in this overview.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Revised the abstract and contribution, led with the present construction, retained the predecessor calculation after it, and qualified fixed parameters, certificate costs and the recipe-specific ceiling.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "In the construction, each of $m$ columns holds an $m$-bit string, $r$ inputs to a Forrelation partial function, and a"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3524,
+              "line_end": 3524,
+              "quote": "If the dummy run visits the true cell of a nonheavy column \\(i\\), one of its at most \\(G\\) query"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3531,
+              "line_end": 3531,
+              "quote": "The factor \\(m\\) cancels, since averaging the identical per-column upper bound divides the sum over the \\(m\\) columns by \\(m\\)."
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 46,
+              "line_end": 46,
+              "quote": "For the filled cell, let $1\\le L\\le m$ be a query budget with $L<R(P)$. A total budget much smaller than"
+            }
+          ],
+          "assessment": "The overview now connects logarithmically many hard answers to a polynomially small guessing probability and the time union. The record states r=20 log2 m in the opening and later shows cancellation of the column average.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP081",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP081",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4. The randomized lower bound",
+            "quote": "with these choices. We prove",
+            "markdown_line": 179,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The generic bound is a valuable reusable statement, but its displayed hypotheses name only L and m. The surrounding phrase refers back to a construction introduced for P on km bits, while the argument actually works for an arbitrary finite partial Boolean function and any circuit realizing its promise and value. The record states that interface precisely.",
+          "prior_advice": "Give the existing generic statement a named or numbered form and explicitly state its finite input domain, circuit realization, m and r conventions, and L range. Then prove that same statement. This exposes mathematics already present in record §6; it proposes no new theorem.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Made circuit, pointer, query-cap and conditioning interfaces explicit; Proposition 4 now states the generic classical reduction with finite domain, circuit semantics, address length and cap range.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3177,
+              "line_end": 3177,
+              "quote": "**Local recap for the lower bound.** Let \\(P:D\\to\\{0,1\\}\\), where \\(D\\subseteq\\{0,1\\}^{n}\\), and let \\(C\\) be a finite fan-in-two Boolean circuit with"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3230,
+              "line_end": 3230,
+              "quote": "**Generic lower bound.** Let \\(m=4^t\\), \\(t\\ge1\\), and \\(r=40t\\). Let \\(P:D\\to\\{0,1\\}\\) be a partial Boolean function on a finite set of"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3239,
+              "line_end": 3239,
+              "quote": "The implication holds whatever the size of the circuit. Thus the classical lower bound pays for the hardness of the"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 181,
+              "line_end": 185,
+              "quote": "**Proposition 4 (classical reduction).** Let $P:D\\to\\{0,1\\}$, with $D\\subseteq\\{0,1\\}^n$, be a finite partial Boolean function. Fix an exact fan-in-two circuit $\\mathcal"
+            }
+          ],
+          "assessment": "The companion now names Proposition 4 and states the finite domain, circuit realization, m,r conventions and cap range. The record supplies the matching generic theorem and explicitly makes it circuit-size independent.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP083",
+      "decision": "new-consequence",
+      "observations": [
+        {
+          "prior_finding_id": "XP083",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4. The randomized lower bound",
+            "quote": "We use $r$ independent samples from this law to hide an address.",
+            "markdown_line": 186,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "Independence of the samples does not make the answer bits unbiased, so the true address need not be uniform over the array. The proof correctly uses a prediction bound instead of address uniformity, but this is easy to misremember from the phrase hide an address.",
+          "prior_advice": "Add a short indication that no uniformity of the answer vector is assumed. The hardness of every shallow tree, including constant-output trees, supplies the needed guessing control.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Made circuit, pointer, query-cap and conditioning interfaces explicit; Proposition 4 now states the generic classical reduction with finite domain, circuit semantics, address length and cap range.",
+          "decision": "new-consequence",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3216,
+              "line_end": 3216,
+              "quote": "We apply Lemma 4.1 of §6.1 to independent \\(U_1,\\ldots,U_r\\sim\\mu\\): if an algorithm makes at most \\(L\\) queries to each \\(U_h\\)"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 188,
+              "line_end": 188,
+              "quote": "Choose a law $\\mu$ on the domain of $P$ under which every deterministic depth-$L$ tree has success at most $\\beta=2/3$."
+            }
+          ],
+          "assessment": "The companion repair is present: it explicitly says answer bits need not be uniform. The record’s corresponding prediction interface still leaves that distinction implicit. The linked new candidate concerns propagation to the lead record, not a claim that the companion failed to change.",
+          "counted_as_new_finding": true,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": [
+            "RR9-133"
+          ]
+        }
+      ],
+      "new_finding_ids": [
+        "RR9-133"
+      ],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP084",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP084",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4.1 A direct product with separate caps",
+            "quote": "outputs $(P(U_1),\\dots,P(U_r))$ with probability at most $\\beta^r$",
+            "markdown_line": 190,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The statement is precise in context, but the proof arrives before the paper has shown the actual vector-output algorithm it will constrain. I know direct products; the novel burden here is recognizing an address-bearing query as the output of such an algorithm.",
+          "prior_advice": "Keep the concise proof, but preview its use in terms of a capped predictor that outputs the position of one proposed query. Alternatively mark the proof as skippable on a first pass and return to it after the simulator.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Clarified the fixed-edge antecedent, projection-circuit credit and source edition, labelled appendix purposes, previewed the predictor, distinguished Drucker's parameters and separated promise-error range. The exact accepted operation for each finding is visible at its original section or its relocated counterpart.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3034,
+              "line_end": 3034,
+              "quote": "In §6.5 a simulator fixes the dummy data outside a target column and treats"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3469,
+              "line_end": 3469,
+              "quote": "The simulator runs \\(T\\) on the dummy input up to its proposed \\(q\\)-th query. It answers every outside query from"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 192,
+              "line_end": 192,
+              "quote": "The eventual predictor outputs the address named by one proposed cell query. Its cap lets us apply the following lemma;"
+            }
+          ],
+          "assessment": "The companion now previews the eventual predictor as the address named by a proposed cell query and permits reading its proof after the simulator. The record’s application interface and full construction support that description.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP087",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP087",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4.1 A direct product with separate caps",
+            "quote": "substituting $T=L$, error $1/3$ and $\\alpha=3/r$",
+            "markdown_line": 206,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "T and alpha already have meanings in the tournament and optimal-exponent discussions. Here they are source-paper parameters, but the sentence switches conventions without explicitly saying so.",
+          "prior_advice": "Call them Drucker’s parameters, or write the resulting total budget directly. Keep the distinction between source copy count and Forrelation parameter k.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Clarified the fixed-edge antecedent, projection-circuit credit and source edition, labelled appendix purposes, previewed the predictor, distinguished Drucker's parameters and separated promise-error range. The exact accepted operation for each finding is visible at its original section or its relocated counterpart.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3153,
+              "line_end": 3162,
+              "quote": "$\\mu$ be the minimax law of §6.2, under which every randomized algorithm of\ndepth $L$ succeeds with probability at most"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 210,
+              "line_end": 210,
+              "quote": "Drucker's global-budget Theorem 1.1 would also suffice. The simulator below has total cap $L$, and substituting Drucker's parameters $T=L$, error"
+            }
+          ],
+          "assessment": "The companion expressly calls T=L and α=3/r Drucker’s parameters. The direct-product source convention is no longer silently substituted into the companion’s own parameter notation.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP088",
+      "decision": "new-consequence",
+      "observations": [
+        {
+          "prior_finding_id": "XP088",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4.1 A direct product with separate caps",
+            "quote": "The extra factor two is absorbed by (14).",
+            "markdown_line": 206,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The alternative theorem is correctly sufficient. The displayed coarse summands in (14) could nevertheless make a quick reader think doubling the third term changes 6/100 to 7/100. The stronger tail estimate makes the stated 6/100 safe for the present m range.",
+          "prior_advice": "Either say only that the extra factor leaves the discrepancy below 1/3, or point to the small tail estimate that preserves the specific 6/100 bound. No sharpened theorem is needed.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Made conditional verification uniform in history, kept the alternative direct-product constant claim below 1/3, explained the zero posterior, and exposed the independence and compliance calculations.",
+          "decision": "new-consequence",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3161,
+              "line_end": 3162,
+              "quote": "$G(2/3)^r$ of §6.6 would then become $2G(2/3)^r\\le2/(100m^8)$, and the total\nthere would remain at most $6/100$. We use the separate-cap"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3559,
+              "line_end": 3559,
+              "quote": "Since $1\\le L\\le m$ and $G\\le mL/100$, we have $G\\le m^2/100$. The contradiction needs a finite bound valid throughout this"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3577,
+              "line_end": 3577,
+              "quote": "The weaker coefficient four already suffices, and this numerical step needs no further large-\\(m\\) condition once \\(1\\le L\\le m\\) is"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 210,
+              "line_end": 210,
+              "quote": "Drucker's global-budget Theorem 1.1 would also suffice. The simulator below has total cap $L$, and substituting Drucker's parameters $T=L$, error"
+            }
+          ],
+          "assessment": "The companion adopted the safe qualitative repair: the factor two leaves discrepancy below one third. The record retains the stronger numerical claim at most 6/100 without stating 2/(100m^8)≤1/100 for m≥4. The linked record finding supplies that missing existing-arithmetic bridge; no arithmetic error is alleged.",
+          "counted_as_new_finding": true,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": [
+            "RR9-129"
+          ]
+        }
+      ],
+      "new_finding_ids": [
+        "RR9-129"
+      ],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP091",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP091",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4.3 The erased zero",
+            "quote": "conditional on the entire past",
+            "markdown_line": 163,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "This is the crucial adaptive assertion in the zero-search estimate. The statement is correct, and the record proves it using the product form of a positive-probability transcript prefix. The short paper does not give that reason or point directly to that proof.",
+          "prior_advice": "Add a short reason that a transcript prefix only excludes the queried rows in that column, because all outside data are independent and cells are blank. A precise link to record §6.4’s early/late proof would also help; do not repeat the whole proof.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Made conditional verification uniform in history, kept the alternative direct-product constant claim below 1/3, explained the zero posterior, and exposed the independence and compliance calculations.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3354,
+              "line_end": 3354,
+              "quote": "Before the zero in a column has been discovered, its conditional location is uniform among that column's unqueried rows. To"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3366,
+              "line_end": 3366,
+              "quote": "Call a discovery early when fewer than \\(m/2\\) distinct positions of its column were queried beforehand. At a query that"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 237,
+              "line_end": 237,
+              "quote": "To bound $\\mathbb EZ$ we count early and late discoveries. Before the first discovery in column $i$, its zero is"
+            }
+          ],
+          "assessment": "The companion now explains that transcript prefixes exclude only queried rows because other data are independent and cells are blank. The record provides the full positive-probability transcript argument. The prior missing adaptive reason is not recycled.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP093",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP093",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4.4 The planted cell",
+            "quote": "call column $i$ heavy if $\\lambda_i>L$",
+            "markdown_line": 241,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The definition is intended to use the complete original dummy run, including queries after a proposed true-cell visit. That is recoverable from the wording, but adding complete or terminal would make the contrast with the prefix simulator immediate.",
+          "prior_advice": "Name lambda as the terminal target-query count once. Do not change the event to a condition on the prefix.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Made circuit, pointer, query-cap and conditioning interfaces explicit; Proposition 4 now states the generic classical reduction with finite domain, circuit semantics, address length and cap range.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3455,
+              "line_end": 3455,
+              "quote": "Let \\(q_i\\) be the number of queries made during the complete dummy run to the strings \\(A_{i,1},\\ldots,A_{i,r}\\), counting repetitions, and"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3477,
+              "line_end": 3477,
+              "quote": "With the general parameters and the hard distribution of §6.2, suppose the complete dummy run makes column \\(i\\) nonheavy and"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 245,
+              "line_end": 245,
+              "quote": "Let $\\lambda_i$ be the terminal number of queries in the whole dummy run, counting repetitions, that the run on $Y^{(0)}$"
+            }
+          ],
+          "assessment": "The companion calls the count terminal and specifies the whole dummy run. The record defines its count over the complete dummy run. This repairs the original ambiguity about prefix versus eventual heaviness.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP094",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP094",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4.4 The planted cell",
+            "quote": "all of $Y^{(0)}$ outside $A_{i,1},\\dots,A_{i,r}$",
+            "markdown_line": 243,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "This free information includes the zero locations, including J_i. That initially feels stronger than the hiding argument should allow, but it is harmless because the simulator predicts address values and the J variables are independent of them. The record spells this out; the short paragraph leaves the reader to notice it.",
+          "prior_advice": "Clarify the simulation interface with a short enumeration or clause: outside address strings, zero locations, and fixed blank cells are supplied; target strings and their derived address are not. The original tree still receives only simulated replies.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Made circuit, pointer, query-cap and conditioning interfaces explicit; Proposition 4 now states the generic classical reduction with finite domain, circuit semantics, address length and cap range.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3249,
+              "line_end": 3249,
+              "quote": "The zero positions $J_1,\\ldots,J_m$ are independent uniform rows. They are available to the target-column simulator because they are independent of"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3251,
+              "line_end": 3251,
+              "quote": "True addresses and evaluated transcripts are deterministic functions of those strings. Neither the target address nor its transcript is supplied."
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3467,
+              "line_end": 3467,
+              "quote": "Fix a column \\(i\\) and a time \\(q\\in\\{1,\\ldots,G\\}\\). The simulator's queried inputs are the \\(r\\) strings of that column, and"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 247,
+              "line_end": 247,
+              "quote": "The position of a query already names an address: a query to a bit of $B_{i,s}$ names $s$ before any"
+            }
+          ],
+          "assessment": "The simulator’s free information is now enumerated, while the derived target address is excluded. The record also explicitly explains why revealing Ji is harmless for predicting target partial-function values.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP095",
+      "decision": "new-consequence",
+      "observations": [
+        {
+          "prior_finding_id": "XP095",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4.4 The planted cell",
+            "quote": "If it reaches time $\\tau$",
+            "markdown_line": 243,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "There are two clocks: the original tree’s query slot tau and the simulator’s counter of charged target queries. Answering outside queries for free does not skip their slots in the original transcript.",
+          "prior_advice": "Call tau the original tree’s query time, while L counts only target queries. The proof already uses this convention; a few words would make it explicit.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Made circuit, pointer, query-cap and conditioning interfaces explicit; Proposition 4 now states the generic classical reduction with finite domain, circuit semantics, address length and cap range.",
+          "decision": "new-consequence",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3469,
+              "line_end": 3469,
+              "quote": "The simulator runs \\(T\\) on the dummy input up to its proposed \\(q\\)-th query. It answers every outside query from"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3493,
+              "line_end": 3493,
+              "quote": "At time 1 the proposed query is $X_0[0]$; the simulator answers $1$ from the outside data and has used no"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 247,
+              "line_end": 247,
+              "quote": "The position of a query already names an address: a query to a bit of $B_{i,s}$ names $s$ before any"
+            }
+          ],
+          "assessment": "The companion now names both clocks and says that original time counts every query. The lead record implements the same convention but leaves the clock distinction inside a dense paragraph. The linked candidate asks for an explicit two-counter presentation in the record; it does not classify the companion repair as unresolved.",
+          "counted_as_new_finding": true,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": [
+            "RR9-149"
+          ]
+        }
+      ],
+      "new_finding_ids": [
+        "RR9-149"
+      ],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP096",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP096",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4.4 The planted cell",
+            "quote": "it outputs a fixed vector",
+            "markdown_line": 243,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The default output is logically important because the predictor must return a vector on every branch. It can accidentally be correct after aborting, which is why the true-cell/light event is contained in predictor success rather than equal to it. A reader gets several counterexamples in Appendix A but no short execution of this central reduction in the companion itself.",
+          "prior_advice": "Use a very small existing simulator trace, including one abort/default branch, or give a precise example pointer at this sentence. Reuse the record’s checked XOR toy; do not introduce another construction.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Retargeted the full tournament, decoder, exponential envelope, XOR trace and amplification trial count to their semantic entry points. The finite-checker landing now distinguishes shared circuit tests from different board amplitudes.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3469,
+              "line_end": 3469,
+              "quote": "The simulator runs \\(T\\) on the dummy input up to its proposed \\(q\\)-th query. It answers every outside query from"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3495,
+              "line_end": 3495,
+              "quote": "At time four the original tree receives \\(0\\) on the dummy input and \\(1\\) on the displayed planted input, while"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3511,
+              "line_end": 3511,
+              "quote": "These last two probabilities can also be read directly from the target strings $(a,b)$ and $(c,d)$. On the nonheavy branch"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 267,
+              "line_end": 267,
+              "quote": "The record traces this simulator on a small example ([§6.5](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-simulator-example))."
+            }
+          ],
+          "assessment": "The companion now points directly to the worked simulator trace. That trace includes the abort/default branch and computes the extra default-success mass, showing strict containment of the cheap true-cell event in predictor success.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP099",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_id": "XP099",
+          "prior_paper": "expert_companion",
+          "prior_feedback": "The link’s visible promise is a worked example, but its fragment is CL-simulator, which lands at the general definition in record §6.5. The worked trace begins at the distinct fragment CL-simulator-example a little later.",
+          "prior_advice": "Point the example sentence to the existing CL-simulator-example anchor. A separate link from the simulator definition can retain CL-simulator.",
+          "prior_disposition": "applied",
+          "current_locator": {
+            "source_path": "repository/docs/expert_companion.md",
+            "line_start": 267,
+            "line_end": 267,
+            "quote": "The record traces this simulator on a small example"
+          },
+          "decision": "resolved",
+          "evidence": "The current fragment is CL-simulator-example. This addresses the requested distinction between a worked trace and the general simulator definition.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        },
+        {
+          "prior_finding_id": "XP099",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4.4 The planted cell",
+            "quote": "The record traces this simulator on a small example",
+            "markdown_line": 261,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The link’s visible promise is a worked example, but its fragment is CL-simulator, which lands at the general definition in record §6.5. The worked trace begins at the distinct fragment CL-simulator-example a little later.",
+          "prior_advice": "Point the example sentence to the existing CL-simulator-example anchor. A separate link from the simulator definition can retain CL-simulator.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Retargeted the full tournament, decoder, exponential envelope, XOR trace and amplification trial count to their semantic entry points. The finite-checker landing now distinguishes shared circuit tests from different board amplitudes.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3489,
+              "line_end": 3489,
+              "quote": "A toy instance illustrates the reduction just proved. We return to the four-column XOR example of [§6.3](#CL-tiny-planted-example) and take \\(L=1\\),"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3493,
+              "line_end": 3493,
+              "quote": "At time 1 the proposed query is $X_0[0]$; the simulator answers $1$ from the outside data and has used no"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 267,
+              "line_end": 267,
+              "quote": "The record traces this simulator on a small example ([§6.5](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-simulator-example))."
+            }
+          ],
+          "assessment": "The current link uses CL-simulator-example, whose local target begins at the record’s worked XOR trace. The earlier mismatch with the general simulator anchor is repaired.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "qualification": "Verified current Markdown href and local anchor destination; did not claim to have tested remote GitHub rendering.",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP100",
+      "decision": "unresolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP100",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4.5 The contradiction and the constants",
+            "quote": "The optional improvement of the erased-zero probability",
+            "markdown_line": 276,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The sharper erased-zero estimate has already been moved out of the proof’s middle, which is an improvement. Even here it is the last thing the reader sees before the analytic hardness section, although it changes neither the exponent nor the stated constant used in the proof.",
+          "prior_advice": "Consider a footnote or a record-only remark. If retained, let the final main-text sentence emphasize the completed mL reduction rather than the optional coefficient.",
+          "round8_disposition": "not_adopted",
+          "round8_recorded_decision": "Retain the single optional erased-zero refinement link at the end of the reduction: it remains explicitly optional, while the main fixed-k proof now follows immediately. No sharper constant is used.",
+          "decision": "unresolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3388,
+              "line_end": 3388,
+              "quote": "This proves (19), and the proof of Proposition 4.2 continues in [§6.5](#CL-heavy). The rest of §6.4 gives two optional estimates"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3448,
+              "line_end": 3448,
+              "quote": "Scanning one column without repetition until its zero is found attains the first, expectation-cost inequality, since its expected cost is"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 282,
+              "line_end": 284,
+              "quote": "For $P=P_{k,m}$ take $L$ from (5). The floors lose only constants: once (5) holds and $t\\ge8$, (15) gives $R(F_{k,m})\\ge m^{2-1/k}/(400\\ell^2)$."
+            }
+          ],
+          "assessment": "The optional sharper zero-search estimate remains the final sentence of the companion’s classical section. Round eight deliberately retained it. The next section is now the fixed-parameter conclusion rather than the analytic reconstruction, reducing the earlier disruption. This is a retained editorial choice, not a mathematical defect or a new countable finding.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP103",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP103",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "5. The Forrelation lower bound",
+            "quote": "gives a further estimate with explicit dependence on $k$",
+            "markdown_line": 282,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "After §4 completes the second main reduction, I expect the exponent conclusion. Instead the paper inserts a substantial independent analytic reconstruction before §6. The first paragraph of §5 already says the cited fixed-k theorem is sufficient; the remaining material serves an explicit threshold and a growing-k refinement.",
+          "prior_advice": "Make the sufficient fixed-k interface immediately consumable by the exponent proof, and give the uniform reconstruction a visibly optional route or later position. Preserve the analytic argument in the record; do not shrink it to an unexplained claim just to save words.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Completed the eventual fixed-k deduction before optional uniform analysis, described the refinement as reconstruction without priority, and explained the growing-k balance and eventual range. The optional coefficient remains linked without delaying the main proof.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3692,
+              "line_end": 3692,
+              "quote": "We first collect the two estimates for the same functions. Fix \\(k\\geq2\\), write \\(m=4^t\\), and let \\(C_{k,t}\\) be the exact"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3777,
+              "line_end": 3777,
+              "quote": "For each fixed $k$, §7.1 excludes the powers below $4-2/k$ with constants that depend on $k$. Bounds uniform in $k$"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 284,
+              "line_end": 295,
+              "quote": "## 5. Completing the fixed-parameter proof\n\nThe main separation needs the fixed-$k$ estimate (5), which follows from Bansal and Sinha's"
+            }
+          ],
+          "assessment": "The companion now completes the fixed-parameter proof in §5 and labels the later §6 optional uniform refinement. The old ordering complaint is resolved for that document; it is not imposed mechanically on the complete record’s different genre.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP104",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP104",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "5. The Forrelation lower bound",
+            "quote": "This improves the power of $k$ in the cited bound",
+            "markdown_line": 287,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "This is a potentially interesting quantitative difference, but the introduction says the theorem, construction and two analyses are OpenAI’s and describes the paper as a reconstruction. I need a precise attribution of this estimate and its changed proof ingredients, even if no priority claim is intended.",
+          "prior_advice": "State the estimate’s provenance and the limit of the novelty claim in ordinary mathematical prose. The record §3.16 already distinguishes the borrowed Gaussian chain, changed truncation, and reconstructed moment estimates; carry that distinction into the contribution statement.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Completed the eventual fixed-k deduction before optional uniform analysis, described the refinement as reconstruction without priority, and explained the growing-k balance and eventual range. The optional coefficient remains linked without delaying the main proof.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 920,
+              "line_end": 920,
+              "quote": "The architecture is due to Bansal and Sinha, who round a chain of correlated Gaussian vectors to signs and use"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 1617,
+              "line_end": 1617,
+              "quote": "Bansal and Sinha prove the hardness of the explicit $k$-fold Forrelation promise used here and supply its one-sided thresholds. Sherstov,"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 302,
+              "line_end": 304,
+              "quote": "The estimate has different parameter dependence from the cited bound; its value here is explicit uniform control, not a claim"
+            },
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 323,
+              "line_end": 323,
+              "quote": "The source comparison in [record §3.16](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#forr_credit) identifies the borrowed ingredients and the estimates reconstructed here."
+            }
+          ],
+          "assessment": "The current companion identifies the borrowed Gaussian chain, changed algebraic truncation and ordinary-tree martingale antecedent, and links the record’s detailed source comparison. It limits the claim to different parameter dependence and explicit uniform control.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP105",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP105",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "5. The Forrelation lower bound",
+            "quote": "while worsening the logarithmic power",
+            "markdown_line": 287,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The tradeoff is acknowledged, which is good. It remains easy to hear improves as a pointwise strengthening. For fixed k the different logarithmic powers eventually matter, so neither the smaller k exponent alone nor the word further orders the two bounds in all regimes.",
+          "prior_advice": "Present the comparison as different parameter dependence for the use at hand, and emphasize that the useful feature here is explicit uniform control. No claim of dominance or optimized constants is needed.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Completed the eventual fixed-k deduction before optional uniform analysis, described the refinement as reconstruction without priority, and explained the growing-k balance and eventual range. The optional coefficient remains linked without delaying the main proof.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 1617,
+              "line_end": 1617,
+              "quote": "Bansal and Sinha prove the hardness of the explicit $k$-fold Forrelation promise used here and supply its one-sided thresholds. Sherstov,"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 5918,
+              "line_end": 5918,
+              "quote": "The cited corollary does not give a certified numerical value of $C$. This is an **external theorem used only for"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 302,
+              "line_end": 302,
+              "quote": "The estimate has different parameter dependence from the cited bound; its value here is explicit uniform control, not a claim"
+            }
+          ],
+          "assessment": "The potentially misleading dominance language has been replaced by an explicit disclaimer of dominance and priority. No resolved comparison complaint is added to new findings.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP106",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP106",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "5. The Forrelation lower bound",
+            "quote": "a correlated law $\\nu_1$ built from the Gaussian-pair chain",
+            "markdown_line": 289,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The later inequalities ask me to understand expectations under nu_1, but the short paper identifies the law only by an antecedent and says the truncation is different. This is a proof sketch with an unspecified object at its central step, even though its constants are displayed in detail.",
+          "prior_advice": "Either give a compact description of the law and the role of the changed truncation, or identify this passage explicitly as an outline whose defining construction is in record §3.9. Keep the precise theorem and the proof destination.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Completed the eventual fixed-k deduction before optional uniform analysis, described the refinement as reconstruction without priority, and explained the growing-k balance and eventual range. The optional coefficient remains linked without delaying the main proof.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 1059,
+              "line_end": 1059,
+              "quote": "For $0\\le s\\le1$, we give each coordinate of the $k$-block sign cube the bias"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 1079,
+              "line_end": 1079,
+              "quote": "The endpoint coordinates have bias of magnitude at most $1/2$ and the middle coordinates at most $1/4$, so the product"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 1617,
+              "line_end": 1617,
+              "quote": "Bansal and Sinha prove the hardness of the explicit $k$-fold Forrelation promise used here and supply its one-sided thresholds. Sherstov,"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 304,
+              "line_end": 304,
+              "quote": "The proof of (16) compares the uniform law $\\mathcal U$ with a correlated law $\\nu_1$, which can have off-promise mass"
+            },
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 323,
+              "line_end": 323,
+              "quote": "The source comparison in [record §3.16](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#forr_credit) identifies the borrowed ingredients and the estimates reconstructed here."
+            }
+          ],
+          "assessment": "The optional sketch now describes ν1 through the Gaussian-pair chain and altered algebraic truncation, distinguishes it from minimax µ, and supplies a record destination. This meets the prior request’s compact-description alternative; it is not a complete definition of the law within the short paper.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "qualification": "The exact bias formula remains in the record. Resolution is of the requested sketch interface, not a claim that the companion reproduces every construction detail.",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP107",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP107",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "5. The Forrelation lower bound",
+            "quote": "for a depth-$d$ acceptance probability $A$",
+            "markdown_line": 289,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "A denotes the probability of output one, while the lower bound later amplifies an arbitrary solver. Saying this explicitly would connect the analytic test function to the randomized algorithm whose cap is being contradicted.",
+          "prior_advice": "Identify A as the acceptance function of the depth-d decision procedure, with mixtures handled by averaging if needed. Avoid introducing a second notation for the same observable.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Completed the eventual fixed-k deduction before optional uniform analysis, described the refinement as reconstruction without priority, and explained the growing-k balance and eventual range. The optional coefficient remains linked without delaying the main proof.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 1370,
+              "line_end": 1370,
+              "quote": "The bound (F33) holds for every real-valued tree of depth at most $d\\ge1$ with leaf values in $[-1,1]$ and, by"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 1472,
+              "line_end": 1472,
+              "quote": "Let $A(z)\\in[0,1]$ be any acceptance probability with promise error at most $\\varepsilon\\in[0,1]$. Then at every input"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 304,
+              "line_end": 304,
+              "quote": "The proof of (16) compares the uniform law $\\mathcal U$ with a correlated law $\\nu_1$, which can have off-promise mass"
+            }
+          ],
+          "assessment": "The companion now identifies A as the acceptance function of a depth-d decision tree. The record gives the convex-mixture extension and the pointwise [0,1] comparison for an acceptance probability.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP109",
+      "decision": "unresolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP109",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "5. The Forrelation lower bound",
+            "quote": "the dimension condition in (16) controls the leakage",
+            "markdown_line": 306,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The preceding gap is informative, but the role of 15k+2 at most 2t is still given only verbally. The record supplies the short inequality 4/(m delta squared) at most delta, which makes this hypothesis immediately interpretable.",
+          "prior_advice": "Use that existing leakage comparison to explain the hypothesis, while leaving the long constant assembly in the record. This is an explanation of the stated estimate, not an additional result.",
+          "round8_disposition": "not_adopted",
+          "round8_recorded_decision": "Keep the existing signal/error/leakage display and explicit dimension-condition explanation; the optional placement now keeps it off the sufficient proof route.",
+          "decision": "unresolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 1518,
+              "line_end": 1524,
+              "quote": "\\varepsilon\\le18^{-k}=\\frac{a_k}{18},\n\\qquad \\delta\\le\\frac{a_k}{32},\n\\qquad \\frac4{m\\delta^2}\\le\\delta.\n\\tag{F44}\n\\]\n\nThe dimension condition enters through the last inequality. Since $a_k-\\delta\\le1$, (F42) gives a"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 321,
+              "line_end": 321,
+              "quote": "This displays the positive signal, error and uniform-law leakage in the same inequality. Constant error would swamp the exponentially small"
+            }
+          ],
+          "assessment": "The companion still states the role of the dimension condition verbally rather than displaying 4/(mδ²)≤δ. Round eight explicitly declined that expansion. The linked record does display the inequality in F44, so the mathematical premise is recoverable. This selective historical audit adds no duplicate lead-record finding.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP112",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP112",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "6. The optimal exponent",
+            "quote": "For $t\\ge13669k^2$",
+            "markdown_line": 312,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The precise threshold is valid but does no work in the fixed-k exponent argument beyond being finite. Its reappearance makes the elementary endpoint seem dependent on the optional analytic calculation of §5 rather than on the cited eventual hardness theorem.",
+          "prior_advice": "Use the eventual threshold in the main exponent route and reserve this explicit value for the optional uniform discussion or its record link.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Completed the eventual fixed-k deduction before optional uniform analysis, described the refinement as reconstruction without priority, and explained the growing-k balance and eventual range. The optional coefficient remains linked without delaying the main proof.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3719,
+              "line_end": 3719,
+              "quote": "We keep \\(k\\) fixed from now on. Since \\(\\sqrt m(\\log_2m)^{b_k}\\geq1\\) for \\(m\\geq4\\), the upper estimate in (7.1) gives"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3753,
+              "line_end": 3753,
+              "quote": "Let \\(K>0\\) be any proposed universal constant. With \\(k\\) already chosen by (7.2), the quotient in (7.3) exceeds \\(K\\) for"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 289,
+              "line_end": 293,
+              "quote": "Fix $0\\le\\alpha<4$ and choose an integer $k\\ge2$ with $k>2/(4-\\alpha)$, so that $e=2-1/k-\\alpha/2>0$. Keep $k$ fixed and let $m=4^t$ grow. For"
+            }
+          ],
+          "assessment": "The companion’s fixed-parameter conclusion now uses sufficiently large t depending on fixed k; the explicit 13669k² threshold is reserved for the optional discussion. The source of the eventual prerequisite is separately stated.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP113",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP113",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "6. The optimal exponent",
+            "quote": "Taking $k=\\lfloor\\sqrt{t/20}\\rfloor$ gives a single family",
+            "markdown_line": 318,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "This is an asymptotic family, but the displayed formula gives k less than two at small t, outside the construction’s stated range. The record starts the uniform calculation at t at least 80.",
+          "prior_advice": "Give the existing eventual range, or say for sufficiently large t. The asymptotic statement is not invalid; the family definition just needs its scope made explicit.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Completed the eventual fixed-k deduction before optional uniform analysis, described the refinement as reconstruction without priority, and explained the growing-k balance and eventual range. The optional coefficient remains linked without delaying the main proof.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3800,
+              "line_end": 3800,
+              "quote": "We now choose $k=\\lfloor\\sqrt{t/20}\\rfloor$ with $t\\ge80$. This balances the leading losses $40k$ from the exponential decoder cost and $\\ell/k$ from"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3819,
+              "line_end": 3819,
+              "quote": "If $4B\\le A$, then $A\\ge4B$. Otherwise $B\\ge\\ell/2$ gives $(4B-A)/B\\le2(4B-A)/\\ell\\le\\varepsilon(\\ell)$. In both cases $A\\ge(4-\\varepsilon(\\ell))B$. The function $F_t$ is not constant, so"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 325,
+              "line_end": 325,
+              "quote": "**Remark** (one family approaching four)**.** A growing choice of $k$ needs uniform estimates; fixed-$k$ thresholds alone do not suffice (Appendix"
+            }
+          ],
+          "assessment": "The companion qualifies the schedule by sufficiently large t, while the record supplies the explicit t≥80 range. The earlier small-t domain ambiguity is repaired.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP115",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_id": "XP115",
+          "prior_paper": "expert_companion",
+          "prior_feedback": "The phrase ordinary bridges is vague for a reader deciding what the formal theorem actually covers. Here the two jobs are specific: finite-seed representation of independent randomness, and interpretation of recursive compliance as per-input query counts.",
+          "prior_advice": "Name the two jobs directly and state their ordinary-proof location. Keep this concise and avoid upgrading the reported comparison to a check of every step of the printed lemma.",
+          "prior_disposition": "applied",
+          "current_locator": {
+            "source_path": "repository/docs/expert_companion.md",
+            "line_start": 339,
+            "line_end": 339,
+            "quote": "arbitrary independent randomness reduces to finite seeds"
+          },
+          "decision": "resolved",
+          "evidence": "The paragraph now names both ordinary reductions: finite seeds for independent randomness and recursive cap compliance versus per-input counts. This does not claim either reduction was newly formalized.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP119",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP119",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "Appendix A.7",
+            "quote": "The caps hold on eight of the sixteen inputs",
+            "markdown_line": 383,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "This is the first place the example’s controlling event is summarized, but the event itself is never named algebraically. Writing that compliance means A_0 equals B indexed by A_0 would make the eight-input count immediate.",
+          "prior_advice": "Name the compliance event and indicate its two answer branches. The full sixteen-input table can remain in the record.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Made conditional verification uniform in history, kept the alternative direct-product constant claim below 1/3, explained the zero posterior, and exposed the independence and compliance calculations.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 2988,
+              "line_end": 2992,
+              "quote": "Take independent inputs $A=(A_0,A_1)$ and $B=(B_0,B_1)$. We deliberately use a redundant query to mark runs that violate the cap. The"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3006,
+              "line_end": 3006,
+              "quote": "Let $C$ be the event that the output vector is correct; the first and last"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 389,
+              "line_end": 389,
+              "quote": "Take independent instances $A,B$ of AND on two uniform bits. With cap one query per instance, the exact one-instance optimum"
+            }
+          ],
+          "assessment": "The companion now identifies compliance with the two equal-answer branches; the record explicitly names E={a=t}. The eight-input count therefore has a stated event.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP120",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP120",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "Appendix A.7",
+            "quote": "query $A_0$ again if the answers differ",
+            "markdown_line": 383,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The deliberately repeated query is a useful device, but it looks pointless until the reader infers that it marks the branches that violate the cap. Because repeated queries spend budget, it is an engineered event selector rather than an attempt at an efficient solver.",
+          "prior_advice": "Briefly say what the redundant query is for. Keep repetitions counted, as in the lemma and the main simulator.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Made conditional verification uniform in history, kept the alternative direct-product constant claim below 1/3, explained the zero posterior, and exposed the independence and compliance calculations.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 2988,
+              "line_end": 2988,
+              "quote": "Take independent inputs $A=(A_0,A_1)$ and $B=(B_0,B_1)$. We deliberately use a redundant query to mark runs that violate the cap. The"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3024,
+              "line_end": 3024,
+              "quote": "The same distribution separates the two budget conditions. With a total budget $rL=2$, an algorithm can compute $P(A)$ exactly and"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 389,
+              "line_end": 389,
+              "quote": "Take independent instances $A,B$ of AND on two uniform bits. With cap one query per instance, the exact one-instance optimum"
+            }
+          ],
+          "assessment": "Both current accounts explain that the redundant repeat marks noncompliant branches. No request is made to eliminate the repeated query, because it is the example’s engineered cap selector.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP122",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_id": "XP122",
+          "prior_paper": "expert_companion",
+          "prior_feedback": "The short proof uses V for an unnormalised value, whereas the main conditional proof in record §6.1 uses V for a normalized continuation probability and introduces W in its optional weighted proof. The mathematics agrees, but the same letter refers to different quantities on the first route a reader encounters.",
+          "prior_advice": "Link to the record’s weighted-values or weighted-product passage when matching this proof, and name the normalization identity if directing readers through the conditional proof. No global notation rewrite is required.",
+          "prior_disposition": "applied",
+          "current_locator": {
+            "source_path": "repository/docs/expert_companion.md",
+            "line_start": 208,
+            "line_end": 208,
+            "quote": "weighted-value proof in the record"
+          },
+          "decision": "resolved",
+          "evidence": "The current fragment is CL-weighted-values and the sentence explicitly says it is the same unnormalised recurrence. The normalization-sensitive destination has been repaired.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        },
+        {
+          "prior_finding_id": "XP122",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_locator": {
+            "section": "4.1 A direct product with separate caps",
+            "quote": "For product measures $\\nu_1\\otimes\\dots\\otimes\\nu_r$",
+            "markdown_line": 196,
+            "source_path": "repository/docs/expert_companion.md"
+          },
+          "prior_feedback": "The short proof uses V for an unnormalised value, whereas the main conditional proof in record §6.1 uses V for a normalized continuation probability and introduces W in its optional weighted proof. The mathematics agrees, but the same letter refers to different quantities on the first route a reader encounters.",
+          "prior_advice": "Link to the record’s weighted-values or weighted-product passage when matching this proof, and name the normalization identity if directing readers through the conditional proof. No global notation rewrite is required.",
+          "round8_disposition": "applied",
+          "round8_recorded_decision": "Clarified the fixed-edge antecedent, projection-circuit credit and source edition, labelled appendix purposes, previewed the predictor, distinguished Drucker's parameters and separated promise-error range. The exact accepted operation for each finding is visible at its original section or its relocated counterpart.",
+          "decision": "resolved",
+          "current_lead_locators": [
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3058,
+              "line_end": 3058,
+              "quote": "We extend $\\mu$ by zero outside $D$ and regard $P$ as a partial Boolean"
+            },
+            {
+              "paper": "reasoning_record",
+              "source_path": "repository/docs/reasoning_record.md",
+              "line_start": 3120,
+              "line_end": 3120,
+              "quote": "The two proofs rest on the same one-factor calculation. At a positive-probability"
+            }
+          ],
+          "current_support_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "line_start": 208,
+              "line_end": 208,
+              "quote": "The [weighted-value proof in the record](https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md#CL-weighted-values) gives the same unnormalised recurrence. We use this separate-cap form for its exact factor"
+            }
+          ],
+          "assessment": "The companion now links to CL-weighted-values rather than the main conditional proof. The record’s W recurrence and normalization identity provide the corresponding unnormalised value interpretation.",
+          "counted_as_new_finding": false,
+          "confidence": "high",
+          "observer": "classical",
+          "new_finding_ids": []
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP152",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP152",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "prose",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "for each stage's failure allowance.",
+              "line_start": 120,
+              "line_end": 120
+            }
+          ],
+          "assessment": "T is now named as maximum list length and ε as stage failure allowance at definition.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP153",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP153",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "structure",
+          "status": "resolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "the preparation succeeds with probability $W/m$",
+              "line_start": 122,
+              "line_end": 122
+            }
+          ],
+          "assessment": "The forward preview now gives both W/m and proportional successful sampling, explaining the bounded-amplification contract’s role before it is stated.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP163",
+      "decision": "unresolved",
+      "observations": [
+        {
+          "prior_finding_id": "XP163",
+          "prior_source": "previous_round/returns/expert_paper/feedback.json",
+          "prior_kind": "overweighted",
+          "status": "unresolved",
+          "current_locators": [
+            {
+              "paper": "expert_companion",
+              "source_path": "repository/docs/expert_companion.md",
+              "quote": "$C_k\\le2^{53}k\\,2^{10k}$",
+              "line_start": 177,
+              "line_end": 177
+            }
+          ],
+          "assessment": "The destination defect is repaired (XP052), but the large explicit uniform envelope remains in the fixed-k upper-bound section. The prior editorial relocation request remains open; it should not be conflated with the repaired link.",
+          "verification_basis": "Actual prior feedback object and current Markdown read after scoped first-pass freeze; not inferred from applied dispositions.",
+          "confidence": "high",
+          "new_lead_finding": false,
+          "observer": "quantum"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP187",
+      "decision": "unresolved",
+      "observations": [
+        {
+          "prior_id": "XP187",
+          "prior_paper": "expert_companion",
+          "prior_feedback": "For the query-complexity reader this phrase is not the decisive assurance. The mathematical question is what the definitions and compared theorem assert, and whether the model bridges preserve the intended capped behavior. The paragraph already has an exact destination for readers interested in formal details.",
+          "prior_advice": "Keep the statement and proof-checking claim in mathematical language, and route the axiom convention to the record once rather than expanding it here.",
+          "prior_disposition": "not_adopted",
+          "current_locator": {
+            "source_path": "repository/docs/expert_companion.md",
+            "line_start": 333,
+            "line_end": 333,
+            "quote": "using Lean's standard axioms"
+          },
+          "decision": "unresolved",
+          "evidence": "The same phrase remains in the first formal paragraph. It is mathematically unobjectionable; the earlier low-severity concern about its usefulness to a query-complexity reader was not implemented. No new RR9 finding is added for it.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP188",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_id": "XP188",
+          "prior_paper": "expert_companion",
+          "prior_feedback": "This is a correct foundational observation but not a material difference between the printed theorem and the formal one. It takes space in the section whose main job is to explain such differences.",
+          "prior_advice": "Move the nonemptiness remark to the model record and retain the two preservation claims for the model bridges.",
+          "prior_disposition": "applied",
+          "current_locator": {
+            "source_path": "repository/docs/expert_companion.md",
+            "line_start": 335,
+            "line_end": 335,
+            "quote": "The two model bridges identify a capped randomized algorithm"
+          },
+          "decision": "resolved",
+          "evidence": "The read-all/nonempty-infimum aside has been removed from this short paragraph. The two model bridges and their preservation properties remain, with the full arguments in record §2.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP190",
+      "decision": "unresolved",
+      "observations": [
+        {
+          "prior_id": "XP190",
+          "prior_paper": "expert_companion",
+          "prior_feedback": "The distinctions are real, but this fourth paragraph becomes a compressed formalisation audit: measured/reset output, retained state, basis-label tests, weighted finite seeds and recursive compliance all appear in a few lines. The paragraph is hard to use without opening the record.",
+          "prior_advice": "Keep any material premise difference in one plain sentence, then route the two auxiliary interfaces to named record entries. Avoid exposing a catalogue of implementation terminology in the short paper.",
+          "prior_disposition": "not_adopted",
+          "current_locator": {
+            "source_path": "repository/docs/expert_companion.md",
+            "line_start": 339,
+            "line_end": 339,
+            "quote": "Two auxiliary interfaces merit distinction."
+          },
+          "decision": "unresolved",
+          "evidence": "The content is more precise, but the paragraph still gives measured labels, retained states, basis-label tests, finite seed laws and recursive compliance comparable space. The earlier weighting issue persists as editorial advice, not a mathematical error. Root findings concern the long-record destination and do not recount this as a new short-paper finding.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP191",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_id": "XP191",
+          "prior_paper": "expert_companion",
+          "prior_feedback": "“Ordinary” does not say what is established on paper, what is covered by the Lean development, and what is an interpretation of a recursive formal definition. The record may settle this, but the short wording asks the reader to supply an evidence classification.",
+          "prior_advice": "State the status and mathematical content of the two reductions directly, in the minimal language already supported by the record; no fresh formal work is requested.",
+          "prior_disposition": "applied",
+          "current_locator": {
+            "source_path": "repository/docs/expert_companion.md",
+            "line_start": 339,
+            "line_end": 339,
+            "quote": "arbitrary independent randomness reduces to finite seeds"
+          },
+          "decision": "resolved",
+          "evidence": "The paragraph now names both ordinary reductions: finite seeds for independent randomness and recursive cap compliance versus per-input counts. This does not claim either reduction was newly formalized.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    },
+    {
+      "prior_finding_id": "XP196",
+      "decision": "resolved",
+      "observations": [
+        {
+          "prior_id": "XP196",
+          "prior_paper": "exposition",
+          "prior_feedback": "This is compatible with the expert paper, but it understates the useful destination now supplied there: a separate theorem for the fixed explicit circuit also gives six and 1/400. A reader crossing from this sentence to the expert companion must discover that extra support independently.",
+          "prior_advice": "Harmonize the descriptions of the already existing explicit-circuit theorem, preserving the distinction from the compared existential family theorem.",
+          "prior_disposition": "applied",
+          "current_locator": {
+            "source_path": "repository/docs/exposition.md",
+            "line_start": 406,
+            "line_end": 406,
+            "quote": "a [separate theorem for the fixed explicit circuit][src-constants]"
+          },
+          "decision": "resolved",
+          "evidence": "The exposition now names the separate formal theorem for six and 1/400 and explicitly distinguishes it from the compared floor-form existential theorem, agreeing with the expert companion and supplied ConstructionFamily.lean.",
+          "counted_as_new_finding": false,
+          "observer": "formal"
+        }
+      ],
+      "new_finding_ids": [],
+      "counted_separately_from_new_findings": true
+    }
+  ]
+}

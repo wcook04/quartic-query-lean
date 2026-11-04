@@ -1,0 +1,1455 @@
+{
+  "raw_candidates": 455,
+  "retained_candidates": 237,
+  "merged_away": 80,
+  "rejected": 138,
+  "count_is_not_a_quota": true,
+  "decisions": [
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C002",
+      "merged_candidate_ids": [
+        "CA003",
+        "F001",
+        "Q001"
+      ],
+      "reason": "Same first-use t/m threshold and scope repair."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q002",
+      "merged_candidate_ids": [
+        "CA002"
+      ],
+      "reason": "Same unattached numerical-refinement list; retain both named inequalities in one repair."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "F003",
+      "merged_candidate_ids": [
+        "C005",
+        "Q003"
+      ],
+      "reason": "One qualification of the complete-proof route and its assumed background."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "CA005",
+      "merged_candidate_ids": [
+        "Q004",
+        "CA049"
+      ],
+      "reason": "One distinction between column count m and physical input length, with both relevant locations."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q005",
+      "merged_candidate_ids": [
+        "CA007",
+        "CA010",
+        "F009"
+      ],
+      "reason": "One model/source organization issue; the ordinary definitions and minima proof are already present."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q006",
+      "merged_candidate_ids": [
+        "F010"
+      ],
+      "reason": "Same Fin workspace encoding interruption."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q009",
+      "merged_candidate_ids": [
+        "F012",
+        "CA014"
+      ],
+      "reason": "One strengthened-induction interface summary, including map types."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q011",
+      "merged_candidate_ids": [
+        "F013"
+      ],
+      "reason": "One clarification of imported source route versus printed proof route."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q013",
+      "merged_candidate_ids": [
+        "CA017"
+      ],
+      "reason": "Same parity proof/edition-note placement."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q020",
+      "merged_candidate_ids": [
+        "CA024"
+      ],
+      "reason": "Same five-versus-six gate accounting explanation."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C032",
+      "merged_candidate_ids": [
+        "CA043"
+      ],
+      "reason": "Same optional smaller-threshold ceiling placement."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C035",
+      "merged_candidate_ids": [
+        "C077"
+      ],
+      "reason": "Same unsupported source-theorem-status wording at two occurrences."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q030",
+      "merged_candidate_ids": [
+        "CA054"
+      ],
+      "reason": "Same support-versus-depth warning and location of the full support proof."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q032",
+      "merged_candidate_ids": [
+        "CA056"
+      ],
+      "reason": "Same ambiguous linearity antecedent."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "CA057",
+      "merged_candidate_ids": [
+        "Q060"
+      ],
+      "reason": "Same duplicated winner-dominance argument."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q036",
+      "merged_candidate_ids": [
+        "CA059"
+      ],
+      "reason": "Same designated original output subsystem in the amplifier statement."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q042",
+      "merged_candidate_ids": [
+        "CA061"
+      ],
+      "reason": "Same constant-accounting interruption of the state argument."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q045",
+      "merged_candidate_ids": [
+        "CA062"
+      ],
+      "reason": "Same oversized tournament proposition and interface/guarantee split."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q052",
+      "merged_candidate_ids": [
+        "CA068"
+      ],
+      "reason": "Same long example calculations needing a stage summary/checkpoint."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q056",
+      "merged_candidate_ids": [
+        "CA070"
+      ],
+      "reason": "Same missing early cost-unit legend."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q057",
+      "merged_candidate_ids": [
+        "CA071"
+      ],
+      "reason": "Same finite-list formal correspondence before the concrete algorithm."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q064",
+      "merged_candidate_ids": [
+        "CA078"
+      ],
+      "reason": "Same repeated controlled-read construction and its best first location."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q067",
+      "merged_candidate_ids": [
+        "CA079"
+      ],
+      "reason": "One named-contribution budget ledger and expanded constant explanation."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C043",
+      "merged_candidate_ids": [
+        "CA086"
+      ],
+      "reason": "Same normalization identity needed before the alternate weighted proof."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C011",
+      "merged_candidate_ids": [
+        "CA089"
+      ],
+      "reason": "One distinction between analytic comparison law nu_1 and promise-supported minimax law mu."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C060",
+      "merged_candidate_ids": [
+        "CA098"
+      ],
+      "reason": "Same optional zero-search refinements interrupting the active proof."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C066",
+      "merged_candidate_ids": [
+        "CA099"
+      ],
+      "reason": "Same original-law nonheaviness versus executable prefix cap distinction."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C071",
+      "merged_candidate_ids": [
+        "CA102"
+      ],
+      "reason": "Same average-over-columns then union-over-times calculation."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C073",
+      "merged_candidate_ids": [
+        "CA103"
+      ],
+      "reason": "Same coefficient-two refinement before closing the active coefficient-four contradiction."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C076",
+      "merged_candidate_ids": [
+        "CA104"
+      ],
+      "reason": "Same reopened literature comparison at specialization."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C080",
+      "merged_candidate_ids": [
+        "CA105"
+      ],
+      "reason": "Same omission of an available combined explicit sufficient threshold."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C079",
+      "merged_candidate_ids": [
+        "CA107"
+      ],
+      "reason": "Same m/t circuit-index handoff."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C081",
+      "merged_candidate_ids": [
+        "CA108"
+      ],
+      "reason": "Same needless existential b_k when six is already available."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C083",
+      "merged_candidate_ids": [
+        "CA111"
+      ],
+      "reason": "Same growing-k result and schedule announced after constants."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C085",
+      "merged_candidate_ids": [
+        "CA113"
+      ],
+      "reason": "Same elementary admissibility chain in the uniform calculation."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C089",
+      "merged_candidate_ids": [
+        "CA116"
+      ],
+      "reason": "Same unexplained padding from 474 to 508."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C088",
+      "merged_candidate_ids": [
+        "CA117"
+      ],
+      "reason": "One nonconstancy observation before taking complexity logarithms, with a witness pointer."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q074",
+      "merged_candidate_ids": [
+        "CA123"
+      ],
+      "reason": "Same real-valued symmetric progress sum."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q075",
+      "merged_candidate_ids": [
+        "CA124"
+      ],
+      "reason": "Same endpoint-overlap angle interval explanation."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "Q076",
+      "merged_candidate_ids": [
+        "CA125"
+      ],
+      "reason": "Same edition-specific parity audit interrupting the quartic proof."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "CA154",
+      "merged_candidate_ids": [
+        "CA158"
+      ],
+      "reason": "Same inspected-source label used for metadata-only and full-text evidence."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C094",
+      "merged_candidate_ids": [
+        "CA163"
+      ],
+      "reason": "Same third-threshold identity and comparison table."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "C099",
+      "merged_candidate_ids": [
+        "CA170"
+      ],
+      "reason": "Same restriction experiment definition before its advertised cancellation."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "CA141",
+      "merged_candidate_ids": [
+        "CA137",
+        "CA140",
+        "CA146",
+        "CA151",
+        "F047",
+        "F056",
+        "F076"
+      ],
+      "reason": "One catalogue crosswalk separating literal claim clauses, declarations and aggregate versus single-declaration coverage."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "CA174",
+      "merged_candidate_ids": [
+        "CA175",
+        "CA176",
+        "CA177",
+        "F016",
+        "F017",
+        "F019",
+        "F021",
+        "F023",
+        "F026",
+        "F027",
+        "F042"
+      ],
+      "reason": "One snapshot index resolves repeated identity, date, closure, target-list and denominator reconstruction."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "F045",
+      "merged_candidate_ids": [
+        "CA183",
+        "CA186",
+        "F063"
+      ],
+      "reason": "One statement-status inventory with appropriate heading and independent built/used/compared axes."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "F030",
+      "merged_candidate_ids": [
+        "F046"
+      ],
+      "reason": "One early four-target checklist and source architecture introduction, without claiming the architecture is absent."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "F049",
+      "merged_candidate_ids": [
+        "CA185"
+      ],
+      "reason": "Same concrete Lean-link commit mismatch."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "F051",
+      "merged_candidate_ids": [
+        "CA187",
+        "CA189",
+        "F048",
+        "F052"
+      ],
+      "reason": "One evidence-source/date and relation-convention legend before the status entries."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "F075",
+      "merged_candidate_ids": [
+        "CA194"
+      ],
+      "reason": "Same three-quartic-route comparison introduced too late."
+    },
+    {
+      "action": "merge",
+      "survivor_candidate_id": "CA195",
+      "merged_candidate_ids": [
+        "F077",
+        "CA178"
+      ],
+      "reason": "One concise early disclosure linked to the authoritative full disclosure, avoiding repetition."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA001",
+      "reason": "Opening already gives the question, theorem, construction mechanism and proof purpose. This broad audience complaint is not sufficiently concrete."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA015",
+      "reason": "The cited line explicitly says the final states need not agree; output-mass scope is already stated again at line 340."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA019",
+      "reason": "Line 497 excludes the negative high-value input, and the projection discussion explicitly explains why squaring is harmless on the promise."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA023",
+      "reason": "The representation jobs and the congruence invariant are already explicit at lines 684 and 700. Q019 is retained only as a low-impact presentation option."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA025",
+      "reason": "Lines 775–781 already give the absorption bounds and 252+78+7=337≤800. Q022 concerns a different exact-constructor term mapping."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA060",
+      "reason": "The proof assumes 0<p<1 before defining normalized vectors and separately handles both endpoints at line 2089."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA064",
+      "reason": "The claimed missing routing/history description already occurs before the factorization at lines 2171–2173, and the proposed locator is inappropriate."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA069",
+      "reason": "The law marks W>0; zero weight is already an absorbing case and forces failure. Q055 is only an optional local completion of the coupling recipe."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA115",
+      "reason": "The displayed logarithmic estimates already have explicit directed inequalities. No undirected rounding error was established."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA160",
+      "reason": "The reading guide and Appendix D explicitly identify it as optional historical mathematics with a superseded sufficient threshold. Current evidence: 37,5755 onward."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA165",
+      "reason": "The source separates the absolute constant from the parameter factor in the subsequent ratio argument. Root already rejected this rough claim. Current evidence: 5865–5881."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA179",
+      "reason": "The reading guide already provides One formal statement as a direct route to G.1, so the practical inspection route is not hidden until the end. Current evidence: 20–22,6063–6076."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "C009",
+      "reason": "Withdrawn by the classical specialist: line 981 explicitly distinguishes raw derivatives from an orthonormal biased basis."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "C012",
+      "reason": "Withdrawn by the classical specialist: line 1081 explicitly describes reflection and zeroing inside the extension."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "Q018",
+      "reason": "Withdrawn after targeted verification: line 677 already identifies the different interference test and the retained preprint projection procedure."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "Q079",
+      "reason": "Withdrawn after verification: line 4070 explicitly switches to fixed-input path analysis; the proposed further label is too weak to count."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F014",
+      "reason": "The section presents worked examples rather than answer-withheld exercises; advance answers are not a defect on that stated route."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA009",
+      "reason": "Line 216 already states the arbitrary-bias and exact-threshold motivation."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA011",
+      "reason": "Lines 242–248 already provide explicit phase computation and the H_b P_x H_b=O_x relation."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA012",
+      "reason": "Line 259 already gives the requested 1/4–3/4 mass example before recursion."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA013",
+      "reason": "Lines 279–291 already separate the nonempty model and its empty-coordinate boundary."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA016",
+      "reason": "These are worked demonstrations, not answer-withheld exercises. Answer exposure is recorded as a review limitation, not counted as a manuscript defect."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA018",
+      "reason": "Lines 443 and 454 already explain the downstream decoder and circuit roles."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA020",
+      "reason": "Reuse of N and M across distant explicitly scoped subsections does not establish a concrete ambiguity here."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA021",
+      "reason": "Line 559 explicitly lists the chronological states for k=3; the demanded operational sequence is already present."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA022",
+      "reason": "Line 677 identifies a different test and says the record retains the preprint’s projection procedure."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA027",
+      "reason": "Lines 813–823 already give three representative promise/sign cases before the census."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA028",
+      "reason": "Line 850 expressly labels the repeated setup as a recall for an independently readable proof."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA031",
+      "reason": "Lines 916–920 already state the first-block interpolation and order-k derivative target immediately before the extension."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA032",
+      "reason": "The record deliberately uses scalar Stein identities on independent layers and warns that U and HU are correlated; a covariance-differentiation dictionary is not a missing step."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA033",
+      "reason": "Line 1081 names the reflected layer and coordinate and explains why affected terms lie in the already-cleared block."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA035",
+      "reason": "Line 920 already flags higher uniform Fourier levels before raw derivatives are defined, with the promised calculation at 1189–1201. The separate C014 illustrative-monomial suggestion is narrower."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA037",
+      "reason": "The proposal conflates post-reveal crossing of Z at 1285 with pre-query coefficient stopping at 1305–1311. C018 addresses the latter at its proper location."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA038",
+      "reason": "The residual is a bad-event contribution, not unrevealed coefficients; F32 already displays the good/bad decomposition at 1329–1334."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA039",
+      "reason": "Lines 1357–1359 already list the injectivity, Walsh factor, edge factor, triangle inequality and F25 substitution."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA040",
+      "reason": "Off-promise support is explicit at 916–918 and 1079; the analytic law is not incorrectly claimed to be promise-supported."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA041",
+      "reason": "Line 1454 states the target ak error scale and why constant error is insufficient before the repetition argument."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA042",
+      "reason": "The uniform domain is separately displayed at 1502 and translated at 1512; fixed-k specialization begins separately at 1580."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA044",
+      "reason": "Lines 1633–1642 already supply a numbered three-property contract with separate ranges and accuracy quantifiers."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA045",
+      "reason": "Line 1649 is already a short role index directing exact editions to Appendix C and detailed roles to §3.16."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA048",
+      "reason": "Lines 1725–1727 already state the free-indexing and bit-query-cost convention beside the finite input count."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA050",
+      "reason": "Lines 1733–1742 already distinguish the true address and arbitrary candidate labels."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA051",
+      "reason": "Line 1783 already distinguishes r=2 from the family’s r=40 and states generic-only status before the board."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA052",
+      "reason": "Line 1823 supplies the row bijection, and 1779 flags the different boards."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA055",
+      "reason": "Lines 1947–1973 already give distinct retained and clean signatures and caps, (4.15) and (4.16). Q031 addresses their operational relevance, not missing signatures."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA063",
+      "reason": "Line 2250 gives the self-comparison/no-repeat consequence at the first weight update, where its meaning becomes available."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA065",
+      "reason": "Line 2258 spells out ordered-pair pairing, the diagonal term and half-sum before the drift formula."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA067",
+      "reason": "Line 2307 says the calls are controlled by i, and 2321 gives the fixed-i tensor product then orthogonal-index summation."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA072",
+      "reason": "Lines 2492–2507 already give the full-address event and union-bound error allocation."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA073",
+      "reason": "The asserted candidate-list notation is not introduced at the quoted decoder line 2494."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA074",
+      "reason": "Lines 585–669 already separate repetition probabilities from the coherent tensor realization and its measurement law."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA075",
+      "reason": "Lines 1996 and 2537 explicitly isolate the correct-winner-address event and state that the tie rule is irrelevant there."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA076",
+      "reason": "Lines 2561–2567 explicitly give the different tournament and verification caller meanings before cost analysis."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA077",
+      "reason": "Line 2550 says afresh, line 2568 specifies every verifier is fresh, and line 2592 states the conditional guarantee."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA080",
+      "reason": "Line 2693 explicitly says the preceding proof is complete and states the Boolean-continuation interface of the same sequential algorithm."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA081",
+      "reason": "The separate-cap condition already occupies its own lines 2757–2758; the proposed absence is not supported. C040’s forward preview is a distinct ordering suggestion."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA082",
+      "reason": "Lines 2888–2893 explicitly give horizon rL, constant padding and the finite-expectation justification."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA083",
+      "reason": "Lines 2895–2909 explicitly fix the terminal answer vector and display factorization, best-guess domination and value domination separately."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA084",
+      "reason": "Line 2947 already names the joint-cap corollary in bold; an additional box would be a format preference, not missing prominence of the asserted kind."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA085",
+      "reason": "Lines 2988–2992 define the tree and event before the probabilities; the earlier 3/4 is the one-input premise."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA088",
+      "reason": "Line 3177 already labels the block as a local recap; C046’s density critique does not claim the label is absent."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA090",
+      "reason": "The law contract is already stated at 3194–3200 before its proof starts at 3202."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA092",
+      "reason": "Independence of I from the whole dummy experiment is stated at 3251 and 3273 before its use; it is not an unmarked single clause."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA093",
+      "reason": "Line 3287 already supplies XOR, r=2, zero-based labels and the translation before the table."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA094",
+      "reason": "Line 3319 explicitly explains the cell-visit overcount immediately after the inequality."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA095",
+      "reason": "Line 3332 already states the local notation reset; C056 retains only the optional distinct-symbol repair."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA096",
+      "reason": "Lines 3364–3368 already distinguish repeat calls, distinct queried rows and the charged budget."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA097",
+      "reason": "The cited line 3354 itself explains transcript factorization across independent J/A data and the absence of B constraints."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA100",
+      "reason": "Line 3467 enumerates free dummy fields and explicitly excludes the target true address and transcript."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA101",
+      "reason": "The before-query output point is explicit in the final sentence of 3469 and the trace at 3493–3495."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA109",
+      "reason": "The strict positive gap is imposed before the quotient at 3710–3718; moving the k=3 example earlier alone is not a sufficiently distinct finding."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA114",
+      "reason": "Line 3800 already explains the origins of 40k and ell/k before the full algebra. Reversing that heuristic/proof order is not an established improvement."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA121",
+      "reason": "M and W_t are explicitly defined locally; distant symbol reuse alone is weak evidence of reader cost."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA122",
+      "reason": "Consolidated conceptually into Q072 and Q073; no additional missing normal-form theorem is alleged, and this broad repetition is excluded from the count."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA126",
+      "reason": "Line 3854 already proves bit/sign degree invariance, and 4019–4021 separately establishes the surviving coefficient and defines g."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA127",
+      "reason": "Line 4045 explicitly gives both dimensions and their sum exceeding 2^d; the ambient space is identified by H'_d."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA128",
+      "reason": "Lines 4068 and 4070 already distinguish the algorithm from fixed-input path analysis before the sensitive block is chosen."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA008",
+      "reason": "Line 193 already explains unreachable branches and consistent pruning; an extra tiny tree is not a demonstrated missing bridge."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA066",
+      "reason": "The proof consistently limits charges to preselection histories and states that boundary at 2430; no inconsistent event was identified."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F053",
+      "reason": "Line 6228 qualifies stronger specifically by uniformity/exact mass and immediately names the narrower event class; no unqualified ordering is asserted."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F054",
+      "reason": "Line 6240 states stronger and narrower in the same sentence and immediately identifies the ordinary compliance/count bridge."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F060",
+      "reason": "Line 6293 explicitly distinguishes the printed lemma, added diagnostic, expanded ledger and the target-relative partial status; no silent expansion or omitted scope explanation remains."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F061",
+      "reason": "Lines 6307,6309 and6311 explicitly identify the headline route and the separately built unused list route before naming shared stages."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F067",
+      "reason": "The exact successful-factor equality, proposed interface and physical compiler/subsystem obligation are already stated at6339–6349; no unspecified mathematical gap is established."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F018",
+      "reason": "The two historical labels have distinct scopes; line5989 explicitly defines row-level not_run. Equating them as synonymous absences was unsupported."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F024",
+      "reason": "The phrase describing an update is historical narration inside the execution-history appendix, not evidence that a present edit is pending. No distinct repair was established."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F038",
+      "reason": "Line6120 already links directly to the fixed-sequence declaration with witness types; the claim that only a generic contract is linked is false."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F039",
+      "reason": "Lines6131 and6144 explicitly distinguish unconditional hardness discharge from conditional supplier premises."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F041",
+      "reason": "Line6152 is the first explicit four-way evidence taxonomy; the proposed deletion relies on an unsupported repetition claim."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F043",
+      "reason": "Line6157 expressly identifies that frozen record and line6160 switches to maintained controls; historical scope is already marked."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F055",
+      "reason": "Line6248 already links directly to the finite-world averaging proof in §6.4; no missing locator or limiting-argument gap was found."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F057",
+      "reason": "The same sentence at6275 explicitly says its proof chooses n=q; the requested translation is present."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F059",
+      "reason": "Line6284 intentionally summarizes the three-part endpoint bundle; no missing final contract or distinct harmful repetition was established."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F064",
+      "reason": "Line6324 states the complete-physical-reading purpose, and6300/6307/6311 establish the headline boundary; an additional optional label alone is weak."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F073",
+      "reason": "The stronger charging estimate and exact formula are already identified at6246–6248; the broad missing-identity allegation is unsupported."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "F074",
+      "reason": "Line6427 immediately specifies discharged family/reindexing binders; it does not claim all ordinary intermediate derivations are formalized."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA129",
+      "reason": "The opening explicitly says 121 original IDs, separately names later refinements and directs readers to G.4; the catalogue is not represented as every current refinement. Current evidence: 4092–4102."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA130",
+      "reason": "The manuscript explicitly explains the byte-for-byte ledger purpose and supplies typeset argument links. Literal notation is an intentional documented evidence constraint. Current evidence: 4102."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA131",
+      "reason": "These are catalogue scope notes after the complete proof, with explicit routes back to model sections. The rough note assumes a new reader encounters this as the initial model definition. Current evidence: 4107."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA132",
+      "reason": "The quoted convention immediately pins T,r,l,L, and the main convention distinguishes exact uses from base-insensitive asymptotics. No unresolved logarithm ambiguity was identified. Current evidence: 155,4115."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA133",
+      "reason": "For the universally quantified inequality, any witnessing finite C_alpha must already be positive because nonconstant total functions have positive R. The omitted adjective does not change the existential claim. Current evidence: 4169–4179."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA134",
+      "reason": "The catalogue follows the full definition of q and labels its proof route; this is not a demonstrated missing prerequisite. Current evidence: 4219,583–674."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA136",
+      "reason": "The immediately preceding paragraph explicitly names essentiality as the added clause and explains how the conjunction strengthens the printed lemma. Current evidence: 4379."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA138",
+      "reason": "The group paragraph carefully separates abstract amplification, physical label laws and the precise missing physical-state bridge, with a G.7 destination. Current evidence: 4575."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA139",
+      "reason": "The main proof explicitly says the weaker estimate suffices; a literal catalogue restatement need not repeat that derivation. Current evidence: 2135,4619."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA142",
+      "reason": "The current row explicitly states the one-unordered-circuit convention and the next row gives complementarity. The main proof explains the same connection. Current evidence: 4647,4659,2198–2200."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA143",
+      "reason": "The row begins Ideal process and the group introduction explicitly distinguishes it from the implemented sampler. The claim that weights appear to be maintained physically is not supported. Current evidence: 4639,4695."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA144",
+      "reason": "The body explicitly connects sorting to reuse of the same underlying circuit and exact symmetry. Its operational placement is appropriate. Current evidence: 2518,4867."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA145",
+      "reason": "The error entry is an endpoint catalogue statement with a proof link; the body supplies the error events. No incorrect bound or missing global argument was located. Current evidence: 4927; body §5.3."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA147",
+      "reason": "The rectangle statement is appropriately compressed in the catalogue and linked to the complete conditional-transcript proof. Current evidence: 4967; body §6.1."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA148",
+      "reason": "The catalogue definition points to the proof; finite Boolean trees with bounded depth give an attained optimum. No distinct obstacle was found beyond the deliberately condensed inventory form. Current evidence: 4979; body §6.1."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA149",
+      "reason": "The B.7 introductory paragraph explicitly says equation (16) includes the queried factor and unchanged factors. The source already makes the simultaneous obligation visible. Current evidence: 4959,4991."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA150",
+      "reason": "The arbitrary-information statement and group scope both state independence and the finite-seed boundary. The suggested clarification is already supplied. Current evidence: 4959,5027."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA152",
+      "reason": "The catalogue announces literal original claims and directs newer explicit refinements to G.4. Preserving the eventual row is intentional and does not hide the explicit theorem. Current evidence: 4092–4102,5313."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA153",
+      "reason": "Exact edition/locator and complete byte identity of an earlier supplied PDF are different claims. The assessed editions and scope are stated; the rough accusation of contradiction was too strong. Current evidence: 5601–5605,5689."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA155",
+      "reason": "The bibliography is expressly an inspected-edition/source audit, so access and revision-history details are relevant rather than an intrinsic defect. Current evidence: 5625."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA156",
+      "reason": "The entry explicitly separates journal metadata from arXiv-v1 mathematical locators. The rough concern is already resolved in place. Current evidence: 5633."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA157",
+      "reason": "The entry openly limits byte identity of the earlier PDF and names the assessed v2/pinned TeX. No citation depends on pretending the earlier whole PDF was identical. Current evidence: 5689."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA159",
+      "reason": "Not inferring a commit date or author list is an appropriate source-identity limitation, not a reader obstacle requiring repair. Current evidence: 5717."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA161",
+      "reason": "The historical calculation explicitly fixes its parameters anew. Reusing delta under a fresh quantifier is not an undefined change of promise threshold. Current evidence: 5776 onward."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA162",
+      "reason": "A different amplification count belongs to the explicitly historical proof. It need not match the improved current route. Current evidence: 5829."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA164",
+      "reason": "The appendix says it contains two source comparisons and that the main proof uses neither; the subheadings explicitly distinguish a displayed source step from the SSW transfer. Current evidence: 5852–5857,5906."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA166",
+      "reason": "The asymptotic counter-scaling can choose nearby integer depths. No concrete feasibility failure was established, so a new lemma demand would pad the review. Current evidence: 5881."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA167",
+      "reason": "The argument explicitly refers to the stated amplification order and its earlier equation; the note did not identify a broken substitution. Current evidence: 5894."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA168",
+      "reason": "There is also a separate explicitly distinguishes the reciprocal error from the logarithmic issue. A demand to restate independence would duplicate existing text. Current evidence: 5896."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA169",
+      "reason": "F56 is displayed with its parameters and compared through the derived transfer; the rough note did not isolate a false or unusable stronger claim. Current evidence: 5910–5918."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA171",
+      "reason": "Paths already select one coordinate in each block in the established path formula. Distinct tuples yield distinct sets because the blocks are disjoint. No additional substantive gap was found. Current evidence: 5928,1158–1202."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA172",
+      "reason": "The local subscript R_(1-eta)/2 explicitly identifies eta as advantage. The distinct local roles are scoped and no ambiguous inequality was located. Current evidence: 5939–5965."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA173",
+      "reason": "The final extension is carefully limited to the ordinary Walsh calculation and explicitly denies a frozen-Lean extension. It is not silently used earlier as a formal result. Current evidence: 5967."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA180",
+      "reason": "G.2 supplies both the map and subsequent detail, and identifies ordinary translations explicitly. The rough note did not show a missing or misleading model identification. Current evidence: 6077–6147."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA181",
+      "reason": "The anchor drifted to G.2 rather than the initial theorem. The fixed-k quantifier order is already explicit at lines83–84 and again in G.1/G.4. Current evidence: 83–84,6131."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA182",
+      "reason": "The sentence explicitly calls current_in_memory_evidence a frozen historical branch and identifies current_catalogue_snapshot as the maintained observations. Current evidence: 6150."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA184",
+      "reason": "The appendix opening and G.1 already distinguish statement file, separately compiled solution and configured target; G.4 explains intentional sorry precisely. The draft overstated reader confusion as a missing architecture. Current evidence: 6061,6068–6074,6170."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA188",
+      "reason": "The text already says stronger specifically in uniformity and exact mass, then immediately says the success event is narrower. It does not impose one unqualified total ordering. Current evidence: 6228."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA190",
+      "reason": "G.7 has two bold route labels, states which headline uses, and explicitly says the retained-list route is separately built. The requested route distinction is already present. Current evidence: 6298–6317."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA191",
+      "reason": "The final paragraph enumerates the general-projector basis change, flag/Hadamard identification, copied labels, transport and uncomputation, and separates these from headline prerequisites. The missing-delta claim is already answered. Current evidence: 6349."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA192",
+      "reason": "The G.4 short entry itself already calls compliance recursive and points to the ordinary query-count identification. G.8 explicitly explains the induction and absence of a Lean equivalence. Current evidence: 6236,6370–6381."
+    },
+    {
+      "action": "reject",
+      "candidate_id": "CA193",
+      "reason": "The displayed alternatives make the logical equivalence evident while preserving declaration-specific evidence. That distinction is the purpose of the formal appendix; no false mathematical difference is claimed. Current evidence: 6394–6406."
+    }
+  ],
+  "candidate_to_final_id": {
+    "C001": "RR9-001",
+    "C002": "RR9-002",
+    "C003": "RR9-003",
+    "F002": "RR9-004",
+    "Q002": "RR9-005",
+    "CA004": "RR9-006",
+    "C004": "RR9-007",
+    "F003": "RR9-008",
+    "F004": "RR9-009",
+    "F005": "RR9-010",
+    "F006": "RR9-011",
+    "CA005": "RR9-012",
+    "CA006": "RR9-013",
+    "C006": "RR9-014",
+    "F007": "RR9-015",
+    "F008": "RR9-016",
+    "Q005": "RR9-017",
+    "Q006": "RR9-018",
+    "Q007": "RR9-019",
+    "Q008": "RR9-020",
+    "Q009": "RR9-021",
+    "Q010": "RR9-022",
+    "Q011": "RR9-023",
+    "Q012": "RR9-024",
+    "Q013": "RR9-025",
+    "Q014": "RR9-026",
+    "Q015": "RR9-027",
+    "Q016": "RR9-028",
+    "Q017": "RR9-029",
+    "Q019": "RR9-030",
+    "Q020": "RR9-031",
+    "Q021": "RR9-032",
+    "Q022": "RR9-033",
+    "CA026": "RR9-034",
+    "Q023": "RR9-035",
+    "Q024": "RR9-036",
+    "CA029": "RR9-037",
+    "C007": "RR9-038",
+    "C008": "RR9-039",
+    "CA030": "RR9-040",
+    "C010": "RR9-041",
+    "C011": "RR9-042",
+    "CA034": "RR9-043",
+    "C013": "RR9-044",
+    "C014": "RR9-045",
+    "CA036": "RR9-046",
+    "C015": "RR9-047",
+    "C016": "RR9-048",
+    "C017": "RR9-049",
+    "C018": "RR9-050",
+    "C019": "RR9-051",
+    "C020": "RR9-052",
+    "C021": "RR9-053",
+    "C022": "RR9-054",
+    "C023": "RR9-055",
+    "C024": "RR9-056",
+    "C025": "RR9-057",
+    "C026": "RR9-058",
+    "C027": "RR9-059",
+    "C028": "RR9-060",
+    "C029": "RR9-061",
+    "C030": "RR9-062",
+    "C031": "RR9-063",
+    "C032": "RR9-064",
+    "C033": "RR9-065",
+    "C034": "RR9-066",
+    "C035": "RR9-067",
+    "CA046": "RR9-068",
+    "CA047": "RR9-069",
+    "Q025": "RR9-070",
+    "Q026": "RR9-071",
+    "CA053": "RR9-072",
+    "Q027": "RR9-073",
+    "Q028": "RR9-074",
+    "Q029": "RR9-075",
+    "Q030": "RR9-076",
+    "Q031": "RR9-077",
+    "Q032": "RR9-078",
+    "CA057": "RR9-079",
+    "Q033": "RR9-080",
+    "CA058": "RR9-081",
+    "Q034": "RR9-082",
+    "Q035": "RR9-083",
+    "Q036": "RR9-084",
+    "Q037": "RR9-085",
+    "Q038": "RR9-086",
+    "Q039": "RR9-087",
+    "Q040": "RR9-088",
+    "Q041": "RR9-089",
+    "Q042": "RR9-090",
+    "Q043": "RR9-091",
+    "Q044": "RR9-092",
+    "Q045": "RR9-093",
+    "Q046": "RR9-094",
+    "Q047": "RR9-095",
+    "Q048": "RR9-096",
+    "Q049": "RR9-097",
+    "Q050": "RR9-098",
+    "Q051": "RR9-099",
+    "Q052": "RR9-100",
+    "Q053": "RR9-101",
+    "Q054": "RR9-102",
+    "Q055": "RR9-103",
+    "Q056": "RR9-104",
+    "Q057": "RR9-105",
+    "Q058": "RR9-106",
+    "Q059": "RR9-107",
+    "Q061": "RR9-108",
+    "Q062": "RR9-109",
+    "Q063": "RR9-110",
+    "Q064": "RR9-111",
+    "Q065": "RR9-112",
+    "Q066": "RR9-113",
+    "Q067": "RR9-114",
+    "Q068": "RR9-115",
+    "Q069": "RR9-116",
+    "Q070": "RR9-117",
+    "Q071": "RR9-118",
+    "C036": "RR9-119",
+    "C037": "RR9-120",
+    "C038": "RR9-121",
+    "C039": "RR9-122",
+    "C040": "RR9-123",
+    "C041": "RR9-124",
+    "C042": "RR9-125",
+    "C043": "RR9-126",
+    "CA087": "RR9-127",
+    "C044": "RR9-128",
+    "C045": "RR9-129",
+    "C046": "RR9-130",
+    "C047": "RR9-131",
+    "C048": "RR9-132",
+    "C049": "RR9-133",
+    "C050": "RR9-134",
+    "CA091": "RR9-135",
+    "C051": "RR9-136",
+    "C052": "RR9-137",
+    "C053": "RR9-138",
+    "C054": "RR9-139",
+    "C055": "RR9-140",
+    "C056": "RR9-141",
+    "C057": "RR9-142",
+    "C058": "RR9-143",
+    "C059": "RR9-144",
+    "C060": "RR9-145",
+    "C061": "RR9-146",
+    "C062": "RR9-147",
+    "C063": "RR9-148",
+    "C064": "RR9-149",
+    "C065": "RR9-150",
+    "C066": "RR9-151",
+    "C067": "RR9-152",
+    "C068": "RR9-153",
+    "C069": "RR9-154",
+    "C070": "RR9-155",
+    "C071": "RR9-156",
+    "C072": "RR9-157",
+    "C073": "RR9-158",
+    "C074": "RR9-159",
+    "C075": "RR9-160",
+    "C076": "RR9-161",
+    "C078": "RR9-162",
+    "C079": "RR9-163",
+    "C080": "RR9-164",
+    "CA106": "RR9-165",
+    "C081": "RR9-166",
+    "C082": "RR9-167",
+    "CA110": "RR9-168",
+    "C083": "RR9-169",
+    "C084": "RR9-170",
+    "C085": "RR9-171",
+    "C086": "RR9-172",
+    "CA112": "RR9-173",
+    "C087": "RR9-174",
+    "C088": "RR9-175",
+    "C089": "RR9-176",
+    "C090": "RR9-177",
+    "CA118": "RR9-178",
+    "CA119": "RR9-179",
+    "CA120": "RR9-180",
+    "Q072": "RR9-181",
+    "Q073": "RR9-182",
+    "Q074": "RR9-183",
+    "Q075": "RR9-184",
+    "Q076": "RR9-185",
+    "Q077": "RR9-186",
+    "Q078": "RR9-187",
+    "CA135": "RR9-188",
+    "CA141": "RR9-189",
+    "CA154": "RR9-190",
+    "C091": "RR9-191",
+    "C092": "RR9-192",
+    "C093": "RR9-193",
+    "C094": "RR9-194",
+    "C095": "RR9-195",
+    "C096": "RR9-196",
+    "C097": "RR9-197",
+    "C098": "RR9-198",
+    "C099": "RR9-199",
+    "C100": "RR9-200",
+    "C101": "RR9-201",
+    "C102": "RR9-202",
+    "C103": "RR9-203",
+    "C104": "RR9-204",
+    "CA174": "RR9-205",
+    "F015": "RR9-206",
+    "F020": "RR9-207",
+    "F022": "RR9-208",
+    "F025": "RR9-209",
+    "F028": "RR9-210",
+    "F029": "RR9-211",
+    "F030": "RR9-212",
+    "F031": "RR9-213",
+    "F032": "RR9-214",
+    "F033": "RR9-215",
+    "F034": "RR9-216",
+    "F035": "RR9-217",
+    "F036": "RR9-218",
+    "F037": "RR9-219",
+    "F040": "RR9-220",
+    "F044": "RR9-221",
+    "F045": "RR9-222",
+    "F078": "RR9-223",
+    "F049": "RR9-224",
+    "F050": "RR9-225",
+    "F051": "RR9-226",
+    "F058": "RR9-227",
+    "F062": "RR9-228",
+    "F065": "RR9-229",
+    "F066": "RR9-230",
+    "F068": "RR9-231",
+    "F069": "RR9-232",
+    "F070": "RR9-233",
+    "F071": "RR9-234",
+    "F072": "RR9-235",
+    "F075": "RR9-236",
+    "CA195": "RR9-237",
+    "CA003": "RR9-002",
+    "F001": "RR9-002",
+    "Q001": "RR9-002",
+    "CA002": "RR9-005",
+    "C005": "RR9-008",
+    "Q003": "RR9-008",
+    "Q004": "RR9-012",
+    "CA049": "RR9-012",
+    "CA007": "RR9-017",
+    "CA010": "RR9-017",
+    "F009": "RR9-017",
+    "F010": "RR9-018",
+    "F012": "RR9-021",
+    "CA014": "RR9-021",
+    "F013": "RR9-023",
+    "CA017": "RR9-025",
+    "CA024": "RR9-031",
+    "CA043": "RR9-064",
+    "C077": "RR9-067",
+    "CA054": "RR9-076",
+    "CA056": "RR9-078",
+    "Q060": "RR9-079",
+    "CA059": "RR9-084",
+    "CA061": "RR9-090",
+    "CA062": "RR9-093",
+    "CA068": "RR9-100",
+    "CA070": "RR9-104",
+    "CA071": "RR9-105",
+    "CA078": "RR9-111",
+    "CA079": "RR9-114",
+    "CA086": "RR9-126",
+    "CA089": "RR9-042",
+    "CA098": "RR9-145",
+    "CA099": "RR9-151",
+    "CA102": "RR9-156",
+    "CA103": "RR9-158",
+    "CA104": "RR9-161",
+    "CA105": "RR9-164",
+    "CA107": "RR9-163",
+    "CA108": "RR9-166",
+    "CA111": "RR9-169",
+    "CA113": "RR9-171",
+    "CA116": "RR9-176",
+    "CA117": "RR9-175",
+    "CA123": "RR9-183",
+    "CA124": "RR9-184",
+    "CA125": "RR9-185",
+    "CA158": "RR9-190",
+    "CA163": "RR9-194",
+    "CA170": "RR9-199",
+    "CA137": "RR9-189",
+    "CA140": "RR9-189",
+    "CA146": "RR9-189",
+    "CA151": "RR9-189",
+    "F047": "RR9-189",
+    "F056": "RR9-189",
+    "F076": "RR9-189",
+    "CA175": "RR9-205",
+    "CA176": "RR9-205",
+    "CA177": "RR9-205",
+    "F016": "RR9-205",
+    "F017": "RR9-205",
+    "F019": "RR9-205",
+    "F021": "RR9-205",
+    "F023": "RR9-205",
+    "F026": "RR9-205",
+    "F027": "RR9-205",
+    "F042": "RR9-205",
+    "CA183": "RR9-222",
+    "CA186": "RR9-222",
+    "F063": "RR9-222",
+    "F046": "RR9-212",
+    "CA185": "RR9-224",
+    "CA187": "RR9-226",
+    "CA189": "RR9-226",
+    "F048": "RR9-226",
+    "F052": "RR9-226",
+    "CA194": "RR9-236",
+    "F077": "RR9-237",
+    "CA178": "RR9-237"
+  }
+}

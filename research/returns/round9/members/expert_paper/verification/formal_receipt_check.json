@@ -1,0 +1,16 @@
+{
+  "receipt": "repository/corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+  "recorded_ran_at": "2026-11-03T12:17:35.042729+00:00",
+  "recorded_status": "passed",
+  "configured_targets": [
+    "QuarticQuery.Checked.alpha_tot_eq_four",
+    "QuarticQuery.Checked.theorem_one_one",
+    "QuarticQuery.Checked.cubic_bound_fails",
+    "QuarticQuery.Checked.forrelation_lower_bound"
+  ],
+  "present_hashed_files": 70,
+  "matching_present_files": 70,
+  "mismatches": [],
+  "reexecution_performed": false,
+  "interpretation": "Byte agreement with a historical receipt; no fresh Lean or Comparator execution."
+}

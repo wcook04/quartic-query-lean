@@ -77,6 +77,18 @@ class LeanLinksTests(unittest.TestCase):
                 with self.assertRaisesRegex(SystemExit, "unknown Lean link labels not-registered"):
                     MODULE.updated_paper(MODULE.RECORD, links)
 
+    def test_record_links_pin_whole_document_and_check_optional_anchor(self):
+        old = "a" * 40
+        url = f"{MODULE.REPOSITORY}/blob/{old}/{MODULE.RECORD}"
+        with mock.patch.object(MODULE, "at_commit", return_value=("blob", '<a id="known"></a>')):
+            result = MODULE.pin_record_links(f"[record]({url}) [proof]({url}#known)", "paper")
+            self.assertNotIn(old, result)
+            self.assertIn(f"{MODULE.RECORD})", result)
+            self.assertIn(f"{MODULE.RECORD}#known)", result)
+            with self.assertRaisesRegex(SystemExit, "missing"):
+                MODULE.pin_record_links(f"[proof]({url}#missing)", "paper")
+            self.assertEqual(MODULE.pin_record_links(url + ".bak", "paper"), url + ".bak")
+
     def test_unknown_label_is_an_error(self):
         with self.assertRaises(SystemExit):
             MODULE.paper_block("see [x][nope]\n", {}, "p")

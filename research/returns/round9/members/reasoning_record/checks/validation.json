@@ -1,0 +1,28 @@
+{
+  "phase": "prepackaging structured and source validation",
+  "result": {
+    "ok": true,
+    "errors": [],
+    "files": 39,
+    "findings": 237,
+    "audit_units": 5276,
+    "severities": {
+      "medium": 111,
+      "low": 123,
+      "high": 3
+    },
+    "source_quotes_checked": 5513,
+    "source_offset_units_checked": 5276,
+    "source_nonblank_characters_uncovered": 0,
+    "prior_current_quotes_checked": 138,
+    "source_check_performed": true,
+    "mathematical_certification": false,
+    "native_Lean_or_Comparator_execution": false
+  },
+  "postpackaging_procedure": "The final archive is tested for CRC and independently extracted by verify_return.py after these files are frozen. The archive SHA-256 is recorded outside the ZIP to avoid a circular digest.",
+  "limits": [
+    "No mathematical certification",
+    "No Lean or Comparator execution",
+    "No claim of recovering contemporaneous reader states"
+  ]
+}

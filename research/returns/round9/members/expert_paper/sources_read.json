@@ -1,0 +1,750 @@
+{
+  "review_date": "2026-11-04",
+  "policy": "A record describes one role’s actual access and reading scope. Repeated works across roles are not counted as distinct papers or independent human verification.",
+  "sources": [
+    {
+      "id": "ROOT-INPUT",
+      "title": "Expert companion current supplied Markdown and PDF",
+      "source_packet_path": "repository/docs/expert_companion.md",
+      "edition": "7772e4f2b98149a38ed69b88397982620f94bdac; source SHA7fddfa0c…653f8ab",
+      "status": "read",
+      "locators": "All415 Markdown source lines; all16 PDF pages; all26 rendered references",
+      "scope": "Root sequential source reading, then normal-scale page inspection; references were second-pass.",
+      "review_role": "root"
+    },
+    {
+      "id": "ROOT-OPENAI",
+      "title": "OpenAI, A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "edition": "5 October2026 supplied PDF/extracted text",
+      "status": "sections read",
+      "source_packet_path": "paper/extracted.md",
+      "locators": "Abstract; §§1–2.1; Theorem1.1 and Lemma2.1",
+      "access_note": "Exact pinned remote URL returned DisabledError; supplied bytes were readable. Public directory discovery confirms the listed work; source claims here rely on supplied text.",
+      "review_role": "root"
+    },
+    {
+      "id": "ROOT-RECORD",
+      "title": "Current reasoning record",
+      "source_packet_path": "repository/docs/reasoning_record.md",
+      "edition": "Supplied current SHA7f4b4e0a…baa0dee",
+      "status": "sections read",
+      "locators": "§7.3 lines3773–3824; AppendixG.3–G.4 lines6148–6268; heading and anchor inventory",
+      "scope": "Growing-k budget switch, explicit quantum constant and declared formal-evidence scope. Not an exhaustive audit of every Gaussian/martingale argument.",
+      "review_role": "root"
+    },
+    {
+      "id": "ROOT-FORMAL",
+      "title": "Unconditional statement/solution and explicit circuit theorem",
+      "source_packet_path": "repository/lean/QuarticCorpus/Unconditional/Challenge.lean",
+      "status": "source read",
+      "locators": "Challenge lines270–345; Solution all; ConstructionFamily.lean all; 3November12:17 Comparator receipt fields/source bindings",
+      "scope": "Statement quantifiers, shared circuit, intentional specification sorry placeholders, proof forwarding, and historical status only. No Lean or Comparator run.",
+      "review_role": "root"
+    },
+    {
+      "id": "ROOT-NAV",
+      "title": "Packet source, render, link and member metadata",
+      "source_packet_path": "manifest.json",
+      "status": "machine checked and interpreted",
+      "locators": "All472 manifest members; all9 draft bindings; all39 expert-document links",
+      "scope": "All member hashes/byte sizes agree. LINK_MAP reports25 expert links with pinned bytes different from packaged bytes and zero navigation problems; this alone proves neither a broken link nor content equivalence.",
+      "review_role": "root"
+    },
+    {
+      "id": "ROOT-AK2026",
+      "title": "Pragya Arora and Udit Kumar, Quantum Query Complexity of Tournament Solutions",
+      "url": "https://arxiv.org/html/2610.39702v1",
+      "edition": "arXiv:2610.39702v1,29October2026",
+      "accessed": "2026-11-04",
+      "status": "selected sections read",
+      "locators": "§1.1,§2.1 tournament model,§6.1 Lemma6.1/Theorem6.2",
+      "scope": "Fixed-edge Condorcet finding via king finding and verification. A recent comparison, not a replacement for arbitrary fractional loser probabilities.",
+      "review_role": "root"
+    },
+    {
+      "id": "ROOT-AIK2026",
+      "title": "Ambainis, Iraids and Kokainis, Near-Optimal Separations of Certificate Complexity from Randomized and Quantum Query Complexity",
+      "url": "https://arxiv.org/abs/2609.11664v3",
+      "edition": "v3,5October2026; first submitted10September2026",
+      "accessed": "2026-11-04",
+      "status": "metadata and abstract read by root; source sections handled by panel",
+      "locators": "arXiv metadata and abstract",
+      "scope": "Edition/date verification only by root; does not independently verify §6.1 theorem from the abstract.",
+      "review_role": "root"
+    },
+    {
+      "id": "ROOT-BDK2026",
+      "title": "Ben-David and Kothari, Randomized query complexity can beat certificate complexity",
+      "url": "https://arxiv.org/abs/2609.15063",
+      "edition": "v1,14September2026",
+      "accessed": "2026-11-04",
+      "status": "metadata and abstract read by root; source sections handled by panel",
+      "locators": "arXiv metadata and abstract",
+      "scope": "Checks that this separation concerns certificate complexity, not the same randomized-versus-quantum separation.",
+      "review_role": "root"
+    },
+    {
+      "id": "ROOT-METHOD",
+      "title": "Local writing method and transition-method index",
+      "source_packet_path": "skills/quartic-writing-method.md",
+      "status": "read after first-pass freeze",
+      "locators": "Round-eight refinements and chronological protocol; skills/README.md transition roles",
+      "scope": "Law-preserving contracts, link tasks, page transitions, source status, simulation boundaries.",
+      "review_role": "root"
+    },
+    {
+      "id": "ROOT-CONTEXT",
+      "title": "Attached native-session transcript",
+      "source_packet_path": "Pasted text(20261104-103617-1).txt",
+      "status": "structurally parsed; request and final-status records read",
+      "locators": "228 Native item JSON records; user requests and final packet-building reports",
+      "scope": "Used only to establish round-nine review intent. Historical command outputs were not treated as current proof evidence; truncated evidence references were not reconstructed.",
+      "review_role": "root"
+    },
+    {
+      "id": "ROOT-SSW",
+      "title": "Sherstov, Storozhenko and Wu, An Optimal Separation of Randomized and Quantum Query Complexity",
+      "edition": "arXiv:2008.10223v4, 29 January 2023; supplied edition",
+      "source_packet_path": "literature/quartic-ref-23-an-optimal-separation-of-randomized-and-qu/extracted.md",
+      "url": "https://arxiv.org/abs/2008.10223v4",
+      "status": "selected introduction passages read after first-pass freeze",
+      "locators": "Introduction: Forrelation/rorrelation model; partial-function result and corollaries; total-function result (extraction lines 1–78)",
+      "scope": "Checked the exact one-sided promise, the all-k statement versus fixed-k and growing-k consequences, and the historical cubic total-function separation. No full lower-bound proof audit.",
+      "review_role": "root",
+      "additional_panel_read": {
+        "review_role": "quantum",
+        "status": "selected section read during final assembly",
+        "locators": "§1.8, Independent work by Bansal and Sinha; supplied extraction lines 184–197",
+        "scope": "Compared explicit Walsh hardness with the random-orthogonal-matrix and Fourier-weight contributions; no full analytic audit."
+      }
+    },
+    {
+      "id": "ROOT-TAL",
+      "title": "Avishay Tal, Towards Optimal Separations Between Quantum and Randomized Query Complexities",
+      "edition": "arXiv:1912.12561v1; submission 29 December 2019, supplied PDF title-page date 12 February 2020",
+      "source_packet_path": "literature/quartic-ref-26-towards-optimal-separations-between-quantu/extracted.md",
+      "url": "https://arxiv.org/abs/1912.12561v1",
+      "status": "abstract and selected introduction passages read after first-pass freeze",
+      "locators": "Abstract; §1 definition 1.1, YES/NO promise, numbered quantum/classical bounds and fixed/growing-k discussion (extraction lines 1–158)",
+      "scope": "Compared the task definition and parameter conventions; no full Fourier-growth or moment proof audit.",
+      "review_role": "root"
+    },
+    {
+      "id": "ED-S01",
+      "title": "Expert companion",
+      "edition": "packet repository commit 7772e4f2b98149a38ed69b88397982620f94bdac, November 2026",
+      "path": "repository/docs/expert_companion.md",
+      "status": "read in full in publication source order before verification",
+      "locators": [
+        "lines 1–415; all prose and displays; bibliography placeholder and source-link definitions accounted separately"
+      ],
+      "limits": "Images and rendered references were deferred to root PDF inspection; annotation of units EC-0001..EC-0162 was reconstructed after first-pass freeze.",
+      "review_role": "editor"
+    },
+    {
+      "id": "ED-S02",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "authors": "OpenAI",
+      "edition": "5 October 2026, supplied source at pinned revision 4eaee875",
+      "path": "paper/extracted.md; paper/source.pdf",
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "status": "selected passages read",
+      "locators": [
+        "Abstract and introduction, pp.1–3",
+        "§2.1 Lemma 2.1 and its proof, p.4",
+        "§3.1 bounded amplification and its explicit cutoff",
+        "§3.2 successful label law and coupling",
+        "§4.2 planted-cell simulator, equations (21)–(23), p.13"
+      ],
+      "limits": "Not represented as a full independent audit of the source paper.",
+      "review_role": "editor"
+    },
+    {
+      "id": "ED-S03",
+      "title": "Separations in Query Complexity Using Cheat Sheets",
+      "authors": "Aaronson, Ben-David and Kothari",
+      "edition": "arXiv:1511.01937v2; STOC 2016",
+      "path": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+      "url": "https://arxiv.org/abs/1511.01937v2",
+      "status": "selected passages read",
+      "locators": [
+        "Overview of techniques: Cheat sheet technique and randomized versus quantum query complexity",
+        "§3.1 Intuition",
+        "§3.2 opening through the AND–OR composition theorem"
+      ],
+      "limits": "The source extraction has raw cross-reference markup; no prose-statistics comparison was attempted.",
+      "review_role": "editor"
+    },
+    {
+      "id": "ED-S04",
+      "title": "Separations in Query Complexity Based on Pointer Functions",
+      "authors": "Ambainis, Balodis, Belovs, Lee, Santha and Smotrovs",
+      "edition": "arXiv:1506.04719v3; JACM 2017",
+      "path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+      "url": "https://arxiv.org/abs/1506.04719v3",
+      "status": "abstract and introduction read; §1.3 relevant pointer passages inspected",
+      "locators": [
+        "Abstract",
+        "Introduction and Our results",
+        "§1.3 pointer modifications and alphabet discussion"
+      ],
+      "limits": "Extraction loses some macro expansions; used for structural and attribution comparison, not numeric register measurements.",
+      "review_role": "editor"
+    },
+    {
+      "id": "ED-S05",
+      "title": "Degree vs. approximate degree and quantum implications of Huang’s sensitivity theorem",
+      "authors": "Aaronson, Ben-David, Kothari, Rao and Tal",
+      "edition": "arXiv:2010.12629v1; STOC 2021",
+      "path": "literature/quartic-ref-03-degree-vs-approximate-degree-and-quantum-i/extracted.md",
+      "url": "https://arxiv.org/abs/2010.12629v1",
+      "status": "selected passages read",
+      "locators": [
+        "Introduction: Theorem 1 and derivation from Theorem 2",
+        "Open questions: Conjecture 2"
+      ],
+      "limits": "Several degree/sensitivity macros in the supplied extraction collapse to \\relax; only intact claims and organization are used.",
+      "review_role": "editor"
+    },
+    {
+      "id": "ED-S06",
+      "title": "k-Forrelation optimally separates quantum and classical query complexity",
+      "authors": "Bansal and Sinha",
+      "edition": "arXiv:2008.07003v3; STOC 2021",
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "url": "https://arxiv.org/abs/2008.07003v3",
+      "status": "introduction and beginning of overview read; not full technical proof",
+      "locators": [
+        "Definition of (delta,k)-Forrelation",
+        "Our Results: Theorem 1.3 / Corollary 1.4 in primary numbering",
+        "Overview and Techniques through the k=3 Gaussian-chain example"
+      ],
+      "limits": "No independent verification of the entire analytic lower-bound proof is claimed by this editorial perspective.",
+      "review_role": "editor"
+    },
+    {
+      "id": "ED-S07",
+      "title": "Near-Optimal Separations of Certificate Complexity from Randomized and Quantum Query Complexity",
+      "authors": "Ambainis, Iraids and Kokainis",
+      "edition": "arXiv:2609.11664v3, 5 October 2026",
+      "url": "https://arxiv.org/html/2609.11664v3",
+      "accessed": "2026-11-04",
+      "status": "primary online abstract/introduction and selected sections read",
+      "locators": [
+        "§6.1 Overview, Algorithm 4 and equations (3)–(4)",
+        "§6.1 Direction test, Lemma 6.1",
+        "Use of LLM tools following §7.2"
+      ],
+      "limits": "Not a full paper review; later technical appendices were not independently checked.",
+      "review_role": "editor"
+    },
+    {
+      "id": "ED-S08",
+      "title": "Randomized query complexity can beat certificate complexity",
+      "authors": "Ben-David and Kothari",
+      "edition": "arXiv:2609.15063v1, 14 September 2026",
+      "url": "https://arxiv.org/html/2609.15063v1",
+      "accessed": "2026-11-04",
+      "status": "primary online abstract/introduction and selected proof sections read",
+      "locators": [
+        "Theorem 1",
+        "§2 formal definition and Lemma 3",
+        "§3 Lemma 5: three stages, fixed graph comparisons and final verification"
+      ],
+      "limits": "Used to check the cited algorithm contract and presentation; not an independent audit of all proof details.",
+      "review_role": "editor"
+    },
+    {
+      "id": "ED-S09",
+      "title": "A complete reasoning record",
+      "authors": "Will Cook",
+      "edition": "current supplied Markdown SHA-256 7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+      "path": "repository/docs/reasoning_record.md",
+      "status": "selected current passages read after freeze",
+      "locators": [
+        "opening scope and route paragraphs",
+        "§7.3, lines 3775–3824, complete growing-k assembly",
+        "Appendix G.4, lines 6167–6220, compared statements and separate built results"
+      ],
+      "limits": "Does not establish that a pinned older web edition contains all current text. No Lean compilation or Comparator run.",
+      "review_role": "editor"
+    },
+    {
+      "id": "ED-S10",
+      "title": "Round-eight expert feedback and synthesis",
+      "edition": "supplied previous round, checked against current edition",
+      "path": "previous_round/returns/expert_paper/feedback.json; previous_round/round8_synthesis.json",
+      "status": "37 selected prior findings verified; surrounding old feedback sampled only after freeze",
+      "locators": [
+        "XP001, XP002 and selected XP129–XP194; exact list in editor_prior_audit.json"
+      ],
+      "limits": "Resolved findings do not count as new advice; old applied dispositions were not treated as proof of repair.",
+      "review_role": "editor"
+    },
+    {
+      "id": "ED-S11",
+      "title": "Writing-method guidance",
+      "edition": "supplied round-nine method snapshot",
+      "path": "skills/long-to-short/SKILL.md; skills/register/SKILL.md; skills/quartic-writing-method.md; repository/docs/statement_evidence_contract.md",
+      "status": "relevant method sections read after freeze",
+      "locators": [
+        "long-to-short: Model the reader, Procedure, Report formal verification",
+        "register: procedures 1–6; RG-03, RG-04, RG-20, RG-24 references",
+        "local method: Round-eight refinements and chronological first-encounter review",
+        "statement evidence contract: statement versus route and reach"
+      ],
+      "limits": "No numerical register comparison, skill modification or manuscript rewrite was performed.",
+      "review_role": "editor"
+    },
+    {
+      "id": "Q-S01",
+      "title": "Current expert companion",
+      "status": "read in full before first-pass freeze",
+      "locators": [
+        "Markdown lines 1–415 in source order"
+      ],
+      "source_packet_path": "repository/docs/expert_companion.md",
+      "edition": "Packet revision 7772e4f2b98149a38ed69b88397982620f94bdac; SHA-256 7fddfa0c37f7d038ba58adde4e7685263f3ba7733d0fd87a8a3eea4ce653f8ab",
+      "limits": "The source bibliography placeholder was encountered before the appendix; the bibliography source was read only after freezing. This perspective did not inspect every PDF page; root performed that separate inspection. Unit annotations were expanded after the narrative freeze.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S02",
+      "title": "Chronological reading and packet instructions",
+      "status": "read before lead paper",
+      "locators": [
+        "READ_ME_FIRST.md",
+        "chronological_reading.md"
+      ],
+      "source_packet_path": "READ_ME_FIRST.md; chronological_reading.md",
+      "limits": "Procedural context only; not evidence of a blind or independent human reading.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S03",
+      "title": "Current reasoning record",
+      "status": "selected sections read",
+      "locators": [
+        "§3.3, lines 550–679: projection routine, multiplicative tails, coherent retained outcomes",
+        "§3.4, lines 682–797: integer circuit and gate convention",
+        "§5.1, lines 2053–2185: finite amplifier and state law",
+        "§5.2, lines 2186–2485: tournament, exact stage law, coupling and costs",
+        "§§5.3–5.5, lines 2486–2716: verification, query access and Boolean continuation",
+        "§7.3, lines 3773–3824: all-parameter quantum envelope and growing family",
+        "Appendix G.7, lines 6298–6350: measured-label, bounded-list and retained-state evidence scopes"
+      ],
+      "source_packet_path": "repository/docs/reasoning_record.md",
+      "edition": "Supplied current Markdown; SHA-256 7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+      "limits": "This is not a full audit of the long record, the Gaussian/martingale estimates, or the Lean implementation. No proof build or Comparator rerun was performed.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S04",
+      "title": "OpenAI, A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "status": "quantum section read",
+      "locators": [
+        "§3, printed pp.7–10; supplied extraction lines 292–522",
+        "Lemma 3.1: bounded amplification and retained successful state",
+        "Proposition 3.2: probabilistic tournament",
+        "§3.3: application and verification"
+      ],
+      "source_packet_path": "paper/extracted.md; paper/source.pdf",
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "edition": "5 October 2026, supplied preprint at pinned revision 4eaee875",
+      "limits": "Selected quantum claims checked against supplied extraction; no independent full-paper audit claimed. Lemma 2.1(iii) circuit provenance was cross-checked through the current record and source interface.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S05",
+      "title": "Brassard, Høyer, Mosca and Tapp, Quantum Amplitude Amplification and Estimation",
+      "status": "selected section read",
+      "locators": [
+        "§2, supplied extraction lines 24–145",
+        "Lemma 1 and equation (8): invariant good/bad plane",
+        "Theorem 3: expected-cost QSearch"
+      ],
+      "source_packet_path": "literature/quartic-ref-12-quantum-amplitude-amplification-and-estima/extracted.md",
+      "url": "https://arxiv.org/abs/quant-ph/0005055v1",
+      "edition": "arXiv:quant-ph/0005055v1 (2000); AMS publication 2002",
+      "limits": "The expected-cost theorem is not treated as a proof of an all-input finite cap. Amplitude-estimation sections were not reviewed.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S06",
+      "title": "Høyer, Mosca and de Wolf, Quantum Search on Bounded-Error Inputs",
+      "status": "§§1–3 read; §§4–5 skimmed",
+      "locators": [
+        "Introduction: fixed Boolean input with bounded-error subroutines",
+        "Preliminaries and main search theorem",
+        "Comparison with noisy verification"
+      ],
+      "source_packet_path": "literature/quartic-lit-hoyer-mosca-dewolf-quantum-search-bounded-error/extracted.md",
+      "url": "https://arxiv.org/abs/quant-ph/0304052",
+      "edition": "Supplied source identified as arXiv:quant-ph/0304052v2",
+      "limits": "Used to distinguish a bounded-error Boolean predicate oracle from arbitrary complementary probabilities on loser pairs. Not a verification of every recurrence or application.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S07",
+      "title": "Bansal and Sinha, k-Forrelation optimally separates quantum and classical query complexity",
+      "status": "introductory statements and opening overview read",
+      "locators": [
+        "Supplied extraction lines 1–110",
+        "Definition of the one-sided (delta,k)-Forrelation promise",
+        "Theorem 1.3 and Corollary 1.4 in primary numbering",
+        "Projection/interference algorithm discussion; beginning of Gaussian-chain overview"
+      ],
+      "source_packet_path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "url": "https://arxiv.org/abs/2008.07003v3",
+      "edition": "arXiv:2008.07003v3; STOC 2021",
+      "limits": "No full audit of the specialized analytic lower bound. The extraction renumbers some statements automatically; primary Corollary 1.4 is the intended locator.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S08",
+      "title": "Boyer, Brassard, Høyer and Tapp, Tight bounds on quantum searching",
+      "status": "selected primary HTML section read",
+      "locators": [
+        "§4, Lemma 2: uniform iteration-count success probability",
+        "Unknown-number-of-solutions discussion"
+      ],
+      "url": "https://arxiv.org/html/quant-ph/9605034v1",
+      "edition": "arXiv:quant-ph/9605034v1, 23 May 1996; manuscript dated 10 May 1996",
+      "accessed": "2026-11-04",
+      "limits": "This locates the explicit averaging estimate in v1, not an assumed section number in every later publication. Used alongside the direct-trial branch and fixed repetition cap in the current record.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S09",
+      "title": "Dürr and Høyer, A Quantum Algorithm for Finding the Minimum",
+      "status": "short primary paper body read",
+      "locators": [
+        "§§1–3",
+        "Theorem 1; Lemmas 1–2; algorithm timeout"
+      ],
+      "url": "https://arxiv.org/html/quant-ph/9607014v2",
+      "edition": "arXiv:quant-ph/9607014v2, 7 January 1999 revision; original July 1996",
+      "accessed": "2026-11-04",
+      "limits": "Used to compare the ordered-table/rank argument with this paper’s arbitrary-probability tournament. No claim that ordinary minimum finding supplies the required oracle here.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S10",
+      "title": "Arora and Kumar, Quantum Query Complexity of Tournament Solutions",
+      "status": "selected primary sections read",
+      "locators": [
+        "§1 introduction",
+        "§2 tournament query model",
+        "§6.1, Lemma 6.1 and Theorem 6.2"
+      ],
+      "url": "https://arxiv.org/html/2610.39702v1",
+      "edition": "arXiv:2610.39702v1, 29 October 2026",
+      "accessed": "2026-11-04",
+      "limits": "A new primary source beyond the supplied packet: fixed-edge Condorcet finding via king finding and Grover verification. Its promise does not cover arbitrary fractional loser comparisons.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S11",
+      "title": "Ambainis, Iraids and Kokainis, Near-Optimal Separations of Certificate Complexity from Randomized and Quantum Query Complexity",
+      "status": "selected primary sections read",
+      "locators": [
+        "§6.1 overview, FindSource and U(W)",
+        "Introduction; selected statements in appendices C.3 and D.4 inspected"
+      ],
+      "url": "https://arxiv.org/html/2609.11664v3",
+      "edition": "arXiv:2609.11664v3, 5 October 2026",
+      "accessed": "2026-11-04",
+      "limits": "Close comparison of the fixed tournament oracle and source-finding routine; not a complete proof audit of variable-time search or all appendices.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S12",
+      "title": "Ben-David and Kothari, Randomized query complexity can beat certificate complexity",
+      "status": "selected primary sections read",
+      "locators": [
+        "§3, Lemma 5 and its three-stage proof",
+        "Virtual surviving-candidate set, fixed comparison convention and SINK reduction",
+        "Introduction and formal construction skimmed"
+      ],
+      "url": "https://arxiv.org/html/2609.15063v1",
+      "edition": "arXiv:2609.15063v1, 14 September 2026",
+      "accessed": "2026-11-04",
+      "limits": "Used for the antecedent surviving-set comparison and fixed-direction oracle distinction. Not a complete audit of the certificate separation.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S13",
+      "title": "Aaronson and Ambainis, Forrelation: A Problem that Optimally Separates Quantum from Classical Computing",
+      "status": "metadata found; full paper not independently read",
+      "locators": [
+        "Primary arXiv metadata and publisher/author search results",
+        "Interference acceptance statistic checked through Bansal–Sinha and the supplied record"
+      ],
+      "url": "https://arxiv.org/abs/1411.5729",
+      "edition": "arXiv:1411.5729; SIAM Journal on Computing publication",
+      "accessed": "2026-11-04",
+      "limits": "An attempted HTML full-text route returned DisabledError. No claim to have verified §3.2/Figure 1/Proposition 6 directly; no adverse finding relies on the failed retrieval.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S14",
+      "title": "Prior expert-panel findings",
+      "status": "read only after first-pass freeze",
+      "locators": [
+        "Locator/advice inventory of XP001–XP060",
+        "Full entries for XP010, XP013, XP016, XP021–XP026, XP032, XP034, XP040–XP041, XP043, XP045–XP046, XP048, XP051–XP052, XP054–XP055, XP059"
+      ],
+      "source_packet_path": "previous_round/returns/expert_paper/feedback.json",
+      "edition": "Previous round, 3 November 2026",
+      "limits": "Prior findings were treated as hypotheses. Twenty-two selected entries receive current-evidence decisions in quantum_prior_audit.json; resolved requests are not counted again as new advice.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "Q-S15",
+      "title": "Local writing method",
+      "status": "read in full after first-pass freeze",
+      "locators": [
+        "All 152 lines; particularly Round-eight refinements and Chronological first-encounter review"
+      ],
+      "source_packet_path": "skills/quartic-writing-method.md",
+      "limits": "Used to distinguish new method proposals from better application of existing rules. No upstream skill was rewritten.",
+      "review_role": "quantum"
+    },
+    {
+      "id": "CL-S01",
+      "title": "Expert companion, round-nine source",
+      "edition": "packet commit 7772e4f2b98149a38ed69b88397982620f94bdac; source SHA-256 7fddfa0c37f7d038ba58adde4e7685263f3ba7733d0fd87a8a3eea4ce653f8ab",
+      "path": "repository/docs/expert_companion.md",
+      "status": "read in full",
+      "locators": [
+        "lines 1–415, including every source paragraph and display; bibliography database read after Appendix A"
+      ],
+      "limits": "Initial combined retrieval was truncated and exposed later introductory lines before explicit rereading from line 1. Frozen note discloses this partial prior exposure. No claim of pristine blind reading. Printed references and image geometry were assigned to the root PDF inspection.",
+      "review_role": "classical"
+    },
+    {
+      "id": "CL-S02",
+      "title": "Complete reasoning record, current packet",
+      "edition": "current packet draft at commit 7772e4f2b98149a38ed69b88397982620f94bdac; linked edition b8db5326715e5a4ce6996cde0768b92b5fcd5177",
+      "path": "repository/docs/reasoning_record.md",
+      "url": "https://github.com/wcook04/quartic-query-lean/blob/b8db5326715e5a4ce6996cde0768b92b5fcd5177/docs/reasoning_record.md",
+      "status": "selected sections read",
+      "locators": [
+        "§6.1 direct-product interface and product-law proof, lines 2737–2808",
+        "§6.1 optional unnormalized proof, lines 3030–3089",
+        "§6.5 capped simulator and joint event, lines 3451–3533",
+        "§6.6 discrepancy and floors, lines 3534–3703",
+        "§3.12, displayed (F33) and randomized-mixture extension, lines 1355–1371",
+        "§§3.14–3.16 amplification and quantitative contradiction, lines 1452–1624",
+        "§7.3 growing-parameter assembly, lines 3773–3824"
+      ],
+      "limits": "Did not read the full 6,000-plus-line record. Did not reconstruct the Gaussian interpolation, derivative proof, exact circuit gate count or all formal declarations. Link-semantic findings use supplied current text; remote pinned-byte equivalence is a separate root audit.",
+      "review_role": "classical"
+    },
+    {
+      "id": "CL-S03",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "authors": "OpenAI",
+      "edition": "5 October 2026, preprint, supplied pinned revision 4eaee875",
+      "path": "paper/extracted.md",
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "status": "selected sections read",
+      "locators": [
+        "§4 classical lower bound, extracted lines 520–687",
+        "§4.2 Reaching the planted cell, printed p.13, especially termination/abort/default cases",
+        "§5 conclusion and family assembly, extracted lines 688–717"
+      ],
+      "limits": "No claim of full primary-paper proof audit; quantum implementation handled by another perspective.",
+      "review_role": "classical"
+    },
+    {
+      "id": "CL-S04",
+      "title": "Improved Direct Product Theorems for Randomized Query Complexity",
+      "authors": "Andrew Drucker",
+      "edition": "arXiv:1005.0644v2; Computational Complexity 21(2), 197–244 (2012)",
+      "path": "literature/quartic-ref-13-improved-direct-product-theorems-for-rando/extracted.md",
+      "url": "https://arxiv.org/pdf/1005.0644v2",
+      "alternate_url": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/19257061/Drucker_2012_Improved_direct_product_theorems_for_randomized_query_complexity.pdf",
+      "status": "selected sections read, including relevant proof in full",
+      "locators": [
+        "Introduction: direct-product models, Theorem 1.1 and fair-tree comparison",
+        "§3 proof of the main theorem, especially Lemma 3.2 conditional product structure, extracted lines 140–202",
+        "End of §3, fair-tree specialization"
+      ],
+      "limits": "The extracted Markdown restarts some theorem numbers; citation follows the named published/arXiv statement. Journal metadata checked online. No claim to have read all 48 pages.",
+      "review_role": "classical"
+    },
+    {
+      "id": "CL-S05",
+      "title": "Separations in Query Complexity Using Cheat Sheets",
+      "authors": "Scott Aaronson, Shalev Ben-David and Robin Kothari",
+      "edition": "arXiv:1511.01937v2; STOC 2016, pp.863–876",
+      "path": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+      "url": "https://arxiv.org/pdf/1511.01937v2",
+      "status": "selected passages read",
+      "locators": [
+        "Introduction and overview on the cubic comparison",
+        "§3.1 Intuition",
+        "§3.2 Implementation, AND–OR composition and randomized cheat-sheet lower-bound proof, extracted approximately lines 1410–1515"
+      ],
+      "limits": "No proof audit of the entire cheat-sheet framework. Local extraction contains raw cross-reference markup, so it was not used for numerical style statistics.",
+      "review_role": "classical"
+    },
+    {
+      "id": "CL-S06",
+      "title": "Separations in Query Complexity Based on Pointer Functions",
+      "authors": "Andris Ambainis, Kaspars Balodis, Aleksandrs Belovs, Troy Lee, Miklos Santha and Juris Smotrovs",
+      "edition": "arXiv:1506.04719v3; JACM 64(5), article 32 (2017)",
+      "path": "literature/quartic-ref-04-separations-in-query-complexity-based-on-p/extracted.md",
+      "url": "https://arxiv.org/pdf/1506.04719v3",
+      "status": "selected passages read",
+      "locators": [
+        "Introduction, results, definition of the original pointer function",
+        "§1.3 Techniques, pointer modifications and Use of a balanced tree, especially the direct-pointer/exponential-alphabet paragraph"
+      ],
+      "limits": "Extraction loses some macros and mathematical symbols. Used to check qualitative model comparison, not verbatim mathematical typography or the full construction proofs.",
+      "review_role": "classical"
+    },
+    {
+      "id": "CL-S07",
+      "title": "k-Forrelation Optimally Separates Quantum and Classical Query Complexity",
+      "authors": "Nikhil Bansal and Makrand Sinha",
+      "edition": "arXiv:2008.07003v3; STOC 2021, pp.1303–1316",
+      "path": "literature/quartic-ref-06-k-forrelation-optimally-separates-quantum/extracted.md",
+      "url": "https://arxiv.org/pdf/2008.07003v3",
+      "status": "introduction and relevant theorem statements read",
+      "locators": [
+        "Definition of (delta,k)-Forrelation, introductory displayed promise",
+        "Theorem 1.3 and Corollary 1.4, printed p.4",
+        "Extracted introductory lines 1–110"
+      ],
+      "limits": "Verified the one-sided promise, block dimension and bound interface. Did not independently audit the analytic lower-bound proof.",
+      "review_role": "classical"
+    },
+    {
+      "id": "CL-S08",
+      "title": "A Super-Grover Separation Between Randomized and Quantum Query Complexities",
+      "authors": "Shalev Ben-David",
+      "edition": "arXiv:1506.08106v1 (2015)",
+      "url": "https://arxiv.org/html/1506.08106v1",
+      "status": "online HTML read",
+      "locators": [
+        "§3 construction",
+        "§5.1 Forandlation lower bound, marked-zero argument",
+        "§5.2 cheat-sheet lower bound, blank array"
+      ],
+      "limits": "Primary source beyond the supplied literature shelf. Used to locate predecessor arguments; no claim about independent priority beyond the explicit proof correspondences.",
+      "review_role": "classical"
+    },
+    {
+      "id": "CL-S09",
+      "title": "Towards Proving Strong Direct Product Theorems",
+      "authors": "Ronen Shaltiel",
+      "edition": "ECCC TR01-009 (2001); distinct from the 2003 journal edition cited in the lead",
+      "url": "https://eccc.weizmann.ac.il/report/2001/009/download",
+      "landing_url": "https://eccc.weizmann.ac.il/eccc-reports/2001/TR01-009/index.html",
+      "status": "selected online passages read",
+      "locators": [
+        "Introduction and scope footnote on uniform inputs",
+        "§5, Definition 4 and Theorem 5, printed pp.11–12"
+      ],
+      "limits": "The inspected version proves a fair-tree XOR-advantage result in its stated setting. It is not silently substituted for the present arbitrary-mu, all-answers success contract.",
+      "review_role": "classical"
+    },
+    {
+      "id": "CL-S10",
+      "title": "Fourier Growth of Parity Decision Trees",
+      "authors": "Uma Girish, Avishay Tal and Kewen Wu",
+      "edition": "CCC 2021; LIPIcs 200, 39:1–39:36; DOI 10.4230/LIPIcs.CCC.2021.39",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol200-ccc2021/LIPIcs.CCC.2021.39/LIPIcs.CCC.2021.39.pdf",
+      "landing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CCC.2021.39",
+      "status": "selected online passages read",
+      "locators": [
+        "§1.3 ordinary decision-tree technique overview",
+        "Lemma 9, printed p.39:8",
+        "Footnote 2 explaining stopping before a bad event rather than conditioning a martingale on good paths"
+      ],
+      "limits": "Used as an exposition comparison and technique attribution check. No claim to have verified its 36-page proof or the record’s transfer of the technique.",
+      "review_role": "classical"
+    },
+    {
+      "id": "CL-S11",
+      "title": "Near-Optimal Separations of Certificate Complexity from Randomized and Quantum Query Complexity",
+      "authors": "Andris Ambainis, Jānis Iraids and Martins Kokainis",
+      "edition": "arXiv:2609.11664v3, updated 5 October 2026",
+      "url": "https://arxiv.org/abs/2609.11664v3",
+      "status": "metadata and abstract checked online",
+      "locators": [
+        "arXiv version history and abstract"
+      ],
+      "limits": "Newest-related-work discovery only. No claim to have read §6.1 or independently verified its pointer construction; that check is assigned to the quantum perspective.",
+      "review_role": "classical"
+    },
+    {
+      "id": "CL-S12",
+      "title": "Writing method for the quartic papers",
+      "edition": "round-nine supplied skill text",
+      "path": "skills/quartic-writing-method.md",
+      "status": "read in full after first-pass freeze and findings development",
+      "locators": [
+        "lines 1–151; especially reusable-reduction contracts, optional routes, proof-link tasks and chronological disclosure"
+      ],
+      "limits": "Read as an object of method review, not as authority overriding the user. No source files or skills were rewritten.",
+      "review_role": "classical"
+    },
+    {
+      "id": "CL-S13",
+      "title": "Round-eight expert feedback and synthesis",
+      "edition": "supplied historical review",
+      "path": "previous_round/returns/expert_paper/feedback.json; previous_round/round8_synthesis.json",
+      "status": "selected entries inspected after first-pass freeze",
+      "locators": [
+        "All 62 randomized-lower-bound XP entries reread; 28 selected entries received exact current-source dispositions in classical_prior_audit.json"
+      ],
+      "limits": "Historical applied labels were not accepted as proof of present repair. Current evidence is recorded in classical_prior_audit.json. Prior exposition EX entries were not audited by this perspective.",
+      "review_role": "classical"
+    }
+  ],
+  "search_and_access_records": [
+    {
+      "review_role": "editor",
+      "online_searches": [
+        {
+          "engine": "system2",
+          "queries": [
+            "\"OpenAI\" \"quartic\" \"query\"",
+            "\"Ambainis\" \"Iraids\" \"Kokainis\" \"2026\" quantum",
+            "\"Ben-David\" \"Kothari\" \"2026\" \"query\""
+          ],
+          "purpose": "Identify primary current related work beyond supplied papers."
+        },
+        {
+          "engine": "system1",
+          "queries": [
+            "site:arxiv.org/abs \"2609.11664\"",
+            "site:arxiv.org \"2609.15063\"",
+            "site:github.com/openai/math \"Quartic\""
+          ],
+          "recency_days": [
+            90,
+            90,
+            45
+          ],
+          "purpose": "Verify primary editions and recent source availability."
+        }
+      ],
+      "search_scope": "Limited targeted search, not an exhaustive literature review. Nonprimary search results were used only as routes to primary sources."
+    },
+    {
+      "review_role": "classical",
+      "source_policy": "Primary sources only for mathematical claims; online source inspection after the first-pass freeze. References distinguish full reading, selected passages and metadata-only discovery.",
+      "search_limits": "Online search included newer 2026 related work and older primary expositions beyond the supplied shelf. Search coverage is not a claim of exhaustive novelty verification. Secondary aggregator results were not used as technical evidence."
+    }
+  ],
+  "limits": [
+    "Supplied sources were read at the sections stated, not automatically in full.",
+    "Abstract or metadata access is not treated as proof access.",
+    "Exact pinned GitHub content that was inaccessible remotely was assessed from supplied bytes, with the edition boundary preserved."
+  ]
+}

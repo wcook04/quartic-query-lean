@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3060,
+      "sha256": "1cae8e8c62ce70b38ffee2085fdfe3ea5450890cb266cbdb0bb0bc7e8329542d"
+    },
+    {
+      "path": "coverage.json",
+      "bytes": 12837,
+      "sha256": "1207d8cf06c185b2b336aa64d89971098fb66ce279dead693fa61720c9d1d680"
+    },
+    {
+      "path": "feedback.json",
+      "bytes": 296184,
+      "sha256": "58074f65fb26644fffd0123ccae00144cbcc57f17fa543da5c3465000e61f3f3"
+    },
+    {
+      "path": "feedback_by_document.md",
+      "bytes": 20372,
+      "sha256": "7c1723b4b09a03958edf38dba360a64b3b72b9e2a834ef0ee8201662dabfeb60"
+    },
+    {
+      "path": "first_pass/classical_first_pass.md",
+      "bytes": 18308,
+      "sha256": "0d35b8e733f8ce57d1a593e1f331f53b33eb4acaf6ea110143d3828fe53a186e"
+    },
+    {
+      "path": "first_pass/editor_first_pass.md",
+      "bytes": 25567,
+      "sha256": "364d29053f4b89062a6136a10df323186a217a937e3425276b7177d84420a560"
+    },
+    {
+      "path": "first_pass/quantum_first_pass.md",
+      "bytes": 22659,
+      "sha256": "5f25b0841157f1cac43ad204453fe0cf9758d51f12208a60ac6dacf924f4486a"
+    },
+    {
+      "path": "first_pass/root_first_pass.md",
+      "bytes": 20995,
+      "sha256": "798badcdc41e6c1041122045e10549ba77e0f6c39980de0784639b57826f67b9"
+    },
+    {
+      "path": "literature_comparison.md",
+      "bytes": 16741,
+      "sha256": "d7d45bee4e68ca1d87348610d59d69a5afcd78f6f8e52dd6626fd0241ca880ed"
+    },
+    {
+      "path": "method_feedback.json",
+      "bytes": 14516,
+      "sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "path": "previous_round_audit.json",
+      "bytes": 112232,
+      "sha256": "4e97091d23cd812821eebf080ed1e153c55c20518dc627da64085acad42af10a"
+    },
+    {
+      "path": "reading_log.md",
+      "bytes": 28427,
+      "sha256": "fbf23173bade1cef00ea32f2b7bce8eaf0e37779a49039f4463a174b6ee8416f"
+    },
+    {
+      "path": "sentence_audit.jsonl",
+      "bytes": 560522,
+      "sha256": "28ed9b38e02b1b52594a0c2a7af92f4f18708ee6db11f393e28ba74e9f2f8252"
+    },
+    {
+      "path": "sources_read.json",
+      "bytes": 41341,
+      "sha256": "dab1056806e30994cefca333cb2d34011087bd6113bd4cdfefe071f4e9c612b4"
+    },
+    {
+      "path": "verdict.md",
+      "bytes": 13409,
+      "sha256": "50987e921663e783320bf37157eff9d4bb9822d06b6863858bfe666d8b994b94"
+    },
+    {
+      "path": "verification/candidate_to_final_ids.json",
+      "bytes": 4455,
+      "sha256": "3e5eb0bb93f3c3174cf09f8f4180d49096e9f81761566e2b8022c54b55500d01"
+    },
+    {
+      "path": "verification/classical_checks.json",
+      "bytes": 8014,
+      "sha256": "47ec8221477b712c51f1e7a3c05f3a2bcb5cdca2dd472821201b269db67f0489"
+    },
+    {
+      "path": "verification/final_quality_check.md",
+      "bytes": 14596,
+      "sha256": "cb43c4c19e9bf5ca1a157c1f6ac0bb1d5cbf06c8d7d3568ed95bfc4b7dd28715"
+    },
+    {
+      "path": "verification/finite_checks.json",
+      "bytes": 6582,
+      "sha256": "a62c6cb15d5c28919773d68b4da208add820a5a1f832a6aaf8030eda00ab58dd"
+    },
+    {
+      "path": "verification/first_pass_hashes.json",
+      "bytes": 1017,
+      "sha256": "81b926e1451cd9ab540b4f12e0ca8c6116fdc1afe26eb9598056aaafbb4c32c6"
+    },
+    {
+      "path": "verification/formal_receipt_check.json",
+      "bytes": 631,
+      "sha256": "8a2ea6131035d26f3971fab33e021c3ce72cd75f7e576f6867a94bfef3b086bc"
+    },
+    {
+      "path": "verification/input_integrity.json",
+      "bytes": 318,
+      "sha256": "5cc7b1e0e10e4f2a5c6e95ed9cc1e97a50d610286f4a0140a560dda341ff66c8"
+    },
+    {
+      "path": "verification/new_finding_adjudication.json",
+      "bytes": 11773,
+      "sha256": "ba5b8838bd353c2dd5e1d948dd8c9064942580c395363970d1ef97973091964d"
+    },
+    {
+      "path": "verification/pdf_inspection.md",
+      "bytes": 3477,
+      "sha256": "e27083223f83438f4bad8efb7fc166e0ec96f6eced6b18c64a07d70fdb285b58"
+    },
+    {
+      "path": "verification/reproduce_finite_checks.py",
+      "bytes": 4416,
+      "sha256": "c9dcf0c4501317dfb306dcbcf57d27164d60d4dfa4a3aee18ed0d7bbb33df758"
+    },
+    {
+      "path": "verification/validation_report.json",
+      "bytes": 1383,
+      "sha256": "421740b2d550de35769e9ae2af0ee7947646fa06ebc1697ecf0b7a44ba90253a"
+    },
+    {
+      "path": "verify_return.py",
+      "bytes": 29015,
+      "sha256": "b7179ea7c558d7609a2a43bcbd55e1efd4a8039fa42fbf3d615b7330cf6b59eb"
+    }
+  ],
+  "exclusions": [
+    "manifest.json"
+  ]
+}

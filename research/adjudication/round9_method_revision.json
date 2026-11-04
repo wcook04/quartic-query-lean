@@ -1,0 +1,712 @@
+{
+  "status": "refined_merged_verified",
+  "repository": "https://github.com/wcook04/lean-exposition",
+  "base_commit": "7edf75412ff12d72d20074252f05843e4c3aa677",
+  "method_items": [
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-01",
+      "disposition": "refined",
+      "owner": "skills/long-to-short/SKILL.md",
+      "reason": "Compare claimed contribution with primary-source results; inherited mechanisms and added derivations remain distinct.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-02",
+      "disposition": "refined",
+      "owner": "skills/long-to-short/SKILL.md",
+      "reason": "Trace each abstract formula to its exact body claim and required uniform route.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-03",
+      "disposition": "refined",
+      "owner": "skills/long-to-short/SKILL.md",
+      "reason": "Credit and reconstructed refinements travel with the portable theorem, without routine repeated disclaimers.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-04",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "At a parameter change identify retained and replaced choices and the connecting substitution.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-05",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Reread from immediately before a repair through the next use; previews can introduce new undefined notation.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-06",
+      "disposition": "refined",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "reason": "Distinguish an admissible operational parameter from its asymptotic cost.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-07",
+      "disposition": "refined",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "reason": "Check every exit against the total output contract, including early termination.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-08",
+      "disposition": "refined",
+      "owner": "skills/long-to-short/SKILL.md",
+      "reason": "Link labels retain material quantifier distinctions and promises are checked at pinned editions.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-09",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Standalone probability examples locally recall their actual sampling law.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-10",
+      "disposition": "existing_rule_applied_locally",
+      "owner": "skills/long-to-short/SKILL.md",
+      "reason": "Existing short-paper relocation/bundle instructions already cover this; parent implemented preserved-original and rebased copied-guide links with closure reuse in quartic tools/build_round9_packets.py. Parent reports 7 focused tests passing. No redundant upstream rule added.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc",
+      "local_implementation": [
+        "tools/build_round9_packets.py::add_local_writing_method",
+        "tests/test_build_round9_packets.py::test_relocated_method_links_resolve_from_delivered_location",
+        "tests/test_build_round9_packets.py::test_method_relocation_rejects_missing_and_escaping_targets"
+      ],
+      "local_validation": "Seven focused tests pass. Independent final guide trial resolves all seven relative links and packages twelve closure members; original sent packets are unchanged."
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-11",
+      "disposition": "refined",
+      "owner": "docs/reader-review.md",
+      "reason": "Freeze original reading, label retrospective expansion, retain exposure and assistance.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-12",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Group by actual edit and retain withdrawals separately; existing adjudication permits rejecting preferences. No quota adopted.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-13",
+      "disposition": "existing_rule_routed",
+      "owner": "docs/authoring.md",
+      "reason": "Current main already owns extraction-integrity and genre/region comparison in skills/register/SKILL.md section 3. Added its direct route from shared delivered-output review with a concrete evidence-appendix contrast; no duplicate metric policy.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-14",
+      "disposition": "refined",
+      "owner": "docs/reader-review.md",
+      "reason": "Check the demanded contract and reachable cases before mathematical diagnosis; explicitly withdraw resolved suspicion.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-15",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Show averaging/substitution bridge when changing algorithm models or parameter regimes.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-16",
+      "disposition": "refined",
+      "owner": "docs/reader-review.md",
+      "reason": "Report actual order, exposure and annotation phase; no retroactive blind/serial claim.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "expert_paper",
+      "id": "METHOD-17",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Consolidate by reviser action; preserve secondary locators and separate withdrawals from coverage.",
+      "input_path": "research/returns/round9/members/expert_paper/method_feedback.json",
+      "input_sha256": "e7cbaa3fea48daef4add90da5f21c7913fbd16e73cdc10575e7bcee913873ccc"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M01",
+      "disposition": "refined",
+      "owner": "skills/record-to-expository/SKILL.md",
+      "reason": "Current main already classifies assumed/taught/accepted prerequisites. Added minimal-calculation acceptance check and expert-audience exception at that existing owner; no duplicate classifier.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M02",
+      "disposition": "refined",
+      "owner": "docs/reader-review.md",
+      "reason": "Map promised outcomes to recognition, execution or proof-reconstruction tasks; replace redundant tasks before adding.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M03",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Extend active-object switch checks to exercises, answers and captions; unchanged objects need no repetition.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M04",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Inspect adjacent-page pairs and narrow continuation handling, not a universal no-break rule.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M05",
+      "disposition": "refined",
+      "owner": "skills/record-to-expository/SKILL.md",
+      "reason": "Specify what the reader can perform on returning; required statements stay on the main route.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M06",
+      "disposition": "existing_rule_verified",
+      "owner": "docs/authoring.md",
+      "reason": "Existing figure guidance selects an inference and names each relation; table guidance selects real comparison axes. No figure quota or wholesale replacement warranted.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M07",
+      "disposition": "existing_rule_verified",
+      "owner": "skills/record-to-expository/SKILL.md",
+      "reason": "Existing steps 1\u20133 stage objects and prerequisites by use. Immediate attribution remains; no universal ban on historical framing is warranted.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M08",
+      "disposition": "refined",
+      "owner": "docs/reader-review.md",
+      "reason": "Worked answers diagnose the plausible mistaken inference with the shortest distinguishing calculation.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M09",
+      "disposition": "refined",
+      "owner": "docs/reader-review.md",
+      "reason": "Frozen first-pass evidence is distinct from retrospective sentence index and model assistance.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M10",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Cluster by underlying operation and prefer replacement; do not append one repair per issue.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M11",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Inspect citation/qualifier/page break jointly; portable quantitative attribution also refined in short-paper owner.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M12",
+      "disposition": "refined",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "reason": "Check smallest admitted input, denominators and index sets before relying on later asymptotic restrictions.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M13",
+      "disposition": "existing_rule_verified",
+      "owner": "skills/long-to-short/SKILL.md",
+      "reason": "Existing exact-destination, relocated-reading-copy and unavailable-source boundaries remain; pinned-edition promise strengthened. Parser coverage defect belongs to packet inventory code, not a universal writing rule.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M14",
+      "disposition": "refined",
+      "owner": "docs/reader-review.md",
+      "reason": "Test consumer contract before importing clean-output or copying requirements; explicitly withdraw resolved objections.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "exposition",
+      "id": "M15",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Unique reviser actions and coverage are separate; no minimum issue count.",
+      "input_path": "research/returns/round9/members/exposition/quartic_r9_exposition_return/method_feedback.json",
+      "input_sha256": "fbd15723887d499792d87fa9978d49b8fc945e0bf87cba9706e5a9723d140992"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF01",
+      "disposition": "refined",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "reason": "Current main already compares human-facing versions with the published set. Added the narrow distinction between commit identity and actual proof-byte equivalence, which requires separate evidence.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF02",
+      "disposition": "refined",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "reason": "Current question/scope/evidence precede optional run history, except when history is the subject.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF03",
+      "disposition": "refined",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "reason": "Make claim clauses and suppliers recoverable together; aggregate support is distinct from one primary declaration. No mandatory multidimensional table.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF04",
+      "disposition": "refined",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "reason": "Retain history while giving a current limitation one authoritative statement; repeat when implications differ.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF05",
+      "disposition": "existing_rule_verified",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "reason": "Existing proof destination and bounded route checks already require complete argument recovery; exposition return operation strengthened. Page-aware navigation remains document-specific, not mandatory for short papers.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF06",
+      "disposition": "existing_rule_verified",
+      "owner": "docs/authoring.md",
+      "reason": "Existing active-object entry-point dictionary covers type and invariant recalls. New change-of-model clause and first-use repair check make application concrete without duplicating definitions.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF07",
+      "disposition": "existing_rule_verified",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "reason": "Existing literature map distinguishes inherited result, proof and reorganisation. Short-paper contribution comparison strengthened; harmless source typo must not demote a verified theorem.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF08",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Split on task change, preserving hypothesis-use relation; reject numerical paragraph thresholds.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF09",
+      "disposition": "refined",
+      "owner": "skills/graph-to-long/SKILL.md",
+      "reason": "Process isolation, checker mode and statement coverage remain distinct; no new run required by a prose change.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF10",
+      "disposition": "existing_rule_routed",
+      "owner": "docs/authoring.md",
+      "reason": "Current main already owns extraction-integrity and genre/region comparison in skills/register/SKILL.md section 3. Added its direct route from shared delivered-output review with a concrete evidence-appendix contrast; no duplicate metric policy.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF11",
+      "disposition": "refined",
+      "owner": "docs/reader-review.md",
+      "reason": "Immutable encounter file and digest, later source-located resolutions, declared exposure and assistance.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF12",
+      "disposition": "refined",
+      "owner": "docs/reader-review.md",
+      "reason": "Inspect source-span semantic boundaries and distinguish formulas/captions/nonrendered metadata; index is not reading proof.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF13",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Group findings by actual repair and reader difficulty; keep genuinely distinct uses separate.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF14",
+      "disposition": "existing_rule_verified",
+      "owner": "docs/authoring.md",
+      "reason": "Existing table contract already chooses by comparison and rejects narrow proof cells. No extra format rule needed.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF15",
+      "disposition": "existing_rule_verified",
+      "owner": "skills/long-to-short/SKILL.md",
+      "reason": "Existing short-to-long route test requires missing inference and return point; pinned-edition promise now explicit.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    },
+    {
+      "return_set": "reasoning_record",
+      "id": "MF16",
+      "disposition": "refined",
+      "owner": "docs/authoring.md",
+      "reason": "Absence adjudication inspects preceding definition, complete paragraph and immediate continuation; delayed resolution retains exact locator.",
+      "input_path": "research/returns/round9/members/reasoning_record/method_feedback.json",
+      "input_sha256": "e301a967d584c042d2162848dbd461a44a794d9d71f32c6dec45e1d39fe0caa1"
+    }
+  ],
+  "transfer_checks": [
+    {
+      "rule": "Verify absence and reread repairs chronologically",
+      "cases": [
+        "A probability law appears in the preceding paragraph: withdraw absence; do not add it again.",
+        "A newly moved induction preview mentions an index before its role: define the role or move the preview."
+      ],
+      "reject": "A distant later definition can leave a real sequencing cost; do not dismiss that cost merely because a whole-document search finds the word."
+    },
+    {
+      "rule": "Operational parameter, branch and domain completeness",
+      "cases": [
+        "A Monte Carlo error target requires an admissible finite trial count, not only asymptotic complexity.",
+        "An iterative approximation needs a defined output when it terminates before a sampled observation time."
+      ],
+      "reject": "A resource-only theorem that does not prescribe an executable procedure need not expose every implementation constant."
+    },
+    {
+      "rule": "Show model and parameter bridge",
+      "cases": [
+        "A deterministic bound transfers to an average only after the averaging identity is supplied.",
+        "A fixed-depth limit does not become a varying-depth theorem by replacing the depth symbol."
+      ],
+      "reject": "Routine renaming of a bound variable in an uninterrupted proof needs no new interface."
+    },
+    {
+      "rule": "Current evidence before optional history",
+      "cases": [
+        "A formal claim appendix opens with current statement coverage, then links dated checker history.",
+        "A replication supplement opens with the current dataset/calibration and routes older runs to history."
+      ],
+      "reject": "An account whose research question is historical development may legitimately lead chronologically."
+    },
+    {
+      "rule": "Outcome-aligned assessment without additive padding",
+      "cases": [
+        "A weighted-average exercise distinguishes recognition of the formula from executing a changed-weight calculation.",
+        "An induction task distinguishes checking three sums from reconstructing the universal induction step."
+      ],
+      "reject": "A survey promising orientation needs no proof-reconstruction exam, and an expert needs no remedial examples."
+    },
+    {
+      "rule": "Honest chronology and criticism",
+      "cases": [
+        "A simulated reader has inherited a focus brief: preserve that exposure rather than relabel as blind.",
+        "A human gives an assisted second answer: retain the original separately from the successful reconstruction."
+      ],
+      "reject": "A retrospective source index remains useful as indexing; reject only the claim that it proves contemporaneous comprehension."
+    },
+    {
+      "rule": "Portable theorem and edition scope",
+      "cases": [
+        "An abstract fixed-parameter statement is traced to its fixed-parameter proof without borrowing uniformity.",
+        "A theorem quoted separately retains original credit and identifies locally explicit constants."
+      ],
+      "reject": "Routine consequences need not repeat full provenance, and a commit-only change does not itself prove changed source bytes."
+    },
+    {
+      "rule": "Layout and metrics follow reader operation",
+      "cases": [
+        "A definition lead-in remains with its list across a page boundary.",
+        "A verification appendix retains necessary status vocabulary even when the teaching body uses less."
+      ],
+      "reject": "Long proofs may break with clear continuation; no universal frequency threshold or all-prose table replacement is imposed."
+    }
+  ],
+  "transfer_evidence": "Author-executed editorial transfer checks, not observed human learning or general theorem certification.",
+  "rejected_overextensions": [
+    "Numeric issue/figure/example quotas",
+    "Mandatory clean-output implementation when retained workspace suffices",
+    "Universal paragraph length or lexical-frequency acceptance thresholds",
+    "Treating a whole-paper index as a contemporaneous independent human study",
+    "Appending every reviewer microtask instead of consolidating repairs",
+    "New doctrine copies in ai_workflow when public lean-exposition owns the method"
+  ],
+  "source_grounding": [
+    {
+      "source": "Knuth, Larrabee and Roberts, Mathematical Writing",
+      "url": "https://www-cs-faculty.stanford.edu/~knuth/papers/cs1193.pdf",
+      "scope": "\u00a71 items 5,10\u201314, printed pp2\u20133; \u00a710 pp20\u201321",
+      "application": "Earn first-use symbols, connect equations, retain portable statement scope; use algorithm steps/invariants by task rather than imitating a named style."
+    },
+    {
+      "source": "Francis Edward Su, Guidelines for Good Mathematical Writing, 2020-08-18",
+      "url": "https://math.hmc.edu/su/wp-content/uploads/sites/10/2020/08/Guidelines-for-Good-Mathematical-Writing.pdf",
+      "scope": "pp1\u20132 audience and distance example",
+      "application": "Keep essential hypothesis visible; omit routine algebra only for the reader who can supply it."
+    },
+    {
+      "source": "Andrew M. Childs, Lecture Notes on Quantum Algorithms, 2025-04-17",
+      "url": "https://www.cs.umd.edu/~amchilds/qa/qa.pdf",
+      "scope": "\u00a71.4 pp2\u20133",
+      "application": "Explain retained and cleaned interfaces explicitly; do not require stronger cleanup than the consumer uses."
+    }
+  ],
+  "commit": "7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7",
+  "branch": "codex/quartic-r9-writing-method",
+  "push_status": "merged_to_main",
+  "validation": {
+    "unit_tests": {
+      "count": 710,
+      "result": "pass",
+      "skipped": 2,
+      "log": "/tmp/lean-exposition-r9-publication-tests.log"
+    },
+    "layout": "pass working and staged index; 918 maintained files",
+    "local_links": "pass; 48 authored documents",
+    "minimal_validate_inspect": "pass",
+    "source_audit": "pass; /tmp/lean-exposition-r9-publication-source-audit.json",
+    "git_diff_check": "pass",
+    "literature_sources": "Primary PDFs retrieved and exact hashes recorded in docs/references.json; selected passages read via web; copies not redistributed",
+    "human_learning": "not measured",
+    "isolated_environment_install": "pass; own venv in publication worktree",
+    "published_source": "Fetched origin/main 7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7 matches all six publication worktree source files byte-for-byte; no unrelated branch commits pushed."
+  },
+  "implementation_evidence": [
+    {
+      "path": "docs/authoring.md",
+      "repository_relative_path": "docs/authoring.md",
+      "sha256": "69444d73788fbd28f6142911abcb0c2c88c570409c8418a5f9f6217a92303f13",
+      "anchors": [
+        {
+          "needle": "2. Group findings",
+          "line": 115
+        },
+        {
+          "needle": "At a change of model",
+          "line": 251
+        },
+        {
+          "needle": "Inspect adjacent pages",
+          "line": 592
+        },
+        {
+          "needle": "### Primary writing passages",
+          "line": 666
+        }
+      ],
+      "url": "https://github.com/wcook04/lean-exposition/blob/7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7/docs/authoring.md"
+    },
+    {
+      "path": "docs/reader-review.md",
+      "repository_relative_path": "docs/reader-review.md",
+      "sha256": "c7b01214793ac9b321a15104d135ca9b1d368eaaccd26f7abba21a63e4e0b654",
+      "anchors": [
+        {
+          "needle": "Freeze the first-pass",
+          "line": 53
+        },
+        {
+          "needle": "Match each promised outcome",
+          "line": 68
+        },
+        {
+          "needle": "Before diagnosing a mathematical error",
+          "line": 117
+        }
+      ],
+      "url": "https://github.com/wcook04/lean-exposition/blob/7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7/docs/reader-review.md"
+    },
+    {
+      "path": "skills/graph-to-long/SKILL.md",
+      "repository_relative_path": "skills/graph-to-long/SKILL.md",
+      "sha256": "9f5a2fbe67dc1e5d8180286bad295c5f3f1f74ef979f3aee522d4e00bc244e1f",
+      "anchors": [
+        {
+          "needle": "   For an operational instruction",
+          "line": 105
+        },
+        {
+          "needle": "Order a verification appendix",
+          "line": 247
+        }
+      ],
+      "url": "https://github.com/wcook04/lean-exposition/blob/7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7/skills/graph-to-long/SKILL.md"
+    },
+    {
+      "path": "skills/long-to-short/SKILL.md",
+      "repository_relative_path": "skills/long-to-short/SKILL.md",
+      "sha256": "e8193f7e58a9b2d208644fe6a318bed2f8e5bad4ead5331d9a76ed1f54cc8dba",
+      "anchors": [
+        {
+          "needle": "   Trace each abstract formula",
+          "line": 112
+        },
+        {
+          "needle": "Let the label preserve",
+          "line": 206
+        }
+      ],
+      "url": "https://github.com/wcook04/lean-exposition/blob/7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7/skills/long-to-short/SKILL.md"
+    },
+    {
+      "path": "skills/record-to-expository/SKILL.md",
+      "repository_relative_path": "skills/record-to-expository/SKILL.md",
+      "sha256": "d2a102cf26a5da788922d22766fbd2d85f12fbc4b227e79953272c8f485f23b2",
+      "anchors": [
+        {
+          "needle": "Test the classification",
+          "line": 58
+        },
+        {
+          "needle": "   Name the operation",
+          "line": 193
+        }
+      ],
+      "url": "https://github.com/wcook04/lean-exposition/blob/7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7/skills/record-to-expository/SKILL.md"
+    },
+    {
+      "path": "docs/references.json",
+      "repository_relative_path": "docs/references.json",
+      "sha256": "9f63e1a575bfed872bab9c8d2e2396d80e5a813ab92bc21410b103142944db62",
+      "anchors": [
+        {
+          "needle": "\"id\": \"knuth-larrabee-roberts",
+          "line": 1036
+        },
+        {
+          "needle": "\"id\": \"su-mathematical",
+          "line": 1063
+        },
+        {
+          "needle": "\"id\": \"childs-quantum",
+          "line": 1088
+        }
+      ],
+      "url": "https://github.com/wcook04/lean-exposition/blob/7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7/docs/references.json"
+    }
+  ],
+  "original_local_commit": "f5a1403cda5ddc4152dff76d56bb3058c4f9367b",
+  "pull_request": "https://github.com/wcook04/lean-exposition/pull/44",
+  "ci_at_handoff": {
+    "workflow_run_id": 41829422114,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/wcook04/lean-exposition/actions/runs/41829422114",
+    "watch_log": "/tmp/lean-exposition-r9-ci-watch.log"
+  },
+  "publication_reconciliation": "Rebased patch onto current main through separate worktree; preserved newer register/formal-reporting guidance. Collapsed duplicate prerequisite classification into its existing owner and linked existing register metrics checks. Original reader-map branch and its predecessors were not pushed or rewritten.",
+  "task_local_validation_lessons": [
+    {
+      "source": "Root receiving review, 2026-11-04; not independently inspected by method author",
+      "observation": "A nonraw Python replacement interpreted rho/to LaTeX escapes as control characters in manuscript edits.",
+      "disposition": "Existing source and rendered-output review applies; preserve as local validation evidence, not a new general writing rule.",
+      "repair_owner": "Quartic manuscript lead before final render"
+    }
+  ],
+  "selected_primary_texts": [
+    {
+      "path": "/tmp/lean-exposition-r9-method/knuth-selected.txt",
+      "sha256": "c8a8134d7b09de17b0c5646425b926e10bacda4b67fd3236cc266416c0630978",
+      "purpose": "Local extraction for receiving-agent source inspection; original PDF page numbering and declared reading scope remain authoritative."
+    },
+    {
+      "path": "/tmp/lean-exposition-r9-method/su-selected.txt",
+      "sha256": "7b4f50dfba22b9fcb3a4a7cbf43892c97abb1c527f16c0b46d6a82408e4f68a4",
+      "purpose": "Local extraction for receiving-agent source inspection; original PDF page numbering and declared reading scope remain authoritative."
+    },
+    {
+      "path": "/tmp/lean-exposition-r9-method/childs-selected.txt",
+      "sha256": "fd4b51e4a4f8616393f6fea5744728132225522b0ec5c562c46e0fbaff847a5b",
+      "purpose": "Local extraction for receiving-agent source inspection; original PDF page numbering and declared reading scope remain authoritative."
+    }
+  ],
+  "published_head_commit": "857bdbbbbe62f765731b7ad20146a85f8a14bc5a",
+  "merged_main_commit": "7bc9ef5d253d23527c6ccbd759c2eb24c0243ac7",
+  "local_log_scope": "Any /tmp paths in validation identify local run logs, not distributed source dependencies. Portable implementation URLs and hashes are recorded separately."
+}

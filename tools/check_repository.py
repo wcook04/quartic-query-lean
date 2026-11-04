@@ -37,7 +37,7 @@ RETIRED = {
         "common", "boundaries", "1_understand_the_paper", "2_ground_in_literature",
         "3_lean_and_comparator")},
 }
-EVIDENCE_SUFFIXES = {".md", ".json", ".txt", ".bib", ".csv", ".yaml", ".yml", ".toml"}
+EVIDENCE_SUFFIXES = {".md", ".json", ".jsonl", ".txt", ".bib", ".csv", ".yaml", ".yml", ".toml"}
 CACHE_PARTS = {".lake", "__pycache__", ".pytest_cache", ".mypy_cache", "node_modules"}
 OUTPUT_SUFFIXES = {".zip", ".olean", ".ilean", ".pyc", ".o", ".so", ".dylib"}
 LINK = re.compile(r"!?\[[^\]]*\]\(\s*(<[^>]+>|[^\s)]+)(?:\s+[^)]*)?\)")

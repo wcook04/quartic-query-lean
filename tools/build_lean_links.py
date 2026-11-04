@@ -49,13 +49,13 @@ PAPERS = ["docs/expert_companion.md", "docs/exposition.md", "docs/reasoning_reco
 SCHEMA = "quartic-lean-links-v1"
 REPOSITORY = "https://github.com/wcook04/quartic-query-lean"
 # The commit the papers describe. Every pinned link resolves against this tree.
-COMMIT = "b8db5326715e5a4ce6996cde0768b92b5fcd5177"
+COMMIT = "8357f268732746d1575e05e7de8c888e20ad3793"
 BEGIN, END = "<!-- lean-links -->", "<!-- /lean-links -->"
 USE = re.compile(r"\]\[([A-Za-z0-9][A-Za-z0-9-]*)\]")
 # A paper's links into the long record, which are pinned to COMMIT like the Lean links.
 RECORD = "docs/reasoning_record.md"
 RECORD_LINK = re.compile(re.escape(REPOSITORY) + r"/blob/([0-9a-f]{40}|main)/" + re.escape(RECORD)
-                         + r"#([A-Za-z0-9_.:-]+)")
+                         + r"(?:#([A-Za-z0-9_.:-]+))?(?=[\s)<>\]}]|$)")
 
 UNCONDITIONAL = "lean/QuarticCorpus/Unconditional/Challenge.lean"
 Q = "QuarticQuery."
@@ -520,10 +520,11 @@ def pin_record_links(text, paper):
     if record is None:
         raise SystemExit(f"{RECORD} is absent at {COMMIT[:12]}")
     known = record_anchors(record)
-    missing = sorted({m.group(2) for m in RECORD_LINK.finditer(text)} - known)
+    missing = sorted({m.group(2) for m in RECORD_LINK.finditer(text) if m.group(2)} - known)
     if missing:
         raise SystemExit(f"{paper}: record anchors absent at {COMMIT[:12]}: {', '.join(missing)}")
-    return RECORD_LINK.sub(lambda m: f"{REPOSITORY}/blob/{COMMIT}/{RECORD}#{m.group(2)}", text)
+    return RECORD_LINK.sub(lambda m: f"{REPOSITORY}/blob/{COMMIT}/{RECORD}"
+                           + (f"#{m.group(2)}" if m.group(2) else ""), text)
 
 
 def updated_paper(paper, links):

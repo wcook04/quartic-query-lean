@@ -1,0 +1,454 @@
+{
+  "schema": "quartic-round9-source-inventory-v1",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "Why the exponent is four",
+      "authors": [
+        "Will Cook"
+      ],
+      "edition": "Supplied round-nine draft, November 2026; repository commit 7772e4f2b98149a38ed69b88397982620f94bdac",
+      "access_date": "2026-11-04",
+      "read_status": "read sequentially in full as Markdown; PDF reviewed after freeze",
+      "locators_and_scope": "All 439 Markdown lines, all sections and all five questions and answers; all 21 PDF pages visually inspected collectively after freeze.",
+      "reviewers": [
+        "mathematician_other_field",
+        "undergraduate",
+        "physicist_engineer",
+        "lecturer"
+      ],
+      "packet_path": "repository/docs/exposition.md",
+      "sha256": "ce1887b35542c06e98132ac843f12eb78e9c4c224e7fb49f8da96255c21b240e",
+      "limitations": "All four are model simulations. The physicist read captions but did not inspect pixels. Individual page coverage is in evidence/pdf_inspection.json."
+    },
+    {
+      "id": "S02",
+      "title": "The randomized–quantum query exponent for total functions is four",
+      "authors": [
+        "Will Cook"
+      ],
+      "edition": "Current packet, commit 7772e4f2b98149a38ed69b88397982620f94bdac",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Introduction including §§1.1–1.3; selected §2 contracts and §3 Lemma 2, comparison, sampling and verification paragraphs (root: lines 1–175).",
+      "reviewers": [
+        "coordinating reviewer"
+      ],
+      "packet_path": "repository/docs/expert_companion.md",
+      "sha256": "7fddfa0c37f7d038ba58adde4e7685263f3ba7733d0fd87a8a3eea4ce653f8ab",
+      "limitations": "Supporting document only; not reviewed in full. Embedded URLs pin b8db5326715e5a4ce6996cde0768b92b5fcd5177, a different revision."
+    },
+    {
+      "id": "S03",
+      "title": "Complete reasoning record",
+      "authors": [
+        "Will Cook"
+      ],
+      "edition": "Current packet, commit 7772e4f2b98149a38ed69b88397982620f94bdac",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Targeted proof/link landings, not whole sections throughout: lines 180–201, 435–479, 680–701, 848–869, 1664–1680, 1908–1970, 2092–2126, 2666–2703, 3190–3211, 3352–3373, 3487–3512, 3826–3852.",
+      "reviewers": [
+        "coordinating reviewer"
+      ],
+      "packet_path": "repository/docs/reasoning_record.md",
+      "sha256": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+      "limitations": "The analytic Forrelation proof, full formal appendix and optional uniform refinement were not read end to end. Every link task and local target is recorded separately."
+    },
+    {
+      "id": "S04",
+      "title": "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity",
+      "authors": [
+        "OpenAI"
+      ],
+      "edition": "Supplied preprint, 5 October 2026",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Abstract, introduction and Theorem 1.1 (extracted lines 1–110); Lemma 3.1 and proof (305–355); tournament opening (365–432); minimax/lower-bound opening (523–580); planted-cell and randomized averaging passages (639–688).",
+      "reviewers": [
+        "coordinating reviewer",
+        "physicist_engineer"
+      ],
+      "packet_path": "paper/extracted.md",
+      "sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+      "url": "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf",
+      "limitations": "The inspected passages were read from the supplied packet. Direct remote fetch was restricted; this is not a broken-link determination. Not a full-paper reading or correctness audit."
+    },
+    {
+      "id": "S05",
+      "title": "Quantum Computing: Lecture Notes",
+      "authors": [
+        "Ronald de Wolf"
+      ],
+      "edition": "arXiv:1907.09415v6, 27 August 2026",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Selected §1.3 register/state passages (extracted 140–171, with a truncation limit in undergraduate read); §2.1 circuits (298–324); query/phase-oracle passage (345–356); Chapter 7 search, amplification and exercises (selected passages 931–1082). Root also checked the version date online.",
+      "reviewers": [
+        "all four perspectives, after their freeze"
+      ],
+      "packet_path": "literature/quartic-lit-dewolf-quantum-computing-lecture-notes/extracted.md",
+      "sha256": "57b133972c5e26ceb41d46e49a77a52ef1b03e0ee522ca1534dd6e48547f7dd5",
+      "url": "https://arxiv.org/abs/1907.09415v6",
+      "limitations": "Not the full lecture notes. Figure extraction was incomplete; no visual-quality claim about the source figure is made."
+    },
+    {
+      "id": "S06",
+      "title": "Complexity Measures and Decision Tree Complexity: A Survey",
+      "authors": [
+        "Harry Buhrman",
+        "Ronald de Wolf"
+      ],
+      "edition": "Author preprint dated 10 October 2002; TCS 288(1), 21–43 (2002)",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Selected introduction and §§3.1–3.3, printed pp.5–8, extracted approximately 170–340; lecturer separately inspected printed p.5 in the supplied PDF to check damaged OCR.",
+      "reviewers": [
+        "all four perspectives, after their freeze"
+      ],
+      "packet_path": "literature/quartic-lit-buhrman-dewolf-decision-tree-survey/extracted.md",
+      "sha256": "dd267ba1128aa08201558e63b5be431e11b9855b11cf0ac2f46216676ae2e8d8",
+      "url": "https://homepages.cwi.nl/~rdewolf/publ/qc/dectree.pdf",
+      "limitations": "No claims from unread later sections; OCR defects prevent reliable quotation from the extraction."
+    },
+    {
+      "id": "S07",
+      "title": "A Fast Quantum Mechanical Algorithm for Database Search",
+      "authors": [
+        "Lov K. Grover"
+      ],
+      "edition": "Supplied STOC 1996 / arXiv quant-ph/9605043 version",
+      "access_date": "2026-11-04",
+      "read_status": "opening read; remainder not read",
+      "locators_and_scope": "Opening and §1 introductory problem framing, extracted lines 1–70.",
+      "reviewers": [
+        "coordinating reviewer"
+      ],
+      "packet_path": "literature/quartic-ref-16-a-fast-quantum-mechanical-algorithm-for-da/extracted.md",
+      "sha256": "db53148f6af7f24548366e3fe5c7fbc660a1b060341fda513422038d1b3d9f53",
+      "url": "https://arxiv.org/abs/quant-ph/9605043",
+      "limitations": "Used for historical task-first framing, not as a complete modern query-model definition."
+    },
+    {
+      "id": "S08",
+      "title": "Forrelation: A Problem That Optimally Separates Quantum from Classical Computing",
+      "authors": [
+        "Scott Aaronson",
+        "Andris Ambainis"
+      ],
+      "edition": "Supplied arXiv:1411.5729v1; journal publication SICOMP 47(3), 982–1038 (2018)",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "§§3.1–3.2, printed pp.12–14, extracted lines 605–740: error convention, projection circuit/Figure 1, Proposition 6 interference test.",
+      "reviewers": [
+        "coordinating reviewer"
+      ],
+      "packet_path": "literature/quartic-ref-01-forrelation-a-problem-that-optimally-separ/extracted.md",
+      "sha256": "3d4e3dc004cfcc018ddd31bc1d750395b31ab84b9accffd4b764db7f6934c8ab",
+      "url": "https://arxiv.org/abs/1411.5729v1",
+      "limitations": "The k-query projection and the ceil(k/2)-query interference construction have different acceptance laws. The exposition's sufficient projection decoder is not criticized for lacking the optimal query count."
+    },
+    {
+      "id": "S09",
+      "title": "Separations in Query Complexity Using Cheat Sheets",
+      "authors": [
+        "Scott Aaronson",
+        "Shalev Ben-David",
+        "Robin Kothari"
+      ],
+      "edition": "Supplied arXiv:1511.01937v2; STOC 2016",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Introduction (extracted 1–80); §3.1 construction intuition (1411–1431) and start of §3.2 (1433–1455).",
+      "reviewers": [
+        "coordinating reviewer"
+      ],
+      "packet_path": "literature/quartic-ref-02-separations-in-query-complexity-using-chea/extracted.md",
+      "sha256": "39745f19fdbaad3fd6542cee69cd8fdabe02771f975e676aa2e375a208873e32",
+      "url": "https://arxiv.org/abs/1511.01937v2",
+      "limitations": "Selected construction motivation only; not a full review of all separation results."
+    },
+    {
+      "id": "S10",
+      "title": "k-Forrelation Optimally Separates Quantum and Classical Query Complexity",
+      "authors": [
+        "Nikhil Bansal",
+        "Makrand Sinha"
+      ],
+      "edition": "Supplied QIP 2021 talk slides",
+      "access_date": "2026-11-04",
+      "read_status": "introductory slides skimmed/read as extracted text",
+      "locators_and_scope": "Opening query-model, total/partial comparison, two-Forrelation geometry and circuit slides; extracted lines 1–125.",
+      "reviewers": [
+        "coordinating reviewer"
+      ],
+      "packet_path": "literature/quartic-lit-bansal-sinha-qip2021-slides/extracted.md",
+      "sha256": "a84de973ff7ea8ee9af57472b8d32d22804e6b5f148e73ce0b6511b50248519a",
+      "limitations": "Slides are not the proof source. The full research paper was separately retrieved as S13."
+    },
+    {
+      "id": "S11",
+      "title": "On Quantum versus Classical Query Complexity",
+      "authors": [
+        "Scott Aaronson",
+        "Andris Ambainis",
+        "Andrej Bogdanov",
+        "Tsun Ming Cheung",
+        "Krishnamoorthy Dinesh"
+      ],
+      "edition": "Supplied ECCC TR21-115, revision 2",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Title page, abstract and introduction opening, extracted lines 1–70; online report metadata checked.",
+      "reviewers": [
+        "coordinating reviewer"
+      ],
+      "packet_path": "literature/quartic-lit-aaronson-ambainis-bogdanov-quantum-vs-classical/extracted.md",
+      "sha256": "ee25526229fe5ffc64e1a27ec580beca10bdb1e154bcc263153ab14c40b96386",
+      "url": "https://eccc.weizmann.ac.il/report/2021/115/",
+      "limitations": "The packet README's Aaronson–Ambainis–Bogdanov–Yeung label is wrong. The source has five authors listed here. Later technical sections were not read."
+    },
+    {
+      "id": "S12",
+      "title": "Introduction to Quantum Information Science",
+      "authors": [
+        "Scott Aaronson"
+      ],
+      "edition": "Lecture notes, title page Fall 2018",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Selected §17.1 query/oracle discussion, §17.2 workspace/garbage discussion (printed pp.133–137); §22.1.2–§22.1.3 Grover geometry (printed pp.181–184).",
+      "reviewers": [
+        "coordinating reviewer"
+      ],
+      "url": "https://www.scottaaronson.com/qclec.pdf",
+      "limitations": "Selected web-parsed passages; not an endorsement of every formula or a full-notes review."
+    },
+    {
+      "id": "S13",
+      "title": "k-Forrelation Optimally Separates Quantum and Classical Query Complexity",
+      "authors": [
+        "Nikhil Bansal",
+        "Makrand Sinha"
+      ],
+      "edition": "arXiv:2008.07003v3, 17 November 2020; STOC 2021",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Equation (1.3), printed p.3; Theorem 1.3 and Corollary 1.4, p.4; selected §5.4 text near printed p.38.",
+      "reviewers": [
+        "coordinating reviewer"
+      ],
+      "url": "https://arxiv.org/pdf/2008.07003v3",
+      "limitations": "Theorem/promise and selected proof passage checked; the full analytic lower-bound proof was not reconstructed."
+    },
+    {
+      "id": "S14",
+      "title": "Degree vs. Approximate Degree and Quantum Implications of Huang's Sensitivity Theorem",
+      "authors": [
+        "Scott Aaronson",
+        "Shalev Ben-David",
+        "Robin Kothari",
+        "Shravas Rao",
+        "Avishay Tal"
+      ],
+      "edition": "arXiv:2010.12629v1, 23 October 2020; STOC 2021",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Abstract and introduction, printed pp.1–2; Conjecture 2, printed p.20.",
+      "reviewers": [
+        "coordinating reviewer"
+      ],
+      "url": "https://arxiv.org/pdf/2010.12629",
+      "limitations": "Universal quartic statement and historical cubic conjecture checked, not the full proof."
+    },
+    {
+      "id": "S15",
+      "title": "Tight Bounds on Quantum Searching",
+      "authors": [
+        "Michel Boyer",
+        "Gilles Brassard",
+        "Peter Høyer",
+        "Alain Tapp"
+      ],
+      "edition": "arXiv:quant-ph/9605034v1, 23 May 1996; draft 10 May 1996",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Introduction; §3.1 t=N/4 example and §4 Lemma 2/random iteration average, one-based PDF p.3.",
+      "reviewers": [
+        "coordinating reviewer",
+        "physicist_engineer"
+      ],
+      "url": "https://arxiv.org/pdf/quant-ph/9605034",
+      "limitations": "The 1998 journal typesetting was not read. The locator used is explicitly the 1996 arXiv version."
+    },
+    {
+      "id": "S16",
+      "title": "Quantum Amplitude Amplification and Estimation",
+      "authors": [
+        "Gilles Brassard",
+        "Peter Høyer",
+        "Michele Mosca",
+        "Alain Tapp"
+      ],
+      "edition": "arXiv:quant-ph/0005055v1, 15 May 2000; title dated 2 May 2000; published 2002",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Opening; §2 operator definition, Lemma 1 and selected two-subspace discussion (printed pp.4–6); Theorem 3 and QSearch procedure (printed pp.8–9).",
+      "reviewers": [
+        "coordinating reviewer"
+      ],
+      "url": "https://arxiv.org/pdf/quant-ph/0005055",
+      "limitations": "Expected-cost QSearch was distinguished from the packet's capped lemma. The amplitude-estimation sections were not read."
+    },
+    {
+      "id": "S17",
+      "title": "Improved Direct Product Theorems for Randomized Query Complexity",
+      "authors": [
+        "Andrew Drucker"
+      ],
+      "edition": "Author PDF essentially matching Computational Complexity 21(2), 197–244 (2012)",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Abstract/introduction; selected §3 definitions and Lemmas 3.1–3.2, printed pp.10–12, including posterior-product and continuation-value passages.",
+      "reviewers": [
+        "coordinating reviewer"
+      ],
+      "url": "https://people.csail.mit.edu/andyd/SDPT.pdf",
+      "limitations": "The pooled-budget theorem is not substituted for the packet's separate-per-instance cap. Later XOR/threshold sections were not read."
+    },
+    {
+      "id": "S18",
+      "title": "Understanding Quantum Algorithms via Query Complexity",
+      "authors": [
+        "Andris Ambainis"
+      ],
+      "edition": "arXiv:1712.06349v1, 18 December 2017; ICM 2018 survey",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "Introduction and §2.1 query model: algorithm coins, worst-case caps, alternating input-independent unitaries and queries; selected HTML lines 54–117.",
+      "reviewers": [
+        "physicist_engineer",
+        "coordinating reviewer"
+      ],
+      "url": "https://arxiv.org/html/1712.06349v1",
+      "limitations": "Historical separation bounds in the survey are not treated as current."
+    },
+    {
+      "id": "S19",
+      "title": "Lecture Notes on Quantum Algorithms",
+      "authors": [
+        "Andrew M. Childs"
+      ],
+      "edition": "Title-page edition 17 April 2025",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "§1.4 Reversible computation, printed pp.2–3; §§21.1–21.2, especially Quantum queries, printed pp.97–98.",
+      "reviewers": [
+        "undergraduate",
+        "coordinating reviewer"
+      ],
+      "url": "https://www.cs.umd.edu/~amchilds/qa/qa.pdf",
+      "limitations": "Use section names and printed page numbers. The undergraduate draft source ledger mislabeled the subsection titles and one PDF-page offset; these are corrected here. §19.3 was not read in full."
+    },
+    {
+      "id": "S20",
+      "title": "Lecture 4: Grover's Algorithm",
+      "authors": [
+        "John Wright (lecturer)",
+        "Tom Tseng (scribe)"
+      ],
+      "edition": "CMU 15-859BB, 21 September 2015",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "§§1–2.3 problem/model opening; selected reflection discussion near printed pp.5–6.",
+      "reviewers": [
+        "lecturer",
+        "coordinating reviewer"
+      ],
+      "url": "https://www.cs.cmu.edu/~odonnell/quantum15/lecture04.pdf",
+      "limitations": "Selective teaching comparison, not a complete mathematical endorsement."
+    },
+    {
+      "id": "S21",
+      "title": "Lecture 5: Quantum Query Complexity",
+      "authors": [
+        "Ryan O'Donnell (lecturer)",
+        "Linus Hamilton (scribe)"
+      ],
+      "edition": "CMU Fall 2015, 23 September 2015",
+      "access_date": "2026-11-04",
+      "read_status": "selected passages read",
+      "locators_and_scope": "§§1–3, including Grover recap and uncomputation footnote; opening input/promise/output examples in §4.",
+      "reviewers": [
+        "lecturer",
+        "coordinating reviewer"
+      ],
+      "url": "https://www.cs.cmu.edu/~odonnell/quantum15/lecture05.pdf",
+      "limitations": "Used for visible task scope and workspace cautions, not for unrestricted equivalence of a bare phase oracle with the bit oracle."
+    }
+  ],
+  "method_materials": [
+    {
+      "path": "skills/record-to-expository/SKILL.md",
+      "scope": "Lecturer read all 333 lines after freeze; root read the substantive reader/prerequisite/procedure sections and closing contract.",
+      "sha256": "9bc60f5c2bfeda0e411388702ea257be216c36b2a852e2ba728f30f7a085be54"
+    },
+    {
+      "path": "skills/quartic-writing-method.md",
+      "scope": "Read in full after freeze by root and lecturer.",
+      "sha256": "a1c1cb1b215e81664aa7c0aae8e6b8859016e66e1cef1375350643779dee4490"
+    },
+    {
+      "path": "skills/register-stage.md",
+      "scope": "Lecturer read in full after freeze.",
+      "sha256": "4aa2c03637f4981b3be97e01d41bc574750a275122d8b6c67cd920ecc49adefd"
+    },
+    {
+      "path": "reader_principles.md",
+      "scope": "Root read before freeze (protocol deviation disclosed); lecturer read after freeze.",
+      "sha256": "32a405467a0f201339dfc564beeea676bd28c050d1ef6c1350f52c029c090441"
+    },
+    {
+      "path": "skills/README.md",
+      "scope": "Root read method index before freeze (protocol deviation disclosed).",
+      "sha256": "d6908bded5388a7474c49201aa42128ee6b60835a23a5bbb131424d1c748bd2b"
+    },
+    {
+      "path": "register/REGISTER_RULES.md",
+      "scope": "Lecturer selected RG01, RG02, RG06, RG13, RG25, RG26.",
+      "sha256": "7d68627d6d453d4e4d927c7e5d18f1a37ebc3d65b50a23c68e91a23a1210b975"
+    },
+    {
+      "path": "register/measurement.txt",
+      "scope": "Root inspected the exposition measurements and examples; no new corpus measurement run.",
+      "sha256": "fbcbafef59e5e1b45bc1ee82a7f6207d08aae652a79a64e97f974335690694c3"
+    },
+    {
+      "path": "exemplars/expository.md",
+      "scope": "Lecturer selected lines 18–95, 981–1008 and 1343–1387; other exemplars not read.",
+      "sha256": "67d89307e8131e8c2ca1f21749dce062218534d1ac25d4c5860f2500e234e33f"
+    }
+  ],
+  "cited_or_present_but_not_read": [
+    "Yao 1977 original paper",
+    "Nisan 1991",
+    "Barnum–Saks–Szegedy 2003",
+    "Huang 2019 full proof",
+    "Göös–Pitassi–Watson 2018 full paper",
+    "Ambainis et al. pointer-functions full paper",
+    "Shaltiel 2003 full paper",
+    "Høyer–Mosca–de Wolf 2003 full paper",
+    "Dürr–Høyer minimum finding full paper",
+    "Mande–Paraashar–Saurabh 2023 full paper",
+    "Ambainis–Iraids–Kokainis 2026 full paper",
+    "Ben-David–Kothari 2026 full paper",
+    "Sherstov–Storozhenko–Wu 2023 full paper",
+    "Tal 2020 full paper"
+  ],
+  "other_materials": {
+    "attached_transcript": "Historical task scope and final actions inspected; no historical test command was rerun.",
+    "previous_round": "164 EX improvement records and 8 selected XP items; full details in previous_round_audit.json.",
+    "unusable_online_material": "Lecturer's CMU 2018 lectures 18/19 produced title-only content/timeouts and are not used. Some direct GitHub fetches were restricted."
+  },
+  "quotation_policy": "No outside-source quotation is reproduced in the literature comparison. Draft quotations in findings are exact current user-supplied text, at most 25 whitespace-separated words each."
+}

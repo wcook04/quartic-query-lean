@@ -78,3 +78,11 @@ and 40 method findings. Their [intake](round8/intake.json) binds the original
 bytes; [dispositions](../adjudication/round8_synthesis.json) and
 [revision notes](../adjudication/round8_revision.md) identify what changed in the
 maintained papers and what was deliberately retained.
+
+## Round-nine returns
+
+The [three round-nine returns](round9/README.md) preserve 538 manuscript findings,
+48 method findings and the reviewers' declared coverage limits. The
+[intake manifest](round9/intake.json) preserves their original identities;
+[the revision account](../adjudication/round9_revision.md) maps the findings to
+current manuscript decisions and validation.

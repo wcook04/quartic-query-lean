@@ -2,8 +2,10 @@
 import importlib.util
 import json
 from pathlib import Path
+import posixpath
 import tempfile
 import unittest
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location('round9', ROOT / 'tools/build_round9_packets.py')
@@ -44,6 +46,51 @@ class RoundNineTests(unittest.TestCase):
         for job, slugs in M.LITERATURE.items():
             self.assertEqual(len(slugs), len(set(slugs)))
             self.assertFalse(set(slugs) - set(M.base.CATALOG), job)
+
+    def test_relocated_method_links_resolve_from_delivered_location(self):
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            root = folder / 'repo'
+            (root / 'docs').mkdir(parents=True)
+            (root / 'research').mkdir()
+            generated = folder / 'generated'; generated.mkdir()
+            original = ('[contract](statement_evidence_contract.md#scope)\n'
+                        '[decisions](../research/decisions.json)\n'
+                        '[reference][guide]\n[guide]: <other%20guide.md#details>\n'
+                        '[local](#section) [web](https://example.org/guide)\n')
+            (root / 'docs/writing_method.md').write_text(original)
+            (root / 'docs/statement_evidence_contract.md').write_text('# Scope\n[detail](detail.md)\n')
+            (root / 'docs/detail.md').write_text('# Detail\n')
+            (root / 'docs/other guide.md').write_text('# Details\n')
+            (root / 'research/decisions.json').write_text('{}')
+            files = {}
+            M.add_local_writing_method(files, root, generated)
+            alias = 'skills/quartic-writing-method.md'
+            relocated = files[alias][0].read_text()
+            self.assertEqual(original, files['repository/docs/writing_method.md'][0].read_text())
+            self.assertIn('../repository/docs/statement_evidence_contract.md#scope', relocated)
+            self.assertIn('<../repository/docs/other%20guide.md#details>', relocated)
+            self.assertIn('[local](#section) [web](https://example.org/guide)', relocated)
+            self.assertIn('repository/docs/detail.md', files)
+            for member, (path, _, _) in files.items():
+                if path.suffix != '.md':
+                    continue
+                for link in M.base.link_targets(path.read_text()):
+                    parsed = urlsplit(link)
+                    if parsed.scheme or parsed.netloc or not parsed.path:
+                        continue
+                    target = posixpath.normpath(posixpath.join(posixpath.dirname(member), unquote(parsed.path)))
+                    self.assertIn(target, files, (member, link))
+
+    def test_method_relocation_rejects_missing_and_escaping_targets(self):
+        for target in ('missing.md', '../../outside.md'):
+            with self.subTest(target=target), tempfile.TemporaryDirectory() as temp:
+                folder = Path(temp)
+                root = folder / 'repo'; (root / 'docs').mkdir(parents=True)
+                (folder / 'outside.md').write_text('outside')
+                (root / 'docs/writing_method.md').write_text(f'[bad]({target})')
+                with self.assertRaises(ValueError):
+                    M.add_local_writing_method({}, root, folder)
 
     def fixture(self, folder):
         root = folder / 'repo'; (root / 'docs').mkdir(parents=True)

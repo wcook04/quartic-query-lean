@@ -1,0 +1,1328 @@
+{
+  "source_path": "repository/docs/reasoning_record.md",
+  "source_sha256": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+  "source_line_count": 6587,
+  "source_bytes": 473501,
+  "primary_pass_status": "complete source reading; chronological protocol limited by previews/recovery and post-freeze state reconstruction",
+  "read_ranges": [
+    [
+      1,
+      6587
+    ]
+  ],
+  "unread_ranges": [],
+  "nonblank_character_coverage": {
+    "covered": true,
+    "uncovered_character_count": 0,
+    "overlapping_character_count": 0,
+    "method": "exact offset union against original source; computational accounting only"
+  },
+  "unit_count": 5276,
+  "unit_type_counts": {
+    "heading": 250,
+    "prose_sentence": 2457,
+    "anchor_metadata": 365,
+    "source_comment": 857,
+    "prose_fragment": 323,
+    "display_math": 304,
+    "catalogue_metadata": 1,
+    "table": 9,
+    "catalogue_sentence": 193,
+    "catalogue_navigation": 121,
+    "catalogue_fragment": 3,
+    "bibliography_sentence": 239,
+    "link_definition": 154
+  },
+  "prose_sentence_count": 2457,
+  "catalogue_sentence_count": 193,
+  "bibliography_sentence_count": 239,
+  "prose_fragment_count": 326,
+  "nonprose_unit_count": 2061,
+  "blank_layout_line_count": 1888,
+  "first_locator": {
+    "unit_id": "U00001",
+    "line_start": 1,
+    "line_end": 1,
+    "quote": "# A nearly quartic separation between randomized and quantum queries: a complete reasoning record"
+  },
+  "last_locator": {
+    "unit_id": "U05276",
+    "line_start": 6587,
+    "line_end": 6587,
+    "quote": "<!-- /lean-links -->"
+  },
+  "section_coverage": [
+    {
+      "line_start": 1,
+      "line_end": 434,
+      "source_read": true,
+      "unit_count": 427,
+      "unit_type_counts": {
+        "heading": 11,
+        "prose_sentence": 307,
+        "anchor_metadata": 18,
+        "source_comment": 38,
+        "prose_fragment": 26,
+        "display_math": 25,
+        "catalogue_metadata": 1,
+        "table": 1
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 435,
+      "line_end": 845,
+      "source_read": true,
+      "unit_count": 289,
+      "unit_type_counts": {
+        "heading": 6,
+        "prose_sentence": 159,
+        "anchor_metadata": 12,
+        "source_comment": 43,
+        "prose_fragment": 35,
+        "display_math": 32,
+        "table": 2
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 846,
+      "line_end": 1203,
+      "source_read": true,
+      "unit_count": 195,
+      "unit_type_counts": {
+        "heading": 5,
+        "anchor_metadata": 9,
+        "source_comment": 34,
+        "prose_sentence": 85,
+        "prose_fragment": 31,
+        "display_math": 31
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 1204,
+      "line_end": 1651,
+      "source_read": true,
+      "unit_count": 264,
+      "unit_type_counts": {
+        "heading": 8,
+        "prose_sentence": 127,
+        "anchor_metadata": 14,
+        "source_comment": 41,
+        "prose_fragment": 38,
+        "display_math": 36
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 1652,
+      "line_end": 2024,
+      "source_read": true,
+      "unit_count": 318,
+      "unit_type_counts": {
+        "heading": 9,
+        "prose_sentence": 200,
+        "anchor_metadata": 28,
+        "source_comment": 37,
+        "prose_fragment": 23,
+        "display_math": 19,
+        "table": 2
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 2025,
+      "line_end": 2716,
+      "source_read": true,
+      "unit_count": 618,
+      "unit_type_counts": {
+        "heading": 6,
+        "prose_sentence": 393,
+        "anchor_metadata": 38,
+        "source_comment": 105,
+        "prose_fragment": 38,
+        "display_math": 37,
+        "table": 1
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 2717,
+      "line_end": 3673,
+      "source_read": true,
+      "unit_count": 623,
+      "unit_type_counts": {
+        "heading": 15,
+        "prose_sentence": 340,
+        "anchor_metadata": 39,
+        "prose_fragment": 56,
+        "display_math": 54,
+        "source_comment": 117,
+        "table": 2
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 3674,
+      "line_end": 3825,
+      "source_read": true,
+      "unit_count": 112,
+      "unit_type_counts": {
+        "heading": 4,
+        "prose_sentence": 56,
+        "anchor_metadata": 4,
+        "source_comment": 8,
+        "prose_fragment": 20,
+        "display_math": 20
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 3826,
+      "line_end": 4091,
+      "source_read": true,
+      "unit_count": 251,
+      "unit_type_counts": {
+        "heading": 7,
+        "prose_sentence": 152,
+        "anchor_metadata": 20,
+        "source_comment": 20,
+        "prose_fragment": 26,
+        "display_math": 26
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 4092,
+      "line_end": 5598,
+      "source_read": true,
+      "unit_count": 1002,
+      "unit_type_counts": {
+        "heading": 132,
+        "prose_sentence": 66,
+        "anchor_metadata": 122,
+        "source_comment": 365,
+        "catalogue_sentence": 193,
+        "catalogue_navigation": 121,
+        "catalogue_fragment": 3
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 5599,
+      "line_end": 5754,
+      "source_read": true,
+      "unit_count": 305,
+      "unit_type_counts": {
+        "heading": 1,
+        "bibliography_sentence": 239,
+        "anchor_metadata": 30,
+        "source_comment": 2,
+        "prose_fragment": 5,
+        "link_definition": 28
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 5755,
+      "line_end": 5969,
+      "source_read": true,
+      "unit_count": 133,
+      "unit_type_counts": {
+        "heading": 4,
+        "prose_sentence": 83,
+        "anchor_metadata": 6,
+        "source_comment": 10,
+        "prose_fragment": 15,
+        "display_math": 15
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 5970,
+      "line_end": 6057,
+      "source_read": true,
+      "unit_count": 127,
+      "unit_type_counts": {
+        "heading": 8,
+        "anchor_metadata": 9,
+        "prose_sentence": 96,
+        "source_comment": 14
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 6058,
+      "line_end": 6458,
+      "source_read": true,
+      "unit_count": 484,
+      "unit_type_counts": {
+        "heading": 34,
+        "anchor_metadata": 16,
+        "prose_sentence": 393,
+        "source_comment": 21,
+        "prose_fragment": 10,
+        "display_math": 9,
+        "table": 1
+      },
+      "contemporaneous_per_sentence_states": false
+    },
+    {
+      "line_start": 6459,
+      "line_end": 6587,
+      "source_read": true,
+      "unit_count": 128,
+      "unit_type_counts": {
+        "source_comment": 2,
+        "link_definition": 126
+      },
+      "contemporaneous_per_sentence_states": false
+    }
+  ],
+  "reader_count": 1,
+  "reader_type": "one model simulation, not an observed human reader or independent perspective study",
+  "prior_exposure": [
+    "Inherited context included truncated excerpts of the pasted integration transcript before assignment."
+  ],
+  "preview_and_recovery_exposures": [
+    "An oversized title-through-model read exposed parts of §2.6 before the intervening text was fully visible.",
+    "The §3.1–§3.5 read exposed the small-instance table before the arithmetic compiler subsection was fully visible.",
+    "Further middle-output omissions in §§7.3, C, F.1, G.3, G.5 and the link tail were reread; later visible portions were preview exposure.",
+    "Two short recovery ranges in §§5.1 and 5.3 were reread at the end."
+  ],
+  "answer_exposed_examples": [
+    "§2.6 exact small examples",
+    "§3.5 smallest Forrelation instance",
+    "Worked results supplied by the manuscript; no timed or blinded human attempt is claimed."
+  ],
+  "detours_before_freeze": {
+    "external_papers_opened": false,
+    "prior_reviews_opened": false,
+    "writing_method_opened": false,
+    "companion_opened": false,
+    "Lean_source_opened": false,
+    "source_internal_rereads": "recovery of tool-output omissions only"
+  },
+  "after_freeze_activity": [
+    "Source-only rereads to check candidate feedback against current text.",
+    "Rule-assisted segmentation and exact coverage validation.",
+    "Manual reconstruction of local passage reading contexts, associated with each source unit."
+  ],
+  "state_recording": {
+    "contemporaneous_before_next_sentence": false,
+    "frozen_narrative_first": true,
+    "manual_context_profile_count": 112,
+    "unit_local_demands": "literal source assertions for semantic units; explicit identifier/target interpretation for metadata",
+    "available_before": "manual passage-entry reconstruction plus nearest preceding semantic unit",
+    "unresolved_after": "retained passage question, not an assertion that every sentence left that question open",
+    "not_recorded": "distinct contemporaneous per-sentence thought process, exercise timing, independent reader outcomes",
+    "limitation": "This artifact is a complete source-unit accounting ledger with reconstructed contextual states. It does not satisfy a strict prospective stop-and-record-before-each-next-sentence experiment.",
+    "unit_specific_contemporaneous_state_recovery": "not recoverable for all units; each row says so explicitly; provided contexts are separately labelled reconstruction"
+  },
+  "candidate_status": "195 rough transcribed candidates are pending independent root triage. issue_ids intentionally empty until accepted IDs are supplied; candidate_ids_pending_root_triage are non-assertive cross-references.",
+  "first_pass_freeze": {
+    "frozen_at_utc": "2026-11-04T10:48:49.910398+00:00",
+    "source_path": "repository/docs/reasoning_record.md",
+    "source_sha256": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+    "source_lines": 6587,
+    "read_ranges": [
+      [
+        1,
+        6587
+      ]
+    ],
+    "unread_ranges": [],
+    "prior_exposure": "Truncated inherited integration transcript; accidental tool preview exposures disclosed in first_pass.md. Not blind or human.",
+    "external_material_opened_before_freeze": false,
+    "first_pass_sha256": "4894f4ce4a0d2c37fa2bb2b554dc680b3afb8c9eaccd4b31fa63a9d1ab651330",
+    "first_pass_path": "work/chronological/first_pass.md",
+    "status": "frozen; findings and per-unit reconstruction in progress"
+  },
+  "segmentation_caveats": [
+    "Markdown displays, headings, tables, anchors, comments and reference targets are separate nonprose units.",
+    "Prose introducing or continuing a display is labelled fragment rather than pretending it is a complete sentence.",
+    "Exact source text and character offsets are retained for boundary inspection.",
+    "Rules protect inline math, code, links, numeric decimals and common abbreviations; no claim of flawless linguistic segmentation or automated semantic inspection is made."
+  ],
+  "validation": {
+    "jsonl_parsed": true,
+    "unique_unit_ids": true,
+    "all_quotes_exact": true,
+    "all_quotes_at_most_25_words": true,
+    "all_nonblank_source_characters_accounted_for": true,
+    "source_hash_unchanged": true
+  },
+  "strict_prospective_protocol_satisfied": false,
+  "contemporaneous_sentence_states_recorded": 0,
+  "reconstructed_unit_states": 5276,
+  "semantic_sentence_boundary_validation": "Rule-assisted segmentation with selected manual boundary inspection; exact nonblank character coverage is exhaustive. No claim of independent manual adjudication of every punctuation boundary.",
+  "source_sha256_all_drafts": {
+    "repository/docs/expert_companion.bib": "03a8022966eb3427bc41a1b70cca58f8822fdbe1dd28b1b287486402e91f6b2f",
+    "repository/docs/expert_companion.md": "7fddfa0c37f7d038ba58adde4e7685263f3ba7733d0fd87a8a3eea4ce653f8ab",
+    "repository/docs/expert_companion.pdf": "e9b2aa243c8b8f3dfefdfbe3e4f277fd2ee5bda3e3e742e60d190a8e208e6d35",
+    "repository/docs/exposition.bib": "4d5e850843df803c15df72578e35fdb86694035dba684ee21b1ca6ee48a9efa9",
+    "repository/docs/exposition.md": "ce1887b35542c06e98132ac843f12eb78e9c4c224e7fb49f8da96255c21b240e",
+    "repository/docs/exposition.pdf": "c011fdbe8cf59578eb295370e22b76b59b113e2d66eb9e5ded5bbbf0366ccdd6",
+    "repository/docs/reasoning_record.bib": "89c47ffefcfe6216ee5c7a78861dd2c62013087470ab0976029edcfab89d6491",
+    "repository/docs/reasoning_record.md": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+    "repository/docs/reasoning_record.pdf": "ba8002cd4765371c67654b2fd98bbea9dff3704e3a518828e715ce9c69fb24eb"
+  },
+  "full_section_coverage": [
+    {
+      "title": "A nearly quartic separation between randomized and quantum queries: a complete reasoning record",
+      "line_start": 1,
+      "line_end": 9,
+      "source_read": true,
+      "unit_count": 19,
+      "unit_types": {
+        "heading": 1,
+        "prose_sentence": 17,
+        "anchor_metadata": 1
+      },
+      "finding_count": 5,
+      "first_unit_id": "U00001",
+      "last_unit_id": "U00019"
+    },
+    {
+      "title": "Reading guide",
+      "line_start": 10,
+      "line_end": 37,
+      "source_read": true,
+      "unit_count": 31,
+      "unit_types": {
+        "heading": 1,
+        "prose_sentence": 30
+      },
+      "finding_count": 5,
+      "first_unit_id": "U00020",
+      "last_unit_id": "U00050"
+    },
+    {
+      "title": "1. The theorem and the construction",
+      "line_start": 38,
+      "line_end": 148,
+      "source_read": true,
+      "unit_count": 102,
+      "unit_types": {
+        "heading": 2,
+        "anchor_metadata": 5,
+        "source_comment": 11,
+        "prose_sentence": 73,
+        "prose_fragment": 5,
+        "display_math": 5,
+        "catalogue_metadata": 1
+      },
+      "finding_count": 4,
+      "first_unit_id": "U00051",
+      "last_unit_id": "U00152"
+    },
+    {
+      "title": "2. Models, promises and query budgets",
+      "line_start": 149,
+      "line_end": 434,
+      "source_read": true,
+      "unit_count": 275,
+      "unit_types": {
+        "heading": 7,
+        "prose_sentence": 187,
+        "anchor_metadata": 12,
+        "source_comment": 27,
+        "prose_fragment": 21,
+        "display_math": 20,
+        "table": 1
+      },
+      "finding_count": 11,
+      "first_unit_id": "U00153",
+      "last_unit_id": "U00427"
+    },
+    {
+      "title": "3. Forrelation: promise, circuit, and randomized hardness",
+      "line_start": 435,
+      "line_end": 1651,
+      "source_read": true,
+      "unit_count": 748,
+      "unit_types": {
+        "heading": 19,
+        "prose_sentence": 371,
+        "anchor_metadata": 35,
+        "source_comment": 118,
+        "prose_fragment": 104,
+        "display_math": 99,
+        "table": 2
+      },
+      "finding_count": 42,
+      "first_unit_id": "U00428",
+      "last_unit_id": "U01175"
+    },
+    {
+      "title": "4. Transcripts, addressed certificates, and the total function",
+      "line_start": 1652,
+      "line_end": 2024,
+      "source_read": true,
+      "unit_count": 318,
+      "unit_types": {
+        "heading": 9,
+        "prose_sentence": 200,
+        "anchor_metadata": 28,
+        "source_comment": 37,
+        "prose_fragment": 23,
+        "display_math": 19,
+        "table": 2
+      },
+      "finding_count": 14,
+      "first_unit_id": "U01176",
+      "last_unit_id": "U01493"
+    },
+    {
+      "title": "5. Quantum evaluation on every input",
+      "line_start": 2025,
+      "line_end": 2716,
+      "source_read": true,
+      "unit_count": 618,
+      "unit_types": {
+        "heading": 6,
+        "prose_sentence": 393,
+        "anchor_metadata": 38,
+        "source_comment": 105,
+        "prose_fragment": 38,
+        "display_math": 37,
+        "table": 1
+      },
+      "finding_count": 37,
+      "first_unit_id": "U01494",
+      "last_unit_id": "U02111"
+    },
+    {
+      "title": "6. The classical lower bound",
+      "line_start": 2717,
+      "line_end": 3673,
+      "source_read": true,
+      "unit_count": 623,
+      "unit_types": {
+        "heading": 15,
+        "prose_sentence": 340,
+        "anchor_metadata": 39,
+        "prose_fragment": 56,
+        "display_math": 54,
+        "source_comment": 117,
+        "table": 2
+      },
+      "finding_count": 46,
+      "first_unit_id": "U02112",
+      "last_unit_id": "U02734"
+    },
+    {
+      "title": "7. The optimal exponent",
+      "line_start": 3674,
+      "line_end": 3825,
+      "source_read": true,
+      "unit_count": 112,
+      "unit_types": {
+        "heading": 4,
+        "prose_sentence": 56,
+        "anchor_metadata": 4,
+        "source_comment": 8,
+        "prose_fragment": 20,
+        "display_math": 20
+      },
+      "finding_count": 13,
+      "first_unit_id": "U02735",
+      "last_unit_id": "U02846"
+    },
+    {
+      "title": "Appendix A. The universal quartic bound",
+      "line_start": 3826,
+      "line_end": 4091,
+      "source_read": true,
+      "unit_count": 251,
+      "unit_types": {
+        "heading": 7,
+        "prose_sentence": 152,
+        "anchor_metadata": 20,
+        "source_comment": 20,
+        "prose_fragment": 26,
+        "display_math": 26
+      },
+      "finding_count": 10,
+      "first_unit_id": "U02847",
+      "last_unit_id": "U03097"
+    },
+    {
+      "title": "Appendix B. Mathematical statement catalogue",
+      "line_start": 4092,
+      "line_end": 5598,
+      "source_read": true,
+      "unit_count": 1002,
+      "unit_types": {
+        "heading": 132,
+        "prose_sentence": 66,
+        "anchor_metadata": 122,
+        "source_comment": 365,
+        "catalogue_sentence": 193,
+        "catalogue_navigation": 121,
+        "catalogue_fragment": 3
+      },
+      "finding_count": 2,
+      "first_unit_id": "U03098",
+      "last_unit_id": "U04099"
+    },
+    {
+      "title": "Appendix C. References and inspected editions",
+      "line_start": 5599,
+      "line_end": 5754,
+      "source_read": true,
+      "unit_count": 305,
+      "unit_types": {
+        "heading": 1,
+        "bibliography_sentence": 239,
+        "anchor_metadata": 30,
+        "source_comment": 2,
+        "prose_fragment": 5,
+        "link_definition": 28
+      },
+      "finding_count": 1,
+      "first_unit_id": "U04100",
+      "last_unit_id": "U04404"
+    },
+    {
+      "title": "Appendix D. The earlier sufficient threshold",
+      "line_start": 5755,
+      "line_end": 5851,
+      "source_read": true,
+      "unit_count": 52,
+      "unit_types": {
+        "heading": 1,
+        "prose_sentence": 30,
+        "anchor_metadata": 3,
+        "source_comment": 6,
+        "prose_fragment": 6,
+        "display_math": 6
+      },
+      "finding_count": 4,
+      "first_unit_id": "U04405",
+      "last_unit_id": "U04456"
+    },
+    {
+      "title": "Appendix E. Source comparisons for the Forrelation bound",
+      "line_start": 5852,
+      "line_end": 5969,
+      "source_read": true,
+      "unit_count": 81,
+      "unit_types": {
+        "heading": 3,
+        "anchor_metadata": 3,
+        "prose_sentence": 53,
+        "source_comment": 4,
+        "prose_fragment": 9,
+        "display_math": 9
+      },
+      "finding_count": 10,
+      "first_unit_id": "U04457",
+      "last_unit_id": "U04537"
+    },
+    {
+      "title": "Appendix F. Execution history",
+      "line_start": 5970,
+      "line_end": 6057,
+      "source_read": true,
+      "unit_count": 127,
+      "unit_types": {
+        "heading": 8,
+        "anchor_metadata": 9,
+        "prose_sentence": 96,
+        "source_comment": 14
+      },
+      "finding_count": 7,
+      "first_unit_id": "U04538",
+      "last_unit_id": "U04664"
+    },
+    {
+      "title": "Appendix G. Formal statements and evidence",
+      "line_start": 6058,
+      "line_end": 6454,
+      "source_read": true,
+      "unit_count": 479,
+      "unit_types": {
+        "heading": 33,
+        "anchor_metadata": 15,
+        "prose_sentence": 390,
+        "source_comment": 21,
+        "prose_fragment": 10,
+        "display_math": 9,
+        "table": 1
+      },
+      "finding_count": 25,
+      "first_unit_id": "U04665",
+      "last_unit_id": "U05143"
+    },
+    {
+      "title": "Use of AI tools",
+      "line_start": 6455,
+      "line_end": 6587,
+      "source_read": true,
+      "unit_count": 133,
+      "unit_types": {
+        "heading": 1,
+        "anchor_metadata": 1,
+        "prose_sentence": 3,
+        "source_comment": 2,
+        "link_definition": 126
+      },
+      "finding_count": 1,
+      "first_unit_id": "U05144",
+      "last_unit_id": "U05276"
+    }
+  ],
+  "simulated_panel": [
+    {
+      "perspective": "simulated research mathematician outside query complexity",
+      "scope": [
+        [
+          1,
+          6587
+        ]
+      ],
+      "role": "primary complete source-order reading",
+      "anchor": "Proof-reconstructing mathematical reader; source mathematical prerequisites and the supplied long-record exemplar, not a named person.",
+      "protocol_limit": "Strict prospective per-sentence state recording was not performed."
+    },
+    {
+      "perspective": "simulated quantum-algorithms researcher",
+      "scope": [
+        [
+          1,
+          845
+        ],
+        [
+          1652,
+          2716
+        ],
+        [
+          3826,
+          4091
+        ]
+      ],
+      "role": "scoped specialist source-order pass and subsequent verification",
+      "anchor": "BHMT amplitude-amplification and BBHT/AA source interfaces, with exact inspected editions in Q-S02,Q-S03,Q-S05."
+    },
+    {
+      "perspective": "simulated randomized lower-bound researcher",
+      "scope": [
+        [
+          1,
+          148
+        ],
+        [
+          846,
+          1651
+        ],
+        [
+          2717,
+          3825
+        ],
+        [
+          5755,
+          5969
+        ]
+      ],
+      "role": "scoped specialist source-order pass and subsequent verification",
+      "anchor": "Drucker continuation values, Shaltiel fairness and BS/SSW source comparisons, exact editions in the source inventory."
+    },
+    {
+      "perspective": "simulated formal-methods reader",
+      "scope": [
+        [
+          1,
+          434
+        ],
+        [
+          5970,
+          6587
+        ]
+      ],
+      "role": "scoped formal/source-provenance pass plus named verification detours",
+      "anchor": "Official Lean proof-validation documentation and Avigad et al., Anatomy of a Formal Proof, selected passages."
+    }
+  ],
+  "specialist_coverage": {
+    "quantum": {
+      "perspective": "simulated quantum-algorithms researcher",
+      "lead": "repository/docs/reasoning_record.md",
+      "source_sha256": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+      "chronological_first_pass": {
+        "ranges": [
+          [
+            1,
+            845
+          ],
+          [
+            1652,
+            2716
+          ],
+          [
+            3826,
+            4091
+          ]
+        ],
+        "unreviewed_ranges": [
+          [
+            846,
+            1651
+          ],
+          [
+            2717,
+            3825
+          ],
+          [
+            4092,
+            6587
+          ]
+        ],
+        "first_locator": {
+          "line": 1,
+          "section": "Title"
+        },
+        "last_locator": {
+          "line": 4091,
+          "section": "End Appendix A"
+        },
+        "frozen_record": "first_pass.md",
+        "frozen_sha256": "8b4877a104912d7ff4c5087cb1252117c25ea945d665236fa2add77d3b26297b",
+        "sentence_and_nonprose_counts": "Not separately segmented in this specialist pass. Primary audit owns exhaustive unit coverage; these ranges do not substitute for it.",
+        "detours": [],
+        "answer_exposure": "Worked examples read in source order with displayed answers available; no blind exercise attempt claimed.",
+        "prior_exposure": "Parent task context included instructions and truncated integration material; specialist pass is explicitly simulated, not independent blind reading."
+      },
+      "second_pass_extra_lead_ranges": [
+        [
+          3773,
+          3825
+        ],
+        [
+          5600,
+          5645
+        ]
+      ],
+      "supporting_reads": {
+        "expert_companion.md": [
+          [
+            73,
+            178
+          ]
+        ],
+        "exposition.md": [
+          [
+            51,
+            97
+          ],
+          [
+            157,
+            295
+          ]
+        ]
+      },
+      "pdf": {
+        "supplied_file": "repository/docs/reasoning_record.pdf",
+        "total_pages": 132,
+        "pages_visually_viewed": [
+          9,
+          14,
+          15,
+          17,
+          18,
+          19,
+          20,
+          37,
+          38,
+          39,
+          41,
+          42,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          81,
+          82,
+          83,
+          84
+        ],
+        "viewed_count": 33,
+        "method": "PyMuPDF selective rasterization at 1.1 scale; every listed image explicitly viewed at approximately 674x872 pixels; no manuscript PDF rebuild."
+      },
+      "candidate_count": 79,
+      "prior_audit_count": 33,
+      "builds_rerun": false,
+      "comparator_rerun": false,
+      "input_files_modified": false
+    },
+    "classical": {
+      "mode": "Scoped simulated specialist reread; separate from complete primary sentence audit",
+      "perspective": "randomized_lower_bound_researcher",
+      "source_path": "repository/docs/reasoning_record.md",
+      "source_sha256": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+      "reviewed_ranges": [
+        [
+          1,
+          148
+        ],
+        [
+          846,
+          1651
+        ],
+        [
+          2717,
+          3825
+        ],
+        [
+          5755,
+          5969
+        ]
+      ],
+      "unreviewed_ranges_for_this_specialist": [
+        [
+          149,
+          845
+        ],
+        [
+          1652,
+          2716
+        ],
+        [
+          3826,
+          5754
+        ],
+        [
+          5970,
+          6587
+        ]
+      ],
+      "reviewed_line_count": 2278,
+      "first_pass_freeze": {
+        "frozen_at_utc": "2026-11-04T10:43:05.866791+00:00",
+        "file": "first_pass.md",
+        "sha256": "95a820dbcfc37c2e47a994179473ea83a1646542a024b20d548ae2ca20028afa",
+        "source_sha256": "7f4b4e0a550f2e181798a315c1cc4b4f1719d53351a4d6166bc79aaabbaa0dee",
+        "mode": "scoped simulated chronological specialist encounter",
+        "reviewed_ranges": [
+          [
+            1,
+            148
+          ],
+          [
+            846,
+            1651
+          ],
+          [
+            2717,
+            3825
+          ],
+          [
+            5755,
+            5969
+          ]
+        ],
+        "external_sources_opened_before_freeze": false,
+        "primary_complete_audit": false
+      },
+      "chronological_order": "Assigned ranges read in increasing source order; no literature or earlier review before freeze. Intervening omitted ranges were not silently claimed.",
+      "answer_exposure": "AND table and its results arrived in one tool result; calculations were answer-exposed. Exposition Question 4 and answer read together only after freeze.",
+      "complete_sentence_audit": false,
+      "candidate_count": 102,
+      "candidate_quote_validation": "All exact substrings at asserted source line ranges; at most 25 whitespace-delimited words.",
+      "deferred_to_primary_reader": [
+        "Full sequential sentence coverage",
+        "Unassigned source intervals",
+        "Formal declaration equivalence and historical validation evidence"
+      ],
+      "actual_pdf_pages_visually_inspected": [
+        20,
+        23,
+        26,
+        29,
+        31,
+        32,
+        33,
+        60,
+        61,
+        64,
+        65,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        80,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "literature_review": "See sources.json for actual selected read scopes, editions and access limits.",
+      "builds_or_receipts_rerun": false,
+      "input_modified": false,
+      "post_final_triage_withdrawals": [
+        {
+          "id": "C009",
+          "line": 957,
+          "reason": "Line 981 explicitly distinguishes the normalization."
+        },
+        {
+          "id": "C012",
+          "line": 1081,
+          "reason": "The exact reflected layer and zeroed extension arguments are already explicit."
+        }
+      ],
+      "post_freeze_followup_text_read_ranges": [
+        [
+          5970,
+          5992
+        ],
+        [
+          6168,
+          6192
+        ],
+        [
+          6220,
+          6252
+        ],
+        [
+          6275,
+          6318
+        ],
+        [
+          6336,
+          6353
+        ],
+        [
+          6364,
+          6413
+        ],
+        [
+          3830,
+          3845
+        ],
+        [
+          6120,
+          6167
+        ],
+        [
+          6192,
+          6220
+        ],
+        [
+          6254,
+          6277
+        ],
+        [
+          6319,
+          6347
+        ],
+        [
+          6415,
+          6449
+        ]
+      ],
+      "post_freeze_metadata_scan": "Lean reference definitions at 6461–6586 scanned for pinned commit strings only; not counted as full sentence reading."
+    },
+    "formal": {
+      "read_ranges": [
+        [
+          1,
+          434
+        ],
+        [
+          5970,
+          6587
+        ]
+      ],
+      "scope_note": "Other current passages inspected on named verification detours; not credited as a second complete reading."
+    }
+  },
+  "pdf_inspection": {
+    "supplied_pdf_sha256": "ba8002cd4765371c67654b2fd98bbea9dff3704e3a518828e715ce9c69fb24eb",
+    "total_pages": 132,
+    "pages_visually_inspected": [
+      1,
+      2,
+      9,
+      14,
+      15,
+      17,
+      18,
+      19,
+      20,
+      23,
+      26,
+      29,
+      31,
+      32,
+      33,
+      37,
+      38,
+      39,
+      41,
+      42,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      64,
+      65,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      110,
+      111,
+      112,
+      113,
+      114,
+      117,
+      118,
+      121,
+      122,
+      125,
+      128,
+      131,
+      132
+    ],
+    "pages_not_visually_inspected": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      13,
+      16,
+      21,
+      22,
+      24,
+      25,
+      27,
+      28,
+      30,
+      34,
+      35,
+      36,
+      40,
+      43,
+      62,
+      63,
+      66,
+      67,
+      77,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      115,
+      116,
+      119,
+      120,
+      123,
+      124,
+      126,
+      127,
+      129,
+      130
+    ],
+    "page_count_inspected": 71,
+    "by_observer": {
+      "formal": [
+        1,
+        2,
+        85,
+        86,
+        114,
+        117,
+        118,
+        121,
+        122,
+        125,
+        128,
+        131,
+        132
+      ],
+      "quantum": [
+        9,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        37,
+        38,
+        39,
+        41,
+        42,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        81,
+        82,
+        83,
+        84
+      ],
+      "classical": [
+        20,
+        23,
+        26,
+        29,
+        31,
+        32,
+        33,
+        60,
+        61,
+        64,
+        65,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        80,
+        110,
+        111,
+        112,
+        113,
+        114
+      ]
+    },
+    "method": "Selective rasterization of supplied PDF at approximately ordinary page size; not a manuscript rebuild or full visual audit.",
+    "supporting_pdfs": "Selected original source pages checked as specified in checks/sources.json; the two companion PDFs were source-bound but not fully visually audited."
+  },
+  "finding_counts": {
+    "raw": 455,
+    "accepted": 237,
+    "merged_away": 80,
+    "rejected": 138,
+    "target": 400,
+    "target_reached": false,
+    "explanation": "The 400 target is not reached. Duplicate repairs and already-supplied explanations were removed; a complete source pass and 5276-unit index do not justify manufactured findings."
+  },
+  "mathematical_execution": {
+    "Lean_run": false,
+    "Comparator_run": false,
+    "historical_checker_scripts_rerun": false,
+    "fresh_proof_certificate": false
+  },
+  "frozen_log_checks": [
+    {
+      "perspective": "primary",
+      "file": "review_logs/primary_first_pass.md",
+      "sha256": "4894f4ce4a0d2c37fa2bb2b554dc680b3afb8c9eaccd4b31fa63a9d1ab651330",
+      "matches_freeze": true
+    },
+    {
+      "perspective": "quantum",
+      "file": "review_logs/quantum_first_pass.md",
+      "sha256": "8b4877a104912d7ff4c5087cb1252117c25ea945d665236fa2add77d3b26297b",
+      "matches_freeze": true
+    },
+    {
+      "perspective": "classical",
+      "file": "review_logs/classical_first_pass.md",
+      "sha256": "95a820dbcfc37c2e47a994179473ea83a1646542a024b20d548ae2ca20028afa",
+      "matches_freeze": true
+    },
+    {
+      "perspective": "formal",
+      "file": "review_logs/formal_first_pass.md",
+      "sha256": "4e865f0ea8afb9af928c590d3a9ea2ec0faff8be418a7927e49e0b834d185e45",
+      "matches_freeze": true
+    }
+  ]
+}

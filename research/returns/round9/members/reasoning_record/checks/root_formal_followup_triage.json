@@ -1,0 +1,204 @@
+{
+  "scope": "Requested independent screen of remaining surviving root F items at or after line 6168. No new findings, external sources, builds or receipt reruns.",
+  "items": [
+    {
+      "id": "F048",
+      "verdict": "merge_into_F051",
+      "suggested_severity": "low",
+      "current_evidence_lines": [
+        6137,
+        6178,
+        6266
+      ],
+      "reason": "The floor form, immediate ordinary transport and nonconflation warning are already explicit. The remaining convention-definition placement is the same issue as F051."
+    },
+    {
+      "id": "F050",
+      "verdict": "retain",
+      "suggested_severity": "medium",
+      "current_evidence_lines": [
+        6188
+      ],
+      "reason": "The import boundaries are present; reorganizing them separately from quantifiers and pins is supported organization advice."
+    },
+    {
+      "id": "F051",
+      "verdict": "retain",
+      "suggested_severity": "medium",
+      "current_evidence_lines": [
+        6192,
+        6266
+      ],
+      "reason": "The exact origins and meanings of the two review classifications are explained at 6266 after repeated use. This can absorb F048/F052 rather than counting those separately."
+    },
+    {
+      "id": "F052",
+      "verdict": "merge_into_F051",
+      "suggested_severity": "low",
+      "current_evidence_lines": [
+        6204,
+        6266
+      ],
+      "reason": "Build status and theorem identity are already explicit. The edition explanation for no corpus row is deferred to 6266 and is resolved by moving that source convention earlier."
+    },
+    {
+      "id": "F055",
+      "verdict": "drop",
+      "suggested_severity": null,
+      "current_evidence_lines": [
+        6248,
+        3394,
+        3419,
+        3434,
+        3448
+      ],
+      "reason": "A direct link to the optional §6.4 calculation is already supplied. The experiment is finite; suggesting an unprovided limiting argument overstates the gap."
+    },
+    {
+      "id": "F057",
+      "verdict": "drop",
+      "suggested_severity": null,
+      "current_evidence_lines": [
+        6275
+      ],
+      "reason": "The same sentence explicitly says the proof chooses n=q; the requested binder translation is already present."
+    },
+    {
+      "id": "F058",
+      "verdict": "retain_narrowed",
+      "suggested_severity": "low",
+      "current_evidence_lines": [
+        6277
+      ],
+      "reason": "An exact tensor-display back-reference is missing, but the text already identifies the issue as state equality in the same concrete representation, separate from the cap. Remove that broader ambiguity allegation."
+    },
+    {
+      "id": "F059",
+      "verdict": "overstated_or_drop",
+      "suggested_severity": "low",
+      "current_evidence_lines": [
+        6284
+      ],
+      "reason": "The last paragraph itself summarizes the bundled three-part formal lemma and its boundaries. No final contract is absent; only optional consolidation of repeated qualifications remains."
+    },
+    {
+      "id": "F062",
+      "verdict": "retain",
+      "suggested_severity": "low",
+      "current_evidence_lines": [
+        6315
+      ],
+      "reason": "The older-description correction is historical material inside the current list-contract paragraph; relocation is defensible."
+    },
+    {
+      "id": "F064",
+      "verdict": "retain_downgrade",
+      "suggested_severity": "low",
+      "current_evidence_lines": [
+        6300,
+        6307,
+        6311,
+        6324
+      ],
+      "reason": "The purpose and headline nondependency are already stated. Optional coverage-boundary labeling is organization, not a missing mathematical purpose."
+    },
+    {
+      "id": "F065",
+      "verdict": "retain",
+      "suggested_severity": "low",
+      "current_evidence_lines": [
+        6327,
+        6340,
+        6341
+      ],
+      "reason": "Clarifying register versus finite-dimensional Hilbert-space notation is a defensible small type-notation repair."
+    },
+    {
+      "id": "F066",
+      "verdict": "retain",
+      "suggested_severity": "medium",
+      "current_evidence_lines": [
+        6324,
+        6345,
+        6347
+      ],
+      "reason": "M and N are not defined in the local target block. A direct recall or exact backward link is warranted for this evidence entry point."
+    },
+    {
+      "id": "F069",
+      "verdict": "retain",
+      "suggested_severity": "low",
+      "current_evidence_lines": [
+        6390
+      ],
+      "reason": "The historical NCL-checked-gap identifier can be moved out of the current semantic description without changing its mathematical content."
+    },
+    {
+      "id": "F071",
+      "verdict": "retain",
+      "suggested_severity": "medium",
+      "current_evidence_lines": [
+        6407
+      ],
+      "reason": "The shared-interface boundary is present but late in a long paragraph. Moving it earlier is a bounded placement proposal, not an absence claim."
+    },
+    {
+      "id": "F072",
+      "verdict": "retain",
+      "suggested_severity": "low",
+      "current_evidence_lines": [
+        6252,
+        6411
+      ],
+      "reason": "The q to q−1 conversion is present late; placing it beside the earlier fixed-time comparison is a useful exact-link repair."
+    },
+    {
+      "id": "F073",
+      "verdict": "drop_as_absence_claim",
+      "suggested_severity": null,
+      "current_evidence_lines": [
+        6246,
+        6248,
+        6413
+      ],
+      "reason": "The stronger charging estimate and its exact m+1 formula have already been identified in G.4; the closing shorthand does not create a missing mathematical object."
+    },
+    {
+      "id": "F074",
+      "verdict": "drop",
+      "suggested_severity": null,
+      "current_evidence_lines": [
+        6427
+      ],
+      "reason": "Immediate context explicitly concerns discharged intermediate family/reindexing binders and unconditional endpoint declarations. It does not assert formalization of every printed route."
+    },
+    {
+      "id": "F075",
+      "verdict": "retain_narrowed",
+      "suggested_severity": "medium",
+      "current_evidence_lines": [
+        3841,
+        6144,
+        6434,
+        6442
+      ],
+      "reason": "The three-route comparison is late. The model bridge already names the imported headline route at 6144, so retain the exact forward-link and Appendix A placement request rather than claiming no earlier route identification."
+    },
+    {
+      "id": "F078",
+      "verdict": "retain_only_if_needed_as_provenance",
+      "suggested_severity": "low",
+      "current_evidence_lines": [
+        6170
+      ],
+      "reason": "The receipt confirms unsandboxed execution, but the prose claims external-checker selection, not process isolation. Any retained item is execution-provenance detail, not correction of a false isolation claim or evidence that acceptance failed."
+    }
+  ],
+  "receipt_read_only_check": {
+    "path": "repository/corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json",
+    "sandboxed": false,
+    "paranoid": true,
+    "status": "passed",
+    "command_flag": "--inadvisably-no-sandbox"
+  }
+}
