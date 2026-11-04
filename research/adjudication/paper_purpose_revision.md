@@ -298,3 +298,26 @@ exception is equally concrete: moving the plane-rotation argument out of this
 exposition would hide the operation the paper promises to teach. Likewise, a
 paper whose contribution is a comparison of two proofs should keep those proofs
 adjacent. This is editorial transfer evidence, not a reader study.
+
+Final link pinning changed the internal record citation in the specialist
+bibliography. A subsequent check detected the stale bibliography digest in the
+reviewed coverage map. Its source-byte bindings were refreshed without changing
+external literature editions, reference entries or coverage judgments.
+
+### Validation of this composition edition
+
+The delivered PDFs contain 19 specialist, 28 exposition and 95 record pages.
+The exposition's principal argument concludes on page 19. All 390 displayed
+formulas are byte-identical multisets relative to `d71775a`; all 459 record
+passage/claim markers and 222 explicit record anchors remain. The exposition
+adds two named destinations for relocated calculations. No Lean source changed.
+
+After the final source pin and coverage rebind, `make check` passed: 267 tests,
+two skips, no failures. The installed shared-tool environment passed 710 tests
+with two skips, layout and documentation-link checks, and the minimal CLI
+validate/inspect examples. Render receipts bind the final source bytes; PDF
+checks found no invalid internal destinations or printed workspace paths/hashes.
+The [validation record](paper_purpose_validation.json) retains the previous
+edition and adds this edition's exact hashes, inspection scope and limits.
+Shared guidance is proposed in
+[lean-exposition PR 50](https://github.com/wcook04/lean-exposition/pull/50).
