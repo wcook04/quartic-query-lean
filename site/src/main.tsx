@@ -6,6 +6,7 @@ import "@fontsource/stix-two-text/600.css";
 import "@fontsource-variable/source-sans-3";
 import "@fontsource/jetbrains-mono/400.css";
 import "katex/dist/katex.min.css";
+import "./family/family.css";
 import "./styles.css";
 import { App } from "./app/App";
 

@@ -7,6 +7,9 @@ import { inlineTex } from "../text/html";
 import { Exponent } from "./Exponent";
 import { Architecture } from "./Architecture";
 import type { BoardData } from "./Board";
+import { FilmSlot, type Chapter } from "../family/FilmSlot";
+import { SisterSites } from "../family/SisterSites";
+import type { FamilyFilm } from "../family/family";
 
 interface Entrance {
   audience: string;
@@ -23,6 +26,24 @@ export function Home({ edition }: { edition: Edition }) {
   const [loadError, setLoadError] = useState(false);
   const [board, setBoard] = useState<BoardData | null>(null);
   const [family, setFamily] = useState<any>(null);
+  const [video, setVideo] = useState<{ film: FamilyFilm; chapters: Chapter[] }>(() => ({ film: heldFilm(null), chapters: [] }));
+
+  // The edition's `video` entry turns the held frame into the YouTube film.
+  useEffect(() => {
+    let live = true;
+    edition.reader.resource("reading.json").then((reading: any) => {
+      if (!live || !reading.video) return;
+      const routes: any[] = reading.routes ?? [];
+      setVideo({
+        film: heldFilm(reading.video),
+        chapters: (reading.video.chapters ?? []).map((c: any) => {
+          const r = routes.find((x) => x.id === c.route);
+          return { ...c, title: c.title ?? r?.title, href: r?.reconstruction ? href({ page: "read", paper: "reconstruction", s: `passage/${r.reconstruction}` }) : undefined };
+        }),
+      });
+    }, () => {});
+    return () => { live = false; };
+  }, [edition]);
 
   useEffect(() => {
     let live = true;
@@ -64,6 +85,18 @@ export function Home({ edition }: { edition: Edition }) {
         </section>
       )}
 
+      <section className="film" aria-labelledby="film-h">
+        <FilmSlot film={video.film} chapters={video.chapters} />
+        <div>
+          <h2 id="film-h">Watch it first</h2>
+          <p>
+            The video follows the general exposition: the table, comparing columns through pointers, the hidden
+            address a classical algorithm must name, and the exponent. Each chapter opens the papers at the same
+            question.
+          </p>
+        </div>
+      </section>
+
       <section className="ways" aria-labelledby="ways-h">
         <h2 id="ways-h">Choose where to start</h2>
         <ol className="ways__list">
@@ -101,6 +134,17 @@ export function Home({ edition }: { edition: Edition }) {
           reviewed with AI. The site labels each of these where it appears. <a href={href({ page: "about" })}>How to read the evidence</a>
         </p>
       </section>
+      <footer className="home-foot"><SisterSites /></footer>
     </main>
   );
+}
+
+function heldFilm(v: any): FamilyFilm {
+  return {
+    id: "quartic", short: "Quartic", still: null,
+    title: v?.title ?? "A nearly quartic separation, explained",
+    description: v?.description ?? "The board, the quantum comparisons and why the exponent approaches four.",
+    youtube: v?.youtube_id ? `https://www.youtube.com/watch?v=${v.youtube_id}` : null,
+    duration_seconds: v?.duration_seconds ?? null,
+  };
 }
