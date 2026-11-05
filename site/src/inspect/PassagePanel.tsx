@@ -119,7 +119,11 @@ function Passage({ r }: { r: any }) {
           <h3>Recorded Comparator checks</h3>
           <ul className="plain">
             {r.comparisons.map((c: any) => (
-              <li key={c.path}><code>{c.path.split("/").pop()}</code>: {c.outcome === "passed" ? "passed" : c.outcome.replace(/_/g, " ")}{c.currentness !== "current" ? " (recorded for an earlier source)" : ""}</li>
+              <li key={c.path}>
+                {c.role === "negative_control" || /negative/.test(c.path) ? "A deliberately broken specification" : "A check against an independently written specification"}:{" "}
+                <strong>{c.outcome === "passed" ? "passed" : c.outcome.replace(/_/g, " ")}</strong>
+                {c.currentness !== "current" ? ", recorded for an earlier version of the Lean" : ""}.
+              </li>
             ))}
           </ul>
         </section>

@@ -477,3 +477,10 @@ html, body { overflow-x: clip; max-width: 100%; }
 .use:last-child { border-bottom: 0; }
 .tag { flex: none; font-size: 0.72rem; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-3); white-space: nowrap; margin: 0 2px; }
 .tag--exact { border-color: var(--query-line); color: var(--query); }
+
+/* Declaration view: what it is, then what it says. */
+.panel__kind { margin: 0 0 2px; font-size: 0.82rem; color: var(--ink-3); }
+.tie { margin: 8px 0 10px; padding: 8px 12px; border-left: 3px solid var(--query-line); background: color-mix(in srgb, var(--query-wash) 40%, transparent); border-radius: 0 6px 6px 0; }
+.tie__line { margin: 2px 0; font-size: 0.95rem; }
+.more--inline { margin: 2px 0 12px; border-top: 0; padding-top: 0; }
+.more--inline summary { font-size: 0.9rem; }

@@ -4,7 +4,8 @@ import { useMemo, useState } from "react";
 import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
 import { LeanCode, nameLinks } from "../lean/LeanCode";
-import { Axioms } from "./evidence";
+import { Axioms, RelationMark } from "./evidence";
+import { statementName } from "../app/papers";
 import { DeclTitle, Elsewhere, Loaded } from "./common";
 import { useNav } from "./Nav";
 
@@ -62,62 +63,95 @@ function Declaration({ d, linked, cards, modules }: { d: any; linked: Set<string
   }
 
   const treatments = (d.treatments ?? []).map((t: any) => ({ paper: t.paper, id: t.selection }));
+  // The paper statements this declaration is tied to, each with its review, once.
+  const ties = new Map<string, { relation: string; review?: string }>();
+  for (const t of d.treatments ?? []) {
+    if (!t.statement) continue;
+    const prev = ties.get(t.statement);
+    if (!prev || (prev.review !== "current" && t.review === "current")) ties.set(t.statement, { relation: t.relation, review: t.review });
+  }
+  const isTheorem = d.kind === "theorem" || d.kind === "lemma" || /^(private |protected )?(theorem|lemma)\s/m.test(src.text ?? "");
+  const kindWord = isTheorem ? "Theorem" : d.kind === "structure" || d.kind === "inductive" ? "Type" : "Definition";
+  const steps = uses.filter((e) => e.kind !== "type");
+  const vocabulary = uses.filter((e) => e.kind === "type" && Object.hasOwn(modules, e.name));
   return (
     <article className="panel panel--lean" aria-labelledby="ln-h">
       <header className="panel__head">
+        <p className="panel__kind">{kindWord} in Lean{src.url && <> · <a href={src.url} target="_blank" rel="noopener noreferrer">source on GitHub</a></>}</p>
         <h2 id="ln-h" className="panel__title"><DeclTitle name={d.name} /></h2>
-        <p className="panel__where">
-          {src.kind ? `${src.kind} in ` : "In "}<code>{src.module}</code>, lines {src.lines?.[0]}–{src.lines?.[1]}.{" "}
-          {src.url && <a href={src.url} target="_blank" rel="noopener noreferrer">Source on GitHub</a>}
-        </p>
       </header>
 
+      {ties.size > 0 && (
+        <section className="tie" aria-label="Its place in the papers">
+          {[...ties].map(([st, t]) => (
+            <p key={st} className="tie__line">
+              {t.review === "current" && t.relation !== "unassessed"
+                ? <><RelationMark relation={t.relation} /> The Lean form of <strong>{statementName(st)}</strong>.</>
+                : <>Linked by the editors to <strong>{statementName(st)}</strong>; no current review compares them.</>}{" "}
+              <button type="button" className="textbutton" onClick={() => nav.openStatement(st)}>Compare with the paper</button>
+            </p>
+          ))}
+        </section>
+      )}
+
       <p className="cmp__actions"><button type="button" className="button button--small" onClick={() => nav.openGraph(d.name)}>Show it in the graph</button></p>
-      <StatedWith list={uses.filter((e) => e.kind === "type" && Object.hasOwn(modules, e.name))} />
-      <Neighbours title={d.kind === "theorem" || d.kind === "lemma" || /^(private |protected )?(theorem|lemma)\s/m.test(src.text ?? "") ? "Its proof uses" : "Its definition uses"} empty="Nothing else in this project." list={uses.filter((e) => e.kind !== "type")} linked={linked} mapped={cards} modules={modules} />
-      <Neighbours title="Used by" empty="No other declaration in this project uses it." list={users} linked={linked} mapped={cards} modules={modules} />
 
       {src.text ? (
         <section>
-          <h3>The Lean</h3>
+          <h3>What it says in Lean</h3>
           <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean} label={`Lean source of ${d.name}`} />
         </section>
       ) : (
-        <p className="ev ev--gap">No source text is recorded for this declaration.</p>
+        <p className="ev quiet">No source text is recorded for this declaration.</p>
       )}
 
-      <section>
-        <h3>Axioms</h3>
-        <Axioms audit={d.axiomAudit} />
-      </section>
+      <Neighbours title={isTheorem ? "What its proof relies on" : "What its definition relies on"} empty="Nothing else in this project." list={steps} linked={linked} mapped={cards} modules={modules} />
+      {vocabulary.length > 0 && (
+        <details className="more more--inline">
+          <summary>{vocabulary.length} {vocabulary.length === 1 ? "definition" : "definitions"} its statement is written in</summary>
+          <StatedWith list={vocabulary} />
+        </details>
+      )}
+      <Neighbours title="What uses it" empty="No other declaration in this project uses it." list={users} linked={linked} mapped={cards} modules={modules} />
 
       {d.journeys?.length > 0 && (
         <section>
-          <h3>How it is used in the argument</h3>
+          <h3>Walk through the argument it belongs to</h3>
           <ul className="plain">
             {d.journeys.map((j: string) => (
-              <li key={j}><button type="button" className="textbutton" onClick={() => nav.openJourney(j)}>Follow the “{j.replace(/-/g, " ")}” step by step</button></li>
+              <li key={j}><button type="button" className="textbutton" onClick={() => nav.openJourney(j)}>{JOURNEY_NAMES[j] ?? j.replace(/-/g, " ")}</button></li>
             ))}
           </ul>
         </section>
       )}
 
       <section>
-        <h3>Where the papers cite it</h3>
-        <p className="quiet">These links were written by the editors, not reported by Lean.</p>
+        <h3>Where the papers discuss it</h3>
         <Elsewhere rows={treatments} here="" />
+        <p className="quiet">The editors made these links; Lean does not report them.</p>
+      </section>
+
+      <section>
+        <h3>Axioms</h3>
+        <Axioms audit={d.axiomAudit} />
       </section>
     </article>
   );
 }
 
-/** The definitions a statement is written with: a compact row of names, not proof steps. */
+const JOURNEY_NAMES: Record<string, string> = {
+  "forrelation-family": "How one family gives both query bounds",
+  "capped-predictor": "Why naming the true cell reveals the whole address",
+  "gaussian-transport": "How the Gaussian identity enters two estimates",
+  "weighted-tournament": "Why weighted comparisons halve the candidates",
+  "sign-blind-decoder": "Why the decoder needs an exact domain test",
+};
+
 function StatedWith({ list }: { list: Edge[] }) {
   const nav = useNav();
   if (!list.length) return null;
   return (
     <section className="nbs">
-      <h3>Its statement is written with</h3>
       <p className="chips">
         {list.map((e) => (
           <button key={e.name} type="button" className="chip" onClick={() => nav.openLean(e.name)} title={e.name}>
