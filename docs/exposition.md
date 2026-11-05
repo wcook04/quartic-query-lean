@@ -174,7 +174,7 @@ Search for a violation in that cell. A uniform test finds a violation with proba
 
 The tournament uses $\widetilde O(\sqrt m)$ cheap comparisons. Only its list of $T=O(\log m)$ candidates pays for a defect search, each at cost $\widetilde O_k(\sqrt m)$. Figure 4 shows why the two costs add. The [full count](#quantum-query-count) gives $Q(F_{k,m})\le C_k\sqrt m(\log_2m)^6$.
 
-![The tournament retains candidates by comparing outward pointers. Verification searches the local tests only for these candidates. On a positive input a true winner must reach the list; on a negative input verification must catch a defect in every candidate it checks.](figures/exposition/fig5_costs.svg){width=92%}
+![A comparison follows one pointer in each direction. Only columns that reach the short list incur the cost of searching all their local tests for a defect.](figures/exposition/fig5_costs.svg){width=92%}
 
 # 5. A classical query to the hidden cell
 
@@ -185,6 +185,8 @@ Figure 5 shows a losing board and a winning board. In the upper board each strin
 There are only two places to look. The erased bit presents the old matrix-search problem. The newly filled cell could give the game away: if its address in each column were public, reading the first domain bit in all $m$ selected cells would distinguish the boards. Every blank cell gives zero, whereas the planted transcript gives one.
 
 Now stop the algorithm just as it asks for bit $u$ of cell $10$ in column $i$. **Before seeing the bit**, it has named two answers: if this is the true cell, those answers must be $(1,0)$. A computation of the answers, a guess, or a choice based on all the preceding replies can lead to this query. In each case the coordinate itself serves as the prediction.
+
+\Needspace{6\baselineskip}
 
 To turn that observation into a bound, fix $k$ and take $m$ large enough that $1\le L<R(P)$ for the allowance $L$ in Section 4. Finite minimax gives a distribution $\mu$ on promised address inputs under which every deterministic $L$-query procedure has success at most $2/3$ [@Yao1977]. Draw every address input independently from $\mu$ and choose each zero location independently and uniformly. This gives the losing board. Choose the planted column $I$ uniformly and independently of that entire board.
 
