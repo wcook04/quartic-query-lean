@@ -604,3 +604,15 @@ The next three reviews concern the delivered 8-, 20- and 90-page editions. They 
 Three fresh Sol readers saw separate, contiguous source excerpts. Each received only one excerpt, with the next proof step removed. The specialist started at the complementary comparison law and stopped at the question of how to draw an unequal-weight pivot. It proposed the proportional law and derived the full expected-weight identity. The teaching reader received the two boards from §5 and a question about an adaptive tester. It chose the blank run, identified both kinds of first hit, and correctly left the quantitative estimates open. The analytic reader received the integration identity, target bounds and proposed two-parameter weight family. It recovered the parameter range and chose the displayed parameters while explaining why the constraints leave alternatives. That last reading tests a choice *within* the family. The family itself was supplied. All three were agent readings.
 
 The same distinction is now used in the shared authoring and reader-review instructions. Transfer trials there used a linear differential equation and the choice of what to store while growing a spanning tree. The quartic [writing method](../../docs/writing_method.md#choosing-the-next-step) gives the source and the release of the shared procedure.
+
+### Reading copies from this pass
+
+All three PDFs were built locally from `e87fb4e728a324d1ab9e9373bfe5d81e906b2b2f`. The two shorter papers link to the byte-identical reconstruction at `3bb0970ec6174ee78083e0bbd2dbd5080fb89662`.
+
+| Reading copy | Pages | PDF SHA-256 |
+| --- | ---: | --- |
+| Specialist | 8 | `7c7ba597041e888042aee6adbd282b6bb36714d76498a493b50969bda3388138` |
+| Teaching | 21 | `04c0764cf588bfe788081404a2f7192c425e6f00717eef8012ec66439cd8e1e1` |
+| Reconstruction | 93 | `547778b7ae2d880f723348c6baf820afe39fc3c5352469b5092bd485aa2cb9d0` |
+
+The printed reading guide and contents fit on page 1 of the reconstruction, with 29 working links on that page. Its mathematical conclusion is on page 42 and Appendix A starts on page 43. The render resolves all 227 authored anchors. Page 34 places the three-block diagram beside the derivative that creates its two branches. Specialist page 4 keeps the pivot-law calculation together. Teaching pages 6 and 7 keep each sampling calculation and the overshoot example intact. The ten distinct links from the shorter PDFs into the record and all four return destinations in the record PDF point to their respective source editions. Every page was inspected in overview and the changed transitions at reading size.
