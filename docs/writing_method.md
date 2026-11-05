@@ -409,3 +409,9 @@ This revision applies the [shared authoring method](https://github.com/wcook04/l
 and its [sequential reader review](https://github.com/wcook04/lean-exposition/blob/a2511096cdb28a57621ce304903f8cc6ed537e0a/docs/reader-review.md).
 The [edition account](../research/adjudication/paper_purpose_revision.md#reading-the-three-papers-after-62db930)
 locates the source comparisons and the proof passages they changed.
+
+## Choosing the next step
+
+Stop at a decision that the paper asks its reader to understand. What does the reader know at this point, and what must the next step accomplish? In the specialist paper the comparison between two losing columns can have any bias. Putting the two possible choices of pivot side by side gives the reader a reason to match their coefficients. In the reconstruction the Gaussian bias must stay bounded while its derivative keeps a positive sign. These constraints let a reader choose parameters within the proposed family, though many choices work.
+
+For an editorial reading, show the passage up to that decision and withhold its continuation. Record what the reader proposed and why. A different construction that satisfies the same requirements can be a successful reading. Checking a formula supplied by the author tests a different skill. These distinctions now enter the [shared authoring method](https://github.com/wcook04/lean-exposition/blob/1ca484df28fd9420886c86db622e62889e25e978/docs/authoring.md) and [reader review](https://github.com/wcook04/lean-exposition/blob/1ca484df28fd9420886c86db622e62889e25e978/docs/reader-review.md).

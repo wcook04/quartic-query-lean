@@ -29,6 +29,7 @@ PAPERS = ("expert", "exposition")
 # (source folder, figure names) for each paper.
 FIGURES = {
     "expert": (DOCS / "figures", ["expert_column", "expert_planted"]),
+    "record": (DOCS / "figures", ["forrelation_chain"]),
     "exposition": (DOCS / "figures/exposition",
                    ["fig1_column", "fig2_board", "fig3_tournament", "fig4_planted"]),
 }

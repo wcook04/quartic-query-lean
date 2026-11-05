@@ -41,6 +41,14 @@ def latex(source, folder, sibling_revision="main"):
 
 
 class NavigationInputTests(unittest.TestCase):
+    def test_figures_sharing_a_source_folder_use_their_own_compiled_group(self):
+        column = "figures/expert_column.svg"
+        chain = "figures/forrelation_chain.svg"
+        nodes = [{"t": "Image", "c": [["", [], []], [], [image, ""]]}
+                 for image in [column, chain]]
+        self.assertEqual(MODULE.maintained_figures(nodes, RECORD),
+                         {"expert": [column], "record": [chain]})
+
     def source(self, folder, text):
         path = Path(folder) / "docs/record.md"
         path.parent.mkdir(parents=True)

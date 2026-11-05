@@ -4,22 +4,29 @@ Will Cook · November 2026
 
 **Abstract.** For total Boolean functions, four is the least exponent $\alpha$ for which randomized query complexity always satisfies $R=O((1+Q)^\alpha)$, where $Q$ is quantum query complexity. We reconstruct OpenAI’s proof. A winning column on a board of $m$ columns contains a certificate pointing to a zero in every rival. A quantum algorithm uses the pointers to compare columns and needs to verify only a short list. Probing the certificate cell requires naming its address. Under the classical hard distribution this amounts to predicting several independent answers at once. For each fixed $k\ge2$ the resulting costs are $\widetilde O_k(\sqrt m)$ and $\widetilde\Omega_k(m^{2-1/k})$. We give a direct proof of the underlying Forrelation lower bound by transporting a derivative along a Gaussian chain. Its explicit parameter dependence also gives a single growing-parameter family whose separation exponent tends to four.
 
+<a id="record-reading-guide"></a>
+**Reading the proof.** Sections 1–7 prove the separation from three properties of a partial function. The construction begins with a [four-column board](#ROOT-ARCHITECTURE), and the two reductions turn on the [weight of a winner](#upper-weight-drift) and the [first query to its certificate](#CL-simulator). Readers taking the Forrelation theorem as known can finish with [§7](#ROOT-RATIO). For its proof, start from the [Walsh promise](#forr_definition) and continue in [§8](#forr_proof_spine), where the same Gaussian path controls both what a shallow tree sees and what the Forrelation statistic detects. Appendix A proves the matching universal upper bound. The other appendices contain the supporting calculations. A [shorter proof](expert_companion.md) and a [worked introduction](exposition.md) are available separately.
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\clearpage
+
 ## 1. The theorem and the construction
 
 
 <a id="ROOT-ARCHITECTURE"></a>
 <!-- passage:ROOT-ARCHITECTURE -->
-For total Boolean functions, the best examples before OpenAI’s construction approached $R=Q^3$, and a universal cubic bound had been conjectured. The familiar construction behind that cube used a hard partial function $P$ and a balanced AND–OR computation. At block size $m$ its quantum cost was of order $m$ and its classical lower bound of order $m^2 R(P)$, up to logarithms. Can one spend only $\sqrt m$ quantum queries and still force a classical algorithm to do about $mR(P)$ work? These two changes would turn a cube into nearly a fourth power. See [Aaronson, Ben-David and Kothari][ABK2019] and [Aaronson et al., Conjecture 2][ABKRT2020].
+A familiar way to look for a winning column is to search over all $m$ columns, verifying each candidate as the search oracle requires it. If verification itself searches $\widetilde O(m)$ possible defects, this composition has two square-root costs: $\sqrt m$ candidate checks at $\widetilde O(\sqrt m)$ queries each. It gives a budget of order $m$ up to logarithms. The best separations before OpenAI’s approached $R=Q^3$; a universal cubic bound had been conjectured. To get closer to four we need a cheaper way of *choosing whom to verify*. [Aaronson, Ben-David and Kothari][ABK2019] and [Aaronson et al., Conjecture 2][ABKRT2020].
 
-Consider $m$ columns, each with a string of $m$ bits. To win, a column must have an all-one string and exhibit a zero in every other column. A single pointer into each rival suffices. Two columns cannot both win: the pointer from the first would have to find a zero in the all-one second column.
+Consider the four columns in Figure 1. Each contains four bits and, below them, four cells indexed by two-bit words. The two auxiliary inputs of column 1 have answers $1,0$. Open cell $10$ of that column. Its first pointer says to inspect row 1 of column 2, where we find a zero; the other two find zeros in row 2 of column 3 and row 3 of column 4. A pointer coming *back* from column 3 to row 3 of column 1 finds a one. In fact every row it might have chosen contains a one.
 
-The difficulty is getting hold of the pointers. Every column owns an array of cells. Its $r$ inputs to a partial function determine which cell counts: their answer bits, read in order, are the address. The cell also contains a circuit transcript for each answer. The transcript certifies both that the input is promised and that the address bit is correct. Together these conditions define a Boolean function on *every* board, including boards on which no address is valid.
+![Four columns and the cell that witnesses a win. The auxiliary inputs labelled $a^+,a^0,a^-$ have respective values one, zero and undefined. Column 1 uses its cell $10$ to exhibit a zero in every rival; the dashed return pointer lands in its all-one string. Two address bits keep this example small.](figures/exposition/fig2_board.svg){width=91%}
 
-![A winning column and its outward pointers. Each horizontal strip is one column. At the right, the answers on the winning column’s $r$ address inputs select the cell holding its pointers. A pointer from a rival into the winning column can reach only a one.](figures/expert_column.svg){width=94%}
+Why use the cell at $10$? A different cell might contain the same three pointers. It cannot prove a win: its address disagrees with at least one of the two auxiliary answers. A cell must certify the answers forming its own address. It does this by recording each gate of a circuit computation, including the bits reporting whether the input was promised and what its answer was. False entries can be read as readily as true ones; the verifier has to check the entries against the input.
 
-Now compare two columns by following their pointers into each other. The true winner can exhibit a zero in its rival; even a completely spurious pointer coming back finds a one. A quantum algorithm can obtain the winning address cheaply. Thus the comparison favors a winner with high probability even when the rival has no valid address. Losing columns can compare in any fashion. Section 5 shows that complementary comparison probabilities suffice to put the winner on a short list, after which its certificate can be checked by searching for a failed local test.
+Comparison is much cheaper. To compare two columns, try their addresses and follow one pointer in each direction. A winner’s own addresses are promised and quickly decoded quantumly. Even if its rival produces a meaningless address, every pointer back into the winner finds a one. No transcript needs to be checked to conclude that the comparison favors the winner with high probability. Pairs of losers can behave arbitrarily. We will nevertheless obtain a list of only $O(\log m)$ candidates. Searching for candidates and then checking the list costs $\widetilde O(\sqrt m)+\widetilde O(\sqrt m)$.
 
-For the classical argument start with one hidden zero in each column and blank cells everywhere. Erase the zero in a random column and fill its true cell. A distinguishing algorithm must query the erased zero or the filled cell. In the latter case it names the address *before* it sees any bit of the certificate, thereby guessing all $r$ answers. This is where a lower bound for one partial function is multiplied across the board. These two uses of the same certificate are the construction of [OpenAI, §§1–4][OpenAI2026].
+To see the other side, start with a zero in each column and blank cells throughout. Erase the zero in a randomly chosen column and fill its correct cell to make it win. A classical algorithm must see one of those two changes. Probing the filled cell requires naming the address *before a single bit of the cell has been read*. If a budget of $L$ queries leaves one auxiliary answer hard to predict, hiding the column as well as the address will force order $mL$ queries. An auxiliary problem of almost linear classical hardness thus suggests the two scales $m^{2-o(1)}$ and $m^{1/2+o(1)}$. This is the design of [OpenAI, §§1–4][OpenAI2026].
 
 <!-- /passage:ROOT-ARCHITECTURE -->
 
@@ -37,7 +44,7 @@ Define
   \forall f:\{0,1\}^n\to\{0,1\},\quad
   R(f)\leq C_\alpha(1+Q(f))^\alpha
 \right\}.
-\tag{1}
+\tag{1.1}
 \]
 
 One constant must work for every input length and every total function. The additive $1$ includes constant functions without requiring a convention for $0^0$.
@@ -56,7 +63,7 @@ For each fixed integer $k\geq2$, there are positive constants $c_k,C_k,b_k$, a t
 Q(F_{k,m})\leq C_k\sqrt m\,(\log_2 m)^{b_k},
 \qquad
 R(F_{k,m})\geq c_k\frac{m^{2-1/k}}{(\log_2 m)^2}.
-\tag{2}
+\tag{1.2}
 \]
 
 Here $m$ is the number of columns, each with an $m$-bit string; the final Boolean input also contains address inputs and certificate cells. Its physical length is counted in [§4.2](#AC-layout). The two inequalities concern the same function at each pair $(k,m)$. For the circuit family fixed in §4 we obtain $b_k=6$ in §5.4 and, after increasing the threshold, $c_k=1/400$ in §6.6.
@@ -64,7 +71,7 @@ Here $m$ is the number of columns, each with an $m$-bit string; the final Boolea
 
 <a id="R3-01-QUANTIFIERS"></a>
 <!-- passage:R3-01-QUANTIFIERS -->
-For any proposed power $0\le\alpha<4$, choose $k>2/(4-\alpha)$. The excess power of $m$ on the classical side of (2) is
+For any proposed power $0\le\alpha<4$, choose $k>2/(4-\alpha)$. The excess power of $m$ on the classical side of (1.2) is
 <!-- claim:claim-exponent-ratio -->
 \[
 2-\frac1k-\frac\alpha2>0.
@@ -82,9 +89,9 @@ The complete [exponent argument](#ROOT-RATIO) appears after the two query bounds
 
 <a id="record-dependencies"></a>
 <a id="record-reading-routes"></a>
-We next specify the promise that supplies the address bits and the cell that certifies them. The two reductions begin at the [quantum tournament](#upper-tournament-statement) and the [planted pair](#classical-overview). A [reading guide and contents](#record-reading-guide) precede the appendices.
+We next specify the promise that supplies the address bits and the cell that certifies them.
 
-## 2. Models, promises and query budgets
+## 2. Query conventions
 
 
 <a id="ROOT-LOGS"></a>
@@ -95,12 +102,18 @@ Throughout, $m=4^t$, $t\ge1$, so the $m$ possible rows fit exactly in $\ell=\log
 
 <!-- /passage:ROOT-LOGS -->
 
+For reference, $m$ counts columns and rows, $k$ counts blocks in one Forrelation input, and $r$ counts such inputs per address. In the quantum argument $T$ is the maximum number of pivots and $K$ the number of tests at one address. In the classical argument $L$ is the hard one-input query allowance and $G$ the budget on the whole board.
+
 ## 3. The Forrelation ingredient
 
 
 <a id="forr_scope"></a>
 <!-- passage:forr_scope -->
-The address must be quick to read quantumly, hard to guess classically, and checkable from an ordinary Boolean circuit. The last requirement matters because a decoder may give a perfectly plausible answer on an unpromised input. The $k$-fold Forrelation promise supplies all three properties.
+First suppose the address bits came from an arbitrary partial function $P$. The reductions ask three things of it. Every randomized algorithm capped at $L$ queries must have success below $2/3$ on some promised input. A coherent quantum computation must produce an answer cheaply, with small error on promised inputs and a bounded query count on every input. Finally, a Boolean circuit of near-linear size must compute two outputs: whether an input belongs to the promise, and its value there.
+
+Why the circuit size? A cell contains the circuit’s transcript. For a fan-in-two gate the verifier reads at most three bits to check its equation. If the gate transcript is false, some gate equation fails; if the transcript is right but the claimed address is wrong or undefined, an output test fails. Quantum search can expose either defect. A circuit built by listing all $m^k$ paths in the formula below would give far too many tests for this verifier. The fast Walsh transform gives $O_k(m(\log m)^2)$ gates instead. This is how a nearly linear classical query lower bound for *computing an answer* can coexist with a square-root quantum cost for *checking a supplied computation*.
+
+Keep $k$ fixed and put $m=4^t$. The $k$-fold Forrelation promise provides these three properties with $L$ of order $m^{1-1/k}/(\log_2m)^2$. The logarithmically many address bits amplify the difficulty of guessing a cell, while their quantum decoding and circuit checks increase the two quantum costs by only logarithmic factors.
 
 <!-- /passage:forr_scope -->
 
@@ -111,7 +124,7 @@ The construction uses only the three properties in [§3.2](#forr_bundle). Sectio
 <!-- passage:forr_definition -->
 ### 3.1. The normalized Walsh product and the promise
 
-We index coordinates by $G=\mathbb F_2^{2t}$, with the inner product $a\cdot b$ taken in $\mathbb F_2$. A bit $x_r(a)$ represents the sign $z_r(a)=(-1)^{x_r(a)}$, so a true bit represents $-1$. We number blocks from $0$ to $k-1$ (shifting the preprint's indices by one); thus preprint block $j$ is record block $j-1$. Define
+We index coordinates by $\mathcal X=\mathbb F_2^{2t}$, with the inner product $a\cdot b$ taken in $\mathbb F_2$. A bit $x_r(a)$ represents the sign $z_r(a)=(-1)^{x_r(a)}$, so a true bit represents $-1$. We number blocks from $0$ to $k-1$ (shifting the preprint's indices by one); thus preprint block $j$ is record block $j-1$. Define
 
 <!-- claim:def-walsh-sign -->
 $$
@@ -120,7 +133,7 @@ W_{ab}=(-1)^{a\cdot b},\qquad H=m^{-1/2}W,
 \qquad D_z=\operatorname{diag}(z).
 $$
 
-The normalization makes $H$ orthogonal. Indeed, the inner product of rows $a,c$ of $W$ is $\sum_{b\in G}(-1)^{(a+c)\cdot b}$. If $a=c$, the sum is $m$. Otherwise we choose a coordinate in which $a+c$ is one and pair every $b$ with the vector obtained by flipping that coordinate, so the terms cancel in pairs. Together with the symmetry of $a\cdot b$ and the identity $z(a)^2=1$, this gives
+The normalization makes $H$ orthogonal. Indeed, the inner product of rows $a,c$ of $W$ is $\sum_{b\in\mathcal X}(-1)^{(a+c)\cdot b}$. If $a=c$, the sum is $m$. Otherwise we choose a coordinate in which $a+c$ is one and pair every $b$ with the vector obtained by flipping that coordinate, so the terms cancel in pairs. Together with the symmetry of $a\cdot b$ and the identity $z(a)^2=1$, this gives
 
 <!-- claim:NEW-FOR-01 -->
 $$
@@ -134,6 +147,7 @@ We define the real Forrelation value and the threshold by
 $$
 \Phi(z)=u^{\mathsf T}D_{z_0}H D_{z_1}H\cdots H D_{z_{k-1}}u,
 \qquad \delta=2^{-5k}.
+\tag{3.1}
 $$
 
 The product has $k$ diagonal matrices and $k-1$ Walsh matrices. Since every factor preserves norm, Cauchy–Schwarz gives $|\Phi(z)|\le1$ on every input. The partial function is
@@ -146,6 +160,7 @@ P_{k,m}(z)=
 0,&|\Phi(z)|\le\delta/2,\\
 \text{undefined},&\text{otherwise}.
 \end{cases}
+\tag{3.2}
 $$
 
 Its two defined cases are disjoint because $\delta>0$. The stated problem tests a positive threshold, so a value $\Phi=-1$ is unpromised. For example, at $k=2,m=4$, fixing the second block as $(-1,1,1,1)$ and varying the first produces $\Phi=1,0,-1$; Appendix G.4 calculates all three cases and counts every input.
@@ -157,6 +172,7 @@ For the interface with the later lower bound we also fix
 <!-- claim:eq-5 -->
 $$
 L_{k,m}=\left\lfloor\frac{m^{1-1/k}}{(\log_2m)^2}\right\rfloor.
+\tag{3.3}
 $$
 
 Here $\log_2m=2t>0$; the lower bound involving $L_{k,m}$ is stated next and proved in §8.10.
@@ -167,8 +183,9 @@ Here $\log_2m=2t>0$; the lower bound involving $L_{k,m}$ is stated next and prov
 <a id="forr_bundle"></a>
 <!-- passage:forr_bundle -->
 For each fixed integer $k\ge2$, set $m=4^t$, $\delta=2^{-5k}$, and
-$L_{k,m}=\lfloor m^{1-1/k}/(\log_2m)^2\rfloor$. The partial function
-$P_{k,m}$ of §3.1 has the following three properties.
+$L_{k,m}=\lfloor m^{1-1/k}/(\log_2m)^2\rfloor$.
+
+**Lemma 3.1 (the Forrelation ingredient).** The partial function $P_{k,m}$ has the following three properties.
 
 <!-- claim:lem-2.1 -->
 1. For every integer $t\ge13669k^2$, $R(P_{k,4^t})>L_{k,4^t}$, by §8.10.
@@ -246,7 +263,7 @@ r=\lceil20\log_2m\rceil=40t=20\ell.
 \tag{4.3}
 $$
 
-The definitions and verification arguments below make sense for every positive integer $r$; we use $r=20\ell$ for the separation family and its size bounds, and $r=2$ in the finite example. The factor 20 leaves slack: in [§6.6](#CL-tail-numeric), $(2/3)^r$ is small enough to absorb the union over all query times while the $2^r$ certificate cells still give polynomial input length.
+For the four-column illustration $r=2$. For the theorem the address must survive many guesses. Suppose one can predict each of $r$ independent hard answers with probability at most $2/3$ under the query allowance. The direct-product proof will bound the chance of naming one whole address by $(2/3)^r$. Choosing $r=20\log_2m$ makes that probability at most $m^{-10}$, enough even for a union over $m^2$ query times. Yet $2^r=m^{20}$ cells still give a board of polynomial size. The constant 20 leaves room in both estimates.
 
 There are $m$ columns, indexed by $[m]=\{1,\ldots,m\}$. Column $i$ contains the following disjoint blocks of input bits.
 
@@ -259,7 +276,7 @@ There are $m$ columns, indexed by $[m]=\{1,\ldots,m\}$. Column $i$ contains the 
 A fixed bijection from $\{0,1\}^{\ell}$ to $[m]$ decodes the pointers, so in an expression $X_j[p]$ the pointer word $p$ is decoded by this bijection before indexing. Because $m=2^{\ell}$, every pointer word names a row. A cell is a collection of bits, and consulting a chosen pointer costs its $\ell$ individual bit queries. The $A$-strings and the contents of every cell may be arbitrary bit strings.
 <!-- /passage:AC-layout -->
 
-The input therefore has $m\bigl[m+rkm+2^r\bigl((m-1)\ell+rS\bigr)\bigr]$ bits, since each column holds its string, its $r$ Forrelation inputs of $km$ bits and $2^r$ cells of $(m-1)\ell+rS$ bits each. With $r=20\ell$ we have $2^r=m^{20}$, and the circuit of Appendix G.3 has size $S=O_k(m\ell^2)$, so the input length is $O_k(m^{22}\ell^3)$, polynomial in $m$. Coordinate arithmetic is free in the query model; the algorithm pays for the bits it actually reads, rather than for constructing an index into this large array. Thus the addressed function is a total Boolean function of that many bits, and reading any pointer or transcript bit costs one query.
+The input has $m\bigl[m+rkm+2^r\bigl((m-1)\ell+rS\bigr)\bigr]$ bits, since each column holds its string, its $r$ Forrelation inputs of $km$ bits and $2^r$ cells of $(m-1)\ell+rS$ bits each. With $r=20\ell$ we have $2^r=m^{20}$, and the circuit of Appendix G.3 has size $S=O_k(m\ell^2)$, so the input length is $O_k(m^{22}\ell^3)$, polynomial in $m$. Coordinate arithmetic is free in the query model; the algorithm pays for the bits it actually reads, rather than for constructing an index into this large array. Thus the addressed function is a total Boolean function of that many bits, and reading any pointer or transcript bit costs one query.
 
 <a id="CL-address-winner"></a>
 <a id="CL-fidelity"></a>
@@ -412,7 +429,7 @@ The square root of this count will be the cost of searching for a failed test, u
 <a id="CL-local-equivalence"></a>
 <a id="AC-local-equivalence"></a>
 <!-- passage:AC-local-equivalence -->
-**Local verification lemma (classical part of OpenAI, Lemma 2.2).** Suppose $C$ satisfies (4.1). On every complete input $y$, and for every candidate $(i,s)$,
+**Lemma 4.1 (local verification).** Suppose $C$ satisfies (4.1). On every complete input $y$, and for every candidate $(i,s)$,
 
 $$
 W(y;i,s)\quad\Longleftrightarrow\quad
@@ -493,22 +510,20 @@ In the example, column 2 can propose $00$, $01$, $10$, or $11$, and can direct i
 <!-- /passage:AC-comparison -->
 
 
-<a id="AC-attribution"></a>
-<!-- passage:AC-attribution -->
-Göös, Pitassi and Watson use a unique all-one column with a pointer chain through one zero in each other column [Göös, Pitassi and Watson (2018), Theorem 5 and §2.1, pp. 3–5 of the ECCC revision](https://eccc.weizmann.ac.il/report/2015/050/). Their pointers make the accepting certificate unique while the search for it stays hard, and the uniqueness argument of §4.2 inherits that role. Here the pointers run directly from the winner to a zero in every other column, and this direction makes each comparison with the winner reliable (§4.5). Addressing a certificate array by partial-function answers follows the cheat-sheet framework of Aaronson, Ben-David and Kothari [Aaronson, Ben-David and Kothari (2016; revised 2019), §6.1, Definitions 14–15, pp. 20–21]. Their Lemma 17, p. 22, gives the evaluate-then-check strategy for their cheat-sheet function, including rejection of certificates for unpromised inputs. We prove the properties of the particular multi-column construction (4.5) here, and its later separation bounds are obtained independently of that lemma.
-
-Ambainis, Balodis, Belovs, Lee, Santha and Smotrovs discuss direct pointers from a distinguished element to a zero in every other column and explain the exponential alphabet cost of that choice in their encoding [Ambainis et al. (2015), §1.3, “Use of a balanced tree,” pp. 5–6]. Here the routine reads one selected pointer field, paying one query for each of its $\ell$ bits as in §4.4, rather than querying the entire outgoing pointer collection as one alphabet symbol. The full input-length count in §4.2 includes all those fields. These works supply antecedents of the ingredients; the construction analyzed here is the one in OpenAI's preprint.
-<!-- /passage:AC-attribution -->
-
-
-## 5. Quantum evaluation on every input
+## 5. Choosing a candidate before verifying it
 
 
 <a id="upper-purpose"></a>
 <!-- passage:upper-purpose -->
-A comparison between two losing columns can have winning probability arbitrarily close to $1/2$. Repetition cannot turn all such comparisons into reliable answers about a fixed orientation with a common query cap. We will instead use the probabilities themselves. Choose a pivot, and give each column credit in proportion to its chance of beating that pivot. The sum of the credits falls by half on average. A winner keeps almost all its credit until chosen. The resulting list has only logarithmic length.
+A comparison can cost polylogarithmically many queries even when verifying one candidate costs $\widetilde O(\sqrt m)$. The price of using comparisons is that they need not order the columns. In particular two losers may win against each other with probabilities arbitrarily close to $1/2$, so repetition cannot supply a uniformly reliable orientation of every edge.
 
-This is OpenAI’s probabilistic tournament (Proposition 3.2). To turn its list into a Boolean answer, the algorithm checks the listed columns for defects. It accepts at the first candidate for which none is found and rejects if the list is exhausted. A verification costs roughly $\sqrt m$ queries; the algorithm pays that price only after the list is known.
+Consider an abstract four-vertex example. A dominant vertex $s$ beats $a,b,c$ with certainty, while $a$ beats $b$, $b$ beats $c$, and $c$ beats $a$. Pick one of the four vertices uniformly as pivot and keep everyone who beats it. The four possible pivots $s,a,b,c$ leave, respectively,
+\[
+\varnothing,\qquad \{s,c\},\qquad \{s,a\},\qquad \{s,b\}.
+\]
+The mean number left is $3/2$. Moreover $s$ survives every pivot until it is chosen. This calculation has a fractional version: a candidate with probability $a$ of beating the pivot keeps the proportion $a$ of its current weight. One identity controls *all* probabilistic comparison tables.
+
+OpenAI’s tournament uses this identity to produce a short list. A verifier then checks the listed columns for defects, accepting at the first candidate for which none is found. [OpenAI, §3][OpenAI2026].
 
 <!-- /passage:upper-purpose -->
 
@@ -521,21 +536,17 @@ We use $m=4^t$ columns, the decoder of §3, and the $K=m+(m-1)+r(S+2)$ local tes
 
 ### 5.1. Complementary comparisons and the weight of a winner
 
-<a id="upper-tournament-statement"></a>
-**Proposition 3.2 (OpenAI, probabilistic-comparison tournament).**
-
-Suppose each pair of vertices can be compared coherently at a cost of at most $c$ queries in either direction of the circuit. The tournament returns at most $T$ vertices at cost $O(c\sqrt m\,T^2\log T)$. If a vertex beats every rival with probability at least $1-\varepsilon$, the list contains it with probability at least $1-2m/2^T-T\varepsilon$. A cyclic set of losers is allowed.
-
 <a id="upper-comparison-model"></a>
 <!-- passage:upper-comparison-model -->
 
-We fix an input oracle for the duration of the argument. There are $m\geq2$ vertices, and each unordered pair of distinct vertices has one designated coherent comparison circuit, with an ordering convention determining which output bit means that the first named vertex wins. Let $a_{ij}$ be the probability that $i$ wins its comparison against $j$, and define $a_{ii}=0$; this fixes the comparison table. Since both orders use the same circuit with its two outcomes interpreted oppositely, we obtain equation (10):
+We fix an input oracle for the duration of the argument. There are $m\geq2$ vertices, and each unordered pair of distinct vertices has one designated coherent comparison circuit, with an ordering convention determining which output bit means that the first named vertex wins. Let $a_{ij}$ be the probability that $i$ wins its comparison against $j$, and define $a_{ii}=0$; this fixes the comparison table. Since both orders use the same circuit with its two outcomes interpreted oppositely, we obtain equation (5.1):
 
 <!-- claim:eq-10 -->
 $$
 0\leq a_{ij}\leq1,
 \qquad a_{ij}+a_{ji}=1\quad(i\ne j),
 \qquad a_{ii}=0.
+\tag{5.1}
 $$
 
 The table may be intransitive: a cycle of certain wins is allowed, as is a pair with winning probability exactly one half, and comparisons made in separate fresh registers have their designated probabilities, which may lie far from zero and one. In the algorithmic theorem, all pair circuits are available coherently, including under control of their indices, with a uniform cap of $c\geq1$ bit queries for each comparison and for its inverse. When a controlled query is implemented from an ordinary bit query, the cap $c$ includes the constant overhead established below.
@@ -545,7 +556,7 @@ The table may be intransitive: a cycle of certain wins is allowed, as is a pair 
 <a id="upper-tournament-parameters"></a>
 <!-- passage:upper-tournament-parameters -->
 
-Recall the theorem's parameters and dominance condition:
+The expected remaining weight after a round will be at most half the current weight. Starting from $m$, this takes about $\log_2m$ rounds to leave weight of order one. A dominant vertex should lose little of its own initial unit of weight over *all* those rounds, so its comparison error must be of order $1/T$ for $T$ rounds. Choose
 
 <!-- claim:def-T-eps -->
 $$
@@ -556,23 +567,29 @@ The base two ensures $2^T\ge1000m$. Dominance means
 <!-- claim:eq-11 -->
 $$
 a_{sj}\ge1-\varepsilon\qquad(j\ne s).
+\tag{5.2}
 $$
 
-The same error allowance will have three uses: winner-address error in §5.3 gives dominance, stage-sampler failure contributes at most $T\varepsilon$ before the winner is selected, and fresh verification contributes at most $\varepsilon$ for the winner or $T\varepsilon$ on a zero input. The ideal miss term $2m/2^T$ is separate.
+The resulting slack pays for three errors: winner-address error in §5.3 gives dominance, stage-sampler failure contributes at most $T\varepsilon$ before the winner is selected, and fresh verification contributes at most $\varepsilon$ for the winner or $T\varepsilon$ on a zero input. The ideal miss term $2m/2^T$ is separate.
 
-Only the conclusion of Proposition 3.2 is conditional on this property of $s$. Its algorithm runs and obeys its query cap for every comparison table satisfying equation (10), and the property serves only to prove that a particular vertex is likely to occur in the returned list.
+
 <!-- /passage:upper-tournament-parameters -->
 
+<a id="upper-tournament-statement"></a>
+
+**Proposition 5.1 (OpenAI, probabilistic-comparison tournament).** With the parameters and comparisons above, one algorithm returns at most $T$ vertices and costs $O(c\sqrt m\,T^2\log T)$ queries on every input. For each dominant $s$ its list contains $s$ with probability at least $1-2m/2^T-T\varepsilon$. The algorithm is independent of $s$.
+
 <a id="upper-ideal-process"></a>
-*Proof of [Proposition 3.2](#upper-tournament-statement).* Fix the comparison table and parameters just stated. The weights below are analytical quantities of the proof, unavailable to the algorithm.
+*Proof of [Proposition 5.1](#upper-tournament-statement).* Fix the comparison table and parameters just stated. The weights below are analytical quantities of the proof, unavailable to the algorithm.
 
 <!-- passage:upper-ideal-process -->
 
-We begin with weights $w_i=1$ and an empty ordered list $L$, and write $W=\sum_iw_i$. In one ideal step, if $W>0$, we choose a pivot $p$ with probability $w_p/W$, append it to $L$, and make the update in equation (12):
+We begin with weights $w_i=1$ and an empty ordered list $L$, and write $W=\sum_iw_i$. In one ideal step, if $W>0$, we choose a pivot $p$ with probability $w_p/W$, append it to $L$, and make the update in equation (5.3):
 
 <!-- claim:eq-12 -->
 $$
 w_i\longleftarrow w_i a_{ip}\qquad(1\leq i\leq m).
+\tag{5.3}
 $$
 
 If $W=0$, we leave the weights zero and append nothing. Running exactly $T$ steps, with this zero state absorbing, specifies the ideal process on every history. All weights remain nonnegative and at most one, because they are products of numbers in $[0,1]$; after a history $L=(p_1,\ldots,p_h)$,
@@ -585,7 +602,7 @@ w_i(L)=\prod_{b=1}^{h}a_{ip_b},\qquad w_i([])=1.
 <a id="upper-weight-drift"></a>
 <!-- passage:upper-weight-drift -->
 
-We condition on any current weights with $W>0$. For pivot $p$ the new total weight is $\sum_iw_ia_{ip}$, and averaging over its probability $w_p/W$ gives the first expression in equation (13). We write its numerator as the sum over ordered pairs $(i,p)$. The diagonal terms vanish because $a_{ii}=0$, and pairing the term for $(i,p)$ with the term for $(p,i)$, for each unordered pair with $i\ne p$, gives $w_iw_p(a_{ip}+a_{pi})=w_iw_p$. Since the sum of the $w_iw_p$ over unordered pairs is half of $W^2-\sum_iw_i^2$, we obtain
+We condition on any current weights with $W>0$. For pivot $p$ the new total weight is $\sum_iw_ia_{ip}$, and averaging over its probability $w_p/W$ gives the first expression in equation (5.4). We write its numerator as the sum over ordered pairs $(i,p)$. The diagonal terms vanish because $a_{ii}=0$, and pairing the term for $(i,p)$ with the term for $(p,i)$, for each unordered pair with $i\ne p$, gives $w_iw_p(a_{ip}+a_{pi})=w_iw_p$. Since the sum of the $w_iw_p$ over unordered pairs is half of $W^2-\sum_iw_i^2$, we obtain
 
 <!-- claim:eq-13 -->
 $$
@@ -593,6 +610,7 @@ $$
  =\frac1W\sum_{p,i}w_pw_i a_{ip}
  =\frac{W^2-\sum_iw_i^2}{2W}
  \leq\frac W2.
+\tag{5.4}
 $$
 
 At $W=0$ both the current and the next total weight are zero, so the last inequality still holds, and taking expectations over histories gives $\mathbb E W_{h+1}\leq\tfrac12\mathbb E W_h$. Starting from $W_0=m$ and applying this inequality $T$ times, we obtain:
@@ -618,9 +636,9 @@ w_s(h)\geq(1-\varepsilon)^h
 =\frac{999}{1000}>\frac12.
 $$
 
-The middle inequality follows by induction on $h$: it is an equality at $h=0$, and multiplying the bound at $h$ by $1-\varepsilon\geq0$ gives $1-(h+1)\varepsilon+h\varepsilon^2\geq1-(h+1)\varepsilon$. Thus, until $s$ is selected, the total weight exceeds one half; in particular, the process stays out of the absorbing zero state before selecting $s$.
+Bernoulli’s inequality gives the middle bound. Thus, until $s$ is selected, the total weight exceeds one half; in particular, the process stays out of the absorbing zero state before selecting $s$.
 
-If $s$ is missing from the ideal list at time $T$, the same argument gives $W_T>1/2$, so the indicator of this event is at most $2W_T$ pointwise. Taking expectations proves equation (14) for every weight distribution:
+If $s$ is missing from the ideal list at time $T$, the same argument gives $W_T>1/2$, so the indicator of this event is at most $2W_T$ pointwise. Taking expectations proves equation (5.5) for every weight distribution:
 
 <!-- claim:eq-14 -->
 $$
@@ -628,6 +646,7 @@ $$
 \leq\Pr[W_T\geq1/2]
 \leq2\,\mathbb EW_T
 \leq\frac{2m}{2^T}.
+\tag{5.5}
 $$
 
 The conclusion uses only complementarity and the lower bounds on the distinguished row, so comparisons between other candidates may be inconsistent with every ordering.
@@ -638,12 +657,13 @@ The conclusion uses only complementarity and the lower bounds on the distinguish
 <a id="upper-stage-state"></a>
 <!-- passage:upper-stage-state -->
 
-One stage prepares the comparison state, amplifies its all-wins component, and measures and appends an index on success; on failure it returns the current list. We first derive the state and its exact successful-index law. Fix the current classical pivot list $p_1,\ldots,p_h$. Only this classical list persists between stages. All quantum comparison registers are freshly prepared, including comparisons with earlier pivots; this recomputation is the reason for the $T^2$ factor in the cost. We prepare a uniform index $i\in[m]$ and, controlled by $i$, run a fresh copy of the comparison with $p_b$ for every $b\leq h$, writing $|\phi(i,p_b)\rangle$ for the full normalized state of that copy, including its outcome bit and all workspace. A self-comparison is the query-free abstract operation setting its outcome bit to false. A common controlled implementation may still execute padded pairs of cancelling physical queries on this branch. The prepared state is equation (15):
+One stage prepares the comparison state, amplifies its all-wins component, and measures and appends an index on success; on failure it returns the current list. We first derive the state and its exact successful-index law. Fix the current classical pivot list $p_1,\ldots,p_h$. Only this classical list persists between stages. All quantum comparison registers are freshly prepared, including comparisons with earlier pivots; this recomputation is the reason for the $T^2$ factor in the cost. We prepare a uniform index $i\in[m]$ and, controlled by $i$, run a fresh copy of the comparison with $p_b$ for every $b\leq h$, writing $|\phi(i,p_b)\rangle$ for the full normalized state of that copy, including its outcome bit and all workspace. A self-comparison is the query-free abstract operation setting its outcome bit to false. A common controlled implementation may still execute padded pairs of cancelling physical queries on this branch. The prepared state is equation (5.6):
 
 <!-- claim:eq-15 -->
 $$
 \frac1{\sqrt m}\sum_{i=1}^m |i\rangle
  \bigotimes_{b=1}^{h}|\phi(i,p_b)\rangle.
+\tag{5.6}
 $$
 
 (The empty tensor product at $h=0$ is a one-dimensional state.) We then reversibly compute an additional success bit that is true exactly when every comparison outcome says that $i$ won, keeping the individual outcomes and all the work registers. The preparation is thus a unitary, whose inverse reverses the comparisons and the success computation.
@@ -686,9 +706,9 @@ Here $p_i=w_i/m$ and $p=W/m$. Conditioned on success the amplified sampler there
 <a id="upper-quantum-tournament"></a>
 <!-- passage:upper-quantum-tournament -->
 
-We apply Lemma 3.1 to this preparation with $\gamma=1/(2m)$ and $\eta=\varepsilon$. On reported failure we stop and return the current list; on success we measure the index, append it to the list, and proceed, stopping after at most $T$ appended indices. These instructions define the real sampler for every input and every history, whether or not a dominant vertex exists.
+We apply Lemma E.1 to this preparation with $\gamma=1/(2m)$ and $\eta=\varepsilon$. On reported failure we stop and return the current list; on success we measure the index, append it to the list, and proceed, stopping after at most $T$ appended indices. These instructions define the real sampler for every input and every history, whether or not a dominant vertex exists.
 
-The measured-output law above gives exactly the conditional index law $w_i/W$ on success. The ideal weight calculation needs this exact conditional law; a lower bound on the chance of obtaining some successful index would be too weak. When $W=0$ the unamplified success probability is zero, and Lemma 3.1 reports failure with certainty.
+The measured-output law above gives exactly the conditional index law $w_i/W$ on success. The ideal weight calculation needs this exact conditional law; a lower bound on the chance of obtaining some successful index would be too weak. When $W=0$ the unamplified success probability is zero, and Lemma E.1 reports failure with certainty.
 
 **The transition law at an active history.** For a pivot list $L$ with $|L|<T$, write $f(L)$ for the sampler's failure probability. Its exact kernel is
 
@@ -708,7 +728,7 @@ We couple the real process with the ideal one on a common probability space. Whi
 
 Suppose that $s$ is dominant. At an agreed history of length at most $T$ before $s$ is selected, the preceding lower bound gives $W>1/2$, so $W/m\geq1/(2m)$ and hence $f(L)\leq\varepsilon$. At each of the at most $T$ stages, conditioned on the event that the lists still agree and $s$ has not yet appeared, a new disagreement has probability at most $\varepsilon$. Multiplying by the probability of the conditioning event and summing over the stages gives a total of at most $T\varepsilon$, whatever the dependence among these stage failures.
 
-If the ideal process selects $s$ while the two lists still agree, the real list then contains $s$, and a later failure leaves every previous entry in place. Consequently the real miss event is contained in the union of the ideal miss event and a disagreement before selecting $s$, and equation (14) gives:
+If the ideal process selects $s$ while the two lists still agree, the real list then contains $s$, and a later failure leaves every previous entry in place. Consequently the real miss event is contained in the union of the ideal miss event and a disagreement before selecting $s$, and equation (5.5) gives:
 
 <!-- claim:claim-coupling -->
 $$
@@ -722,7 +742,7 @@ The argument stops charging failures once $s$ has appeared. At those later histo
 <a id="upper-tournament-cost"></a>
 <!-- passage:upper-tournament-cost -->
 
-At history length $h$ the state preparation uses $h$ controlled comparison circuits, while the uniform superposition and the success conjunction are input independent, so the preparation and its inverse each cost at most a constant times $c(h+1)$ queries. Lemma 3.1 makes at most a constant times $\sqrt m\ln(1/\varepsilon)$ calls to these preparations, and its limits on trials and iterations apply even when the success probability is below $1/(2m)$. Summing over $h=0,\ldots,T-1$ and using $\sum_{h=0}^{T-1}(h+1)=T(T+1)/2$ we obtain:
+At history length $h$ the state preparation uses $h$ controlled comparison circuits, while the uniform superposition and the success conjunction are input independent, so the preparation and its inverse each cost at most a constant times $c(h+1)$ queries. Lemma E.1 makes at most a constant times $\sqrt m\ln(1/\varepsilon)$ calls to these preparations, and its limits on trials and iterations apply even when the success probability is below $1/(2m)$. Summing over $h=0,\ldots,T-1$ and using $\sum_{h=0}^{T-1}(h+1)=T(T+1)/2$ we obtain:
 
 <!-- claim:claim-tournament-cost -->
 $$
@@ -731,7 +751,7 @@ $$
 =O\!\left(c\sqrt m\,T^2\log T\right).
 $$
 
-Here $1/\varepsilon=1000T$ and $T\geq1$ (indeed $T\geq11$ when $m\geq2$), the constants are absolute, and early stopping can only reduce the cost. This proves Proposition 3.2. The algorithm never estimates any of the $a_{ij}$.
+Here $1/\varepsilon=1000T$ and $T\geq1$ (indeed $T\geq11$ when $m\geq2$), the constants are absolute, and early stopping can only reduce the cost. This proves Proposition 5.1. The algorithm never estimates any of the $a_{ij}$.
 <!-- /passage:upper-tournament-cost -->
 
 The [numerical budget and finite-law formulation](#upper-padded-tournament-budget) are derived in Appendix E.3. The algorithm just proved can now be applied to the board.
@@ -746,7 +766,7 @@ The [specialist account of the tournament](expert_companion.md#32-a-tournament-w
 
 We return to the total function $F_{k,m}$. Fix $k\geq2$ and $m=4^t$ with $t\geq1$, and as in the construction write $\ell=2t=\log_2m$ and $r=40t=20\ell$. Each column has $r$ Forrelation instances whose promised values, when all are defined, form its address, and the circuit used for the construction has size $S=O_k(m\ell^2)$. We keep $T,\varepsilon$ as above.
 
-To decode an address, we run the quantum algorithm of Lemma 2.1(ii) on each of the $r$ Forrelation instances in the selected column, reducing the error on each promised instance to at most $\varepsilon/r$, and implement its trials and decision rule reversibly, retaining the outcome labels and all intermediate work. The output register always holds an $r$-bit string; when some promises fail, this string may bear no relation to a semantic address. The number of queries is nevertheless capped on every input, and the output label is defined even off promise.
+To decode an address, we run the quantum decoder of Lemma 3.1, part 2 on each of the $r$ Forrelation instances in the selected column, reducing the error on each promised instance to at most $\varepsilon/r$, and implement its trials and decision rule reversibly, retaining the outcome labels and all intermediate work. The output register always holds an $r$-bit string; when some promises fail, this string may bear no relation to a semantic address. The number of queries is nevertheless capped on every input, and the output label is defined even off promise.
 <!-- /passage:upper-decode -->
 
 <a id="upper-decode-cost"></a>
@@ -781,7 +801,7 @@ Reading a pointer takes its $\ell$ address bits followed by the targeted $X$-bit
 
 We check that the coherent calculation has the probabilities suggested by the classical description. After decoding, we write the state as a sum over the two decoded labels, each summand carrying those labels in dedicated retained registers. The subsequent pointer tests and winner computation are controlled by these labels and leave them intact, so the final projection onto a winning output is block diagonal with respect to the retained labels. Since distinct labels are orthogonal, the cross terms vanish and the squared norm of that projection is the sum, over label pairs, of the squared norms of the corresponding projected summands. Within one summand the pointer test reads the designated bits, so its contribution is the decoding probability of those labels multiplied by the deterministic result of the comparison rule at those labels.
 
-The comparison output law is a classical mixture over the decoded labels, and retaining extra work within a label block preserves both this orthogonality and the rule, since the controlled subsequent computations are a direct sum of unitaries on these label blocks. For each distinct unordered pair the two possible winners exhaust the outcomes, so reversing the names of the pair complements the counted event. Hence $a_{ij}+a_{ji}=1$, while the self-comparison gives $a_{ii}=0$. This proves the hypotheses of equation (10), even when neither decoded address is promised to be meaningful.
+The comparison output law is a classical mixture over the decoded labels, and retaining extra work within a label block preserves both this orthogonality and the rule, since the controlled subsequent computations are a direct sum of unitaries on these label blocks. For each distinct unordered pair the two possible winners exhaust the outcomes, so reversing the names of the pair complements the counted event. Hence $a_{ij}+a_{ji}=1$, while the self-comparison gives $a_{ii}=0$. This proves the hypotheses of equation (5.1), even when neither decoded address is promised to be meaningful.
 <!-- /passage:upper-comparison-law -->
 
 <a id="upper-winner-dominates"></a>
@@ -802,7 +822,7 @@ The proof uses the correctness of the true winner's decoder and two deterministi
 <a id="upper-verifier"></a>
 <!-- passage:upper-verifier -->
 
-Comparison retains both decoded labels coherently while using them to control pointers. Verification instead samples one fresh label before any test search: to verify a candidate, we decode its address afresh, measure it, and fix the resulting address $a$. Lemma 2.2 provides a finite list of exact local tests, whose number is
+Comparison retains both decoded labels coherently while using them to control pointers. Verification instead samples one fresh label before any test search: to verify a candidate, we decode its address afresh, measure it, and fix the resulting address $a$. Lemma 4.1 provides a finite list of exact local tests, whose number is
 
 <!-- claim:def-K -->
 $$
@@ -811,7 +831,7 @@ $$
 
 The first $m$ tests check that the candidate's $X$-block is all ones, and the next $m-1$ tests follow its pointers at address $a$ and check for a zero in each other column. For each of the $r$ Forrelation instances, $S$ tests check the gate values in the proposed circuit transcript and two check the required outputs. The tests depend on the candidate and the fixed address, and each is an exact Boolean computation on the raw input. A gate test reads at most three bits and a pointer test is an adaptive decision tree of depth at most $\ell+1$, so the uniform per-test depth is $\max\{3,\ell+1\}=O(\log m)$. The argument needs only this depth bound, so pointer tests may read adaptively chosen coordinates.
 
-We prepare a uniform test label, compute whether that test fails, and count failure of the test as success for an application of Lemma 3.1 with $\gamma=1/K$ and $\eta=\varepsilon$. These are admissible parameters: $K\ge m\ge4$ gives $0<1/K\le1/2$, and $0<\varepsilon<1/2$. The candidate is rejected if this search returns a failed test and accepted if it reports failure to find one.
+We prepare a uniform test label, compute whether that test fails, and count failure of the test as success for an application of Lemma E.1 with $\gamma=1/K$ and $\eta=\varepsilon$. These are admissible parameters: $K\ge m\ge4$ gives $0<1/K\le1/2$, and $0<\varepsilon<1/2$. The candidate is rejected if this search returns a failed test and accepted if it reports failure to find one.
 
 The success flag has a different meaning in each application of amplification:
 
@@ -825,9 +845,9 @@ The success flag has a different meaning in each application of amplification:
 <a id="upper-verification-proof"></a>
 <!-- passage:upper-verification-proof -->
 
-For a fixed input, candidate, and decoded address, let $h$ be the number of failed local tests. Since the tests are exact and their labels are uniform, the search preparation has success probability $h/K$. If $h=0$, the search of Lemma 3.1 has success probability zero and reports failure to find a test with certainty, so the verifier accepts with certainty. If $h\geq1$, its success probability is at least $1/K$, and the verifier accepts with probability at most $\varepsilon$. On the board in [§4.4](#AC-example-tests), $K=371$. The true pair $(1,10)$ has $h=0$, while the three wrong addresses have $h=1,2,1$, giving unamplified detection probabilities $1/371,2/371,1/371$. Thus the same search procedure accepts the true pair with certainty and accepts false pairs with bounded error.
+For a fixed input, candidate, and decoded address, let $h$ be the number of failed local tests. Since the tests are exact and their labels are uniform, the search preparation has success probability $h/K$. If $h=0$, the search of Lemma E.1 has success probability zero and reports failure to find a test with certainty, so the verifier accepts with certainty. If $h\geq1$, its success probability is at least $1/K$, and the verifier accepts with probability at most $\varepsilon$. On the board in [§4.4](#AC-example-tests), $K=371$. The true pair $(1,10)$ has $h=0$, while the three wrong addresses have $h=1,2,1$, giving unamplified detection probabilities $1/371,2/371,1/371$. Thus the same search procedure accepts the true pair with certainty and accepts false pairs with bounded error.
 
-Lemma 2.2 supplies the needed dichotomy. A nonwinner has at least one failed test at every address, including when its Forrelation strings violate their promises, because if every test at some address passed, circuit consistency and the output tests would make that address a winning address. Averaging over every possible decoded label, we find that a nonwinner is accepted with probability at most $\varepsilon$. A true winner passes all tests at its true address, which its fresh decoder produces with probability at least $1-\varepsilon$, and on that event verification accepts with certainty; hence the true winner is rejected with probability at most $\varepsilon$. Together these give:
+Lemma 4.1 supplies the needed dichotomy. A nonwinner has at least one failed test at every address, including when its Forrelation strings violate their promises, because if every test at some address passed, circuit consistency and the output tests would make that address a winning address. Averaging over every possible decoded label, we find that a nonwinner is accepted with probability at most $\varepsilon$. A true winner passes all tests at its true address, which its fresh decoder produces with probability at least $1-\varepsilon$, and on that event verification accepts with certainty; hence the true winner is rejected with probability at most $\varepsilon$. Together these give:
 
 <!-- claim:claim-verify -->
 $$
@@ -867,7 +887,9 @@ For the last numerical inequality, $2^T\geq1000m$ gives $2m/2^T\leq1/500$, and $
 <a id="upper-asymptotic-bound"></a>
 <!-- passage:upper-asymptotic-bound -->
 
-Each of the $T=O(\log m)$ pivot stages makes at most $O(\sqrt m\log T)$ preparations, and a preparation compares its candidate with at most $T$ previous pivots. A comparison costs $c=(\log m)^{O_k(1)}$ bit queries. The list therefore costs $O(c\sqrt m\,T^2\log T)$. For a listed candidate the search is instead over $K=O_k(m(\log m)^3)$ possible defects. Its $O(\sqrt K\log T)$ test calls and one fresh address decoding cost $\sqrt m(\log m)^{O_k(1)}$ queries altogether. There are at most $T$ such candidates. Adding the two costs proves OpenAI’s Proposition 3.3:
+Each of the $T=O(\log m)$ pivot stages makes at most $O(\sqrt m\log T)$ preparations, and a preparation compares its candidate with at most $T$ previous pivots. A comparison costs $c=(\log m)^{O_k(1)}$ bit queries. The list therefore costs $O(c\sqrt m\,T^2\log T)$. For a listed candidate the search is instead over $K=O_k(m(\log m)^3)$ possible defects. Its $O(\sqrt K\log T)$ test calls and one fresh address decoding cost $\sqrt m(\log m)^{O_k(1)}$ queries altogether. There are at most $T$ such candidates. Adding the two costs proves the upper bound.
+
+**Proposition 5.2 (quantum evaluation).**
 
 <!-- claim:prop-3.3 -->
 $$
@@ -894,7 +916,7 @@ The zero is hidden among $m$ rows in one of $m$ columns. The other change is har
 
 <a id="CL-entry-interface"></a>
 <!-- passage:CL-entry-interface -->
-Use the board of §4 with $m=4^t$, $r=40t$, any partial function $P:D\to\{0,1\}$ and a circuit $C$ recognizing its domain and value. The classical argument uses only the existence of valid transcripts. To plant the certificate we need $r$ independent promised inputs in each column, each drawn from a law that makes its answer difficult even when the tree knows the law. The cells addressed by partial-function values have their antecedent in [Aaronson, Ben-David and Kothari, §6][ABK2019].
+Use the board of §4 with $m=4^t$, $r=40t$, any partial function $P:D\to\{0,1\}$ and a circuit $C$ recognizing its domain and value. The circuit’s size drops out: we need only the existence of valid transcripts. The $m$ factor and the $r$ repeated inputs have different jobs. The unknown *column* spreads a budget of $G$ queries across $m$ places. The long *address* suppresses lucky guesses in columns receiving little of that budget. This division is what lets the lower bound reach $mL$. Addressing a certificate by partial-function values follows [Aaronson, Ben-David and Kothari, §6][ABK2019].
 
 <!-- /passage:CL-entry-interface -->
 
@@ -910,20 +932,8 @@ The worst-case lower bound says that no mixture of shallow trees succeeds on eve
 \Pr_{x\sim\mu}[T(x)=P(x)]\le\frac23.
 \]
 
-The minimax step has a finite proof. There are finitely many depth-\(L\) trees on \(n\) coordinates; for each such tree let \(a_T\in\mathbb R^D\) be its vector of correctness indicators, and let \(K\) be the convex hull of these vectors. Equivalently, form the finite payoff matrix with trees as rows, promised inputs as columns and correctness indicators as entries. A row mixture gives its vector of per-input success probabilities, and $K$ consists of exactly those vectors. Each point of \(K\) is the success vector of a randomized mixture of depth-\(L\) trees, so by hypothesis \(K\) is disjoint from the closed orthant \(H=[2/3,\infty)^D\).
+Indeed the finite game has depth-$L$ trees as rows, promised inputs as columns and correctness as payoff. No mixed row attains $2/3$ on every column. Finite minimax therefore gives a mixed column against which every row has success below $2/3$. [Appendix B.4](#record-minimax-proof) derives this from finite convex separation. We draw the address strings independently from this promised-input law.
 
-For \(a\in K\), the nearest point of \(H\) has coordinates \(c_x=\max(a_x,2/3)\). By compactness of \(K\) we choose a pair \(a,c\) of minimum distance, which is positive by disjointness. We set \(v=c-a\), so that \(v_x\ge0\), \(v\ne0\), and \(c_x=2/3\) whenever \(v_x>0\). For \(b\in K\), the point \(a+\theta(b-a)\) stays in \(K\) for \(0\le\theta\le1\). The squared distance \(\|c-a-\theta(b-a)\|^2\) is therefore minimized at \(\theta=0\) on this segment. Its right derivative gives
-\[
--2v\cdot(b-a)\ge0,\qquad v\cdot(b-a)\le0.
-\]
-Consequently,
-<!-- claim:NCL-strict-hard-distribution -->
-\[
-v\cdot b\le v\cdot a
-=v\cdot c-\|v\|^2
-=\frac23\sum_xv_x-\|v\|^2.
-\]
-The weights \(\mu(x)=v_x/\sum_yv_y\) form a probability distribution, and dividing the preceding inequality by the positive denominator proves the required bound, with a strict positive margin common to all the trees. The argument is finite and self-contained; the hard measure used in the analytic proof of Forrelation hardness plays no role in it.
 <!-- /passage:CL-minimax -->
 
 ### 6.2. Coupled zero and one inputs
@@ -945,7 +955,7 @@ Define the budget
 <!-- claim:eq-17 -->
 \[
 G=\left\lfloor\frac{mL}{100}\right\rfloor
-\tag{17}
+\tag{6.1}
 \]
 and fix a deterministic tree \(T\) of depth at most \(G\), together with the hard distribution \(\mu\) of §6.1. We construct both input distributions on one probability space.
 
@@ -1004,9 +1014,9 @@ The preceding first-difference implication and a union bound therefore give
 &\quad+
 \Pr[T\text{ on }Y^{(0)}\text{ queries a bit of }B_{I,s_I}].
 \end{aligned}
-\tag{18}
+\tag{6.2}
 \]
-Inequality (18) is the absolute-value form of the preprint's one-sided first-difference comparison. Its second term counts any visit to the cell, which bounds the event of seeing a changed cell bit (some planted bits can equal their blank values). Every event on the right concerns the dummy run, whose law is independent of \(I\).
+Inequality (6.2) is the absolute-value form of the preprint's one-sided first-difference comparison. Its second term counts any visit to the cell, which bounds the event of seeing a changed cell bit (some planted bits can equal their blank values). Every event on the right concerns the dummy run, whose law is independent of \(I\).
 <!-- /passage:CL-first-difference -->
 
 ### 6.3. Discoveries and the erased zero
@@ -1058,7 +1068,7 @@ A query to a certificate cell specifies its address before reading a bit of the 
 <!-- passage:CL-direct-product-statement -->
 
 
-**Lemma 4.1 (capped direct product).** Let $D\subseteq\{0,1\}^{n}$, let
+**Lemma 6.1 (separate-cap direct product).** Let $D\subseteq\{0,1\}^{n}$, let
 $P:D\to\{0,1\}$, let $\mu$ be a probability distribution supported on $D$,
 and let $L,r\geq0$ be integers. Suppose that every deterministic Boolean-output
 decision tree of depth at most $L$ has success probability at most $\beta$
@@ -1073,7 +1083,7 @@ run, counting repeated queries, then
 \[
 \Pr\!\left[\mathcal A(U_1,\ldots,U_r)
        =\bigl(P(U_1),\ldots,P(U_r)\bigr)\right]\leq\beta^r.
-\tag{6.1}
+\tag{6.3}
 \]
 
 This is OpenAI’s separate-cap form of the direct product. The choice of which input to query next can depend on every answer so far. Section 6.5 proves the bound by splitting the probability mass at each query. [OpenAI, Lemma 4.1][OpenAI2026].
@@ -1082,7 +1092,7 @@ This is OpenAI’s separate-cap form of the direct product. The choice of which 
 
 <a id="CL-address-guess"></a>
 <!-- passage:CL-address-guess -->
-Apply Lemma 4.1 to independent \(U_1,\ldots,U_r\sim\mu\): if an algorithm makes at most \(L\) queries to each \(U_h\) on every execution, then
+Apply Lemma 6.1 to independent \(U_1,\ldots,U_r\sim\mu\): if an algorithm makes at most \(L\) queries to each \(U_h\) on every execution, then
 <!-- claim:claim-address-guess -->
 \[
 \Pr[\widehat s=(P(U_1),\ldots,P(U_r))]\le(2/3)^r.
@@ -1099,7 +1109,7 @@ Let \(N_i\) be the number of queries made during the complete dummy run to the s
 <!-- claim:eq-20 -->
 \[
 \Pr[I\text{ is heavy}]\le\frac{G}{mL}.
-\tag{20}
+\tag{6.4}
 \]
 The threshold bounds the total number of queries to all \(r\) strings of a column, so in particular a nonheavy run uses at most \(L\) queries to each of those strings.
 <!-- /passage:CL-heavy -->
@@ -1111,7 +1121,7 @@ Fix a column $i$ and a query time $q\le G$. Give a simulator $r$ unknown target 
 At time $q$ inspect the coordinate the tree proposes to read. If it belongs to $B_{i,s}$, output $s$ without reading the bit. If the simulation has already stopped, or the proposed coordinate is elsewhere, output a fixed default vector. The time $q$ counts all proposed board queries; the cap $L$ counts only forwarded queries.
 <!-- claim:def-simulator -->
 
-Every run of this predictor makes at most $L$ queries to the target strings in total, hence at most $L$ to each. Lemma 4.1 gives an unconditional success probability at most $(2/3)^r$.
+Every run of this predictor makes at most $L$ queries to the target strings in total, hence at most $L$ to each. Lemma 6.1 gives an unconditional success probability at most $(2/3)^r$.
 
 <!-- /passage:CL-simulator -->
 
@@ -1122,21 +1132,21 @@ With the general parameters and the hard distribution of §6.1, suppose the comp
 \[
 \Pr[i\text{ is nonheavy and query }q\text{ lies in }B_{i,s_i}]
 \le(2/3)^r.
-\tag{21}
+\tag{6.5}
 \]
-Nonheaviness enters as part of the event inside the probability, so the target inputs keep their original distribution. The simulator never tests whether the complete run is nonheavy: that stronger event implies the needed prefix cap and is chosen to match the complete-run heavy-column bound (20).
+Nonheaviness enters as part of the event inside the probability, so the target inputs keep their original distribution. The simulator never tests whether the complete run is nonheavy: that stronger event implies the needed prefix cap and is chosen to match the complete-run heavy-column bound (6.4).
 <!-- /passage:CL-joint-event -->
 
 <a id="CL-cell-union"></a>
 <!-- passage:CL-cell-union -->
-If the dummy run visits the true cell of a nonheavy column \(i\), one of its at most \(G\) query times witnesses that visit, so a union bound of (21) over the times gives probability at most \(G(2/3)^r\) for each fixed \(i\). We average over the independent uniform \(I\) and then add (20):
+If the dummy run visits the true cell of a nonheavy column \(i\), one of its at most \(G\) query times witnesses that visit, so a union bound of (6.5) over the times gives probability at most \(G(2/3)^r\) for each fixed \(i\). We average over the independent uniform \(I\) and then add (6.4):
 <!-- claim:eq-22 -->
 \[
 \Pr[T\text{ on }Y^{(0)}\text{ queries a bit of }B_{I,s_I}]
 \le\frac{G}{mL}+G(2/3)^r.
-\tag{22}
+\tag{6.6}
 \]
-To see the cancellation, let $E_{iq}$ be the joint event in (21). The contribution from nonheavy columns is bounded by
+To see the cancellation, let $E_{iq}$ be the joint event in (6.5). The contribution from nonheavy columns is bounded by
 \[
 \frac1m\sum_{i=1}^m\sum_{q=1}^G\Pr(E_{iq})
 \le\frac1m\sum_{i=1}^mG(2/3)^r=G(2/3)^r.
@@ -1166,7 +1176,7 @@ $\nu_{a,b}(x)=\nu(x)\mathbf1_{\{x_a=b\}}$, and define
  W_{c+1}(\nu)&=\max\!\left\{W_c(\nu),\
        \max_{a}\bigl(W_c(\nu_{a,0})+W_c(\nu_{a,1})\bigr)\right\}.
 \end{aligned}
-\tag{6.9}
+\tag{6.7}
 \]
 
 (If there are no coordinates, the inner maximum is omitted.) The first term
@@ -1197,7 +1207,7 @@ every branch satisfies
     \left(\prod_{h=1}^{r}\nu_h(u_h)\right)
     \mathbf1_{\{T(u_1,\ldots,u_r)=(P(u_1),\ldots,P(u_r))\}}
  \leq\prod_{h=1}^{r}W_{c_h}(\nu_h).
-\tag{6.10}
+\tag{6.8}
 \]
 
 We argue by induction on $T$. At a leaf with output $s$, finite
@@ -1209,20 +1219,20 @@ replace only $\nu_h$ by $\nu_{h,a,b}$ and only $c_h$ by $c_h-1$; the
 subtrees obey these new allowances, so induction bounds their two successes
 by the corresponding products. Since every factor other than the $h$-th is
 the same in both, factoring out these common nonnegative factors leaves the
-sum $W_{c_h-1}(\nu_{h,a,0})+W_{c_h-1}(\nu_{h,a,1})$, which (6.9) bounds by
-$W_{c_h}(\nu_h)$. This proves (6.10). Taking $\nu_h=\mu$ and $c_h=L$
-recovers (6.1), since the one-input hypothesis gives $W_L(\mu)\leq\beta$.
+sum $W_{c_h-1}(\nu_{h,a,0})+W_{c_h-1}(\nu_{h,a,1})$, which (6.7) bounds by
+$W_{c_h}(\nu_h)$. This proves (6.8). Taking $\nu_h=\mu$ and $c_h=L$
+recovers (6.3), since the one-input hypothesis gives $W_L(\mu)\leq\beta$.
 <!-- /passage:CL-weighted-product -->
 
 <a id="CL-independent-information"></a>
 <!-- passage:CL-independent-information -->
-Finally average the bound over the coins and outside information. Their joint independence from the input tuple leaves its law equal to $\mu^{\otimes r}$ for each induced tree. This proves Lemma 4.1. The word *joint* matters: for independent fair bits $X,Y$, their parity is independent of either one, but knowing it lets a zero-query tree guess the pair with probability $1/2$. $\square$
+Finally average the bound over the coins and outside information. Their joint independence from the input tuple leaves its law equal to $\mu^{\otimes r}$ for each induced tree. This proves Lemma 6.1. The word *joint* matters: for independent fair bits $X,Y$, their parity is independent of either one, but knowing it lets a zero-query tree guess the pair with probability $1/2$. $\square$
 
 <!-- /passage:CL-independent-information -->
 
 <a id="CL-literature-and-verification"></a>
 <!-- passage:CL-literature-and-verification -->
-OpenAI proves Lemma 4.1 by multiplying conditional continuation values, following [Drucker, Lemmas 3.1–3.2][Drucker2012]. [Appendix B.1](#CL-product-law) gives that proof and identifies its potential with the weighted mass in (6.10). Drucker’s global-budget theorem and Shaltiel’s separate-cap XOR bound have related hypotheses and different conclusions. [OpenAI, §4.1][OpenAI2026]; [Shaltiel, §5][Shaltiel2001].
+OpenAI proves the separate-cap product bound by multiplying conditional continuation values, following [Drucker, Lemmas 3.1–3.2][Drucker2012]. [Appendix B.1](#CL-product-law) gives that proof and identifies its potential with the weighted mass in (6.8). Drucker’s global-budget theorem and Shaltiel’s separate-cap XOR bound have related hypotheses and different conclusions. [OpenAI, §4.1][OpenAI2026]; [Shaltiel, §5][Shaltiel2001].
 
 <!-- /passage:CL-literature-and-verification -->
 
@@ -1237,13 +1247,14 @@ By the reference-path bound of §6.3, the count of heavy columns, and the capped
 \[
 \left|\Pr[T(Y^{(1)})=1]-\Pr[T(Y^{(0)})=1]\right|
 \le\frac{2G}{m^2}+\frac{G}{mL}+G(2/3)^r.
+\tag{6.9}
 \]
 Using the original early/late estimate gives the slightly weaker form
 <!-- claim:eq-23 -->
 \[
 \left|\Pr[T(Y^{(1)})=1]-\Pr[T(Y^{(0)})=1]\right|
 \le\frac{4G}{m^2}+\frac{G}{mL}+G(2/3)^r.
-\tag{23}
+\tag{6.10}
 \]
 <!-- claim:NCL-checked-gap -->
 
@@ -1251,31 +1262,14 @@ Using the original early/late estimate gives the slightly weaker form
 
 <a id="CL-tail-numeric"></a>
 <!-- passage:CL-tail-numeric -->
-Since $1\le L\le m$ and $G\le mL/100$, we have $G\le m^2/100$. The contradiction needs a finite bound valid throughout this range. Using $4/9\le1/2$ and $r=40t$ gives
-\[
-(2/3)^{40t}\le2^{-20t}=m^{-10}.
-\]
-Thus
-<!-- claim:claim-numeric -->
-\[
-\begin{aligned}
-\frac{4G}{m^2}&\le\frac4{100},\qquad
-\frac{G}{mL}\le\frac1{100},\qquad
-G(2/3)^r\le\frac1{100m^8}\le\frac1{100},\\
-\frac{4G}{m^2}+\frac{G}{mL}+G(2/3)^r
-&\le\frac6{100}<\frac13.
-\end{aligned}
-\]
-The weaker coefficient four already suffices, and this numerical step needs no further large-\(m\) condition once \(1\le L\le m\) is known.
-
-For comparison with the preprint, the exact logarithmic form is
+Take $G=\lfloor mL/100\rfloor$. Since $L\le m$, the zero and heavy-column terms are at most $4/100$ and $1/100$, even with the weaker zero estimate. As $r=20\log_2m$ and $(2/3)^2<1/2$, the remaining term satisfies
 <!-- claim:claim-tail -->
 \[
-G(2/3)^r
-\le\frac1{100}m^{\,2-20\log_2(3/2)}
-=o(1).
+G(2/3)^r\le\tfrac1{100}m^{2-20\log_2(3/2)}
+\le\tfrac1{100}m^{-8}.
 \]
-Indeed, \((2/3)^{20\log_2m}=m^{-20\log_2(3/2)}\), and \((3/2)^2>2\) implies \(\log_2(3/2)>1/2\), so the exponent is less than \(-8\).
+<!-- claim:claim-numeric -->
+The entire bound is therefore at most $6/100<1/3$.
 
 <!-- /passage:CL-tail-numeric -->
 
@@ -1284,8 +1278,6 @@ Indeed, \((2/3)^{20\log_2m}=m^{-20\log_2(3/2)}\), and \((3/2)^2>2\) implies \(\l
 Suppose, for contradiction, that a randomized algorithm with worst-case query cost at most \(G\) computed \(F_{P,C,m}\) with error at most \(1/3\) on every input. Since every dummy input is a zero-input and every supported planted input is a one-input, averaging the pointwise correctness requirements gives an output-one probability gap of at least \(2/3-1/3=1/3\).
 
 Once we fix the algorithm's random coins, the resulting deterministic tree has depth at most \(G\), so its gap is at most \(6/100\). Averaging over the coins preserves that upper bound, contradicting the preceding lower bound. The total function has finitely many input bits, so reading all of them computes it exactly and its randomized complexity is a finite minimum. Since no algorithm of budget \(G\) exists, \(R(F_{P,C,m})>G\), which proves the generic theorem.
-
-(In the finite input model, the random coins can be represented by a finite mixture of bounded-depth trees: there are only finitely many possible trees, so we group the coin outcomes by the tree they induce.)
 
 
 <!-- /passage:CL-randomized-contradiction -->
@@ -1296,48 +1288,18 @@ Returning to the Forrelation family, we fix \(k\ge2\), let \(P=P_{k,m}\) on \(km
 \[
 L=\left\lfloor\frac{m^{1-1/k}}{(\log_2m)^2}\right\rfloor.
 \]
-The hardness theorem of [§8.10](#forr_threshold) gives $L<R(P_{k,m})$ for $t\ge13669k^2$. This is the only place that the identity of the partial function enters the classical bound. The factor $m$ comes from the uniform choice of column; $m^{1-1/k}/(\log_2m)^2$ is the allowed work on one address input.
+The hardness theorem of [§8.10](#forr_uniform_assembly) gives $L<R(P_{k,m})$ for $t\ge13669k^2$. This is the only place that the identity of the partial function enters the classical bound. The factor $m$ comes from the uniform choice of column; $m^{1-1/k}/(\log_2m)^2$ is the allowed work on one address input.
 
 <!-- /passage:CL-forrelation-input -->
 
-<a id="CL-floors"></a>
-<!-- passage:CL-floors -->
-We verify the remaining arithmetic with a threshold uniform in \(k\), starting from the fact that for every integer \(t\ge8\),
-\[
-4t^2\le2^t.
-\]
-Equality holds at \(t=8\). If the inequality holds at some \(t\ge8\), then \((t+1)^2\le2t^2\) because \(t^2-2t-1\ge0\), and hence \(4(t+1)^2\le8t^2\le2^{t+1}\), which completes the induction.
 
-We put \(a=m^{1-1/k}/(2t)^2\), where \(m=4^t\). Since \(1/2\le1-1/k\le1\),
-\[
-m^{1-1/k}\ge\sqrt m=2^t\ge(2t)^2,
-\qquad
-1\le a\le m.
-\]
-Every real \(x\ge1\) satisfies \(\lfloor x\rfloor\ge x/2\), since if \(b=\lfloor x\rfloor\), then \(b\ge1\) and \(x<b+1\le2b\). Thus \(1\le L\le m\) and \(L\ge a/2\).
-
-Also \(mL\ge4^8\ge200\), so the same floor estimate applies to \(mL/100\) and gives
-\[
-G\ge\frac{mL}{200}\ge\frac{ma}{400}.
-\]
-Since \(\log_2m=2t\), we obtain the baseline floor statement in explicit form:
-<!-- claim:claim-floor -->
-<!-- claim:NCL-explicit-floor -->
-\[
-\left\lfloor\frac m{100}
-\left\lfloor\frac{m^{1-1/k}}{(\log_2m)^2}\right\rfloor\right\rfloor
-\ge
-\frac1{400}\frac{m^{2-1/k}}{(\log_2m)^2}
-\quad(k\ge2,\ m=4^t,\ t\ge8).
-\]
-The two floor estimates each lose at most a factor two; neither changes the power of $m$.
-<!-- /passage:CL-floors -->
+For $t\ge8$ the unfloored allowance is at least one. Both floors, first in $L$ and then in $G$, cost at most a factor two apiece since $\lfloor x\rfloor\ge x/2$ for $x\ge1$. The [finite inequalities](#CL-floors) give the coefficient $1/400$ below.
 
 <a id="CL-concrete-lower"></a>
 <!-- passage:CL-concrete-lower -->
 We choose \(t\) beyond both \(8\) and the fixed-\(k\) Forrelation threshold, and take the circuit $C_{k,t}$ (also denoted $C_{k,m}$ when $m=4^t$) that §4 used to define \(F_{k,m}\) and §5 used to prove its quantum upper bound. Since it realizes the same promise and value, the generic lower theorem applies to this circuit.
 
-**Proposition 4.2 (OpenAI).** For each fixed integer \(k\ge2\), for every sufficiently large power of four \(m\), the total function from the construction satisfies
+**Proposition 6.2 (randomized lower bound).** For each fixed integer \(k\ge2\), for every sufficiently large power of four \(m\), the total function from the construction satisfies
 <!-- claim:prop-4.2 -->
 \[
 R(F_{k,m})>
@@ -1410,20 +1372,8 @@ All bases are positive and \(\alpha\geq0\), so exponentiation preserves this ine
 \tag{7.3}
 \]
 
-The right side tends to infinity. Here $k$ and the positive power $\varepsilon_\alpha$ are fixed. To see why its logarithmic denominator is harmless, put \(e=2+\alpha b_k\); for \(m=4^t\), the logarithm of the varying factor is
-\[
-\ln\!\left(\frac{m^{\varepsilon_\alpha}}{(\log_2m)^e}\right)
-=2\varepsilon_\alpha t\ln2-e\ln(2t).
-\]
-For \(u\geq1\),
-\[
-\ln u=\int_1^u\frac{ds}{s}
-\leq\int_1^u\frac{ds}{\sqrt s}
-\leq2\sqrt u.
-\]
-Hence \(\ln(2t)/t\to0\), whereas \(2\varepsilon_\alpha\ln2>0\), so the displayed logarithm tends to infinity, and so does the quotient in (7.3). The argument covers \(\alpha=0\) as well, since it never divides by \(Q\).
+The numerator is a positive power of $m$ and the denominator a fixed power of $\log_2m$, so the quotient tends to infinity. In particular, taking $k=3$ already excludes the cubic exponent; $k=2$ gives the threshold three and $k=3$ gives $10/3$. At $\alpha=4-2/k$ the power gap in (7.3) vanishes.
 
-For a fixed \(k\), the argument applies exactly when \(\alpha<4-2/k\). For example, \(k=2\) supplies the threshold exponent three and \(k=3\) supplies \(10/3\), so \(k=3\) already refutes a cubic universal bound. At \(\alpha=4-2/k\) the power gap \(\varepsilon_\alpha\) vanishes and (7.3) alone gives no divergence; every fixed finite \(k\) in this argument stays below exponent four.
 <!-- /passage:ROOT-RATIO -->
 
 ### 7.2. Excluding all smaller universal powers
@@ -1513,15 +1463,17 @@ R(P_{k,m})>\frac2{18225}\frac{m^{1-1/k}}{k^2\ln(4km)}.
 \]
 This estimate implies (F3) for fixed $k$ and supplies the lower bound for the growing family of §7.3.
 
-To see the exponent before the estimates, imagine two laws on signs. Under one law all signs are independent. Under the other, correlations run along a chain of $k$ blocks, each joined to the next by a Walsh matrix. Interpolate between them by varying the strength of the bias in the *first* block. Differentiating a tree’s mean output then introduces a derivative in that block. Integration by parts moves the dependence to the next block and the process repeats. In formulas the terms left after $k-1$ steps have the form
+Compare independent fair signs with a correlated sign law. Start with independent Gaussian layers $U_j$, pair each with its Walsh transform $HU_j$, and use adjacent pairs to bias the signs in each block. Conditional on the layers, round the signs independently at these biases. Interpolate between these laws by scaling the bias only in the first block. For any test function $g$, differentiation and Gaussian integration by parts carry a derivative through the successive blocks. If $p=(p_0,\ldots,p_{k-1})$ chooses one coordinate per block, write $H(p)=\prod_{j<k-1}H_{p_{j+1},p_j}$ and let $\partial_p$ denote differentiation in those $k$ coordinates. The contribution of a path to the change in the mean of $g$ has the form
 \[
-\underbrace{H_{p_1p_0}\cdots H_{p_{k-1}p_{k-2}}}_{k-1\ \mathrm{edges}}
-\quad\times\quad
-\underbrace{\partial_{0p_0}\cdots\partial_{k-1,p_{k-1}}F}_{\text{one derivative in each block}}
+H(p)\ \times\ \text{positive Gaussian weight}\ \times\ \partial_p F_g,
 \]
-times a bounded weight. Here $F$ is the tree’s mean output as a function of the sign biases. The repeated index at a middle block matters: a derivative that stays there differentiates the same coordinate twice and vanishes. The two- and three-block calculations in [§8.5](#forr_three_blocks) exhibit this cancellation.
+where $F_g$ is the mean of $g$ under independent signs with the indicated biases. The same identity must answer two questions.
 
-The first factor has absolute value $m^{-(k-1)/2}$. A martingale along a depth-$d$ tree bounds the sum of the derivative factors, up to logarithms and constants depending on $k$, by $d^{k/2}$. Thus the product can be of constant order only when $d$ reaches $m^{(k-1)/k}$. The proof must make this estimate at the *biased* points along the interpolation, then show that a correct promise algorithm would actually distinguish its endpoints. The endpoint laws can give weight to inputs outside the promise; two moments of $\Phi$ will control the error this permits.
+*Can a shallow tree tell the laws apart?* Every $|H(p)|=m^{-(k-1)/2}$. Along a depth-$d$ tree, successive centered query answers bound the sum of the absolute $k$-fold derivatives by roughly $d^{k/2}$, up to logarithms and $k$-dependent factors. Thus a shallow tree sees at most the product of these two scales. Their balance gives $d\approx m^{1-1/k}$. The derivatives are taken at the biases along the Gaussian interpolation, where Fourier coefficients at zero alone cannot control them.
+
+*Have we created any Forrelation?* Now test the same laws with $g=\Phi$. Its multilinear expansion has coefficient $H(p)/m$ on path $p$, and $\partial_p F_\Phi$ extracts precisely that coefficient. The two copies of the Walsh product give $H(p)^2/m=m^{-k}$, with the same sign for every path. There are $m^k$ paths. Their Gaussian weights have expectations bounded below by $18^{-(k-1)}$; proving this quantitative estimate is essential since positivity alone gives no uniform signal. Under fair signs the mean of $\Phi$ is zero.
+
+We will turn the gap for $\Phi$ into a contradiction for a shallow tree computing the promise function. The two laws can put weight outside the promise; moments of $\Phi$ and error reduction control that part. This gives the worst-case lower bound $R(P)>L$. Only then does finite minimax supply the *different*, promised-input law $\mu$ used to draw independent address inputs in §6.
 
 The Gaussian construction and the use of a bounded transform follow Bansal and Sinha. We use an algebraic transform and interpolate only the first block. The tree argument adapts the martingale method of Girish, Tal and Wu. The full derivative identity, the biased estimate and the promise-mass calculation are proved below. [Bansal and Sinha, §3 and Lemma 4.3][BansalSinha2021]; [Girish, Tal and Wu, §1.3][GirishTalWu2021].
 
@@ -1593,7 +1545,13 @@ Here $J$ is a set of distinct coordinates, and $\partial_J$ means one derivative
 
 <a id="forr_stein"></a>
 <!-- passage:forr_stein -->
-The rounded signs must have valid means bounded away from $\pm1$, so the tree estimate can apply uniformly. At the same time, Gaussian integration by parts must move a bias factor along a Walsh edge without creating an uncontrolled derivative term. The pair below meets both requirements: $|\varphi|\le1/2$, the identity $\varphi=x\Psi-\Psi'$ cancels that term, and the product $\Psi\varphi'$ has the uniform bound used on each edge. These are the properties needed from the choice, which we now verify. Put
+To design the rounding function, work backwards from the identity needed to move a derivative. With $Z$ standard Gaussian we want $\mathbb E[\varphi(Z)g(Z)]=\mathbb E[\Psi(Z)g'(Z)]$. Integration by parts against the Gaussian density suggests starting with a positive weight $\Psi$ and setting $\varphi=x\Psi-\Psi'$. The bias must stay inside $[-1/2,1/2]$ for the tree bound, while a positive derivative $\varphi'$ will give the Forrelation signal its sign.
+
+Try $\Psi=c(a+x^2)^{-1/2}$, with $a,c>0$. Then $x\Psi-\Psi'$ tends to $\pm c$ at the two ends of the line. Its derivative is
+\[
+c\,\frac{a(a+1)+(a-2)x^2}{(a+x^2)^{5/2}} .
+\]
+Choosing $a=2$ cancels the quadratic term and gives a positive derivative everywhere. With $c=1/2$ the limiting biases are the required endpoints. Thus put
 
 <!-- claim:NEW-FOR-08 -->
 \[
@@ -1768,6 +1726,10 @@ Since the accumulated factor $\Psi(U_a)\varphi'(V_b)$ is independent of the enti
 \tag{F20}
 \]
 
+![A derivative moving along a three-block path. Crossing into block 1 supplies $H_{b,a}$, and crossing into block 2 supplies $H_{c,b}$. Staying at $(1,b)$ would differentiate that coordinate a second time, giving zero.](figures/forrelation_chain.svg){width=93%}
+
+The weights accumulated at the first crossing depend only on the first Gaussian layer. Differentiation in the second layer therefore leaves them fixed.
+
 Thus
 
 \[
@@ -1830,7 +1792,9 @@ For example, the monomial $g(z)=\prod_{i\in T}z_i$ with $|T|=k+1$ has $\partial_
 
 Equation (F24) rules out simply using the degree-$k$ Fourier coefficients at zero. We bound the derivatives directly under the independent biased law.
 
-A depth-$d$ tree reveals at most $d$ coordinates. The derivative identity (F8) expresses a signed sum of derivatives as the expectation of the tree output times a polynomial in centered input signs. At a leaf, every monomial containing an unqueried coordinate has conditional mean zero. It is therefore enough to control the polynomial formed by the revealed coordinates. Its evolution is a martingale: a new query contributes one fresh centered sign times a lower-degree polynomial. The proof below bounds that lower-degree factor before each query, then uses a maximal inequality. This is where the depth $d$ enters the analytic estimate.
+Start with degree one. On revealing a fresh coordinate the tree adds a bounded centered sign times a coefficient already known. Even when the next index is chosen adaptively, this sum fluctuates on a $\sqrt d$ scale, up to a tail factor. At degree two, the coefficient of the newly revealed sign is itself a degree-one sum over previous reveals. Stop before any such coefficient exceeds its bound. Each of the next $d$ centered increments is then at most of order $\sqrt d$, and their sum has scale $d$. At degree $r$ the same argument costs one factor of order $\sqrt d$ (with a logarithmic tail factor) for each degree. Counting queried $r$-tuples would give the much larger scale $d^r$.
+
+To relate these fluctuations to a derivative of the tree’s output, use the centered characters of (F8) under the actual biased law. A monomial containing an unqueried coordinate has conditional mean zero at a leaf. Thus only the revealed polynomial needs to be controlled.
 
 <a id="forr_tree_growth"></a>
 <!-- passage:forr_tree_growth -->
@@ -1897,34 +1861,14 @@ The right side is the sum, over reachable leaves, of each leaf's cylinder probab
 
 <a id="forr_tree_stopping"></a>
 <!-- passage:forr_tree_stopping -->
-*A maximal inequality.* The increment in (F27) is centered, but its size contains the random lower-degree expression $Y_{r-1}^{c^q}$. We first bound a martingale with deterministically bounded increments, then obtain that bound for the revealed polynomial by stopping. If a centered random variable $W$ lies in $[-B,B]$, convexity of the exponential gives
-
-<!-- claim:NEW-FOR-15 -->
-\[
-\mathbb E e^{\lambda W}
-\le \cosh(\lambda B)
-\le e^{\lambda^2B^2/2}.
-\tag{F29}
-\]
-
-The first inequality follows by averaging the secant line through the endpoint values of the exponential, and the second follows term by term from $(2j)!\ge2^j j!$. The same argument applies conditionally whenever the conditional law is centered and satisfies the bound.
-
-Let $B>0$, $R>0$, and let $d\ge1$ be an integer. For a martingale $Z_j$ that starts at zero and has increments of absolute value at most $B$, (F29) makes
-
-\[
-M_j=\exp\!\left(\lambda Z_j-\frac{\lambda^2B^2j}{2}\right)
-\]
-
-a nonnegative supermartingale. We also stop at the first time $Z_j>R$, capped at $d$. Writing the stopping time as $\sigma$, the stopped process is $M_{j\wedge\sigma}$. At each deterministic step, $\mathbb E[M_{(j+1)\wedge\sigma}\mid\mathcal F_j]\le M_{j\wedge\sigma}$: on $\{\sigma\le j\}$ it is constant and otherwise the supermartingale inequality applies. Iterating from $j=0$ to $d-1$ shows that the stopped $M$ has expectation at most one, while on the crossing event its value is at least $\exp(\lambda R-\lambda^2B^2d/2)$. Taking $\lambda=R/(B^2d)$ and applying the same argument to $-Z$ yields
-
+For $R,B>0$, a martingale $Z_j$ starting at zero and making $d\ge1$ increments of magnitude at most $B$ satisfies
 <!-- claim:NEW-FOR-16 -->
 \[
 \Pr\!\left(\max_{j\le d}|Z_j|>R\right)
 \le2\exp\!\left(-\frac{R^2}{2B^2d}\right).
 \tag{F30}
 \]
-
-The argument uses only conditional expectation over a finite horizon.
+The [finite exponential-martingale proof](#record-maximal-inequality) appears in Appendix C.3.
 
 *Stopping by degree.* For degree one, (F27) is a sum of at most $d$ centered increments bounded by $2$. For higher degree, each increment also contains a lower-degree polynomial. We control these factors inductively, paying one factor of order $\sqrt{d\Lambda}$ per degree. Fix $\Lambda>0$ and put $K=\sqrt{8d\Lambda}>0$. We claim that, for every bounded coefficient array and every $r\ge0$,
 
@@ -2027,6 +1971,22 @@ The orientation agrees with (F1) because $H$ is symmetric. Under uniform indepen
 \tag{F36}
 \]
 
+We apply (F22)–(F23) with $g=\Phi$. Each monomial of $\Phi$ has one variable in every block. Differentiating at the selected coordinate in every block kills any monomial that uses a different coordinate in even one block, leaving precisely the path coefficient. Thus its path derivative is the constant
+
+\[
+\partial_{S_p}F_\Phi
+=\frac1m\prod_{j<k-1}H_{p_{j+1},p_j}.
+\]
+
+Multiplying it by the path coefficient already present in (F22) yields the nonnegative number
+
+\[
+\frac1m\prod_{j<k-1}H_{p_{j+1},p_j}^{\,2}=m^{-k}.
+\]
+
+
+The count of $m^k$ paths cancels this factor. It remains to bound the *expected* positive weight uniformly for every path. A pointwise positive function of a Gaussian can have arbitrarily small mean; the following estimate uses the normalizations of both Gaussian coordinates on each edge.
+
 For the hard mean we use the elementary inequality $e^v\ge1+v$ with $v=(x^2-1)/3$, which implies
 
 <!-- claim:NEW-FOR-21 -->
@@ -2055,19 +2015,6 @@ Every selected $U$ coordinate has second moment one, and so, by (F13) for the co
 \]
 
 This calculation uses only the marginal second moments, so it holds whatever the dependence between a selected $U$ coordinate and its correlated $V$ coordinate.
-
-We apply (F22)–(F23) with $g=\Phi$. Each monomial of $\Phi$ has one variable in every block. Differentiating at the selected coordinate in every block kills any monomial that uses a different coordinate in even one block, leaving precisely the path coefficient. Thus its path derivative is the constant
-
-\[
-\partial_{S_p}F_\Phi
-=\frac1m\prod_{j<k-1}H_{p_{j+1},p_j}.
-\]
-
-Multiplying it by the path coefficient already present in (F22) yields the nonnegative number
-
-\[
-\frac1m\prod_{j<k-1}H_{p_{j+1},p_j}^{\,2}=m^{-k}.
-\]
 
 Since (F38) applies to each of the $m^k$ paths and the uniform mean is zero, we obtain
 
@@ -2146,142 +2093,25 @@ R(P_{k,m})>
 
 The dimension condition is equivalent to $m\ge2^{15k+2}$; in particular, all denominators are positive. The two powers of $k$ have different sources: the factor $k$ in the derivative-growth estimate (F25) survives in (F33), while error reduction substitutes the depth $d=50kD+1$, with repetition parameter $\tau=25k$. Appendix D explains the cancellation obtainable instead from the external Fourier-growth theorem.
 
-*Proof.* Suppose an algorithm has cap $D$ at most the displayed quantity. We set $\tau=25k$ and $\varepsilon=(8/9)^{25k}$. The integer inequality
-$18\cdot8^{25}<9^{25}$ then implies
+*Proof.* Suppose $D$ does not exceed the stated bound. Use the error reduction of §8.9 with $\tau=25k$ and padded depth $d=50kD+1$. Its error on the promise is at most $18^{-k}$. The two moment estimates then force a difference of at least $119a_k/144$ between its acceptance probabilities under the two laws, where $a_k=18^{-(k-1)}$. A zero-query algorithm has no such gap. For $D\ge1$, applying the tree estimate (F33) at depth $d$ gives at most $a_k/3$ from the main term and $a_k/4$ from the residual. The powers cancel because $(m^{1-1/k})^{k/2}=m^{(k-1)/2}$. Since $7/12<119/144$, this is impossible. [Appendix C.4](#record-uniform-constants) gives the constant comparisons.
 
-\[
-\varepsilon\le18^{-k}=\frac{a_k}{18},
-\qquad \delta\le\frac{a_k}{32},
-\qquad \frac4{m\delta^2}\le\delta.
-\tag{F44}
-\]
-
-The dimension condition enters through the last inequality. Since $a_k-\delta\le1$, (F42) gives a gap of at least
-
-\[
-a_k-2\delta-2\varepsilon
-\ge\left(1-\frac1{16}-\frac19\right)a_k
-=\frac{119}{144}a_k.
-\tag{F45}
-\]
-
-If $D=0$, the acceptance probability is constant on the cube, so its two expectations agree, contradicting (F45). Hence $D\ge1$.
-
-We use the padded depth $d=50kD+1$ of §8.9 in (F33), matching the finite formal interface. The preceding $D\ge1$ gives $d\le50kD(1+1/(50k))$. Substituting the assumed upper bound on $D$ and using $800(2/18225)=(8/27)^2$ now imply
-
-\[
-16kd\ln(4km)
-\le\left(\frac8{27}\right)^2
-       \left(1+\frac1{50k}\right)m^{1-1/k}.
-\tag{F46}
-\]
-
-The binomial theorem gives
-
-\[
-\left(1+\frac1{50k}\right)^k
-\le\sum_{j=0}^k50^{-j}
-\le\frac{50}{49}
-<\left(\frac98\right)^2.
-\tag{F47}
-\]
-
-Indeed, $\binom kj\le k^j$ bounds each term. With $b=3/16$, the main term in (F33) is therefore at most
-
-\[
-\begin{aligned}
-\left(\frac b{\sqrt m}\right)^{k-1}
-      \bigl(16kd\ln(4km)\bigr)^{k/2}
-&\le b^{k-1}\left(\frac8{27}\right)^k
-       \left(1+\frac1{50k}\right)^{k/2}\\
-&\le\frac8{27}\,a_k\frac98=\frac{a_k}{3},
-\end{aligned}
-\tag{F48}
-\]
-
-where $b(8/27)=1/18$ and $k(1-1/k)=k-1$ cancel all powers of $m$. The dimension condition implies $\sqrt m\ge54$, so $b/\sqrt m\le3/54=1/18$. Also $2^{-k}\le1/4$ since $k\ge2$. As $a_k=18^{-(k-1)}$, these two inequalities bound the residual by
-
-\[
-2^{-k}\left(\frac b{\sqrt m}\right)^{k-1}
-\le\frac{a_k}{4}.
-\tag{F49}
-\]
-
-Consequently the advantage is at most $7a_k/12$, which is strictly below $119a_k/144$ and contradicts (F45). Applying this contradiction at the least successful integer cap proves (F43). $\square$
 <!-- /passage:forr_uniform_assembly -->
-
-<a id="forr_threshold"></a>
-<!-- passage:forr_threshold -->
-To derive (F3) with an explicit threshold, we first note that if $1\le k\le t$ and $m=4^t$, then
-
-\[
-\ln(4km)=\ln(4k)+2t\ln2
-\le(4k-1)+2t\le6t.
-\tag{F50}
-\]
-
-Here we use $\ln x\le x-1$ for $x>0$ and $\ln2\le1$. For $k\ge2$ and $t\ge13669k^2$ we have $k\le t$, $t>0$ and $15k+2\le2t$, so the proposition applies and gives
-
-<!-- claim:r3-forr-explicit-fixed-threshold -->
-\[
-\begin{aligned}
-R(P_{k,4^t})
-&>\frac2{18225}\,
-   \frac{m^{1-1/k}}{k^2\ln(4km)}\\
-&\ge\frac{m^{1-1/k}}{54675k^2t}\\
-&>\frac{m^{1-1/k}}{4t^2}
- \ge\left\lfloor\frac{m^{1-1/k}}{(2t)^2}\right\rfloor.
-\end{aligned}
-\tag{F51}
-\]
-
-The strict comparison follows from
-$4t\ge54676k^2>54675k^2$.
-Since $\log_2(4^t)=2t$, the final floor equals $L_{k,4^t}$. This proves the theorem for every $t\ge13669k^2$, with the order of quantifiers required by §3.2, and the argument requires neither a subsequence nor a growing-$k$ total-function conclusion.
-
-The lower bound also shows that both promise values occur in these dimensions, since if one of them were absent, a constant zero-query algorithm would compute the partial function on its domain, contradicting (F43). The earlier four-term threshold, which is much larger, remains valid, and its proof is given in [the alternative derivation in Appendix C](#forr_historical_threshold).
-
-**Optional threshold refinement.** Because the first inequality is already strict, the smaller threshold $\lceil54675k^2/4\rceil$ also follows from (F43) and (F50); we state the simpler integer multiple above because it suffices. Both thresholds are ordinary specializations of the quantitative theorem and make no claim about the first dimension at which the lower bound holds.
-<!-- /passage:forr_threshold -->
-
-### 8.11. Relation to the published proofs
-
-<a id="forr_attribution"></a>
-<a id="forr_credit"></a>
-<!-- passage:forr_credit -->
-**Promise and theorem.** Bansal and Sinha prove the hardness of the explicit $k$-fold Forrelation promise used here and supply its one-sided thresholds; their Theorem 1.3 is the original quantitative lower-bound theorem for (F2).
-
-**Gaussian architecture.** Bansal and Sinha's §3 supplies the Gaussian-pair and conditional-rounding antecedent, and their Lemma 4.3 the transformed integration-by-parts antecedent. Their truncation is the Gaussian distribution function minus $1/2$. The algebraic function (F9) used here defines a different hard distribution, so we prove (F16), (F22) and (F39) for that distribution; their promise-mass theorem concerns theirs.
-
-**Optional Fourier comparison.** Sherstov, Storozhenko and Wu independently obtain the optimal partial separation through rorrelation, a distribution built from random orthogonal matrices, and distinguish that problem from explicit Forrelation [Sherstov, Storozhenko and Wu, §1.8]. We use their separate Fourier-growth theorem only in Appendix D. The proof above combines the Gaussian-chain architecture with the decision-tree growth method described next.
-
-The adaptive-path martingale in §8.6 follows the ordinary-tree discussion of Girish, Tal, and Kewen Wu, arXiv:2103.11604v2, §1.3 and Lemma 1.9, pp. 6–8 (the conference version numbers the corresponding result Lemma 9). Their discussion motivates the contracted coefficient arrays and the induction on degree. The centered variables, bounded-bias constants, repeated-query treatment and stopped-process estimate used here are stated and proved in §§8.6–8.7. We do not claim that the cited lemma already contains the raw-derivative statement (F25) in this form.
-
-The one-block interpolation isolates one raw derivative in each labelled block and, as (F24) shows, keeps the higher uniform Fourier levels of the test function. No priority or novelty is claimed for this arrangement.
-<!-- /passage:forr_credit -->
-
-[Appendix D](#forr-source-comparisons) contains two comparisons outside the proof of (F3): a check of one displayed step in Bansal–Sinha v3 §5.4, whose defect does not by itself refute their theorem, and a transfer of the Sherstov–Storozhenko–Wu Fourier-growth theorem to the Walsh promise, which gives the variable-error estimate (F60).
 
 
 \Needspace{12\baselineskip}
 
+For fixed $k$, the right side of (F43) exceeds $m^{1-1/k}/(\log_2m)^2$ for all sufficiently large $m$; [Appendix C.4](#forr_threshold) gives the sufficient threshold $t\ge13669k^2$. This supplies the one-input allowance used to hide the planted certificate.
+
 ## Conclusion
 
-A cell query has a different meaning in the two bounds. After the quantum tournament has selected a candidate, its decoded address gives the verifier access to a short test for each possible defect. In the classical coupling, the first query to that very cell is already an answer to $r$ independent problems. The first algorithm can separate selection from verification; the second must find useful evidence while the address is still hidden.
+Three adaptive choices enter the proof. The tournament may choose a pivot using its entire history, but complementarity still halves the expected weight. A classical predictor may direct its next query to any address input, but only that input’s factor changes in the product bound. A shallow tree may choose any fresh sign, but at fixed bias its centered increment still has conditional mean zero. In each case the next choice is allowed to depend on the past.
 
-The exponent records the cost of these two operations. Quantum search costs $m^{1/2}$ up to logarithms, while the classical obstruction multiplies $m$ by the $m^{1-1/k}$ scale from the Walsh chain. Their exponent ratio tends to four. The final ingredient, proved next, explains why total Boolean functions allow no larger universal power.
+A path through the Gaussian chain carries $k-1$ Walsh factors. A shallow tree can offset their small magnitudes only with the derivatives it builds from the signs it actually reads. The Forrelation statistic has precisely the matching coefficients: multiplication squares the Walsh factors, and all paths contribute with the same sign. Thus, for fixed $k$, an address bit has classical hardness on the scale $m^{1-1/k}$ up to logarithms, yet its quantum decoding cost stays bounded as $m$ grows.
 
-\clearpage
+On the total board the two algorithms must do different things with those bits. To defeat a rival the winning column need only decode its own address and follow one pointer. Complementarity makes the total tournament weight contract, so a quantum algorithm pays the square-root cost of verification only for a short list. For a classical tree, the first query to the planted cell is already a prediction of all its address bits. Concentrating enough queries in the hidden column costs order $mL$; guessing while spending less there has probability exponentially small in the address length.
 
-<a id="record-reading-guide"></a>
-## Reading guide {.unnumbered .unlisted}
+With $L$ at the Forrelation scale, these two uses of the same cell give powers $1/2$ and $2-1/k$ of $m$. Their ratio is $4-2/k$. Fixing $k$ large enough excludes any proposed universal power below four. The universal quartic bound of Aaronson, Ben-David, Kothari, Rao and Tal, proved in Appendix A, meets this obstruction exactly.
 
-The main proof runs from the winning column (§§1–4) through the quantum tournament (§5) and the planted classical input (§6) to the exponent calculation (§7). Section 8 proves the Forrelation lower bound used in that calculation. It can be read on its own after the definition in [§3](#forr_definition). The [specialist companion](expert_companion.md) gives a shorter proof of the reductions; the [teaching article](exposition.md) works them out on a small board.
-
-The appendices below give the supporting proofs. Each is also linked where its result is used.
-
-\setcounter{tocdepth}{2}
-\tableofcontents
 \clearpage
 
 ## Appendix A. The universal quartic bound
@@ -2584,7 +2414,7 @@ a leaf, the same argument also gives the stop and its output. Thus
  \Pr(H_\tau)=\prod_{h=1}^{r}\mu(E_h(\tau)),\qquad
  \mathcal L(U_1,\ldots,U_r\mid H_\tau)
    =\bigotimes_{h=1}^{r}\mu(\,\cdot\mid E_h(\tau)).
-\tag{6.2}
+\tag{B.1}
 \]
 
 For the last identity, we divide the product mass of a compatible tuple by
@@ -2614,7 +2444,7 @@ input, we define
  V_h(\tau)=
  \max_{\operatorname{depth}(T)\leq L-q_h(\tau)}
  \Pr\!\left[T(U_h)=P(U_h)\mid U_h\in E_h(\tau)\right].
-\tag{6.3}
+\tag{B.2}
 \]
 
 The maximization ranges over single-input deterministic trees, which are
@@ -2629,17 +2459,17 @@ conditional probability, we choose a tree attaining $V_h(\tau b)$, where
 $\tau b$ appends this query and answer. The single-input strategy that
 queries $a$ first and then runs the chosen tree uses at most
 $L-q_h(\tau)$ queries, and its conditional success is the average of those
-new optimal values. Optimality in (6.3) therefore gives
+new optimal values. Optimality in (B.2) therefore gives
 
 <!-- claim:eq-16 -->
 \[
  \sum_{b:\,\Pr(U_h(a)=b\mid H_\tau)>0}
    \Pr(U_h(a)=b\mid H_\tau)\,V_h(\tau b)
    \leq V_h(\tau).
-\tag{6.4}
+\tag{B.3}
 \]
 
-Inequality (6.4) is the finite form of the preprint's equation (16). A
+Inequality (B.3) is the finite form of the preprint's equation (16). A
 branch of conditional probability zero contributes zero, and any tree can
 be installed on that unreachable branch without defining a posterior there.
 If the coordinate was queried earlier, only its already-known answer is
@@ -2648,19 +2478,19 @@ which again cannot increase the optimum.
 
 For $j\neq h$, the local constraints, posterior and remaining budget stay
 the same, so $V_j(\tau b)=V_j(\tau)$ on every positive-probability child.
-Here we use the transcript product law (6.2): learning a bit of $U_h$
+Here we use the transcript product law (B.1): learning a bit of $U_h$
 leaves the conditional law of every other input unchanged.
 <!-- /passage:CL-conditional-values -->
 
 <a id="CL-supermartingale"></a>
 <!-- passage:CL-supermartingale -->
 Let $Z(\tau)=\prod_{h=1}^{r}V_h(\tau)$. Since the other factors are
-unchanged and nonnegative, multiplying (6.4) by their product gives
+unchanged and nonnegative, multiplying (B.3) by their product gives
 
 <!-- claim:claim-supermartingale -->
 \[
  \mathbb E[Z(\tau')\mid H_\tau]\leq Z(\tau),
-\tag{6.5}
+\tag{B.4}
 \]
 
 where $\tau'$ is the history after the next query. The product inequality
@@ -2669,7 +2499,7 @@ expectation: at each step only the queried factor can change, and the
 others are fixed by the current history.
 
 The tree makes at most $rL$ queries. We keep $Z$ constant after an early
-stop and sum (6.5) over positive-probability histories at each of these
+stop and sum (B.4) over positive-probability histories at each of these
 finitely many steps, so the expected terminal product is at most its
 initial value. At the empty history each factor is at most $\beta$ by the
 one-input hypothesis, so this initial value is at most $\beta^r$. (Since the
@@ -2688,11 +2518,11 @@ history and the option of stopping immediately give
                \Pr[P(U_h)=b\mid H_\tau]\\
  &\leq\prod_{h=1}^{r}V_h(\tau)=Z(\tau),
 \end{aligned}
-\tag{6.6}
+\tag{B.5}
 \]
 
 where $P^r(U)$ denotes $(P(U_1),\ldots,P(U_r))$. Averaging over the terminal
-histories proves (6.1) for the deterministic algorithm. Note that (6.6)
+histories proves (6.3) for the deterministic algorithm. Note that (B.5)
 bounds a conditional probability; the realized success indicator can exceed
 $Z$ pointwise, since it equals one on a successful input, where $Z<1$ is
 possible.
@@ -2712,11 +2542,11 @@ the finite maximum defining the optimum, so
  \qquad
  \Pr(H_\tau)\,Z(\tau)
    =\prod_{h=1}^{r}W_{L-q_h(\tau)}(\nu_h^\tau).
-\tag{6.11}
+\tag{B.6}
 \]
 
 The second identity follows by cancelling the product of masses from
-(6.2), so a transcript's probability times its normalized potential equals
+(B.1), so a transcript's probability times its normalized potential equals
 its unnormalized product value. The weighted induction proves the bound
 without divisions, and the conditional proof explains why adaptivity gives
 no advantage.
@@ -2725,7 +2555,7 @@ no advantage.
 
 ### B.2. Alternative search estimates
 
-These refinements are optional for Proposition 4.2. Keep the dummy input of §6.2: the $m$ zero locations are independent and uniform, the address data are independent of them, and the cells are blank. The selected column $I$ is uniform and independent of the complete dummy run, so its erased zero is hit with probability $\mathbb EZ/m$. All costs below count queries to the $X$ strings, including repeated queries; the run has at most $G$ queries in total.
+The proof of Proposition 6.2 used the reference path in §6.3. The original search estimate can also be derived as follows. Keep the dummy input of §6.2: the $m$ zero locations are independent and uniform, the address data are independent of them, and the cells are blank. The selected column $I$ is uniform and independent of the complete dummy run, so its erased zero is hit with probability $\mathbb EZ/m$. All costs below count queries to the $X$ strings, including repeated queries; the run has at most $G$ queries in total.
 
 <a id="CL-early-late"></a>
 <!-- passage:CL-early-late -->
@@ -2758,9 +2588,9 @@ Combined with the selection identity, this proves the full display of the prepri
 \Pr[T\text{ on }Y^{(0)}\text{ queries }X_I[J_I]]
 =\frac{\mathbb EZ}{m}
 \le\frac{4G}{m^2}.
-\tag{19}
+\tag{B.7}
 \]
-The identity and the search estimate prove separate parts of (19): the first uses independent selection, the second the cost of discovering zeros.
+The identity and the search estimate prove separate parts of (B.7): the first uses independent selection, the second the cost of discovering zeros.
 <!-- /passage:CL-early-late -->
 
 <a id="CL-zero-worlds"></a>
@@ -2816,7 +2646,7 @@ cap $L$ answers all of $r$ independent inputs from $\mu$. The simulator of
 §6.4 is such an algorithm once its side information, which is jointly
 independent of the $r$ target strings, is fixed. The guessing term
 $G(2/3)^r$ of §6.6 would then become $2G(2/3)^r\le2/(100m^8)$, and the total
-there would remain at most $6/100$: for $m\ge4$, $2/(100m^8)\le1/100$, so this term plus $4/100$ and $1/100$ is at most $6/100$. We use the separate-cap form (6.1)
+there would remain at most $6/100$: for $m\ge4$, $2/(100m^8)\le1/100$, so this term plus $4/100$ and $1/100$ is at most $6/100$. We use the separate-cap form (6.3)
 because it gives $(2/3)^r$ itself and has a short proof.
 
 #### The cap-event corollary
@@ -2824,7 +2654,7 @@ because it gives $(2/3)^r$ itself and has a short proof.
 <a id="CL-joint-cap"></a>
 <!-- passage:CL-joint-cap -->
 **Corollary (success together with respecting the caps).** Under the
-one-input and independence hypotheses of Lemma 4.1, let $\mathcal A$ be any
+one-input and independence hypotheses of Lemma 6.1, let $\mathcal A$ be any
 finite adaptive vector-output algorithm, which need not respect the caps on every
 run.
 Let $Q_h$ be its terminal number of queries to input $h$, counting
@@ -2833,7 +2663,7 @@ repetitions, and put $E=\{Q_h\leq L\text{ for every }h\}$. Then
 <!-- claim:NCL-joint-cap -->
 \[
  \Pr\!\left[\mathcal A(U)=P^r(U)\ \text{and}\ E\right]\leq\beta^r.
-\tag{6.7}
+\tag{B.8}
 \]
 
 We construct $\mathcal A^{\leq L}$ by following $\mathcal A$, stopping
@@ -2842,12 +2672,12 @@ outputting an arbitrary fixed vector at such a stop. The modified algorithm
 obeys every cap on every branch, including branches with inconsistent
 repeated-query answers. On $E$, every prefix count is at most the terminal
 count, so truncation never occurs and the two algorithms produce the same
-output. Hence every original run in the joint event in (6.7) is a
-successful run of $\mathcal A^{\leq L}$, and (6.1) proves (6.7). As before,
+output. Hence every original run in the joint event in (B.8) is a
+successful run of $\mathcal A^{\leq L}$, and (6.3) proves (B.8). As before,
 the truncation is performed after fixing the independent information and
 coins, and the bound is then averaged. $\square$
 
-Conditioning on $E$ can change the input law. The joint event in (6.7) needs no such conditioning. The [example below](#CL-adaptive-example) exhibits the difference.
+Conditioning on $E$ can change the input law. The joint event in (B.8) needs no such conditioning. The [example below](#CL-adaptive-example) exhibits the difference.
 
 <!-- /passage:CL-joint-cap -->
 
@@ -2860,7 +2690,7 @@ that column's $r$ partial-function inputs as independent samples from the
 hard law. It stops before its $(L+1)$-st target query in total,
 which implies the separate allowance $L$ for every target input. Its
 outside data must be independent of the whole target tuple, and so may not
-include the hidden true address. With $\beta=2/3$, Lemma 4.1 then bounds the
+include the hidden true address. With $\beta=2/3$, Lemma 6.1 then bounds the
 simulator's probability of outputting the true address by $(2/3)^r$.
 
 If the original dummy run is nonheavy and its proposed query at a fixed
@@ -2904,7 +2734,7 @@ Now we change only the rule for selecting $I$: after the queries, choose uniform
 \[
 1-(3/4)^4=\frac{175}{256}>\frac14.
 \]
-Thus the identity in (19) needs more than a uniform marginal law for $I$: it needs independence from the whole dummy run.
+Thus the identity in (B.7) needs more than a uniform marginal law for $I$: it needs independence from the whole dummy run.
 <!-- /passage:CL-selection-independence-example -->
 
 <a id="CL-simulator-example"></a>
@@ -2936,7 +2766,7 @@ These identities use the four independent uniform zero positions and a uniform i
 
 <a id="CL-conditioning-counterexample"></a>
 <!-- passage:CL-conditioning-counterexample -->
-The examples isolate different effects of conditioning. The [final example below](#CL-adaptive-example) shows how a union of transcript rectangles can lose its product law. The preceding simulator has extra success from its default output. The following example shows how conditioning on the nonheavy event in (21) selects inputs that are easier to solve. On the promised two-bit inputs \(\{01,10,11\}\), let \(P\) be AND and let \(\mu\) be uniform. Every one-query algorithm has success at most \(2/3\): after either coordinate is queried, one answer identifies a unique input and the other leaves two equally likely, oppositely labelled inputs.
+The examples isolate different effects of conditioning. The [final example below](#CL-adaptive-example) shows how a union of transcript rectangles can lose its product law. The preceding simulator has extra success from its default output. The following example shows how conditioning on the nonheavy event in (6.5) selects inputs that are easier to solve. On the promised two-bit inputs \(\{01,10,11\}\), let \(P\) be AND and let \(\mu\) be uniform. Every one-query algorithm has success at most \(2/3\): after either coordinate is queried, one answer identifies a unique input and the other leaves two equally likely, oppositely labelled inputs.
 
 Consider the tree that queries the first bit, stops with the correct output \(0\) on the answer-zero branch, and queries the second bit on the answer-one branch. With cap \(L=1\), the complete original run is nonheavy exactly on input \(01\), so its conditional success given nonheaviness is \(1\). A simulator that aborts before the second query and defaults to \(0\) has unconditional success \(2/3\), while correct-and-nonheavy has probability \(1/3\). Thus the unconditional bound holds, while the conditional bound would read \(1\le2/3\), which is false. This meets the separate-cap lemma’s hard-law premise, but $R(P)=L=1$: choose a coordinate uniformly, output $0$ after a $0$, and output $1$ with probability $2/3$ after a $1$. The success probability is $2/3$ on each promised input; no zero-query algorithm can achieve it on both labels. Thus the toy illustrates conditioning on terminal lightness, not the strict $L<R(P)$ regime of the final construction.
 <!-- /passage:CL-conditioning-counterexample -->
@@ -2978,7 +2808,7 @@ rows give
  \Pr(E)=\frac12,\qquad
  \Pr(C\cap E)=\frac5{16}\leq\frac9{16}=\beta^2,
  \qquad \Pr(C\mid E)=\frac58>\beta^2.
-\tag{6.8}
+\tag{B.9}
 \]
 
 The cap event selects a union of rectangles, which carries dependence
@@ -2988,10 +2818,69 @@ which differs from the product $3/8$. Truncating before the repeated query,
 with output $(0,0)$ at the new stops, gives a valid capped tree with success
 $9/16$, which proves the required upper bound on $5/16$.
 
-The same distribution separates the two budget conditions. With a total budget $rL=2$, an algorithm can compute $P(A)$ exactly and guess zero for $P(B)$, succeeding with probability $3/4>9/16$, whereas a total budget $L=1$ implies the separate caps and so falls under Lemma 4.1.
+The same distribution separates the two budget conditions. With a total budget $rL=2$, an algorithm can compute $P(A)$ exactly and guess zero for $P(B)$, succeeding with probability $3/4>9/16$, whereas a total budget $L=1$ implies the separate caps and so falls under Lemma 6.1.
 
 <!-- /passage:CL-adaptive-example -->
 
+
+### B.4. Minimax and the integer allowance
+
+<a id="record-minimax-proof"></a>
+<!-- passage:record-minimax-proof -->
+For a finite partial function $P:D\to\{0,1\}$ fix $L<R(P)$. We derive the hard law used in [§6.1](#CL-minimax).
+
+The minimax step has a finite proof. There are finitely many depth-\(L\) trees on \(n\) coordinates; for each such tree let \(a_T\in\mathbb R^D\) be its vector of correctness indicators, and let \(K\) be the convex hull of these vectors. Equivalently, form the finite payoff matrix with trees as rows, promised inputs as columns and correctness indicators as entries. A row mixture gives its vector of per-input success probabilities, and $K$ consists of exactly those vectors. Each point of \(K\) is the success vector of a randomized mixture of depth-\(L\) trees, so by hypothesis \(K\) is disjoint from the closed orthant \(H=[2/3,\infty)^D\).
+
+For \(a\in K\), the nearest point of \(H\) has coordinates \(c_x=\max(a_x,2/3)\). By compactness of \(K\) we choose a pair \(a,c\) of minimum distance, which is positive by disjointness. We set \(v=c-a\), so that \(v_x\ge0\), \(v\ne0\), and \(c_x=2/3\) whenever \(v_x>0\). For \(b\in K\), the point \(a+\theta(b-a)\) stays in \(K\) for \(0\le\theta\le1\). The squared distance \(\|c-a-\theta(b-a)\|^2\) is therefore minimized at \(\theta=0\) on this segment. Its right derivative gives
+\[
+-2v\cdot(b-a)\ge0,\qquad v\cdot(b-a)\le0.
+\]
+Consequently,
+<!-- claim:NCL-strict-hard-distribution -->
+\[
+v\cdot b\le v\cdot a
+=v\cdot c-\|v\|^2
+=\frac23\sum_xv_x-\|v\|^2.
+\]
+The weights \(\mu(x)=v_x/\sum_yv_y\) form a probability distribution, and dividing the preceding inequality by the positive denominator proves the required bound, with a strict positive margin common to all the trees. This gives the promised-input law used for planting.
+
+
+<!-- /passage:record-minimax-proof -->
+
+**Rounding the allowance.** For $m=4^t$ take $L=\lfloor m^{1-1/k}/(2t)^2\rfloor$ and $G=\lfloor mL/100\rfloor$.
+
+<a id="CL-floors"></a>
+<!-- passage:CL-floors -->
+We verify the remaining arithmetic with a threshold uniform in \(k\), starting from the fact that for every integer \(t\ge8\),
+\[
+4t^2\le2^t.
+\]
+Equality holds at \(t=8\). If the inequality holds at some \(t\ge8\), then \((t+1)^2\le2t^2\) because \(t^2-2t-1\ge0\), and hence \(4(t+1)^2\le8t^2\le2^{t+1}\), which completes the induction.
+
+We put \(a=m^{1-1/k}/(2t)^2\), where \(m=4^t\). Since \(1/2\le1-1/k\le1\),
+\[
+m^{1-1/k}\ge\sqrt m=2^t\ge(2t)^2,
+\qquad
+1\le a\le m.
+\]
+Every real \(x\ge1\) satisfies \(\lfloor x\rfloor\ge x/2\), since if \(b=\lfloor x\rfloor\), then \(b\ge1\) and \(x<b+1\le2b\). Thus \(1\le L\le m\) and \(L\ge a/2\).
+
+Also \(mL\ge4^8\ge200\), so the same floor estimate applies to \(mL/100\) and gives
+\[
+G\ge\frac{mL}{200}\ge\frac{ma}{400}.
+\]
+Since \(\log_2m=2t\), we obtain the baseline floor statement in explicit form:
+<!-- claim:claim-floor -->
+<!-- claim:NCL-explicit-floor -->
+\[
+\left\lfloor\frac m{100}
+\left\lfloor\frac{m^{1-1/k}}{(\log_2m)^2}\right\rfloor\right\rfloor
+\ge
+\frac1{400}\frac{m^{2-1/k}}{(\log_2m)^2}
+\quad(k\ge2,\ m=4^t,\ t\ge8).
+\]
+The two floor estimates each lose at most a factor two; neither changes the power of $m$.
+<!-- /passage:CL-floors -->
 
 ## Appendix C. Quantitative refinements
 
@@ -3038,7 +2927,7 @@ For every integer $t\ge t_0$, put $m=4^t$,
 $X=m^{1-1/k}/(2t)^2$, $L=\lfloor X\rfloor$ and $d=2\tau L+1$.
 We claim that the coarse advantage expression (F34), at this depth, is at most $\delta$, and that $4/(m\delta^2)\le\delta$.
 
-First, $4t^2\le2^t$ for $t\ge8$, by the [induction in §6.6](#CL-floors).
+First, $4t^2\le2^t$ for $t\ge8$, by the [induction in Appendix B.4](#CL-floors).
 Since $1-1/k\ge1/2$, we have $m^{1-1/k}\ge2^t$, so $X\ge1$. It follows that
 
 \[
@@ -3088,7 +2977,7 @@ $31\delta$, so correctness on yes inputs implies
 
 a contradiction. Thus $L<R(P_{k,4^t})$ for every $t\ge t_0$.
 
-The coarser estimate proves (H1). The [uniform estimate in §8.10](#forr_threshold) gives the smaller sufficient threshold $t\ge13669k^2$.
+The coarser estimate proves (H1). The [fixed-parameter estimate in Appendix C.4](#forr_threshold) gives the smaller sufficient threshold $t\ge13669k^2$.
 <!-- /passage:forr_historical_closure -->
 
 <a id="record-schedule-proof"></a>
@@ -3152,7 +3041,176 @@ R(F_t)\ge Q(F_t)^{4-\varepsilon(\ell)},\qquad \varepsilon(\ell)\to0 .
 \]
 The lower bound (7.6) tends to infinity along this schedule: its leading logarithm is $(2-1/k)\ell$, while its denominator has logarithm $O(\log\ell)$. The universal quartic upper bound then forces $Q(F_t)\to\infty$. Thus the exponents tend to four on a family of unbounded complexity, although the argument gives no bound $R=\Omega(Q^4)$ for this family.
 
-## Appendix D. Comparisons with other Forrelation estimates
+### C.3. A maximal inequality for bounded increments
+
+<a id="record-maximal-inequality"></a>
+<!-- passage:record-maximal-inequality -->
+*A maximal inequality.* The increment in (F27) is centered, but its size contains the random lower-degree expression $Y_{r-1}^{c^q}$. We first bound a martingale with deterministically bounded increments, then obtain that bound for the revealed polynomial by stopping. If a centered random variable $W$ lies in $[-B,B]$, convexity of the exponential gives
+
+<!-- claim:NEW-FOR-15 -->
+\[
+\mathbb E e^{\lambda W}
+\le \cosh(\lambda B)
+\le e^{\lambda^2B^2/2}.
+\tag{F29}
+\]
+
+The first inequality follows by averaging the secant line through the endpoint values of the exponential, and the second follows term by term from $(2j)!\ge2^j j!$. The same argument applies conditionally whenever the conditional law is centered and satisfies the bound.
+
+Let $B>0$, $R>0$, and let $d\ge1$ be an integer. For a martingale $Z_j$ that starts at zero and has increments of absolute value at most $B$, (F29) makes
+
+\[
+M_j=\exp\!\left(\lambda Z_j-\frac{\lambda^2B^2j}{2}\right)
+\]
+
+a nonnegative supermartingale. We also stop at the first time $Z_j>R$, capped at $d$. Writing the stopping time as $\sigma$, the stopped process is $M_{j\wedge\sigma}$. At each deterministic step, $\mathbb E[M_{(j+1)\wedge\sigma}\mid\mathcal F_j]\le M_{j\wedge\sigma}$: on $\{\sigma\le j\}$ it is constant and otherwise the supermartingale inequality applies. Iterating from $j=0$ to $d-1$ shows that the stopped $M$ has expectation at most one, while on the crossing event its value is at least $\exp(\lambda R-\lambda^2B^2d/2)$. Taking $\lambda=R/(B^2d)$ and applying the same argument to $-Z$ yields
+
+
+\[
+\Pr\!\left(\max_{j\le d}|Z_j|>R\right)
+\le2\exp\!\left(-\frac{R^2}{2B^2d}\right).
+\]
+
+The argument uses only conditional expectation over a finite horizon.
+
+<!-- /passage:record-maximal-inequality -->
+
+### C.4. Constants in the uniform Forrelation bound
+
+<a id="record-uniform-constants"></a>
+<!-- passage:record-uniform-constants -->
+For $m=4^t$, $15k+2\le2t$ and $k\ge2$, we finish the numerical comparisons in the proof of [the uniform estimate](#forr_uniform_assembly).
+
+*Proof.* Suppose a promise algorithm with error at most $1/3$ has cap $D\le(2/18225)m^{1-1/k}/(k^2\ln(4km))$. Set $\tau=25k$ and $\varepsilon=(8/9)^{25k}$. The integer inequality
+$18\cdot8^{25}<9^{25}$ then implies
+
+\[
+\varepsilon\le18^{-k}=\frac{a_k}{18},
+\qquad \delta\le\frac{a_k}{32},
+\qquad \frac4{m\delta^2}\le\delta.
+\tag{F44}
+\]
+
+The dimension condition enters through the last inequality. Since $a_k-\delta\le1$, (F42) gives a gap of at least
+
+\[
+a_k-2\delta-2\varepsilon
+\ge\left(1-\frac1{16}-\frac19\right)a_k
+=\frac{119}{144}a_k.
+\tag{F45}
+\]
+
+If $D=0$, the acceptance probability is constant on the cube, so its two expectations agree, contradicting (F45). Hence $D\ge1$.
+
+We use the padded depth $d=50kD+1$ of §8.9 in (F33), matching the finite formal interface. The preceding $D\ge1$ gives $d\le50kD(1+1/(50k))$. Substituting the assumed upper bound on $D$ and using $800(2/18225)=(8/27)^2$ now imply
+
+\[
+16kd\ln(4km)
+\le\left(\frac8{27}\right)^2
+       \left(1+\frac1{50k}\right)m^{1-1/k}.
+\tag{F46}
+\]
+
+The binomial theorem gives
+
+\[
+\left(1+\frac1{50k}\right)^k
+\le\sum_{j=0}^k50^{-j}
+\le\frac{50}{49}
+<\left(\frac98\right)^2.
+\tag{F47}
+\]
+
+Indeed, $\binom kj\le k^j$ bounds each term. With $b=3/16$, the main term in (F33) is therefore at most
+
+\[
+\begin{aligned}
+\left(\frac b{\sqrt m}\right)^{k-1}
+      \bigl(16kd\ln(4km)\bigr)^{k/2}
+&\le b^{k-1}\left(\frac8{27}\right)^k
+       \left(1+\frac1{50k}\right)^{k/2}\\
+&\le\frac8{27}\,a_k\frac98=\frac{a_k}{3},
+\end{aligned}
+\tag{F48}
+\]
+
+where $b(8/27)=1/18$ and $k(1-1/k)=k-1$ cancel all powers of $m$. The dimension condition implies $\sqrt m\ge54$, so $b/\sqrt m\le3/54=1/18$. Also $2^{-k}\le1/4$ since $k\ge2$. As $a_k=18^{-(k-1)}$, these two inequalities bound the residual by
+
+\[
+2^{-k}\left(\frac b{\sqrt m}\right)^{k-1}
+\le\frac{a_k}{4}.
+\tag{F49}
+\]
+
+Consequently the advantage is at most $7a_k/12$, which is strictly below $119a_k/144$ and contradicts (F45). Applying this contradiction at the least successful integer cap proves (F43). $\square$
+
+
+<!-- /passage:record-uniform-constants -->
+
+<a id="forr_threshold"></a>
+<!-- passage:forr_threshold -->
+To derive (F3) with an explicit threshold, we first note that if $1\le k\le t$ and $m=4^t$, then
+
+\[
+\ln(4km)=\ln(4k)+2t\ln2
+\le(4k-1)+2t\le6t.
+\tag{F50}
+\]
+
+Here we use $\ln x\le x-1$ for $x>0$ and $\ln2\le1$. For $k\ge2$ and $t\ge13669k^2$ we have $k\le t$, $t>0$ and $15k+2\le2t$, so the proposition applies and gives
+
+<!-- claim:r3-forr-explicit-fixed-threshold -->
+\[
+\begin{aligned}
+R(P_{k,4^t})
+&>\frac2{18225}\,
+   \frac{m^{1-1/k}}{k^2\ln(4km)}\\
+&\ge\frac{m^{1-1/k}}{54675k^2t}\\
+&>\frac{m^{1-1/k}}{4t^2}
+ \ge\left\lfloor\frac{m^{1-1/k}}{(2t)^2}\right\rfloor.
+\end{aligned}
+\tag{F51}
+\]
+
+The strict comparison follows from
+$4t\ge54676k^2>54675k^2$.
+Since $\log_2(4^t)=2t$, the final floor equals $L_{k,4^t}$. This proves the theorem for every $t\ge13669k^2$, with the order of quantifiers required by §3.2, and the argument requires neither a subsequence nor a growing-$k$ total-function conclusion.
+
+The lower bound also shows that both promise values occur in these dimensions, since if one of them were absent, a constant zero-query algorithm would compute the partial function on its domain, contradicting (F43). The earlier four-term threshold, which is much larger, remains valid, and its proof is given in [the alternative derivation in Appendix C](#forr_historical_threshold).
+
+**Optional threshold refinement.** Because the first inequality is already strict, the smaller threshold $\lceil54675k^2/4\rceil$ also follows from (F43) and (F50); we state the simpler integer multiple above because it suffices. Both thresholds are ordinary specializations of the quantitative theorem and make no claim about the first dimension at which the lower bound holds.
+<!-- /passage:forr_threshold -->
+
+## Appendix D. Antecedents and comparisons
+
+### D.1. The Walsh promise and its known lower bounds
+
+<a id="forr_attribution"></a>
+<a id="forr_credit"></a>
+<!-- passage:forr_credit -->
+**Promise and theorem.** Bansal and Sinha prove the hardness of the explicit $k$-fold Forrelation promise used here and supply its one-sided thresholds; their Theorem 1.3 is the original quantitative lower-bound theorem for (F2).
+
+**Gaussian architecture.** Bansal and Sinha's §3 supplies the Gaussian-pair and conditional-rounding antecedent, and their Lemma 4.3 the transformed integration-by-parts antecedent. Their truncation is the Gaussian distribution function minus $1/2$. The algebraic function (F9) used here defines a different hard distribution, so we prove (F16), (F22) and (F39) for that distribution; their promise-mass theorem concerns theirs.
+
+**Optional Fourier comparison.** Sherstov, Storozhenko and Wu independently obtain the optimal partial separation through rorrelation, a distribution built from random orthogonal matrices, and distinguish that problem from explicit Forrelation [Sherstov, Storozhenko and Wu, §1.8]. We use their separate Fourier-growth theorem only in Appendix D. The proof above combines the Gaussian-chain architecture with the decision-tree growth method described next.
+
+The adaptive-path martingale in §8.6 follows the ordinary-tree discussion of Girish, Tal, and Kewen Wu, arXiv:2103.11604v2, §1.3 and Lemma 1.9, pp. 6–8 (the conference version numbers the corresponding result Lemma 9). Their discussion motivates the contracted coefficient arrays and the induction on degree. The centered variables, bounded-bias constants, repeated-query treatment and stopped-process estimate used here are stated and proved in §§8.6–8.7. We do not claim that the cited lemma already contains the raw-derivative statement (F25) in this form.
+
+The one-block interpolation isolates one raw derivative in each labelled block and, as (F24) shows, keeps the higher uniform Fourier levels of the test function. No priority or novelty is claimed for this arrangement.
+<!-- /passage:forr_credit -->
+
+[Appendix D](#forr-source-comparisons) contains two comparisons outside the proof of (F3): a check of one displayed step in Bansal–Sinha v3 §5.4, whose defect does not by itself refute their theorem, and a transfer of the Sherstov–Storozhenko–Wu Fourier-growth theorem to the Walsh promise, which gives the variable-error estimate (F60).
+
+### D.2. Earlier pointer constructions
+
+<a id="AC-attribution"></a>
+<!-- passage:AC-attribution -->
+Göös, Pitassi and Watson use a unique all-one column with a pointer chain through one zero in each other column [Göös, Pitassi and Watson (2018), Theorem 5 and §2.1, pp. 3–5 of the ECCC revision](https://eccc.weizmann.ac.il/report/2015/050/). Their pointers make the accepting certificate unique while the search for it stays hard, and the uniqueness argument of §4.2 inherits that role. Here the pointers run directly from the winner to a zero in every other column, and this direction makes each comparison with the winner reliable (§4.5). Addressing a certificate array by partial-function answers follows the cheat-sheet framework of Aaronson, Ben-David and Kothari [Aaronson, Ben-David and Kothari (2016; revised 2019), §6.1, Definitions 14–15, pp. 20–21]. Their Lemma 17, p. 22, gives the evaluate-then-check strategy for their cheat-sheet function, including rejection of certificates for unpromised inputs. We prove the properties of the particular multi-column construction (4.5) here, and its later separation bounds are obtained independently of that lemma.
+
+Ambainis, Balodis, Belovs, Lee, Santha and Smotrovs discuss direct pointers from a distinguished element to a zero in every other column and explain the exponential alphabet cost of that choice in their encoding [Ambainis et al. (2015), §1.3, “Use of a balanced tree,” pp. 5–6]. Here the routine reads one selected pointer field, paying one query for each of its $\ell$ bits as in §4.4, rather than querying the entire outgoing pointer collection as one alphabet symbol. The full input-length count in §4.2 includes all those fields. These works supply antecedents of the ingredients; the construction analyzed here is the one in OpenAI's preprint.
+<!-- /passage:AC-attribution -->
+
+### D.3. Comparisons with other Forrelation estimates
 
 <a id="forr-source-comparisons"></a>
 These two comparisons concern the literature around (F3). The proof of (F3) in §§8.1–8.10 uses neither.
@@ -3301,7 +3359,7 @@ The extension from powers of four to powers of two in this ordinary calculation 
 
 ### E.1. Acceptance probability of sequential verification
 
-Propositions 3.2 and 3.3 were proved in §§5.1–5.4. The Lean proof of Theorem 1.1 packages the same tournament and sequential verification as a Boolean continuation: its external result is one acceptance bit, rather than the intermediate list. The distinction is in the output and proof interface, not in whether candidates are verified sequentially. The induction below proves the acceptance guarantee directly from the measured-label law.
+Propositions 5.1 and 5.2 were proved in §§5.1–5.4. The Lean proof of Theorem 1.1 packages the same tournament and sequential verification as a Boolean continuation: its external result is one acceptance bit, rather than the intermediate list. The distinction is in the output and proof interface, not in whether candidates are verified sequentially. The induction below proves the acceptance guarantee directly from the measured-label law.
 
 <a id="upper-continuation-induction"></a>
 <!-- passage:upper-continuation-induction -->
@@ -3348,12 +3406,12 @@ At the empty history with $n=T_0=T$, the ideal estimate gives $I_T([])\leq2m/2^T
 
 ### E.2. Proof of bounded amplification and the retained-state assertion
 
-We prove Lemma 3.1, including the measured-output contract used in §§5.2–5.4 and Appendix E.1. The first part proves the trial law and all-branch cap; the final part identifies a designated retained subsystem.
+We prove Lemma E.1, including the measured-output contract used in §§5.2–5.4 and Appendix E.1. The first part proves the trial law and all-branch cap; the final part identifies a designated retained subsystem.
 
 <a id="upper-amplification-statement"></a>
 <!-- passage:upper-amplification-statement -->
 
-**Lemma 3.1 (OpenAI; bounded amplification with a retained state).** Fix real numbers $0<\gamma\leq1/2$ and $0<\eta<1/2$, a finite register interface, and a success subspace whose projector, reflection and measurement are available without input queries. These choices are independent of the unknown input. There is one procedure, depending only on these choices and using $A,A^{-1}$ as black boxes, with the following guarantees for every unitary preparation $A$ and every fixed input oracle. Let $p$ be the probability that measuring $A|0\rangle$ in the success subspace succeeds. Only uncontrolled calls to $A$ and $A^{-1}$ are required; the [coherent implementation](#upper-returned-register) puts control on fixed reflections.
+**Lemma E.1 (bounded amplification with a retained state).** Fix real numbers $0<\gamma\leq1/2$ and $0<\eta<1/2$, a finite register interface, and a success subspace whose projector, reflection and measurement are available without input queries. These choices are independent of the unknown input. There is one procedure, depending only on these choices and using $A,A^{-1}$ as black boxes, with the following guarantees for every unitary preparation $A$ and every fixed input oracle. Let $p$ be the probability that measuring $A|0\rangle$ in the success subspace succeeds. Only uncontrolled calls to $A$ and $A^{-1}$ are required; the [coherent implementation](#upper-returned-register) puts control on fixed reflections.
 
 - The procedure returns failure or a state. On every successful return, one designated subsystem, with the same full register interface as $A$, contains the normalized success component of $A|0\rangle$, up to global phase. This subsystem includes the preparation's original workspace; trial records occupy separate auxiliary registers.
 - If $p\geq\gamma$, the failure probability is at most $\eta$. If $p=0$, the procedure fails with certainty.
@@ -3460,9 +3518,9 @@ Thus the half of the trial that chooses a uniform iteration count contributes at
 
 For a fixed oracle input, each fresh trial has the same failure probability $f$, and the fresh choices and registers make the failures independent. Hence the probability of $N$ failures is $f^N\leq(31/40)^N\leq\eta$, where the last inequality follows by taking logarithms, since $N\ln(40/31)\geq\ln(1/\eta)$. If $p=0$, the endpoint argument above gives $f=1$, hence certain failure.
 
-On a successful branch, the state of the successful trial is $g$ up to global phase, whatever its iteration count. Earlier failed trials occupy separate registers, which we may discard once their outcomes are recorded or keep, since in either case the designated output register is in the pure state $g$ up to phase. Mixing over iteration counts and over the index of the first successful trial leaves the density operator $|g\rangle\langle g|$ unchanged, so conditioning on success introduces no bias into any measurement of that output state. This proves every correctness clause of Lemma 3.1.
+On a successful branch, the state of the successful trial is $g$ up to global phase, whatever its iteration count. Earlier failed trials occupy separate registers, which we may discard once their outcomes are recorded or keep, since in either case the designated output register is in the pure state $g$ up to phase. Mixing over iteration counts and over the index of the first successful trial leaves the density operator $|g\rangle\langle g|$ unchanged, so conditioning on success introduces no bias into any measurement of that output state. This proves every correctness clause of Lemma E.1.
 
-**An explicit cap constant.** The following calculation gives a constant for the cap in Lemma 3.1. The [returned-register proof](#upper-returned-register) then establishes the stronger subsystem assertion. The padded product charged by the implementation satisfies the following bound:
+**An explicit cap constant.** The following calculation gives a constant for the cap in Lemma E.1. The [returned-register proof](#upper-returned-register) then establishes the stronger subsystem assertion. The padded product charged by the implementation satisfies the following bound:
 
 <!-- claim:new-upper-call-cap -->
 $$
@@ -3494,7 +3552,7 @@ $$
  \quad\hbox{and}\quad
  \frac{|0\rangle|0\rangle+|1\rangle|1\rangle}{\sqrt2}
 $$
-give the same uniform computational-basis distribution on the first register. In the first vector that register is in the pure state $|+\rangle$, and in the second it has density matrix $I/2$, so measuring it in the $\{|+\rangle,|-\rangle\}$ basis distinguishes the two laws: the probability of $+$ is respectively $1$ and $1/2$. The example shows why the formal successful-label theorem certifies less than the full successful-state assertion, which the ordinary proof of Lemma 3.1 just given establishes.
+give the same uniform computational-basis distribution on the first register. In the first vector that register is in the pure state $|+\rangle$, and in the second it has density matrix $I/2$, so measuring it in the $\{|+\rangle,|-\rangle\}$ basis distinguishes the two laws: the probability of $+$ is respectively $1$ and $1/2$. The example shows why the formal successful-label theorem certifies less than the full successful-state assertion, which the ordinary proof of Lemma E.1 just given establishes.
 <!-- /passage:upper-returned-register -->
 
 
@@ -3575,7 +3633,7 @@ Indeed, the call-cap estimate in [§E.2](#upper-amplification-proof) gives the i
 $$
  276\,c_{\mathrm{rd}}\sqrt{2m}\,T^2\ln(1000T).
 $$
-Since $T\geq2$, we have $\ln(1000T)\leq11\ln T$ (using $1000\leq2^{10}$), and $\sqrt{2m}\leq2\sqrt m$; multiplying the constants gives $276\cdot2\cdot11=6072$. The estimate bounds the actual padded product directly and does not infer a bound on that product from a smaller procedure's call count. When a comparison is given with $c$ ordinary bit queries, each such query is one logical read in this representation, so the same bound with $c_{\mathrm{rd}}=c$ proves the order asserted in Proposition 3.2. For the concrete construction, Appendix E.5 counts logical reads and physical queries separately.
+Since $T\geq2$, we have $\ln(1000T)\leq11\ln T$ (using $1000\leq2^{10}$), and $\sqrt{2m}\leq2\sqrt m$; multiplying the constants gives $276\cdot2\cdot11=6072$. The estimate bounds the actual padded product directly and does not infer a bound on that product from a smaller procedure's call count. When a comparison is given with $c$ ordinary bit queries, each such query is one logical read in this representation, so the same bound with $c_{\mathrm{rd}}=c$ proves the order asserted in Proposition 5.1. For the concrete construction, Appendix E.5 counts logical reads and physical queries separately.
 <!-- /passage:upper-padded-tournament-budget -->
 
 
@@ -3592,7 +3650,7 @@ $$
  \sum_{L:\,s\in L}\lambda_x(L)
  \geq1-\frac{2m}{2^T}-T\varepsilon.
 $$
-The sampler is chosen before both $x$ and $s$, so it operates without knowing which vertex is dominant, and the indicator of membership of a particular $s$ appears only in the analysis. This is the bounded-list form of Proposition 3.2. Decoding and verification are given in §5.3, and [§E.1](#upper-continuation-induction) analyzes the variant used by the Lean proof, which verifies the listed candidates in sequence.
+The sampler is chosen before both $x$ and $s$, so it operates without knowing which vertex is dominant, and the indicator of membership of a particular $s$ appears only in the analysis. This is the bounded-list form of Proposition 5.1. Decoding and verification are given in §5.3, and [§E.1](#upper-continuation-induction) analyzes the variant used by the Lean proof, which verifies the listed candidates in sequence.
 <!-- /passage:upper-tournament-evidence -->
 
 
@@ -3636,7 +3694,7 @@ where the coefficients $\alpha_e$ are arbitrary, each $\psi_{e,y}$ has norm one,
 
 **Proof and query count.** For each test we run its decision tree from (4.13). At every level we retain the earlier answers and compute the next queried location from them by an input-independent reversible operation (this is how the pointer lookup works), then query into a fresh answer register, keeping enough history to make each update reversible. A leaf determines the test output exactly, and we pad shorter branches to the common depth $q_*$ with inactive reads. A controlled bit read costs two ordinary oracle calls: we load the bit into a temporary register, use it conditionally, and query again to clear that register, retaining the queried coordinate until this second call. The two calls still occur when the control is false and cancel on that branch. The basis calculation extends linearly to superposed coordinates and controls. Hence all branches have a common physical query cap $2q_*$.
 
-The entire construction is controlled by $e$, so its action is the direct sum of the individual test unitaries and linearity gives (4.15) for arbitrary complex coefficients. Distinct index blocks remain orthogonal, and the output in each block is the correct test value. This proves the arbitrary-index coherent part of Lemma 2.2, with retained workspace and at most $2(\ell+1)$ ordinary bit queries for $m\geq4$.
+The entire construction is controlled by $e$, so its action is the direct sum of the individual test unitaries and linearity gives (4.15) for arbitrary complex coefficients. Distinct index blocks remain orthogonal, and the output in each block is the correct test value. This proves the arbitrary-index coherent part of OpenAI’s Lemma 2.2, with retained workspace and at most $2(\ell+1)$ ordinary bit queries for $m\geq4$.
 <!-- /passage:AC-coherent -->
 
 <a id="AC-clean-oracle"></a>
@@ -3887,7 +3945,7 @@ A bijection $e:I\to J$ changes only the names of the queried bits. If $f^e(y)=f(
 R(f^e)=R(f),\qquad D(f^e)=D(f),\qquad Q(f^e)=Q(f).
 \]
 
-This is why structured coordinates in the construction can be replaced by $\operatorname{Fin}(n)$ in (1).
+This is why structured coordinates in the construction can be replaced by $\operatorname{Fin}(n)$ in (1.1).
 
 The deferred-measurement bridge has a more specific guarantee than a statement that measurements may be postponed. For $A$ on $\operatorname{Fin}(n)$ with cap at most $T$, the source constructs a larger finite workspace, an input-independent entry isometry $E$, a fixed sequence of $T$ controlled phase queries separated by input-independent gates, and a final accepting projector $\Pi$. If $\mathcal H$ is the original state space and $\mathcal K$ the enlarged one, the induction also retains an isometry $J:\mathcal H\to\mathcal K$ satisfying $P_x'J=JP_x$. This oracle-compatible embedding, together with $E:\mathcal H\to\mathcal K$, is the strengthened invariant needed to prepend a query. The mass identity is
 
@@ -4008,7 +4066,7 @@ Expanding the matrix product selects one coordinate from each block. When we rem
 <!-- claim:claim-N-phi -->
 $$
 \begin{aligned}
-N(z)&=\sum_{(a_0,\ldots,a_{k-1})\in G^k}
+N(z)&=\sum_{(a_0,\ldots,a_{k-1})\in\mathcal X^k}
   \left(\prod_{r=0}^{k-1}z_r(a_r)\right)
   \left(\prod_{r=0}^{k-2}W_{a_r,a_{r+1}}\right)\in\mathbb Z,\\
 M&=m(\sqrt m)^{k-1}=2^{t(k+1)}>0,
@@ -4327,7 +4385,7 @@ Holding the second block equal to $g$, we compute $N=z_0^{\mathsf T}Wg$ and obta
 | $(1,-1,1,1)$ | $(0,1,0,0)$ | $0$ | $0$ | $0$ | $0$ | $(1,0)$ |
 | $(-1,1,1,1)$ | $(1,0,0,0)$ | $-8$ | $-1$ | undefined | $1$ | $(0,0)$ |
 
-The common second bit block is $(1,0,0,0)$. On the last input the quantum projection succeeds with certainty and the repeated procedure outputs one, while the circuit correctly reports that the promise fails. Lemma 2.1(ii) permits this behaviour, and it is the reason the total construction must verify promise membership separately.
+The common second bit block is $(1,0,0,0)$. On the last input the quantum projection succeeds with certainty and the repeated procedure outputs one, while the circuit correctly reports that the promise fails. Lemma 3.1, part 2, permits this behaviour, and it is the reason the total construction must verify promise membership separately.
 
 We count all $16^2=256$ inputs by hand. Each row of $W$ has an even number of negative entries, and so does its negative. The eight signed rows are distinct, since distinct Walsh rows are orthogonal, so they exhaust the eight even-parity sign vectors. If $z_1$ is one of them, then $Wz_1$ has exactly one nonzero coordinate, equal to $4$ or $-4$, so eight of the sixteen first blocks give $N=4$ and eight give $N=-4$. These eight second blocks therefore contribute 64 inputs of each value.
 
@@ -4349,7 +4407,11 @@ $$
 <!-- /passage:forr_small_instance -->
 
 <a id="record-numbering"></a>
-**Numbering in OpenAI’s preprint.** Theorems, lemmas and propositions retain the preprint’s numbers. For the original equations, (1)–(2) occur in §1, (3)–(5) in §3, (6)–(8) in §4.2, and (9) in Appendix E.2. Equations (10)–(15) are the comparison and sampling laws of §§5.1–5.2. Equation (16) is the continuation inequality in [Appendix B.1](#CL-conditional-values). Equations (17)–(23) belong to the planted argument in §6 and its early/late estimate in [Appendix B.2](#CL-early-late). Other display labels are local to this reconstruction.
+## Correspondence with OpenAI’s preprint
+
+Numbered results in the main text use this reconstruction’s section numbers. The separation is OpenAI’s Theorem 1.1. The three Forrelation properties, the local tests and the bounded amplifier are respectively Lemmas 2.1, 2.2 and 3.1 there, and [Lemma 3.1](#forr_bundle), [Lemma 4.1](#AC-local-equivalence) and [Lemma E.1](#upper-amplification-statement) here. The tournament and quantum evaluator, Propositions 3.2–3.3 there, are [Propositions 5.1](#upper-tournament-statement) and [5.2](#upper-asymptotic-bound) here. The separate-cap product and classical lower bound, Lemma 4.1 and Proposition 4.2 there, are [Lemma 6.1](#CL-direct-product-statement) and [Proposition 6.2](#CL-concrete-lower) here.
+
+Original displays (1)–(5) correspond to (1.1)–(1.2) and (3.1)–(3.3). For (6)–(8), see the [board and its winning condition](#AC-layout); for (9), the [bounded amplifier](#upper-small-probability). The comparison and sampling laws (10)–(15) are (5.1)–(5.6) here. For the continuation inequality (16), see (B.3). Original displays (17)–(23) are respectively (6.1), (6.2), (B.7), (6.4), (6.5), (6.6) and (6.10). The labels beginning with F identify the Forrelation calculations throughout this reconstruction.
 
 <a id="record-formal-proof-note"></a>
 

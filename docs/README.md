@@ -22,6 +22,7 @@ later change.
 | [Route prior-art search](forrelation_route_prior_art.md) | Sources and limits of the search for earlier versions of the route. |
 
 For the current declaration locations, use the [Lean guide](../lean/README.md).
+The [Gaussian chain figure](figures/forrelation_chain.tex) follows the middle index through the two differentiations in the reconstruction.
 For recorded builds, comparisons and reviewed statement relations, use the
 [corpus guide](../corpus/README.md). Neither a directory listing nor a prose review
 replaces those records.

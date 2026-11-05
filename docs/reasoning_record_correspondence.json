@@ -2,7 +2,7 @@
   "schema": "quartic_integrated_reasoning_correspondence_v1",
   "created_utc": "2026-11-02T19:47:11.861336+00:00",
   "record_path": "docs/reasoning_record.md",
-  "record_sha256": "7fa2ae10c5506a11fa37ad0ae7538ff15ec6cdd924a0b0e24a96bd5745fffd2b",
+  "record_sha256": "e111e127a76b3f7ee1b49895c06b196d1490438dd80886b16e5a3187e6e423d7",
   "baseline": {
     "path": "research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
     "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff"
@@ -443,55 +443,55 @@
     {
       "id": "ROOT-RESULT",
       "path": "docs/reasoning_record.md",
-      "line_start": 27,
-      "line_end": 63,
+      "line_start": 34,
+      "line_end": 70,
       "claims": [
         "eq-1",
         "thm-1.1",
         "eq-2"
       ],
-      "sha256": "9b248fb9dc0c47c81661350e8547e7cfd0bdefe33159f379b6b48c68c861f5eb"
+      "sha256": "ea5c10b6ad0ef5093b930cde1975f0816fe3968f2ac231c9807f8cd5280a1977"
     },
     {
       "id": "R3-01-QUANTIFIERS",
       "path": "docs/reasoning_record.md",
-      "line_start": 66,
-      "line_end": 80,
+      "line_start": 73,
+      "line_end": 87,
       "claims": [
         "claim-exponent-ratio",
         "cor-cubic-refuted"
       ],
-      "sha256": "0139c8f255c03e54759bfdb602386d30a9ec0325fa60ed3fa018795125f8321d"
+      "sha256": "4a5ffa093a8ba9ef4046194ebc6d0a9415158da4aa49e7257bf6a1db7e89da9f"
     },
     {
       "id": "ROOT-ARCHITECTURE",
       "path": "docs/reasoning_record.md",
-      "line_start": 11,
-      "line_end": 24,
+      "line_start": 18,
+      "line_end": 31,
       "claims": [],
-      "sha256": "541a95f400cdb7316e1632bd60d4fdcb03d1672286d82c3cafbe18b258e33cb4"
+      "sha256": "24abf2dc70c422a0f1259532a395dc50aa7b92e3b3a57d0cd266c2473fbe43fe"
     },
     {
       "id": "ROOT-LOGS",
       "path": "docs/reasoning_record.md",
-      "line_start": 91,
-      "line_end": 96,
+      "line_start": 98,
+      "line_end": 103,
       "claims": [],
       "sha256": "4e9899013cc1506f72ef76a594255ac1a73d9d1427e1c89f86523dcf3c7af9c9"
     },
     {
       "id": "ROOT-PARTIAL",
       "path": "docs/reasoning_record.md",
-      "line_start": 3744,
-      "line_end": 3752,
+      "line_start": 3802,
+      "line_end": 3810,
       "claims": [],
       "sha256": "c227c2141292393fe45eb91aff750831cac4282e080716604eb286b4b9c10b68"
     },
     {
       "id": "R3-01-CLASSICAL",
       "path": "docs/reasoning_record.md",
-      "line_start": 3755,
-      "line_end": 3801,
+      "line_start": 3813,
+      "line_end": 3859,
       "claims": [
         "def-D",
         "def-R"
@@ -501,8 +501,8 @@
     {
       "id": "ROOT-ORACLE",
       "path": "docs/reasoning_record.md",
-      "line_start": 3804,
-      "line_end": 3825,
+      "line_start": 3862,
+      "line_end": 3883,
       "claims": [
         "def-query-oracle"
       ],
@@ -511,8 +511,8 @@
     {
       "id": "R3-01-ADAPTIVE",
       "path": "docs/reasoning_record.md",
-      "line_start": 3828,
-      "line_end": 3876,
+      "line_start": 3886,
+      "line_end": 3934,
       "claims": [
         "ROOT-MASS",
         "def-Q"
@@ -522,48 +522,48 @@
     {
       "id": "R3-01-BRIDGES",
       "path": "docs/reasoning_record.md",
-      "line_start": 3879,
-      "line_end": 3915,
+      "line_start": 3937,
+      "line_end": 3973,
       "claims": [],
-      "sha256": "eef1b35799fabef7f32ce04ed367552ee8007f65f2425141436661c3503ed1ac"
+      "sha256": "663941b71b29957a2534c8e04349854cb41919bada670df15b2c93971cfee332"
     },
     {
       "id": "R3-01-ZERO",
       "path": "docs/reasoning_record.md",
-      "line_start": 3918,
-      "line_end": 3933,
+      "line_start": 3976,
+      "line_end": 3991,
       "claims": [],
       "sha256": "e31cee87c8fcbd19550a87fd48810cfd24a564cf3d73f288255913f1d0ea9dfb"
     },
     {
       "id": "R3-01-IDENTITY",
       "path": "docs/reasoning_record.md",
-      "line_start": 3936,
-      "line_end": 3942,
+      "line_start": 3994,
+      "line_end": 4000,
       "claims": [],
       "sha256": "f75c7012c2f47d24f9ba80c7000d125dad91a810049e0366e5e31c8021c70218"
     },
     {
       "id": "R3-01-OR",
       "path": "docs/reasoning_record.md",
-      "line_start": 3945,
-      "line_end": 3966,
+      "line_start": 4003,
+      "line_end": 4024,
       "claims": [],
       "sha256": "2c06b6a8b1915a723080332d0c205383a11c206aace798bfca7b1f0466246fcb"
     },
     {
       "id": "R3-01-OFFPROMISE",
       "path": "docs/reasoning_record.md",
-      "line_start": 3969,
-      "line_end": 3971,
+      "line_start": 4027,
+      "line_end": 4029,
       "claims": [],
       "sha256": "bf2ecb4f87a6fd76d2256f362312a04a2371290ead003895fe07331f919edfc0"
     },
     {
       "id": "R3-01-PARITY",
       "path": "docs/reasoning_record.md",
-      "line_start": 3974,
-      "line_end": 3996,
+      "line_start": 4032,
+      "line_end": 4054,
       "claims": [],
       "sha256": "0b87781ff42db1297bd62c22dbfd9c2ef3c846a533a619eb6fe3b287252840ba"
     },
@@ -578,16 +578,16 @@
     {
       "id": "forr_scope",
       "path": "docs/reasoning_record.md",
-      "line_start": 102,
-      "line_end": 105,
+      "line_start": 111,
+      "line_end": 118,
       "claims": [],
-      "sha256": "066206a75c2f4f48107cc29d21e101e975c502b3ce1e38cf5c92d39daec9324d"
+      "sha256": "cd3f57837070f92f3aa209a3d671a1eed94b50c643eb0d9386e9cd8e6cd42c73"
     },
     {
       "id": "forr_definition",
       "path": "docs/reasoning_record.md",
-      "line_start": 111,
-      "line_end": 163,
+      "line_start": 124,
+      "line_end": 179,
       "claims": [
         "def-walsh-sign",
         "NEW-FOR-01",
@@ -595,24 +595,24 @@
         "eq-4",
         "eq-5"
       ],
-      "sha256": "e7d1909c12e827f4601f57bf69b10682771f5d41dbdb7e1bad7192b055e7d406"
+      "sha256": "2c9972ef4c2fa14320c89ba114362cc3cf741a8a4c2c66039f97cbe827ef423b"
     },
     {
       "id": "forr_integer",
       "path": "docs/reasoning_record.md",
-      "line_start": 4003,
-      "line_end": 4037,
+      "line_start": 4061,
+      "line_end": 4095,
       "claims": [
         "claim-N-phi",
         "claim-integer-tests"
       ],
-      "sha256": "6de96fc28f626f800cc84c6c35f5fc6577efb2a82213013cecce86b70441cb8c"
+      "sha256": "3978f821f4fd9f8327ee2b90a24dc84659f6105693ff87e9bd972ca6340d3309"
     },
     {
       "id": "forr_quantum",
       "path": "docs/reasoning_record.md",
-      "line_start": 4040,
-      "line_end": 4072,
+      "line_start": 4098,
+      "line_end": 4130,
       "claims": [
         "claim-proj-prob"
       ],
@@ -621,8 +621,8 @@
     {
       "id": "forr_repetition",
       "path": "docs/reasoning_record.md",
-      "line_start": 4075,
-      "line_end": 4114,
+      "line_start": 4133,
+      "line_end": 4172,
       "claims": [
         "NEW-FOR-02"
       ],
@@ -631,8 +631,8 @@
     {
       "id": "forr_coherent",
       "path": "docs/reasoning_record.md",
-      "line_start": 4117,
-      "line_end": 4169,
+      "line_start": 4175,
+      "line_end": 4227,
       "claims": [
         "R3-FOR-COHERENT-LAW",
         "NEW-FOR-28",
@@ -643,8 +643,8 @@
     {
       "id": "forr_circuit",
       "path": "docs/reasoning_record.md",
-      "line_start": 4172,
-      "line_end": 4192,
+      "line_start": 4230,
+      "line_end": 4250,
       "claims": [
         "NEW-FOR-03",
         "claim-circuit-size"
@@ -654,8 +654,8 @@
     {
       "id": "forr_boolean_arithmetic",
       "path": "docs/reasoning_record.md",
-      "line_start": 4195,
-      "line_end": 4217,
+      "line_start": 4253,
+      "line_end": 4275,
       "claims": [
         "NEW-FOR-04"
       ],
@@ -664,8 +664,8 @@
     {
       "id": "forr_final_signs",
       "path": "docs/reasoning_record.md",
-      "line_start": 4220,
-      "line_end": 4245,
+      "line_start": 4278,
+      "line_end": 4303,
       "claims": [
         "NEW-FOR-05"
       ],
@@ -674,8 +674,8 @@
     {
       "id": "forr_circuit_size",
       "path": "docs/reasoning_record.md",
-      "line_start": 4248,
-      "line_end": 4299,
+      "line_start": 4306,
+      "line_end": 4357,
       "claims": [
         "NEW-FOR-29",
         "R3-FOR-CIRCUIT-SIZE",
@@ -686,13 +686,13 @@
     {
       "id": "forr_small_instance",
       "path": "docs/reasoning_record.md",
-      "line_start": 4302,
-      "line_end": 4349,
+      "line_start": 4360,
+      "line_end": 4407,
       "claims": [
         "R3-FOR-THREE-EXAMPLES",
         "NEW-FOR-26"
       ],
-      "sha256": "c75074e29f24636f71b7ed27ae7e6a72747d899e9f942c4f1bccd4366d7c992f"
+      "sha256": "9812b524c0274c8a0f116b7bebe3f421364ccbbf066184c41847a7fa97cb4a02"
     },
     {
       "id": "forr_current_evidence",
@@ -705,8 +705,8 @@
     {
       "id": "forr_target",
       "path": "docs/reasoning_record.md",
-      "line_start": 1480,
-      "line_end": 1505,
+      "line_start": 1430,
+      "line_end": 1455,
       "claims": [
         "eq-3",
         "eq-4",
@@ -717,8 +717,8 @@
     {
       "id": "forr_bs_translation",
       "path": "docs/reasoning_record.md",
-      "line_start": 3161,
-      "line_end": 3179,
+      "line_start": 3219,
+      "line_end": 3237,
       "claims": [
         "claim-bs-to-L"
       ],
@@ -727,16 +727,16 @@
     {
       "id": "forr_proof_spine",
       "path": "docs/reasoning_record.md",
-      "line_start": 1509,
-      "line_end": 1528,
+      "line_start": 1459,
+      "line_end": 1480,
       "claims": [],
-      "sha256": "2799f50e823a0803638194312cb7f3f1776097fd47d007cd8a7e272270009bb7"
+      "sha256": "b17c978a2dbae1e3c20e0f90674b2523efbd7254a62024f227fa00bb3df1f143"
     },
     {
       "id": "forr_cube",
       "path": "docs/reasoning_record.md",
-      "line_start": 1534,
-      "line_end": 1590,
+      "line_start": 1486,
+      "line_end": 1542,
       "claims": [
         "NEW-FOR-06",
         "NEW-FOR-07"
@@ -746,21 +746,21 @@
     {
       "id": "forr_stein",
       "path": "docs/reasoning_record.md",
-      "line_start": 1595,
-      "line_end": 1655,
+      "line_start": 1547,
+      "line_end": 1613,
       "claims": [
         "NEW-FOR-08",
         "r2-sharp-kernel",
         "NEW-FOR-09",
         "NEW-FOR-10"
       ],
-      "sha256": "23832220edda55ffcd9e12e3b155fb31e95e18320b8b5c1d7bfa63781ffa4afe"
+      "sha256": "252d795770431d86174f6edd71c5cf0b79949dd988287982325a62587c25ad0e"
     },
     {
       "id": "forr_distribution",
       "path": "docs/reasoning_record.md",
-      "line_start": 1660,
-      "line_end": 1704,
+      "line_start": 1618,
+      "line_end": 1662,
       "claims": [
         "NEW-FOR-11",
         "NEW-FOR-12"
@@ -770,8 +770,8 @@
     {
       "id": "forr_identity",
       "path": "docs/reasoning_record.md",
-      "line_start": 1711,
-      "line_end": 1733,
+      "line_start": 1669,
+      "line_end": 1691,
       "claims": [
         "r3-forr-polynomial-interpolation"
       ],
@@ -780,18 +780,18 @@
     {
       "id": "forr_three_blocks",
       "path": "docs/reasoning_record.md",
-      "line_start": 1736,
-      "line_end": 1781,
+      "line_start": 1694,
+      "line_end": 1743,
       "claims": [
         "r2-sharp-worked-chain"
       ],
-      "sha256": "ab664a2d4225b1d83318809341f6ab13aea9216a846d61750cddcd4c2ee892ce"
+      "sha256": "2c7a7dd5270f38c5f03b6fe757ec4807a1ea7a78285d675ebb34c64d4e18cf1b"
     },
     {
       "id": "forr_path_formula",
       "path": "docs/reasoning_record.md",
-      "line_start": 1784,
-      "line_end": 1827,
+      "line_start": 1746,
+      "line_end": 1789,
       "claims": [
         "NEW-FOR-13",
         "r2-sharp-worked-chain"
@@ -801,8 +801,8 @@
     {
       "id": "forr_tree_growth",
       "path": "docs/reasoning_record.md",
-      "line_start": 1836,
-      "line_end": 1878,
+      "line_start": 1800,
+      "line_end": 1842,
       "claims": [
         "r2-sharp-growth",
         "NEW-FOR-14"
@@ -812,8 +812,8 @@
     {
       "id": "forr_tree_leaves",
       "path": "docs/reasoning_record.md",
-      "line_start": 1881,
-      "line_end": 1896,
+      "line_start": 1845,
+      "line_end": 1860,
       "claims": [
         "NEW-FOR-27"
       ],
@@ -822,20 +822,19 @@
     {
       "id": "forr_tree_stopping",
       "path": "docs/reasoning_record.md",
-      "line_start": 1899,
-      "line_end": 1958,
+      "line_start": 1863,
+      "line_end": 1902,
       "claims": [
-        "NEW-FOR-15",
         "NEW-FOR-16",
         "NEW-FOR-17"
       ],
-      "sha256": "48eeca6e0efedeb1d94b644779095cd82df8eebf4b87f4dcba3998c267946c8d"
+      "sha256": "99bcfcc4e19b64e9f7fc93aa84f1cb0060c795a43f25c7cd124c0eb5410f2e95"
     },
     {
       "id": "forr_tree_derivative",
       "path": "docs/reasoning_record.md",
-      "line_start": 1961,
-      "line_end": 1984,
+      "line_start": 1905,
+      "line_end": 1928,
       "claims": [
         "NEW-FOR-18"
       ],
@@ -844,8 +843,8 @@
     {
       "id": "forr_advantage",
       "path": "docs/reasoning_record.md",
-      "line_start": 1989,
-      "line_end": 2006,
+      "line_start": 1933,
+      "line_end": 1950,
       "claims": [
         "r2-sharp-advantage"
       ],
@@ -854,20 +853,20 @@
     {
       "id": "forr_moments",
       "path": "docs/reasoning_record.md",
-      "line_start": 2011,
-      "line_end": 2085,
+      "line_start": 1955,
+      "line_end": 2032,
       "claims": [
         "NEW-FOR-20",
         "NEW-FOR-21",
         "NEW-FOR-22"
       ],
-      "sha256": "2047e3895da2e5dafe4d42aa99fb49754021b2028393fdc106ced8030056bb9e"
+      "sha256": "328afcf80f6ce75bd49b478a5649dff16d5132a1aac69dd230dcfc4ac89755d8"
     },
     {
       "id": "forr_amplification",
       "path": "docs/reasoning_record.md",
-      "line_start": 2092,
-      "line_end": 2103,
+      "line_start": 2039,
+      "line_end": 2050,
       "claims": [
         "NEW-FOR-23"
       ],
@@ -876,8 +875,8 @@
     {
       "id": "forr_promise_gap",
       "path": "docs/reasoning_record.md",
-      "line_start": 2106,
-      "line_end": 2129,
+      "line_start": 2053,
+      "line_end": 2076,
       "claims": [
         "NEW-FOR-24"
       ],
@@ -886,18 +885,18 @@
     {
       "id": "forr_uniform_assembly",
       "path": "docs/reasoning_record.md",
-      "line_start": 2134,
-      "line_end": 2211,
+      "line_start": 2081,
+      "line_end": 2098,
       "claims": [
         "r2-sharp-original-constant"
       ],
-      "sha256": "5b12d61394b48e2c3e0f68b238548a301bf1c461bad8a06827d5786f73c330ff"
+      "sha256": "bd7a5aacafdc2a3cba7b352aa433a1f1e36e6b52ceb0eb151cb8fff995e8d3f8"
     },
     {
       "id": "forr_threshold",
       "path": "docs/reasoning_record.md",
-      "line_start": 2214,
-      "line_end": 2245,
+      "line_start": 3151,
+      "line_end": 3182,
       "claims": [
         "r3-forr-explicit-fixed-threshold"
       ],
@@ -906,24 +905,24 @@
     {
       "id": "forr_credit",
       "path": "docs/reasoning_record.md",
-      "line_start": 2251,
-      "line_end": 2261,
+      "line_start": 3190,
+      "line_end": 3200,
       "claims": [],
       "sha256": "b7cb617d521fc0a9a4447be52e0bbfa60307fd39ad2ea6c84012500241661973"
     },
     {
       "id": "forr_bs_mismatch",
       "path": "docs/reasoning_record.md",
-      "line_start": 3184,
-      "line_end": 3226,
+      "line_start": 3242,
+      "line_end": 3284,
       "claims": [],
       "sha256": "83b5876df57e37a5c077681b9e534ce0cad6f6ba22550d7493f0e2361679fa27"
     },
     {
       "id": "forr_ssw_comparison",
       "path": "docs/reasoning_record.md",
-      "line_start": 3231,
-      "line_end": 3298,
+      "line_start": 3289,
+      "line_end": 3356,
       "claims": [],
       "sha256": "c6106a93d043b5014d2f51b5e41496cd236adc97cd1914a85a86fbbb1723f67b"
     },
@@ -938,42 +937,42 @@
     {
       "id": "forr_bundle",
       "path": "docs/reasoning_record.md",
-      "line_start": 168,
-      "line_end": 180,
+      "line_start": 184,
+      "line_end": 197,
       "claims": [
         "lem-2.1"
       ],
-      "sha256": "91d344cf9f9af1332c856e0b3a07997f4466c96663b842c945e4af2c041fd24f"
+      "sha256": "51f4144bcbbf0e30ff8f1ef2a3cda65796348df4e5b7c9688c52ffb3250a8970"
     },
     {
       "id": "forr_references",
       "path": "docs/reasoning_record.md",
-      "line_start": 184,
-      "line_end": 187,
+      "line_start": 201,
+      "line_end": 204,
       "claims": [],
       "sha256": "2153795f56ef9c1f6dc6e3eb8242ed75a0df64fab95001705ca5c3a718e41f3b"
     },
     {
       "id": "AC-interface",
       "path": "docs/reasoning_record.md",
-      "line_start": 194,
-      "line_end": 197,
+      "line_start": 211,
+      "line_end": 214,
       "claims": [],
       "sha256": "bade792764f6d7f55618d573fcbe79c0a313460206f4cb2e251ae575037152a8"
     },
     {
       "id": "AC-circuit",
       "path": "docs/reasoning_record.md",
-      "line_start": 202,
-      "line_end": 213,
+      "line_start": 219,
+      "line_end": 230,
       "claims": [],
       "sha256": "8f5d4de4f52fb3c1cebbd5fba5a85c86120f67bde9a164a57a870657bae12700"
     },
     {
       "id": "AC-transcripts",
       "path": "docs/reasoning_record.md",
-      "line_start": 217,
-      "line_end": 233,
+      "line_start": 234,
+      "line_end": 250,
       "claims": [
         "NCL-transcript-characterization"
       ],
@@ -982,120 +981,120 @@
     {
       "id": "AC-layout",
       "path": "docs/reasoning_record.md",
-      "line_start": 239,
-      "line_end": 260,
+      "line_start": 256,
+      "line_end": 277,
       "claims": [],
-      "sha256": "e538af20a00febc4be328cf60477ce2bafef13ebaeed4eadc03fae3f98ab22ab"
+      "sha256": "0900c53f9b578fbb1ec763c02314830c252c5d520eb47478c2287d43eccbeb55"
     },
     {
       "id": "AC-winner",
       "path": "docs/reasoning_record.md",
-      "line_start": 267,
-      "line_end": 291,
+      "line_start": 284,
+      "line_end": 308,
       "claims": [],
       "sha256": "07df09267f9e55e280aa5069ce471b3c0b9d62e19718dfd88056dc47f4f85eb1"
     },
     {
       "id": "AC-total-unique",
       "path": "docs/reasoning_record.md",
-      "line_start": 295,
-      "line_end": 311,
+      "line_start": 312,
+      "line_end": 328,
       "claims": [],
       "sha256": "3c5d32ec6c5e3955777123f6f06abcbfce3a0762116f2e6440d1008a206641f4"
     },
     {
       "id": "AC-example-promise",
       "path": "docs/reasoning_record.md",
-      "line_start": 317,
-      "line_end": 346,
+      "line_start": 334,
+      "line_end": 363,
       "claims": [],
       "sha256": "15ac76cf4beafaaa139e1b0a996fdcc45d1ab4ead211bddcacfa2b0a06d75b80"
     },
     {
       "id": "AC-example-board",
       "path": "docs/reasoning_record.md",
-      "line_start": 349,
-      "line_end": 371,
+      "line_start": 366,
+      "line_end": 388,
       "claims": [],
       "sha256": "d629dc2cf2a8a5d0aaf920abb94a5ab4259a38238e029b01cc8641d8025f98be"
     },
     {
       "id": "AC-tests",
       "path": "docs/reasoning_record.md",
-      "line_start": 377,
-      "line_end": 410,
+      "line_start": 394,
+      "line_end": 427,
       "claims": [],
       "sha256": "8f32b7b21f9de09515b6b2fbb1ef5c284d8e80f39e256b8c5417718d4324edd9"
     },
     {
       "id": "AC-local-equivalence",
       "path": "docs/reasoning_record.md",
-      "line_start": 414,
-      "line_end": 434,
+      "line_start": 431,
+      "line_end": 451,
       "claims": [],
-      "sha256": "c93e872ecd7c66ac17b1b1e9843e34491c568afd6bcf0e4f4139bf3fe20b9858"
+      "sha256": "126c6d31173a12b646abb380e1981ae33965970c34261c71d298cf585ecb1a0e"
     },
     {
       "id": "AC-dichotomy",
       "path": "docs/reasoning_record.md",
-      "line_start": 438,
-      "line_end": 440,
+      "line_start": 455,
+      "line_end": 457,
       "claims": [],
       "sha256": "ed09e33fdea1317f549215cba4f387ca91468d48efedca8d79b97bd0e1b63c09"
     },
     {
       "id": "AC-example-tests",
       "path": "docs/reasoning_record.md",
-      "line_start": 443,
-      "line_end": 457,
+      "line_start": 460,
+      "line_end": 474,
       "claims": [],
       "sha256": "83f13bbd1ec00c0b84f3c3239c1f72f3cb6d05ed1ee88a87a95083aaee922a5a"
     },
     {
       "id": "AC-pointer-support",
       "path": "docs/reasoning_record.md",
-      "line_start": 3611,
-      "line_end": 3617,
+      "line_start": 3669,
+      "line_end": 3675,
       "claims": [],
       "sha256": "5a6611aadbf284c70bf8c8be72061cbc00551a11c77f72148f9ef588af70e9fc"
     },
     {
       "id": "AC-coherent",
       "path": "docs/reasoning_record.md",
-      "line_start": 3625,
-      "line_end": 3640,
+      "line_start": 3683,
+      "line_end": 3698,
       "claims": [],
-      "sha256": "b5f405e1e80bdb4def5546e7474243a41c6fee1ebb3aee38d068c23eb1f003cf"
+      "sha256": "70c922b93794d41c65aab78816d56e89500bbc28f348de31b952c21427e97943"
     },
     {
       "id": "AC-clean-oracle",
       "path": "docs/reasoning_record.md",
-      "line_start": 3643,
-      "line_end": 3654,
+      "line_start": 3701,
+      "line_end": 3712,
       "claims": [],
       "sha256": "317bb59a9297240c652fbe7a5da4aec9eeeee64087a9541e278e4fdf7f649ea8"
     },
     {
       "id": "AC-uniform-sampler",
       "path": "docs/reasoning_record.md",
-      "line_start": 3657,
-      "line_end": 3659,
+      "line_start": 3715,
+      "line_end": 3717,
       "claims": [],
       "sha256": "da5bfec5553558d6b41b924ebcbcdf3e5a0e9c6883302889d1f027dff49ffd9a"
     },
     {
       "id": "AC-comparison",
       "path": "docs/reasoning_record.md",
-      "line_start": 464,
-      "line_end": 493,
+      "line_start": 481,
+      "line_end": 510,
       "claims": [],
       "sha256": "ee935cf6ce6b8c18b7fa5f6dbc4cc3474893669d096457fc91d97f8531411d88"
     },
     {
       "id": "AC-attribution",
       "path": "docs/reasoning_record.md",
-      "line_start": 497,
-      "line_end": 501,
+      "line_start": 3207,
+      "line_end": 3211,
       "claims": [],
       "sha256": "065c9d159e1357366a35e39df8a786bad4d5bc8229edde950a178d47d88d763c"
     },
@@ -1110,32 +1109,32 @@
     {
       "id": "upper-section-interface",
       "path": "docs/reasoning_record.md",
-      "line_start": 517,
-      "line_end": 520,
+      "line_start": 532,
+      "line_end": 535,
       "claims": [],
       "sha256": "b90a5bcf5ae92f8a81154a4036491f45ce895600dfd645875288e9acab978c6d"
     },
     {
       "id": "upper-purpose",
       "path": "docs/reasoning_record.md",
-      "line_start": 508,
-      "line_end": 513,
+      "line_start": 517,
+      "line_end": 528,
       "claims": [],
-      "sha256": "15e36af35d8b1da3c752383a8d47c5cc09a0cad8d6f922fbd9fd0f667992095a"
+      "sha256": "dc4a3295fc8c8e59d82532ea8fb79b858ad14d819712d6f66f6027ea9f65760b"
     },
     {
       "id": "upper-amplification-statement",
       "path": "docs/reasoning_record.md",
-      "line_start": 3354,
-      "line_end": 3365,
+      "line_start": 3412,
+      "line_end": 3423,
       "claims": [],
-      "sha256": "418946d6fdefd509910e94a5e0b3a9ad671b01e5033e9e2f672243ed0807c61f"
+      "sha256": "9409a4be45192844f8963fa5d1b61a1a66e09985167b1bf2353ffd3565616b9f"
     },
     {
       "id": "upper-grover-geometry",
       "path": "docs/reasoning_record.md",
-      "line_start": 3370,
-      "line_end": 3400,
+      "line_start": 3428,
+      "line_end": 3458,
       "claims": [
         "claim-grover-state"
       ],
@@ -1144,8 +1143,8 @@
     {
       "id": "upper-grover-trial",
       "path": "docs/reasoning_record.md",
-      "line_start": 3403,
-      "line_end": 3419,
+      "line_start": 3461,
+      "line_end": 3477,
       "claims": [
         "def-grover-trial"
       ],
@@ -1154,8 +1153,8 @@
     {
       "id": "upper-average-exact",
       "path": "docs/reasoning_record.md",
-      "line_start": 3422,
-      "line_end": 3434,
+      "line_start": 3480,
+      "line_end": 3492,
       "claims": [
         "new-upper-average-exact"
       ],
@@ -1164,8 +1163,8 @@
     {
       "id": "upper-small-probability",
       "path": "docs/reasoning_record.md",
-      "line_start": 3437,
-      "line_end": 3456,
+      "line_start": 3495,
+      "line_end": 3514,
       "claims": [
         "claim-sin2theta",
         "eq-9"
@@ -1175,99 +1174,99 @@
     {
       "id": "upper-amplification-proof",
       "path": "docs/reasoning_record.md",
-      "line_start": 3459,
-      "line_end": 3477,
+      "line_start": 3517,
+      "line_end": 3535,
       "claims": [
         "new-upper-call-cap"
       ],
-      "sha256": "cd3e03a5b90e1b73cf8582f97db0272e8492e3dbb4f8dfb1c04a7638b138b72c"
+      "sha256": "9c866100b72afa594c26640fdda12046dd8e4f60ecd4839afe53c6c393e8772c"
     },
     {
       "id": "upper-returned-register",
       "path": "docs/reasoning_record.md",
-      "line_start": 3480,
-      "line_end": 3498,
+      "line_start": 3538,
+      "line_end": 3556,
       "claims": [
         "r3-q-labels-do-not-determine-state"
       ],
-      "sha256": "31689034de146cc60bc18ccd62006dd3c6f6bf9ece1828af4777560fd774a4a2"
+      "sha256": "df7932405449694c1064665a3fa019c99527aa79f70d0ed49444f7f8f9550b3a"
     },
     {
       "id": "upper-comparison-model",
       "path": "docs/reasoning_record.md",
-      "line_start": 530,
-      "line_end": 542,
+      "line_start": 540,
+      "line_end": 553,
       "claims": [
         "eq-10"
       ],
-      "sha256": "9fd6802f98ccd1c893f45a7a57912a73cd2644f861d1c26e619e86cb391dcb5f"
+      "sha256": "587568015ba9e7ca8710d69d8e3a8d6110270013a9c7daa289d0ddcc0012efe3"
     },
     {
       "id": "upper-bounded-error-comparison",
       "path": "docs/reasoning_record.md",
-      "line_start": 3600,
-      "line_end": 3602,
+      "line_start": 3658,
+      "line_end": 3660,
       "claims": [],
       "sha256": "17ec5858b5c39b1ce27e70fc7cbda2713f6c1a3ce7a260784111d41a224ea226"
     },
     {
       "id": "upper-tournament-parameters",
       "path": "docs/reasoning_record.md",
-      "line_start": 546,
-      "line_end": 564,
+      "line_start": 557,
+      "line_end": 576,
       "claims": [
         "def-T-eps",
         "eq-11"
       ],
-      "sha256": "067187d783c6ea4ef80dcca9b0a2fa294f5c5a8605ae46d7ad191cf8888a7850"
+      "sha256": "bc2eb29c662dc3759ced24a5c8af67815fa27eb3f30e75a1c59385c68be45b31"
     },
     {
       "id": "upper-ideal-process",
       "path": "docs/reasoning_record.md",
-      "line_start": 569,
-      "line_end": 583,
+      "line_start": 585,
+      "line_end": 600,
       "claims": [
         "eq-12"
       ],
-      "sha256": "f57d7d2f74e95a7cc57b30c0c1faf39575c417d255313448cff0c6d79dd28881"
+      "sha256": "e251241773f9bb8e1429c68ffc929dda62b66ec9d714bf4471be35ea2c1b9756"
     },
     {
       "id": "upper-weight-drift",
       "path": "docs/reasoning_record.md",
-      "line_start": 586,
-      "line_end": 606,
+      "line_start": 603,
+      "line_end": 624,
       "claims": [
         "eq-13",
         "claim-expected-WT"
       ],
-      "sha256": "74a15b8632f9e1741faf4641a4db0bf9fb66fb84a173bee556d65c9e2b587dfc"
+      "sha256": "669179b9a41cfd1e8c2b1db6fdbb5c1585c7075953fbbdf2907e2626d767c6bd"
     },
     {
       "id": "upper-dominant-weight",
       "path": "docs/reasoning_record.md",
-      "line_start": 609,
-      "line_end": 634,
+      "line_start": 627,
+      "line_end": 653,
       "claims": [
         "claim-weight-lb",
         "eq-14"
       ],
-      "sha256": "f7a9c5edd4c69b9ec1dd597701691932d4b6889e5623b524e3750c9a29f498be"
+      "sha256": "f9a57cb19821fcf20b234d555f0aac9396387c2f5fa0b976dd8e46ca796a2e5f"
     },
     {
       "id": "upper-stage-state",
       "path": "docs/reasoning_record.md",
-      "line_start": 639,
-      "line_end": 650,
+      "line_start": 658,
+      "line_end": 670,
       "claims": [
         "eq-15"
       ],
-      "sha256": "274a2560c3fe1d464c53cd68ce54f3dbcad64b2d30a84ca8caac027fcd6cfa28"
+      "sha256": "5c898e8a258f4416ad97113a01dd32c5003932cc23a6aa7efa243def828473e4"
     },
     {
       "id": "upper-stage-law",
       "path": "docs/reasoning_record.md",
-      "line_start": 653,
-      "line_end": 667,
+      "line_start": 673,
+      "line_end": 687,
       "claims": [
         "claim-success-prob"
       ],
@@ -1276,8 +1275,8 @@
     {
       "id": "upper-cyclic-example",
       "path": "docs/reasoning_record.md",
-      "line_start": 3504,
-      "line_end": 3557,
+      "line_start": 3562,
+      "line_end": 3615,
       "claims": [
         "r3-q-cyclic-example"
       ],
@@ -1286,58 +1285,58 @@
     {
       "id": "upper-quantum-tournament",
       "path": "docs/reasoning_record.md",
-      "line_start": 687,
-      "line_end": 702,
+      "line_start": 707,
+      "line_end": 722,
       "claims": [
         "new-upper-sampler-law"
       ],
-      "sha256": "e1f6e1c126aed9f8a2ecfe537b8927476a53dbab5f518b1b60998acd5f547ffa"
+      "sha256": "c10e4e7c0a6315fcf83010513ba2d10d605af1556e2276e429763ca07afb6b0f"
     },
     {
       "id": "upper-coupling",
       "path": "docs/reasoning_record.md",
-      "line_start": 705,
-      "line_end": 720,
+      "line_start": 725,
+      "line_end": 740,
       "claims": [
         "claim-coupling"
       ],
-      "sha256": "a907a08e82cbd04e7113b2de4350b398f6619d1b7b20658aca14e8e950fb46dd"
+      "sha256": "1f40a14a7c7cd5e18897f138f4af1ff7c0e37fcadb7624a4030fe5e777bd47b3"
     },
     {
       "id": "upper-tournament-cost",
       "path": "docs/reasoning_record.md",
-      "line_start": 723,
-      "line_end": 735,
+      "line_start": 743,
+      "line_end": 755,
       "claims": [
         "claim-tournament-cost"
       ],
-      "sha256": "7f2eb186c3acb5c1000cca9b12ad5ad25f049ebef768a6cc3b1ba68073cb82c4"
+      "sha256": "dcb4b48efe588fd1aad65236da9fdfb2c51cc1c32851ec4ac0bb4011d89ec85e"
     },
     {
       "id": "upper-padded-tournament-budget",
       "path": "docs/reasoning_record.md",
-      "line_start": 3563,
-      "line_end": 3579,
+      "line_start": 3621,
+      "line_end": 3637,
       "claims": [
         "r2-quantum-tournament-budget-6072"
       ],
-      "sha256": "bddd0c394cc8bd5d6634562574dfbd465dfe4388e3ad81d78f2bb6b8e419bbd4"
+      "sha256": "374ff896f674973119ba220228726ad693353b03577869347e324791a7504ff6"
     },
     {
       "id": "upper-tournament-evidence",
       "path": "docs/reasoning_record.md",
-      "line_start": 3583,
-      "line_end": 3596,
+      "line_start": 3641,
+      "line_end": 3654,
       "claims": [
         "r2-quantum-coherent-list-witness"
       ],
-      "sha256": "9140e4d31331e5e9e4e7516cf380e9c402e3828f85f4f6abcbd6d9449a0c93f4"
+      "sha256": "381a5c323828b9836185caffeaf6e12393d5733ae9473c214baee5587073b392"
     },
     {
       "id": "upper-continuation-induction",
       "path": "docs/reasoning_record.md",
-      "line_start": 3307,
-      "line_end": 3347,
+      "line_start": 3365,
+      "line_end": 3405,
       "claims": [
         "new-upper-continuation-bound"
       ],
@@ -1346,16 +1345,16 @@
     {
       "id": "upper-decode",
       "path": "docs/reasoning_record.md",
-      "line_start": 745,
-      "line_end": 750,
+      "line_start": 765,
+      "line_end": 770,
       "claims": [],
-      "sha256": "f16af6b8f816eae5ca010291af6f558382ceed7f020574d14b9b1e7252022b49"
+      "sha256": "727609c428747a699b05fcfeb235b848ecc08c6305fa0f1fad6d6f0abbdd2ccf"
     },
     {
       "id": "upper-decode-cost",
       "path": "docs/reasoning_record.md",
-      "line_start": 753,
-      "line_end": 769,
+      "line_start": 773,
+      "line_end": 789,
       "claims": [
         "claim-decode-cost"
       ],
@@ -1364,24 +1363,24 @@
     {
       "id": "upper-comparator",
       "path": "docs/reasoning_record.md",
-      "line_start": 772,
-      "line_end": 777,
+      "line_start": 792,
+      "line_end": 797,
       "claims": [],
       "sha256": "7cda2f3ae8902dc7ada2ab3a911ab4b8b86ee73c9c5e4e31b2e6f76b980dbede"
     },
     {
       "id": "upper-comparison-law",
       "path": "docs/reasoning_record.md",
-      "line_start": 780,
-      "line_end": 785,
+      "line_start": 800,
+      "line_end": 805,
       "claims": [],
-      "sha256": "763d739d7c0b0422ad6b26c6cfe4872b0daa67885ba1a6803cddf08914f1c1b8"
+      "sha256": "34887d22fbb8b700cc14bc894315388ebb652b22ff692c77450352eb00caaea0"
     },
     {
       "id": "upper-winner-dominates",
       "path": "docs/reasoning_record.md",
-      "line_start": 788,
-      "line_end": 800,
+      "line_start": 808,
+      "line_end": 820,
       "claims": [
         "claim-winner-dominates"
       ],
@@ -1390,28 +1389,28 @@
     {
       "id": "upper-verifier",
       "path": "docs/reasoning_record.md",
-      "line_start": 803,
-      "line_end": 823,
+      "line_start": 823,
+      "line_end": 843,
       "claims": [
         "def-K"
       ],
-      "sha256": "35fa34f0d1feb2a46482b63f9ea23952ab6566278dca73bc66ab1a4ec8e48bb4"
+      "sha256": "2bdae4e8def6e2e21a064626978bdb312ae466effed903b2670c8db9cf4d9ea5"
     },
     {
       "id": "upper-verification-proof",
       "path": "docs/reasoning_record.md",
-      "line_start": 826,
-      "line_end": 842,
+      "line_start": 846,
+      "line_end": 862,
       "claims": [
         "claim-verify"
       ],
-      "sha256": "2ba5825460156086548170f82dbb0b8ca4a8a9da6bf85479d42f6ed2fbdf35a8"
+      "sha256": "99156e823ae79cfa254c3b614849cf4d43fa0279baa342d5818464375f64cc1b"
     },
     {
       "id": "upper-total-error",
       "path": "docs/reasoning_record.md",
-      "line_start": 845,
-      "line_end": 861,
+      "line_start": 865,
+      "line_end": 881,
       "claims": [
         "claim-error"
       ],
@@ -1420,24 +1419,24 @@
     {
       "id": "upper-oracle-access",
       "path": "docs/reasoning_record.md",
-      "line_start": 3665,
-      "line_end": 3672,
+      "line_start": 3723,
+      "line_end": 3730,
       "claims": [],
       "sha256": "1e32ea3eb68ffd8abc7bc4712ce3f78febaf3375a47b411abe3277ccf6c7352a"
     },
     {
       "id": "upper-read-compiler",
       "path": "docs/reasoning_record.md",
-      "line_start": 3675,
-      "line_end": 3682,
+      "line_start": 3733,
+      "line_end": 3740,
       "claims": [],
       "sha256": "2bc229a047a96d3828ec2fb1a621716fd0aa141083e9bfcf0b03c97d6465cb34"
     },
     {
       "id": "upper-finite-budget",
       "path": "docs/reasoning_record.md",
-      "line_start": 3685,
-      "line_end": 3717,
+      "line_start": 3743,
+      "line_end": 3775,
       "claims": [
         "new-upper-finite-budget"
       ],
@@ -1446,18 +1445,18 @@
     {
       "id": "upper-asymptotic-bound",
       "path": "docs/reasoning_record.md",
-      "line_start": 868,
-      "line_end": 880,
+      "line_start": 888,
+      "line_end": 902,
       "claims": [
         "prop-3.3"
       ],
-      "sha256": "3dc46c27f97ec7fa6299c5271960d6f67ab378e46e2fa29f405c6969db1f5a8d"
+      "sha256": "954f5d5b008ba035813a98e7fc7a69babd58106881c5be0584ccfbaf7700f5f5"
     },
     {
       "id": "upper-explicit-log6",
       "path": "docs/reasoning_record.md",
-      "line_start": 3720,
-      "line_end": 3739,
+      "line_start": 3778,
+      "line_end": 3797,
       "claims": [
         "new-upper-log6"
       ],
@@ -1484,164 +1483,163 @@
     {
       "id": "CL-direct-product-statement",
       "path": "docs/reasoning_record.md",
-      "line_start": 1058,
-      "line_end": 1081,
+      "line_start": 1068,
+      "line_end": 1091,
       "claims": [
         "lem-4.1"
       ],
-      "sha256": "446325bbd947649911addcf8ddd901eca24808535b9b0150a9377e264faad05e"
+      "sha256": "79382f1e7aeeab879441f7c22f2d8cb3c2ee40ff8628ffb36ccecbf02b5033ef"
     },
     {
       "id": "CL-product-law",
       "path": "docs/reasoning_record.md",
-      "line_start": 2561,
-      "line_end": 2604,
+      "line_start": 2391,
+      "line_end": 2434,
       "claims": [
         "claim-product-law"
       ],
-      "sha256": "a3b03dfb66493256cb488d21308319ff3d3f216ef057bdfb3b4c1c92f5991e7f"
+      "sha256": "d94acc4c3ac7ee692046c63d2970dc3c7e43bae4cc5e987938616b8aa0dc5658"
     },
     {
       "id": "CL-conditional-values",
       "path": "docs/reasoning_record.md",
-      "line_start": 2607,
-      "line_end": 2653,
+      "line_start": 2437,
+      "line_end": 2483,
       "claims": [
         "def-value-V",
         "eq-16"
       ],
-      "sha256": "a9d1c85b1c70871c7dcc30d53cd2d0b54507806548e9e92340fcf619a6f9e9ba"
+      "sha256": "5f805fc54615d7dfa493a4da3625dfd2306fb321a6d254f5e07df2973bd0bd69"
     },
     {
       "id": "CL-supermartingale",
       "path": "docs/reasoning_record.md",
-      "line_start": 2656,
-      "line_end": 2699,
+      "line_start": 2486,
+      "line_end": 2529,
       "claims": [
         "claim-supermartingale",
         "claim-final-bound"
       ],
-      "sha256": "7f0ab67f8d2defcf488bc30dc2cb43e4a8b6710041ed6fa816ddc77cd7b4e8b8"
+      "sha256": "10a02e2cd307726933b29575d3c727724e2273d673bda6790ee284afbed32177"
     },
     {
       "id": "CL-independent-information",
       "path": "docs/reasoning_record.md",
-      "line_start": 1218,
-      "line_end": 1221,
+      "line_start": 1228,
+      "line_end": 1231,
       "claims": [],
-      "sha256": "9f8f9f42486e3559ec5cee3e4d2581ba19ec37c706f94437c5e3b20fd7797c37"
+      "sha256": "09cfd52848d022708017ad4af201babfaad04fb5be2b0d584cc3abe1664e75db"
     },
     {
       "id": "CL-joint-cap",
       "path": "docs/reasoning_record.md",
-      "line_start": 2825,
-      "line_end": 2852,
+      "line_start": 2655,
+      "line_end": 2682,
       "claims": [
         "NCL-joint-cap"
       ],
-      "sha256": "f29f5cda507af23a85b05f31373138bcfcb686e8296351d9fe8851d0479b9d29"
+      "sha256": "5734b3f1c5bcb6bacc214b6e0f111409ba5117f0cbe626280f097340890aa015"
     },
     {
       "id": "CL-adaptive-example",
       "path": "docs/reasoning_record.md",
-      "line_start": 2946,
-      "line_end": 2993,
+      "line_start": 2776,
+      "line_end": 2823,
       "claims": [
         "NCL-adaptive-cap-example"
       ],
-      "sha256": "fe4de6b0d01c28aa28cb8987811afd511c9972ef3690f5fd4ccb77f1228db7e0"
+      "sha256": "cda018610ab2c11c7f87f9f5f586d2cbb706c1937be834a43e03f95b7764fb23"
     },
     {
       "id": "CL-weighted-values",
       "path": "docs/reasoning_record.md",
-      "line_start": 1154,
-      "line_end": 1186,
+      "line_start": 1164,
+      "line_end": 1196,
       "claims": [
         "NCL-weighted-value"
       ],
-      "sha256": "a39cf4901309fde37859d74d3534109111d289035edf2609e4795276d4a092c3"
+      "sha256": "cfd16123ab03a1b244bcbb4f758f6bcce3ac7ea672c95ff6fe00eeea975646e3"
     },
     {
       "id": "CL-weighted-product",
       "path": "docs/reasoning_record.md",
-      "line_start": 1189,
-      "line_end": 1215,
+      "line_start": 1199,
+      "line_end": 1225,
       "claims": [
         "NCL-weighted-product"
       ],
-      "sha256": "8420ae30c722d70fab5549b0966d7c202b6f20fd81bf55597f65bdc5cb8cc0a6"
+      "sha256": "de439c67ff8d66adcbb488f10dadbd9e6b55ebbecf77bd72b9a4a38c1b732659"
     },
     {
       "id": "CL-normalization",
       "path": "docs/reasoning_record.md",
-      "line_start": 2703,
-      "line_end": 2723,
+      "line_start": 2533,
+      "line_end": 2553,
       "claims": [
         "NCL-product-normalization"
       ],
-      "sha256": "672e5b3f4ec7819962888d725974a20a737ccd02544ad724a201869f6dec4b1d"
+      "sha256": "1e273e6435c94674f66b9728172a823c39eb9289adcab8ed517312cd8132427b"
     },
     {
       "id": "CL-planted-interface",
       "path": "docs/reasoning_record.md",
-      "line_start": 2857,
-      "line_end": 2873,
+      "line_start": 2687,
+      "line_end": 2703,
       "claims": [],
-      "sha256": "e825e3fadbf42e8208a1c86ec0aefd95288d55f0a89afb8a9edc19fe6d9dfe97"
+      "sha256": "0f6caa42baf77583bc46b476f4b7be16fbe365a358d34f3d6c2e3c663dff864a"
     },
     {
       "id": "CL-literature-and-verification",
       "path": "docs/reasoning_record.md",
-      "line_start": 1224,
-      "line_end": 1227,
+      "line_start": 1234,
+      "line_end": 1237,
       "claims": [],
-      "sha256": "ace380335e9563f202f4904c922a42ba61abd44922620cd81c1b58d79e53d137"
+      "sha256": "f0f8d58337db4fe5fd0f6041e3afed0d401f42baa5d413e05fcf78abc82021bf"
     },
     {
       "id": "CL-entry-interface",
       "path": "docs/reasoning_record.md",
-      "line_start": 896,
-      "line_end": 899,
+      "line_start": 918,
+      "line_end": 921,
       "claims": [],
-      "sha256": "b6e715f1e6ab354c7ae964c7b5574bbf2cced238ad480268da53593fb7f630ab"
+      "sha256": "8875cc0a45fa8e9646b7facf549fe5666b1969a4af87e56b3d49835577d530c3"
     },
     {
       "id": "CL-minimax",
       "path": "docs/reasoning_record.md",
-      "line_start": 902,
-      "line_end": 927,
+      "line_start": 924,
+      "line_end": 937,
       "claims": [
-        "claim-minimax-mu",
-        "NCL-strict-hard-distribution"
+        "claim-minimax-mu"
       ],
-      "sha256": "37249137e6fcb9807f1d6518254508ce4d0429c7bed6253bbc88bd7a738d87a1"
+      "sha256": "f08bac4dc9cbeac5ebc47529e91e6cad9bea54d4f4037df7a738f142ca55ebc6"
     },
     {
       "id": "CL-address-guess",
       "path": "docs/reasoning_record.md",
-      "line_start": 1084,
-      "line_end": 1092,
+      "line_start": 1094,
+      "line_end": 1102,
       "claims": [
         "claim-address-guess"
       ],
-      "sha256": "94426bbdc2bb13882bc7e5c67929779ea207780b3383017a2c3db383a53c804b"
+      "sha256": "f4b42b927f9fac55c547e8a0e5fe003b4de90d02a476afb1b1ce9b07e2b2209e"
     },
     {
       "id": "CL-generic-statement",
       "path": "docs/reasoning_record.md",
-      "line_start": 932,
-      "line_end": 953,
+      "line_start": 942,
+      "line_end": 963,
       "claims": [
         "prop-4.2-generic",
         "eq-17"
       ],
-      "sha256": "26e7b0b4b8eee1c54ce5c2cbfb311eddb76c643d0c552b3022beb597335f83b5"
+      "sha256": "1fdacb77d2dd00a304847b5df5ec3ecb79c9f4cab039e45732560b5e9f8c0a7d"
     },
     {
       "id": "CL-dummy",
       "path": "docs/reasoning_record.md",
-      "line_start": 956,
-      "line_end": 969,
+      "line_start": 966,
+      "line_end": 979,
       "claims": [
         "def-dummy"
       ],
@@ -1650,8 +1648,8 @@
     {
       "id": "CL-planted",
       "path": "docs/reasoning_record.md",
-      "line_start": 972,
-      "line_end": 984,
+      "line_start": 982,
+      "line_end": 994,
       "claims": [
         "claim-Y-values",
         "def-planted"
@@ -1661,26 +1659,26 @@
     {
       "id": "CL-tiny-planted-example",
       "path": "docs/reasoning_record.md",
-      "line_start": 2880,
-      "line_end": 2896,
+      "line_start": 2710,
+      "line_end": 2726,
       "claims": [],
       "sha256": "d431db689c72c63766172847026f5b0778eea42ecc0ce11bcfc23eae19d68833"
     },
     {
       "id": "CL-first-difference",
       "path": "docs/reasoning_record.md",
-      "line_start": 988,
-      "line_end": 1010,
+      "line_start": 998,
+      "line_end": 1020,
       "claims": [
         "eq-18"
       ],
-      "sha256": "151ddcf8f76639a287eb9a9d3f6e41694d047686d12889dfdb91fe608581052f"
+      "sha256": "3fb064b5a18559b7841c7e56961f97e7e563da48cf57b2fc06f4f0b76b073f18"
     },
     {
       "id": "CL-erased-zero-identity",
       "path": "docs/reasoning_record.md",
-      "line_start": 1015,
-      "line_end": 1028,
+      "line_start": 1025,
+      "line_end": 1038,
       "claims": [
         "def-Z"
       ],
@@ -1689,28 +1687,28 @@
     {
       "id": "CL-selection-independence-example",
       "path": "docs/reasoning_record.md",
-      "line_start": 2900,
-      "line_end": 2908,
+      "line_start": 2730,
+      "line_end": 2738,
       "claims": [],
-      "sha256": "9827cf2e41097c7e22eee0e1218e64b77cc265fef78e21362e54157825244ce5"
+      "sha256": "9451b6636e9f9470ac7ee0630167b2dae1211e436ae1f9927dd001b7cc9183e4"
     },
     {
       "id": "CL-early-late",
       "path": "docs/reasoning_record.md",
-      "line_start": 2731,
-      "line_end": 2764,
+      "line_start": 2561,
+      "line_end": 2594,
       "claims": [
         "claim-uniform-zero",
         "claim-EZ",
         "eq-19"
       ],
-      "sha256": "8d53be6553c36a7f7599099e4405fa7cb0ec2312eadbe60a7d836d1163ba972e"
+      "sha256": "4550ed3cf21da917ace6e7629deb63f7f7faed89e17b2d3a141cd9531d15d507"
     },
     {
       "id": "CL-zero-worlds",
       "path": "docs/reasoning_record.md",
-      "line_start": 2767,
-      "line_end": 2789,
+      "line_start": 2597,
+      "line_end": 2619,
       "claims": [
         "NCL-zero-worlds"
       ],
@@ -1719,8 +1717,8 @@
     {
       "id": "CL-zero-average",
       "path": "docs/reasoning_record.md",
-      "line_start": 2792,
-      "line_end": 2804,
+      "line_start": 2622,
+      "line_end": 2634,
       "claims": [
         "NCL-erased-zero-two"
       ],
@@ -1729,8 +1727,8 @@
     {
       "id": "CL-zero-optional",
       "path": "docs/reasoning_record.md",
-      "line_start": 1032,
-      "line_end": 1048,
+      "line_start": 1042,
+      "line_end": 1058,
       "claims": [
         "NCL-erased-zero-mplusone"
       ],
@@ -1739,104 +1737,104 @@
     {
       "id": "CL-heavy",
       "path": "docs/reasoning_record.md",
-      "line_start": 1096,
-      "line_end": 1105,
+      "line_start": 1106,
+      "line_end": 1115,
       "claims": [
         "def-heavy",
         "eq-20"
       ],
-      "sha256": "f1c64af477d8be4d64bc6cb09155bf38cc208b64514ffe8e8926e7f91b1ac733"
+      "sha256": "22e06c999bba04e45da46ab53480c4a7d911d30fa55feccf2a351111ae7507a2"
     },
     {
       "id": "CL-simulator",
       "path": "docs/reasoning_record.md",
-      "line_start": 1108,
-      "line_end": 1116,
+      "line_start": 1118,
+      "line_end": 1126,
       "claims": [
         "def-simulator"
       ],
-      "sha256": "c58a853767d217bee934b12f8a48580b7e1b5afc0a8f526573ae8548fa44616f"
+      "sha256": "e0b1374f16718d810d4b51712c60a919142de7c0b20399d15f29a092b012d7cd"
     },
     {
       "id": "CL-simulator-example",
       "path": "docs/reasoning_record.md",
-      "line_start": 2911,
-      "line_end": 2934,
+      "line_start": 2741,
+      "line_end": 2764,
       "claims": [],
       "sha256": "baaa98849092537b3b099948c389c25c2c5f73d29e23a3795f00dc0bc35a6b19"
     },
     {
       "id": "CL-joint-event",
       "path": "docs/reasoning_record.md",
-      "line_start": 1119,
-      "line_end": 1128,
+      "line_start": 1129,
+      "line_end": 1138,
       "claims": [
         "eq-21"
       ],
-      "sha256": "2501f04cdc0531ef2b30caf61a94ecbfc4adb7284db1db83e3fcf58314669b0d"
+      "sha256": "1c005259606ef45d0cd2ab1ae845639bd03056fc4a122d542f9d948ad183b316"
     },
     {
       "id": "CL-conditioning-counterexample",
       "path": "docs/reasoning_record.md",
-      "line_start": 2938,
-      "line_end": 2942,
+      "line_start": 2768,
+      "line_end": 2772,
       "claims": [],
-      "sha256": "992ea17db5a0a7640cb5948505bc336d4bf61449d24f12b951820f2bf32979b5"
+      "sha256": "ef87a2f23c140c65f1bcfd0b2e43efae1e59a99b6c431f13c310664d997656c1"
     },
     {
       "id": "CL-cell-union",
       "path": "docs/reasoning_record.md",
-      "line_start": 1131,
-      "line_end": 1146,
+      "line_start": 1141,
+      "line_end": 1156,
       "claims": [
         "eq-22"
       ],
-      "sha256": "e7948c7d3fd6f5467b4f22d598c6625cd68fbf92ae37b7c192b468f98543f49b"
+      "sha256": "974a29c2fefce1fc7d5be33b12a00b9ff027fd18006753aa8a2e5b2dcfcce0a0"
     },
     {
       "id": "CL-discrepancy",
       "path": "docs/reasoning_record.md",
-      "line_start": 1234,
-      "line_end": 1250,
+      "line_start": 1244,
+      "line_end": 1261,
       "claims": [
         "eq-23",
         "new-r2-planted-gap-absolute-two",
         "NCL-checked-gap"
       ],
-      "sha256": "c4d24f508c684978e08158d2af26ec3d0049925b24722477c1e3b2cae079aace"
+      "sha256": "a301453e647cbebf6acc2c890fe3473bda2af8d9cb446bb59f5009cd6aa92773"
     },
     {
       "id": "CL-tail-numeric",
       "path": "docs/reasoning_record.md",
-      "line_start": 1253,
-      "line_end": 1280,
+      "line_start": 1264,
+      "line_end": 1274,
       "claims": [
         "claim-tail",
         "claim-numeric"
       ],
-      "sha256": "7107f25ea4a71f3dbd0bf51bae99e79e64e0e8356b307cf5787da84377d14176"
+      "sha256": "29ff00325bbd407bdbc3753fea254921c2ff23320ae409b1a756fe8b78b5715f"
     },
     {
       "id": "CL-randomized-contradiction",
       "path": "docs/reasoning_record.md",
-      "line_start": 1283,
-      "line_end": 1291,
+      "line_start": 1277,
+      "line_end": 1283,
       "claims": [],
-      "sha256": "a44c3c8c1a4e7ec8db85068af91a9c86b498bd5688c49458ea82e76f32b99973"
+      "sha256": "eb6cb3dbe46770a913c2b8b66a6bd1f5f5c538dce2851bdf33c115b94f8d9f7f"
     },
     {
       "id": "CL-forrelation-input",
       "path": "docs/reasoning_record.md",
-      "line_start": 1294,
-      "line_end": 1301,
+      "line_start": 1286,
+      "line_end": 1293,
       "claims": [],
-      "sha256": "b8f78538de2f51f9123fdaef5e1031287fabd54acd0ce5a357da18ebf98444b7"
+      "sha256": "ea84998ad1f72c6cb9606d234950676e4a470b353f024dff2fdb846216d70a25"
     },
     {
       "id": "CL-floors",
       "path": "docs/reasoning_record.md",
-      "line_start": 1304,
-      "line_end": 1334,
+      "line_start": 2853,
+      "line_end": 2883,
       "claims": [
         "claim-floor",
         "NCL-explicit-floor"
@@ -1846,13 +1844,13 @@
     {
       "id": "CL-concrete-lower",
       "path": "docs/reasoning_record.md",
-      "line_start": 1337,
-      "line_end": 1358,
+      "line_start": 1299,
+      "line_end": 1320,
       "claims": [
         "prop-4.2",
         "cor-R-omega"
       ],
-      "sha256": "1289e3740f33aabe0a1c169e3a583795f3303a404a352aeb5106fc9a89adf8e9"
+      "sha256": "178c8446412b55549b4f1eacdd7751ee1766c7ce3963fcbe895de821174a36ec"
     },
     {
       "id": "CL-formal-scope",
@@ -1865,24 +1863,24 @@
     {
       "id": "ROOT-FAMILY-ASSEMBLY",
       "path": "docs/reasoning_record.md",
-      "line_start": 1365,
-      "line_end": 1384,
+      "line_start": 1327,
+      "line_end": 1346,
       "claims": [],
       "sha256": "b74346d4f8af830500a1959ac5324720fedb34acf6361b86603f040cbbbcec8d"
     },
     {
       "id": "ROOT-RATIO",
       "path": "docs/reasoning_record.md",
-      "line_start": 1389,
-      "line_end": 1427,
+      "line_start": 1351,
+      "line_end": 1377,
       "claims": [],
-      "sha256": "b5aa73570ac2dd713c2a8a0ea470d26b69b1803d3e7300627c77509956f00ba8"
+      "sha256": "b259210cd634e1dd673d7e0c9b98c732ff94ed8332b61b8e1d73c65023721dc6"
     },
     {
       "id": "ROOT-NO-SMALLER",
       "path": "docs/reasoning_record.md",
-      "line_start": 1432,
-      "line_end": 1449,
+      "line_start": 1382,
+      "line_end": 1399,
       "claims": [],
       "sha256": "1177fabdfc2edcd2623d7d99ec236e87a4b67c9dcfa04d85cceb977134ff382b"
     },
@@ -1897,80 +1895,80 @@
     {
       "id": "R3-A-RESULT",
       "path": "docs/reasoning_record.md",
-      "line_start": 2293,
-      "line_end": 2303,
+      "line_start": 2123,
+      "line_end": 2133,
       "claims": [],
       "sha256": "1ee78833982d0cd084c84877289a92501d5cba297ff9f09334be40c62ff8ff40"
     },
     {
       "id": "R3-A-DEFINITIONS",
       "path": "docs/reasoning_record.md",
-      "line_start": 2309,
-      "line_end": 2332,
+      "line_start": 2139,
+      "line_end": 2162,
       "claims": [],
       "sha256": "6d0148a19a9d14c6baf63feb5a58fe7a76a4b60879b01fb09b06d16c2ec030d2"
     },
     {
       "id": "R3-A-ADVERSARY",
       "path": "docs/reasoning_record.md",
-      "line_start": 2340,
-      "line_end": 2414,
+      "line_start": 2170,
+      "line_end": 2244,
       "claims": [],
       "sha256": "2fd44e132b423382cf21457b2c00ba182711aff123d4b6b884e50700089776e2"
     },
     {
       "id": "R3-A-PARITY-PREFACTOR",
       "path": "docs/reasoning_record.md",
-      "line_start": 2417,
-      "line_end": 2441,
+      "line_start": 2247,
+      "line_end": 2271,
       "claims": [],
       "sha256": "650484e3c15a607734e1bfe1195c0b4bb3f0d4d30ddff4d0ed40821d387dbcf3"
     },
     {
       "id": "R3-A-STAR",
       "path": "docs/reasoning_record.md",
-      "line_start": 2447,
-      "line_end": 2460,
+      "line_start": 2277,
+      "line_end": 2290,
       "claims": [],
       "sha256": "e47d08bfa1e8fb9df416ecf98df364475b1aef0e18e4d691c142f3186bd70283"
     },
     {
       "id": "R3-A-SPECTRAL",
       "path": "docs/reasoning_record.md",
-      "line_start": 2463,
-      "line_end": 2470,
+      "line_start": 2293,
+      "line_end": 2300,
       "claims": [],
       "sha256": "9c475f8d7907fc7a4dd8a91f1d999953b64c060c1ad9058d1338fdc61b0dd808"
     },
     {
       "id": "R3-A-FACE",
       "path": "docs/reasoning_record.md",
-      "line_start": 2476,
-      "line_end": 2493,
+      "line_start": 2306,
+      "line_end": 2323,
       "claims": [],
       "sha256": "6a072e148247345bedd79a10bab9257dc1d5c8a545887f47373b89f30b21e0e0"
     },
     {
       "id": "R3-A-HUANG",
       "path": "docs/reasoning_record.md",
-      "line_start": 2497,
-      "line_end": 2517,
+      "line_start": 2327,
+      "line_end": 2347,
       "claims": [],
       "sha256": "484dcd9d6809e489c9de66bf6c783c1a1b2702c9053147b3da4ac4f759d57a3e"
     },
     {
       "id": "R3-A-MIDRIJANIS",
       "path": "docs/reasoning_record.md",
-      "line_start": 2523,
-      "line_end": 2536,
+      "line_start": 2353,
+      "line_end": 2366,
       "claims": [],
       "sha256": "b398861bb65dade92cc59ccff4023b46b5eb5790e4113ce71cff7fc697150e7e"
     },
     {
       "id": "R3-A-ASSEMBLY",
       "path": "docs/reasoning_record.md",
-      "line_start": 2542,
-      "line_end": 2550,
+      "line_start": 2372,
+      "line_end": 2380,
       "claims": [],
       "sha256": "59f2ed936e2c83bc0c260b5579725ca1fff9b18aa3e21c7e454036cdcd58c8f1"
     },
@@ -3203,29 +3201,29 @@
     {
       "id": "ROOT-REFERENCES",
       "path": "docs/reasoning_record.md",
-      "line_start": 4368,
-      "line_end": 4487,
+      "line_start": 4430,
+      "line_end": 4549,
       "claims": [],
       "sha256": "8c0886c92a0a86f59184b4b2496ea3e70fa7de1cbd6a89decf9b54ed11e07779"
     },
     {
       "id": "forr_historical_threshold",
       "path": "docs/reasoning_record.md",
-      "line_start": 3003,
-      "line_end": 3066,
+      "line_start": 2892,
+      "line_end": 2955,
       "claims": [
         "NEW-FOR-25",
         "NEW-FOR-19"
       ],
-      "sha256": "501e6db0fa462595d443f0eb0e4cefe69921b4cbfa5c4c32196f986244e4ee9a"
+      "sha256": "7c7637363b1f5ad932bf56b572af397d0a965d73a42dee8812a7770a694f620e"
     },
     {
       "id": "forr_historical_closure",
       "path": "docs/reasoning_record.md",
-      "line_start": 3069,
-      "line_end": 3092,
+      "line_start": 2958,
+      "line_end": 2981,
       "claims": [],
-      "sha256": "6a4bf84c31fb1ec32ff9774d4a2663c4f3500bc0dc3147e9c9d66011e399a958"
+      "sha256": "53b287555df475208f7dbcfa7d26bbca90c50d70045082596f4859a58c71963d"
     },
     {
       "id": "history-evidence-convention",
@@ -3278,8 +3276,8 @@
     {
       "id": "ROOT-GROWING-K",
       "path": "docs/reasoning_record.md",
-      "line_start": 1455,
-      "line_end": 1471,
+      "line_start": 1405,
+      "line_end": 1421,
       "claims": [],
       "sha256": "ecf2caac5023e7cd7900bdbaf73e9945be574cd63940c7e1677c94bb37306ba8"
     },
@@ -3302,8 +3300,8 @@
     {
       "id": "upper-label-contract",
       "path": "docs/reasoning_record.md",
-      "line_start": 672,
-      "line_end": 684,
+      "line_start": 692,
+      "line_end": 704,
       "claims": [],
       "sha256": "246ccead360db06ffd096e4ba3c0c95a467f2fcc6afb21a57ae6270c9c109715"
     },
@@ -3314,6 +3312,34 @@
       "line_end": 2179,
       "claims": [],
       "sha256": "fd986ce29ddfccc28a9db887b379b0871db933238f2f37b9ba1d6a7b43dda563"
+    },
+    {
+      "id": "record-minimax-proof",
+      "path": "docs/reasoning_record.md",
+      "line_start": 2829,
+      "line_end": 2848,
+      "claims": [
+        "NCL-strict-hard-distribution"
+      ],
+      "sha256": "adca8f8769b1db15875ca33e637004c45806f30a31f5936d3b9c4fcfdd9f93bc"
+    },
+    {
+      "id": "record-maximal-inequality",
+      "path": "docs/reasoning_record.md",
+      "line_start": 3047,
+      "line_end": 3076,
+      "claims": [
+        "NEW-FOR-15"
+      ],
+      "sha256": "336f4c76fd675eac61fd6469f37668a414027ea4a636bed55aa7223ea575d895"
+    },
+    {
+      "id": "record-uniform-constants",
+      "path": "docs/reasoning_record.md",
+      "line_start": 3081,
+      "line_end": 3148,
+      "claims": [],
+      "sha256": "7de656f7cf579094e36ab50357f3084c5ba612a4823450b51597b829881155c0"
     }
   ],
   "catalogue_source": {
@@ -123111,7 +123137,7 @@
   },
   "frozen_for_independent_review_utc": "2026-11-02T21:45:36.478005+00:00",
   "sources": {
-    "docs/reasoning_record.md": "7fa2ae10c5506a11fa37ad0ae7538ff15ec6cdd924a0b0e24a96bd5745fffd2b",
+    "docs/reasoning_record.md": "e111e127a76b3f7ee1b49895c06b196d1490438dd80886b16e5a3187e6e423d7",
     "docs/verification_details.md": "6ba66b0d023c9ef7565e92667760f07ad4b4d8df9dec71ade8ecf3cb43fa1fb5"
   }
 }

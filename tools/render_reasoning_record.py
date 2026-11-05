@@ -228,15 +228,15 @@ def write_filters(stage, sibling_revision="main"):
 def maintained_figures(nodes, source):
     images = {node["c"][2][0] for node in nodes if node.get("t") == "Image"}
     figure_groups = {}
-    for image in images:
+    for image in sorted(images):
         file = (source.parent / image).resolve()
         matches = [(kind, folder, names) for kind, (folder, names) in FIGURES.items()
                    if file.parent == folder and file.stem in names and file.suffix == ".svg"]
         if len(matches) != 1:
             raise ValueError(f"record figure needs a maintained figure source: {image}")
-        kind, folder, names = matches[0]
-        figure_groups[kind] = (folder, names)
-    return images, figure_groups
+        kind = matches[0][0]
+        figure_groups.setdefault(kind, []).append(image)
+    return figure_groups
 
 
 def navigation_inputs(ast, source):
@@ -330,7 +330,7 @@ def main():
         parser.error("Pandoc citation nodes found: supply --bibliography or manuscript bibliography metadata")
     try:
         navigation = navigation_inputs(ast, source)
-        images, figure_groups = maintained_figures(nodes, source)
+        figure_groups = maintained_figures(nodes, source)
     except ValueError as error:
         parser.error(str(error))
     sibling_revision = command(["git", "rev-parse", "HEAD"], cwd=ROOT).strip()
@@ -362,7 +362,8 @@ def main():
     }
     # Reuse the companion papers' actual style and TikZ sources, and bind them.
     receipt["layout_sources"][str(ROOT / "tools/render_papers.py")] = digest(ROOT / "tools/render_papers.py")
-    for folder, names in figure_groups.values():
+    for kind in figure_groups:
+        folder, names = FIGURES[kind]
         for path in [folder / (name + ".tex") for name in names] + [folder / "style.tex"]:
             if path.exists():
                 receipt["layout_sources"][str(path)] = digest(path)
@@ -382,11 +383,10 @@ def main():
         shutil.copyfile(LAYOUT / "pdf_header.tex", stage / "pdf_header.tex")
         write_filters(stage, sibling_revision)
         image_paths = {}
-        for kind in figure_groups:
+        for kind, images in figure_groups.items():
             compiled = build_figures(kind, output / kind, write_svg=False)
             for image in images:
-                if (source.parent / image).resolve().parent == FIGURES[kind][0]:
-                    image_paths[image] = str(compiled / (Path(image).stem + ".pdf"))
+                image_paths[image] = str(compiled / (Path(image).stem + ".pdf"))
         image_filter = stage / "pdf_images.lua"
         entries = ",\n".join(f"[{json.dumps(k)}] = {json.dumps(v)}" for k, v in image_paths.items())
         image_filter.write_text("local paths = {" + entries + "}\nfunction Image(el)\n"
