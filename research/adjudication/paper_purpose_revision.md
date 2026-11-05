@@ -571,3 +571,22 @@ why observing the query coordinate suffices. This was an unprimed agent
 reading. In the reconstruction, inspecting the rendered pages caught an empty
 Contents heading. The reading guide now uses the manuscript’s actual heading
 level to list the sections and appendices with their page numbers.
+
+### Delivered reading copies
+
+The final PDFs were built from `69fa4866645a8c8a7ec39a150b30a7639e76f8a5`.
+The record text is byte-identical to the edition pinned by the shorter papers.
+The reconstruction used the [repository renderer on a hosted runner](https://github.com/wcook04/quartic-query-lean/actions/runs/42013913028).
+The specialist and teaching papers used the companion renderer locally.
+
+| Reading copy | Pages | PDF SHA-256 |
+| --- | ---: | --- |
+| Specialist | 8 | `82d8ec3aa83c5b76098b630b4e1846f2b432c81212a7d0db2084c3c5cec40dad` |
+| Teaching | 20 | `057969c04fee71e82dbc8dfe27c70a47998324215775cebc9608277773907bbf` |
+| Reconstruction | 90 | `8f46f0f452f247c790110d473dca96c4396c1eda865ac96ca4d2270409391589` |
+
+Each page was inspected in rendered overview. The teaching sampler and
+predictor, the specialist reductions, the reconstruction’s opening, derivative
+calculation and printed contents were also checked at reading size. The
+reconstruction’s proof runs through page 43. Page 44 gives the section and
+appendix page numbers. All 224 authored anchors resolve as PDF destinations.
