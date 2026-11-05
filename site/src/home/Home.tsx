@@ -1,0 +1,114 @@
+import { useEffect, useState } from "react";
+import type { Edition } from "../app/edition";
+import { href } from "../app/router";
+import { PAPERS, SUPPLEMENT } from "../app/papers";
+import { Board } from "./Board";
+import { inlineTex } from "../text/html";
+import { Exponent } from "./Exponent";
+import { Architecture } from "./Architecture";
+import type { BoardData } from "./Board";
+
+interface Entrance {
+  audience: string;
+  question: string;
+  preview: string;
+  stops: string[];
+  first_selection?: string;
+}
+
+const ORDER = ["exposition", "expert", "reconstruction", "original"];
+
+export function Home({ edition }: { edition: Edition }) {
+  const [entrances, setEntrances] = useState<Record<string, Entrance> | null>(null);
+  const [first, setFirst] = useState<Record<string, string>>({});
+  const [board, setBoard] = useState<BoardData | null>(null);
+  const [family, setFamily] = useState<any>(null);
+
+  useEffect(() => {
+    let live = true;
+    (async () => {
+      const reader = edition.reader;
+      const reading: any = await reader.resource("reading.json");
+      reader.resource(reading.board_example).then((b: any) => live && setBoard(b), () => {});
+      reader.journey("forrelation-family").then((f: any) => live && setFamily(f), () => {});
+      const starts: Record<string, string> = {};
+      for (const paper of ORDER) {
+        const entrance: Entrance = reading.entrances[paper];
+        if (!entrance) continue;
+        if (entrance.first_selection) { starts[paper] = entrance.first_selection; continue; }
+        const rows: { id: string; topic?: string }[] = await reader.resource(`selection/${paper}.json`);
+        const row = rows.find((r) => r.topic === entrance.stops[0]);
+        if (row) starts[paper] = row.id;
+      }
+      if (live) { setEntrances(reading.entrances); setFirst(starts); }
+    })().catch(() => live && setEntrances({}));
+    return () => { live = false; };
+  }, [edition]);
+
+  return (
+    <main id="main" className="home">
+      <section className="hero">
+        <div className="hero__text">
+          <h1 className="hero__title">How many bits must an algorithm read?</h1>
+          <p className="hero__lede">
+            For every power below four, OpenAI built a total Boolean function whose randomized query cost exceeds that
+            power of its quantum query cost. Four is the best possible exponent. Read their paper, three accounts of
+            its proof, and a Lean proof you can open beside any of them.
+          </p>
+          <p className="hero__links">
+            <a className="button" href={href({ page: "read", paper: "exposition", s: first.exposition })}>Start with the board</a>
+            <a className="button button--quiet" href={href({ page: "read", paper: "original", s: "original/thm-1.1", v: "statement", st: "thm-1.1" })}>
+              Check Theorem 1.1 against Lean
+            </a>
+          </p>
+        </div>
+        {board ? <Board data={board} /> : <div className="board board--pending" role="status">Loading the table…</div>}
+      </section>
+
+      {family && (
+        <section className="math-bands">
+          {family.scaling && <Exponent examples={family.scaling.examples} parameters={family.scaling.parameters} />}
+          {family.overview && <Architecture stages={family.overview} />}
+        </section>
+      )}
+
+      <section className="ways" aria-labelledby="ways-h">
+        <h2 id="ways-h">Choose where to start</h2>
+        <ol className="ways__list">
+          {ORDER.map((paper) => {
+            const e = entrances?.[paper];
+            const p = PAPERS.find((x) => x.id === paper)!;
+            return (
+              <li key={paper} className={`way way--${paper}`}>
+                <p className="way__tab">{p.tab}</p>
+                <h3 className="way__q">{e ? e.question : " "}</h3>
+                <p className="way__who">{e?.audience}</p>
+                {e && <p className="way__preview" dangerouslySetInnerHTML={{ __html: inlineTex(e.preview) }} />}
+                <p className="way__go">
+                  <a href={href({ page: "read", paper, s: first[paper] })}>Open {paper === "original" ? "OpenAI’s paper" : `“${p.name}”`}</a>
+                </p>
+              </li>
+            );
+          })}
+        </ol>
+        <p className="ways__supplement">
+          The <a href={href({ page: "read", paper: SUPPLEMENT.id })}>verification details</a> hold the full statement
+          catalogue and checking history that accompany the complete proof.
+        </p>
+      </section>
+
+      <section className="credit" aria-labelledby="credit-h">
+        <h2 id="credit-h">Whose work is this?</h2>
+        <p>
+          The theorem and construction are OpenAI’s, published with no Lean formalization. The three accounts and the
+          Lean development are the Quartic project’s, prepared with AI systems under Will Cook’s direction.
+        </p>
+        <p>
+          Lean reports each declaration’s statement, dependencies and axioms. The links between paper passages and
+          Lean, and the judgments that a statement matches exactly, more strongly or only in part, were written and
+          reviewed with AI. The site labels each of these where it appears. <a href={href({ page: "about" })}>How to read the evidence</a>
+        </p>
+      </section>
+    </main>
+  );
+}

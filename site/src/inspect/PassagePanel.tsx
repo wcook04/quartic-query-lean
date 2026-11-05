@@ -1,0 +1,129 @@
+// A selected passage: what it says, what it is linked to, and where to go next.
+import { useAsync } from "../app/useAsync";
+import type { Edition } from "../app/edition";
+import { statementName } from "../app/papers";
+import { inlineTex } from "../text/html";
+import { COVERAGE_SENTENCE, RelationMark, relationSentence } from "./evidence";
+import { DeclButton, Elsewhere, Loaded } from "./common";
+import { useNav } from "./Nav";
+
+export function PassagePanel({ edition, query }: { edition: Edition; query: any }) {
+  const key = JSON.stringify(query);
+  const r = useAsync(() => edition.reader.resolve(query), [edition, key]);
+  return <Loaded value={r} what="passage">{(v) => <Passage r={v} />}</Loaded>;
+}
+
+function bestTie(statement: any) {
+  const current = (statement.lean ?? []).filter((t: any) => t.review_evidence === "current" && t.relation !== "unassessed");
+  const lead = statement.review_scope?.leading_matches?.[0];
+  return current.find((t: any) => lead && t.declaration === lead.declaration) ?? current[0] ?? null;
+}
+
+function Passage({ r }: { r: any }) {
+  const nav = useNav();
+  const heading = r.context?.headings?.at(-1)?.title;
+  const statements: any[] = r.statements ?? [];
+  const topics: any[] = r.topics ?? [];
+  const elsewhere = [
+    ...(r.relatedSelections ?? []).flatMap((x: any) => x.selections),
+    ...topics.flatMap((t: any) => t.treatments ?? []),
+  ];
+  const roots: any[] = (r.proof ?? []).slice(0, 6);
+  const choices: any[] = (r.matches ?? []).filter((m: any) => m.id !== r.position?.id && (m.topic || m.statements?.length));
+  return (
+    <article className="panel panel--passage" aria-labelledby="ps-h">
+      <header className="panel__head">
+        <h2 id="ps-h" className="panel__title">
+          {r.paper === "original" && r.position?.id ? statementName(r.position.id.replace(/^original\//, "")) : topics[0]?.title ?? (r.page ? `Page ${r.page}` : heading ?? "Selected passage")}
+        </h2>
+        {heading && topics[0] && <p className="panel__where">In “{heading}”.</p>}
+      </header>
+
+      <p className="ev">
+        {r.paper === "original"
+          ? r.position?.id ? `Page ${r.page} of OpenAI’s paper. A mark in the margin shows where it begins, when the PDF records the spot.` : r.matches?.length ? `${r.matches.length} indexed statements on page ${r.page}.` : `No statement is indexed on page ${r.page}. The page reads as normal.`
+          : `${COVERAGE_SENTENCE[r.coverage] ?? ""} The selected text stays highlighted in the paper.`}
+      </p>
+      {r.paper === "original" && !r.position?.id && r.matches?.length > 0 && (
+        <ul className="plain">
+          {r.matches.map((m: any) => (
+            <li key={m.id}><button type="button" className="textbutton" onClick={() => nav.openSelection("original", m.id)}>{statementName(m.statements?.[0] ?? m.id)}</button></li>
+          ))}
+        </ul>
+      )}
+      {choices.length > 0 && (
+        <p className="quiet">
+          This paragraph holds other selections too:{" "}
+          {choices.map((m: any, i: number) => (
+            <span key={m.id}>{i ? ", " : ""}<button type="button" className="textbutton" onClick={() => nav.openSelection(r.paper, m.id)}>{m.topic ? m.topic.replace(/-/g, " ") : m.id.split("/").pop()}</button></span>
+          ))}
+        </p>
+      )}
+
+      {topics.map((t) => t.note && (
+        <p key={t.id} className="note"><span className="ev__who">Editors’ note</span> <span dangerouslySetInnerHTML={{ __html: inlineTex(t.note) }} /></p>
+      ))}
+
+      {statements.length > 0 && (
+        <section aria-label="What Lean proves">
+          <h3>What Lean proves</h3>
+          <ul className="claims">
+            {statements.map((s) => {
+              const tie = bestTie(s);
+              return (
+                <li key={s.id} className="claim">
+                  <p className="claim__head">
+                    <strong>{statementName(s.id)}</strong> {tie ? <RelationMark relation={tie.relation} /> : <span className="rel rel--unassessed">Not assessed</span>}
+                  </p>
+                  <p className="claim__text">{s.statement}</p>
+                  {tie && <p className="quiet">{relationSentence(tie.relation, tie.route)} Lean theorem: <DeclButton name={tie.declaration} /></p>}
+                  <button type="button" className="button button--small" onClick={() => nav.openStatement(s.id)}>Compare it with Lean</button>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
+
+      {r.journeys?.length > 0 && (
+        <section>
+          <h3>Why it works, step by step</h3>
+          <ul className="plain">
+            {r.journeys.map((j: string) => (
+              <li key={j}><button type="button" className="button button--small" onClick={() => nav.openJourney(j)}>Walk through “{j.replace(/-/g, " ")}”</button></li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <section>
+        <h3>The same mathematics elsewhere</h3>
+        <Elsewhere rows={elsewhere} here={nav.paper} />
+      </section>
+
+      {roots.length > 0 && (
+        <section>
+          <h3>Lean declarations to start from</h3>
+          <ul className="roots">
+            {roots.map((p) => (
+              <li key={p.name}>
+                <DeclButton name={p.name} />
+                <span className="quiet"> {p.basis.some((b: any) => b.basis === "statement_tie") ? "reviewed against a statement here" : "linked by the editors"}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {r.comparisons?.length > 0 && (
+        <section>
+          <h3>Recorded Comparator checks</h3>
+          <ul className="plain">
+            {r.comparisons.map((c: any) => (
+              <li key={c.path}><code>{c.path.split("/").pop()}</code>: {c.outcome === "passed" ? "passed" : c.outcome.replace(/_/g, " ")}{c.currentness !== "current" ? " (recorded for an earlier source)" : ""}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </article>
+  );
+}
