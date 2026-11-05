@@ -4,7 +4,7 @@
       "id": "headline",
       "title": "The nearly quartic family",
       "expert": "**Theorem 1** (OpenAI",
-      "exposition": "For every fixed integer $k",
+      "exposition": "More generally, OpenAI constructs, for every fixed integer $k\\ge2$",
       "reconstruction": "ROOT-RESULT",
       "lean": [
         "thm-headline",
@@ -15,35 +15,45 @@
       ],
       "note": "The unconditional family result uses the local Forrelation bound. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers.",
       "bound_at": {
-        "exposition": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       }
     },
     {
       "id": "certificate",
       "title": "What makes a column win",
-      "expert": "Column $i$ **wins**",
-      "exposition": "To win, a column must be all ones",
+      "expert": "Column $i$ **wins** if $X_i=1^m$, all its address inputs",
+      "exposition": "The answer on the enlarged board is yes precisely",
       "reconstruction": "AC-winner",
       "lean": [
         "def-wins",
         "src-winner-unique"
-      ]
+      ],
+      "bound_at": {
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
     },
     {
       "id": "comparison",
       "title": "Why a winner beats an arbitrary rival",
-      "expert": "Decode the two column addresses",
-      "exposition": "**Two columns meet.**",
+      "expert": "For $i\\ne j$, decode one address per column. Read",
+      "exposition": "**What can we learn by reading just two pointers?**",
       "reconstruction": "upper-winner-dominates",
       "lean": [
         "src-winner-dominates"
-      ]
+      ],
+      "bound_at": {
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
     },
     {
       "id": "weight",
       "title": "Why tournament weight falls",
-      "expert": "Initially all weights are one",
-      "exposition": "Why should the ideal experiment make progress",
+      "expert": "Initially all weights are one. After drawing $j$, replace",
+      "exposition": "Does each new pivot still cut the number of",
       "reconstruction": "upper-weight-drift",
       "lean": [
         "src-quantum-tournament"
@@ -53,52 +63,59 @@
       ],
       "note": "Complementarity pairs the two orientations of each match. Sampling a pivot with these weights is a separate implementation step.",
       "bound_at": {
-        "exposition": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       }
     },
     {
       "id": "pivot",
       "title": "Sampling the next pivot",
-      "expert": "the entire state of one comparison",
-      "exposition": "Try this with four columns and pivot",
+      "expert": "The quantum algorithm has only the reversible comparison circuit",
+      "exposition": "On our board with fixed arrows, suppose the list",
       "reconstruction": "upper-stage-law",
       "lean": [
         "src-stage-sampler"
       ],
       "bound_at": {
-        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       }
     },
     {
       "id": "verification",
       "title": "Paying for the final verification",
-      "expert": "A uniform test flags a defect",
-      "exposition": "Search for a violation in that cell",
+      "expert": "For each listed column, decode a fresh address with",
+      "exposition": "For a listed column, estimate its address again and",
       "reconstruction": "upper-verification-proof",
       "lean": [
         "src-verifier",
         "src-budget"
-      ]
+      ],
+      "bound_at": {
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
     },
     {
       "id": "planting",
       "title": "Coupling the losing and winning boards",
       "expert": "For the **dummy input**",
-      "exposition": "Erase one string's zero",
+      "exposition": "Build the first board as follows. Choose the row",
       "reconstruction": "CL-planted",
       "lean": [
         "src-coupled-average",
         "src-planted-core"
       ],
       "bound_at": {
-        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       }
     },
     {
       "id": "erased-zero",
       "title": "Finding the erased zero",
-      "expert": "If the tree discovers $Z$ zeros",
-      "exposition": "Moving an undiscovered zero between unread rows preserves the transcript",
+      "expert": "Let $Z$ count the columns $i$ in which the",
+      "exposition": "Before a column's zero has been found, it is",
       "reconstruction": "CL-erased-zero-identity",
       "lean": [
         "src-erased-zero-identity",
@@ -111,62 +128,69 @@
       ],
       "note": "The erased-zero identity, the printed coefficient four, and the sharper coefficient two are distinct targets. The reviewed whole statement uses an alternative derivation.",
       "bound_at": {
-        "exposition": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       }
     },
     {
       "id": "address",
       "title": "A cell query predicts an address",
-      "expert": "the tree has to announce",
-      "exposition": "**Before seeing the bit**",
+      "expert": "The index of any query to a bit of",
+      "exposition": "Now fix *in advance* any column $i$ and query",
       "reconstruction": "CL-address-guess",
       "lean": [
         "src-per-time"
       ],
       "bound_at": {
-        "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+        "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       }
     },
     {
       "id": "direct-product",
       "title": "Predicting separately capped answers",
-      "expert": "The total cap gives the predictor",
-      "exposition": "We prove the separate-cap direct-product lemma",
+      "expert": "The total cap gives the predictor at most $L$",
+      "exposition": "For one sample drawn from $\\mu$, even the best",
       "reconstruction": "CL-direct-product-statement",
       "lean": [
         "src-direct-product-caps"
       ],
       "bound_at": {
-        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       }
     },
     {
       "id": "forrelation",
       "title": "The Forrelation promise",
-      "expert": "Forrelation supplies all three properties",
-      "exposition": "Asking whether the final state lies along",
+      "expert": "We require a partial function $P$ with a low-query",
+      "exposition": "This $k$-block quantity is called *Forrelation* [@AA2018, §3.2, Figure",
       "reconstruction": "forr_definition",
       "lean": [
         "src-forr-promise"
       ],
       "note": "The quantum readout observes the squared amplitude. A certificate must separately establish the signed one-sided promise.",
       "bound_at": {
-        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       }
     },
     {
       "id": "exponent",
       "title": "Why the optimal exponent is four",
-      "expert": "Thus every exponent below four fails at some fixed",
-      "exposition": "No uniform constant $C$ can work",
+      "expert": "Thus for each exponent below four some fixed $k$",
+      "exposition": "Measured in powers of $\\sqrt m$, the classical exponent",
       "reconstruction": "ROOT-NO-SMALLER",
       "lean": [
         "thm-alpha",
         "src-no-smaller-exponent"
       ],
       "bound_at": {
-        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
-        "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       }
     }
   ],
@@ -239,20 +263,20 @@
     }
   ],
   "print_edition": {
-    "source_revision": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
+    "source_revision": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
     "adjudication": "research/adjudication/paper_purpose_revision.md",
     "files": {
       "expert": {
         "file": "expert/expert_companion.pdf",
-        "sha256": "9796a1b13ede81ba33d94e6f85c356bdd57dbef8c1cb88b7c321aad9b5d64568"
+        "sha256": "338dae679a317711a173e23d1748047e0ed83a5e7619e6a69b8ad4aecc7ff76e"
       },
       "exposition": {
         "file": "exposition/exposition.pdf",
-        "sha256": "53cdae051effbd00a9bfc7b21bb958ee3e531b9ee83d7a156efe1c3195ff63ad"
+        "sha256": "acbd30b39be4f95e8fe3c92dbfccde8820b7622a7084dcd48666536ffdd3be47"
       },
       "reconstruction": {
         "file": "record/reasoning_record.pdf",
-        "sha256": "03828fa2c99a13a6355d74870dc66b30b41c75b7dc844e62aad0fada4c4278d8"
+        "sha256": "d4d1c6a583ab1476847a59d226f140c8e1a503f4e102257e11694bcf7232c0d4"
       }
     }
   },
@@ -266,14 +290,18 @@
       "note": "The three arrows among losers form a cycle. The comparison theorem only needs complementary probabilities and a dominant winner. The drawing illustrates the setup; it has no reviewed theorem tie.",
       "quotes": {
         "exposition": [
-          "**A cycle.**",
+          "**Which indices should go on the list?** Consider the",
           "figures/exposition/fig3_tournament.svg"
         ]
       },
       "figure": "docs/figures/exposition/fig3_tournament.svg",
       "statements": [
         "def-comparison"
-      ]
+      ],
+      "bound_at": {
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
     },
     {
       "id": "projection",
@@ -283,10 +311,10 @@
       "note": "The final states u and −u have the same projection probability. The negative example lies outside the one-sided promise. The domain circuit checks what the decoder cannot certify.",
       "quotes": {
         "exposition": [
-          "Asking whether the final state lies along"
+          "Apply $H$ once more. Its first row is $u$,"
         ],
         "expert": [
-          "Applying the unitary product to"
+          "Set $P=1$ when $\\Phi\\ge\\delta$, $P=0$ when $|\\Phi|\\le\\delta/2$, and leave"
         ]
       },
       "statements": [
@@ -294,7 +322,8 @@
         "eq-4"
       ],
       "bound_at": {
-        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       }
     },
     {
@@ -305,17 +334,19 @@
       "note": "Fix the column and query time before sampling. Replay earlier queries with a cap on every branch, then predict the label named by the current query before reading its answer. Success contains the joint light-visit event under the original product law.",
       "quotes": {
         "exposition": [
-          "Keep lightness *inside* the event"
+          "On any run where $i$ is light and the"
         ],
         "expert": [
-          "On a run in which $i$ ends up light"
+          "If $i$ is light at the end of the"
         ]
       },
       "statements": [
         "eq-21"
       ],
       "bound_at": {
-        "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       }
     },
     {
@@ -327,7 +358,10 @@
       "declarations": [
         "QuarticQuery.ForrelationLower.integral_walk",
         "QuarticQuery.ForrelationLower.Int_eq_paths"
-      ]
+      ],
+      "bound_at": {
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
     },
     {
       "id": "promise-gap",
@@ -347,7 +381,10 @@
       "note": "This estimate carries explicit parameter restrictions. Its role in the separating family differs from the fixed-parameter theorem quoted in the short accounts.",
       "lean": [
         "src-forrelation-uniform"
-      ]
+      ],
+      "bound_at": {
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
     },
     {
       "id": "partial-function",
@@ -357,7 +394,10 @@
       "note": "The board needs an inexpensive quantum decoder, an exact circuit recognizing the promise and value, and classical query hardness.",
       "statements": [
         "lem-2.1"
-      ]
+      ],
+      "bound_at": {
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
     },
     {
       "id": "same-family",
@@ -371,7 +411,10 @@
       "lean": [
         "src-family-conditional",
         "src-constants"
-      ]
+      ],
+      "bound_at": {
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
     },
     {
       "id": "generic-lower",
@@ -381,7 +424,10 @@
       "note": "The planted lower bound accepts any partial function satisfying the hardness premise. Forrelation supplies that premise in the final family.",
       "statements": [
         "prop-4.2-generic"
-      ]
+      ],
+      "bound_at": {
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
     },
     {
       "id": "universal-upper",

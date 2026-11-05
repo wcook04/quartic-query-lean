@@ -193,7 +193,7 @@
   "scope": "Source-reviewed mapping of every entry in the three maintained bibliographies and Appendix C. The builder checks current bibliography/source hashes and records actual packaged coverage; availability does not establish mathematical reading or exact-edition equivalence.",
   "bibliographies": {
     "docs/expert_companion.bib": {
-      "sha256": "6f6664a88814345eac5fdcb9585154d20dda519561d8b8538c1cbc56c1c06fb9",
+      "sha256": "2807fc83a7d0fe56908139d094b5c7d2fc3105753641a217a8ea7ec0ae0658ff",
       "entry_count": 26
     },
     "docs/exposition.bib": {
@@ -516,13 +516,13 @@
       "paper": "expert_companion",
       "citation_key": "Record2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/ba49281af72b53d9cfbb43320d7efdeb29d7ceca/docs/reasoning_record.md},\n}",
+      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md},\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/ba49281af72b53d9cfbb43320d7efdeb29d7ceca/docs/reasoning_record.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/reasoning_record.md",
-      "edition_note": "Internal proof record pinned to ba49281af72b53d9cfbb43320d7efdeb29d7ceca; external literature editions unchanged.",
+      "edition_note": "Internal proof record pinned to 11a229980430460236d53580798d703674c56ee5; external literature editions unchanged.",
       "supplementary_source_ids": [],
       "primary_annex_status": "repository_source_reference",
       "coverage_status": "repository_source_supplied"
@@ -2622,7 +2622,7 @@
     "source": "Lake-pinned tracked Git source; no compilation claim"
   },
   "edition_boundary": "A supplied older or different edition is not the exact cited edition. Supplementary metadata identifies the retrieved publisher/revision copies and remaining exceptions. Primary extracted.md is not automatically the text of a distinct supplementary PDF.",
-  "record_sha256": "0ec6c18f06903742edb53743d05b1299e8d302ed448718049db165f1a3532a5e",
+  "record_sha256": "6199badf872f7b262a80f21a2b74422478222acad53db015f9525a34f55eb822",
   "retrieval_observations": {
     "date": "2026-11-04",
     "Yao1977": "Original not retrieved: DOI 10.1109/SFCS.1977.24 redirects to IEEE document 4567946 with JavaScript verification; direct PDF request returned HTTP 418.",
@@ -2737,6 +2737,17 @@
     "previous_bibliography_hashes": {
       "docs/expert_companion.bib": "a41a78623220a157359ae053ff16b1ddf31920da3e620d8114aef4d78d6f1fcc",
       "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
+    "revision_account": "research/adjudication/paper_purpose_revision.md"
+  },
+  "first_principles_humanizer_rebind": {
+    "reviewed_edition": "66dc5f1e8a59d7547a817be836e797fc31aaa543",
+    "record_source_commit": "11a229980430460236d53580798d703674c56ee5",
+    "previous_record_sha256": "0ec6c18f06903742edb53743d05b1299e8d302ed448718049db165f1a3532a5e",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "6f6664a88814345eac5fdcb9585154d20dda519561d8b8538c1cbc56c1c06fb9",
+      "docs/exposition.bib": "300d767fadd141799774defd57876eab95e6608553c23ebeb8df86b146b4d308",
       "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
     },
     "revision_account": "research/adjudication/paper_purpose_revision.md"

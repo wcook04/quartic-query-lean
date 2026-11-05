@@ -29,10 +29,10 @@
   \node[draw=addr, fill=addr!8, minimum width=12mm, minimum height=6mm]
     (A\h) at (1.40*\h,2.50) {$\label$};}
 \node at (2.80,2.50) {$\cdots$};
-\node[above=2pt of A1.north east, anchor=south] {Winner's address inputs};
+\node[above=2pt of A1.north east, anchor=south] {Address inputs of column $i^\star$};
 \node[draw=addr!50, rounded corners=2pt, fit=(A0)(A3), inner sep=3pt] (inputs) {};
 \draw[addr, ->, thick] (inputs.east) -- node[above=3pt] {decode} (6.56,2.50);
-\node[anchor=west] at (6.62,2.50) {true address $s_{i^\star}$};
+\node[anchor=west] at (6.62,2.50) {true address $s_{i^\star}$ on success};
 \foreach \c in {0,...,7} {
   \node[cell] (cell\c) at (6.06+0.56*\c,1.46) {};}
 \node[cell, draw=win, thick, fill=win!15] at (cell4) {};
@@ -47,12 +47,12 @@
 \draw[win, thick, rounded corners=3pt, ->]
   (cell4.south) -- ++(0,-0.12) -- (5.35,1.04) -- (5.35,0.66)
   -- (r6.north |- 0,0.66) -- (r6.north);
-\node[anchor=west, win] at (5.76,0.15) {Winner's pointer finds a zero in $X_j$.};
+\node[anchor=west, win] at (5.76,0.15) {Stored row $6$: $X_j[6]=0$.};
 \node[draw=addr, fill=addr!8, anchor=west, minimum height=7mm]
-  (rival) at (5.76,-1.34) {Rival's cell at any decoded label $t$};
+  (rival) at (5.76,-1.34) {Cell $B_{j,t}$ at any decoded label $t$};
 \draw[addr, thick, densely dashed, rounded corners=3pt, ->]
   (rival.west) -- (5.35,-1.34) -- (5.35,-0.78)
   -- (w3.north |- 0,-0.78) -- (w3.north);
-\node[anchor=west, addr] at (5.76,-1.99) {Every return pointer finds a one in $X_{i^\star}$.};
+\node[anchor=west, addr] at (5.76,-1.99) {For every stored row $u$, $X_{i^\star}[u]=1$.};
 \end{tikzpicture}
 \end{document}

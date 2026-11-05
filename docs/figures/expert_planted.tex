@@ -43,6 +43,7 @@
       \else \node[cell] at (#1+2.86+0.5*\c,\y) {}; \fi}
     \node[font=\scriptsize] at (#1+5.71,\y) {$\cdots$};
   }
+  \node[font=\footnotesize, anchor=east] at (#1-0.12,-0.15) {$i$};
   \node[font=\footnotesize, black!70] at (#1+0.92,-0.15) {$X_i$};
   \node[font=\footnotesize, addr] at (#1+2.55,-0.15) {address inputs};
   \node[font=\footnotesize, black!70] at (#1+4.61,-0.15) {cells $B_{i,s}$};
@@ -58,6 +59,6 @@
 \draw[addr, ->] (shared.east) -| (9.86,-3.02);
 % legend for the two changed locations
 \node[win, font=\small, anchor=north west, align=left] at (7.1,-4.1)
-  {changed: $X_I[J_I]$ and $B_{I,s_I}$\\filled cell: transcripts and pointers $J_j$};
+  {changed: $X_I[J_I]$ and $B_{I,s_I}$\\filled cell: transcripts and row indices $J_j$ for $j\ne I$};
 \end{tikzpicture}
 \end{document}

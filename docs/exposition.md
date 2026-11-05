@@ -1,255 +1,267 @@
 ---
-title: "Why OpenAI’s query separation is nearly quartic"
-subtitle: "An examples-first explanation of the optimal randomized–quantum exponent"
+title: "How many bits must an algorithm read?"
+subtitle: "OpenAI’s nearly quartic separation between randomized and quantum queries"
 author: "Will Cook"
 date: "November 2026"
 bibliography: exposition.bib
 link-citations: true
 ---
 
-# 1. Two searches, one inside the other
+# 1. Finding a column of ones
 
-Does an $m\times m$ bit matrix have an all-one column? Hide a zero in a random row of each column, independently, then erase the zero in a uniformly chosen column. The answer changes. Fix $h$ rows and inspect them in every column on both matrices. The $mh$ queries see the difference precisely when the erased zero was in one of those rows, with probability $h/m$. Adaptive choices do not improve the order of this bound: Section 5 shows that $G$ queries find the erased bit with probability at most $4G/m^2$. Constant advantage costs order $m^2$ classical queries.
+Does any column in this table consist entirely of ones?
 
-A quantum algorithm can search $m$ columns in about $\sqrt m$ tests. Each test searches $m$ rows for a zero, so the two searches together cost about $m$ bit queries. The earlier balanced construction with hidden certificates (*cheat sheets*) starts from a hard problem on $m$ bits that takes few quantum queries. Replacing each bit by the answer to one such matrix problem gives a quantum budget of about $m$. Even with classical hardness $m$ for the outer problem, the resulting lower bound reaches only $m\cdot m^2=m^3$, up to logarithms. This is the [cubic limit of that calculation](#earlier-recipe) [@ABK2016, §3.1].
+|       | Column 1 | Column 2 | Column 3 | Column 4 |
+|:------|:--------:|:--------:|:--------:|:--------:|
+| Row 1 | 1 | 0 | 1 | 1 |
+| Row 2 | 1 | 1 | 0 | 1 |
+| Row 3 | 1 | 1 | 1 | 0 |
+| Row 4 | 0 | 1 | 1 | 1 |
 
-What if each column could point to a zero in every rival? Two columns could contest just their claims against each other. An honest all-one column would exhibit a zero in its opponent, while every pointer back into it must find a one. OpenAI's board gives each column an array of certificates containing such pointers. Several hard answers specify the address of the certificate that counts. The new function is total. On every board it gives one if some all-one column has a valid certificate at its true address, and zero otherwise.
+The answer is no. Reading down the columns, we find zeros in rows $4,1,2,3$, respectively. Now change just the bottom left entry from zero to one. Column 1 now consists of four ones, so the answer changes to yes.
 
-Write $R$ and $Q$ for the randomized and quantum query complexities. A randomized query reads a specified bit; a quantum query can address positions in superposition. Computation between calls is free. Both complexities count the least worst-case budget giving error at most $1/3$ on each input. For a partial function, only inputs in its *promise* have prescribed answers; the query cap still applies elsewhere.
+Imagine that the entries are covered. To read one you specify a row and a column. In either version, asking for row 2 of column 3 returns zero. That zero rules out column 3 as an all-one column. Asking for row 4 of column 1 returns zero on the first table and one on the second. Reading one specified entry is called a *query*. The cost is the number of queries. You can remember everything you have read and use it to choose where to look next.
 
-For every fixed integer $k\ge2$ and all sufficiently large powers of four $m$, OpenAI's total function satisfies [@OpenAI2026, Theorem 1.1][^ai]
+If these were the only two possible tables, we could distinguish them just by reading the bottom left entry. What makes the problem hard is that the zero could have been anywhere. To see the difference, make a new four-by-four table. In each column choose the position of its single zero uniformly at random, independently of the other columns. Then choose one of the four columns at random and change its zero to one. Suppose you inspect the top row in both versions. You make four queries on each. You see different replies precisely when the changed zero was in the top row, which happens with probability $1/4$. Inspecting the top two rows costs eight queries per table and raises that probability to $1/2$.
+
+The same experiment works with $m$ rows and $m$ columns. Inspecting the first $h$ rows costs $mh$ queries and detects the change with probability $h/m$. This calculation concerns a particular choice of queries. In Section 5 we will also allow the algorithm to choose its next query after seeing all the earlier answers.
+
+**What counts as a quantum query?** A classical algorithm chooses a position and obtains the bit stored there. A randomized classical algorithm can use coin flips to choose its positions. To see what a quantum algorithm can do with one query, take two entries $x_1,x_2$ of the table. Prepare the unit vector $(1,1)/\sqrt2$, with one coordinate for each position. One quantum query in its *sign* form multiplies coordinate $j$ by $(-1)^{x_j}$: zero leaves the sign alone, and one reverses it. Thus the new vector is
 $$
-Q(F_{k,m})=\widetilde O_k(\sqrt m),
-\qquad
-R(F_{k,m})=\widetilde\Omega_k(m^{2-1/k}).
+       \frac{1}{\sqrt2}\bigl((-1)^{x_1},(-1)^{x_2}\bigr).
 $$
-Here $m$ counts columns, $k$ counts blocks in each address input, and the tildes suppress powers of $\log m$. The quantum algorithm can afford to list *false* candidates. The contests need only put the winner on a short list with high probability. Full verification is reserved for that list. Classically, a query that reaches the winning cell must name all the hard answers in its address. Even the erased zero is hard to find. Thus the quantum budget drops to about $\sqrt m$ while the classical bound remains nearly quadratic for large fixed $k$. Since $m^{2-1/k}=(\sqrt m)^{4-2/k}$, this rules out every universal exponent below four. Four suffices by the theorem of Aaronson, Ben-David, Kothari, Rao and Tal [@ABKRT2020].
+If the bits are equal, this vector lies on the line through $(1,1)$. If they differ, it lies on the line through $(1,-1)$. The lines are perpendicular. Measuring in these two directions determines with certainty whether the bits agree. After one classical read, the other bit could still take either value. For the query model see [@BuhrmanDeWolf2002, §3; @deWolf2026, chapters 1, 2 and 7].
 
-The square-root saving in search follows from the two reflections in Section 3.2. For background on the query model see [@BuhrmanDeWolf2002, §3; @deWolf2026, chapters 1, 2 and 7].
+**How far apart can the two costs be?** Let $f$ be a yes-or-no question about a string of bits. We call $f$ *total* if every string of its specified length has an answer. Write $R(f)$ for the least number of queries sufficient for a randomized classical algorithm to answer $f$ correctly with probability at least $2/3$ on each string. The number is a cap on every run, including runs on which the algorithm errs. Define $Q(f)$ using the same requirements for a quantum algorithm. In both models, calculations between queries are free.
 
-\clearpage
+A theorem of Aaronson, Ben-David, Kothari, Rao and Tal bounds $R(f)$ by a constant times $(1+Q(f))^4$ for every total $f$ [@ABKRT2020]. Could a smaller power work for all such questions? OpenAI proved it could not [@OpenAI2026, Theorem 1.1][^ai]. For every exponent below four, there are questions for which the ratio of the classical cost to that power of $1+Q(f)$ is arbitrarily large. This is the sense in which the separation is *nearly quartic*.
 
-# 2. A contest without an ordering
+The plain table above is only the starting point for those questions. On the modified table, for instance, we can show someone three entries that rule out columns 2, 3 and 4. We need only tell them which row to read in each. OpenAI makes these row numbers part of the input. Whoever fills in the table may write down wrong row numbers. How can an algorithm use them before it knows which ones are correct?
 
-[]{#base-board}Start with the top row of Figure 1. Its four strings are $1111$, $0111$, $1011$ and $1101$. The three solid arrows from the shaded cell point to $X_2[1]=0$, $X_3[2]=0$ and $X_4[3]=0$. Now follow the dashed arrow back from column $3$. Wherever it landed in column $1$ it would find a one. Column $1$ can disqualify every rival, and no rival can disqualify it.
+# 2. Comparing two columns
 
-![Trace the three solid pointers from column 1's cell 10 to zeros in the other columns. The dashed pointer from column 3 to column 1 finds a one.](figures/exposition/fig2_board.svg){width=92%}
+[]{#base-board}Use the table after the change, so column 1 consists entirely of ones. Suppose the three row numbers stored with column 1 are $1,2,3$, in that order. The numbers give rows in columns 2, 3 and 4, respectively. To check the number for column 3, read its second row. The bit there is zero. The other two numbers direct us to row 1 of column 2 and row 3 of column 4, also zeros. A stored row number used this way is a *pointer*. Following one requires reading the row number and then reading the bit at that row.
 
-A pointer names a row in a *different* column. An address names a cell in the column's *own* array. Here each column has four cells, labelled $00,01,10,11$. The pair beneath each string gives two inputs to a partial function. In column $1$ the pair $(a^+,a^0)$ has answers $(1,0)$, selecting cell $10$. In column $2$ the first input $a^-$ has no answer, so no cell is selected. At full size the address has $20\log_2m$ bits rather than the two drawn here.
+In the actual problem a column has several records of pointers. Only one record can count toward a yes answer. Its label, called its *address*, is obtained by answering questions about additional bits stored in the same column. Figure 1 uses two questions, so the possible labels are $00,01,10,11$. The answers for column 1 are one and zero, in that order, so we use the record labelled $10$. The figure draws the entries of column $i$ as a *horizontal* string $X_i$, in row order. The box $B_{1,10}$ is the record labelled $10$ in column 1. Its three solid arrows give the three pointers we have just checked.
 
-To win, a column must be all ones. Its true cell must justify its address and point to a zero in every other column. Section 4 gives the local tests that make “justify” precise. All cell contents are input bits, so even an unselected cell can contain convincing claims. At most one column can win: if two did, each would need a pointer to a zero in the other's all-one string.
+Each address question has a specified answer on some strings of bits and no prescribed answer on others. The set on which an answer is prescribed is called its *promise*. In Figure 1 the symbols $a^+,a^0,a^-$ stand for three particular strings. The first has answer one, the second has answer zero, and the third is outside the promise. Thus $(a^+,a^0)$ gives address $10$. In column 2 the pair $(a^-,a^0)$ gives no address at all. Section 4 supplies the bits of these strings and calculates all three cases.
 
-**Two columns meet.** Let column $1$ propose its true cell $10$ and let its rival propose any label. Read each proposed cell's pointer into the other column. A zero disqualifies the column where it lies. If both or neither are disqualified, take the smaller index. Against the true cell of column $1$, column $2$ loses under *any* label it proposes. Its own pointer has no zero to find.
+![The four columns from Section 1 after the change, with their pointer records underneath. From record $10$ of column 1, follow the middle solid arrow to the second entry of column 3. Follow the dashed arrow back to the third entry of column 1. The two bits read are zero and one.](figures/exposition/fig2_board.svg){width=92%}
 
-**A false pointer.** Keep the four strings in the figure, but let the pointer from cell $10$ of column $1$ land on the *second* bit of column $2$, a one. Column $1$ still beats $2$, now by the index rule, and still beats $3$ and $4$. But it has lost its valid certificate. The answer on this board is zero, however impressive the comparison record of column $1$.
+The answer on the enlarged board is yes precisely when there is a column whose entries are all ones, whose address questions all have answers, and whose record at that address contains correct calculations of those answers and pointers to zeros in every other column. Such a record supplies a *certificate*: its contents can be checked against the input, one calculation step or one pointer at a time. We call a column meeting all the conditions a *winning column*. There can be at most one. If there were two all-one columns, no row number from one could lead to a zero in the other. If every column fails at least one condition, the answer is no, even on boards with undefined address answers.
 
-**A cycle.** On the board of Figure 2 the four strings are as in Figure 1, and column $1$ wins at $10$ with its three honest pointers. Among the other columns, $2$'s pointer into $3$ finds the zero at row $2$, while $3$'s pointer back into $2$ finds a one. Hence $2$ beats $3$. The same contest gives $3$ over $4$ and $4$ over $2$. These pointers are the same in every cell of their column, so even a meaningless label gives the indicated result.
+**What can we learn by reading just two pointers?** Take columns 1 and 3 of Figure 1. Use record $10$ in column 1, and try any record in column 3. Read the pointer into column 3 from the first record and the pointer back into column 1 from the second. The first read of a pointed-to bit gives zero, evidence against column 3. The return read must give one because *every* entry of column 1 is one. This comparison returns index 1. For any pair of columns use the same rule: if just one pointer leads to zero, return the index of the column where that pointer is stored. If both lead to zero or neither does, return the smaller index. With the correct record for a winning column, the comparison returns that column even when the other address is wrong.
 
-![An arrow goes from the victor to the loser. The three listed pointers reach zeros. In the reverse direction, columns 3, 4 and 2 point respectively to rows 2, 1 and 1 of columns 2, 3 and 4, all ones.](figures/exposition/fig3_tournament.svg){width=53%}
+Can we accept a column just because every comparison returns its index? Change the first pointer in record $10$ of column 1 from row 1 to row 2. Now it leads to a one in column 2. The return pointer still leads to a one in column 1, so the tie rule returns 1. The comparisons with 3 and 4 still return 1 as well. Yet the certificate contains a false pointer, and each other column contains a zero. The correct answer is no. We shall use comparisons to make a short list of indices, then check the certificate at each listed column.
 
-Choose one column uniformly as a *pivot*, keep it on a list, and consider next only those that beat it. Try pivot $2$ in Figure 2. Columns $1$ and $4$ survive. The four choices $1,2,3,4$ leave $0,2,2,2$ survivors, an average of $3/2$. The case with no survivors is a success: we have already listed column $1$.
+**Which indices should go on the list?** Consider the pointer values in Figure 2. We draw an arrow from $i$ to $j$ when the comparison of those two columns returns $i$. For example, a pointer from column 2 leads to the zero in column 3, and the pointer back leads to a one. This gives the arrow from 2 to 3. Comparing 3 with 4 returns 3. Comparing 4 with 2 returns 4. These three results form a cycle. They cannot come from sorting the columns in a single order.
 
-Would reversing one of the cycle's arrows change the average? Across all pivot choices every unordered pair contributes just one survivor: whichever member beats the other survives when the other is pivot. Reversing an arrow transfers that contribution to a different pivot. For *any* fixed tournament of $m$ columns, the mean after a uniform first pivot is therefore $\binom m2/m=(m-1)/2$. We can make progress without sorting. What if two losing columns can give a different result every time they meet?
+![For these pointer values, the comparison returns column 1 against each other column. Among the remaining three columns the results form the cycle $2\to3\to4\to2$.](figures/exposition/fig3_tournament.svg){width=53%}
+
+Pick one index uniformly at random and put it on the list. Call it the *pivot*. Retain only indices whose comparison with this pivot would return their own index. Take 2 as the pivot. The arrows into 2 come from 1 and 4, so those are the two remaining indices. If we had picked 1, no index would remain, and we would already have put the winning column on the list. For pivots $1,2,3,4$ the numbers remaining are $0,2,2,2$. Since each choice has probability $1/4$, the mean is $(0+2+2+2)/4=3/2$.
+
+The count works for any $m$ indices if each pair has a fixed comparison result. Take one pair $i,j$. If the comparison returns $i$, then $i$ is retained when $j$ is pivot. Conversely, $j$ is discarded when $i$ is pivot. Thus this pair contributes one to the sum of the counts over all pivots. There are $m(m-1)/2$ pairs and $m$ equally likely pivots, so the expected number retained is $(m-1)/2$. The quantum procedure for obtaining an address can give different labels on successive runs. To use this count with that procedure, we must work out what to retain when the comparison of a pair is itself random.
 
 # 3. Finding a winner by comparisons
 
-Suppose that, on the fixed input board, a fresh comparison of $i$ and $j$ declares exactly one of them the victor. Write $a_{ij}$ for the probability it declares $i$. We require
-$$
-a_{ii}=0,\qquad a_{ij}+a_{ji}=1\quad(i\ne j),\qquad
-a_{i^\star j}\ge1-\varepsilon\quad(j\ne i^\star)
-$$
-if a genuine winner $i^\star$ exists. Self-comparison loses by convention. Fresh calls use independent workspace. For the quantum implementation we will need to run the comparison on a superposition of column labels and to undo it. Section 4 will supply both operations at polylogarithmic query cost for fixed $k$.
+Compare columns $2$ and $3$ twice on the same board. The strings, pointers and cells do not change. But the algorithm estimates the two addresses, and a second estimate can select a different cell. The comparison might therefore return $2$ the first time and $3$ the second. Which indices should we keep after comparing with a pivot?
 
-On a board without a winner any short list will do: the verifier can reject every candidate. This is why the comparison rule needs no accuracy guarantee between two losers.
+## 3.1 Counting the indices retained by random comparisons
 
-\Needspace{8\baselineskip}
+Suppose the first pivot was $2$. Compare $3$ with $2$ ten times. If the two indices are equally likely, the average number of times we obtain $3$ over many such sets of ten comparisons approaches five. Give $3$ a *weight* of $1/2$: this is the probability that a fresh comparison with $2$ returns $3$. Now compare $3$ with $4$ as well. If this second comparison also returns $3$ half the time, the chance of getting $3$ both times is $1/4$, its new weight. The two chances multiply because the second comparison starts afresh, independently of the first. With fixed outcomes the weights are just $1$ for the survivors and $0$ for the rest.
 
-## 3.1 Counting survival when the matches are random
+For fixed outcomes we want a uniform choice among the remaining indices. How can we make that choice without first listing them? Draw an index uniformly from the board. Discard it if it is already on the list. Otherwise compare it with each previous pivot and keep it only if every comparison returns the drawn index. Consider the following possible chances against pivot $2$:
 
-In Figure 2 a survivor beat every earlier pivot. With random comparisons we can still ask how often column $i$ would do so. Its weight $w_i$ is the probability of beating all the pivots in fresh, independent comparisons. This measures survival in matches: the nonwinner with the false pointer could keep weight one. Initially every weight is one. To extend uniform choice among survivors, draw $p$ with probability $w_p/|w|$, where $|w|=\sum_iw_i$. Keep $p$ on the list. Beating it is one additional requirement, so $w_i'=w_i a_{ip}$; in particular the pivot's own weight vanishes. If every weight vanishes, keep the current list. This ideal experiment uses probabilities inaccessible to the algorithm.
+| Column drawn | $1$ | $2$ | $3$ | $4$ |
+| :--- | ---: | ---: | ---: | ---: |
+| Chance of keeping this index after comparison with $2$ | $1$ | $0$ | $1/2$ | $1/4$ |
+| Chance of drawing it **and** keeping it | $1/4$ | $0$ | $1/8$ | $1/16$ |
 
-Why should the ideal experiment make progress? For each unordered pair $i,p$ there are two contributions to the expected remaining weight. Drawing $p$ as pivot leaves $w_i a_{ip}$ from $i$; drawing $i$ leaves $w_p a_{pi}$ from $p$. After multiplying by their respective selection probabilities, their combined contribution is $w_iw_p/|w|$, whatever happens in the comparison. For $|w|>0$ this gives
+The last row adds to $7/16$. Of the draws we keep, the share belonging to column $3$ is $(1/8)/(7/16)=2/7$. The shares for all four columns are $4/7,0,2/7,1/7$. Uniform proposals have given us a way to draw the next pivot even with uncertain matches. For instance, $3$ is twice as likely as $4$ among the accepted draws because its acceptance probability is twice as high.
+
+Here is the same calculation for $m$ columns. Write $w_i$ for the chance of keeping $i$ when we compare it afresh with every pivot so far. Before the first match, all weights equal one. Write $W=w_1+\cdots+w_m$. Drawing $i$ and keeping it has probability $w_i/m$, so the chance of keeping *some* column is $W/m$. Among the draws we keep, the chance of $i$ is therefore $w_i/W$. Imagine we can draw from these shares whenever $W>0$. Append the resulting pivot $p$ to the list. Let $a_{ip}$ be the probability of keeping $i$ in a comparison with $p$. We now require one extra successful comparison, so the new weight of $i$ is $w_i a_{ip}$. We discard $p$ in a comparison with itself: $a_{pp}=0$. Stop if $W=0$.
+
+Does each new pivot still cut the number of survivors in half on average? The quantity to count now is their total weight. Fix the list so far and consider, for instance, columns $2$ and $3$. There are two contributions to count. We might draw $2$, leaving weight from $3$; or we might draw $3$, leaving weight from $2$. Here the two contributions to the expected remaining weight add to
 $$
-\mathbb E[|w'|\mid w]
-=\frac{\sum_{i<p}w_iw_p}{|w|}
-=\frac{|w|^2-\sum_iw_i^2}{2|w|}
-\le\frac{|w|}{2}.
+\frac{w_2}{W}\,w_3 a_{32}+\frac{w_3}{W}\,w_2 a_{23}
+=\frac{w_2w_3}{W}.
 $$
-The missing diagonal explains the $-1$ in $(m-1)/2$: a pivot cannot survive itself. For four equal initial weights the formula gives $(16-4)/8=3/2$, just as on our cycle. Making all six matches fair coin flips gives the same mean, now for *total weight*.
+The equality holds because the comparison always returns one of the two indices: $a_{32}+a_{23}=1$. The same argument works for every pair. Adding, with $i<p$ to count each pair just once, gives
+$$
+\text{expected weight after this pivot}
+=\frac{\sum_{i<p}w_iw_p}{W}
+=\frac{W^2-\sum_i w_i^2}{2W}\le\frac W2.
+$$
+Indeed, expanding the square of $w_1+\cdots+w_m$ counts each pair twice and each square once. With four weights all equal to one, this gives $(16-4)/8=3/2$, the average we found for the fixed arrows in Section 2 [@AIK2026v3, §§4 and 6.1].
 
-Taking expectations halves the bound at each stage. Starting with total weight $m$ gives $\mathbb E|w_T|\le m2^{-T}$ after $T$ stages. Against any list of $T$ or fewer other pivots the genuine winner still has weight at least $(1-\varepsilon)^T\ge1-T\varepsilon$. Take $T=\lceil\log_2(1000m)\rceil$ and $\varepsilon=1/(1000T)$. An unlisted winner would account, by itself, for more than $1/2$ of a unit of weight. Hence
-$$
-\Pr(\text{winner missing from the list})
-\le\Pr(|w_T|>1/2)\le 2m2^{-T}\le1/500 .
-$$
-Fixed comparisons let us choose uniformly among survivors [@AIK2026v3, §§4 and 6.1]. How can we sample $w_i/|w|$ when we know none of the weights?
+Starting from $m$, the expected total is thus at most $m/2$ after one pivot, $m/4$ after two, and $m/2^T$ after $T$. This tells us something about a *particular* column. Section 4 will give us a comparison that returns the winning index with probability at least $1-\varepsilon$ whenever that index is compared with another. After $T$ other pivots, its weight is still at least $1-T\varepsilon$: the chance of at least one incorrect comparison is no more than the sum of the individual error probabilities. Take $T=\lceil\log_2(1000m)\rceil$ (round up so $2^T\ge1000m$), and $\varepsilon=1/(1000T)$. If the winner has *not* been listed, its weight alone exceeds $1/2$. If this happened with probability $d$, the expected remaining weight would be at least $d/2$. But that expectation is at most $1/1000$. Thus the chance the list misses a genuine winner is at most $1/500$. Nothing requires a listed column to be a winner. We will check the list afterwards.
 
 ## 3.2 Sampling the next pivot
 
-Choose $i$ uniformly, compare it afresh with every pivot on the list, and accept it if it wins every comparison. For pivots $p_1,\ldots,p_j$,
-$$
-\Pr(\text{accept and draw }i)
-=\frac{1}{m}\prod_{b=1}^j a_{ip_b}
-=\frac{w_i}{m}.
-$$
-Summing over $i$ gives the acceptance probability $q=|w|/m$. Thus $q>1/(2m)$ as long as the winner is missing. Dividing each mass by $q$ gives the desired pivot law $w_i/|w|$. The comparisons have done the weighting for us.
+Drawing a column and trying it against all the pivots gives the right shares, but a single draw succeeds with probability only $q=W/m$. With four columns and just one survivor, about one draw in four succeeds. With $m$ columns and one survivor, we would need $m$ attempts on average. A quantum search can find that survivor in about $\sqrt m$ attempts. We will see how it improves the chance of success *without changing which columns appear among the successes*.
 
-Try this with four columns and pivot $2$, now letting the four win probabilities be $(1,0,1/2,1/4)$ instead of the fixed arrows in Figure 2. Among successful trials, how often should column $3$ appear? It is proposed a quarter of the time and accepted on half of those trials. The four masses of acceptance are $(1/4,0,1/8,1/16)$, summing to $7/16$. Thus column $3$ appears on $(1/8)/(7/16)=2/7$ of successes. The full conditional law is $(4/7,0,2/7,1/7)$. Uniform choice among the three positive labels would already differ on the second pivot.
+As in the two-bit example of Section 1, we use one amplitude for each position. Here the four positions are column labels. For instance $(1/2,1/2,1/2,1/2)$ gives the same chance to each column. To read the label (to *measure* it), square each amplitude: in this example we obtain one label, with chance $1/4$ for each. The squared amplitudes always sum to one. Negative amplitudes are allowed. Although $-1/2$ gives the same reading probability as $1/2$, the two numbers can cancel in an addition before we measure. Our examples need only real amplitudes.
 
-Independent trials take $1/q$ attempts on average, or $m$ with one unit of weight left. Amplitude amplification boosts success while preserving the conditional pivot law. The [bounded schedule](#pivot-schedule) exploits this to sample with about $\sqrt m$ calls to the coherent trial and its inverse.
+A *superposition* of labels is a linear combination of their basis vectors. The basis vector for column $i$ has a one in position $i$ and zeros elsewhere. To apply a reversible quantum operation to the combination, apply it to each basis vector and take the same linear combination of the outputs. Give the search a place to store a bit, its *flag*. Starting with equal amplitudes on all columns, carry out the matches for each label, keeping the answers. Set the flag to $1$ for a new index if every comparison returned it; set the flag to $0$ for all other outcomes, including indices already on the list. Call this whole preparation $A$. The labels now include both the column and this extra information. Reading column $i$ together with flag $1$ has probability $w_i/m$, just as in the ordinary trial. So far we have saved nothing. The saving comes from changing the amplitudes *before reading them*.
 
-\Needspace{7\baselineskip}
+On our board with fixed arrows, suppose the list already contains $2$ and $4$. Only the index $1$ is kept after both comparisons. Keep track of four amplitudes in column order, with the match results attached to the columns. Start with $(1/2,1/2,1/2,1/2)$. Perform two operations:
 
-A quantum state is a unit vector. Its squared coordinate at a basis label is the probability of obtaining that label on measurement (use the squared modulus for complex coordinates). Start with the uniform state $m^{-1/2}\sum_i|i\rangle$, where $|i\rangle$ denotes the basis vector labelled $i$. Run each column's comparisons against the pivot list in superposition, keeping the answers in separate registers without measuring them. Set a flag when all were won. For a fixed column the win probabilities multiply, so the squared mass on label $i$ with flag one is exactly $w_i/m$.
+1. Change the sign for entries with flag $1$. We now have $(-1/2,1/2,1/2,1/2)$. A measurement at this point would still pick column $1$ only a quarter of the time.
+2. Reflect the amplitudes about their average: an entry $x$ becomes $2(\text{average})-x$. The average here is $1/4$. The first entry becomes $1/2-(-1/2)=1$; each other entry becomes $1/2-1/2=0$.
 
-Call the whole preparation $A$. For $0<q<1$, take as axes the unit directions $g$ and $b$ of its flag-one and flag-zero components, retaining the labels and workspace in both. Its prepared vector is $v=\sqrt q\,g+\sqrt{1-q}\,b$. Two reflections are available. Changing the sign whenever the flag is one reverses the $g$ coordinate. Reflecting about $v$ sends $x$ to $2\langle v,x\rangle v-x$ in this real plane. To do the latter, undo $A$, reflect about the known starting vector, and apply $A$ again [@BHMT2002, Lemma 1; @deWolf2026, chapter 7].
+Now a measurement returns column $1$ with certainty. The second operation is reflection about the line through the prepared vector, which has four equal coordinates in this example. No table of comparison outcomes is needed to implement this reflection. Undo the whole preparation, reflect about its known starting state, then run the preparation again. This is why the search retains the match results while it runs: throwing them away would prevent it from undoing the preparation [@BHMT2002, Lemma 1; @deWolf2026, §§7.1–7.3].
 
-Try both reflections on Figure 2 after pivots $2$ and $4$. Only column $1$ beats both, so $q=1/4$. In $(g,b)$ coordinates we start at $v=(1/2,\sqrt3/2)$. The flag reflection gives $x=(-1/2,\sqrt3/2)$. Now $\langle v,x\rangle=-1/4+3/4=1/2$, so reflecting about $v$ gives $v-x=(1,0)$. One pair of reflections has made acceptance certain.
+With several possible successful results, the first operation changes all their signs together. The second reflection gives the geometric reason that their relative chances remain the same. Group the prepared vector into two parts: all entries with flag $1$, and all entries with flag $0$. Their squared lengths (sums of squares) are $q$ and $1-q$. They occupy separate coordinates, so they are at right angles. For $0<q<1$ both parts have nonzero length; divide each by its length to get unit directions $g$ and $b$, for good and bad. The prepared state has coordinates $(\sqrt q,\sqrt{1-q})$ along these two directions. The flag operation reverses the first coordinate, and the other operation reflects about the line through that prepared point and the origin. Both act in this plane. They change the amount in direction $g$, but leave the proportions of the entries *within* $g$ untouched. Thus whenever we read flag $1$, the label still has the required chances $w_i/W$.
 
-For general $q$, write $v=\sin\theta\,g+\cos\theta\,b$. The first reflection sends angle $\theta$ from the $b$ axis to $-\theta$; the second reflects it about the line at angle $\theta$, taking it to $3\theta$. Each pair rotates through $2\theta$. After $u$ pairs the state is
-$$
-\sin((2u+1)\theta)\,g+\cos((2u+1)\theta)\,b.
-$$
-The two coefficients change, but the relative label probabilities *within* $g$ stay fixed. On acceptance we still obtain the law $w_i/|w|$, even when several labels have unequal weights. At $q=1$ the initial state is entirely successful; at $q=0$ there is no successful component.
+[]{#pivot-schedule}To see how many reflections are needed, measure the angle $\theta$ of the prepared vector from the $b$ axis, so $\sin\theta=\sqrt q$. The flag operation sends angle $\theta$ to $-\theta$; reflecting that about the line at angle $\theta$ gives $3\theta$. Each further pair adds $2\theta$. After $u$ pairs the probability of success is $\sin^2((2u+1)\theta)$. For small $q$, $\theta$ is approximately $\sqrt q$ in radians, so about $1/\sqrt q$ pairs suffice to turn the state towards $g$. Going too far loses some of the gain: in the four-column calculation a second pair takes the chance from one back to $1/4$. At $q=0$ nothing can succeed, and at $q=1$ the preparation already succeeds.
 
-[]{#pivot-schedule}When $q$ is small, $\theta=\arcsin\sqrt q$ is of order $\sqrt q$. It takes order $1/\sqrt q$ pairs to reach an angle near $\pi/2$. Continuing past it can undo the gain. In the four-column calculation $\theta=\pi/6$ and a second pair gives success $\sin^2(5\pi/6)=1/4$. Since $q$ is unknown, we use a bounded schedule of random rotation counts. It uses $O(\sqrt m\log(1/\varepsilon))$ preparations and inverses on every input and fails with probability at most $\varepsilon$ when $q\ge1/(2m)$ [@BBHT1998, Lemma 2]. The [bounded schedule](#amplification-schedule) is derived in Appendix A.3. Whichever count or fresh trial first succeeds, the conditional label law is the same.
+We do not know $q$. The algorithm draws a random number of reflections for each trial, sometimes zero. Under the [schedule in Appendix A.3](#amplification-schedule), it uses $O(\sqrt m\log(1/\varepsilon))$ preparations and reversals on *every* board, and fails with probability at most $\varepsilon$ whenever $q\ge1/(2m)$ [@BBHT1998, Lemma 2]. Stopping at the first success gives the same column shares whichever trial succeeded.
 
-Append each successful measured label, stopping on failure or after $T$ pivots. Until the winner is listed, its weight exceeds $1/2$, so $q\ge1/(2m)$ and the success guarantee applies. We can draw the same label in the ideal and actual processes whenever the actual sampler succeeds, because its conditional law is exactly right. Over at most $T$ stages the chance of a failure before listing the winner is at most $T\varepsilon$. A failure after listing it leaves the winner safely on the list. There are at most $T$ stages, and one preparation makes at most $T$ comparisons. This gives $O(T^2\sqrt m\log(1/\varepsilon))$ comparison calls, counting inverses as well. How many bit queries does one such call require?
+Append each successful pivot; stop if the schedule fails or the list reaches $T$ entries. While a winner is still missing, its weight exceeds $1/2$, so $q=W/m>1/(2m)$. Until the first failure we can give this search and the ideal drawing rule of Section 3.1 exactly the same successful draws. There are at most $T$ opportunities for failure before the winning index is listed, adding at most $T\varepsilon$ to the ideal chance $1/500$ of missing it. A later failure leaves the existing list intact. With at most $T$ comparisons per preparation, we have used $O(T^2\sqrt m\log(1/\varepsilon))$ comparisons and their reversals. How many input bits must the algorithm query to compare two columns?
 
 # 4. Computing an address and checking its certificate
 
-Each contest needs one pointer from each of two columns. How can the quantum algorithm locate those pointers cheaply if their cells must be hidden from a classical algorithm? Forrelation supplies address bits that are cheap to decode quantumly on the promise and hard to predict classically. Its promise and its answer can also be certified, which will matter when a column claims to have won.
+For the comparison of columns $1$ and $3$ in Figure 1 we used cell $10$ of column $1$. But the algorithm is given two strings of eight bits, not the label $10$. How does it obtain the first digit $1$ from $0111\,1000$, and the second digit $0$ from $0100\,1000$?
 
-\Needspace{10\baselineskip}
+Start with the second half, $1000$, common to both strings. Replace each $0$ by $+1$ and each $1$ by $-1$, obtaining $g=(-1,1,1,1)$. Compare $g$ with each of the four fixed patterns below. Score $+1$ at every position of agreement and $-1$ at every disagreement; in other words, multiply the corresponding entries and add.
 
-In its two-block form, Forrelation measures agreement between one sign pattern and the Walsh transform of the other [@AA2018]. In the four-row example, split eight bits into two blocks of four and turn each bit $x$ into the sign $(-1)^x$. With $z_1,z_2$ the resulting sign vectors, set
+| Pattern | Agreements | Disagreements | Score |
+| :--- | ---: | ---: | ---: |
+| $(1,1,1,1)$ | 3 | 1 | $2$ |
+| $(1,-1,1,-1)$ | 1 | 3 | $-2$ |
+| $(1,1,-1,-1)$ | 1 | 3 | $-2$ |
+| $(1,-1,-1,1)$ | 1 | 3 | $-2$ |
+
+The pattern in each row agrees with every other row in two positions and disagrees in two. Thus if $H$ is the matrix having these rows divided by two, its rows are mutually perpendicular unit vectors. Multiplication by $H$, the *normalized Walsh transform*, preserves length. On our input, $Hg=(1,-1,-1,-1)$.
+
+Now use the first block. For $0111$ its signs are exactly $(1,-1,-1,-1)$. To measure agreement with the transformed second block, take the dot product after dividing each vector by two to give it length one. Call the result $\Phi$. Here $\Phi=(1+1+1+1)/4=1$. For $0100$, two entries agree and two disagree, so $\Phi=0$. For $1000$, all four are opposite and $\Phi=-1$. In general the entries of a Walsh transform need not be signs; the dot product still measures alignment of the two unit vectors [@AA2018, §§1.1.1 and 3.2].
+
+| Eight input bits | $\Phi$ | Prescribed address bit |
+| :--- | ---: | :--- |
+| $a^+=0111\,1000$ | $1$ | $1$ |
+| $a^0=0100\,1000$ | $0$ | $0$ |
+| $a^-=1000\,1000$ | $-1$ | undefined |
+
+The prescription here is $1$ for $\Phi\ge\delta$, $0$ for $|\Phi|\le\delta/2$, and no answer otherwise, with $\delta=2^{-10}$ for two blocks. These first two ranges constitute the *promise*. Thus $(a^+,a^0)$ determines address $10$. There is no true address for $(a^-,a^0)$, since the first digit is undefined. This distinction will matter when we verify the board.
+
+**How a query supplies the signs.** A bit query uses a position $j$ and an answer bit $b$. It leaves $j$ alone. If the input bit $x_j$ is zero it leaves $b$ unchanged; if $x_j$ is one it interchanges answer labels $0$ and $1$. Starting from $b=0$ would read the bit in the ordinary way. Instead give the two answer labels amplitudes $(1,-1)/\sqrt2$. Interchanging them gives $(-1,1)/\sqrt2$, the negative of the starting vector. For each position $j$, then, the query leaves this same answer vector multiplied by $+1$ or $-1$ according to $x_j$. Applied to a superposition of positions, this single bit query multiplies the position amplitudes by their respective signs. Measuring still yields a single outcome; the query has not reported the individual bits [@deWolf2026, §2.4].
+
+Try it on $a^+$. Give the four positions equal amplitudes $u=(1,1,1,1)/2$. Query the second block, multiply by the known matrix $H$, and query the first block. The position vectors are
 $$
-W=\begin{pmatrix}1&1&1&1\\1&-1&1&-1\\1&1&-1&-1\\1&-1&-1&1\end{pmatrix},
-\qquad H=W/2,\qquad
-\Phi=\left\langle z_1/2, H(z_2/2)\right\rangle .
-$$
-The rows of $W$ are orthogonal and have norm two, so $H$ preserves lengths. For the common second block $1000$, the sign vector is $g=(-1,1,1,1)$ and $Wg=(2,-2,-2,-2)$. With $\delta=2^{-10}$ at this size, the promised answer is $1$ for $\Phi\ge\delta$ and $0$ for $|\Phi|\le\delta/2$; elsewhere it is undefined. We can read the three examples from the first block alone.
-
-| Address input | Relation of $z_1/2$ to $H(g/2)$ | $\Phi$ | $P$ |
-| --- | --- | --- | --- |
-| $a^+=0111\,1000$ | equal | $1$ | $1$ |
-| $a^0=0100\,1000$ | orthogonal | $0$ | $0$ |
-| $a^-=1000\,1000$ | opposite | $-1$ | undefined |
-
-The winning column in Figure 1 uses $(a^+,a^0)$, selecting cell $10$. Column $2$ uses $(a^-,a^0)$ and has no true cell: a large negative correlation lies outside the promise.
-
-**A two-query experiment.** One bit query flips an answer bit $b$ at each position $j$ where $x_j=1$, extending the rule $|j,b\rangle\mapsto|j,b\oplus x_j\rangle$ linearly. Give it the answer state $(|0\rangle-|1\rangle)/\sqrt2$. A flip reverses the sign of this vector. Thus one query multiplies *each amplitude* at position $j$ by $(-1)^{x_j}$, leaving the answer state available for reuse. Write $D_z$ for this diagonal operation.
-
-Start with $u=(1,1,1,1)/2$. Query the second block, apply $H$, then query the first block. On $a^+$ the successive position states are
-$$
-u\ \longmapsto\ \tfrac12(-1,1,1,1)
+\tfrac12(1,1,1,1)
+\ \longmapsto\ \tfrac12(-1,1,1,1)
 \ \longmapsto\ \tfrac12(1,-1,-1,-1)
-\ \longmapsto\ u .
+\ \longmapsto\ \tfrac12(1,1,1,1).
 $$
-Asking whether the final state lies along $u$ succeeds with probability $|u^{\mathsf T}D_{z_1}HD_{z_2}u|^2=\Phi^2$. Concretely, apply $H$ once more and measure the first basis outcome, since $Hu=(1,0,0,0)$. This last transform costs no queries. On $a^0$ the success probability is zero. On $a^-$ the final state is $-u$ and the success probability is one. The decoder can therefore suggest the *same* first bit for columns $1$ and $2$ with certainty on our example. Only column $1$ has a true address. Either proposal is fine during a comparison. Accepting a proposed winner will require evidence of a *defined* address.
+Apply $H$ once more. Its first row is $u$, so the *first amplitude* is the dot product of $u$ with the last vector. This is precisely the number $\Phi$ computed above: the last query supplied the signs from the first block, and dotting with $u$ adds and divides by two. Reading the first position therefore has probability $\Phi^2$. The two multiplications by $H$ use no input bits. On $a^+$ this outcome is certain and on $a^0$ it never occurs. On $a^-$ the last vector is $-u$, so the outcome is again certain. The experiment can return the same proposed digit for $a^+$ and $a^-$; it need only return the prescribed digit on the promise.
 
-**The cost of a comparison.** In the calculation above we queried a block, changed basis, then queried the next block. Repeating this alternation compares a chain of $k$ sign patterns. In the full construction $m=4^t$, $t\ge1$, and each address input has $k$ blocks of length $m$. The normalized Walsh matrix has entries $H_{ab}=(-1)^{a\cdot b}/\sqrt m$ for binary indices of length $2t$. With $u=(1,\ldots,1)/\sqrt m$, put
+**From two queries to a comparison.** At full size, one address digit uses $k$ blocks of $m=4^t$ bits, where $t\ge1$. Write $F_{k,m}$ for the yes-or-no function on the resulting boards. Use the same experiment, starting with $u=(1,\ldots,1)/\sqrt m$: query the last block, apply $H$, query the preceding block, and so on. For this size the rows and columns of $H$ have binary labels $a,b$ of length $2t$. Its entry is $(-1)^{a\cdot b}/\sqrt m$, with a minus sign when an odd number of positions have a one in *both* labels. For $m=4$ this gives exactly the four patterns above. Writing $D_j$ for multiplication of each entry by the corresponding sign from block $j$, the first amplitude after the final transform is
 $$
-\Phi=u^{\mathsf T}D_{z_1}HD_{z_2}H\cdots HD_{z_k}u,\qquad \delta=2^{-5k}.
+\Phi=u^{\mathsf T}D_1 H D_2 H\cdots H D_k u .
 $$
-As before, the two promised ranges are $\Phi\ge\delta$ and $|\Phi|\le\delta/2$. Now one trial uses $k$ queries and projects with probability $\Phi^2$. On promised inputs this probability is at least $\delta^2$ or at most $\delta^2/4$. Independent trials therefore distinguish the two ranges with error $\eta$ using $O_k(\log(1/\eta))$ queries on every input. The hidden constant depends on the gap and hence on $k$. [Appendix A.5](#decoder-repetitions) gives the count.
+This $k$-block quantity is called *Forrelation* [@AA2018, §3.2, Figure 1]. Here $\delta=2^{-5k}$. One trial uses $k$ queries, and its probability of the first outcome is at least $\delta^2$ if the prescribed digit is $1$ and at most $\delta^2/4$ if it is $0$. Repeat on fresh states and count first outcomes. Comparing their observed fraction with $\delta^2/2$ distinguishes those two ranges. For fixed $k$, $O_k(\log(1/\eta))$ queries suffice for error at most $\eta$ on the promise; the query cap holds even outside it. [Appendix A.5](#decoder-repetitions) gives the repetition count.
 
-For $\ell=\log_2m$ the full board uses $r=20\ell$ address inputs per column. Their answers select one of $2^r=m^{20}$ cells; a pointer within that cell uses $\ell$ bits to select a row of a rival. The board thus has polynomially many bits in $m$, although $m$ counts only the columns. The addressed array comes from cheat sheets [@ABK2016, §3.1], and direct pointers to zeros from pointer functions [@GPW2018; @ABBLSS2017]. OpenAI puts one such array and its outward pointers in every column [@OpenAI2026, §2].
+For $\ell=\log_2 m$, the full board uses $r=20\ell$ address digits. There are $2^r=m^{20}$ possible cells in each column, but obtaining an address does not involve searching through these cells. Run the experiment on each of the $r$ inputs with error at most $\varepsilon/r$ on the promise. If all $r$ inputs satisfy the promise, the chance of even one wrong digit is at most $r(\varepsilon/r)=\varepsilon$. Look up the pointer in the proposed cell; its $\ell$ bits name a row in the other column. Do this in both directions and read the two indicated string bits. At a winning column, the correct address yields a pointer to a zero, whereas reading *any* row in that all-one string returns one. So however poor the other address estimate, the comparison returns the winning index with probability at least $1-\varepsilon$. For a pair of nonwinning columns either outcome is allowed. Use the same order of indices to run the experiment whichever way the pair was presented; its two possible outcomes then have probabilities $a_{ip}$ and $a_{pi}$ summing to one.
 
-![At full size each column has the same fields. On a winning column the true address answers select the cell shown. Its pointers reach into other columns' strings, while its circuit transcripts certify the address inputs in its own column.](figures/exposition/fig1_column.svg){width=90%}
+Instead of reading the intermediate outcomes during the quantum search, retain them in separate registers (groups of bits in the quantum state). Compute the addresses, pointers and comparison bit from those labels. Only the final measurement is needed to give the comparison probabilities just calculated. Retaining the intermediate labels also allows the algorithm to undo the computation in reverse order. Either direction costs $O_k(r\log(r/\varepsilon)+\ell)$ bit queries. Arrays indexed by several answers were used in the construction called *cheat sheets* [@ABK2016, §3.1]; pointers to zeros appeared in earlier pointer functions [@GPW2018; @ABBLSS2017]. OpenAI's board combines both in each column [@OpenAI2026, §2].
 
-Run the decoder on each address input with error $\varepsilon/r$ on the promise. A winner therefore gets its whole address right except with probability $\varepsilon$. When it does, its true pointer finds a zero in its rival. Even if all the rival's address inputs are unpromised, its proposed cell cannot point to a zero in the winner. Ordering each pair by index before running the experiment gives complementary win probabilities however the pair is presented.
+![Fields in a full column. The address digits select a cell. The cell contains row indices for the other columns and records of the computations on this column's address inputs.](figures/exposition/fig1_column.svg){width=90%}
 
-Keep each projection outcome in a fresh register, compute the proposed addresses and query the pointer bits and the two string bits they name. Finally record the contest result in a flag. Each step retains the information needed to run it backwards; reversing costs the same number of queries. The resulting controlled comparison therefore supplies Section 3's operation with $O_k(r\log(r/\varepsilon)+\ell)$ queries in either direction. It reads no circuit transcript.
+**What is stored as evidence?** In the example, measuring the first position gives the same outcome for $\Phi=1$ and $\Phi=-1$. For verification we need the *signed* value. There is an exact calculation: multiply signs, perform the Walsh sums by integer additions and subtractions, and compare the result with the thresholds, accounting for the known denominators. Two output bits suffice. The first, the *domain bit*, is $1$ exactly when the input lies in the promise. The second gives the prescribed digit then, and by convention is $0$ outside the promise. For $a^0$ the two outputs are $(1,0)$; for $a^-$ they are $(0,0)$.
 
-**The cost of verification.** A public circuit can compute the signed numerator of $\Phi$ exactly by Walsh additions and subtractions, then compare it with the two thresholds. This takes $S=O_k(m\ell^2)$ gates of fan-in at most two, as shown in [Appendix A.6](#exact-certification). Its two output bits report membership in the promise and the value on the promise (zero outside it). A cell records one proposed evaluation of every gate for each address input.
+Write the exact calculation as a fixed sequence of operations on bits, a Boolean *circuit*. Each operation, or *gate*, takes at most two previous bits or input bits and produces one bit according to a known rule. A *transcript* is a proposed list of the gate outputs, in order. For example, one gate in the small circuit computes “$u$ OR $y$”: its output should be $1$ if at least one of $u,y$ is $1$. If we read $u=1$, $y=0$, output $0$, those three readings expose an error. In this example $y$ is an input bit and $u$ is a previous gate output. When a gate uses an input bit we read the actual board bit; when it uses another gate, we read that gate's listed value. Any incorrect transcript has a *first* wrong entry; all its predecessors are correct, so it must fail just such a test. Conversely, if every gate test passes, the two output bits are correct. There are $S=O_k(m\ell^2)$ gates for one address input ([Appendix A.6](#exact-certification)).
 
-**Winning condition (Figure 3).** A column wins precisely when its string is all ones and some cell $s$ certifies its own address and points to a zero in every other column. To certify $s$, all its evaluations must be correct, with every domain bit one and the value bits spelling $s$.
+[]{#domain-bit-board}Consider the strings $0111,1111,1011,1101$. Only column $2$ is all ones. Suppose its two address inputs are $(a^-,a^0)$, and every cell in column $2$ contains their exact transcripts and pointers to zeros in columns $1,3,4$. At cell $00$ the listed value digits do spell $00$. But the first output (promise membership) for $a^-$ is zero. No choice of cell can give this column a true address. Thus the answer on the board is zero even though all the pointers in that cell and every entry in its transcripts are correct.
 
-[]{#domain-bit-board}For a board where this distinction decides the answer, take column strings $0111,1111,1011,1101$. Column $2$'s address inputs are $(a^-,a^0)$. Every cell in column $2$ stores their true circuit evaluations and points to the zeros in columns $1,3,4$. Try cell $00$. This all-one column has honest pointers, its two value bits spell $00$, and all its gate equations hold. Nevertheless the domain bits are $(0,1)$. The first transcript certifies that $a^-$ is *outside* the promise. The board has no winner.
+For a listed column, estimate its address again and test that *one* cell. Check all $m$ entries in the column string for ones; follow its $m-1$ pointers to check for zeros; and check all $r$ transcripts. Each transcript requires the $S$ gate tests and two output tests, one for promise membership and one for agreement with the corresponding digit of the cell label. These are exactly the conditions for a winning column. There are
+$$
+K=m+(m-1)+r(S+2)=O_k(m\ell^3)
+$$
+tests. Reading a pointer and the bit at its destination costs $\ell+1$ queries. Each other test costs at most three. It is enough to *find one failed test*. If there is one, selecting a test uniformly finds a failure with probability at least $1/K$. The same quantum search as in Section 3.2 can find a failed test with error at most $\varepsilon$ in $O(\sqrt K\log(1/\varepsilon))$ test evaluations. If no test fails there is no failure to report.
 
-Decode a listed candidate's address afresh. If a transcript in that cell contains a false gate value, the first such gate in computation order has correct predecessors and fails its local equation. Conversely, passing every gate test forces the entire evaluation to be correct. A nonwinner must therefore fail at least one test at *every* cell it might propose.
+Return $1$ if the search reports no defect for at least one listed index, and $0$ otherwise. On a board with no winner, at least one test fails at every listed index, whichever address was estimated. The chance that at least one of the at most $T$ searches reports no defect is at most $T\varepsilon$. On a board with a winner, the list contains its index except with probability at most $1/500+T\varepsilon$. The fresh estimate of its address is wrong with probability at most $\varepsilon$; at its correct address every test passes.
 
-It suffices to test $m$ string bits, $m-1$ pointers, $rS$ gate equations and $2r$ output bits. Each gate test reads at most three bits. Following a pointer reads its $\ell$ bits and the named string bit. Thus there are $K=2m-1+r(S+2)=O_k(m\ell^3)$ local tests, each costing $O(\ell)$ queries. All tests concern one proposed cell; its $2^r-1$ neighbours cost nothing.
+The costs add. Finding the list takes about $\sqrt m$ comparisons, up to logarithmic factors, and each comparison requires only logarithmic factors in bit queries for fixed $k$. Searching for a defect costs about $\sqrt m$ bit queries up to such factors, but we do that for only $T$ listed indices. The [full count](#quantum-query-count) gives $Q(F_{k,m})\le C_k\sqrt m(\log_2 m)^6$.
 
-Search for a violation in that cell. A uniform test finds a violation with probability at least $1/K$ if any exists, so the same bounded amplification searches for one using $O(\sqrt K\log(1/\varepsilon))$ test evaluations. Accept the board if any listed column passes. On a $0$-board every candidate, at any decoded address, has a defect. Each search misses a defect with probability at most $\varepsilon$. With at most $T$ searches the total probability of a false acceptance is at most $T\varepsilon$. On a $1$-board the list misses its winner with probability at most $1/500+T\varepsilon$. Decoding the winner's address incorrectly adds at most $\varepsilon$ more. At its correct address all tests pass.
-
-The tournament uses $\widetilde O(\sqrt m)$ cheap comparisons. Only its list of $T=O(\log m)$ candidates pays for a defect search, each at cost $\widetilde O_k(\sqrt m)$. The two costs add (Figure 4). The [full count](#quantum-query-count) gives $Q(F_{k,m})\le C_k\sqrt m(\log_2m)^6$.
-
-![A comparison follows one pointer in each direction. Only columns that reach the short list incur the cost of searching all their local tests for a defect.](figures/exposition/fig5_costs.svg){width=92%}
+![The comparison reads two pointers and the indicated string bits. The separate search for a failed test runs only for indices on the resulting list.](figures/exposition/fig5_costs.svg){width=92%}
 
 # 5. A classical query to the hidden cell
 
-What can a classical algorithm learn from the extra cells? Start with the losing board at the top of Figure 5. Each string has one zero, all address inputs are promised, and all cells are blank. Erase one string's zero and fill its true cell with accurate transcripts and pointers. We have made a winner. An algorithm that encounters neither change gives the same answer on both boards.
+In the upper board of Figure 5 the strings are $1110,0111,1011,1101$. Each has a zero, so the function value is $0$. Make a second board by changing the last bit of column $1$ to a one. Its address inputs already have answers $1,0$. In cell $10$ of column $1$, put the correct gate values for these two inputs and the row numbers $1,2,3$ of the zeros in columns $2,3,4$. Column $1$ now satisfies every test, so the new function value is $1$.
 
-![Planting column 1 in a four-column board. The address inputs stay the same. Erase the zero in row 4 of column 1 and fill cell 10 with the certificates and pointers it needs. The two runs see identical answers until they query a changed bit.](figures/exposition/fig4_planted.svg){width=90%}
+![The upper and lower boards differ only at the fourth string bit of column 1 and within its cell 10. The arrows indicate the row numbers stored in the filled cell.](figures/exposition/fig4_planted.svg){width=90%}
 
-The erased bit presents the matrix-search problem from Section 1. The filled cell could give the game away: if its address in each column were public, reading the first domain bit in all $m$ selected cells would distinguish the boards. Every blank cell gives zero, whereas the planted transcript gives one.
+Consider reading the domain bit for the first address input from cell $10$ of column $1$. On the upper board the reply is $0$ because every cell bit is zero. On the lower board it is $1$ because the first address input belongs to the promise. If all columns have true addresses and those addresses are supplied, the distinction is easy. Reading the first domain bit at the indicated label in each column would return all zeros on the first board and a one somewhere on the second, in at most $m$ reads. Without the labels, there are two distinct acts here. First the algorithm specifies the column, the cell label and the position within that cell. Then it receives one bit. **Selecting the right cell already predicts the address.** At the instant of this selection the reply is still unknown. An algorithm may compute the label, deduce it from earlier replies, or simply guess it. We shall bound the probability of selecting it by any of these means.
 
-In the two-bit picture, stop the algorithm just as it asks for bit $u$ of cell $10$ in column $i$. **Before seeing the bit**, it has named two answers: if this is the true cell, those answers must be $(1,0)$. A computation of the answers, a guess, or a choice based on all the preceding replies can lead to this query. In each case the coordinate itself serves as the prediction. On the full board it predicts all $r$ answers.
+## 5.1 Two runs of the same decision tree
 
-\Needspace{6\baselineskip}
-
-How well can a classical algorithm predict one answer? For the same $k$-block Forrelation problem $P$ used in the quantum decoder, Bansal and Sinha's lower bound gives, at fixed $k$ and all sufficiently large $m$ [@BansalSinha2021, Theorem 1.3 and Corollary 1.4],
+To prove a lower bound we shall choose both the first board and the changed column at random. For each fixed $k\ge2$ and all sufficiently large powers of four $m$, set
 $$
-R(P)>L,\qquad L=\left\lfloor m^{1-1/k}/(\log_2m)^2\right\rfloor\ge1 .
+L=\left\lfloor\frac{m^{1-1/k}}{(\log_2 m)^2}\right\rfloor\ge1.
 $$
-Finite minimax then gives a single distribution $\mu$ on promised address inputs under which every deterministic $L$-query procedure has success at most $2/3$ [@Yao1977]. Draw every address input independently from $\mu$ and choose each zero location independently and uniformly. This gives the losing board. Choose the planted column $I$ uniformly and independently of that entire board.
+Write $P$ for the partial function in Section 4 that gives one Forrelation address digit. For a partial function the query limit applies on every input, while the answer is required to be correct only on the promise. The theorem of Bansal and Sinha gives $R(P)>L$. Thus every randomized algorithm using at most $L$ bit queries has error greater than $1/3$ on some promised input. We need one input *distribution* that works against all deterministic algorithms with that cap. Such a distribution $\mu$ exists by finite minimax. Indeed, if for every distribution some tree did better than $2/3$, minimax would give a random choice of trees with success at least $2/3$ on every input, contrary to $R(P)>L$. [@BansalSinha2021, Theorem 1.3 and Corollary 1.4; @Yao1977]
 
-Fix the coins of a $G$-query algorithm. Its two runs coincide up to the first differing reply, so we may count visits on the *losing* board. There the blank cells give away no zero locations. We charge a visit to the erased zero or the true cell, even if the particular cell bit read happens to agree.
+Build the first board as follows. Choose the row of the zero uniformly and independently in each column. Independently of the zeros, draw each of the $r$ address inputs in each of the $m$ columns separately from $\mu$. Set every cell bit to zero. This board has value $0$. Now draw a column number $I$ uniformly, independently of everything on that board. As in the figure, erase its zero and fill its true cell with correct transcripts and pointers to the zeros in the other columns. This board has value $1$. The procedure for drawing a pair may use the entire input. The algorithm being tested receives either board only through bit queries.
 
-\Needspace{6\baselineskip}
+Suppose the algorithm uses at most $G$ queries. Use the same random choices of the algorithm on both boards. After fixing these choices the algorithm is a *decision tree*. Each node specifies the next bit to read, its two edges correspond to replies $0$ and $1$, and a leaf specifies the output. Starting from the same node, identical replies therefore give the same next node, however strongly the next query depends on the past. For different outputs the two runs must first receive different replies at a common node. It suffices to count, **on the run on the first board**, queries to the erased zero and queries anywhere inside the selected cell. Counting the entire cell only enlarges the probability, since some filled bits may still be zero.
 
-**The zero.** Moving an undiscovered zero between unread rows preserves the transcript, so that zero remains uniform among them. Until half its column has been read, a new string query finds it with probability at most $2/m$. Such early queries discover at most $2G/m$ zeros in expectation. A late discovery requires $m/2$ previous reads in its column, affordable in at most $2G/m$ columns. The expected number of zeros found is at most $4G/m$. Since $I$ is independent and uniform, the selected zero is found with probability at most $4G/m^2$.
+**Reading the erased zero.** Suppose this run discovers zeros in three of the $m$ columns. Then three of the $m$ possible choices of $I$ select a discovered zero. In general, if $Z$ counts the distinct zeros discovered, the probability of reading the erased zero is $\mathbb E[Z]/m$. The full run on the first board is independent of $I$.
 
-**The address.** A column is heavy if the whole losing run spends more than $L$ queries on its address inputs. At most $G/L$ columns are heavy, so $I$ is heavy with probability at most $G/(mL)$.
+Before a column's zero has been found, it is uniform over the unread rows. Moving it between those rows preserves all previous replies, including the replies from the blank cells. If fewer than $m/2$ different rows of the column have been read, the chance of discovering its zero at the next query is at most $2/m$. Summing over the $G$ opportunities bounds the expected number of these discoveries by $2G/m$. Every other discovery occurs in a column where at least $m/2$ rows have already been read. At most $G/(m/2)$ columns can have this many reads. Thus $\mathbb E[Z]\le4G/m$, and the probability of reading the erased zero is at most $4G/m^2$.
 
-**Predicting a light column's address.** Fix a column $i$ and a query time $j$. The probability that $i$ is light *and* query $j$ visits its true cell is at most $(2/3)^r$. To see why, turn this one query into a prediction with at most $L$ reads of the column's address inputs.
+## 5.2 Predicting the label of a queried cell
 
-Given $i$'s hidden tuple of $r$ address inputs, sample the rest of the losing board independently: other columns' inputs, all zero locations and blank cells. Replay the queries before time $j$. Answer outside queries from the simulated board and forward target reads. Once $L$ have been forwarded, continue answering outside queries and abort only if another target read is needed. At time $j$, if the proposed query names a bit of cell $(i,s)$, return $s$ before reading that bit. Return a fixed address on abort, early termination or any other proposal. In the [worked example in Appendix C](#predictor-trace), one branch stops before its second target read and the other reaches query four and outputs $10$.
+For each column, count the reads of its $r$ address inputs on the *entire* first-board run. Call the column **heavy on this run** if the count exceeds $L$, and **light on this run** otherwise. Cell and string reads are included in the overall budget $G$, but only reads of the address inputs contribute to this particular count. At most $G/L$ columns can be heavy. Hence the independent random column $I$ is heavy with probability at most $G/(mL)$. For a light column we can reconstruct a proposed cell label using at most $L$ reads of its address inputs.
 
-On every run where $i$ is light this simulator can reproduce the choices up to time $j$. Hence
-$$
-\{i\text{ light and query }j\text{ in its true cell}\}
-\ \subseteq\
-\{\text{the capped predictor gets all }r\text{ answers right}\}.
-$$
-Keep lightness *inside* the event on the left. Conditioning the input law on a light run might select especially easy inputs; the predictor on the right uses the original independent samples.
+Here is that reconstruction for a four-query tree. To see both branches with just four input bits, replace Forrelation in this example by the parity $a\oplus b$, which equals one when the two bits differ. A specified column $i$ has two independent pairs $(a,b)$ and $(c,d)$ of fair bits. Its address is $(a\oplus b,c\oplus d)$. Allow the predictor one read in total from these four bits. It can generate the rest of the first board independently, including the blank cells of column $i$.
 
-The separate-cap direct-product lemma bounds the right-hand probability by $(2/3)^r$ [@Shaltiel2003; @Drucker2012]. In general, if success on one sample with $L$ queries is at most $\beta$, a procedure with a cap of $L$ on *each* of $r$ independent samples and with independent side information gets all answers right with probability at most $\beta^r$. Our predictor has an even smaller cap of $L$ reads across the entire tuple. Interleaving causes no loss in the bound: given a fixed transcript and the independent side information and coins, the remaining input laws factor. Each query changes the best remaining success probability for just one input, and cannot increase it on average, since making that query was already an available strategy. The product of the best remaining success probabilities consequently has nonincreasing expectation. [Appendix B](#direct-product-proof) makes the argument precise.
+The first query specifies a string bit, which the predictor can supply from its generated board. The second query specifies $a$, which uses the one permitted target read. Now follow the two possible replies.
 
-Sum the light-visit bound over at most $G$ query times for a fixed column, then *average* over the selected column $I$. The address length balances polynomially many cells against polynomially many guesses: $r=20\log_2m$ gives $2^r=m^{20}$ but $(2/3)^r\le m^{-10}$. We can now account for every way of encountering a change.
+- If $a=1$, query three is another string bit. The predictor supplies it from its generated board. Query four specifies a bit of cell $10$ in column $i$. The predictor outputs $10$ immediately. For instance, if $(a,b)=(1,0)$ and $(c,d)=(1,1)$, both predicted digits are correct.
+- If $a=0$, query three specifies $c$. That would be a second target read. The predictor stops *before* reading $c$ and outputs a fixed default, say $00$.
 
-| Event on the losing run | Upper bound |
+The example has two counts. Query four on the first branch was reached with just one target read. On the second branch, even query three would already require a second target read. [Appendix C](#predictor-trace) computes the probabilities on both branches.
+
+Now fix *in advance* any column $i$ and query number $j\le G$. The target consists of the $r$ independent samples in column $i$, and the desired output is the $r$-bit word of their $P$-values. Generate the rest of the first board independently, as in the example. Simulate the queries strictly before $j$, obtaining a bit from the target only when requested. Stop with a fixed default before the first target read beyond $L$. At step $j$, if the tree proposes a bit in a cell of column $i$, output the label of that cell before taking the query. Use the same default for every other proposal or if the tree has already stopped.
+
+On any run where $i$ is light and the $j$th query is in its true cell, the predictor reproduces the entire preceding history within its allowance and returns the true label. Thus the probability of these **two events together** is at most the predictor's probability of getting all $r$ answers right. Conditioning on lightness would change the target distribution. For example, a tree can stop early on the inputs where its first read determines the answer and take more reads on the others.
+
+For one sample drawn from $\mu$, even the best $L$-query predictor has success at most $2/3$. For $r$ independent samples, the chance of predicting *all* the answers is at most $(2/3)^r$ if each sample may be read at most $L$ times. Our predictor uses at most $L$ reads across all the samples, so it meets each separate limit. This multiplication requires proof because the predictor can switch between samples in response to earlier bits. For any fixed sequence of queries and replies, each sample is restricted only by its own recorded bits. With the tree fixed, these restrictions suffice to reproduce that sequence, so the conditional distributions still factor. Reading a bit of one sample can improve the best attainable success on that sample for a particular reply, but cannot improve it *on average* over the two replies. Taking this very query was already one possible strategy. The other samples retain their distributions and their remaining allowances. The calculation for the product is in [Appendix B](#direct-product-proof). [@Shaltiel2003; @Drucker2012, §1.3 and Lemmas 3.1–3.2]
+
+For a fixed $i$ there are at most $G$ times when such a visit could occur. Adding the bounds gives $G(2/3)^r$ for a true-cell visit while $i$ is light. Averaging these $m$ bounds over the uniform choice $I$ gives the same bound. Taking $r=20\log_2m$ makes $(2/3)^r\le m^{-10}$, since $(2/3)^2<1/2$. Thus even $G$ attempts to select a label have small total success probability at the budgets considered here.
+
+[]{#classical-finish}We have covered every way for the two outputs to differ. The following bounds are probabilities over the random pair, for each fixed choice of the algorithm's coins.
+
+| Event on the first board | Probability at most |
 | --- | --- |
-| The selected zero is discovered. | $4G/m^2$ |
-| The selected column is heavy. | $G/(mL)$ |
-| A query visits the true cell of the light selected column. | $G(2/3)^r$ |
+| A query reads the zero of column $I$. | $4G/m^2$ |
+| More than $L$ queries read address inputs of column $I$. | $G/(mL)$ |
+| At most $L$ such reads occur, and a query visits the true cell of $I$. | $G(2/3)^r$ |
 
-[]{#classical-finish}At $G=\lfloor mL/100\rfloor$ the sum is at most $4/100+1/100+1/(100m^8)<1/3$, since $L\le m$. Averaging over the algorithm's coins preserves this bound. Yet a successful algorithm accepts with probability at least $2/3$ on the planted boards and at most $1/3$ on the losing boards; its outputs must differ in our paired experiment with probability at least $1/3$. Hence $R(F_{k,m})>\lfloor mL/100\rfloor$.
-
-\clearpage
+Set $G=\lfloor mL/100\rfloor$. Since $L\le m$, the sum is at most $4/100+1/100+1/(100m^8)<1/3$. Averaging over the coins preserves this inequality. But an algorithm of error at most $1/3$ on every board must output $1$ on the second board with probability at least $2/3$ and on the first with probability at most $1/3$. The difference is at least $1/3$, and is at most the probability that the two outputs differ. This contradicts the bound. Consequently $R(F_{k,m})>\lfloor mL/100\rfloor$.
 
 # 6. Why the exponent is four
 
-The universal exponent asks for a *single* power $\alpha$ and constant $C$ such that $R(f)\le C(1+Q(f))^\alpha$ for every total Boolean function $f$. Write $\alpha_{\rm tot}$ for the infimum of such nonnegative exponents. To see how the construction rules a power out, try $\alpha=3$. With $k=3$ the classical exponent in $m$ is $2-1/3=5/3$, whereas cubing the quantum bound gives only $3/2$. The surplus $1/6$ of a power of $m$ eventually outweighs any fixed power of its logarithm.
+Could there be a constant $C$ such that $R(f)\le C(1+Q(f))^3$ for every total Boolean function $f$, whatever its input length? Try the boards with $k=3$. Ignoring logarithmic factors for a moment, their quantum cost is at most $\sqrt m$ and their classical cost is at least $m^{5/3}$. Cubing $\sqrt m$ gives $m^{3/2}$. The ratio $m^{5/3}/m^{3/2}=m^{1/6}$ grows without bound. Restoring the logarithms divides this ratio by at most a fixed power of $\log m$ and still leaves a quantity tending to infinity. Thus every proposed cubic constant fails on sufficiently large boards.
 
-For any $0\le\alpha<4$, choose $k\ge2$ with $1/k<(4-\alpha)/2$, then hold $k$ fixed. The cost of decoding and the size threshold for classical hardness both depend on that choice. For large $m$, taking the floor in $L$ costs at most a factor of two. Using the same board and the same address circuit in the two estimates gives, with room in the numerical coefficient,
+More generally, OpenAI constructs, for every fixed integer $k\ge2$ and all sufficiently large powers of four $m=4^t$, a total Boolean function $F_{k,m}$ with $Q(F_{k,m})=\widetilde O_k(\sqrt m)$ and $R(F_{k,m})=\widetilde\Omega_k(m^{2-1/k})$ [@OpenAI2026, Theorem 1.1 and its proof]. The tildes suppress powers of $\log m$. In explicit form, [Appendix A.1](#quantum-query-count) and Section 5 give the following bounds on this same function, using the same circuit in both estimates.
 $$
 Q(F_{k,m})\le C_k\sqrt m\,(\log_2m)^6,
 \qquad
 R(F_{k,m})\ge \frac{m^{2-1/k}}{400(\log_2m)^2}.
 $$
-The ratio of the two sides then satisfies
+The first comes from listing columns by quantum comparisons and checking the list. For the second, the bound $R>\lfloor mL/100\rfloor$ uses one factor $m$ for the choice of column and $L=\lfloor m^{1-1/k}/(\log_2m)^2\rfloor$ for classical prediction of one address bit. For large $m$, rounding down to $L$ retains at least half the unrounded value, so the displayed constant $1/400$ suffices. Both the quantum constant $C_k$ and the size threshold for $m$ may depend on $k$.
+
+Measured in powers of $\sqrt m$, the classical exponent is $4-2/k$, since $(\sqrt m)^{4-2/k}=m^{2-1/k}$. Given any proposed $0\le\alpha<4$, first choose an integer $k\ge2$ with $4-2/k>\alpha$. Keep this $k$ fixed and increase $m$. In the ratio of the classical lower bound to the $\alpha$th power of the quantum upper bound the excess exponent of $m$ is now positive:
 $$
 \frac{R(F_{k,m})}{(1+Q(F_{k,m}))^\alpha}
 \ \ge\ c_{k,\alpha}\,
 \frac{m^{2-1/k-\alpha/2}}{(\log_2m)^{2+6\alpha}}
-\ \longrightarrow\ \infty .
+\ \longrightarrow\ \infty.
 $$
-The surplus power is positive by our choice of $k$. No uniform constant $C$ can work. In the other direction, the universal bound of Aaronson, Ben-David, Kothari, Rao and Tal, building on Huang's sensitivity theorem [@ABKRT2020; @Huang2019], gives deterministic query complexity $D(f)=O(Q(f)^4)$ for total functions. Since $R(f)\le D(f)$, four suffices. Thus $\alpha_{\rm tot}=4$.
+Here $c_{k,\alpha}>0$ is independent of $m$. Hence for every constant $C$ some total function violates $R(f)\le C(1+Q(f))^\alpha$.
 
-On the bare matrix the quantum algorithm tested each candidate inside a search over candidates. The outward pointers let it ask a cheaper question there: *which of these two columns can exhibit a zero in the other?* Finding the list and checking the list now cost about $\sqrt m$ apiece, and their costs add. The classical algorithm faces the other consequence of the same construction. To obtain even one bit from the certificate that changed, it must first name an address determined by independent hard answers. This preserves a cost of order $mL$, close to $m^2$ for large fixed $k$.
+It remains to show that the power four suffices for *every* total Boolean function. Write $D(f)$ for the least worst-case number of queries in a deterministic algorithm that computes $f$ exactly. The theorem of Aaronson, Ben-David, Kothari, Rao and Tal, building on Huang's sensitivity theorem, gives $D(f)=O(Q(f)^4)$ for total functions. A randomized algorithm may use the deterministic one, so $R(f)\le D(f)$. If $\alpha_{\rm tot}$ denotes the infimum of the nonnegative exponents for which one constant works for all total functions, these two results give $\alpha_{\rm tot}=4$. [@ABKRT2020; @Huang2019]
 
 [^ai]: The theorem and construction are OpenAI's. This exposition and its Lean development were prepared with AI systems under the author's direction.
 
@@ -261,39 +273,39 @@ On the bare matrix the quantum algorithm tested each candidate inside a search o
 
 ## A.1 Counting the quantum queries
 
-The quantum argument in Sections 3 and 4 uses the following count. It charges the same comparisons and local tests on every branch; early stopping can only reduce the cost.
+We count calls to the bit oracle on the longest possible run of the algorithm in Sections 3 and 4, including all choices of the number of amplification iterations.
 
-A coherent test evaluation works on a superposition of test labels. It computes the next input position reversibly and retains earlier answers. To implement a read that is active only on some branches, query $x_j$ into a temporary bit, conditionally copy it to the answer bit, then query $j$ again to clear the temporary bit. This uses two ordinary oracle calls; on an inactive branch the answer and temporary bits are both restored. Padding to a common number of these controlled reads therefore has a fixed cap even in superposition. Running the computation backwards then restores its workspace. This implements the same tests using $O(\ell+1)$ bit queries per evaluation; [the controlled-read construction](https://github.com/wcook04/quartic-query-lean/blob/ba49281af72b53d9cfbb43320d7efdeb29d7ceca/docs/reasoning_record.md#AC-coherent) gives the controlled implementation. No full transcript is read during a single test.
+To evaluate the local tests on a superposition of test labels, compute each next input position reversibly and retain the earlier replies. To implement a read that is active only on some branches, query $x_j$ into a temporary bit, conditionally copy it to the answer bit, then query $j$ again to clear the temporary bit. This uses two ordinary oracle calls. On an inactive branch the answer and temporary bits are both restored. Padding to a common number of these controlled reads therefore has a fixed cap even in superposition. Running the computation backwards then restores its workspace. This implements the same tests using $O(\ell+1)$ bit queries per evaluation. [The controlled-read construction](https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md#AC-coherent) gives the gate sequence.
 
-**The count.** We bound the longest run, including randomized iteration counts. A comparison uses $O_k(r\log(r/\varepsilon))$ queries for its decoders and $O(\ell+1)$ for its pointers, including the constant overhead of a reversible implementation. We count the tournament first, then verification.
+**Comparisons and verification.** A comparison uses $O_k(r\log(r/\varepsilon))$ queries for its decoders and $O(\ell+1)$ for its pointers, including the constant overhead of a reversible implementation. We count the tournament first, then verification.
 
 Each stage uses $O(\sqrt m\log(1/\varepsilon))$ preparations, and each preparation makes at most $T$ comparisons. There are at most $T$ stages. Multiplying these three factors bounds the entire tournament by $O(\sqrt m\,T^2\log(1/\varepsilon))$ comparisons.
 
 Verification makes at most $T$ fresh address decodings. For each candidate it searches the $K$ local tests, using $O(\sqrt K\log(1/\varepsilon))$ test evaluations. Thus the list requires $O(T\sqrt K\log(1/\varepsilon))$ test evaluations in all.
 
-In bit-query units the two costs add:
+Adding the numbers of bit queries gives
 $$
 O_k\!\left(\sqrt m\,T^2\log(1/\varepsilon)
  [r\log(r/\varepsilon)+\ell]
  +T[r\log(r/\varepsilon)+\sqrt K\log(1/\varepsilon)\ell]\right).
 $$
-The first bracket charges comparisons; the second charges fresh address decoding and local-test search. Here $r,T,1/\varepsilon=O(\ell)$ and $K=O_k(m\ell^3)$. Bounding $\log(1/\varepsilon)=O(\ell)$, $\log(r/\varepsilon)=O(\ell^2)$ and $\sqrt K=O_k(\sqrt m\,\ell^2)$ deliberately enlarges the logarithms and square root. These substitutions give $O_k(\sqrt m\,\ell^6)$ for the tournament and $O_k(\sqrt m\,\ell^5)$ for verification ([the explicit count](https://github.com/wcook04/quartic-query-lean/blob/ba49281af72b53d9cfbb43320d7efdeb29d7ceca/docs/reasoning_record.md#upper-explicit-log6)). Therefore
+The first term counts queries during comparisons. The second counts queries during verification, both fresh address decoding and the search for a failed local test. Here $r,T,1/\varepsilon=O(\ell)$ and $K=O_k(m\ell^3)$. Bounding $\log(1/\varepsilon)=O(\ell)$, $\log(r/\varepsilon)=O(\ell^2)$ and $\sqrt K=O_k(\sqrt m\,\ell^2)$ deliberately enlarges the logarithms and square root. These substitutions give $O_k(\sqrt m\,\ell^6)$ for the tournament and $O_k(\sqrt m\,\ell^5)$ for verification ([the explicit count](https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md#upper-explicit-log6)). Therefore
 $$
 Q(F_{k,m})\le C_k\sqrt m\,(\log_2m)^6.
 $$
-The tournament and short-list verification costs add, in place of the earlier nested search product $\sqrt m\sqrt K$. Here $m$ counts columns. The exponent six is an artefact of this loose count. Square-root dependence comes from amplifying pivot sampling and searching the local tests. The short list limits how many verifications are needed; it is the quantum half of the exponent calculation.
+Thus the sixth power of the logarithm is sufficient. The factor $\sqrt m$ in the tournament comes from sampling the next pivot. In verification the comparable factor comes from the square root of the number of local tests. Full verification occurs only after the list has been produced, at most once per listed column.
 
 []{#earlier-recipe}
 
 ## A.2 Why the balanced AND–OR recipe stops at a cube
 
-In the cheat-sheet construction [@ABK2016, §3.1], each of the $n$ input bits of a partial function $g$ is replaced by the answer to its own AND–OR instance on $n^2$ bits, for $n^3$ bits overall before adding certificates. In one instance, write the bits as $n$ rows of $n$ bits; its answer is $1$ exactly when every row contains a $1$. A $1$-certificate selects one $1$ in every row; a $0$-certificate selects one entire zero row. Thus either answer has a certificate of $n$ bits. Reading those certificates determines the $n$-bit vector supplied to $g$; the fixed domain predicate of $g$ can then be checked by free computation. The certificate reads remain charged.
+In the cheat-sheet construction [@ABK2016, §3.1], each of the $n$ input bits of a partial function $g$ is replaced by the answer to its own AND–OR instance on $n^2$ bits, for $n^3$ bits overall before adding certificates. In one instance, arrange the bits in $n$ rows of $n$ bits. Its answer is $1$ exactly when every row contains a $1$. To certify a $1$, specify the position of one $1$ in every row. To certify a $0$, specify a row whose entries are all zero. In either case reading the $n$ designated entries verifies the answer. Doing this for all instances determines an $n$-bit input to $g$. Given those bits, a computation using no further queries can decide whether they satisfy the promise of $g$.
 
-Up to logarithmic factors, the cited composition and cheat-sheet argument supplies randomized lower bound $R(g)n^2$ and quantum upper bound $n$ when $Q(g)$ is polylogarithmic in $n$. Reading all $n$ bits gives $R(g)\le n$, so this calculation reaches at most a cubic separation. Ben-David's earlier Forrelation construction [-@BenDavid2015] and cheat sheets first gave power $5/2$; Tal [-@Tal2020] reached $8/3-o(1)$, and the nearly linear partial-function bounds of Bansal and Sinha [-@BansalSinha2021] and Sherstov, Storozhenko and Wu [-@SSW2023] gave $3-o(1)$. In the present construction, an address instance has about $m$ bits while the quantum search costs about $\sqrt m$. The partial-function hardness can therefore contribute almost two powers of the quantum cost. Section 3 explains how comparisons make that square-root search possible.
+Up to logarithmic factors, the cited composition and cheat-sheet argument supplies randomized lower bound $R(g)n^2$ and quantum upper bound $n$ when $Q(g)$ is polylogarithmic in $n$. Reading all $n$ bits gives $R(g)\le n$, so this calculation reaches at most a cubic separation. Ben-David's earlier Forrelation construction [-@BenDavid2015] and cheat sheets first gave power $5/2$. Tal [-@Tal2020] reached $8/3-o(1)$, and the nearly linear partial-function bounds of Bansal and Sinha [-@BansalSinha2021] and Sherstov, Storozhenko and Wu [-@SSW2023] gave $3-o(1)$. In the present construction, an address instance has about $m$ bits while the quantum search costs about $\sqrt m$. The partial-function hardness can therefore contribute almost two powers of the quantum cost. Section 3 explains how comparisons make that square-root search possible.
 
-The search problem in Section 3 also differs from quantum minimum-finding, which uses an order [@DH1996], and from search with bounded-error tests for fixed Boolean answers [@HMW2003]. The cycle and the fair comparison respectively rule out these two descriptions of the matches.
+The search problem in Section 3 also differs from quantum minimum-finding, which uses an order [@DH1996], and from search with bounded-error tests for fixed Boolean answers [@HMW2003]. Three pairwise comparisons can form a directed cycle. The comparison model also allows each of two indices to be returned with probability $1/2$, so assigning one outcome as the fixed correct answer need not give success greater than $1/2$.
 
-Certificate complexity is a separate measure: it counts the bits needed to force a function value. Ben-David and Kothari construct total functions for which randomized evaluation beats this measure [@BDK2026, §§2–3]. Their card encoding and the fixed-graph search cited in Section 3 are related constructions, not inputs to the randomized–quantum bound proved here.
+For a fixed input, its certificate size is the smallest number of bits whose values force the same function output on every consistent input. The largest such size is the certificate complexity. Ben-David and Kothari construct total functions whose randomized query complexity is smaller than their certificate complexity [@BDK2026, §§2–3].
 
 \Needspace{8\baselineskip}
 
@@ -308,7 +320,7 @@ R_{A0}=\begin{pmatrix}-\cos2\theta&\sin2\theta\\\sin2\theta&\cos2\theta\end{pmat
 $$
 Their product $R_{A0}S=\left(\begin{smallmatrix}\cos2\theta&\sin2\theta\\-\sin2\theta&\cos2\theta\end{smallmatrix}\right)$ sends $(\sin\theta,\cos\theta)$ to $(\sin3\theta,\cos3\theta)$. This calculation gives the rotation formula used in Section 3.2. It changes the total successful amplitude, leaving the normalized successful state unchanged.
 
-Section 3 needs both a cap on every input and the conditional label law of Section 3.2. Set $M=\lceil10/\sqrt\gamma\rceil$ and $N=\lceil\ln(1/\eta)/\ln(40/31)\rceil$. In each fresh trial use zero iterations with probability $1/2$, and otherwise choose $u$ uniformly from $0,\ldots,M-1$. Stop at the first acceptance, or after $N$ failures. Each trial uses at most $2M+1$ calls to $A$ or $A^{-1}$, so $N(2M+1)$ is an all-input cap.
+We require a bound on the number of queries even when the success probability $q$ is arbitrarily small, and a bound on failure when $q$ exceeds a known threshold $\gamma$. Set $M=\lceil10/\sqrt\gamma\rceil$ and $N=\lceil\ln(1/\eta)/\ln(40/31)\rceil$. In each fresh trial use zero iterations with probability $1/2$, and otherwise choose $u$ uniformly from $0,\ldots,M-1$. Stop at the first acceptance, or after $N$ failures. Each trial uses at most $2M+1$ calls to $A$ or $A^{-1}$, so $N(2M+1)$ is an all-input cap.
 
 To bound the failure probability, first suppose $\gamma\le q\le1/2$. Averaging the rotation formula gives [@BBHT1998, Lemma 2]
 $$
@@ -322,7 +334,7 @@ since $\sin(2\theta)=2\sqrt{q(1-q)}\ge\sqrt{2\gamma}$. Thus the randomized-itera
 
 ## A.4 The small circuit and its local tests
 
-[]{#circuit-check}*Optional circuit census.* The [explicit circuit for the four-column board](https://github.com/wcook04/quartic-query-lean/blob/ba49281af72b53d9cfbb43320d7efdeb29d7ceca/docs/reasoning_record.md#AC-example-promise) has $S=180$ non-input gates, so each candidate has $K=4+3+2(180+2)=371$ tests. In its zero-based numbering, input bits $6$ and $7$ feed gates $1$ and $2$: they compute $u=\neg x$, then $v=u\lor y$. On $a^+$ these last two input bits are both zero. To test gate $2$, read the proposed $u$, the actual $y$ and the proposed $v$. Reading $(1,0,0)$ exposes a false gate value, since $1\lor0=1$. The domain and value outputs are gates $178$ and $179$. Every cell contains $6$ pointer bits and $360$ transcript bits. With four cells in each of four columns, the full board has $4[4+16+4(6+360)]=5936$ input bits. Only one cell enters the tests for a given candidate. This toy uses $r=2$; the separation family uses $r=40$ when $m=4$, and its classical lower bound requires much larger $m$.
+[]{#circuit-check}The [explicit circuit for the four-column board](https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md#AC-example-promise) has $S=180$ non-input gates, so each candidate has $K=4+3+2(180+2)=371$ tests. In its zero-based numbering, write $x,y$ for input bits $6$ and $7$. Gates $1$ and $2$ compute $u=\neg x$, then $v=u\lor y$. On $a^+$ these last two input bits are both zero. To test gate $2$, read the proposed $u$, the actual $y$ and the proposed $v$. Reading $(1,0,0)$ exposes a false gate value, since $1\lor0=1$. The domain and value outputs are gates $178$ and $179$. Every cell contains $6$ pointer bits and $360$ transcript bits. With four cells in each of four columns, the full board has $4[4+16+4(6+360)]=5936$ input bits. Only one cell enters the tests for a given candidate. This four-column example uses $r=2$. Substituting $m=4$ into the formula $r=20\log_2m$ would give $r=40$. The classical lower bound applies for sufficiently large $m$.
 
 []{#decoder-repetitions}
 
@@ -332,24 +344,24 @@ For any requested error $0<\eta<1/2$, the projection experiment of Section 4 ext
 $$
 \rho=\lceil16c^{-1}\ln(1/\eta)\rceil
 $$
-times; accept if at least $\rho c/2$ projections succeed. We use the following standard Chernoff estimates for the number $Z$ of successes in these independent Bernoulli trials:
+times. Return one if at least $\rho c/2$ projections succeed. We use the following standard Chernoff estimates for the number $Z$ of successes in these independent Bernoulli trials:
 
 | Promised case | Wrong decision | Tail bound used |
 | --- | --- | --- |
 | $p\ge c$ | $Z<\rho c/2$ | At most $\exp(-\rho c/8)$, hence at most $\exp(-\rho c/16)$. |
 | $p\le c/4$ | $Z\ge\rho c/2$ | At most $\exp(-\rho c/16)$, by the upper tail at $p=c/4$ and monotonicity. |
 
-Thus each error is at most $\eta$. The cap is $k\rho=O_k(\log(1/\eta))$ on every input. The subscript permits constants depending on $k$, here including $c^{-1}=2^{10k}$: cheap means fixed $k$ and growing $m$. For a coherent comparison we retain the trial outcomes instead of measuring them; their measurement probabilities and independence remain the same.
+Thus each error is at most $\eta$. The cap is $k\rho=O_k(\log(1/\eta))$ on every input. Here the subscript allows dependence on $k$, including the factor $c^{-1}=2^{10k}$. For a coherent comparison apply the trials in separate registers to the same fixed input. The resulting product state has the same joint outcome probabilities as the independent measurements.
 
 []{#exact-certification}
 
 ## A.6 Exact certification and the input size
 
-The circuit uses integer arithmetic. The two factors $1/\sqrt m$ in $u$ and the $k-1$ internal Walsh factors give $\Phi=N/2^{t(k+1)}$ for an integer $N$. A fast Walsh transform recursively transforms two half-size vectors, then adds and subtracts their corresponding entries. These split-and-combine steps compute the numerator using additions and subtractions, and integer comparisons decide the two thresholds exactly. For example, $\Phi\ge2^{-5k}$ is equivalent to $2^{5k}N\ge2^{t(k+1)}$; the small-value test is $2^{5k+1}|N|\le2^{t(k+1)}$. Words of $O(k\log m)$ bits suffice, including the threshold shifts. The [record's circuit construction](https://github.com/wcook04/quartic-query-lean/blob/ba49281af72b53d9cfbb43320d7efdeb29d7ceca/docs/reasoning_record.md#forr_circuit) gives the arithmetic and gate count. The quantum verifier checks a stored computation of this circuit; it does not run the entire circuit on each candidate.
+The circuit uses integer arithmetic. The two factors $1/\sqrt m$ in $u$ and the $k-1$ internal Walsh factors give $\Phi=N/2^{t(k+1)}$ for an integer $N$. A fast Walsh transform recursively transforms two half-size vectors, then adds and subtracts their corresponding entries. These steps compute the numerator using additions and subtractions, and integer comparisons decide the two thresholds exactly. Since $m=4^t$ and $\sqrt m=2^t$, $\Phi\ge2^{-5k}$ is equivalent to $2^{5k}N\ge2^{t(k+1)}$. The small-value test is $2^{5k+1}|N|\le2^{t(k+1)}$. Words of $O(k\log m)$ bits suffice, including the threshold shifts. The [record's circuit construction](https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md#forr_circuit) gives the arithmetic and gate count. Each local gate test reads the proposed output and its at most two sources, using the actual address-input bits where the gate has external inputs.
 
-**The hardness allowance.** This is the consequence of the randomized lower bound of Bansal and Sinha for this one-sided promise [-@BansalSinha2021, Theorem 1.3 and Corollary 1.4]. For fixed $k$, the source bound is at least a positive constant depending on $k$ times $m^{1-1/k}/(\log_2(km))^{1-1/k}$. Dividing this by the unfloored expression for $L_{k,m}$ gives a factor of order $(\log m)^{1+1/k}$, which tends to infinity and absorbs the constant.
+**Why the bound in Section 5.1 holds.** For fixed $k$, Bansal and Sinha's lower bound for this one-sided promise [-@BansalSinha2021, Theorem 1.3 and Corollary 1.4] is at least a positive constant depending on $k$ times $m^{1-1/k}/(\log_2(km))^{1-1/k}$. Dividing this by the quantity $m^{1-1/k}/(\log_2m)^2$ used to define $L$ gives a factor of order $(\log m)^{1+1/k}$, which tends to infinity and absorbs the constant.
 
-**Input length.** A column contains $m$ string bits, $rkm$ address-input bits, and $2^r$ cells, each containing $(m-1)\ell$ pointer bits and $rS$ transcript bits. Thus the general function has $n=m\bigl[m+rkm+2^r((m-1)\ell+rS)\bigr]$ input bits, which is $O_k(m^{22}(\log m)^3)$ since $2^r=m^{20}$. Thus the total input length is polynomial in $m$, although much larger than $m$. The three bracketed contributions are the column string, its address inputs, and its cell array. Here $n$ is the actual input length; $m$ controls the displayed query bounds. The comparison is between $R$ and $Q$ for this one function, with the same circuit; neither bound counts the time to read or allocate the whole input.
+**Input length.** A column contains $m$ string bits, $rkm$ address-input bits, and $2^r$ cells, each containing $(m-1)\ell$ pointer bits and $rS$ transcript bits. Thus the general function has $n=m\bigl[m+rkm+2^r((m-1)\ell+rS)\bigr]$ input bits, which is $O_k(m^{22}(\log m)^3)$ since $2^r=m^{20}$. The input length is therefore polynomial in $m$. Both query bounds concern this same $n$-bit function, with $m$ counting its columns.
 
 \Needspace{8\baselineskip}
 
@@ -357,106 +369,104 @@ The circuit uses integer arithmetic. The two factors $1/\sqrt m$ in $u$ and the 
 
 # Appendix B. The separate-cap direct product {.unnumbered}
 
-We prove the separate-cap direct-product lemma used in Section 5. The input samples are independent, each has the same hard law, each individual cap holds on every branch, and the coins and side information are jointly independent of the entire tuple.
+Suppose one input $U$ is drawn from a distribution $\mu$, and $\beta$ is an upper bound on the probability of computing $P(U)$ using at most $L$ bit queries. Draw $r$ independent inputs $U_1,\ldots,U_r$ from $\mu$. A single algorithm can interleave its reads in any order, but must apply the limit $L$ to each input on every run. We prove that its chance of producing the entire word $(P(U_1),\ldots,P(U_r))$ correctly is at most $\beta^r$. The algorithm may also have random coins and other data drawn jointly independently of the inputs. The separately capped model is due to Shaltiel. We use Drucker's conditional-probability argument. [@Shaltiel2003; @Drucker2012, §1.3 and Lemmas 3.1–3.2]
 
-*Source note.* The separately capped setting goes back to Shaltiel's fair decision trees [-@Shaltiel2003]. The proof below is the conditional-value argument of Drucker's Lemmas 3.1–3.2, whose headline theorem uses one global budget instead [-@Drucker2012, §1.3 and the end of §3].
+Start with $P(x,y)=x\mathbin{\rm AND}y$, which equals one only on $11$. Give each of the four bit pairs equal probability and allow one query. If the first bit is zero, the answer is certainly zero. If it is one, the unread second bit is fair, so either guess has success $1/2$. The optimal success probability is $(1+1/2)/2=3/4$ (either bit could be read first). With two independent pairs and one read allowed from each, consider the first query to the first pair. The optimal success still available for the second pair is $3/4$ in either case. After a zero reply the product of the two best probabilities is $1\cdot(3/4)$. After a one reply it is $(1/2)(3/4)$. Their average is $9/16$, precisely $(3/4)^2$.
 
-Fix the coins and side information. By joint independence the samples are still independent with law $\mu$, and the algorithm is a deterministic tree. Take a history $\tau$ of queries and answers that occurs with positive probability. Each recorded answer constrains only its own sample, and because the tree is deterministic, every tuple that agrees with these answers asks exactly these queries. So the tuples consistent with $\tau$ form a product $E_1(\tau)\times\dots\times E_r(\tau)$, and given $\tau$ the samples are independent with laws $\mu(\cdot\mid E_h(\tau))$.
+For general $P$, fix all the coins and other independent data, leaving the tree deterministic. Fix a history $\tau$ of queries and replies having positive probability. For sample $U_h$ let $E_h(\tau)$ consist of the inputs consistent with its recorded bits. A tuple in $E_1(\tau)\times\cdots\times E_r(\tau)$ reproduces the first reply, therefore the same second query and reply, and so on to the end of $\tau$. Conversely, every tuple producing that history must belong to this product. Thus conditioning on the history leaves independent samples with respective laws $\mu(\cdot\mid E_h(\tau))$.
 
-Now measure the best success still available with the budget left. For AND on two independent fair bits with one query allowed, before querying it is $3/4$; after seeing a zero it is $1$, and after seeing a one with no queries left it is $1/2$. Let $q_h(\tau)$ count the queries to $U_h$ in $\tau$, and let $V_h(\tau)$ be the best probability of computing $P(U_h)$ under $\mu(\cdot\mid E_h(\tau))$ with at most $L-q_h(\tau)$ further queries. If the next query reads a bit of $U_h$, then querying it and continuing optimally is one strategy with that allowance, so averaging over the answer $b$,
+Write $V_h(\tau)$ for the best success on $U_h$ with this conditional distribution and with its remaining queries (the original $L$ less the number already used on $U_h$). Suppose the next query reads $U_h$. Reading that bit and continuing optimally for each possible reply $b$ is one permissible strategy before the query, so
 $$
-\sum_b\Pr(b\mid\tau)\,V_h(\tau b)\le V_h(\tau).
+\sum_b\Pr(b\mid\tau) V_h(\tau b)\le V_h(\tau).
 $$
+For every other sample both its conditional distribution and its remaining allowance are the same before and after this query. Multiplying the inequality by the other $V$'s shows that the conditional expected product after one query is at most its current value. The initial product is at most $\beta^r$.
 
-One answer may raise $V_h$; only the average cannot. For two independent uniform AND inputs with caps of one query, observing first bit $0$ in $U_1$ gives $E_1=\{00,01\}$ and $E_2=\{00,01,10,11\}$; the second sample is still unrestricted. We have $V_1=V_2=3/4$ at the start; reading the first bit of $U_1$ makes $V_1=1$ or $1/2$ as the bit is $0$ or $1$, and $V_2$ stays $3/4$, so the product averages to $\tfrac12\cdot\tfrac34+\tfrac12\cdot\tfrac38=\tfrac9{16}$, its starting value.
-
-In general the other samples keep their laws and allowances, so their values do not change, and $\prod_hV_h$ has nonincreasing expectation from step to step. It starts at most $\beta^r$. At a leaf with output $s$, the probability of being right given $\tau$ is $\prod_h\Pr(P(U_h)=s_h\mid\tau)\le\prod_hV_h(\tau)$. Averaging over leaves and then over the coins and side information finishes the proof; the query cap and the finite sets of input positions, answers and outputs allow only finitely many deterministic trees. Arbitrary independent randomness therefore reduces to a finite mixture of these behaviours.
+At a leaf the tree outputs some fixed word $s$. By the independence just proved, the conditional probability that $s$ is correct is $\prod_h\Pr(P(U_h)=s_h\mid\tau)$. Each factor is at most $V_h(\tau)$, since guessing $s_h$ is an available strategy. Averaging first over leaves (there are at most $rL$ reads per run) and then over the fixed coins and other data proves the bound.
 
 Return to the [final gap bound in Section 5](#classical-finish).
 
 # Appendix C. Testing the classical hypotheses {.unnumbered}
 
-The following examples isolate the roles of independent planting, terminal lightness and the query caps. They change the partial function where stated; they are not small hard instances of the asymptotic family.
+Each of the following small experiments changes one feature of the probability argument in Section 5. The AND and parity functions let us count the possible inputs directly.
 
 \Needspace{13\baselineskip}
 
 ### Independent planting
 
-The identity $\Pr(\text{erased zero hit})=\mathbb EZ/m$ needs $I$ to be independent of the run. Query one fixed position in each of the four columns, so that $\mathbb EZ=1$ and an independent $I$ is hit with probability $1/4$. Suppose instead that $I$ is chosen uniformly among the columns where a zero was found, and uniformly among all four when none was found, which happens with probability $(3/4)^4=81/256$. By symmetry $I$ is still uniform on its own, but now it is hit whenever some zero was found, with probability $1-(3/4)^4=175/256$. A uniform marginal is a weaker condition than independence from the run, and the proof needs independence.
+Choose a row in advance in each of four columns and read its bit. Each read has probability $1/4$ of finding its column's zero, so the expected number $Z$ of discoveries is $1$. Choosing $I$ independently and uniformly selects a discovered zero with probability $\mathbb EZ/4=1/4$.
+
+Now choose $I$ uniformly among columns where a zero was found, falling back to a uniform choice from all four if none was found. By symmetry each column still has probability $1/4$ of selection. But the selected zero was read whenever *any* zero was found, with probability $1-(3/4)^4=175/256$. Independence from the run is what permits the averaging step in Section 5.1.
 
 ### Lightness is a joint event
 
-**Why the event must be joint.** A run that stays light behaves like a capped algorithm, but it need not succeed with probability at most $\beta^r$ given that it stays light. Take $P=\text{AND}$ on the three promised inputs $01,10,11$, uniformly; any one-query algorithm is right with probability at most $\beta=2/3$. Read the first bit, output $0$ if it is $0$, and otherwise read the second bit. This algorithm stays within one query exactly on input $01$, where it is right, so its success given that it stays light is $1$. The true statement concerns the joint event: being right **and** staying within the caps has probability $1/3\le\beta$. This toy illustrates conditioning: it meets the one-query hard-law premise but has $R(P)=L=1$, so it does not instantiate the strict $L<R(P)$ regime of our construction ([record Appendix B.3](https://github.com/wcook04/quartic-query-lean/blob/ba49281af72b53d9cfbb43320d7efdeb29d7ceca/docs/reasoning_record.md#CL-conditioning-counterexample)).
+Take AND on the three equally likely promised inputs $01,10,11$. A single query to either bit settles the answer on one input (the reply is zero) and leaves an equal choice between the two answers on the other two inputs. Thus the best one-query success is $2/3$.
+
+Now read the first bit, return $0$ if it is zero, and otherwise read the second bit and return it. This procedure is always correct. It stays within one read only on input $01$. Its success *given* that it stays within one read is therefore $1$. The probability of success *and* staying within one read is $1/3$, below the one-query bound $2/3$. This is the distinction used in Section 5.2. [Further details of the example](https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md#CL-conditioning-counterexample)
 
 []{#predictor-trace}
 
 ### Two clocks in a capped simulation
 
-A small trace makes the cap concrete. Use the [record's XOR example](https://github.com/wcook04/quartic-query-lean/blob/ba49281af72b53d9cfbb43320d7efdeb29d7ceca/docs/reasoning_record.md#CL-simulator-example), which changes the partial function to $P(a,b)=a\oplus b$. Use column $i$ as the target. In this separate toy, let the two inputs $(a,b)$ and $(c,d)$ be independent fair bit pairs, and set $L=1$. The dummy algorithm first reads an outside string bit, then $a$. Its third query is outside the target if $a=1$, and reads $c$ if $a=0$. Its fourth query proposes a bit in $B_{i,(a,0)}$.
+Return to the four-query parity tree in Section 5.2. In this example $B_{i,s}$ denotes the cell at label $s$ in column $i$. The tree's fourth query specifies a bit of $B_{i,(a,0)}$ and the tree stops after that query. The simulator has a separate count $q$ of actual reads from $(a,b),(c,d)$ and a limit $L=1$. [The four-query tree](https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md#CL-simulator-example)
 
-| Global time | Proposed query | Forwarded count and action |
+| Query number | Tree specifies | Simulator action |
 | --- | --- | --- |
-| $1$ | Outside string bit | $q=0$; answer locally. |
-| $2$ | $a$ | $q:0\to1$; forward. |
-| $3$, $a=1$ | Outside target | $q=1$; answer locally. |
-| $3$, $a=0$ | $c$ | $q=1=L$; stop before reading. |
-| $4$, $a=1$ | Cell $B_{i,10}$ | $q=1$; output label $10$ without reading. |
+| $1$ | A string bit | Supply the bit, $q=0$. |
+| $2$ | $a$ | Read it, so $q=1$. |
+| $3$, if $a=1$ | Another string bit | Supply the bit, $q=1$. |
+| $3$, if $a=0$ | $c$ | Stop and return $00$ before reading $c$. |
+| $4$, if $a=1$ | A bit in $B_{i,10}$ | Return the proposed label $10$. |
 
-If $a=1$, the simulator has spent its one target query learning $a$. It answers the third query from its outside information, then reaches the fourth query and outputs $10$, read from the proposed cell position. It does not read the bit in that cell.
-
-If $a=0$, the proposed third query would read $c$, using a second target query. The simulator stops before that query and outputs the default address $00$. Its cap is enforced on this branch as well.
-
-The first branch gives the light true-cell event exactly when $a=1,b=0,c=d$, with probability $1/8$. The simulator is also correct on $a=0,b=0,c=d$, another event of probability $1/8$. Its total success probability is $1/4$, the separate-cap bound $(1/2)^2$ for two fair XOR inputs. Aborting is part of the algorithm; the probabilities are under the original input distribution, without conditioning on the query count.
+On the $a=1$ branch, $10$ is correct exactly when $b=0$ and $c=d$. The chance of this branch *and* a correct label is $(1/2)(1/2)(1/2)=1/8$. On the $a=0$ branch, the default $00$ is also correct when $b=0$ and $c=d$, contributing another $1/8$. The predictor succeeds with probability $1/4$, whereas the probability that the tree stays within one target read and queries the correct cell at time four is only $1/8$. The difference comes entirely from correct default guesses. For a single fair pair, reading either bit leaves its parity uniformly random, so the two-input bound of Appendix B is $(1/2)^2=1/4$.
 
 ### Separate caps and independent information
 
-*Separate caps.* Take AND on two independent inputs, each uniform on all four two-bit strings; one query to an input gives $\beta=3/4$. A pooled budget of two queries computes the first answer exactly and guesses $0$ for the second, which is right with probability $3/4>9/16$.
+*Separate caps.* Take the two independent AND inputs of Appendix B. With one read allowed from each, the probability of getting both answers right is at most $9/16$. With two reads to spend anywhere, read both bits of the first pair and guess zero for the second. This strategy is right on both answers with probability $3/4$.
 
-*Joint independence.* For the identity on fair bits $X,Y$ with $L=0$, the side information $X\oplus Y$ is independent of each bit separately, yet the guess $(0,X\oplus Y)$ is right whenever $X=0$, with probability $1/2>1/4$.
+*Joint independence.* For independent fair bits $X,Y$, suppose the task is to return $(X,Y)$ without any queries. A guess succeeds with probability $1/4$. If $X\oplus Y$ is supplied, output $(0,X\oplus Y)$. This is right whenever $X=0$, with probability $1/2$. The supplied bit is independent of each individual bit, yet it gives information about the pair. In Section 5.2 the simulated data are independent of the entire tuple.
+
 
 # Appendix D. Exercises and answers {.unnumbered}
 
-These questions revisit the board, the weighted sampler and the capped predictor. The examples in Appendix C supply the independent-planting and two-clock setups. The answers follow the questions.
+**Projection check.** For the two sign blocks obtained from $1111\,1000$ by the convention of Section 4, calculate the signed amplitude $\Phi$ and then the probability of the first measurement outcome. ([Answer](#answer-projection).)
 
-**Projection check.** For $1111\,1000$, calculate the signed amplitude $\Phi$ and then the projection probability. These are different quantities. The [answer](#answer-projection) is separated from the attempt.
+[]{#question-1}**Question 1 (promise certification).** For the all-one column $2$ in the [example with an unpromised address input](#domain-bit-board), consider each of the four possible cell labels. Which of its two membership tests and two value tests fail? ([Answer](#answer-1).)
 
-[]{#question-1}**Question 1 (promise certification).** On the domain-bit board of Section 4, make one row for each of column $2$'s four addresses. In each row name the domain and value outputs that fail and count them; no gate indices are required. ([Answer](#answer-1).)
+[]{#question-2}**Question 2 (conditional sampling and overshoot).** On the board with fixed arrows in Section 3.2, suppose the first two pivots were $2,4$. Calculate the chance of sampling column $1$ after one amplification iteration, then after two. For the separate example in Section 3.1 the weights after pivot $2$ are $(1,0,1/2,1/4)$. Suppose the next pivot is $4$, and that the probabilities of keeping the four labels against it are $(1,3/4,1/2,0)$. Find the probability of drawing each label and obtaining acceptance, and its conditional probability given acceptance. ([Answer](#answer-2).)
 
-[]{#question-2}**Question 2 (conditional sampling and overshoot).** Reconstruct the cycled-board calculation in Section 3.2: after pivots $(2,4)$, why does one amplification iteration help and a second undo the gain? An iteration uses the entire preparation and its inverse, not one bit query. Now continue the unequal-weight example with pivot $4$, taking the four win probabilities against it to be $(1,3/4,1/2,0)$. Find the joint success masses and conditional label law. Multiply the current weights by the comparison probabilities; do not restart from all ones. ([Answer](#answer-2).)
+[]{#question-3}**Question 3 (independent planting).** In the first experiment in Appendix C, now read two fixed distinct rows per column. What is the probability of reading the zero in column $I$ when $I$ is chosen independently? What is it under the second selection rule? If later queries may depend on earlier replies, which identity still holds for an independent $I$? ([Answer](#answer-3).)
 
-[]{#question-3}**Question 3 (independent planting).** In the independent-planting example of Appendix C, now query two fixed distinct positions per column. How often is an independent $I$ hit, and how often the dependent one? If later queries depend on earlier replies, which identity still holds for an independent $I$, and why? ([Answer](#answer-3).)
+[]{#question-4}**Question 4 (two query counts).** In the [four-query parity example](#predictor-trace), change the $a=0$ branch so that query three specifies a bit in $B_{i,00}$. Suppose the tree stops after that read. What is the probability that $a=0$ and this is the true cell? Including the $a=1$ branch, what is the probability that the tree queries the true cell at time three or four and uses at most one target read in the whole run? Repeat the latter calculation if the $a=0$ branch reads $c$ *after* the cell query. ([Answer](#answer-4).)
 
-[]{#question-4}**Question 4 (two clocks and the capped event).** In the two-clock trace of Appendix C, change the $a=0$ branch so that it proposes a query in $B_{i,00}$ at time $3$, before trying to read $c$. If the run stops after this cell query, what probability does the changed branch contribute, and what is the total probability of a light true-cell visit at either indicated time, including the unchanged $a=1$ branch at time $4$? What changes if the $a=0$ branch reads $c$ afterwards? Which fixed-time events must be bounded separately by the simulator lemma? ([Answer](#answer-4).)
+[]{#question-5}**Question 5 (the power $3.5$).** Fix $k=4$. Which powers below four does Section 6 exclude using this one family of boards? Give a value of $k$ for which the calculation excludes $R(f)\le C(1+Q(f))^{3.5}$ itself. ([Answer](#answer-5).)
 
-[]{#question-5}**Question 5 (uniform constants and endpoint powers).** What does $k=4$ prove about $\alpha_{\rm tot}$? Which $k$ makes the argument of Section 6 exclude the endpoint bound $R(f)\le C(1+Q(f))^{3.5}$ itself? ([Answer](#answer-5).)
-
-**Combined explanation.** Using the cycled board and the planted-pair/XOR examples, explain why the quantum list can contain a winner even when a later stage fails, and why any classical light visit gives a capped address prediction. Why does an arbitrary rival's off-promise decoder law not spoil comparison with a genuine winner? For the classical route, take an integer budget $G\le c\,mL$: reconstruct the three charges, show that their sum is at most $4c+c+c/m^8$, and identify where $L\le m$, $r=20\log_2m$ and averaging over the independent $I$ enter. Explain which half of $\alpha_{\rm tot}=4$ these mechanisms establish and which half uses the imported universal theorem. Try this before reading the [rubric](#answer-combined). A one-route reader may quote the other route's bound.
+**Combined explanation.** Why is an all-one column with a valid certificate likely to be on the quantum list even if some trials produce no new pivot? In particular, what happens in a comparison with that column if the other proposed address comes from unpromised inputs? On the classical side, explain how the proposed coordinate of a cell query gives a prediction on the first board. Use the three events of Section 5 to bound the probability of different outputs by $4c+c+c/m^8$ when the query budget is at most $c\,mL$. Which part of the proof that $\alpha_{\rm tot}=4$ still needs a theorem about *all* total functions? ([Answer](#answer-combined).)
 
 ## Answers
 
 []{#answer-projection}**Projection check.** The first sign block is $(-1,-1,-1,-1)$ and its dot product with $(2,-2,-2,-2)$ is $4$. Thus the signed amplitude is $\Phi=4/8=1/2$ and projection probability is $|\Phi|^2=1/4$.
 
-[]{#answer-1}**[Question 1](#question-1).** String, pointer and gate tests pass. Domain bits $(0,1)$ and value bits $(0,0)$ make the first domain test fail always, and a value test fail wherever the address differs from $00$: one failure at $00$, two at $01$ and $10$, three at $11$.
+[]{#answer-1}**[Question 1](#question-1).** Both pointer and string conditions hold, and every recorded gate value is correct. The membership bits are $(0,1)$, so the first membership test fails at all four labels. The recorded value bits are $00$, so each digit $1$ in the label gives one additional failure. The failure counts at $00,01,10,11$ are therefore $1,2,2,3$.
 
 \Needspace{15\baselineskip}
 
-[]{#answer-2}**[Question 2](#question-2).** Multiplying $(1,0,0,1)$ by $(a_{14},a_{24},a_{34},a_{44})=(1,0,1,0)$ gives $(1,0,0,0)$. A preparation succeeds with probability $1/4\ge\gamma$ and then yields column $1$; with $\theta=\pi/6$, one Grover iteration makes success certain, as $\sin^2(3\pi/6)=1$. A second iteration overshoots: $\sin^2(5\pi/6)=1/4$. For the fractional example the new weights are $(1,0,1/4,0)$, joint masses $(1/4,0,1/16,0)$, total success $5/16$, and conditional law $(4/5,0,1/5,0)$. Returning now to the cycled physical board, column $1$ passes verification from the list $\{2,4,1\}$. The unequal-weight example specifies only sampler probabilities; certification uses the board's strings, pointers and transcripts. Columns $2$ and $4$ have failed string tests; the bounded-error verifier discovers those failures with its stated high probability, not with certainty.
+[]{#answer-2}**[Question 2](#question-2).** On the fixed-arrow board the weights after pivot $2$ are $(1,0,0,1)$. Multiply these, entry by entry, by the probabilities against $4$, namely $(1,0,1,0)$. This leaves $(1,0,0,0)$. A single unamplified preparation has success probability $q=1/4$, and every success returns column $1$. Thus $\theta=\pi/6$. One iteration gives success probability $\sin^2(3\pi/6)=1$, and two iterations give $\sin^2(5\pi/6)=1/4$. For the unequal-weight example, the new weights are $(1,0,1/4,0)$. Dividing by four gives the probabilities of drawing each index and accepting it, $(1/4,0,1/16,0)$. They add to $5/16$. Dividing by this total gives the conditional probabilities $(4/5,0,1/5,0)$.
 
-[]{#answer-3}**[Question 3](#question-3).** Even for adaptive queries, independence gives $\Pr(\text{erased zero hit})=\mathbb EZ/4$ by conditioning on the complete dummy run. For the fixed two-position experiment, an independent $I$ is hit with probability $\mathbb EZ/4=1/2$; the dependent choice misses only when no zero is found, so it is hit with probability $1-(1/2)^4=15/16$. This product uses two distinct fixed positions in each column and independent zero locations. An adaptive policy preserves the complete-run identity but need not preserve that fixed-pattern product.
+[]{#answer-3}**[Question 3](#question-3).** Each zero is in a read position with probability $2/4$. With independent selection, $\Pr(\text{selected zero read})=\mathbb EZ/4=1/2$. Under the second selection rule, reading at least one zero suffices, which has probability $1-(1/2)^4=15/16$ because the row choices are fixed and the zero locations independent. For adaptive queries the identity $\mathbb EZ/4$ still holds for independent $I$. Once the whole run on the first board is specified, exactly $Z$ of the four choices of $I$ select a discovered zero.
 
-[]{#answer-4}**[Question 4](#question-4).** First assume that the changed branch stops after the cell query. The cell query now occurs after only one target query, so the simulator reaches it and outputs $00$. It is a true-cell query when $a=0,b=0,c=d$, with probability $(1/2)(1/2)(1/2)=1/8$. Including the unchanged $a=1$ branch gives total probability $1/4$. If the algorithm instead reads $c$ afterwards, the entire $a=0$ branch is heavy and contributes zero to the joint light-visit event. No query is deleted from the count. The remaining probability is $1/8$, from the unchanged $a=1$ branch. In the stopping version, the fixed-time probabilities are $1/8$ at time $3$ and $1/8$ at time $4$; their union is $1/4$.
+[]{#answer-4}**[Question 4](#question-4).** The changed query at time three specifies the true cell when $a=0,b=0,c=d$, with probability $(1/2)(1/2)(1/2)=1/8$. If the tree stops after it, the target read count is one. The other branch gives a true-cell query at time four within the same cap when $a=1,b=0,c=d$, also with probability $1/8$. The two events are disjoint, so their union has probability $1/4$. If $c$ is read afterwards, there are two target reads on the $a=0$ branch. The cell query still occurred, but the run now exceeds the limit. Only the $a=1$ event at time four counts, with probability $1/8$.
 
-[]{#answer-5}**[Question 5](#question-5).** $k=4$ excludes every power strictly below $3.5$, so it proves $\alpha_{\rm tot}\ge3.5$. To exclude the endpoint inequality itself by this argument, take $k>2/(4-3.5)=4$, for example $k=5$. At $k=4$ and $\alpha=3.5$, the ratio estimate has $d=0$ and only a reciprocal logarithmic factor; it does not diverge. At $k=5$, $d=2-1/5-3.5/2=1/20>0$, so it does diverge.
+[]{#answer-5}**[Question 5](#question-5).** At $k=4$ the exponent $4-2/k$ is $3.5$, so the ratio in Section 6 diverges for every $\alpha<3.5$ and proves $\alpha_{\rm tot}\ge3.5$. At $\alpha=3.5$ the power $2-1/k-\alpha/2$ of $m$ in the lower bound on the ratio is zero, leaving a reciprocal power of $\log m$. To get a diverging lower bound at this particular $\alpha$, choose $k=5$, giving $2-1/5-3.5/2=1/20>0$.
 
-[]{#answer-combined}**Combined explanation.** Each unlisted winner has weight at least $(1-\varepsilon)^T$. Halving makes this much remaining weight unlikely, and a later failure preserves the list already drawn. On the losing board, predict the address from a proposed query coordinate, aborting before the first unaffordable target query. Every light true-cell visit supplies a correct prediction at its query time. For $G\le c\,mL$ the three charges are bounded by $4cL/m$, $c$ and $c\,mL\,m^{-10}$. Since $L\le m$ these sum to at most $4c+c+c/m^8$. The first two charges use the independence of the planted column. In the third, sum over times and average over columns. These arguments exclude every smaller universal exponent; the deterministic quartic bound establishes that four suffices.
+[]{#answer-combined}**Combined explanation.** When the correct address is used for the winning column, its pointer identifies a zero in the other column. Every pointer in the reverse direction identifies a one, for every proposed address. The probability of the correct comparison result is therefore at least the probability of decoding the winner's own address correctly. After $T$ pivots other than the winning one, the winning index would still have weight at least $(1-\varepsilon)^T\ge1-T\varepsilon>1/2$, yet the expected remaining total weight in the ideal sampling calculation is at most $m/2^T$. This bounds the probability of missing that index. Before its inclusion the actual sampler has success probability before amplification at least $1/(2m)$ and its probability of exhausting its trials is at most $\varepsilon$ per stage. Once a column is listed, later sampling failures cannot remove it.
+
+In the classical simulation, stop at the proposed cell query and output its label. Stop earlier with a default if another target read would exceed $L$. A query to the true cell of a light column is therefore a correct prediction at that query time. For $G\le c\,mL$, the probabilities of reading the erased zero, selecting a heavy column, and visiting the true cell of a light selected column are respectively at most $4cL/m$, $c$, and $c\,mL\,m^{-10}$. Here $r=20\log_2m$ gives the last factor $m^{-10}$. The estimates use independence of $I$ to average over discovered zeros and heavy columns. For light columns one sums over times and averages over $I$. Since $L\le m$, the three bounds sum to at most $4c+c+c/m^8$. The constructed functions exclude every exponent less than four. The universal deterministic query bound gives the inequality at exponent four.
 
 # Appendix E. Following the formal proofs {.unnumbered}
 
-The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md) connects the mathematical statements to their Lean definitions and proofs. Start with the [winning condition](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#def-wins): the domain-bit board fails precisely because one of its address inputs is not promised. The [family theorem](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#thm-headline) uses one circuit for both complexities, and the [explicit bounds](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#src-constants) give the six and $1/400$ printed here.
+The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md) connects the mathematical statements to their Lean definitions and proofs. For example, the [winning condition](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#def-wins) requires every address input of a winning column to satisfy the promise. In the example of Section 4, this excludes column $2$, the only all-one column. The [family theorem](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#thm-headline) uses one circuit for both query bounds. The [explicit bounds](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#src-constants) give the logarithmic exponent six and the factor $1/400$ in Section 6.
 
-The formal quantum argument uses the exact probability law of the measured candidate, followed by verification. That law is what the Boolean algorithm needs. The stronger assertion about retaining the whole successful physical state has a separate correspondence still to be formalized; the headline result does not assume it. The [optimal-exponent theorem](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#thm-alpha) combines the separating family with a formal proof of the universal quartic bound. The index explains these proof routes and gives their precise scope.
-
-\clearpage
+The formal quantum proof uses the probability distribution of the measured column label and verifies the resulting candidates. The separate statement that preserves the entire normalized successful quantum state is still to be formalized. The [optimal-exponent theorem](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#thm-alpha) combines the constructed family with a formal proof of the universal quartic bound.
 
 # References {.unnumbered}
 

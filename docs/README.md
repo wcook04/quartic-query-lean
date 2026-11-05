@@ -10,12 +10,12 @@ later change.
 | Document | Purpose and scope |
 | --- | --- |
 | [Expert companion](expert_companion.md) | The result and its decisive proof for readers of the cited query-complexity literature. |
-| [Exposition](exposition.md) | A teaching route through the objects, operations and main inferences. |
+| [Exposition](exposition.md) | Start with a four-by-four table. Change one bit, compare two columns, and work out what a classical or quantum query can reveal. |
 | [Long reasoning record](reasoning_record.md) | Full mathematical arguments and formal-statement audit, with a [bibliography](reasoning_record.bib), [correspondence](reasoning_record_correspondence.json) and [version-bound review](reasoning_record_review.json). |
 | [Website reading API](reading_api.md) | The versioned data contract, [audience entrances and authored connections](reading_routes.json), formal source lookup and edition export. |
 | [Proof index](proof_index.md) | Mathematical descriptions and direct links to statements and substantive proofs; generated from the [authored introduction](proof_index_intro.md) and the existing source registry. |
 | [Verification details](verification_details.md) | Separate statement catalogue, historical checks and exact formal correspondence. |
-| [Writing method](writing_method.md) | The current three-document method and its successive revision applications; [the latest changes to the order of the proofs](../research/adjudication/paper_purpose_revision.md#what-a-shortlist-and-a-query-each-reveal). |
+| [Writing method](writing_method.md) | The current three-document method and its successive revision applications; [the first-principles revision and its reader checks](../research/adjudication/paper_purpose_revision.md#from-one-bit-to-the-quartic-bound). |
 | [Statement evidence contract](statement_evidence_contract.md) | Rules for relating printed statements, Lean declarations and recorded checks. |
 | [Statement fidelity review](statement_fidelity_review.md) | Independent AI reading of the conditional development at `efc70f3`; it did not run Lean. Preserve its findings as a record of that revision. |
 | [Forrelation lower-bound blueprint](forrelation_lower_bound_blueprint.md) | The implementation route and its development notes. Its status passages reflect the stages at which they were written. |
