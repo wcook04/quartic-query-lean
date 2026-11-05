@@ -5,7 +5,8 @@ import type { Edition } from "../app/edition";
 import { statementName } from "../app/papers";
 import { LeanCode } from "../lean/LeanCode";
 import { Axioms, Checks, RelationMark, Reviewer, relationSentence } from "./evidence";
-import { DeclButton, Elsewhere, Loaded, shortName } from "./common";
+import { DeclButton, DeclTitle, Elsewhere, Loaded } from "./common";
+import { declarationTitle, useNames } from "./Names";
 import { useNav } from "./Nav";
 
 export function StatementPanel({ edition, id }: { edition: Edition; id: string }) {
@@ -18,7 +19,7 @@ export function StatementPanel({ edition, id }: { edition: Edition; id: string }
           <p>{r.ledgerStatement}</p>
           <p>This edition records the following links to Lean. Its review predates the comparison of which theorem covers the whole statement.</p>
           <ul>{r.ties?.map((t: any) => <li key={t.file + t.declaration}>
-            <a href={t.sourceURL}>{t.declaration}</a> ({t.relation})
+            <a href={t.sourceURL} title={t.declaration}><DeclTitle name={t.declaration} /></a> ({t.relation})
           </li>)}</ul>
         </article>
       ) : <Statement r={r} />}
@@ -55,7 +56,7 @@ function Statement({ r }: { r: any }) {
             <p className="verdict__more">
               {rest.length === 1 ? "One other Lean theorem is" : `${rest.length} other Lean theorems are`} also compared below,{" "}
               {rest.map((c, i) => (
-                <span key={c.declaration}>{i ? ", " : ""}<code>{shortName(c.declaration)}</code> ({c.relation})</span>
+                <span key={c.declaration}>{i ? ", " : ""}<DeclButton name={c.declaration} /> ({c.relation})</span>
               ))}.
             </p>
           )}
@@ -124,10 +125,11 @@ function Statement({ r }: { r: any }) {
 
 function Comparison({ c, leading }: { c: any; leading: boolean }) {
   const nav = useNav();
+  const title = declarationTitle(useNames(), c.declaration);
   const [showType, setShowType] = useState(leading);
   const assumptions: string[] = c.open_assumptions ?? [];
   return (
-    <section className={`cmp${leading ? " cmp--lead" : ""}`} aria-label={`Comparison with ${shortName(c.declaration)}`}>
+    <section className={`cmp${leading ? " cmp--lead" : ""}`} aria-label={`Comparison with ${title.title_plain}`}>
       <header className="cmp__head">
         <RelationMark relation={c.relation} />
         <DeclButton name={c.declaration} />

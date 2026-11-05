@@ -9,6 +9,7 @@ from build_corpus import canonical_sha256, source_hashes
 from reading_applications import application_resources
 from reading_board import board_example
 from reading_proof_map import proof_map
+from reading_titles import declaration_titles
 
 
 def sha(raw):
@@ -337,7 +338,13 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
     edition.add("selection/statement-users.json", used_by)
     edition.add("selection/targets.json", formal_targets)
     edition.add("selection/reverse.json", by_name)
-    edition.add("selection/proof-map.json", proof_map(edition, graph, recorded_names, by_name, selections, statements))
+    required = set(recorded_names)
+    required.update(row["name"] for targets in formal_targets.values() for row in targets)
+    required.update(tie["declaration"] for statement in statements.values() for tie in statement["lean"])
+    required.update("QuarticQuery.SemanticReview." + probe["name"] for probe in config["semantic_probes"])
+    titles = declaration_titles(edition, graph, required)
+    edition.add("selection/proof-map.json",
+                proof_map(edition, graph, recorded_names, by_name, selections, statements, titles))
     edition.add("selection/index.json", {"schema": "quartic-selection-v1", "revision": edition.commit,
                "documents": document_index,
                "graph": graph, "modules": names, "registry_revision": registry["commit"]})

@@ -5,12 +5,10 @@ import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
 import { LeanCode, nameLinks } from "../lean/LeanCode";
 import { Axioms } from "./evidence";
-import { Title } from "../text/title";
-import { Elsewhere, Loaded, shortName } from "./common";
+import { DeclTitle, Elsewhere, Loaded } from "./common";
 import { useNav } from "./Nav";
 
 const KIND_WORD: Record<string, string> = { value: "proof or body", type: "statement", structural: "structure" };
-const PROJECT = /^Quartic(Query|Corpus)\./;
 
 interface Edge { name: string; kind: string }
 
@@ -25,24 +23,24 @@ function edges(node: any, side: "uses" | "used_by"): Edge[] {
 
 export function LeanPanel({ edition, name }: { edition: Edition; name: string }) {
   const data = useAsync(async () => {
-    const [d, reverse, map] = await Promise.all([edition.reader.fromDeclaration(name), edition.reader.resource("selection/reverse.json"),
-      (edition.reader as any).proofMap().catch(() => null)]);
-    const titles: Record<string, string> = {};
+    const [d, reverse, map, graph] = await Promise.all([edition.reader.fromDeclaration(name), edition.reader.resource("selection/reverse.json"),
+      edition.reader.proofMap().catch(() => null), edition.reader.resource("selection/index.json")]);
+    const cards = new Set<string>();
     let kind: string | null = null;
     if (map?.currentness === "current") {
-      for (const [n, c] of Object.entries<any>(map.cards)) titles[n] = c.title;
+      for (const n of Object.keys(map.cards)) cards.add(n);
       kind = map.cards[name]?.kind ?? null;
     }
     if (!kind && (map as any)?.currentness === "current") {
       const path = await (edition.reader as any).proofPathSource?.(name).catch(() => null);
       kind = path?.kind ?? null;
     }
-    return { d: { ...d, kind }, linked: new Set(Object.keys(reverse)), titles };
+    return { d: { ...d, kind }, linked: new Set(Object.keys(reverse)), cards, modules: graph.modules };
   }, [edition, name]);
-  return <Loaded value={data} what="Lean declaration">{({ d, linked, titles }) => <Declaration d={d} linked={linked} titles={titles} />}</Loaded>;
+  return <Loaded value={data} what="Lean declaration">{({ d, linked, cards, modules }) => <Declaration d={d} linked={linked} cards={cards} modules={modules} />}</Loaded>;
 }
 
-function Declaration({ d, linked, titles }: { d: any; linked: Set<string>; titles: Record<string, string> }) {
+function Declaration({ d, linked, cards, modules }: { d: any; linked: Set<string>; cards: Set<string>; modules: Record<string, string> }) {
   const nav = useNav();
   const src = d.source ?? {};
   const uses = useMemo(() => edges(src, "uses"), [src]);
@@ -52,7 +50,7 @@ function Declaration({ d, linked, titles }: { d: any; linked: Set<string>; title
   if (src.status === "external_module_boundary" || src.status === "outside_recorded_graph") {
     return (
       <article className="panel">
-        <h2 className="panel__title"><code>{d.name}</code></h2>
+        <h2 className="panel__title">{src.status === "external_module_boundary" ? "External package reference" : <DeclTitle name={d.name} />}</h2>
         <p>
           {src.status === "external_module_boundary"
             ? <>This declaration comes from the library module <code>{src.module}</code>, outside the Quartic project. The recorded graph stops here.</>
@@ -67,7 +65,7 @@ function Declaration({ d, linked, titles }: { d: any; linked: Set<string>; title
   return (
     <article className="panel panel--lean" aria-labelledby="ln-h">
       <header className="panel__head">
-        <h2 id="ln-h" className="panel__title">{titles[d.name] ? <Title text={titles[d.name]} /> : <code>{shortName(d.name).split(".").pop()}</code>}</h2>
+        <h2 id="ln-h" className="panel__title"><DeclTitle name={d.name} /></h2>
         <p className="panel__where">
           {src.kind ? `${src.kind} in ` : "In "}<code>{src.module}</code>, lines {src.lines?.[0]}–{src.lines?.[1]}.{" "}
           {src.url && <a href={src.url} target="_blank" rel="noopener noreferrer">Source on GitHub</a>}
@@ -75,9 +73,9 @@ function Declaration({ d, linked, titles }: { d: any; linked: Set<string>; title
       </header>
 
       <p className="cmp__actions"><button type="button" className="button button--small" onClick={() => nav.openGraph(d.name)}>Show it in the graph</button></p>
-      <StatedWith list={uses.filter((e) => e.kind === "type" && PROJECT.test(e.name))} titles={titles} />
-      <Neighbours title={d.kind === "theorem" || d.kind === "lemma" || /^(private |protected )?(theorem|lemma)\s/m.test(src.text ?? "") ? "Its proof uses" : "Its definition uses"} empty="Nothing else in this project." list={uses.filter((e) => e.kind !== "type")} linked={linked} titles={titles} />
-      <Neighbours title="Used by" empty="No other declaration in this project uses it." list={users} linked={linked} titles={titles} />
+      <StatedWith list={uses.filter((e) => e.kind === "type" && Object.hasOwn(modules, e.name))} />
+      <Neighbours title={d.kind === "theorem" || d.kind === "lemma" || /^(private |protected )?(theorem|lemma)\s/m.test(src.text ?? "") ? "Its proof uses" : "Its definition uses"} empty="Nothing else in this project." list={uses.filter((e) => e.kind !== "type")} linked={linked} mapped={cards} modules={modules} />
+      <Neighbours title="Used by" empty="No other declaration in this project uses it." list={users} linked={linked} mapped={cards} modules={modules} />
 
       {src.text ? (
         <section>
@@ -114,7 +112,7 @@ function Declaration({ d, linked, titles }: { d: any; linked: Set<string>; title
 }
 
 /** The definitions a statement is written with: a compact row of names, not proof steps. */
-function StatedWith({ list, titles }: { list: Edge[]; titles: Record<string, string> }) {
+function StatedWith({ list }: { list: Edge[] }) {
   const nav = useNav();
   if (!list.length) return null;
   return (
@@ -122,8 +120,8 @@ function StatedWith({ list, titles }: { list: Edge[]; titles: Record<string, str
       <h3>Its statement is written with</h3>
       <p className="chips">
         {list.map((e) => (
-          <button key={e.name} type="button" className="chip" onClick={() => nav.openLean(e.name)} title={titles[e.name]?.replace(/`/g, "") ?? e.name}>
-            {titles[e.name] ? <Title text={titles[e.name]} /> : <code>{shortName(e.name).split(".").pop()}</code>}
+          <button key={e.name} type="button" className="chip" onClick={() => nav.openLean(e.name)} title={e.name}>
+            <DeclTitle name={e.name} />
           </button>
         ))}
       </p>
@@ -133,21 +131,17 @@ function StatedWith({ list, titles }: { list: Edge[]; titles: Record<string, str
 
 /** What a declaration builds on, or what builds on it: paper-linked cards first, by their
  *  plain titles; helper lemmas and library facts folded into counts the reader can open. */
-function Neighbours({ title, empty, list, linked, titles }: { title: string; empty: string; list: Edge[]; linked: Set<string>; titles: Record<string, string> }) {
+function Neighbours({ title, empty, list, linked, mapped, modules }: { title: string; empty: string; list: Edge[]; linked: Set<string>; mapped: Set<string>; modules: Record<string, string> }) {
   const nav = useNav();
   const [helpers, setHelpers] = useState(false);
-  const project = list.filter((e) => PROJECT.test(e.name));
-  const cards = project.filter((e) => titles[e.name] || linked.has(e.name));
+  const project = list.filter((e) => Object.hasOwn(modules, e.name));
+  const cards = project.filter((e) => mapped.has(e.name) || linked.has(e.name));
   const rest = project.filter((e) => !cards.includes(e));
   const outside = list.length - project.length;
   const Item = ({ e }: { e: Edge }) => (
     <li>
       <button type="button" className="nb" onClick={() => nav.openLean(e.name)} title={e.name}>
-        {titles[e.name] ? (
-          <span className="nb__title"><Title text={titles[e.name]} /></span>
-        ) : (
-          <span className="nb__title"><code>{shortName(e.name).split(".").pop()}</code></span>
-        )}
+        <span className="nb__title"><DeclTitle name={e.name} /></span>
       </button>
     </li>
   );

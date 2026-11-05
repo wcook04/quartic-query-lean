@@ -60,8 +60,7 @@ for `constructor_declaration`. When only `compiledWitness` is present, offer
 the compiled occurrence or the caller’s source. Highlight only `sites`.
 A generated helper may have a `compiledSignature` available to display as its
 Lean type. If there are several occurrences, let the reader choose which to open. Keep
-`otherReferences` distinct from the highlighted use. Render a helper's title
-with its Lean name beneath it. For a paper-specific “encountered” count, send
+`otherReferences` distinct from the highlighted use. Use the edition’s [declaration titles](reading_api.md#look-up-a-declaration-title) for cards, helpers, neighbours, walkthroughs and comparisons. Render inline TeX from `title` and use `title_plain` for measurement and accessibility. Keep identifiers in technical details. For a paper-specific “encountered” count, send
 only visited selection IDs to `paperCardProgress`; keep its denominator and
 surface aligned with the displayed graph. See the [reading API](reading_api.md#count-the-declarations-a-reader-has-encountered).
 

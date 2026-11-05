@@ -4,7 +4,6 @@
 // edition: an edge runs from a declaration to one it uses, as Lean recorded it,
 // possibly through helper lemmas the map does not draw (see proofWitness).
 import type { ArgEdge, ArgGraph, ArgNode, LinkKind, Origin } from "../model/graph";
-import { plainTitle } from "../text/title";
 
 export interface ProofCard {
   kind: string;
@@ -14,6 +13,7 @@ export interface ProofCard {
   source: string;
   statements: Record<string, { relation: string; review: string; route: string }>;
   title: string;
+  title_plain: string;
 }
 export interface ProofMap {
   currentness: string;
@@ -40,7 +40,7 @@ export function proofGraph(map: ProofMap): ArgGraph {
     if (isType(c)) continue;
     nodes.set(name, {
       ...blank, id: name, ref: name, kind: c.kind === "axiom" ? "assumption" : "declaration",
-      kindLabel: KIND_WORDS[c.kind] ?? "Definition", label: plainTitle(c.title), math: /[`$]/.test(c.title) ? c.title : undefined, rawName: name.split(".").pop(), declaration: name,
+      kindLabel: KIND_WORDS[c.kind] ?? "Definition", label: c.title_plain || "Title unavailable", math: c.title || undefined, declaration: name,
       shape: shapeOf(c), leanFill: c.kind === "axiom" ? undefined : "whole",
       status: c.kind === "axiom" ? "axiom" : "kernel_checked", origin: LEAN,
     });

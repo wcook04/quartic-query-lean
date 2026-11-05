@@ -41,13 +41,6 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [contents, setContents] = useState<ContentsRow[]>([]);
   const [lit, setLit] = useState<string[]>([]);
   const [names, setNames] = useState<{ reader: typeof reader; titles: DeclarationTitles } | null>(null);
-  useEffect(() => {
-    let live = true;
-    (reader as any).declarationTitles().then((result: { titles: DeclarationTitles }) => {
-      if (live) setNames({ reader, titles: result.titles });
-    }, () => {});
-    return () => { live = false; };
-  }, [reader]);
   // Selections this reader has met in this edition and paper (this browser only).
   const visitKey = `quartic:visited:${edition.permalink}:${paper}`;
   const [visited, setVisited] = useState<string[]>(() => { try { return JSON.parse(localStorage.getItem(visitKey) ?? "[]"); } catch { return []; } });
@@ -86,6 +79,18 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const mode: "graph" | "path" | "lean" | "evidence" =
     route.v === "graph" ? "graph" : route.v === "path" ? "path" : route.v === "lean" ? "lean" : route.v === "statement" || route.v === "journey" ? "evidence"
       : route.s || route.p ? "evidence" : "graph";
+
+  // The graph and its paths already carry their titles. Fetch the full index
+  // only when a panel may display arbitrary neighbours or statement targets.
+  const needsTitles = open && (mode === "lean" || mode === "evidence");
+  useEffect(() => {
+    if (!needsTitles) return;
+    let live = true;
+    reader.declarationTitles().then((result: { titles: DeclarationTitles }) => {
+      if (live) setNames({ reader, titles: result.titles });
+    }, () => {});
+    return () => { live = false; };
+  }, [reader, needsTitles]);
 
   // The cards lit in the graph: the selected passage's, else the reading line's.
   useEffect(() => {

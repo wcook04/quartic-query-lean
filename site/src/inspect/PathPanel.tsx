@@ -4,10 +4,9 @@ import { useState } from "react";
 import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
 import { LeanCode } from "../lean/LeanCode";
-import { Loaded, shortName } from "./common";
-import { useNav } from "./Nav";
-
 import { Title } from "../text/title";
+import { Loaded } from "./common";
+import { useNav } from "./Nav";
 
 const KIND_OF: Record<string, string> = { supports: "value", lean_type_dependency: "type", lean_structural_dependency: "structural" };
 const USAGE: Record<string, string> = {
@@ -93,7 +92,7 @@ function Step({ reader, decl, name, card }: { reader: any; decl: any; name: stri
   return (
     <div className={`chain__step${card ? " chain__step--card" : ""}`}>
       <p className="chain__name">
-        <strong>{decl?.title ? <Title text={decl.title} /> : shortName(name)}</strong>{" "}
+        <strong title={name} aria-label={decl?.title_plain ?? "Title unavailable"}><Title text={decl?.title ?? "Title unavailable"} /></strong>{" "}
         <span className="quiet">{card ? "card on the graph" : "helper"}{decl?.kind ? `, ${decl.kind}` : ""}</span>
       </p>
       <p className="chain__actions">

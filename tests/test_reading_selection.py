@@ -184,6 +184,101 @@ end QuarticQuery.Fixture
 
 @unittest.skipUnless(shutil.which("node"), "Node required to exercise the ES module")
 class ReaderConsumerTests(unittest.TestCase):
+    def test_declaration_titles_are_lazy_and_bound_to_the_selected_edition(self):
+        script = r"""
+import assert from "node:assert/strict";
+import {createHash} from "node:crypto";
+import {openEdition} from "./tools/reader.mjs";
+const revision = "a".repeat(40), otherRevision = "b".repeat(40);
+const base = new URL("https://example.test/reading/v1/");
+const hash = bytes => createHash("sha256").update(bytes).digest("hex");
+const canonical = value => Array.isArray(value) ? "["+value.map(canonical).join(",")+"]"
+  : value && typeof value === "object" ? "{"+Object.keys(value).sort().map(k => JSON.stringify(k)+":"+canonical(value[k])).join(",")+"}"
+  : JSON.stringify(value);
+const goal = "QuarticQuery.goal", helper = "QuarticQuery.helper";
+const map = {revision,currentness:"current",root:goal,source_snapshot_sha256:"source",
+  helper_resource:"selection/proof-helpers.json",cards:{[goal]:{title:"The `$x$` result",source:"Goal.lean",lines:[1,2],kind:"theorem"}},
+  edges:[{from:goal,to:helper,witnesses:{value:0}}],paths:[[null,"value",helper]]};
+const helpers = {revision,source_snapshot_sha256:"source",helpers:{[helper]:{title:"A $y$ helper",source:"Helper.lean",lines:[1,2],kind:"lemma"},
+  "QuarticQuery.noTitle":{title:null}}};
+function host(extra) {
+  const objects = new Map(), resources = {};
+  for (const [path, value] of Object.entries({"selection/start.json":{revision,documents:{},home:{}},...extra})) {
+    const raw = new TextEncoder().encode(canonical(value)+"\n"), sha256 = hash(raw);
+    const href = `objects/${sha256}.json`;
+    resources[path] = {sha256,href,bytes:raw.length};
+    objects.set(href,raw);
+  }
+  const payload = {schema:"quartic-reading-api-v1",revision,repository:"https://example.test/project",resources};
+  const permalink = `edition-${hash(canonical(payload)+"\n")}.json`;
+  const manifest = {...payload,permalink}, requests = [];
+  return {requests,permalink,fetch:async (url, opts) => {
+    assert.equal(opts.redirect,"error");
+    const path = url.href.slice(base.href.length);
+    requests.push(path);
+    if (path === permalink) return Response.json(manifest);
+    assert(objects.has(path),`Unexpected resource request: ${path}`);
+    return new Response(objects.get(path));
+  }};
+}
+async function open(extra) {
+  const server = host(extra);
+  return {server,reader:await openEdition(base,{edition:server.permalink,fetch:server.fetch})};
+}
+const canonicalTitle = {title:"A $\\sqrt{x}$ result",title_plain:"A square-root result"};
+const current = await open({"selection/declaration-titles.json":{revision,status:"current",titles:{[goal]:canonicalTitle}},
+  "selection/proof-map.json":{...map,cards:{[goal]:{...map.cards[goal],...canonicalTitle}}}});
+assert.equal(current.server.requests.length,2,"Opening an edition never fetches declaration titles or the graph");
+await current.reader.home();
+assert.equal(current.server.requests.length,2);
+const titles = await current.reader.declarationTitles();
+assert.deepEqual(titles,{revision,status:"current",titles:{[goal]:canonicalTitle}});
+assert.equal(current.server.requests.length,3,"Titles load one compact resource, without the graph or sources");
+assert.deepEqual(await current.reader.declarationTitle(goal),{revision,name:goal,status:"current",...canonicalTitle});
+assert.equal((await current.reader.declarationTitle("QuarticQuery.unknown")).status,"missing_title");
+assert.equal((await current.reader.declarationTitle("And")).title,null);
+await current.reader.declarationTitles();
+assert.equal(current.server.requests.length,3,"Repeated and singular lookups share the verified resource");
+assert.equal((await current.reader.proofMap()).cards[goal].title_plain,"A square-root result","Modern plain titles are never inferred from TeX");
+
+const archived = await open({"selection/proof-map.json":map,"selection/proof-helpers.json":helpers});
+assert.equal(archived.server.requests.length,2);
+const oldMap = await archived.reader.proofMap();
+assert.equal(archived.server.requests.length,3,"Opening a legacy graph does not fetch all helpers");
+assert.equal(oldMap.cards[goal].title_plain,"The x result");
+const captured = await archived.reader.declarationTitles();
+assert.equal(captured.status,"archived_partial");
+assert.deepEqual(captured.titles[goal],{title:"The `$x$` result",title_plain:"The x result"});
+assert.deepEqual(captured.titles[helper],{title:"A $y$ helper",title_plain:"A y helper"});
+assert(!Object.hasOwn(captured.titles,"QuarticQuery.noTitle"));
+assert.equal(archived.server.requests.length,4,"Only this edition's captured card and helper titles are read");
+assert.equal((await archived.reader.declarationTitle(goal)).status,"archived_partial");
+const absent = await archived.reader.declarationTitle("QuarticQuery.unknown");
+assert.equal(absent.status,"missing_title");
+assert.equal(absent.titleIndexStatus,"archived_partial");
+assert.equal(absent.title,null);
+const path = await archived.reader.proofPath(goal,helper);
+assert.equal(path.declarations[helper].title_plain,"A y helper");
+
+const empty = await open({});
+assert.deepEqual(await empty.reader.declarationTitles(),{revision,status:"unavailable_in_edition",titles:{}});
+assert.equal(empty.server.requests.length,2,"Absent legacy title resources cause no speculative fetches");
+const stale = await open({"selection/proof-map.json":{...map,currentness:"stale"},"selection/proof-helpers.json":helpers});
+assert.deepEqual(await stale.reader.declarationTitles(),{revision,status:"stale",titles:{}});
+assert.equal(stale.server.requests.length,3,"Stale graph titles are not recovered from helpers");
+const staleIndex = await open({"selection/declaration-titles.json":{revision,status:"stale",titles:{[goal]:canonicalTitle}}});
+assert.deepEqual(await staleIndex.reader.declarationTitles(),{revision,status:"stale",titles:{}});
+const mixed = await open({"selection/declaration-titles.json":{revision:otherRevision,status:"current",titles:{[goal]:canonicalTitle}}});
+await assert.rejects(mixed.reader.declarationTitles(),/Mixed paper and graph editions/);
+const malformed = await open({"selection/declaration-titles.json":{revision,titles:{[goal]:canonicalTitle}}});
+await assert.rejects(malformed.reader.declarationTitles(),/Invalid declaration title index/);
+const mixedHelpers = await open({"selection/proof-map.json":map,
+  "selection/proof-helpers.json":{...helpers,source_snapshot_sha256:"another source"}});
+await assert.rejects(mixedHelpers.reader.declarationTitles(),/Mixed proof path sources/);
+"""
+        subprocess.run(["node", "--input-type=module", "-"], cwd=api.ROOT,
+                       input=script, text=True, check=True)
+
     def test_consume_six_selections_and_scope_from_the_static_edition(self):
         edition = api.Edition(api.ROOT)
         api.compile_edition(edition)
@@ -324,12 +419,14 @@ const legacy = JSON.parse(JSON.stringify(info));
 delete legacy.permalink;
 delete legacy.resources["selection/start.json"];
 delete legacy.resources["selection/proof-map.json"];
+delete legacy.resources["selection/declaration-titles.json"];
 delete legacy.resources["selection/by-statement.json"];
 delete legacy.resources["selection/applications.json"];
 legacy.permalink = "edition-"+createHash("sha256").update(JSON.stringify(legacy)+"\n").digest("hex")+".json";
 const archive = await openEdition(base,{edition:legacy.permalink,fetch:(url,opts) =>
   url.pathname.endsWith(legacy.permalink) ? Response.json(legacy) : request(url,opts)});
 assert.equal((await archive.proofMap()).currentness,"unavailable_in_edition");
+assert.deepEqual(await archive.declarationTitles(),{revision:archive.revision,status:"unavailable_in_edition",titles:{}});
 assert.equal((await archive.proofPath(from,to)).status,"unavailable_in_edition");
 const archived = await archive.manuscript("exposition");
 assert.equal(archived.html,null);

@@ -1,6 +1,5 @@
 """Build the reader's paper-linked view of the headline Lean dependency closure."""
 from collections import defaultdict, deque
-import re
 import json
 import hashlib
 
@@ -8,20 +7,6 @@ from build_comparator_map import lean_blocks
 
 ROOT = "QuarticQuery.theorem_1_1_unconditional"
 KINDS = ("value", "type", "structural")
-# The opening cards and declarations whose source comments use only shorthand.
-CAPTIONS = {
-    "theorem_1_1_unconditional": "The nearly quartic separation for total Boolean functions",
-    "alphaTot_eq_four_unconditional": "The optimal universal exponent is four",
-    "family_bounds": "One circuit family witnesses both query bounds",
-    "universalPower_four": "The universal quartic upper bound",
-    "ForrelationLower.bansalSinhaLower": "Randomized hardness of the Forrelation promise problem",
-    "Amplification.Preparation.grover": "The Grover iteration on a prepared state",
-    "Amplification.groverCircuit": "Prepare a state and apply the Grover iterations",
-    "Forrelation.P_eq_some_true_iff": "Forrelation at or above the threshold gives output one",
-    "Forrelation.P_eq_some_false_iff": "Small absolute Forrelation gives output zero",
-    "addressedF_eq_true_iff": "The addressed board accepts exactly when a column wins",
-    "card_testIndex": "The number of local tests for a candidate column",
-}
 
 
 def neighbours(nodes, name):
@@ -86,7 +71,7 @@ def map_edges(nodes, visible):
              for (a, b), witnesses in sorted(edges.items())], paths)
 
 
-def declaration_info(edition, nodes, blocks, name):
+def declaration_info(edition, nodes, blocks, name, titles):
     module = nodes[name]["module"]
     path = "lean/" + module.replace(".", "/") + ".lean"
     if module not in blocks:
@@ -94,13 +79,9 @@ def declaration_info(edition, nodes, blocks, name):
     block = blocks[module].get(name)
     # Lean can name constructor projections and compiler-generated proof terms
     # for which the source index has no separate declaration.
-    info = {"module": module, "source": path, "lines": None, "kind": None, "title": None}
+    info = {"module": module, "source": path, "lines": None, "kind": None, **titles[name]}
     if block:
-        comment = re.sub(r"\bLedger:\s*.*?(?:\.(?=\s|$)|$)", "", block["doc_comment"] or "").strip()
-        comment = re.sub(r"^[A-Z][0-9]+\.\s+", "", comment)
-        caption = CAPTIONS.get(name.removeprefix("QuarticQuery.")) or comment
-        info.update(kind=block["kind"], lines=[block["line_start"], block["line_end"]],
-                    title=re.split(r"(?<=\.)\s+", caption, maxsplit=1)[0] or None)
+        info.update(kind=block["kind"], lines=[block["line_start"], block["line_end"]])
     return info
 
 
@@ -268,7 +249,7 @@ def add_use_sites(edition, graph, nodes, edges, paths, helpers):
     return resource
 
 
-def proof_map(edition, graph, nodes, by_name, selections, statements):
+def proof_map(edition, graph, nodes, by_name, selections, statements, titles):
     result = {"schema": "quartic-proof-map-v1", "revision": edition.commit, "root": ROOT,
               "currentness": graph["currentness"], "source_snapshot_sha256": graph["source_snapshot_sha256"]}
     if graph["currentness"] != "current":
@@ -295,19 +276,14 @@ def proof_map(edition, graph, nodes, by_name, selections, statements):
                     ties[sid] = {"relation": tie["relation"], "review": tie["review_evidence"], "route": tie["route"]}
         if not linked and name != ROOT:
             continue
-        info = declaration_info(edition, nodes, blocks, name)
-        if not info["title"] or not info["lines"]:
-            raise ValueError(f"proof map: provide a reader caption and source range for {name}")
+        info = declaration_info(edition, nodes, blocks, name, titles)
+        if not info["lines"]:
+            raise ValueError(f"proof map: provide a source range for {name}")
         cards[name] = {**info, "statements": ties}
     edges, paths = map_edges(nodes, cards)
     hidden = {target for _, _, target in paths} - cards.keys()
     helper_resource = "selection/proof-helpers.json"
-    titles = edition.json("docs/reading_helper_titles.json")
-    helpers = {name: declaration_info(edition, nodes, blocks, name) for name in sorted(hidden)}
-    for name, info in helpers.items():
-        info["title"] = titles.get(name) or info["title"]
-        if not info["title"]:
-            raise ValueError(f"add a reader title for proof helper {name}")
+    helpers = {name: declaration_info(edition, nodes, blocks, name, titles) for name in sorted(hidden)}
     sites = add_use_sites(edition, graph, nodes, edges, paths, helpers)
     edition.add(helper_resource, {"revision": edition.commit, "source_snapshot_sha256": result["source_snapshot_sha256"],
                 "helpers": helpers})

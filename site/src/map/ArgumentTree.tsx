@@ -577,7 +577,9 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       const title = m?.title ?? el.querySelector<HTMLElement>(".card__ctitle");
       if (!title) continue;
       const kind: TitleKind = lid === goalRef.current ? "root" : title.classList.contains("lean") ? "lean" : "card";
-      const label = title.textContent ?? "";
+      // KaTeX includes both visual and accessibility text; measure the edition's
+      // canonical plain title rather than that duplicated DOM text.
+      const label = el.dataset.full ?? title.textContent ?? "";
       if (!m || m.label !== label || m.kind !== kind) {
         m = { label, kind, title, t: measureTitle(title, label, kind) };
         measured.current.set(lid, m);
@@ -2428,7 +2430,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
           const tab = lid === roving ? 0 : -1;
           const lean = hasLean(id, node);
           const section = lens ? props.sectionOf?.get(id) : undefined;
-          const tileLean = node.kind === "declaration" && !node.rawName;
+          const tileLean = node.kind === "declaration" && !node.rawName && !node.declaration;
           const tile = tileLean ? node.label.slice(node.label.lastIndexOf(".") + 1) : tileTitle(id, node.label);
           const usedBy = built.shared.get(id) ?? 0;
           return (
@@ -2449,7 +2451,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
               style={{ width: layout.boxes.get(lid)?.w ?? shown.current.get(lid)?.rect.w ?? 176, height: dense ? layout.boxes.get(lid)?.h : undefined, ["--rank" as string]: layout.rank.get(lid) ?? 0, ["--enter-i" as string]: enterOrder.get(lid) ?? 0 }}
               role="group"
               aria-label={`${node.label}${node.rawName ? ` (${node.rawName})` : ""}, ${kindName(node.kind)}${clone ? `, drawn once under each of the ${usedBy} records that use it` : ""}${lean ? ", linked to Lean" : ""}`}
-              title={clone ? node.label : undefined}
+              title={node.declaration ?? (clone ? node.label : undefined)}
               onClick={(event) => {
                 if ((event.target as Element).closest?.(".card__inputs, .card__usedby, .tag, a")) return;
                 walkLid.current = lid;
@@ -2477,7 +2479,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
                   aria-pressed={id === selected}
                   aria-label={`Open ${node.label}`}
                 >
-                  <span className={`card__title${node.kind === "declaration" ? " lean" : ""}`}>{node.kind === "declaration" ? <LeanName name={node.label} /> : node.label}</span>
+                  <span className={`card__title${tileLean ? " lean" : ""}`}>{node.math ? <span dangerouslySetInnerHTML={{ __html: titleHtml(node.math) }} /> : tileLean ? <LeanName name={node.label} /> : node.label}</span>
                   {node.status === "open" && <span className="card__status"> (unresolved)</span>}
                 </button>
                 {tags.length > 0 && (

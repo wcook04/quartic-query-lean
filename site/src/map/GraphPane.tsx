@@ -7,6 +7,7 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArgumentTree, type Insets, type MapViewHandle } from "./ArgumentTree";
 import type { ArgGraph } from "../model/graph";
 import { GOAL, isType, type ProofMap } from "./fromProofMap";
+import { Title } from "../text/title";
 import "./tokens.css";
 import "./graph.css";
 
@@ -168,7 +169,7 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
         <span className="vocab__name">Types</span>
         <div className="vocab__list">
           {types.map(([name, c]) => (
-            <button key={name} type="button" className={lit.includes(name) ? "is-lit" : ""} onClick={() => onSelect(name)} title={name}>{c.title}</button>
+            <button key={name} type="button" className={lit.includes(name) ? "is-lit" : ""} onClick={() => onSelect(name)} title={name} aria-label={c.title_plain || "Title unavailable"}><Title text={c.title || "Title unavailable"} /></button>
           ))}
         </div>
         {progress && (

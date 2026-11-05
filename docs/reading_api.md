@@ -67,6 +67,33 @@ targets and the rival replies, with the comparison rule and outcome. Its scope
 is an illustration. The exposition entrance's `first_selection` starts with
 the question above the table.
 
+## Look up a declaration title
+
+Use the exact declaration ID for navigation and the edition’s title for display.
+
+```js
+const {status, titles} = await reader.declarationTitles()
+const label = await reader.declarationTitle("QuarticQuery.Gvalue_lt_R_Fkm")
+if (label.title !== null) {
+  renderInlineMath(label.title)
+  button.setAttribute("aria-label", label.title_plain)
+}
+```
+
+The first lookup fetches one hash-verified resource. A current edition covers every project
+node, including generated declarations, plus the named comparison targets and semantic examples.
+Cards and path helpers already carry both fields from the same index. Use them directly to draw the
+map. Titles are editorial descriptions. A statement’s correspondence record and each arrow’s Lean
+witness provide the evidence.
+
+An unknown name returns `missing_title` with null text. Show the gap. Keep raw identifiers available
+in code and technical details. An older edition can supply `archived_partial` labels from its own
+cards and helpers, or `unavailable_in_edition`. A stale graph withholds its index.
+The [title source](reading_declaration_titles.json) is bound to the Lean snapshot. Use a string for
+prose or a pair for a caption with inline `$…$` TeX and its readable plain rendering. Export checks
+the declaration set and the prose around every formula. The site build renders every expression
+with the reader’s pinned KaTeX.
+
 ## Open the Lean map beside the paper
 
 The map is an optional, immutable edition resource at `selection/proof-map.json`
@@ -158,7 +185,7 @@ Omit the kind to inspect every variant. Each hop carries its own Lean `kind` and
 display `usage` (proof, body, statement or structural_reference). A body with
 unknown declaration kind is labelled body. Declarations identify whether they
 are cards or helpers, their module and any available kind, title and source
-range. Use the Lean name when the title is null. A null range means the reader
+range. Show a missing-title state when the edition lacks a title. A null range means the reader
 can open the pinned module; it has no separate verified excerpt for that name.
 On a current kernel capture, each hop also carries `evidence.compiledWitness`.
 For an expression this gives the path from the compiled type or value to a

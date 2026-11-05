@@ -114,6 +114,55 @@ export async function openReader(indexURL, options) {
   const start = Object.hasOwn(manifest.resources, "selection/start.json")
     ? await revisionResource("selection/start.json") : null;
   const {documents} = start ?? await revisionResource(indexPath);
+  const titlesPath = "selection/declaration-titles.json";
+  const hasTitleIndex = Object.hasOwn(manifest.resources, titlesPath);
+  // Compatibility for titles actually captured by older editions only. Modern
+  // editions supply their own authored plain text; never derive it from TeX.
+  function capturedTitle(record) {
+    if (typeof record?.title !== "string" || !record.title.trim()) return null;
+    return {title: record.title, title_plain: typeof record.title_plain === "string"
+      ? record.title_plain : record.title.replace(/\$([^$]+)\$/g, "$1").replace(/`([^`]+)`/g, "$1")};
+  }
+  function legacyTitle(record) {
+    return hasTitleIndex ? record : {...record, ...(capturedTitle(record) ?? {})};
+  }
+
+  let titleRequest;
+  function declarationTitles() {
+    if (!titleRequest) titleRequest = (async () => {
+      if (hasTitleIndex) {
+        const index = await revisionResource(titlesPath);
+        if (!["current", "stale"].includes(index.status) || !index.titles ||
+            typeof index.titles !== "object" || Array.isArray(index.titles))
+          throw new Error("Invalid declaration title index");
+        return {revision, status: index.status, titles: index.status === "current" ? index.titles : {}};
+      }
+      const map = await proofMap();
+      if (map.currentness !== "current") return {revision, status: map.currentness, titles: {}};
+      const titles = Object.create(null);
+      function capture(records) {
+        for (const [name, record] of Object.entries(records ?? {})) {
+          const title = capturedTitle(record);
+          if (title) titles[name] = title;
+        }
+      }
+      capture(map.cards);
+      if (map.helper_resource) {
+        const catalog = await revisionResource(map.helper_resource);
+        if (catalog.source_snapshot_sha256 !== map.source_snapshot_sha256)
+          throw new Error("Mixed proof path sources");
+        capture(catalog.helpers);
+      }
+      return {revision, status: Object.keys(titles).length ? "archived_partial" : "unavailable_in_edition", titles: {...titles}};
+    })().catch(error => { titleRequest = undefined; throw error; });
+    return titleRequest;
+  }
+  async function declarationTitle(name) {
+    const index = await declarationTitles();
+    return Object.hasOwn(index.titles, name)
+      ? {revision, name, status: index.status, ...index.titles[name]}
+      : {revision, name, status: "missing_title", title: null, title_plain: null, titleIndexStatus: index.status};
+  }
 
   async function home() {
     if (start) return start.home;
@@ -143,7 +192,9 @@ export async function openReader(indexURL, options) {
   async function proofMap() {
     const path = "selection/proof-map.json";
     if (!Object.hasOwn(manifest.resources, path)) return {revision, currentness: "unavailable_in_edition"};
-    return revisionResource(path);
+    const map = await revisionResource(path);
+    if (hasTitleIndex || !map.cards) return map;
+    return {...map, cards: Object.fromEntries(Object.entries(map.cards).map(([name, card]) => [name, legacyTitle(card)]))};
   }
 
   async function proofFocus({paper, id, line, page}) {
@@ -228,7 +279,7 @@ export async function openReader(indexURL, options) {
       info = {module, source, lines, title: null, kind: null};
     }
     if (!info) throw new Error("Unknown proof path declaration");
-    return {name, role: "helper", ...info};
+    return {name, role: "helper", ...legacyTitle(info)};
   }
 
   /**
@@ -606,5 +657,5 @@ export async function openReader(indexURL, options) {
     if (!path.endsWith(".svg")) throw new Error("Unrecognized figure format");
     return new Blob([await readBytes(path)], {type: "image/svg+xml"});
   }
-  return {revision, permalink, documents, home, proofMap, proofFocus, paperCardProgress, proofWitness, proofPath, proofPathSource, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
+  return {revision, permalink, documents, home, declarationTitles, declarationTitle, proofMap, proofFocus, paperCardProgress, proofWitness, proofPath, proofPathSource, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
 }

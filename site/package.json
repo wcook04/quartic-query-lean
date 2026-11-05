@@ -11,7 +11,7 @@
   "scripts": {
     "data": "node scripts/link-data.mjs",
     "dev": "node scripts/link-data.mjs && vite",
-    "build": "tsc --noEmit && vite build && node scripts/link-data.mjs --copy dist",
+    "build": "node scripts/check-title-math.mjs && tsc --noEmit && vite build && node scripts/link-data.mjs --copy dist",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },

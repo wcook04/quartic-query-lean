@@ -44,6 +44,54 @@ class ReadingEditionTest(unittest.TestCase):
                 self.assertIn(name.rsplit(".", 1)[-1], "\n".join(lines[start - 1:end]))
                 self.assertIn(label, reverse["declarations"][name]["targets"])
 
+    def test_declaration_titles_cover_reader_endpoints_and_match_map_projections(self):
+        index = self.resource(self.reading["declaration_titles"])
+        graph = self.resource("selection/index.json")
+        self.assertEqual(index["revision"], self.edition.commit)
+        self.assertEqual(index["source_snapshot_sha256"], graph["graph"]["source_snapshot_sha256"])
+        self.assertEqual(index["status"], "current")
+        titles = index["titles"]
+        required = set(graph["modules"])
+        for rows in self.resource("selection/targets.json").values():
+            required.update(row["name"] for row in rows)
+        for path in self.reading["fidelity"].values():
+            review = self.resource(path)
+            required.update(t["declaration"] for t in review["lean"])
+            required.update(t["declaration"] for t in review["semantic_probes"])
+        required.update(self.resource(self.reading["applications"])["by_declaration"])
+        self.assertEqual(titles.keys(), required)
+        view = self.resource(self.reading["proof_map"])
+        helpers = self.resource(view["helper_resource"])["helpers"]
+        for name, entry in {**view["cards"], **helpers}.items():
+            self.assertEqual({field: entry[field] for field in titles[name]}, titles[name])
+        example = titles["QuarticQuery.Gvalue_lt_R_Fkm"]
+        self.assertIn("$G<R(F_{k,m})$", example["title"])
+        self.assertIn("t ≥ 8", example["title_plain"])
+
+    def test_declaration_title_gaps_stale_sources_and_markup(self):
+        from reading_titles import declaration_titles, title_record, RESOURCE, SOURCE
+        edition = api.Edition(api.ROOT)
+        graph = {"currentness": "current", "source_snapshot_sha256": "first"}
+        def source(snapshot, titles):
+            edition.inputs[SOURCE] = json.dumps({"source_snapshot_sha256": snapshot, "titles": titles}).encode()
+        source("first", {"A": "A useful theorem"})
+        with self.assertRaisesRegex(ValueError, "missing titles.*B"):
+            declaration_titles(edition, graph, {"A", "B"})
+        with self.assertRaisesRegex(ValueError, "obsolete titles.*A"):
+            declaration_titles(edition, graph, set())
+        source("previous", {})
+        with self.assertRaisesRegex(ValueError, "new Lean source snapshot"):
+            declaration_titles(edition, graph, set())
+        edition.inputs[SOURCE] = b'{"titles":{"A":"First","A":"Second"}}'
+        with self.assertRaisesRegex(ValueError, "duplicate declaration title"):
+            declaration_titles(edition, graph, {"A"})
+        declaration_titles(edition, {**graph, "currentness": "stale"}, {"A"})
+        self.assertEqual(json.loads(edition.resources[RESOURCE])["titles"], {})
+        for value in ("QuarticQuery.A", "The bound F_{k,m}", "An unmarked Φ", "The `bound`", ["Cost $x", "Cost x"],
+                      ["Cost $$", "Cost x"], ["Cost $x$", "Time x"], ["Cost $x$", "Cost $x$"]):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                title_record("QuarticQuery.A", value)
+
     def test_proof_map_witnesses_are_real_typed_hops_and_never_cross_a_card(self):
         graph = self.edition.json("corpus/reading_dependencies.json")["nodes"]
         view = self.resource(self.reading["proof_map"])
@@ -218,7 +266,7 @@ class ReadingEditionTest(unittest.TestCase):
         self.assertEqual(set(links), {("A", "D"), ("D", "E"), ("D", "A")})
         self.assertEqual(set(links["A", "D"]), {"type", "value"})
         self.assertEqual(paths[links["A", "D"]["value"]][1:], ["structural", "D"])
-        stale = proof_map(self.edition, {"currentness": "stale", "source_snapshot_sha256": "previous"}, {}, {}, {}, {})
+        stale = proof_map(self.edition, {"currentness": "stale", "source_snapshot_sha256": "previous"}, {}, {}, {}, {}, {})
         self.assertEqual(stale["currentness"], "stale")
         self.assertNotIn("edges", stale)
 
