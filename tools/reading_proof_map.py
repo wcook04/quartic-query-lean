@@ -84,6 +84,24 @@ def map_edges(nodes, visible):
              for (a, b), witnesses in sorted(edges.items())], paths)
 
 
+def declaration_info(edition, nodes, blocks, name):
+    module = nodes[name]["module"]
+    path = "lean/" + module.replace(".", "/") + ".lean"
+    if module not in blocks:
+        blocks[module] = {b["name"]: b for b in lean_blocks(edition.read(path).decode())}
+    block = blocks[module].get(name)
+    # Lean can name constructor projections and compiler-generated proof terms
+    # for which the source index has no separate declaration.
+    info = {"module": module, "source": path, "lines": None, "kind": None, "title": None}
+    if block:
+        comment = re.sub(r"\bLedger:\s*.*?(?:\.(?=\s|$)|$)", "", block["doc_comment"] or "").strip()
+        comment = re.sub(r"^[A-Z][0-9]+\.\s+", "", comment)
+        caption = CAPTIONS.get(name.removeprefix("QuarticQuery.")) or comment
+        info.update(kind=block["kind"], lines=[block["line_start"], block["line_end"]],
+                    title=re.split(r"(?<=\.)\s+", caption, maxsplit=1)[0] or None)
+    return info
+
+
 def proof_map(edition, graph, nodes, by_name, selections, statements):
     result = {"schema": "quartic-proof-map-v1", "revision": edition.commit, "root": ROOT,
               "currentness": graph["currentness"], "source_snapshot_sha256": graph["source_snapshot_sha256"]}
@@ -111,18 +129,15 @@ def proof_map(edition, graph, nodes, by_name, selections, statements):
                     ties[sid] = {"relation": tie["relation"], "review": tie["review_evidence"], "route": tie["route"]}
         if not linked and name != ROOT:
             continue
-        if module not in blocks:
-            blocks[module] = {b["name"]: b for b in lean_blocks(edition.read(path).decode())}
-        block = blocks[module][name]
-        comment = re.sub(r"\bLedger:\s*.*?(?:\.(?=\s|$)|$)", "", block["doc_comment"] or "").strip()
-        comment = re.sub(r"^[A-Z][0-9]+\.\s+", "", comment)
-        caption = CAPTIONS.get(name.removeprefix("QuarticQuery.")) or comment
-        if not caption:
-            raise ValueError(f"proof map: provide a reader caption for {name}")
-        cards[name] = {"title": re.split(r"(?<=\.)\s+", caption, maxsplit=1)[0], "kind": block["kind"],
-                       "module": module, "source": path, "lines": [block["line_start"], block["line_end"]],
-                       "statements": ties}
+        info = declaration_info(edition, nodes, blocks, name)
+        if not info["title"] or not info["lines"]:
+            raise ValueError(f"proof map: provide a reader caption and source range for {name}")
+        cards[name] = {**info, "statements": ties}
     edges, paths = map_edges(nodes, cards)
+    hidden = {target for _, _, target in paths} - cards.keys()
+    helper_resource = "selection/proof-helpers.json"
+    edition.add(helper_resource, {"revision": edition.commit, "source_snapshot_sha256": result["source_snapshot_sha256"],
+                "helpers": {name: declaration_info(edition, nodes, blocks, name) for name in sorted(hidden)}})
     # One deterministic tree of real map edges for the initial layout. Other evidence
     # edges remain available, including alternative parents and reciprocal uses.
     adjacent = defaultdict(list)
@@ -145,4 +160,4 @@ def proof_map(edition, graph, nodes, by_name, selections, statements):
         cards[name]["parent"] = parent[name]
     papers = {paper: [{"id": r["id"], **({"page": r["location"]["page"]} if "location" in r else {"lines": r["lines"]}),
                        "bindings": {n: sorted(bases) for n, bases in locations[paper][r["id"]].items()}} for r in rows] for paper, rows in selections.items()}
-    return {**result, "closure_size": len(reachable), "cards": cards, "edges": edges, "paths": paths, "papers": papers}
+    return {**result, "helper_resource": helper_resource, "closure_size": len(reachable), "cards": cards, "edges": edges, "paths": paths, "papers": papers}

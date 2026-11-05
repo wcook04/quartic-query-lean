@@ -39,8 +39,14 @@ and its [layout engine](https://github.com/wcook04/proof-reader/tree/e2df8880a89
 Fetch `proofMap()` when the reader opens Graph. Use `proofFocus()` as the active
 paragraph or PDF page changes. Reveal focused cards and their parent chains;
 selecting a card opens `proofCardSource()` in Lean. Returning to Graph should
-restore the same card and paper position. Show hidden helper hops on demand with
-`proofWitness()`. In the long paper use the manuscript’s `contents` for the
+restore the same card and paper position. For an arrow, pass its stored endpoints to
+[`proofPath()`](reading_api.md#inspect-the-helpers-behind-one-arrow).
+The map adapter's `supports`, `lean_type_dependency` and
+`lean_structural_dependency` correspond to `value`, `type` and `structural`.
+Show the ordered hops and open a helper with `proofPathSource(name)`.
+For the paper-to-theorem link, open the statement comparison. If a reading
+filter visually combines several map edges, inspect its actual segments;
+their displayed endpoints alone do not establish a new Lean dependency. In the long paper use the manuscript’s `contents` for the
 outline and its anchor destinations. Test at a mapped passage and at an
 illustration with no map card.
 

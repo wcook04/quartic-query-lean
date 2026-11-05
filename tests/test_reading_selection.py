@@ -211,6 +211,32 @@ assert.equal(hops.at(-1).to,edge.to);
 assert.equal(count, requestsBeforeMap + 1);
 assert((await trusted.proofCardSource(map.root)).text.includes("theorem theorem_1_1_unconditional"));
 assert.equal(count, requestsBeforeMap + 2);
+const direct = map.edges.find(e => Object.values(e.witnesses).every(w => map.paths[w][0] === null));
+const beforeDetails = count;
+assert((await trusted.proofPath(direct.from,direct.to)).variants.every(v => v.helperCount === 0));
+assert.equal(count,beforeDetails);
+const from = "QuarticQuery.Upper.familyBoundsAt_of_lower", to = "QuarticQuery.Forrelation.forrConstant";
+const detail = await trusted.proofPath(from,to,"value");
+assert.equal(count,beforeDetails+1); // One verified helper catalog. Source stays on demand.
+const helper = "QuarticQuery.Upper.budgetConst_pos";
+assert.deepEqual(detail.variants[0].hops.map(h => [h.from,h.to,h.usage]), [[from,helper,"proof"],[helper,to,"proof"]]);
+assert.equal(detail.variants[0].helperCount,1);
+assert.equal(detail.declarations[helper].role,"helper");
+assert((await trusted.proofPathSource(helper)).text.includes("budgetConst_pos"));
+const missingSpan = await trusted.proofPathSource("QuarticQuery.Amplification.Preparation.mk");
+assert.equal(missingSpan.lines,null);
+assert.equal(missingSpan.text,null);
+assert(missingSpan.url.endsWith(missingSpan.source));
+const multiple = map.edges.find(e => Object.keys(e.witnesses).length > 1);
+const choices = await trusted.proofPath(multiple.from,multiple.to);
+assert.deepEqual(choices.variants.map(v => v.firstKind),Object.keys(multiple.witnesses));
+for (const v of choices.variants) {
+  const witness = await trusted.proofWitness(multiple.from,multiple.to,v.firstKind);
+  assert.deepEqual(v.hops.map(({usage,...hop}) => hop),witness);
+}
+assert.equal((await trusted.proofPath("paper:thm-1.1",map.root)).status,"not_a_dependency_edge");
+await assert.rejects(trusted.proofPath(from,to,"type"),/witness kind/);
+await assert.rejects(trusted.proofPathSource("toString"),/Unknown proof path/);
 const familyDetails = await trusted.journey("forrelation-family");
 assert.deepEqual(front.family, {overview:familyDetails.overview, scaling:familyDetails.scaling});
 // Simulate the earlier manifest shape while serving the actual source-only package.
@@ -224,6 +250,7 @@ legacy.permalink = "edition-"+createHash("sha256").update(JSON.stringify(legacy)
 const archive = await openEdition(base,{edition:legacy.permalink,fetch:(url,opts) =>
   url.pathname.endsWith(legacy.permalink) ? Response.json(legacy) : request(url,opts)});
 assert.equal((await archive.proofMap()).currentness,"unavailable_in_edition");
+assert.equal((await archive.proofPath(from,to)).status,"unavailable_in_edition");
 const archived = await archive.manuscript("exposition");
 assert.equal(archived.html,null);
 assert.equal(createHash("sha256").update(archived.source).digest("hex"), archive.documents.exposition.sha256);

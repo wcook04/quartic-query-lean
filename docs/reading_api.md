@@ -115,6 +115,45 @@ the headline map. Keep the paper location; the wider proof and raw Lean remain
 available via the ordinary selection inspector. Map data from a different edition
 must never be substituted. `stale` and `unavailable_in_edition` are explicit statuses.
 
+### Inspect the helpers behind one arrow
+
+Pass the consumer and prerequisite in the map's stored direction. The backend
+returns one recorded path per available first-hop kind. A direct path has zero
+helpers. A path with intermediates lists them in order from the selected card
+to its prerequisite. For example, open the path that uses the positive budget
+constant in the upper bound.
+
+```js
+const from = "QuarticQuery.Upper.familyBoundsAt_of_lower"
+const to = "QuarticQuery.Forrelation.forrConstant"
+const path = await reader.proofPath(from, to, "value")
+if (path.status === "current") {
+  const {hops, helperCount} = path.variants[0]
+  const helper = path.declarations[hops[0].to] // QuarticQuery.Upper.budgetConst_pos
+  const lean = await reader.proofPathSource(helper.name) // verified bytes, pinned URL
+}
+```
+
+Omit the kind to inspect every variant. Each hop carries its own Lean `kind` and
+display `usage` (proof, body, statement or structural_reference). A body with
+unknown declaration kind is labelled body. Declarations identify whether they
+are cards or helpers, their module and any available kind, title and source
+range. Use the Lean name when the title is null. A null range means the reader
+can open the pinned module; it has no separate verified excerpt for that name.
+The chain witnesses compiled dependencies at declaration level. An exact
+application site requires the separate application evidence.
+
+A direct-only inspection uses the loaded map. The first indirect inspection
+loads one small helper catalog for this edition; code loads when a reader
+chooses a declaration. The first map edition uses its own module shards for
+helper locations. A missing or stale map returns its status. A pair outside
+the recorded map returns `not_a_dependency_edge`, including the editorial
+arrow from the paper headline to the formal theorem.
+
+```sh
+node tools/query_reading_api.mjs build/reading-api/v1/index.json --proof-path QuarticQuery.Upper.familyBoundsAt_of_lower QuarticQuery.Forrelation.forrConstant value
+```
+
 For the section outline, use `(await reader.manuscript(paper)).descriptor.contents`
 in web editions. Each row has the printed title and level, the real HTML
 `anchor`, an inclusive `line` through `end_line` range (including subsections),

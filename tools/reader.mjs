@@ -143,8 +143,11 @@ export async function openReader(indexURL, options) {
     const map = await proofMap();
     const edge = map.edges?.find(e => e.from === from && e.to === to);
     if (!edge || !Object.hasOwn(edge.witnesses, firstKind)) throw new Error("Unknown proof map witness");
+    return witnessSteps(map, from, edge.witnesses[firstKind]);
+  }
+
+  function witnessSteps(map, from, cursor) {
     const steps = [];
-    let cursor = edge.witnesses[firstKind];
     while (cursor != null) {
       const [prefix, kind, target] = map.paths[cursor];
       steps.push({from: prefix == null ? from : map.paths[prefix][2], to: target, kind});
@@ -153,13 +156,73 @@ export async function openReader(indexURL, options) {
     return steps.reverse();
   }
 
+  async function pathNode(map, name) {
+    if (Object.hasOwn(map.cards, name)) return {name, role: "card", ...map.cards[name]};
+    let info;
+    if (map.helper_resource) {
+      const catalog = await revisionResource(map.helper_resource);
+      if (catalog.source_snapshot_sha256 !== map.source_snapshot_sha256)
+        throw new Error("Mixed proof path sources");
+      if (Object.hasOwn(catalog.helpers, name)) info = catalog.helpers[name];
+    } else if (map.paths.some(([, , target]) => target === name)) {
+      // The first map edition shipped these ranges in its module shards.
+      const {module, source, lines} = await expand(name);
+      info = {module, source, lines, title: null, kind: null};
+    }
+    if (!info) throw new Error("Unknown proof path declaration");
+    return {name, role: "helper", ...info};
+  }
+
+  /**
+   * @param {string} from Consumer declaration.
+   * @param {string} to Prerequisite declaration.
+   * @param {"value"|"type"|"structural"} [firstKind] Omit to show all recorded variants.
+   */
+  async function proofPath(from, to, firstKind) {
+    const map = await proofMap();
+    if (map.currentness !== "current") return {revision, status: map.currentness};
+    const edge = map.edges.find(e => e.from === from && e.to === to);
+    if (!edge) return {revision, status: "not_a_dependency_edge"};
+    const availableKinds = Object.keys(edge.witnesses);
+    if (firstKind != null && !Object.hasOwn(edge.witnesses, firstKind))
+      throw new Error("Unknown proof map witness kind");
+    const names = new Set([from]);
+    const witnesses = (firstKind == null ? availableKinds : [firstKind]).map(kind => {
+      const hops = witnessSteps(map, from, edge.witnesses[kind]);
+      for (const hop of hops) names.add(hop.to);
+      return {firstKind: kind, helperCount: hops.length - 1, hops};
+    });
+    const entries = await Promise.all([...names].map(async n => [n, await pathNode(map, n)]));
+    const declarations = Object.fromEntries(entries);
+    function describe(hop) {
+      if (hop.kind === "type") return {...hop, usage: "statement"};
+      if (hop.kind === "structural") return {...hop, usage: "structural_reference"};
+      const proof = ["lemma", "theorem"].includes(declarations[hop.from].kind);
+      return {...hop, usage: proof ? "proof" : "body"};
+    }
+    const variants = witnesses.map(v => ({...v, hops: v.hops.map(describe)}));
+    return {revision, status: "current", edition: permalink, from, to, availableKinds, variants, declarations};
+  }
+
+  async function sourceExcerptForNode(name, node) {
+    const {source, lines} = node;
+    const url = `${manifest.repository}/blob/${revision}/${source}`;
+    if (!lines) return {name, source, lines: null, text: null, url};
+    const [first, last] = lines;
+    return {name, source, lines, text: (await resource(source)).split("\n").slice(first-1, last).join("\n"),
+            url: `${url}#L${first}-L${last}`};
+  }
+
+  async function proofPathSource(name) {
+    const map = await proofMap();
+    if (map.currentness !== "current") throw new Error("Proof paths unavailable in this edition");
+    return sourceExcerptForNode(name, await pathNode(map, name));
+  }
+
   async function proofCardSource(name) {
     const map = await proofMap();
     if (!map.cards || !Object.hasOwn(map.cards, name)) throw new Error("Unknown proof map card");
-    const {source, lines} = map.cards[name];
-    const [first, last] = lines;
-    return {name, source, lines, text: (await resource(source)).split("\n").slice(first-1, last).join("\n"),
-            url: `${manifest.repository}/blob/${revision}/${source}#L${first}-L${last}`};
+    return sourceExcerptForNode(name, map.cards[name]);
   }
 
   async function expand(name) {
@@ -437,5 +500,5 @@ export async function openReader(indexURL, options) {
     if (!path.endsWith(".svg")) throw new Error("Unrecognized figure format");
     return new Blob([await readBytes(path)], {type: "image/svg+xml"});
   }
-  return {revision, permalink, documents, home, proofMap, proofFocus, proofWitness, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
+  return {revision, permalink, documents, home, proofMap, proofFocus, proofWitness, proofPath, proofPathSource, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
 }
