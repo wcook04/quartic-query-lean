@@ -44,6 +44,56 @@ class ReadingEditionTest(unittest.TestCase):
                 self.assertIn(name.rsplit(".", 1)[-1], "\n".join(lines[start - 1:end]))
                 self.assertIn(label, reverse["declarations"][name]["targets"])
 
+    def test_proof_map_witnesses_are_real_typed_hops_and_never_cross_a_card(self):
+        graph = self.edition.json("corpus/reading_dependencies.json")["nodes"]
+        view = self.resource(self.reading["proof_map"])
+        cards = view["cards"]
+        root = view["root"]
+        self.assertEqual(cards[root]["statements"]["thm-1.1"]["relation"], "exact")
+        self.assertEqual(cards["QuarticQuery.alphaTot_eq_four_unconditional"]["statements"]["thm-1.1"]["relation"], "partial")
+        edges = {(e["from"], e["to"]) for e in view["edges"]}
+        for name in cards:
+            path = {name}
+            while name != root:
+                parent = cards[name]["parent"]
+                self.assertIn((parent, name), edges)
+                self.assertNotIn(parent, path)
+                path.add(parent)
+                name = parent
+        skipped = False
+        for e in view["edges"]:
+            for first, w in e["witnesses"].items():
+                hops = []
+                while w is not None:
+                    w, kind, target = view["paths"][w]
+                    hops.append((kind, target))
+                hops.reverse()
+                self.assertEqual(hops[0][0], first)
+                self.assertEqual(hops[-1][1], e["to"])
+                self.assertFalse(any(target in cards for _, target in hops[:-1]))
+                skipped |= len(hops) > 1
+                name = e["from"]
+                for kind, target in hops:
+                    self.assertIn(target, graph[name][kind])
+                    name = target
+        self.assertTrue(skipped)
+
+    def test_condensation_preserves_distinct_first_uses_and_stops_at_visible_cards(self):
+        from reading_proof_map import map_edges, proof_map
+        nodes = {n: {"value": [], "type": [], "structural": []} for n in "ABCDE"}
+        nodes["A"].update(type=["B"], value=["C"])
+        nodes["B"]["value"] = ["D"]
+        nodes["C"]["structural"] = ["D", "external"]
+        nodes["D"]["value"] = ["E", "A"]
+        edges, paths = map_edges(nodes, {"A", "D", "E"})
+        links = {(e["from"], e["to"]): e["witnesses"] for e in edges}
+        self.assertEqual(set(links), {("A", "D"), ("D", "E"), ("D", "A")})
+        self.assertEqual(set(links["A", "D"]), {"type", "value"})
+        self.assertEqual(paths[links["A", "D"]["value"]][1:], ["structural", "D"])
+        stale = proof_map(self.edition, {"currentness": "stale", "source_snapshot_sha256": "previous"}, {}, {}, {}, {})
+        self.assertEqual(stale["currentness"], "stale")
+        self.assertNotIn("edges", stale)
+
     def test_board_tasks_and_their_bound_entrance(self):
         known, hidden, pointers = self.resource(self.reading["board_example"])["scenes"]
         self.assertEqual(known["selections"][0]["id"], self.reading["entrances"]["exposition"]["first_selection"])
@@ -70,6 +120,12 @@ class ReadingEditionTest(unittest.TestCase):
             Tags().feed(edition.resources[descriptor["rendered"]["resource"]].decode())
             ids = [a["id"] for _, a in tags if "id" in a]
             self.assertEqual(len(ids), len(set(ids)))
+            for section in descriptor["contents"]:
+                self.assertIn(section["anchor"], ids)
+                self.assertGreaterEqual(section["end_line"], section["line"])
+            if key == "reconstruction":
+                self.assertFalse(descriptor["contents"][0]["listed"])
+                self.assertTrue(any(h["anchor"] == "the-theorem-and-the-construction" for h in descriptor["contents"]))
             for _, a in tags:
                 if a.get("href", "").startswith("#"):
                     self.assertIn(a["href"][1:], ids)

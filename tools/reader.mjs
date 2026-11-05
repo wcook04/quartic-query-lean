@@ -111,6 +111,57 @@ export async function openReader(indexURL, options) {
     }
     return {entrances, board, family};
   }
+  async function proofMap() {
+    const path = "selection/proof-map.json";
+    if (!Object.hasOwn(manifest.resources, path)) return {revision, currentness: "unavailable_in_edition"};
+    return revisionResource(path);
+  }
+
+  async function proofFocus({paper, id, line, page}) {
+    const map = await proofMap();
+    if (map.currentness !== "current") return {currentness: map.currentness, matches: [], cards: []};
+    if (!Object.hasOwn(documents, paper)) throw new Error("Unknown paper");
+    const rows = map.papers[paper];
+    const doc = documents[paper];
+    let matches;
+    if (id != null && line == null && page == null) {
+      matches = rows.filter(row => row.id === id);
+      if (!matches.length) throw new Error("Unknown selection: " + id);
+    } else if (id == null && line == null && doc.format === "pdf" && Number.isSafeInteger(page) && page >= 1 && page <= doc.pages) {
+      matches = rows.filter(row => row.page === page);
+    } else if (id == null && page == null && doc.format !== "pdf" && Number.isSafeInteger(line) && line >= 1 && line <= doc.lines) {
+      matches = rows.filter(row => row.lines[0] <= line && line <= row.lines[1]);
+      const width = row => row.lines[1] - row.lines[0];
+      const shortest = Math.min(...matches.map(width));
+      matches = matches.filter(row => width(row) === shortest);
+    } else throw new Error("Select one passage ID, manuscript line or original PDF page");
+    const cards = [...new Set(matches.flatMap(row => Object.keys(row.bindings)))];
+    return {currentness: map.currentness, matches, cards};
+  }
+
+  async function proofWitness(from, to, firstKind) {
+    const map = await proofMap();
+    const edge = map.edges?.find(e => e.from === from && e.to === to);
+    if (!edge || !Object.hasOwn(edge.witnesses, firstKind)) throw new Error("Unknown proof map witness");
+    const steps = [];
+    let cursor = edge.witnesses[firstKind];
+    while (cursor != null) {
+      const [prefix, kind, target] = map.paths[cursor];
+      steps.push({from: prefix == null ? from : map.paths[prefix][2], to: target, kind});
+      cursor = prefix;
+    }
+    return steps.reverse();
+  }
+
+  async function proofCardSource(name) {
+    const map = await proofMap();
+    if (!map.cards || !Object.hasOwn(map.cards, name)) throw new Error("Unknown proof map card");
+    const {source, lines} = map.cards[name];
+    const [first, last] = lines;
+    return {name, source, lines, text: (await resource(source)).split("\n").slice(first-1, last).join("\n"),
+            url: `${manifest.repository}/blob/${revision}/${source}#L${first}-L${last}`};
+  }
+
   async function expand(name) {
     const {modules} = await revisionResource(indexPath);
     if (!Object.hasOwn(modules, name)) {
@@ -386,5 +437,5 @@ export async function openReader(indexURL, options) {
     if (!path.endsWith(".svg")) throw new Error("Unrecognized figure format");
     return new Blob([await readBytes(path)], {type: "image/svg+xml"});
   }
-  return {revision, permalink, documents, home, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
+  return {revision, permalink, documents, home, proofMap, proofFocus, proofWitness, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
 }

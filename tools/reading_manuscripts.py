@@ -127,6 +127,34 @@ class Fragment(HTMLParser):
         self.output.append(escape(data, quote=False))
 
 
+def section_contents(tree, outline, fragment, last_line):
+    """Bind the printed headings to Pandoc's own destinations and source blocks."""
+    headers = []
+    for div in tree["blocks"]:
+        attrs, children = div["c"]
+        if "source-block" not in attrs[1]:
+            continue
+        bounds = dict(attrs[2])
+        for child in children:
+            if child["t"] == "Header":
+                level, (anchor, classes, _), _ = child["c"]
+                headers.append((level, anchor, classes, int(bounds["data-l0"]), int(bounds["data-l1"])))
+    if len(headers) != len(outline):
+        raise ValueError("rendered headings differ from the manuscript outline")
+    contents = []
+    active = []
+    for row, (level, anchor, classes, first, last) in zip(outline, headers):
+        if row["level"] != level or not first <= row["line"] <= last or anchor not in fragment.ids:
+            raise ValueError(f"outline cannot locate heading {row['title']}")
+        while active and active[-1]["level"] >= level:
+            active.pop()["end_line"] = row["line"] - 1
+        item = {**row, "title": re.sub(r"\s*\{[^}]+\}$", "", row["title"]), "anchor": anchor,
+                "listed": "unlisted" not in classes, "end_line": last_line}
+        active.append(item)
+        contents.append(item)
+    return contents
+
+
 def manuscript_resources(edition, papers, texts, repository):
     paths = {p["path"]: key for key, p in papers.items()}
     version = subprocess.check_output(["pandoc", "--version"], text=True).splitlines()[0]
@@ -147,6 +175,7 @@ def manuscript_resources(edition, papers, texts, repository):
         fragment = Fragment(paper["path"], paths, paper["assets"], f"{repository}/blob/{edition.commit}/")
         fragment.feed(result.decode())
         fragment.close()
+        paper["contents"] = section_contents(tree, paper["outline"], fragment, len(text.splitlines()))
         fragments[key] = fragment
         resource = f"manuscripts/{key}.html"
         edition.resources[resource] = "".join(fragment.output).encode()

@@ -67,6 +67,60 @@ targets and the rival replies, with the comparison rule and outcome. Its scope
 is an illustration. The exposition entrance's `first_selection` starts with
 the question above the table.
 
+## Open the Lean map beside the paper
+
+The map is an optional, immutable edition resource at `selection/proof-map.json`
+(advertised in `reading.json.proof_map`). The bundled client loads it on first
+opening the pane. Following the paper or inspecting a collapsed edge then uses the
+same object in memory. Choosing a card's Lean fetches its verified module source.
+
+```js
+const map = await reader.proofMap()
+if (map.currentness === "current") {
+  const focus = await reader.proofFocus({paper: "original", id: "original/thm-1.1"})
+  // Or pass {paper: "reconstruction", line} or {paper: "original", page}.
+  const card = map.cards[map.root]
+  const raw = await reader.proofCardSource(map.root) // text, source, inclusive lines, URL
+  const edge = map.edges.find(e => e.from === map.root && "value" in e.witnesses)
+  const hops = await reader.proofWitness(edge.from, edge.to, "value")
+}
+```
+
+The root is the declaration for the whole family theorem. Traverse the recorded
+project dependencies of its type, body and structural references. Retain the root
+and declarations with a qualified association to a paper selection. A statement
+tie must name the same implementation file. Frozen challenge names alone do not
+qualify. Some indexed associations have legacy or unassessed review status.
+Read `card.statements[statementId]` for the relation, review status and proof route
+of that statement only. A card title describes its declaration and the kind comes
+from its source. The card’s module supplies a natural grouping for the map.
+
+Each edge points **from the consumer to its prerequisite**. There is one witness
+per recorded first-hop kind: `type` for the statement, `value` for the body
+(proof for a theorem, definition body otherwise), and `structural` for a structural
+dependency. A one-hop witness is a direct Lean edge. Longer witnesses pass only
+through hidden declarations; later hops can have different kinds. Expand a
+witness to show the actual intermediates. The map keeps a shortest witness per
+first-hop kind, with deterministic ties. Internally `paths` shares prefixes
+as triples of prefix index (or null), hop kind, and target declaration.
+
+Use `card.parent` for a rooted layout tree. Its edges are a subset of the
+witnessed connections. The root has a null parent. Draw additional edges on
+expansion or focus. Focus returns every card associated with an exact selection.
+For a line it returns the narrowest enclosing indexed ranges; for a PDF page it
+returns indexed selections on that page. The `matches` include selection IDs and
+`bindings` from each card name to its provenance (such as `statement:thm-1.1` or
+`editorial_constituent`). An empty focus means this location has no card on
+the headline map. Keep the paper location; the wider proof and raw Lean remain
+available via the ordinary selection inspector. Map data from a different edition
+must never be substituted. `stale` and `unavailable_in_edition` are explicit statuses.
+
+For the section outline, use `(await reader.manuscript(paper)).descriptor.contents`
+in web editions. Each row has the printed title and level, the real HTML
+`anchor`, an inclusive `line` through `end_line` range (including subsections),
+and `listed`. Show listed headings and follow the deepest listed range containing
+the reading line. Older editions retain their original `outline` and source locations.
+
 ## The four papers and their Lean coverage
 
 Use `reading.json.paper_ids` for the paper switcher. The verification appendix is

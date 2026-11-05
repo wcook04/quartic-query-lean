@@ -320,7 +320,7 @@ def compile_edition(edition, pdf_directory=None, original_pdf=None, web_manuscri
     papers["original"] = original
     edition.add("reading.json", {"papers": papers, "entrances": entrances,
                "paper_ids": [*PAPERS, "original"], "supplement_ids": ["verification"],
-               "coverage": coverage, "board_example": "selection/board.json",
+               "proof_map": "selection/proof-map.json", "coverage": coverage, "board_example": "selection/board.json",
                "applications": "selection/applications.json",
                "downloads": print_downloads(edition, pdf_directory, config["print_edition"]),
                "fidelity": {ident: f"fidelity/{ident}.json" for ident in statements},

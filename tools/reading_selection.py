@@ -8,6 +8,7 @@ from build_comparator_map import CLAIM, PASSAGE, lean_blocks
 from build_corpus import canonical_sha256, source_hashes
 from reading_applications import application_resources
 from reading_board import board_example
+from reading_proof_map import proof_map
 
 
 def sha(raw):
@@ -336,6 +337,7 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
     edition.add("selection/statement-users.json", used_by)
     edition.add("selection/targets.json", formal_targets)
     edition.add("selection/reverse.json", by_name)
+    edition.add("selection/proof-map.json", proof_map(edition, graph, recorded_names, by_name, selections, statements))
     edition.add("selection/index.json", {"schema": "quartic-selection-v1", "revision": edition.commit,
                "documents": document_index,
                "graph": graph, "modules": names, "registry_revision": registry["commit"]})

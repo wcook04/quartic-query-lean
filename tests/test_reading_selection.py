@@ -196,17 +196,34 @@ assert.equal(front.entrances.exposition.first_selection, front.board.scenes[0].s
 for (const [paper, entry] of Object.entries(front.entrances)) {
   assert((await trusted.resource(`selection/${paper}.json`)).some(r => r.id === entry.first_selection));
 }
+const requestsBeforeMap = count;
+const map = await trusted.proofMap();
+assert.equal(count, requestsBeforeMap + 1);
+const focus = await trusted.proofFocus({paper:"original",id:"original/thm-1.1"});
+assert(focus.cards.includes(map.root));
+assert.deepEqual((await trusted.proofFocus({paper:"original",page:19})).cards, []);
+const boardFocus = await trusted.proofFocus({paper:"exposition",id:front.entrances.exposition.first_selection});
+assert.deepEqual(boardFocus.cards, []);
+const edge = map.edges.find(e => Object.hasOwn(e.witnesses,"value") && map.paths[e.witnesses.value][0] !== null);
+const hops = await trusted.proofWitness(edge.from,edge.to,"value");
+assert.equal(hops[0].from,edge.from);
+assert.equal(hops.at(-1).to,edge.to);
+assert.equal(count, requestsBeforeMap + 1);
+assert((await trusted.proofCardSource(map.root)).text.includes("theorem theorem_1_1_unconditional"));
+assert.equal(count, requestsBeforeMap + 2);
 const familyDetails = await trusted.journey("forrelation-family");
 assert.deepEqual(front.family, {overview:familyDetails.overview, scaling:familyDetails.scaling});
 // Simulate the earlier manifest shape while serving the actual source-only package.
 const legacy = JSON.parse(JSON.stringify(info));
 delete legacy.permalink;
 delete legacy.resources["selection/start.json"];
+delete legacy.resources["selection/proof-map.json"];
 delete legacy.resources["selection/by-statement.json"];
 delete legacy.resources["selection/applications.json"];
 legacy.permalink = "edition-"+createHash("sha256").update(JSON.stringify(legacy)+"\n").digest("hex")+".json";
 const archive = await openEdition(base,{edition:legacy.permalink,fetch:(url,opts) =>
   url.pathname.endsWith(legacy.permalink) ? Response.json(legacy) : request(url,opts)});
+assert.equal((await archive.proofMap()).currentness,"unavailable_in_edition");
 const archived = await archive.manuscript("exposition");
 assert.equal(archived.html,null);
 assert.equal(createHash("sha256").update(archived.source).digest("hex"), archive.documents.exposition.sha256);
