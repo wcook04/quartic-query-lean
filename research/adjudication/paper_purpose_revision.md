@@ -634,3 +634,15 @@ Three fresh Sol readers received one trial PDF each. They could use its contents
 The teaching reader recovered both the shortlist and its independent need for verification. It continued the unequal-weight example to the law $(4/5,0,1/5,0)$ and distinguished a signed correlation of $1/2$ from a projection probability of $1/4$. Its first actual backtrack was to find inputs “marked A” on a diagram whose labels were pairs such as $(a^+,a^0)$. The text now points to the printed pair. The opening also directs newcomers to the rotation that explains the square-root saving. The branch trace for the capped predictor has a direct link at the point where the two clocks diverge.
 
 The reconstruction reader followed the main argument through its conclusion and visited the quantitative, amplification and circuit appendices. It recovered the transition from a Gaussian moment to a promised-input lower bound and could explain why the biased-derivative estimate was needed. It found that Lemma E.1 is physically in section E.2, a trap for a reader following a printed citation by eye. The reference now gives both. Beside the verification error bound a short reminder identifies the zero-defect case: once the true cell has been decoded, the defect search cannot reject a winning certificate. These were editorial readings by agents. The tests concerned the flow of the mathematical argument; they were independent of the preceding reviewers' diagnoses.
+
+### Delivered reading copies from this revision
+
+The native render used manuscript sources at `d0dd307ba190eb1ed8a18f9771278087a901b0ba`. The companion and teaching paper link to the same record bytes at `5188cb6fd1cc37c123c4b30dce672f9d30c99320`.
+
+| Reading copy | Pages | PDF SHA-256 |
+| --- | ---: | --- |
+| Specialist | 8 | `58f23edfc67dfc75ee8768a7752fc9fda53ee6ec964b396639e646a5347b8483` |
+| Teaching | 21 | `8a99f502b960353da9a7872c405b86d3a137a24437911d289005aa803942d14f` |
+| Reconstruction | 89 | `e9af18a606b17e036eb77afac5c9296b628e944943f005ceea58351124262ec2` |
+
+In the expert PDF, pages 3 and 4 carry weighted elimination into its implementation and page 6 contains the capped predictor and its joint-event inequality. The teaching reader can follow the tournament on pages 3–5, turn to the address on page 6, and finish the exponent argument on page 11. The revised reconstruction concludes on page 37, down from page 42. All 227 original anchors and all 139 claim-marker occurrences remain. Local printed equation numbers and the historical crosswalk were checked separately from link validity. The PDFs were inspected page by page in overview, with the principal transitions also read at full size.
