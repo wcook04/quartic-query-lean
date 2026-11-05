@@ -193,7 +193,7 @@
   "scope": "Source-reviewed mapping of every entry in the three maintained bibliographies and Appendix C. The builder checks current bibliography/source hashes and records actual packaged coverage; availability does not establish mathematical reading or exact-edition equivalence.",
   "bibliographies": {
     "docs/expert_companion.bib": {
-      "sha256": "247bdf4fa89e003cb2a2746b05521598dc752285d9aef1bf4a18b4f2943b41a1",
+      "sha256": "0628873a179979d7301b03844ab45bbe26d323b544f4d957ef17b39304321273",
       "entry_count": 26
     },
     "docs/exposition.bib": {
@@ -516,13 +516,13 @@
       "paper": "expert_companion",
       "citation_key": "Record2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/fccaaaca89125aab66cfc39edd8a1d01368e290c/docs/reasoning_record.md},\n}",
+      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/25908361a5832d5b243846300960379b2ea228a9/docs/reasoning_record.md},\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/fccaaaca89125aab66cfc39edd8a1d01368e290c/docs/reasoning_record.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/25908361a5832d5b243846300960379b2ea228a9/docs/reasoning_record.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/reasoning_record.md",
-      "edition_note": "Internal proof record pinned to fccaaaca89125aab66cfc39edd8a1d01368e290c; external literature editions unchanged.",
+      "edition_note": "Internal proof record pinned to 25908361a5832d5b243846300960379b2ea228a9; external literature editions unchanged.",
       "supplementary_source_ids": [],
       "primary_annex_status": "repository_source_reference",
       "coverage_status": "repository_source_supplied"
@@ -2622,7 +2622,7 @@
     "source": "Lake-pinned tracked Git source; no compilation claim"
   },
   "edition_boundary": "A supplied older or different edition is not the exact cited edition. Supplementary metadata identifies the retrieved publisher/revision copies and remaining exceptions. Primary extracted.md is not automatically the text of a distinct supplementary PDF.",
-  "record_sha256": "85aa4d15709085d79952c762398be803e0a0541c4b36ef3f191eee41be421686",
+  "record_sha256": "948e988e73fcf78d35eb0e57e2492383026af980b4d49479ac357ac54af8679f",
   "retrieval_observations": {
     "date": "2026-11-04",
     "Yao1977": "Original not retrieved: DOI 10.1109/SFCS.1977.24 redirects to IEEE document 4567946 with JavaScript verification; direct PDF request returned HTTP 418.",
@@ -2684,6 +2684,17 @@
       "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
     },
     "decision": "Current source hashes and the internal Record2026 citation rebound after the November 5 composition revision. All 29 mapped reference entries occur unchanged in the record. External literature editions, coverage judgments and sent review archives are unchanged.",
+    "revision_account": "research/adjudication/paper_purpose_revision.md"
+  },
+  "audience_revision_rebind": {
+    "baseline": "62db93011d3c20e9b6fc4d1bb5ab55d6aaeeac75",
+    "record_source_commit": "25908361a5832d5b243846300960379b2ea228a9",
+    "previous_record_sha256": "85aa4d15709085d79952c762398be803e0a0541c4b36ef3f191eee41be421686",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "247bdf4fa89e003cb2a2746b05521598dc752285d9aef1bf4a18b4f2943b41a1",
+      "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
     "revision_account": "research/adjudication/paper_purpose_revision.md"
   }
 }

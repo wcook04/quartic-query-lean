@@ -518,3 +518,48 @@ The [validation record](paper_purpose_validation.json) retains the previous
 edition and adds this edition's exact hashes, inspection scope and limits.
 Shared guidance is proposed in
 [lean-exposition PR 50](https://github.com/wcook04/lean-exposition/pull/50).
+
+
+## Reading the three papers after 62db930
+
+The three reviews of the 19-, 29- and 97-page editions agreed on a symptom:
+reading the paper often resembled checking the proof. Their proposed cuts
+differ. For a specialist, the cost of ordinary Grover search can be taken
+for granted. In the teaching paper, multiplying the two search costs is
+the opening problem. A reader reconstructing the calculation has a third
+need: the exact primitive, its error guarantee and the budget it consumes.
+The three authors used these differences to choose a new order.
+
+* **Specialist.** Aaronson, Ben-David and Kothari explain the address in
+  §3.1 and use the blank versus filled cell in Lemma 6. With that background
+  the distinctive question is how to charge an adaptive guess in one of many
+  columns. Section 4.3 constructs the predictor under the original product
+  distribution. Section 3.2 derives the contraction and the exact conditional
+  pivot law. The five-section paper leads directly from these arguments to the
+  exponent. [Cheat-sheet paper](https://arxiv.org/html/1511.01937v2)
+* **Teaching.** The board makes a pointer, an address and a false transcript
+  available before the Walsh product has a name. The cycle gives the reader a
+  reason to replace order by weight. In §4.3 the normalized success component
+  of amplitude amplification has an immediate job: one can calculate how often
+  each label will be drawn and see why amplification preserves their proportions.
+  The trial schedule goes in Appendix A. The classical proof follows a query
+  before it gets an answer. [Amplitude amplification, Lemma 1](https://arxiv.org/abs/quant-ph/0005055)
+* **Reconstruction.** The comparison circuit and the capped prediction reduction
+  are OpenAI’s. The reconstruction’s independent analytic argument starts
+  §8 with the two scales whose balance produces the exponent. In §§8.5–8.6 a
+  matched index lets a derivative move one block at a time; the decision-tree
+  estimate then controls the resulting derivatives. The moment and promise
+  calculations complete the argument. Bansal–Sinha already give explicit
+  dependence on the number of blocks. The construction of this bound and
+  its supporting derivation are what the reader can inspect here.
+  [Original construction, §§3–4](https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf);
+  [Bansal–Sinha, Theorem 1.3](https://arxiv.org/pdf/2008.07003v3#page=4);
+  [Girish–Tal–Wu, §1.3](https://arxiv.org/pdf/2103.11604v2#page=7)
+
+Three Sol scouts read the literature, then reread the revised arguments.
+Three Astra High authors revised the manuscripts. The sequential checks led
+to a concrete change in each: tie fresh verification to its chosen decoding
+accuracy, explain what the eight-bit example actually demonstrates, and repair
+references after moving model and circuit proofs. The repository’s prior formal
+receipts continue to describe the editions they checked. This was an editorial
+reading by agents.

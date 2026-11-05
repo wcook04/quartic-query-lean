@@ -393,3 +393,19 @@ The [revision account](../research/adjudication/paper_purpose_revision.md#novemb
 records the inspected literature, transfer cases and limits. These decisions
 refine the existing shared paper purposes and reader-review procedure; numerical
 register comparisons remain diagnostics, not a measure of literary quality.
+
+## Choosing where to slow down
+
+Read a proof in the intended reader’s literature before setting the outline.
+In the cheat-sheet paper a query to the filled cell already singles out a vector
+of answers. The extra difficulty here is that an adaptive tree can spend its
+budget on whichever columns it likes. The specialist paper can cite the first
+observation and spend its space constructing the capped predictor. A learner
+first needs to see that the *index of a query* names a whole address, even before
+the queried bit comes back. The reconstruction gives both the predictor and the
+product argument under the distribution on which it runs.
+
+This revision applies the [shared authoring method](https://github.com/wcook04/lean-exposition/blob/a2511096cdb28a57621ce304903f8cc6ed537e0a/docs/authoring.md)
+and its [sequential reader review](https://github.com/wcook04/lean-exposition/blob/a2511096cdb28a57621ce304903f8cc6ed537e0a/docs/reader-review.md).
+The [edition account](../research/adjudication/paper_purpose_revision.md#reading-the-three-papers-after-62db930)
+locates the source comparisons and the proof passages they changed.
