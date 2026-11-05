@@ -194,7 +194,7 @@ function Link(el)
   local sibling = el.target:match("^(expert_companion%.md.*)$") or
                   el.target:match("^(exposition%.md.*)$")
   if sibling then
-    el.target = "https://github.com/wcook04/quartic-query-lean/blob/main/docs/" .. sibling
+    el.target = "https://github.com/wcook04/quartic-query-lean/blob/SIBLING_REVISION/docs/" .. sibling
     return el
   end
   local replacement = directory_targets[el.target]
@@ -206,21 +206,22 @@ end
 '''
 
 
-def navigation_filter():
+def navigation_filter(sibling_revision="main"):
     """The navigation Lua filter with the reviewed directory-link targets."""
     entries = ",\n".join(f"  [{json.dumps(link)}] = {json.dumps(link + name)}"
                          for link, name in sorted(DIRECTORY_TARGETS.items()))
-    return NAVIGATION_LAYOUT.replace("DIRECTORY_TARGETS_TABLE", "{\n" + entries + "\n}")
+    layout = NAVIGATION_LAYOUT.replace("DIRECTORY_TARGETS_TABLE", "{\n" + entries + "\n}")
+    return layout.replace("SIBLING_REVISION", sibling_revision)
 
 
-def write_filters(stage):
+def write_filters(stage, sibling_revision="main"):
     """Stage the submitted layout filter with its adaptations, then navigation."""
     layout = stage / "pdf_layout.lua"
     shutil.copyfile(LAYOUT / "pdf_layout.lua", layout)
     with layout.open("a") as handle:
         handle.write(CODE_LAYOUT)
     navigation = stage / "pdf_navigation.lua"
-    navigation.write_text(navigation_filter(), encoding="utf-8")
+    navigation.write_text(navigation_filter(sibling_revision), encoding="utf-8")
     return [layout, navigation]
 
 
@@ -332,7 +333,9 @@ def main():
         images, figure_groups = maintained_figures(nodes, source)
     except ValueError as error:
         parser.error(str(error))
+    sibling_revision = command(["git", "rev-parse", "HEAD"], cwd=ROOT).strip()
     receipt = {
+        "sibling_paper_revision": sibling_revision,
         "schema": "quartic-reasoning-record-render-v1", "source": str(source),
         "navigation": navigation,
         "renderer_sha256": digest(Path(__file__)),
@@ -377,7 +380,7 @@ def main():
     with tempfile.TemporaryDirectory(prefix="render-", dir=output) as temporary:
         stage = Path(temporary)
         shutil.copyfile(LAYOUT / "pdf_header.tex", stage / "pdf_header.tex")
-        write_filters(stage)
+        write_filters(stage, sibling_revision)
         image_paths = {}
         for kind in figure_groups:
             compiled = build_figures(kind, output / kind, write_svg=False)

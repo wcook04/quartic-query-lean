@@ -33,8 +33,8 @@ def link(target):
     return {"t": "Link", "c": [["", [], []], [], [target, ""]]}
 
 
-def latex(source, folder):
-    filters = MODULE.write_filters(Path(folder))
+def latex(source, folder, sibling_revision="main"):
+    filters = MODULE.write_filters(Path(folder), sibling_revision)
     argv = [PANDOC, str(source), "--from=" + MODULE.READER, "--to=latex"]
     argv += ["--lua-filter=" + str(path) for path in filters]
     return subprocess.run(argv, cwd=source.parent, capture_output=True, text=True, check=True).stdout
@@ -96,9 +96,10 @@ class FilterTests(unittest.TestCase):
             folder = Path(folder)
             source = folder / "paper.md"
             source.write_text("Read [the companion](expert_companion.md#32-a-tournament-with-probabilistic-comparisons) and [the exposition](exposition.md).\n")
-            tex = latex(source, folder)
-        self.assertIn("https://github.com/wcook04/quartic-query-lean/blob/main/docs/expert_companion.md", tex)
-        self.assertIn("https://github.com/wcook04/quartic-query-lean/blob/main/docs/exposition.md", tex)
+            revision = "c" * 40
+            tex = latex(source, folder, revision)
+        self.assertIn(f"https://github.com/wcook04/quartic-query-lean/blob/{revision}/docs/expert_companion.md", tex)
+        self.assertIn(f"https://github.com/wcook04/quartic-query-lean/blob/{revision}/docs/exposition.md", tex)
         self.assertNotIn(r"\href{expert_companion.md", tex)
 
     def test_actual_record_reaches_every_anchor_without_changing_its_bytes(self):
