@@ -139,6 +139,35 @@ export async function openReader(indexURL, options) {
     return {currentness: map.currentness, matches, cards};
   }
 
+  async function paperCardProgress({paper, edition, visited = [], through, surface = "graph"}) {
+    const map = await proofMap();
+    if (map.currentness !== "current") return {status: map.currentness, revision};
+    if (!Object.hasOwn(map.papers, paper) || !["graph", "all"].includes(surface))
+      throw new Error("Unknown paper or proof map surface");
+    if ((edition != null || visited.length) && edition !== permalink)
+      throw new Error("Reading history belongs to a different edition");
+    const rows = map.papers[paper];
+    const ids = map.paper_cards?.[paper]?.cards ?? [...new Set(rows.flatMap(r => Object.keys(r.bindings)))].sort();
+    const eligible = ids.filter(n => surface === "all" || !["inductive","structure","class"].includes(map.cards[n].kind));
+    const seen = new Set(visited);
+    if ([...seen].some(id => !rows.some(row => row.id === id))) throw new Error("Unknown visited selection");
+    const pdf = documents[paper].format === "pdf";
+    if (through != null && (!Number.isSafeInteger(through) || through < 1 ||
+        through > (pdf ? documents[paper].pages : documents[paper].lines))) throw new Error("Invalid paper position");
+    const visitCards = new Set(), earlierCards = new Set();
+    for (const row of rows) {
+      for (const n of Object.keys(row.bindings)) {
+        if (seen.has(row.id)) visitCards.add(n);
+        if (through != null && (pdf ? row.page : row.lines[0]) <= through) earlierCards.add(n);
+      }
+    }
+    const reached = eligible.filter(n => visitCards.has(n));
+    const preceding = eligible.filter(n => earlierCards.has(n));
+    return {status: "current", edition: permalink, paper, surface, total: eligible.length, cards: eligible,
+            visited: {count: reached.length, cards: reached},
+            through: through == null ? null : {position: through, count: preceding.length, cards: preceding}};
+  }
+
   async function proofWitness(from, to, firstKind) {
     const map = await proofMap();
     const edge = map.edges?.find(e => e.from === from && e.to === to);
@@ -194,13 +223,36 @@ export async function openReader(indexURL, options) {
     });
     const entries = await Promise.all([...names].map(async n => [n, await pathNode(map, n)]));
     const declarations = Object.fromEntries(entries);
+    const sites = map.use_site_resource ? await revisionResource(map.use_site_resource) : null;
+    if (sites && sites.source_snapshot_sha256 !== map.source_snapshot_sha256)
+      throw new Error("Mixed dependency and source-location editions");
     function describe(hop) {
+      const consumer = declarations[hop.from];
+      const refs = sites?.observations[hop.from]?.[hop.to] ?? {};
+      const sourceURL = `${manifest.repository}/blob/${revision}/${consumer.source}`;
+      const located = (s, region) => ({...s, region,
+        url: `${sourceURL}#L${s.lines[0]}-L${s.lines[1]}`});
+      const matches = (refs[hop.kind] ?? []).map(s => located(s, hop.kind));
+      const evidence = {
+        status: matches.some(s => s.basis === "elaborated_application") ? "elaborated_application"
+          : matches.length ? "resolved_identifier" : !sites ? "unavailable_in_edition"
+          : sites.reference_index !== "current" ? "stale_reference_index" : "declaration_only",
+        sites: matches, source: consumer.source, declarationLines: consumer.lines, sourceURL,
+        // Keep these locations inspectable without attributing them to this hop's kind.
+        otherReferences: Object.entries(refs).filter(([region]) => region !== hop.kind)
+          .flatMap(([region, values]) => values.map(s => located(s, region)))
+      };
+      hop = {...hop, evidence};
       if (hop.kind === "type") return {...hop, usage: "statement"};
       if (hop.kind === "structural") return {...hop, usage: "structural_reference"};
       const proof = ["lemma", "theorem"].includes(declarations[hop.from].kind);
       return {...hop, usage: proof ? "proof" : "body"};
     }
-    const variants = witnesses.map(v => ({...v, hops: v.hops.map(describe)}));
+    const variants = witnesses.map(v => {
+      const hops = v.hops.map(describe);
+      const located = hops.filter(h => h.evidence.sites.length > 0).length;
+      return {...v, hops, locationCoverage: {located, total: hops.length, complete: located === hops.length}};
+    });
     return {revision, status: "current", edition: permalink, from, to, availableKinds, variants, declarations};
   }
 
@@ -500,5 +552,5 @@ export async function openReader(indexURL, options) {
     if (!path.endsWith(".svg")) throw new Error("Unrecognized figure format");
     return new Blob([await readBytes(path)], {type: "image/svg+xml"});
   }
-  return {revision, permalink, documents, home, proofMap, proofFocus, proofWitness, proofPath, proofPathSource, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
+  return {revision, permalink, documents, home, proofMap, proofFocus, paperCardProgress, proofWitness, proofPath, proofPathSource, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
 }

@@ -214,13 +214,30 @@ assert.equal(count, requestsBeforeMap + 2);
 const direct = map.edges.find(e => Object.values(e.witnesses).every(w => map.paths[w][0] === null));
 const beforeDetails = count;
 assert((await trusted.proofPath(direct.from,direct.to)).variants.every(v => v.helperCount === 0));
-assert.equal(count,beforeDetails);
+assert.equal(count,beforeDetails+1); // Verified source-use index is loaded on arrow click.
 const from = "QuarticQuery.Upper.familyBoundsAt_of_lower", to = "QuarticQuery.Forrelation.forrConstant";
 const detail = await trusted.proofPath(from,to,"value");
-assert.equal(count,beforeDetails+1); // One verified helper catalog. Source stays on demand.
+assert.equal(count,beforeDetails+2); // One verified helper catalog. Source stays on demand.
 const helper = "QuarticQuery.Upper.budgetConst_pos";
 assert.deepEqual(detail.variants[0].hops.map(h => [h.from,h.to,h.usage]), [[from,helper,"proof"],[helper,to,"proof"]]);
 assert.equal(detail.variants[0].helperCount,1);
+assert.equal(detail.variants[0].hops[0].evidence.status,"resolved_identifier");
+const use = detail.variants[0].hops[0].evidence.sites.find(s=>s.text==="budgetConst_pos");
+assert.match(use.url,/#L309-L309$/);
+assert.deepEqual(use.lines,[309,309]);
+const sourceLine=(await trusted.readText(detail.declarations[from].source)).split("\n")[308];
+assert.equal(sourceLine.slice(...use.utf16_columns),use.text);
+assert.equal(use.region,"value");
+assert(detail.declarations[helper].title.includes("positive"));
+const progress = await trusted.paperCardProgress({paper:"original",edition:trusted.permalink,
+  visited:["original/thm-1.1","original/thm-1.1"],through:1});
+assert.equal(progress.total,new Set(progress.cards).size);
+assert(progress.visited.cards.includes(map.root));
+assert.equal(progress.visited.count,new Set(progress.visited.cards).size);
+assert(progress.through.count>=progress.visited.count);
+const empty = await trusted.paperCardProgress({paper:"exposition",edition:trusted.permalink,visited:[front.entrances.exposition.first_selection]});
+assert.equal(empty.visited.count,0);
+await assert.rejects(trusted.paperCardProgress({paper:"original",edition:"foreign",visited:["original/thm-1.1"]}),/different edition/);
 assert.equal(detail.declarations[helper].role,"helper");
 assert((await trusted.proofPathSource(helper)).text.includes("budgetConst_pos"));
 const missingSpan = await trusted.proofPathSource("QuarticQuery.Amplification.Preparation.mk");
@@ -232,7 +249,7 @@ const choices = await trusted.proofPath(multiple.from,multiple.to);
 assert.deepEqual(choices.variants.map(v => v.firstKind),Object.keys(multiple.witnesses));
 for (const v of choices.variants) {
   const witness = await trusted.proofWitness(multiple.from,multiple.to,v.firstKind);
-  assert.deepEqual(v.hops.map(({usage,...hop}) => hop),witness);
+  assert.deepEqual(v.hops.map(({usage,evidence,...hop}) => hop),witness);
 }
 assert.equal((await trusted.proofPath("paper:thm-1.1",map.root)).status,"not_a_dependency_edge");
 await assert.rejects(trusted.proofPath(from,to,"type"),/witness kind/);

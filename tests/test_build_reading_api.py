@@ -78,6 +78,50 @@ class ReadingEditionTest(unittest.TestCase):
                     name = target
         self.assertTrue(skipped)
 
+    def test_reference_slices_and_paper_membership_on_the_exported_map(self):
+        view = self.resource(self.reading["proof_map"])
+        sites = self.resource(view["use_site_resource"])
+        self.assertEqual(sites["reference_index"], "current")
+        helpers = self.resource(view["helper_resource"])["helpers"]
+        self.assertTrue(all(h["title"] and h["title"] != n for n, h in helpers.items()))
+        nodes = {**helpers, **view["cards"]}
+        repeated = False
+        for caller, targets in sites["observations"].items():
+            raw = self.edition.resources[nodes[caller]["source"]]
+            for target, regions in targets.items():
+                for group in regions.values():
+                    named = [s for s in group if s["basis"] == "resolved_identifier"]
+                    repeated |= len({s["lines"][0] for s in named}) > 1
+                    for site in group:
+                        start, stop = site["utf8_bytes"]
+                        self.assertEqual(raw[start:stop].decode(), site["text"])
+                        self.assertEqual(site["lines"][0], 1 + raw.count(b"\n", 0, start))
+                        if site in named:
+                            self.assertTrue(target == site["text"] or target.endswith("." + site["text"]))
+        self.assertTrue(repeated)
+        for paper, rows in view["papers"].items():
+            linked = {n for row in rows for n in row["bindings"]}
+            self.assertEqual(view["paper_cards"][paper]["cards"], sorted(linked))
+            self.assertEqual(view["paper_cards"][paper]["count"], len(linked))
+
+    def test_proof_sites_follow_utf16_locations_and_withhold_stale_capture(self):
+        from record_proof_sites import Source
+        raw = "🟦 theorem τ :=\n  λ".encode()
+        source = Source(raw)
+        self.assertEqual(raw[source.byte(0, 3):source.byte(0, 10)], b"theorem")
+        self.assertEqual(raw[source.byte(1, 2):source.byte(1, 3)].decode(), "λ")
+        with self.assertRaises(UnicodeDecodeError):
+            source.byte(0, 1)
+        edition = api.Edition(api.ROOT)
+        inspector = "tools/ReadUseRegions.lean"
+        edition.inputs[inspector] = edition.read(inspector) + b"\n"
+        api.compile_edition(edition)
+        stale = json.loads(edition.resources["selection/proof-use-sites.json"])
+        self.assertEqual(stale["reference_index"], "stale")
+        self.assertTrue(all(site["basis"] == "elaborated_application"
+                            for targets in stale["observations"].values() for regions in targets.values()
+                            for sites in regions.values() for site in sites))
+
     def test_condensation_preserves_distinct_first_uses_and_stops_at_visible_cards(self):
         from reading_proof_map import map_edges, proof_map
         nodes = {n: {"value": [], "type": [], "structural": []} for n in "ABCDE"}

@@ -132,3 +132,9 @@ explain their scope and refresh command.
 pretty-printed type and transitive axioms for declarations in current reviewed
 links and for the indexed semantic examples. Each observation names its defining
 module. See the [reader comparison contract](../docs/reading_api.md#compare-a-paper-result-with-lean).
+
+[Lean reference sites](reading_proof_sites.json) stores named project references
+from matching compiled dependencies. Each row records the caller, callee, a
+half-open UTF-8 source span and a syntactic region (type, value or unknown).
+The reader exports the subset used on its proof paths. Reproduce the observations
+with the [reference recorder](../tools/record_proof_sites.py).

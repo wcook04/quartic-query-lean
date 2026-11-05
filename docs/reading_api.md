@@ -115,6 +115,26 @@ the headline map. Keep the paper location; the wider proof and raw Lean remain
 available via the ordinary selection inspector. Map data from a different edition
 must never be substituted. `stale` and `unavailable_in_edition` are explicit statuses.
 
+### Count the declarations a reader has encountered
+
+`map.paper_cards[paper]` holds the distinct declaration names for that paper, the
+total `count`, and the `graph_count` on the drawn graph (excluding its separate
+type shelf). A declaration can appear at many passages and still counts once.
+The original indexes PDF statements by page; the manuscripts use source lines.
+
+```js
+const progress = await reader.paperCardProgress({
+  paper: "original", edition: reader.permalink, visited: ["original/thm-1.1"], through: 1
+})
+// “Encountered X of Y linked declarations”: progress.visited.count and progress.total.
+// progress.through.count describes the paper up to page 1, regardless of reading history.
+```
+
+Pass the IDs of selections actually encountered. Save them with the edition and paper.
+A jump ahead adds a visited selection only when the consumer records it.
+Use `surface: "all"` to include the type shelf. Counts describe navigation
+among linked declarations, not the fraction of a paper certified by Lean.
+
 ### Inspect the helpers behind one arrow
 
 Pass the consumer and prerequisite in the map's stored direction. The backend
@@ -143,10 +163,30 @@ can open the pinned module; it has no separate verified excerpt for that name.
 The chain witnesses compiled dependencies at declaration level. An exact
 application site requires the separate application evidence.
 
-A direct-only inspection uses the loaded map. The first indirect inspection
-loads one small helper catalog for this edition; code loads when a reader
-chooses a declaration. The first map edition uses its own module shards for
-helper locations. A missing or stale map returns its status. A pair outside
+Every hop has an `evidence` response. Use `sites` to highlight its occurrences:
+`resolved_identifier` marks an identifier that Lean’s own reference index resolves
+to the target inside the caller, in the matching syntactic region. A reference
+inside a proof body is distinct from the same name inside its statement.
+`elaborated_application` adds the existing, stronger walkthrough witness for a
+particular instantiated application. Several uses may have separate locations;
+display the choices. Each site carries exact source text, one-based inclusive
+lines, a commit-pinned link, zero-based half-open UTF-8 byte offsets in the
+file and half-open UTF-16 columns within the first and last lines for browser
+highlighting. `locationCoverage` counts located hops in this particular chain.
+
+`declaration_only` means the typed dependency exists but no matching source use
+was established. Offer the caller’s source range or module. `otherReferences`
+records locations in another or unclassified region; those are inspectable as
+caller references but must not be highlighted as the selected typed use.
+`stale_reference_index` and `unavailable_in_edition` are separate outcomes.
+The graph can include implicit arguments, generated code, and structural edges
+with no corresponding written identifier.
+
+A first path inspection loads the edition’s source-use index. Indirect paths
+also load the helper catalog. Verified raw Lean loads when the reader opens
+a declaration. Authored titles are bound to declaration names; generated helpers
+keep that qualification in their titles. Older map editions retain the source
+locations and titles they packaged. A missing or stale map returns its status. A pair outside
 the recorded map returns `not_a_dependency_edge`, including the editorial
 arrow from the paper headline to the formal theorem.
 

@@ -50,6 +50,13 @@ their displayed endpoints alone do not establish a new Lean dependency. In the l
 outline and its anchor destinations. Test at a mapped passage and at an
 illustration with no map card.
 
+In the path panel, show the source lines on each hop from `hop.evidence.sites`.
+If there are several occurrences, let the reader choose which to open. Keep
+`otherReferences` distinct from the highlighted use. Render a helper's title
+with its Lean name beneath it. For a paper-specific “encountered” count, send
+only visited selection IDs to `paperCardProgress`; keep its denominator and
+surface aligned with the displayed graph. See the [reading API](reading_api.md#count-the-declarations-a-reader-has-encountered).
+
 ## Walk through these before calling the frontend ready
 
 Run these against the real edition to see the expected responses. Then perform the same actions through the UI at desktop and phone widths, using both pointer and keyboard.

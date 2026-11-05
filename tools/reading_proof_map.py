@@ -1,6 +1,8 @@
 """Build the reader's paper-linked view of the headline Lean dependency closure."""
 from collections import defaultdict, deque
 import re
+import json
+import hashlib
 
 from build_comparator_map import lean_blocks
 
@@ -102,6 +104,61 @@ def declaration_info(edition, nodes, blocks, name):
     return info
 
 
+def add_use_sites(edition, graph, nodes, edges, paths):
+    record = edition.json("corpus/reading_proof_sites.json")
+    inspectors = ("record_proof_sites.py", "ReadUseRegions.lean")
+    current = (record["schema"] == "quartic-lean-reference-sites-v1" and
+               record["source_snapshot_sha256"] == graph["source_snapshot_sha256"] and
+               record["toolchain"] == graph["toolchain"] and record["producers"] ==
+               {f: hashlib.sha256(edition.read("tools/" + f)).hexdigest() for f in inspectors})
+    # Every map witness has a consumer supplied by its edge, including shared prefixes.
+    uses = set()
+    for edge in edges:
+        for cursor in edge["witnesses"].values():
+            while cursor is not None:
+                parent, kind, dep = paths[cursor]
+                uses.add((edge["from"] if parent is None else paths[parent][2], kind, dep))
+                cursor = parent
+    observations = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
+
+    def observe(caller, kind, dep, lo, hi, basis, expected=None):
+        path = "lean/" + nodes[caller]["module"].replace(".", "/") + ".lean"
+        raw = edition.resources[path]
+        if not 0 <= lo < hi <= len(raw):
+            raise ValueError(f"{caller}: invalid source span")
+        token = raw[lo:hi].decode()
+        if (expected is not None and token != expected) or (expected is None and
+                not (token == dep or dep.endswith("." + token))):
+            raise ValueError(f"{caller}: source span differs from {dep}")
+        def utf16_column(offset):
+            start = raw.rfind(b"\n", 0, offset) + 1
+            return len(raw[start:offset].decode().encode("utf-16-le")) // 2
+        site = {"basis": basis, "utf8_bytes": [lo, hi], "text": token,
+                "utf16_columns": [utf16_column(lo), utf16_column(hi)],
+                "lines": [raw.count(b"\n", 0, lo) + 1, raw.count(b"\n", 0, hi - 1) + 1]}
+        refs = observations[caller][dep][kind]
+        if site not in refs:
+            refs.append(site)
+
+    if current:
+        for caller, dep in sorted({(caller, dep) for caller, _, dep in uses}):
+            for lo, hi, region in record["nodes"].get(caller, {}).get(dep, []):
+                observe(caller, region, dep, lo, hi, "resolved_identifier")
+
+    journeys = json.loads(edition.resources["selection/applications.json"])["journeys"]
+    for journey in journeys.values():
+        for step in json.loads(edition.resources[journey["resource"]])["steps"]:
+            for use in step["uses"]:
+                key = (step["caller"], "value", use["declaration"])
+                if key in uses:
+                    for occurrence in use["occurrences"]:
+                        observe(*key, *occurrence["utf8_bytes"], "elaborated_application", occurrence["text"])
+    resource = "selection/proof-use-sites.json"
+    edition.add(resource, {"revision": edition.commit, "source_snapshot_sha256": graph["source_snapshot_sha256"],
+                           "reference_index": "current" if current else "stale", "observations": observations})
+    return resource
+
+
 def proof_map(edition, graph, nodes, by_name, selections, statements):
     result = {"schema": "quartic-proof-map-v1", "revision": edition.commit, "root": ROOT,
               "currentness": graph["currentness"], "source_snapshot_sha256": graph["source_snapshot_sha256"]}
@@ -136,8 +193,14 @@ def proof_map(edition, graph, nodes, by_name, selections, statements):
     edges, paths = map_edges(nodes, cards)
     hidden = {target for _, _, target in paths} - cards.keys()
     helper_resource = "selection/proof-helpers.json"
+    titles = edition.json("docs/reading_helper_titles.json")
+    helpers = {name: declaration_info(edition, nodes, blocks, name) for name in sorted(hidden)}
+    for name, info in helpers.items():
+        info["title"] = titles.get(name) or info["title"]
+        if not info["title"]:
+            raise ValueError(f"add a reader title for proof helper {name}")
     edition.add(helper_resource, {"revision": edition.commit, "source_snapshot_sha256": result["source_snapshot_sha256"],
-                "helpers": {name: declaration_info(edition, nodes, blocks, name) for name in sorted(hidden)}})
+                "helpers": helpers})
     # One deterministic tree of real map edges for the initial layout. Other evidence
     # edges remain available, including alternative parents and reciprocal uses.
     adjacent = defaultdict(list)
@@ -160,4 +223,10 @@ def proof_map(edition, graph, nodes, by_name, selections, statements):
         cards[name]["parent"] = parent[name]
     papers = {paper: [{"id": r["id"], **({"page": r["location"]["page"]} if "location" in r else {"lines": r["lines"]}),
                        "bindings": {n: sorted(bases) for n, bases in locations[paper][r["id"]].items()}} for r in rows] for paper, rows in selections.items()}
-    return {**result, "helper_resource": helper_resource, "closure_size": len(reachable), "cards": cards, "edges": edges, "paths": paths, "papers": papers}
+    paper_cards = {}
+    for paper, rows in papers.items():
+        names = sorted({name for row in rows for name in row["bindings"]})
+        paper_cards[paper] = {"cards": names, "count": len(names),
+                             "graph_count": sum(cards[n]["kind"] not in ("inductive", "structure", "class") for n in names)}
+    sites = add_use_sites(edition, graph, nodes, edges, paths)
+    return {**result, "paper_cards": paper_cards, "use_site_resource": sites, "helper_resource": helper_resource, "closure_size": len(reachable), "cards": cards, "edges": edges, "paths": paths, "papers": papers}

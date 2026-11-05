@@ -486,3 +486,11 @@ checks the source snapshot before and after inspection.
 checks source positions against the complete parse. [reading_board.py](reading_board.py)
 constructs the opening experiments from the bound source table and passages.
 Run `make reading-web` for the [browser edition](../docs/reading_api.md#browser-edition).
+
+[Record proof use locations](record_proof_sites.py) rebuilds Quartic, reads its
+native language-server indices, and uses [Lean's declaration parser](ReadUseRegions.lean)
+to separate statements and bodies. Run
+`python3 tools/record_proof_sites.py --checkout /path/to/built/checkout`;
+add `--compare` for an independent repeat. Python tooling and the Lean parser
+are fingerprinted along with the pinned source snapshot. A stale capture
+withholds the corresponding use locations from new editions.
