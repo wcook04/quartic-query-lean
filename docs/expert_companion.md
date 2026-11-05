@@ -9,30 +9,12 @@ header-includes:
   - \usepackage{float}
   - \floatplacement{figure}{H}
 abstract: |
-  OpenAI proved that four is the optimal exponent relating randomized and quantum query complexity for total Boolean functions. We reconstruct the two reductions. A certificate in one of $m$ columns points to a zero in every rival. A quantum algorithm reads these pointers in pairs and samples a short list before verifying any certificate. Even arbitrary comparison probabilities among losers cancel from the expected surviving weight if each pivot is drawn in proportion to its own weight. Classically, a query to the winning certificate has to name its address, predicting an entire vector of hard answers. A random choice of winning column makes it unlikely that an algorithm has spent enough queries there to do so. The resulting bounds are $\widetilde O_k(\sqrt m)$ quantum queries and $\widetilde\Omega_k(m^{2-1/k})$ randomized queries for each fixed $k\ge2$.
+  OpenAI proved that four is the optimal exponent relating randomized and quantum query complexity for total Boolean functions. We reconstruct the two reductions. A winning column has a certificate pointing to a zero in every rival. By comparing columns in pairs, a quantum algorithm finds a short list before paying to verify any certificate. The comparisons among losers may have arbitrary probabilities. Drawing each pivot in proportion to its surviving weight cancels these biases from the expected remaining mass, and the algorithm can sample the required distribution without knowing the weights. Classically, merely querying the winning certificate predicts a whole vector of hard answers. Planting that certificate in a random column gives randomized cost $\widetilde\Omega_k(m^{2-1/k})$ against quantum cost $\widetilde O_k(\sqrt m)$ for each fixed $k\ge2$.
 ---
 
 ## 1. The fourth power
 
-Suppose one of $m$ columns claims to be the only all-one column. To defeat a rival, it need only point to a zero there. Now give every column a proposed certificate with one pointer per rival. The genuine winner can use a single pointer to defeat *any* opponent, while even a fabricated certificate cannot point to a zero in the winner. OpenAI [@OpenAI2026] exploits this asymmetry to find a short list of candidates. Searching over $m$ columns with a full $\widetilde O(\sqrt m)$ verification at each step would cost $\widetilde O(m)$ queries. Comparing columns first puts the two searches in succession, each at cost $\widetilde O(\sqrt m)$.^[Will Cook directed this reconstruction. AI systems drafted and revised the manuscripts and Lean proofs.]
-
-Where should the certificates be kept? Each column gets an array indexed by answers to instances of a partial function $P$. A quantum decoder can find the winner's address cheaply. To read even a single certificate bit, a classical algorithm must name an entire address before the bit comes back. A small budget leaves most columns scarcely queried. For a suitable $P$, the chance of guessing the address in any such column is tiny. Forrelation supplies such a $P$, together with a small exact circuit that lets the verifier reject false claims about its promise.
-
-**Theorem 1** (OpenAI [@OpenAI2026, Theorem 1.1]). *For each fixed integer $k\ge2$ there are total Boolean functions $F_{k,m}$ indexed by powers of four $m\ge4$. With $\ell=\log_2m$ and a constant $C_k$ depending only on $k$,*
-$$
- Q(F_{k,m})\le C_k\sqrt m\,\ell^6,
- \qquad R(F_{k,m})\ge \frac{m^{2-1/k}}{400\ell^2}.
-\tag{1}
-$$
-*The quantum bound holds for all such $m$ and the randomized bound for all sufficiently large $m$. The optimal universal exponent in $R(f)=O((1+Q(f))^\alpha)$ for total Boolean $f$ is four.*
-
-We use worst-case bit-query caps and error at most $1/3$. For a partial function the cap applies on every input and branch, the error bound on its domain. The power six and coefficient $1/400$ in (1) are explicit choices in this reconstruction.^[The [complete reconstruction](https://github.com/wcook04/quartic-query-lean/blob/3bb0970ec6174ee78083e0bbd2dbd5080fb89662/docs/reasoning_record.md) derives the supporting results, including the [uniform estimates](https://github.com/wcook04/quartic-query-lean/blob/3bb0970ec6174ee78083e0bbd2dbd5080fb89662/docs/reasoning_record.md#ROOT-GROWING-K) for a growing $k$. The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md) gives the Lean proofs of the optimal exponent and the quantitative bounds.]
-
-Aaronson, Ben-David, Kothari, Rao and Tal proved the upper bound $R\le D=O(Q^4)$ and conjectured $R=O(Q^3)$ [@ABKRT2021, Conjecture 2]. The balanced AND–OR cheat sheets of Aaronson, Ben-David and Kothari [@ABK2016, §3], using optimal partial separations [@BansalSinha2021; @SSW2023], give powers approaching three.
-
-\Needspace{8\baselineskip}
-
-OpenAI gives each column of a pointer function [@GPW2018; @ABBLSS2017] its own cheat sheet. For a partial function on $\Theta_k(m)$ bits with a polylogarithmic quantum decoder, an exact circuit of size $\widetilde O_k(m)$ and $1\le L\le m$ below its randomized complexity, the same one-instance lower bound gives these estimates up to logarithms:
+OpenAI's separation improves the exponent while giving up a factor of $m$ in the randomized lower bound. Compare the balanced AND–OR cheat sheets of Aaronson, Ben-David and Kothari [@ABK2016, §3] with OpenAI's construction [@OpenAI2026], which puts a separate certificate array in each column of a pointer function [@GPW2018; @ABBLSS2017]. Use the same partial function $P$ on $\Theta_k(m)$ bits in both, with a polylogarithmic quantum decoder and an exact circuit of size $\widetilde O_k(m)$ for its promise and value. For $1\le L\le m$ below $R(P)$, the estimates are, up to logarithms,
 $$
 \begin{array}{lcc}
  & \text{quantum upper bound} & \text{randomized lower bound} \\
@@ -40,35 +22,46 @@ $$
  \text{one array per column} & \sqrt m & m L .
 \end{array}
 $$
-For Forrelation one may take $L=\widetilde\Omega_k(m^{1-1/k})$. Giving up a factor of $m$ on the classical side while halving the quantum exponent takes the separation from $3-1/k$ to $4-2/k$. Already $k=3$ rules out the cube.
+For $k$-fold Forrelation one can take $L$ of order $m^{1-1/k}$ up to logarithms [@BansalSinha2021]. The quantum saving more than pays for the classical loss: $3-1/k$ becomes $4-2/k$.
+
+How can one search $m$ columns for a certificate that itself costs about $\sqrt m$ queries to check? The winning column is all ones, and its certificate points to a zero in every other column. Given two candidate addresses, follow their pointers into each other. The winner defeats its rival on this single test even if the rival's address is wrong. Comparing first and verifying only a short list makes the two square-root costs add. On the classical side, these pointers are kept at addresses made of hard partial-function answers. A query to the right cell must name the entire address before it gets a single bit back.
+
+**Theorem 1** (OpenAI [@OpenAI2026, Theorem 1.1], with explicit bounds from this reconstruction). *For each integer $k\ge2$ there are total Boolean functions $F_{k,m}$ indexed by powers of four $m\ge4$ such that, for a constant $C_k$ and $\ell=\log_2m$,*
+$$
+ Q(F_{k,m})\le C_k\sqrt m\,\ell^6,
+ \qquad R(F_{k,m})\ge \frac{m^{2-1/k}}{400\ell^2}.
+\tag{1}
+$$
+*The quantum bound holds for all such $m$ and the randomized bound for all sufficiently large $m$ at fixed $k$. The optimal universal exponent in $R(f)=O((1+Q(f))^\alpha)$ for total Boolean $f$ is four.*^[We use worst-case bit-query caps and error at most $1/3$. For partial functions the cap applies on every input and branch, the error bound on the promise.]
+
+Aaronson, Ben-David, Kothari, Rao and Tal proved $R\le D=O(Q^4)$ and conjectured $R=O(Q^3)$ [@ABKRT2021, Conjecture 2]. The earlier cheat sheets, combined with optimal partial separations [@BansalSinha2021; @SSW2023], attain powers approaching three. Already $k=3$ in (1) excludes the cube.
 
 ## 2. The certificate
 
-A convincing all-one column needs two kinds of evidence. Its pointers must exhibit a zero in each rival, and the cell containing them must really be the one named by its address inputs. An exact Boolean circuit $\mathcal C$ for the domain and value of $P$ supplies the latter evidence. Its first output is one exactly on the promise, and its second equals $P$ there. Fix its wiring once. A proposed evaluation can then be checked gate by gate, even on an input for which the quantum decoder has no correctness guarantee.
+Each column $i\in[m]$ has a candidate string $X_i\in\{0,1\}^m$, an address given by $r=20\log_2m$ inputs $A_{i,1},\ldots,A_{i,r}$ to $P$, and an array of certificate cells $B_{i,s}$ indexed by $s\in\{0,1\}^r$. Even with one cell for every possible address there are just $2^r=m^{20}$ cells per column.
 
-Write $[m]=\{1,\ldots,m\}$ and $r=20\log_2m$. Column $i$ contains a string $X_i\in\{0,1\}^m$, $r$ inputs $A_{i,1},\ldots,A_{i,r}$ to $P$, and an array of cells $B_{i,s}$ indexed by $s\in\{0,1\}^r$. Each cell holds a proposed transcript of $\mathcal C$ on each of the $r$ inputs, together with one row pointer $p_{i,s,j}\in[m]$ for each $j\ne i$. A transcript supplies one bit per non-input gate in the fixed circuit. Every $\ell$-bit pointer encodes a row.
+A certificate has to do more than point to zeros. The address itself could be false, or one of the partial-function answers could be undefined. Fix an exact fan-in-two Boolean circuit $\mathcal C$ with two outputs, a domain bit and the value of $P$ on its domain. Each cell holds a proposed evaluation of $\mathcal C$ for each address input, one bit per non-input gate. It also holds one $\ell$-bit row pointer $p_{i,s,j}$ into each column $j\ne i$. Every pointer word names a row.
 
 Column $i$ **wins** if $X_i=1^m$, all its address inputs belong to the domain of $P$, and the cell with label
 $$
 s_i=\bigl(P(A_{i,1}),\ldots,P(A_{i,r})\bigr)
 $$
-contains the true transcripts and points to a zero in every other column. The function outputs one if a column wins, zero otherwise. This defines a total Boolean function on the freely chosen input bits. In particular an off-promise column loses, whatever is written in its cells. Two winners are impossible because neither all-one column could point to a zero in the other.
+contains the true transcripts and points to a zero in every other column. The function outputs one if a column wins, zero otherwise. All input bits are freely chosen. An off-promise column loses, whatever is written in its cells. Two winners are impossible because neither all-one column could point to a zero in the other.
 
-![The all-one column $i^\star$ and its selected cell. Each other column has an array of its own. Following just the pointer for $j$ disqualifies that rival.](figures/expert_column.svg){width=85%}
+![A comparison with the winning column $i^\star$. Its selected cell points to a zero in $X_j$. The return pointer reads a one in $X_{i^\star}$, whichever cell the rival decodes.](figures/expert_column.svg){width=85%}
 
 If a claimed address $s$ is false, where can a verifier catch it? Test the $m$ bits of $X_i$ and follow the $m-1$ outward pointers. For each address input test the transcript against every gate of $\mathcal C$ and test the two outputs against $(1,s_h)$. A consistent transcript must be the true evaluation, by induction in circuit order. A fabricated transcript therefore fails at some gate, and a true transcript for an undefined input or wrong answer fails an output test. In particular a losing column has a defect at *every* address. This gives the verifier a search problem with
 $$
  K=m+(m-1)+r(S+2)
 \tag{2}
 $$
-tests, where $S$ counts non-input gates of fan-in at most two. Each test reads at most $\max\{3,\ell+1\}$ bits. Both query bounds concern this same circuit and the function encoded by its cells.
+tests, where $S$ counts non-input gates. Each test reads at most $\max\{3,\ell+1\}$ bits. Both query bounds concern this same circuit and the function encoded by its cells.
 
-The next two arguments use only the following properties of $k$-fold Forrelation [@OpenAI2026, Lemma 2.1]. A reversible decoder for $P$ with error $\eta$ on its domain costs $O_k(1+\log(1/\eta))$ queries on every input. An exact circuit as above has $S=O_k(m\ell^2)$, making $K=O_k(m\ell^3)$. Finally, for fixed $k$ and sufficiently large $m$,
+We use three properties of $k$-fold Forrelation [@OpenAI2026, Lemma 2.1], whose promise is specified in §5. A reversible decoder for $P$ with error $\eta$ on its domain costs $O_k(1+\log(1/\eta))$ queries on every input. An exact circuit as above has $S=O_k(m\ell^2)$, so $K=O_k(m\ell^3)$ and the entire input is polynomial in $m$ at fixed $k$. Finally, for fixed $k$ and sufficiently large $m$,
 $$
  L:=\left\lfloor m^{1-1/k}/\ell^2\right\rfloor < R(P).
 \tag{3}
 $$
-We use the first two properties to find a certificate and the third to hide it. Section 5 identifies the promise and the circuit that supply them.
 
 ## 3. Finding a winner by comparison
 
@@ -85,14 +78,12 @@ Only the winning column has a dominance guarantee, $a_{i^\star j}\ge1-\varepsilo
 
 ### 3.2 A tournament with probabilistic comparisons
 
-**Probabilistic tournament** [@OpenAI2026, Proposition 3.2]. *Given a reversible $c$-query comparison satisfying (4), controlled by the candidate indices, a quantum algorithm returns $O(\log m)$ candidates using $\widetilde O(c\sqrt m)$ queries on every input. If a candidate loses to each rival with probability at most $b/\log_2(2m)$ for a sufficiently small absolute constant $b>0$, the list contains it with probability at least $0.99$.*
+How do we find the dominant candidate when all we know about the other comparisons is (4)? OpenAI's tournament [@OpenAI2026, Proposition 3.2] needs only $O(\log m)$ pivots and reversible access to the comparison circuit controlled by the candidate indices.
 
 For fixed comparison outcomes one can keep precisely the candidates that beat all previous pivots and draw uniformly from this set [@AIK2026, §6.1]. For fractional comparisons the analogue of membership is the probability of beating those pivots in fresh comparisons. After pivots $\rho_1,\ldots,\rho_n$, this gives weights
 $$
  w_i=\prod_{h=1}^n a_{i\rho_h},\qquad W=\sum_i w_i.
 $$
-\Needspace{9\baselineskip}
-
 Initially all weights are one. A pivot $j$ updates $w_i$ to $w_i a_{ij}$ and removes itself. How should we draw $j$ once the weights are unequal? For a pivot law $q$, the pair $i,j$ contributes $w_i q_j a_{ij}+w_j q_i a_{ji}$ to the expected remaining mass. A uniform pivot leaves the larger weight on one direction. To cancel the bias we need equal coefficients, $w_i q_j=w_j q_i$. Drawing $j$ with probability $w_j/W$ achieves this for every pair. Hence, while $W>0$,
 $$
  \mathbb E[W_{\rm new}\mid w]
@@ -105,6 +96,8 @@ The sum pairs two independent draws from the weights. On distinct draws either i
 
 Stop on extinction, keeping $W=0$ thereafter. After $T$ steps the expected mass is at most $m2^{-T}$. An unselected dominant candidate, however, still has weight at least $(1-\varepsilon)^T\ge1-T\varepsilon$. Take $T=\lceil\log_2(1000m)\rceil$ to make the first quantity small and $\varepsilon=1/(1000T)$ to keep the second above $1/2$. Missing this candidate now requires more than half a unit of weight to survive. By Markov's inequality that happens with probability at most $2m2^{-T}$.
 
+\Needspace{11\baselineskip}
+
 How does the algorithm draw this pivot? It has access to the comparison circuit but none of the numbers $a_{ij}$. Fix the measured pivots so far. Prepare a uniform superposition of $i$, and, controlled on $i$, compare it with each pivot using a fresh workspace. If $|\phi(i,\rho_b)\rangle$ is the entire state of one comparison, the preparation produces
 $$
  \frac1{\sqrt m}\sum_i |i\rangle\bigotimes_{b=1}^n |\phi(i,\rho_b)\rangle.
@@ -116,16 +109,15 @@ $$
  \Pr[i\mid\text{flag}]=\frac{w_i}{W}.
 \tag{6}
 $$
-The same half unit of surviving weight pays for this draw. Before the dominant candidate has been selected, its contribution alone gives flag probability $W/m>1/(2m)$. Thus a procedure that can amplify from threshold $1/(2m)$ will suffice throughout the part of the run where failure matters.
+The same half unit of surviving weight pays for this draw. Until $i^\star$ is listed, its contribution gives flag probability $W/m>1/(2m)$. Use bounded amplitude amplification with this threshold and failure tolerance $\varepsilon$. The [finite schedule](https://github.com/wcook04/quartic-query-lean/blob/3bb0970ec6174ee78083e0bbd2dbd5080fb89662/docs/reasoning_record.md#upper-small-probability) costs $O(\sqrt m\log(1/\varepsilon))$ calls to the preparation and its inverse on every branch. Grover rotations preserve the direction of the flagged component, so every successful trial has *exactly* the label distribution in (6) [@BBHT1998; @BHMT2002; @OpenAI2026, Lemma 3.1].
 
-For a reversible preparation and a query-free flag, bounded amplitude amplification at threshold $\gamma$ costs $O(\gamma^{-1/2}\log(1/\eta))$ calls to the preparation and its inverse on every branch. If the flag probability is at least $\gamma$, failure has probability at most $\eta$. What matters here is the label it returns on success. Grover rotations preserve the direction of the flagged component, so every successful trial has exactly the conditional law in (6) [@BBHT1998; @BHMT2002; @OpenAI2026, Lemma 3.1]. The [bounded schedule](https://github.com/wcook04/quartic-query-lean/blob/3bb0970ec6174ee78083e0bbd2dbd5080fb89662/docs/reasoning_record.md#upper-small-probability) works without knowing the flag probability.
-
-Set $\gamma=1/(2m)$ and $\eta=\varepsilon$. Append the measured pivot on success, stopping on failure or after $T$ draws. At every history before the dominant candidate appears, we can couple a successful transition to the ideal draw, with probability at most $\varepsilon$ of stopping instead. Consequently
+Append the measured pivot on success and stop on failure or after $T$ draws. Before the winner is listed, each successful transition can be coupled to the ideal draw, with probability at most $\varepsilon$ of stopping instead. Hence
 $$
  \Pr[i^\star\text{ absent from the list}]\le 2m2^{-T}+T\varepsilon.
 \tag{7}
 $$
-Only the measured pivots persist. A stage with $n$ pivots rebuilds their comparisons for $O(c(n+1)\sqrt m\log T)$ queries. Summing over the $T$ stages gives the worst-case cap $O(c\sqrt m\,T^2\log T)$ and proves the tournament assertion.
+
+Rebuilding at most $T$ comparisons per preparation for at most $T$ stages costs $O(c\sqrt m\,T^2\log T)$ queries on every input.
 
 ### 3.3 Paying for verification
 
@@ -133,13 +125,9 @@ The tournament must find the winner on a one-input. On a zero-input it may retur
 
 For each listed column decode a fresh address with error at most $\varepsilon$ on promised inputs, then search the $K$ local tests at that address for a defect. A uniform test flags a defect with probability at least $1/K$ whenever any test fails. Evaluating the test reversibly and using the bounded search above costs $O(\ell\sqrt K\log(1/\varepsilon))$ queries. Accept if the search finds no defect for some column. At the winner's true address no test can flag, so listing the winner and decoding it correctly suffice for acceptance. A one-input is rejected with probability at most (7) plus $\varepsilon$. On a zero-input every proposed pair has a defect by §2. Fresh searches give a false-acceptance probability of at most $T\varepsilon$, conditional on any list. Both errors are below $1/3$.
 
-Inserting $T=O(\ell)$, $c=O_k(\ell\log\ell)$ and $K=O_k(m\ell^3)$ gives
-$$
- \underbrace{O_k\bigl(\sqrt m\,\ell^3(\log\ell)^2\bigr)}_{\text{tournament}}
- +\underbrace{O_k\bigl(\sqrt m\,\ell^{7/2}\log\ell\bigr)}_{\text{verification}}
- \;\le\; C_k\sqrt m\,\ell^6 .
-$$
-The number of columns controls the first square root, the number of local tests the second. Their scales match because each column has $m$ rows and its circuit has size $m$ up to logarithms.
+The cost of checking the list is $O(T(c+\ell\sqrt K\log T))$, including fresh address decoding. With $T=O(\ell)$, $c=O_k(\ell\log\ell)$ and $K=O_k(m\ell^3)$, this and the tournament cost sum to at most $C_k\sqrt m\,\ell^6$. The number of candidates sets the first square-root cost and the size of a single certificate sets the second.
+
+\Needspace{22\baselineskip}
 
 ## 4. A cell query predicts an address
 
@@ -149,7 +137,7 @@ For the **dummy input** $Y^{(0)}$, choose the row $J_i$ of the sole zero in $X_i
 
 ![One draw of the coupled inputs, with $I=3$. All of the address problems have the same inputs in the two panels. The planted winner differs from the corresponding losing column only in its bit strip and its addressed cell.](figures/expert_planted.svg){width=100%}
 
-The blank-array argument for cheat sheets [@ABK2016, Lemma 6] applies with an extra possible discovery, the erased zero [@BenDavid2015, §5.1]. Run a deterministic tree on the dummy board. It has exactly the same transcript on the planted board until it queries the erased position or a bit of the filled cell. The acceptance gap is at most the sum of the two discovery probabilities on the dummy run, which knows nothing about $I$. To reach the right cell, the tree can investigate a few columns deeply and hope $I$ is among them, or it can try addresses in many columns after learning little about each.
+Run a deterministic tree on the dummy board. It sees the same replies on the planted board until it queries either the erased zero or the filled cell. The acceptance gap is at most the sum of the two discovery probabilities on the dummy run, which knows nothing about $I$ [@ABK2016, Lemma 6; @BenDavid2015, §5.1]. To reach the cell, the tree can investigate a few columns deeply and hope $I$ is among them, or it can try addresses in many columns after learning little about each.
 
 For any integer $1\le L\le m$ with $L<R(P)$, minimax gives a $\mu$ under which every deterministic depth-$L$ tree computes $P$ with success at most $\beta=2/3$ [@Yao1977]. Give the tree on the board $G=\lfloor mL/100\rfloor$ queries. We first bound the chance of bypassing the address search altogether.
 
@@ -161,6 +149,8 @@ $$
 \tag{8}
 $$
 
+\Needspace{20\baselineskip}
+
 ### 4.3 Predicting the filled cell
 
 To query a bit of $B_{i,s}$ the tree has to announce $s$ in the query index. At the right cell this is a prediction of all $r$ answers in column $i$. Call a column *heavy* if the full dummy run makes more than $L$ queries to its address inputs, counting repetitions. There are at most $G/L$ such columns on any run. Because $I$ is independent of that run,
@@ -168,22 +158,19 @@ $$
  \Pr[I\text{ heavy}]\le\frac{G}{mL}.
 $$
 
-For a column that receives few queries we need the separate-cap direct product [@Drucker2012, §3; @OpenAI2026, Lemma 4.1]. Under $\mu^{\otimes r}$ a predictor with at most $L$ queries to each input on every branch succeeds on the whole answer vector with probability at most $\beta^r$. Queries may be interleaved adaptively, and any auxiliary information and coins must be jointly independent of the tuple.
+In a light column, a query to the true cell names $r$ hard answers after at most $L$ queries to their inputs. It is tempting to condition on the column being light and apply a direct-product bound. But the answers seen by the tree may determine whether it continues in that column. Conditioning on its final query count can change the input law.
 
-Fix the auxiliary information and coins. A transcript restricts each input separately, so their posterior laws are still independent. Let $V_h$ be the best probability of answering input $h$ under its posterior with its remaining allowance. A query to $h$ cannot increase $V_h$ in expectation, since that query followed by the best continuation was already an available strategy. It leaves all other factors fixed. Thus $\prod_h V_h$ is a supermartingale with initial value at most $\beta^r$. At a leaf independence makes the chance that *all* guesses are right at most $\prod_h V_h$. Taking expectations proves the bound.[^product]
+Under the *original* product law $\mu^{\otimes r}$, a predictor capped at $L$ queries per input on every branch has success at most $\beta^r$, even with adaptive interleaving and jointly independent auxiliary information and coins [@Drucker2012, §3; @OpenAI2026, Lemma 4.1]. At a fixed transcript the posterior factors across inputs. For each input consider the best success probability achievable with its queries left. Querying one input leaves the other values fixed. Even for the queried input the expected value cannot rise, since that query was already an available first move. The [separate-cap proof](https://github.com/wcook04/quartic-query-lean/blob/3bb0970ec6174ee78083e0bbd2dbd5080fb89662/docs/reasoning_record.md#CL-product-law) takes the product of these values, which cannot increase in expectation.
 
-[^product]: The [decision-tree proof](https://github.com/wcook04/quartic-query-lean/blob/3bb0970ec6174ee78083e0bbd2dbd5080fb89662/docs/reasoning_record.md#CL-product-law) gives the posterior argument in full.
+Fix a column $i$ and query time $\tau\le G$. Embed the predictor's unknown tuple as column $i$'s address inputs on a dummy board, and sample all other data independently of the tuple. Simulate the tree through time $\tau$, paying only for queries to these address inputs. Stop before the $(L+1)$-st such query in total. If query $\tau$ is in a cell $B_{i,s}$, output $s$ before reading the cell. If the query at that time has any other form, or if the simulation aborts or halts earlier, output a fixed vector.
 
-The catch is that a column may end up light because of the answers read there. Conditioning on lightness can change their law. We instead cap a predictor on *every* input and ask which runs it reproduces.
-
-Fix a column $i$ and a time $\tau\le G$. Embed the predictor’s unknown tuple, drawn from $\mu^{\otimes r}$, as the address inputs of column $i$. It samples everything else on the dummy board itself, including the zero in column $i$. Now simulate the tree through its $\tau$-th query. Other columns, all bit strips and all blank cells can be answered from the sampled board. Only a query to an address input of column $i$ costs the predictor a query. Stop *before* making the $(L+1)$-st such query in total. If the tree's query at time $\tau$ is in $B_{i,s}$, output $s$ before reading the cell. On any other query at that time, on abort, or if the tree has already halted, output a fixed vector.
-
-This predictor respects the cap on every run. Its chance of success is therefore at most $\beta^r$ under the original product law. Now consider a dummy run in which $i$ was light and query $\tau$ hit its true cell. Every prefix was within budget, so the simulator followed that run to time $\tau$ and output $s_i$. We have proved the *joint* bound
+This total cap enforces the separate caps. On every run in which $i$ ends up light, the simulator can follow the tree up to its $\tau$-th query if it has one. Thus a light run that queries $B_{i,s_i}$ at that time is a successful prediction. Applying the direct product to the predictor gives the joint bound
 $$
  \Pr[i\text{ light and query }\tau\text{ is in }B_{i,s_i}]
  \ \le\ \Pr[\text{predictor outputs }s_i]\ \le\ \beta^r.
 \tag{9}
 $$
+
 For each fixed column there are at most $G$ opportunities to make this prediction. Average over the independent choice of $I$ and add the chance of a heavy column to obtain
 $$
  \Pr[\text{query }B_{I,s_I}]
@@ -199,7 +186,9 @@ $$
  \frac{4G}{m^2}+\frac G{mL}+G(2/3)^r <\frac13.
 \tag{11}
 $$
-Here $G\le mL/100\le m^2/100$, and $r=20\log_2m$ makes $(2/3)^r\le m^{-10}$ small enough for all $G$ guesses. The same address length keeps the $2^r=m^{20}$ cells per column polynomial in number. Averaging over coins gives (11) for a randomized tree, while correctness with error at most $1/3$ on both supports would force a gap of at least $1/3$. Thus every such construction requires more than $\lfloor mL/100\rfloor$ randomized queries. For (3) at fixed $k$, the erased-zero term is $O(L/m)=o(1)$ and the lucky-address term also vanishes. The term that fixes the budget is $G/(mL)$, the bound on the fraction of deeply queried columns.
+Here $G\le mL/100\le m^2/100$, and $r=20\log_2m$ makes $(2/3)^r\le m^{-10}$ small enough for all $G$ guesses. Averaging over coins gives (11) for a randomized tree, while correctness with error at most $1/3$ on both supports would force a gap of at least $1/3$. Thus every such construction requires more than $\lfloor mL/100\rfloor$ randomized queries. For (3) at fixed $k$, the erased-zero term is $O(L/m)=o(1)$ and the lucky-address term also vanishes. The term that fixes the budget is $G/(mL)$, the bound on the fraction of deeply queried columns.
+
+\Needspace{17\baselineskip}
 
 ## 5. Forrelation and the optimal exponent
 
@@ -216,12 +205,16 @@ $$
  \frac{m^{2-1/k-\alpha/2}}{(\log_2 m)^{2+6\alpha}}
  \ \longrightarrow\ \infty.
 $$
-The quantum algorithm can use a candidate's chances of beating its rivals without ever calculating those chances. It pays separately for finding candidates and checking their certificates. The classical algorithm must commit to a certificate's address merely to inspect it, and pays the one-instance hardness across $m$ possible columns. These costs on the same total function exclude every exponent below four.
+Each fixed $k$ thus forces the universal exponent to be at least $4-2/k$. Taking the supremum over these families gives four, the exponent of the universal upper bound.
+
+\Needspace{30\baselineskip}
 
 ## References
 
 ::: {#refs}
 :::
+
+**Reconstruction.** The [complete argument](https://github.com/wcook04/quartic-query-lean/blob/3bb0970ec6174ee78083e0bbd2dbd5080fb89662/docs/reasoning_record.md) includes the [uniform estimates for a growing parameter](https://github.com/wcook04/quartic-query-lean/blob/3bb0970ec6174ee78083e0bbd2dbd5080fb89662/docs/reasoning_record.md#ROOT-GROWING-K). The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md) links the formal statements and Lean proofs. Will Cook directed the reconstruction. AI systems drafted and revised the manuscripts and Lean development.
 
 <!-- lean-links -->
 <!-- /lean-links -->

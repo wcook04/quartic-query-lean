@@ -31,7 +31,7 @@ FIGURES = {
     "expert": (DOCS / "figures", ["expert_column", "expert_planted"]),
     "record": (DOCS / "figures", ["forrelation_chain"]),
     "exposition": (DOCS / "figures/exposition",
-                   ["fig1_column", "fig2_board", "fig3_tournament", "fig4_planted"]),
+                   ["fig1_column", "fig2_board", "fig3_tournament", "fig4_planted", "fig5_costs"]),
 }
 
 # Style shared by both papers, modelled on the SK companion papers.

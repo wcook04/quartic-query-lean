@@ -1,0 +1,39 @@
+% The quantum algorithm from candidate list to verification. The column nodes adapt
+% fig3_tournament.tex; the verification box follows fig1_column.tex.
+\documentclass[tikz,border=0pt]{standalone}
+\input{style.tex}
+\usetikzlibrary{backgrounds}
+\begin{document}
+\begin{tikzpicture}[
+  show background rectangle, background rectangle/.style={fill=white},
+  inner frame sep=4pt, font=\normalsize,
+  col/.style={circle, draw=lose, thick, minimum size=7mm, inner sep=1pt,
+              fill=white},
+  listed/.style={col, draw=addr, fill=addr!8, minimum size=8mm},
+  flow/.style={->, thick, shorten >=1pt}]
+% The pivot list is the only object passed to the expensive verifier.
+\node[col] at (0,0) {$1$};
+\node[col] at (0.78,0) {$2$};
+\node at (1.43,0) {$\cdots$};
+\node[col] (last) at (2.13,0) {$m$};
+\node at (1.06,-0.73) {$m$ columns};
+\node[listed] (first) at (5.15,0) {$p_1$};
+\node[listed] at (6.03,0) {$p_2$};
+\node at (6.75,0) {$\cdots$};
+\node[listed] (end) at (7.46,0) {$p_t$};
+\node at (6.30,-0.73) {$t\le T=O(\log m)$ pivots};
+\draw[flow] (last.east) -- node[above=4pt, align=center] {Weighted pivot\\comparisons} (first.west);
+\node[draw=win, fill=win!5, rounded corners=2pt, align=center,
+      minimum height=9mm, anchor=west] (check) at (10.35,0) {$K$ local tests};
+\draw[flow] (end.east) -- node[above=4pt, align=center] {Check each\\listed column} (check.west);
+\node[align=center] at (check |- 0,-0.93) {Search for a violation\\at the decoded address.};
+\node[align=center, font=\small] at (6.30,-1.55)
+  {On a yes-input the list contains\\the winner with probability $>0.99$.};
+\node at (6.10,-3.05) {$\displaystyle
+  \underbrace{\widetilde O_k(\sqrt m)}_{\text{draw the pivots}}
+  \quad+\quad
+  \underbrace{\widetilde O(\sqrt K)}_{\text{check the list}}
+  \quad=\quad\widetilde O_k(\sqrt m),
+  \qquad K=O_k(m\log^3m).$};
+\end{tikzpicture}
+\end{document}
