@@ -1,5 +1,202 @@
 # Revision by the purpose of each paper
 
+## November 5 reader-control revision
+
+Baseline: `a7f89f4`. This continuation uses the newly supplied revision packets
+and advisory readings against the current sources. Its first pass targets the
+main specialist argument, the exposition's sampling construction, and the
+record's planted-cell and derivative-growth proofs. It is a source-assisted
+author/agent revision, not an unprimed reader study or a new mathematical review
+of every page. The subsequent sequential reading and production review are recorded below;
+they do not constitute independent acceptance.
+
+The specialist result now precedes the extended construction preview. The
+prediction reduction states its event inclusion before describing the simulator.
+The unused global-budget alternative and second conditioning calculation no
+longer compete with the proof; their full arguments remain in the record. The
+ending distinguishes the three properties supplied by Forrelation and the costs
+an alternative supplier would have to meet. The weighted contraction, exact
+conditional law, all-branch caps and fixed-parameter quantifiers are retained.
+
+The exposition introduces the sampler as a rejection experiment, derives the
+accepted-label law, then implements that experiment coherently. Its comparison
+of ordinary repetition and amplification counts attempts to a supplied
+experiment; it does not assert that Forrelation comparisons are cheap classical
+bit-query operations. The local-certification equivalence is stated as a
+proposition. The inventory of board variants no longer separates the cyclic
+example from the weight calculation; the distinct examples remain identified
+where used. The first occurrence of the theorem no longer uses the not-yet-defined
+symbol for the optimal exponent.
+
+The record moves its XOR simulator trace and terminal-lightness example to the
+existing Appendix B.3, preserving their passage identities and complete
+calculations. Equation (21) now proceeds directly to (22). The optional numeric
+tournament budget, finite output-law restatement and historical comparisons are
+in Appendix E.3; the generic tournament now proceeds to its application. In
+§§8.9–8.10, the interpolation target and signed derivative moment precede the
+mechanisms used to bound them. The sign coefficients are chosen before sampling;
+the proof still establishes a uniform bound for all bounded coefficient arrays,
+as required by its degree induction.
+
+### Literature comparison and language decisions
+
+The retained primary TeX passages were read directly:
+
+- Aaronson–Ben-David–Kothari, arXiv:1511.01937v2, §1.2: certification and access
+  costs motivate the addressed array. Applied to the companion's construction
+  narrative. The older recipe and its exponents remain distinct from the present
+  construction.
+- Ben-David–Kothari, arXiv:2609.15063v1, abstract, introduction and §2:
+  the theorem precedes the construction, and the cumulative representation is
+  motivated by the check it makes cheap. Applied to theorem placement and the
+  distinction between a needed property and a chosen representation. No sporting
+  analogy or theorem about certificate complexity is imported.
+- Ambainis–Iraids–Kokainis, arXiv:2609.11664v3, §6.1: the procedure's exits and
+  budget precede its candidate invariant. Used to retain the complete sampler
+  contract while removing repeated announcements. Its fixed-edge model is not
+  identified with arbitrary fractional comparisons.
+- De Wolf's retained quantum-computing lecture notes, chapter 7, amplitude
+  amplification: the desired successful component motivates the reflections,
+  and their geometric action explains the speedup. Applied to the exposition's
+  experiment-first order. The present algorithm still needs its separately
+  proved bounded schedule for an unknown success probability.
+- Bansal–Sinha, arXiv:2008.07003v3, §1.3: the distinguishing expectation is
+  identified before the distribution and interpolation machinery. Applied at
+  the record's analytic transitions. The reconstruction's different bias
+  transform, derivative argument and credit remain explicit.
+
+Language review retains field terms such as coupling, promise, cap, product law
+and conditioning. It removes repeated procedural justification where the
+mathematical implication already supplies the reason. It does not substitute
+synonyms for technical terms or imitate an individual author's phrasing.
+Register comparisons use preserved TeX, with before/after manuscript snapshots.
+The research profile combines four cited research works; it is contextual for
+the long reconstruction, not a matched population of complete records. The
+teaching profile is one lecture source, not a statistical quality standard.
+
+### Generalisation and transfer
+
+The shared owner is `lean-exposition`, in `docs/authoring.md`
+and `docs/reader-review.md`. This revision applies [method commit
+`3eea897`](https://github.com/wcook04/lean-exposition/commit/3eea89725469a505e830f0575662e420a0cb826a),
+based on `f73a2a3`. The transition skills already consume those owners;
+their complete procedures need no duplicated checklist. Two additions refine
+existing composition rules: distinguish a required property from its chosen
+realisation, and let a central inference reach its immediate use before optional
+refinements interrupt it.
+
+Two author-executed transfer checks delimit the first addition. In the SK short
+paper's model and main-result passages, the moment bound on a positive constant
+interval concerns admissible coefficients, while minimality supplies the
+contact conditions used to exclude a gap. Explaining those separate uses must
+neither add minimality to the local estimate nor claim full support for arbitrary
+coefficients. In the authoring guide's weighted-average example, multiplying
+weights `(2,1)` by a common positive factor preserves the average of `(1,4)`,
+whereas exchanging them gives `3` instead of `2`. The property being used is
+normalisation by the positive total weight; the particular integer weights are
+an illustrative choice. Neither check proves minimality of all hypotheses.
+
+For the second addition, the quartic simulator reaches its probability bound
+before its optional trace, whereas the teaching sampler retains its fractional
+example at the use. In the SK main-result passage, the two conflicting demands
+on a gap explain the proof before the source and dependency discussion. An
+exception is a paper whose subject is comparison of two proof mechanisms: there
+the second argument may belong beside the first. These are source-assisted
+editorial checks, not observed gains in reader understanding.
+
+### First-pass validation boundary
+
+All three native renderers completed. The first outputs have 18, 28 and 96
+pages. Representative changed pages were inspected at reading size: the
+specialist's first-page theorem, capped predictor and product proof; the
+exposition's rejection law; and the record's classical entry, derivative lemma
+and relocated quantum material. That inspection prompted a further space
+reservation before (F27) and a repair to moved-example section labels. The
+edition needs another render after those repairs and final link rebinding.
+
+The repository check ran 267 tests with two skips and no failures. No Lean
+source was edited and no fresh Lean build or Comparator run is claimed.
+Correspondence rebinding preserves all passage identities and claim lists;
+changed prose remains distinguishable from prior edition-bound review.
+
+### Composition and production pass
+
+The second pass read the main arguments and supporting appendices in order,
+with particular attention to the next use of each moved passage. This was an
+author-side reading with access to the sources and earlier reviews. It does not
+establish what an unprimed reader would understand, and no numerical review
+rating is treated as evidence of improvement.
+
+The specialist keeps its theorem on the first page. Its supporting amplification
+lemma now starts with enough room for its statement and proof, and the references
+begin on a fresh page. The exposition uses the existing two-pivot case with
+success probability `1/4` as its main amplification example: one iteration
+succeeds with probability one, while two return to `1/4`. The former main case
+at `1/2` could not exhibit the claimed amplification. The fractional-weight
+case remains alongside it because it explains a different operation. Appendix
+A.3 now proves the averaged `9/40` success bound for the unknown-probability
+schedule, making its error and all-branch cost guarantees locally recoverable.
+A repeated four-bit OR explanation was removed from the opening.
+
+The record gains a printed contents page, puts its conclusion before the
+appendices, and brings the formal-proof note and AI disclosure before the
+references. Its cyclic tournament example joins the other optional material
+in Appendix E.3, so the ideal sampling law, coherent implementation, coupling
+and query bound form a continuous argument in §5.2. A duplicated inventory of
+the query-model examples was removed without deleting those examples. The
+moved passages keep their identifiers; the correspondence and Comparator map
+are rebound to the revised source. Comparing against the baseline preserves
+the multiset of all 312 displayed formulas, all 160 explicit passage markers
+and all 139 explicit claim markers. This check establishes preservation of
+those expressions and identities, not correctness of every proof.
+
+The example change supplies a third refinement to the shared method: select a
+main worked case that exhibits the operation the passage promises. Two transfer
+checks make its scope concrete. Unequal weights in the weighted-average example
+expose a distinction that equal weights hide. In the derivative-growth argument,
+a degree-two revealed polynomial shows a fresh centred variable multiplying a
+nonconstant lower-degree process; degree one cannot exhibit that inductive
+operation. A counterexample remains the right central case when failure is the
+subject, as with the projection experiment that motivates the one-sided promise.
+These checks add no new mathematical claim or claim of measured learning.
+
+Extraction was inspected against the ABK TeX and the specialist manuscript
+before interpreting the final register comparisons. Mathematical expressions
+are replaced by placeholders; footnote prose can remain in the counted text.
+The manuscripts' shorter average sentences are not a defect to repair by padding,
+and the single-source teaching profile cannot establish an ideal register.
+Terms flagged as status language also include necessary model and guarantee
+statements. The resulting decisions preserve such statements and remove
+procedural repetition only where it delays the mathematics.
+
+### Final validation
+
+The delivered editions have 19 specialist pages, 29 exposition pages and 97
+record pages. All pages were inspected in contact sheets. Reading-size checks
+covered the specialist's opening theorem and complete amplifier proof; the
+exposition's amplification example and finite schedule; and the record's
+contents, sampler-to-coupling transition, derivative induction, conclusion,
+relocated examples and closing notes. The shorter-paper reference sections
+were inspected again after being moved to fresh pages. Native rendering
+completed without unresolved destinations or page-bound errors, and the PDF
+hashes and their source bindings match the delivered files.
+
+The record is pinned at `fccaaaca89125aab66cfc39edd8a1d01368e290c`; all 44
+record links extracted from the two shorter PDFs use that edition. The Lean
+source pin is unchanged. The citation-coverage map was rebound after this
+internal citation changed; all 29 mapped record reference entries and all
+bibliography key sets were checked. No new external source coverage or review
+acceptance is asserted.
+
+The final `make check` completed 267 tests with two skips and no failures,
+including the citation-map check. The method repository completed 710 tests
+with two skips, its layout and link checks, and the minimal graph's validate
+and inspect commands. No Lean source changed; no fresh Lean build or Comparator
+run is claimed. The result is a revised, source-assisted edition with checked
+production files, not an independent reader or mathematical certification.
+
+## Earlier November 4 revision
+
 Baseline: `8195cc0`, 4 November 2026. The [intake](paper_purpose_intake.json)
 preserves the four supplied conversations. Their repeated numerical ratings
 are editorial opinions, not a measurement of mathematical quality or reader

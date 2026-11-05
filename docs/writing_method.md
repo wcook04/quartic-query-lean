@@ -363,3 +363,33 @@ Check local section numbers separately from locators in cited papers. Inspect
 page transitions and preserve a short theorem, algorithm or parameter table as
 a reading unit when the layout allows. A successful link check cannot detect
 a direction that now sends the reader to the wrong stage of the argument.
+
+## Reader control and reusable arguments
+
+The November 5 revision distinguishes a property used by a proof from the
+particular construction that supplies it. In the companion, classical hardness,
+quantum decoding and exact local certification have separate consumers. In the
+exposition, rejection sampling first explains the desired label law; the quantum
+preparation and amplifier then implement it. In the record, the signed derivative
+moment explains why the proof tracks a polynomial on revealed coordinates.
+None of these explanations asserts that the chosen construction is unique.
+
+The same pass preserves the immediate use of a difficult inference. The record's
+capped simulator now leads directly from its joint-event bound to the union
+over query times. Its complete worked examples remain in Appendix B.3. The
+specialist retains the supporting product and amplification proofs, while an
+unused alternative bound stays in the record. The teaching article keeps the
+fractional-weight calculation beside the sampler because that example supplies
+an operation its reader is learning.
+
+Its main amplification example now starts with success probability $1/4$, reaches
+one after a single iteration, and returns to $1/4$ after two. This existing example
+shows both the promised improvement and overshoot. The previous $1/2$ case left
+the probability unchanged and could not do that explanatory work. A boundary
+case still belongs first when the failure itself is what the passage explains,
+as with the projection experiment's need for a one-sided promise.
+
+The [revision account](../research/adjudication/paper_purpose_revision.md#november-5-reader-control-revision)
+records the inspected literature, transfer cases and limits. These decisions
+refine the existing shared paper purposes and reader-review procedure; numerical
+register comparisons remain diagnostics, not a measure of literary quality.
