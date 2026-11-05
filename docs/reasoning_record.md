@@ -1019,7 +1019,7 @@ A run that stops before its $q$-th query does not contribute. Why keep nonheavin
 Replay the queries *before time $q$*. Forward a query to a target string if fewer than $L$ target queries have been forwarded, and otherwise abort. Answer every other query from the supplied data. At time $q$ inspect just the proposed coordinate: if it lies in $B_{i,s}$, output $s$ without reading the bit. Output a fixed default vector on abort, early termination, or any other proposal. Thus $q$ counts all proposed board queries, while $L$ caps the forwarded target queries in total.
 <!-- claim:def-simulator -->
 
-On every run each target has been queried at most $L$ times, so (6.3) bounds the predictor’s success by $(2/3)^r$. On the joint event in (6.5), even the *complete* dummy run uses at most $L$ target queries. The replay therefore agrees up to time $q$ and outputs $s_i$. The predictor can also succeed on other runs, including by its default guess. Containment of the joint event in its success event proves (6.5). $\square$
+On every run each target has been queried at most $L$ times, so (6.3) bounds the predictor’s success by $(2/3)^r$. On the joint event in (6.5), even the *complete* dummy run uses at most $L$ target queries. The replay therefore agrees up to time $q$ and outputs $s_i$. The joint event is therefore contained in predictor success, which can also include a correct default guess. This proves (6.5).
 
 <!-- /passage:CL-simulator -->
 
