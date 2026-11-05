@@ -24,7 +24,9 @@
           "callees": [
             "QuarticQuery.addressedF"
           ],
-          "topic": "partial-function"
+          "topic": "partial-function",
+          "id": "board",
+          "mechanism": "Putting P k t and C into the addressed construction fixes the board type. Its cell addresses have 40t bits and its row pointers have 2t bits, with m = 4ᵗ."
         },
         {
           "title": "Certify the one-sided promise and value on every input",
@@ -33,7 +35,9 @@
           "callees": [
             "QuarticQuery.Forrelation.forrCore_spec"
           ],
-          "topic": "certificate"
+          "topic": "certificate",
+          "id": "exact-circuit",
+          "mechanism": "The circuit computes promise membership on all inputs. For a member it also returns the prescribed value, so a transcript can certify both conditions."
         },
         {
           "title": "Sample each address digit using the Forrelation decoder",
@@ -42,7 +46,9 @@
           "callees": [
             "QuarticQuery.Upper.decode_samples"
           ],
-          "topic": "forrelation"
+          "topic": "forrelation",
+          "id": "sample-address",
+          "mechanism": "Each address digit is obtained by sampling its own Forrelation instance. The construction can estimate the address without reading the addressed cell."
         },
         {
           "title": "Use the promised address digits to bound the probability of a wrong address",
@@ -51,7 +57,9 @@
           "callees": [
             "QuarticQuery.Upper.addrLaw_good"
           ],
-          "topic": "forrelation"
+          "topic": "forrelation",
+          "id": "promised-address",
+          "mechanism": "A winning column supplies a promise witness for every digit. Those witnesses let the decoder convert its repetition budget into a bound on the error of the whole address."
         },
         {
           "title": "Supply the exact circuit and its size to the quantum cost bound",
@@ -63,7 +71,19 @@
             "QuarticQuery.Upper.budget_le",
             "QuarticQuery.Forrelation.forrCircuit_size_le"
           ],
-          "topic": "same-family"
+          "topic": "same-family",
+          "id": "upper-cost",
+          "mechanism": "The upper theorem already uses the Forrelation decoder. Supplying the realizing circuit and its size controls the cost of verifying a candidate.",
+          "obligations": [
+            {
+              "callee": "QuarticQuery.Upper.Fkm_QLe",
+              "binder": "hC",
+              "match": {
+                "head_constant": "QuarticQuery.Forrelation.forrCircuit_realises"
+              },
+              "explanation": "The named circuit theorem supplies exact membership and value."
+            }
+          ]
         },
         {
           "title": "Instantiate the generic classical theorem with P k t, Lvalue k t and the realizing circuit",
@@ -74,7 +94,53 @@
             "QuarticQuery.one_le_Lvalue",
             "QuarticQuery.Lvalue_le_mValue"
           ],
-          "topic": "generic-lower"
+          "topic": "generic-lower",
+          "id": "classical-instance",
+          "mechanism": "Here the partial function becomes P k t and the depth cap becomes Lvalue k t. Bounds on the cap follow from k ≥ 2 and t ≥ 8. Hardness of P is still an input at this step.",
+          "obligations": [
+            {
+              "callee": "QuarticQuery.Gvalue_lt_R_addressedF",
+              "binder": "hLR",
+              "match": {
+                "argument": "hLR"
+              },
+              "explanation": "The generic application receives the hardness inequality as a parameter. The unconditional assembly later obtains it for sufficiently large t.",
+              "assembly": {
+                "step": "eventual-hardness",
+                "provider": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+                "applied": "ht₀ t (le_trans (le_max_left _ _) h2)"
+              }
+            },
+            {
+              "callee": "QuarticQuery.Gvalue_lt_R_addressedF",
+              "binder": "hC",
+              "match": {
+                "argument": "hC"
+              },
+              "explanation": "Any realizing circuit suffices here. The family later supplies its concrete circuit.",
+              "assembly": {
+                "step": "common-circuit",
+                "provider": "QuarticQuery.Forrelation.forrCircuit_realises",
+                "applied": "forrCircuit_realises l t"
+              }
+            },
+            {
+              "callee": "QuarticQuery.Gvalue_lt_R_addressedF",
+              "binder": "hL1",
+              "match": {
+                "head_constant": "QuarticQuery.one_le_Lvalue"
+              },
+              "explanation": "The lower end of the admissible depth range follows from the parameter bounds."
+            },
+            {
+              "callee": "QuarticQuery.Gvalue_lt_R_addressedF",
+              "binder": "hLm",
+              "match": {
+                "head_constant": "QuarticQuery.Lvalue_le_mValue"
+              },
+              "explanation": "The upper end of the depth range places L within the board size."
+            }
+          ]
         },
         {
           "title": "Choose one circuit for both bounds; leave hardness as an explicit premise",
@@ -86,7 +152,24 @@
             "QuarticQuery.Upper.Q_Fkm_le",
             "QuarticQuery.Gvalue_lt_R_Fkm"
           ],
-          "topic": "same-family"
+          "topic": "same-family",
+          "id": "common-circuit",
+          "mechanism": "For k = l + 1 the existential circuit is forrCircuit l t. The quantum estimate and the conditional classical estimate both take this same witness.",
+          "obligations": [
+            {
+              "callee": "QuarticQuery.Gvalue_lt_R_Fkm",
+              "binder": "hLR",
+              "match": {
+                "argument": "hLR"
+              },
+              "explanation": "The circuit is already chosen here. The conditional classical estimate still takes a hardness witness.",
+              "assembly": {
+                "step": "eventual-hardness",
+                "provider": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+                "applied": "ht₀ t (le_trans (le_max_left _ _) h2)"
+              }
+            }
+          ]
         },
         {
           "title": "Supply the eventual hardness threshold at the same fixed order",
@@ -96,7 +179,10 @@
             "QuarticQuery.family_bounds",
             "QuarticQuery.ForrelationLower.bansalSinhaLower"
           ],
-          "topic": "uniform-hardness"
+          "topic": "uniform-hardness",
+          "id": "eventual-hardness",
+          "mechanism": "For a fixed order, the Forrelation lower bound supplies a threshold. Taking its maximum with 8 makes the hardness inequality and the classical construction valid together.",
+          "shared_board": true
         },
         {
           "title": "After fixing α below four, choose k with α/2 < 2 − 1/k",
@@ -106,7 +192,9 @@
             "QuarticQuery.exists_nat_exponent",
             "QuarticQuery.not_universalPower_of_familyBoundsAt"
           ],
-          "topic": "exponent"
+          "topic": "exponent",
+          "id": "choose-order",
+          "mechanism": "Given α < 4, choose one order k with α/2 < 2 − 1/k. That order remains fixed while the board size grows."
         },
         {
           "title": "For any proposed constant D take t beyond both thresholds",
@@ -116,7 +204,9 @@
             "QuarticQuery.exists_threshold_gap",
             "QuarticQuery.transport_bound"
           ],
-          "topic": "exponent"
+          "topic": "exponent",
+          "id": "grow-size",
+          "mechanism": "Once the order and proposed constant are fixed, a sufficiently large t meets both the family threshold and the power-gap threshold."
         },
         {
           "title": "Establish the independent upper bound for every total Boolean function",
@@ -125,7 +215,9 @@
           "callees": [
             "QuarticQuery.R_le_D_le_one_add_Q_pow_four"
           ],
-          "topic": "universal-upper"
+          "topic": "universal-upper",
+          "id": "universal-upper",
+          "mechanism": "Every total Boolean function has a deterministic cost bounded by a fourth power of its quantum cost. This supplies the admissible exponent independently of the constructed family."
         },
         {
           "title": "Combine exclusion below four with membership at four",
@@ -135,7 +227,9 @@
             "QuarticQuery.alphaTot_eq_four_of",
             "QuarticQuery.universalPower_four"
           ],
-          "topic": "headline"
+          "topic": "headline",
+          "id": "infimum",
+          "mechanism": "The upper estimate puts four in the admissible set. The constructed families exclude each smaller exponent, identifying the infimum."
         }
       ],
       "interfaces": [
@@ -152,7 +246,7 @@
     },
     {
       "id": "capped-predictor",
-      "title": "Why does the prediction bound survive adaptive queries?",
+      "title": "Why does naming the true cell reveal the whole hidden address?",
       "scope": "The column and proposed query time are fixed before averaging. Lightness is inside the event under the original product law. The predictor is capped on every branch.",
       "topics": [
         "joint-event",
@@ -168,7 +262,9 @@
             "QuarticQuery.Paper.addressSimulator",
             "QuarticQuery.Paper.addressSimulator_depth_le"
           ],
-          "topic": "joint-event"
+          "topic": "joint-event",
+          "id": "cap",
+          "mechanism": "Fix the column and query time before sampling. Replay earlier queries using the original outside data. Stop before a target read would exceed the budget. This bounds the target reads on every branch and hence on each instance."
         },
         {
           "title": "Use whole-run nonheaviness to replay the prefix before the proposed query",
@@ -177,7 +273,19 @@
           "callees": [
             "QuarticQuery.eval_simTree"
           ],
-          "topic": "joint-event"
+          "topic": "joint-event",
+          "id": "replay",
+          "mechanism": "If the column is light over the whole run, its earlier prefix fits the budget. When the next coordinate names the true cell, the simulator can return the whole address before seeing the reply. The joint event therefore implies successful prediction.",
+          "obligations": [
+            {
+              "callee": "QuarticQuery.eval_simTree",
+              "binder": "hc",
+              "match": {
+                "argument": "hc"
+              },
+              "explanation": "The prefix-count inequality comes from whole-run lightness on the event being bounded."
+            }
+          ]
         },
         {
           "title": "Resample the target column from its original law and apply the independent prediction bound",
@@ -188,7 +296,27 @@
             "QuarticQuery.Paper.avg_reachedCellAt_le",
             "QuarticQuery.address_guess_le"
           ],
-          "topic": "direct-product"
+          "topic": "direct-product",
+          "id": "average",
+          "mechanism": "Resample the fixed column under the original independent product law. The separate-cap direct-product estimate bounds the chance of predicting all r digits by (2/3)ʳ. Lightness stays inside the event being bounded.",
+          "obligations": [
+            {
+              "callee": "QuarticQuery.Paper.avg_reachedCellAt_le",
+              "binder": "hguess",
+              "match": {
+                "project_constant": "QuarticQuery.address_guess_le"
+              },
+              "explanation": "The proof argument applies the independent prediction bound to the capped tree."
+            },
+            {
+              "callee": "QuarticQuery.address_guess_le",
+              "binder": "hard",
+              "match": {
+                "argument": "hard"
+              },
+              "explanation": "Single-instance hardness under the original law enters as a parameter of equation (21)."
+            }
+          ]
         }
       ],
       "interfaces": [
@@ -216,7 +344,9 @@
             "QuarticQuery.ForrelationLower.exists_identity",
             "QuarticQuery.ForrelationLower.integral_ext_wv_zero"
           ],
-          "topic": "gaussian-path"
+          "topic": "gaussian-path",
+          "id": "observable",
+          "mechanism": "Use the tree’s output as the observable in the Gaussian interpolation identity. Its difference of expectations is expressed in terms of derivatives along the path."
         },
         {
           "title": "Control derivative growth along distinct paths",
@@ -226,7 +356,9 @@
             "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
             "QuarticQuery.ForrelationLower.Lpath_nodup"
           ],
-          "topic": "gaussian-path"
+          "topic": "gaussian-path",
+          "id": "growth",
+          "mechanism": "Distinct path indices allow the derivative growth bound to control the sum of absolute contributions."
         },
         {
           "title": "Specialize the matrix to the normalized Hadamard matrix",
@@ -237,7 +369,9 @@
             "QuarticQuery.ForrelationLower.rowsOrth_H",
             "QuarticQuery.ForrelationLower.abs_H_le"
           ],
-          "topic": "uniform-hardness"
+          "topic": "uniform-hardness",
+          "id": "hadamard",
+          "mechanism": "Row orthogonality and the entry bound for the normalized Hadamard matrix supply the hypotheses needed by the advantage estimate."
         },
         {
           "title": "Apply the same identity to the Forrelation polynomial for the promise estimate",
@@ -247,7 +381,9 @@
             "QuarticQuery.ForrelationLower.exists_identity",
             "QuarticQuery.ForrelationLower.integral_ext_wv_zero"
           ],
-          "topic": "promise-gap"
+          "topic": "promise-gap",
+          "id": "promise",
+          "mechanism": "The promise calculation feeds the Forrelation polynomial into the same interpolation identity. This is a second formal use with a different observable."
         }
       ],
       "interfaces": [
@@ -255,6 +391,154 @@
         "QuarticQuery.ForrelationLower.Int",
         "QuarticQuery.ForrelationLower.Lpath"
       ]
+    },
+    {
+      "id": "weighted-tournament",
+      "title": "How can comparisons with cycles still find a winner?",
+      "scope": "A cycle among losing columns illustrates why sorting would fail. Pairing opposite outcomes still gives an exact expected-weight identity.",
+      "topics": [
+        "cycle",
+        "comparison",
+        "weight",
+        "pivot"
+      ],
+      "interfaces": [
+        "QuarticQuery.Tournament.IsComparison",
+        "QuarticQuery.Tournament.weight",
+        "QuarticQuery.Tournament.Dominant"
+      ],
+      "steps": [
+        {
+          "title": "Pair the two orientations of each match",
+          "mechanism": "For each distinct pair the two win probabilities add to one. Weighting by the product of their weights makes the contribution independent of which orientation is more likely.",
+          "topic": "weight",
+          "caller": "QuarticQuery.Tournament.expected_weight_eq",
+          "site": "have h := two_mul_weighted_sum w ha",
+          "callees": [
+            "QuarticQuery.Tournament.two_mul_weighted_sum"
+          ],
+          "id": "pair"
+        },
+        {
+          "title": "Read the cancellation as a halving bound",
+          "mechanism": "The diagonal contributes the sum of squared weights. Subtracting that nonnegative sum leaves expected total weight at most W/2 whenever W is positive.",
+          "topic": "weight",
+          "caller": "QuarticQuery.Paper.quantumDrift",
+          "site": "refine ⟨hsum, hsum.symm.trans (expected_weight_eq w ha hW hpos), ?_⟩\n  rw [← expected_weight_eq w ha hW hpos]\n  exact expected_weight_le_half w ha hW hpos",
+          "callees": [
+            "QuarticQuery.Tournament.expected_weight_eq",
+            "QuarticQuery.Tournament.expected_weight_le_half"
+          ],
+          "id": "cancel"
+        },
+        {
+          "title": "Repeat the bound after every pivot",
+          "mechanism": "The next pivot is drawn proportionally to the current weights. Applying the conditional bound at each history reduces the expected surviving weight geometrically.",
+          "topic": "weight",
+          "caller": "QuarticQuery.Tournament.expectFrom_total_le",
+          "site": "exact expected_weight_le_half _ hc rfl hpos",
+          "callees": [
+            "QuarticQuery.Tournament.expected_weight_le_half"
+          ],
+          "id": "iterate"
+        },
+        {
+          "title": "Turn small surviving weight into a short candidate list",
+          "mechanism": "While a dominant column is missing, it retains appreciable weight. Its absence after T pivots therefore contributes to the tail of the surviving weight.",
+          "topic": "pivot",
+          "caller": "QuarticQuery.Tournament.ideal_tournament",
+          "site": "obtain ⟨h1, h2⟩ := ideal_miss_le hc ha hε0 hε hd hT\n  have hmiss := h1.trans h2\n  refine ⟨prob_length_le ha T, hmiss, ?_, half_lt_total ha hε0 hε hd hT,\n    miss_bound_le m, Tval_mul_epsval hm, total_error_lt hm⟩",
+          "callees": [
+            "QuarticQuery.Tournament.ideal_miss_le"
+          ],
+          "id": "list"
+        },
+        {
+          "title": "Use the ideal estimate in the quantum tournament",
+          "mechanism": "The implementation couples its sampled pivots to the weighted process. The ideal miss probability is one input to the physical algorithm’s error bound.",
+          "topic": "pivot",
+          "caller": "QuarticQuery.Upper.tournament_runs",
+          "site": "have hideal := (ideal_tournament (hc x) (hu x) hm hd).2.1",
+          "callees": [
+            "QuarticQuery.Tournament.ideal_tournament"
+          ],
+          "id": "couple"
+        }
+      ]
+    },
+    {
+      "id": "sign-blind-decoder",
+      "title": "Why does a fast address decoder also need an exact certificate?",
+      "scope": "Projection sees the square of the signed amplitude. A large negative amplitude can produce the same measurement as a large positive one while lying outside the one-sided promise.",
+      "topics": [
+        "projection",
+        "forrelation",
+        "certificate",
+        "verification"
+      ],
+      "interfaces": [
+        "QuarticQuery.P",
+        "QuarticQuery.CircuitRealises",
+        "QuarticQuery.WinsAt"
+      ],
+      "steps": [
+        {
+          "title": "Measure the squared amplitude",
+          "mechanism": "One trial accepts with probability Φ². Repetitions can estimate that probability accurately while leaving the sign ambiguous.",
+          "topic": "projection",
+          "caller": "QuarticQuery.Upper.decode_samples",
+          "site": "have hs := forr_samples (t := t) hk loc\n  have hs' : Samples k fun (x : BitInput ι) b =>\n      bern (successProb fun c => x (loc c)) b :=\n    hs.congr fun x b => by rw [successProb_eq k t hk]\n  exact hs'.threshold n _",
+          "callees": [
+            "QuarticQuery.Upper.forr_samples",
+            "QuarticQuery.Forrelation.successProb_eq"
+          ],
+          "id": "square"
+        },
+        {
+          "title": "Invoke accuracy on promised inputs",
+          "mechanism": "The circuit runs on every input. Its accuracy guarantee takes a proof that the partial function returns the specified bit on this input.",
+          "topic": "forrelation",
+          "caller": "QuarticQuery.Upper.P_runs",
+          "site": "⟨fun z b => bern (decodeProb k t n z) b, (decode_samples hk id n).runs,\n    fun z b hz => decodeProb_correct hk h0 hn z hz⟩",
+          "callees": [
+            "QuarticQuery.Upper.decode_samples",
+            "QuarticQuery.Upper.decodeProb_correct"
+          ],
+          "id": "promise"
+        },
+        {
+          "title": "Check the domain and value outputs separately",
+          "mechanism": "Gate consistency fixes the circuit computation. A passing domain bit certifies membership, and the value output must agree with the proposed address bit.",
+          "topic": "certificate",
+          "caller": "QuarticQuery.winsAt_iff_localTests",
+          "site": "· have hd : readTranscript x i s h C.domainOut = true := ht (.inr (.inr (h, .inr false)))\n      have hb : readTranscript x i s h C.valueOut = s h := by\n        simpa [localTest] using ht (.inr (.inr (h, .inr true)))\n      rw [(hC.correct _ _ (hG h)).2 hd, hb]",
+          "callees": [
+            "QuarticQuery.CircuitRealises.correct"
+          ],
+          "id": "outputs"
+        },
+        {
+          "title": "Decide the total board function by the local tests",
+          "mechanism": "Even an off-promise input gets a definite board answer. A winning column must pass the exact local tests at one address.",
+          "topic": "verification",
+          "caller": "QuarticQuery.Fkm_eq_true_iff_localTests",
+          "site": "addressedF_eq_true_iff_localTests hC",
+          "callees": [
+            "QuarticQuery.addressedF_eq_true_iff_localTests"
+          ],
+          "id": "total"
+        }
+      ]
     }
+  ],
+  "occurrence_modules": [
+    "QuarticQuery.LowerBound.Planted.Main",
+    "QuarticQuery.Paper.ClassicalPlanted",
+    "QuarticQuery.Tournament.Drift",
+    "QuarticQuery.Paper.QuantumTournamentFacts",
+    "QuarticQuery.Upper.Decode",
+    "QuarticQuery.Results.Unconditional",
+    "QuarticQuery.ForrelationLower.Cascade",
+    "QuarticQuery.ForrelationLower.Promise"
   ]
 }

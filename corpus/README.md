@@ -123,5 +123,7 @@ checks the full Lean source fingerprint before and after native inspection.
 
 [reading_applications.json](reading_applications.json) records selected applications
 inside compiled Lean declaration bodies, with arguments and instantiated types.
+It also records original source spans for applications matched during
+re-elaboration, and the two complexity bounds that share a circuit binder.
 The [source selections](../docs/reading_applications.json) and [reader contract](../docs/reading_api.md#inspect-a-theorem-application)
 explain their scope and refresh command.

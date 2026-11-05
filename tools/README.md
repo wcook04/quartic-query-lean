@@ -473,5 +473,6 @@ headlessly. [ReadDependencies.lean](ReadDependencies.lean) and its
 
 [ReadApplications.lean](ReadApplications.lean) inspects the actual parameters and
 proof obligations of selected Lean applications. The same recorder refreshes
-them with `--applications`. [reading_applications.py](reading_applications.py)
+them with `--applications` and independently checks them with
+`--applications --compare`. [reading_applications.py](reading_applications.py)
 binds them to manuscript topics and exact source excerpts.

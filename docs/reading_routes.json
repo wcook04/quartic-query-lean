@@ -37,6 +37,9 @@
       "bound_at": {
         "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      },
+      "context_passages": {
+        "AC-circuit": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
       }
     },
     {
@@ -52,6 +55,9 @@
         "expert": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "AC-winner": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
       }
     },
     {
@@ -70,6 +76,10 @@
       "bound_at": {
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
         "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "upper-comparison-model": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "upper-ideal-process": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
       }
     },
     {
@@ -84,6 +94,10 @@
       "bound_at": {
         "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      },
+      "context_passages": {
+        "upper-comparison-model": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "upper-tournament-parameters": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
       }
     },
     {
@@ -99,6 +113,10 @@
       "bound_at": {
         "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      },
+      "context_passages": {
+        "AC-circuit": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "AC-local-equivalence": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
       }
     },
     {
@@ -314,7 +332,8 @@
       "bound_at": {
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
-      }
+      },
+      "correspondence_scope": "illustration"
     },
     {
       "id": "projection",
@@ -456,7 +475,8 @@
       "context_passages": {
         "forr_bundle": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
         "CL-concrete-lower": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
-        "upper-asymptotic-bound": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+        "upper-asymptotic-bound": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "forr_definition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
       }
     },
     {

@@ -1,5 +1,6 @@
 """Exercise the edition consumer at real mathematical selections and across edits."""
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -11,7 +12,8 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import build_reading_api as api
 from reading_selection import BoundLocations
-from reading_applications import application_resources
+from reading_applications import application_resources, obligation_notes, witnessed_occurrences
+from record_reading_dependencies import source_records
 
 
 class BindingTests(unittest.TestCase):
@@ -51,8 +53,70 @@ class BindingTests(unittest.TestCase):
             issues = audit["needs_review"]
             self.assertEqual([(r["id"], r["kind"], r["passage"]) for r in issues],
                              [("joint-event", "prerequisite_changed", "CL-heavy")])
+            mutations = [
+                ("forr_definition", r"1,&\Phi(z)\ge\delta", r"1,&|\Phi(z)|\ge\delta", "projection"),
+                ("forr_bundle", r"Fix $k\ge2$", r"Fix $k\ge3$", "same-family"),
+            ]
+            for anchor, old, new, topic in mutations:
+                with self.subTest(anchor=anchor):
+                    body = next(m for m in api.PASSAGE.finditer(text) if m[1] == anchor)
+                    self.assertEqual(body[2].count(old), 1)
+                    record.write_text(text[:body.start(2)] + body[2].replace(old, new) + text[body.end(2):])
+                    changed = report()["affected_topics"]
+                    self.assertTrue(changed[topic]["selection_text_as_bound"])
+                    self.assertFalse(changed[topic]["prerequisites_as_bound"])
+                    self.assertNotIn("joint-event", changed)
             record.write_text(text + "\nA note outside the associated passages.\n")
             self.assertEqual(report()["needs_review"], [])
+
+
+    def test_discharge_requires_the_local_argument_and_a_witnessed_later_provider(self):
+        edition = api.Edition(api.ROOT)
+        route = edition.json("docs/reading_applications.json")["journeys"][0]
+        steps = {s["id"]: s for s in route["steps"]}
+        local = steps["classical-instance"]
+        rule = next(r for r in local["obligations"] if r["binder"] == "hLR")
+        inspection = edition.json("corpus/reading_applications.json")
+        terms = [t for t in inspection["callers"][local["caller"]] if t["callee"] == rule["callee"]]
+        uses = [{"declaration": rule["callee"], "compiled_uses_in_caller": terms}]
+        local["obligations"] = [rule]
+        rule["assembly"]["provider"] = "QuarticQuery.universalPower_four"
+        with self.assertRaisesRegex(ValueError, "unsupported assembly link"):
+            obligation_notes(local, steps, uses)
+        rule["match"] = {"argument": "unrelated"}
+        with self.assertRaisesRegex(ValueError, "no compiled proof"):
+            obligation_notes(local, steps, uses)
+
+    @unittest.skipUnless(os.environ.get("QUARTIC_LAKE_CHECKOUT"), "opt-in native Lean source inspection")
+    def test_two_source_occurrences_of_one_lemma(self):
+        fixture = """import Init
+namespace Fixture
+theorem keep (n : Nat) : n = n := rfl
+theorem twice : (2 = 2) ∧ (5 = 5) :=
+  ⟨keep 2,
+   keep 5⟩
+end Fixture
+"""
+        with tempfile.TemporaryDirectory() as temp:
+            source = Path(temp) / "OccurrenceFixture.lean"
+            source.write_text(fixture)
+            rows = json.loads(subprocess.check_output([
+                "lake", "env", "lean", "--run", str(api.ROOT / "tools/ReadApplications.lean"),
+                "--source", "OccurrenceFixture", str(source), "Fixture.twice=Fixture.keep"
+            ], cwd=Path(os.environ["QUARTIC_LAKE_CHECKOUT"]) / "lean"))
+        raw = fixture.encode()
+        rows = source_records(rows, raw)
+        for value in ("2", "5"):
+            fragment = ("keep " + value).encode()
+            start = raw.index(fragment)
+            result = witnessed_occurrences(rows, "Fixture.twice", "Fixture.keep", raw, start, start + len(fragment))
+            self.assertEqual(len(result), 1)
+            self.assertEqual(result[0]["text"], fragment.decode())
+            self.assertEqual(result[0]["term"]["arguments"][0]["argument"], value)
+        self.assertEqual(len(rows), 2)
+        rows[0]["start"], rows[0]["end"] = rows[1]["start"], rows[1]["end"]
+        with self.assertRaisesRegex(ValueError, "source bytes"):
+            witnessed_occurrences(rows, "Fixture.twice", "Fixture.keep", raw, 0, len(raw))
 
     def test_application_export_requires_both_a_source_site_and_compiled_use(self):
         edition = api.Edition(api.ROOT)
@@ -68,6 +132,15 @@ class BindingTests(unittest.TestCase):
             application_resources(edition, graph, {}, topics)
             self.assertEqual(json.loads(edition.resources["selection/applications.json"])["journeys"], {})
             graph["currentness"] = "current"
+            anchor = next(r for r in inspection["source_occurrences"]["QuarticQuery.LowerBound.Planted.Main"]
+                          if r["term"]["callee"].endswith("Gvalue_lt_R_addressedF"))
+            raw = edition.read("lean/QuarticQuery/LowerBound/Planted/Main.lean")
+            # If two elaboration observations disagree on the very same source span,
+            # the complete declaration evidence remains available, but no term wins the site.
+            conflict = {**anchor, "term": {**anchor["term"], "arguments": []}}
+            for other in (conflict, dict(anchor)):
+                self.assertEqual(witnessed_occurrences([anchor, other], anchor["caller"],
+                                 anchor["term"]["callee"], raw, 0, len(raw)), [])
             step["site"] = "unwritten Lean application"
             with self.assertRaisesRegex(ValueError, "application site"):
                 application_resources(edition, graph, graph["nodes"], topics)
@@ -151,6 +224,36 @@ assert(family.treatments.flatMap(t => t.selections).some(s => s.paper === "exper
 assert(family.correspondence.some(s => s.lean.some(t => t.route === "alternative")));
 const back = await reader.fromDeclaration(lower.declaration);
 assert(back.journeys.includes(family.id));
+const classical = family.steps.find(s => s.id === "classical-instance");
+const inherited = classical.obligations.find(o => o.binder === "hLR");
+assert.equal(inherited.evidence[0].basis, "caller_parameter");
+assert.equal(inherited.assembly.step, "eventual-hardness");
+const eventual = family.steps.find(s => s.id === inherited.assembly.step);
+assert(eventual.uses.some(u => u.declaration === inherited.assembly.provider));
+assert(eventual.text.includes(inherited.assembly.applied));
+assert.equal(eventual.shared_board.basis, "identical_expr_under_one_existential");
+assert(eventual.shared_board.function.includes("Fkm") && eventual.shared_board.circuit);
+assert(classical.obligations.find(o => o.binder === "hL1").evidence.some(e => e.basis === "named_proof_term"));
+const witnessed = classical.uses.find(u => u.declaration.endsWith("Gvalue_lt_R_addressedF"));
+assert.equal(witnessed.attribution, "exact_source_occurrence");
+assert(witnessed.occurrences.some(o => o.term.arguments.some(a => a.binder === "L" && a.argument.includes("Lvalue"))));
+assert.equal(witnessed.compiled_term_scope, "declaration");
+const fallback = family.steps.find(s => s.id === "upper-cost").uses[0];
+assert.equal(fallback.attribution, "source_associated");
+assert.deepEqual(fallback.occurrences, []);
+assert(simulator.steps.every(s => s.mechanism && s.uses.length));
+const fixedTime = simulator.steps.find(s => s.id === "average");
+assert(fixedTime.mechanism.includes("original independent product law"));
+assert(fixedTime.obligations.some(o => o.binder === "hguess"));
+for (const s of simulator.steps) for (const use of s.uses)
+  assert((await reader.expand(s.caller)).value.includes(use.declaration));
+const tournament = await reader.journey(cycle.journeys.find(id => id === "weighted-tournament"));
+assert(tournament.steps.some(s => s.caller.endsWith(".quantumDrift") && s.mechanism.includes("W/2")));
+assert.equal(tournament.treatments.find(t => t.id === "cycle").correspondence_scope, "illustration");
+const decoder = await reader.journey(projection.journeys.find(id => id === "sign-blind-decoder"));
+assert(decoder.steps.some(s => s.id === "outputs" && s.text.includes("domainOut")));
+assert(decoder.steps.some(s => s.id === "promise" && s.text.includes("decodeProb_correct")));
+assert(decoder.correspondence.some(s => s.semantic_probes.some(p => p.declaration.endsWith(".absolute_high_changes_answer") && p.receipt_currentness)));
 const gaussianTrip = await reader.journey("gaussian-transport");
 assert.equal(gaussianTrip.treatments.find(t => t.id === "gaussian-path").correspondence_scope, "constituents_only");
 assert(gaussianTrip.steps.some(s => s.caller.endsWith(".mass_ge") && s.text.includes("PhiF t")));

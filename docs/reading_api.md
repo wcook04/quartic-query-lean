@@ -199,14 +199,17 @@ new print edition requires its accepted output bytes and adjudication.
 ## Inspect a theorem application
 
 Open a journey from a selected passage, a Lean declaration, or the edition's
-application index at `reading.json → applications`. The three starting questions cover the common Forrelation
-family, the capped predictor and the Gaussian derivative argument.
+application index at `reading.json → applications`. The five entries cover
+weighted halving, the sign-blind decoder, the common Forrelation family, the
+capped predictor and Gaussian derivative transport.
 
 ```js
 const {journeys} = await reader.resolve({paper: "exposition", id: "exposition/joint-event/0"})
 const path = await reader.journey(journeys.find(id => id === "capped-predictor"))
 const fixedTime = path.steps.find(step => step.caller.endsWith(".eq_21"))
 const treatment = path.treatments.find(topic => topic.id === fixedTime.topic)
+const explanation = path.steps.map(step => step.mechanism).join("\n\n")
+const dependencies = await reader.expand(fixedTime.caller)
 ```
 
 The journey also returns source definitions for its `interfaces`. For example,
@@ -221,10 +224,40 @@ arguments the inspector displays the argument. For proof arguments it gives
 the obligation, the local proof variable when available, and the head constant
 when the witness has one. Lean's pretty-printer can abbreviate long expressions.
 
-Source snippets locate individual uses for readers. Compiled terms have
-declaration-level scope. When one caller uses the same callee twice, the API
-returns the recorded terms together, without assigning source positions to
-them. Titles and links to paper topics are editorial. The separate
+Each step's `mechanism` explains why the application matters in this argument.
+For the capped predictor the ordered mechanisms cover the unconditional cap,
+the event inclusion at a fixed query time and the average over the original
+product law. They are authored explanations. The caller and callee names can
+be passed directly to `reader.expand` to inspect their formal dependencies.
+
+**Application evidence.** `compiled_uses_in_caller` always describes the
+whole declaration. An authored excerpt plus a direct compiled reference gives
+`source_associated` attribution. For selected modules the inspector also
+re-elaborates the original file and consults Lean's information trees. An
+`exact_source_occurrence` has an original named application span whose
+instantiated expression occurs structurally in that caller's re-elaborated
+body under matching local binders. Each entry in `occurrences` carries its
+own term and half-open UTF-8 byte range in the full source file. Render those
+arguments beside the span. A declaration can use the same callee elsewhere
+with different arguments. Identical expressions shared in the proof body have
+no unique kernel address in this export. Tactic-generated terms and unmatched
+local contexts retain declaration-level evidence. [Lean information trees](https://lean-lang.org/doc/api/Lean/Elab/InfoTree/Types.html)
+
+**Proof obligations.** For each compiled proof argument, `basis` distinguishes
+an enclosing declaration parameter, a local reference, a named proof term
+and another proof expression. `project_constants` names direct Quartic
+references inside the proof argument. An authored `obligations` entry
+selects the matching callee, binder and term. An optional `assembly` points to
+the later step, its witnessed provider and the application excerpt. For
+example, follow `hLR` from `classical-instance` to `eventual-hardness`. The
+first call takes the inequality as a parameter. In the latter step the
+Forrelation theorem supplies a threshold and its bound is applied at the
+chosen size. At that step `shared_board` records a separate native check.
+Inside one existential circuit binder of the headline theorem, Lean found
+structurally identical totalised board arguments to Q and R, both using that
+bound circuit.
+
+The separate
 `correspondence` records carry the reviewed statement relation and proof route
 for each declaration. In particular the Gaussian journey shows uses in both
 the tree advantage estimate and the promise estimate. Its selected
@@ -237,7 +270,12 @@ python3 tools/record_reading_dependencies.py --applications --checkout /path/to/
 
 The [journey source](reading_applications.json) owns the ordered excerpts and
 reading topics. Bind changes to a reviewed Lean snapshot, refresh the graph
-and the application inspection, then run `make check`. Existing editions keep
+and the application inspection, then run `make check`. To independently
+repeat the native extraction and compare all its records, append `--compare`
+to the recorder command. It leaves the recorded inspection in place. Run the
+native repeated-lemma regression by setting `QUARTIC_LAKE_CHECKOUT` to a
+checkout with the pinned Lean environment when running the tests. The ordinary
+paper build reads the captured evidence. Existing editions keep
 their original client and inspection.
 
 A topic's `context_passages` also names manuscript prerequisites and the Git
