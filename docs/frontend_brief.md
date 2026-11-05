@@ -54,7 +54,12 @@ In the path panel, show the source lines on each hop from `hop.evidence.sites`.
 Label a `compiled_rhs` highlight “compiled from this line.” Open an
 `inherited_parameter` at its pinned module line with the parameter's name and
 binder text. On proof hops, `parameterOrigins` belongs under “parameter type.”
-If there are several occurrences, let the reader choose which to open. Keep
+Use “this tactic produced a proof using the dependency” for `retained_tactic`,
+“in this result type” for `compiled_result`, and “constructor declared here”
+for `constructor_declaration`. When only `compiledWitness` is present, offer
+the compiled occurrence or the caller’s source. Highlight only `sites`.
+A generated helper may have a `compiledSignature` available to display as its
+Lean type. If there are several occurrences, let the reader choose which to open. Keep
 `otherReferences` distinct from the highlighted use. Render a helper's title
 with its Lean name beneath it. For a paper-specific “encountered” count, send
 only visited selection IDs to `paperCardProgress`; keep its denominator and

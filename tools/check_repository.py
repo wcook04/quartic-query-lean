@@ -361,6 +361,7 @@ def placement(path, snapshot=False):
     if owner == "docs":
         return None if p.suffix.lower() in EVIDENCE_SUFFIXES | {".png", ".svg", ".jpg", ".jpeg", ".webp", ".tex"} else "docs contains documentation, figure sources and supporting assets"
     if path in {"tools/ReadDependencies.lean", "tools/ReadApplications.lean", "tools/ReadStatementEvidence.lean", "tools/ReadUseRegions.lean", "tools/ReadScopedUseRegions.lean", "tools/ReadParameterOrigins.lean",
+                "tools/ReadKernelPaths.lean", "tools/ReadRetainedLines.lean",
                 "tools/reader.mjs", "tools/query_reading_api.mjs"}:
         return None  # Compiled-environment inspector and static reading API client.
     if owner in {"tools", "tests"}:

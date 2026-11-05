@@ -45,3 +45,7 @@ Git and custody fixtures exercise these guards without private annex inputs.
 
 [test_reading_selection.py](test_reading_selection.py) exercises edition rebinding
 and the actual ES module at theorem, example, figure and proof-step selections.
+
+[test_retained_lines.py](test_retained_lines.py) checks the source bounds of
+replayed tactic evidence and exercises retained and discarded tactic branches
+with `QUARTIC_NATIVE_REPLAY=1` and the pinned Lean toolchain.

@@ -505,3 +505,28 @@ ID, checks the section parameter prefix of the compiled declaration, and verifie
 the type identifier against the language-server index.
 Run `python3 tools/record_parameter_origins.py --checkout /path/to/built/checkout`
 and pass `--compare` to reproduce the saved observations.
+
+[Record kernel paths](record_kernel_paths.py) checks each dependency address
+against the [compiled declaration](ReadKernelPaths.lean).
+[Record retained lines](record_retained_lines.py) runs the
+[tagged tactic replay](ReadRetainedLines.lean) for selected modules. With an
+up-to-date built checkout, run these commands sequentially:
+
+```sh
+python3 tools/record_kernel_paths.py --checkout /path/to/built/checkout
+python3 tools/record_retained_lines.py --checkout /path/to/built/checkout
+```
+
+Both commands require a warm Lake build. They take the same nonblocking lock
+in the build cache and run one native inspection at a time. Each enforces a
+process-tree memory limit. Retained-line capture records modules that exceeded
+its budget and publishes locations only from completed inspections.
+For an incremental run, add one or more `--module` arguments to the replay
+command. It keeps current results from other modules with the same scheduled
+requests. A failed retry leaves earlier verified locations available and
+records the failed attempt separately.
+
+Pass `--compare` to check a capture against its saved record. To select proof
+body candidates after a map change, pass `--select-from build/reading-api/v1/index.json`
+to the retained-line recorder. Capturing uses the native toolchain. Packaging
+and opening the saved edition only need the recorded inputs.

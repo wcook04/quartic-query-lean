@@ -15,6 +15,35 @@ function canonical(value) {
   return JSON.stringify(value);
 }
 
+// The inspector records paths through native Expr children. An unknown tuple
+// from another edition must never count as a verified witness in this client.
+const kernelChildren = {f: "application_function", a: "application_argument", d: "binder_domain",
+  b: "binder_body", t: "let_type", v: "let_value", l: "let_body", m: "metadata_body", p: "projection_body"};
+const indexedRelations = new Set(["constructors", "mutual_family", "rule_constructor", "rule_rhs"]);
+const kernelIndex = text => typeof text === "string" && /^\d+$/.test(text) && Number.isSafeInteger(Number(text));
+
+function compiledWitness(kind, tuple) {
+  if (!Array.isArray(tuple)) return null;
+  if (kind === "structural") {
+    const [relation, index] = tuple;
+    if (relation === "parent_inductive" && tuple.length === 1) return {kind: "structural", relation};
+    if (tuple.length !== 2 || !indexedRelations.has(relation) || !kernelIndex(index)) return null;
+    return {kind: "structural", relation, index: Number(index)};
+  }
+  const [region, path, leaf] = tuple;
+  if (tuple.length !== 3 || typeof path !== "string" || typeof region !== "string" || typeof leaf !== "string")
+    return null;
+  const parameter = /^parameter:(\d+):(.*)$/.exec(region);
+  if (parameter ? !kernelIndex(parameter[1]) : region !== (kind === "value" ? "body" : "result")) return null;
+  const address = [...path].map(step => kernelChildren[step]);
+  if (address.some(step => step == null)) return null;
+  const projection = /^projection:(\d+)$/.exec(leaf);
+  if (leaf !== "constant" && !kernelIndex(projection?.[1])) return null;
+  return {kind: "expression", region: parameter ? "parameter" : region,
+    ...(parameter ? {parameter: {index: Number(parameter[1]), name: parameter[2]}} : {}), address,
+    leaf: projection ? {kind: "projection", index: Number(projection[1])} : {kind: "constant"}};
+}
+
 export async function openEdition(apiRoot, {edition, ...options} = {}) {
   const root = new URL(apiRoot);
   if (!root.pathname.endsWith("/") || root.search || root.hash) throw new Error("Expected a reading API directory");
@@ -228,22 +257,33 @@ export async function openReader(indexURL, options) {
       throw new Error("Mixed dependency and source-location editions");
     function describe(hop) {
       const consumer = declarations[hop.from];
-      const refs = sites?.observations[hop.from]?.[hop.to] ?? {};
+      const refs = sites?.observations?.[hop.from]?.[hop.to] ?? {};
       const sourceURL = `${manifest.repository}/blob/${revision}/${consumer.source}`;
       const located = (s, region) => ({...s, region,
         url: `${sourceURL}#L${s.lines[0]}-L${s.lines[1]}`});
       const matches = (refs[hop.kind] ?? []).map(s => located(s, hop.kind));
       const parameterOrigins = (sites?.parameter_origins?.[hop.from]?.[hop.to] ?? [])
         .filter(s => hop.kind === "type" || (hop.kind === "value" && s.in_value_parameter))
-        .map(s => located(s, "section_parameter"));
+        .map(s => located(s, s.source_region ?? "section_parameter"));
       if (hop.kind === "type" && !matches.length) matches.push(...parameterOrigins);
       const bases = new Set(matches.map(site => site.basis));
-      const preferred = ["elaborated_application", "resolved_identifier", "compiled_rhs", "inherited_parameter"]
+      const preferred = ["elaborated_application", "resolved_identifier", "compiled_rhs", "inherited_parameter",
+        "retained_tactic", "compiled_result", "constructor_declaration"]
         .find(basis => bases.has(basis));
       const fallback = !sites ? "unavailable_in_edition"
         : sites.reference_index === "current" ? "declaration_only" : "stale_reference_index";
+      const compiled = sites?.kernel_index === "current"
+        ? compiledWitness(hop.kind, sites.compiled_witnesses?.[hop.from]?.[hop.kind]?.[hop.to]) : null;
+      // Never manufacture an original proof line from an expression address.
+      let sourceLimitation = null;
+      if (!matches.length && compiled) {
+        if (compiled.region === "parameter") sourceLimitation = "compiled_parameter_domain";
+        else if (!consumer.lines) sourceLimitation = "no_separate_declaration_excerpt";
+        else sourceLimitation = "original_occurrence_unlocated";
+      }
       const evidence = {
-        status: preferred ?? fallback,
+        status: preferred ?? fallback, compiledWitness: compiled, sourceLimitation,
+        replayStatus: hop.kind === "value" ? sites?.replay_status?.[hop.from]?.[hop.to] ?? null : null,
         sites: matches, parameterOrigins, source: consumer.source, declarationLines: consumer.lines, sourceURL,
         // Keep these locations inspectable without attributing them to this hop's kind.
         otherReferences: Object.entries(refs).filter(([region]) => region !== hop.kind)
@@ -258,7 +298,9 @@ export async function openReader(indexURL, options) {
     const variants = witnesses.map(v => {
       const hops = v.hops.map(describe);
       const located = hops.filter(h => h.evidence.sites.length > 0).length;
-      return {...v, hops, locationCoverage: {located, total: hops.length, complete: located === hops.length}};
+      const compiled = hops.filter(h => h.evidence.compiledWitness != null).length;
+      return {...v, hops, locationCoverage: {located, total: hops.length, complete: located === hops.length},
+        compiledCoverage: {located: compiled, total: hops.length, complete: compiled === hops.length}};
     });
     return {revision, status: "current", edition: permalink, from, to, availableKinds, variants, declarations};
   }
@@ -275,7 +317,12 @@ export async function openReader(indexURL, options) {
   async function proofPathSource(name) {
     const map = await proofMap();
     if (map.currentness !== "current") throw new Error("Proof paths unavailable in this edition");
-    return sourceExcerptForNode(name, await pathNode(map, name));
+    const node = await pathNode(map, name);
+    const excerpt = await sourceExcerptForNode(name, node);
+    const site = node.definition_site;
+    const definitionSite = site ? {...site, url:
+      `${manifest.repository}/blob/${revision}/${node.source}#L${site.lines[0]}-L${site.lines[1]}`} : null;
+    return {...excerpt, compiledSignature: node.compiled_signature ?? null, definitionSite};
   }
 
   async function proofCardSource(name) {

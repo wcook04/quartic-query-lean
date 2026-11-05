@@ -145,3 +145,9 @@ whole one-line right hand side.
 of shared parameters for the amplification modules. It keeps both the original
 binder range and the exact identifier for its type constructor. Reproduce it
 with the [parameter recorder](../tools/record_parameter_origins.py).
+
+[Kernel paths](reading_kernel_paths.json) records occurrences in the compiled
+headline dependency closure. The reader exports only the steps on its graph.
+[Retained lines](reading_retained_lines.json) records written tactics whose
+tagged proof payload survived replay and matched the stored proof after erasure.
+Both records bind the Lean source snapshot, toolchain and inspector versions.

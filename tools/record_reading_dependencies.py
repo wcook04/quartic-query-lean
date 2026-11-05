@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Record typed Lean dependencies from a built, source-identical Quartic checkout."""
 import argparse
+from contextlib import contextmanager
+import os
+import signal
 import hashlib
 import json
 from pathlib import Path
@@ -12,6 +15,64 @@ from build_corpus import canonical_sha256, source_hashes
 ROOT = Path(__file__).resolve().parents[1]
 INSPECTOR = ROOT / "tools/ReadDependencies.lean"
 OUTPUT = ROOT / "corpus/reading_dependencies.json"
+
+
+@contextmanager
+def exclusive_reader_capture(checkout):
+    """Limit native proof-map inspections to one per built checkout.
+
+    Hold the OS lock for the whole capture, including the Lake preflight. The
+    lockfile can stay in the build cache. Closing its handle releases the lock.
+    """
+    directory = checkout / "lean/.lake/build"
+    if not directory.is_dir():
+        raise ValueError("proof-map inspection requires an existing built Lean checkout")
+    with (directory / "quartic-reader-capture.lock").open("a+b") as handle:
+        try:
+            if os.name == "nt":
+                import msvcrt
+                if handle.tell() == 0:
+                    handle.write(b"0")
+                    handle.flush()
+                handle.seek(0)
+                msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError as exc:
+            raise RuntimeError("another native proof-map inspection may already own the build cache") from exc
+        yield
+
+
+def native_output(command, cwd, max_rss_mib=4096, env=None):
+    """Bound the live process tree by observed RSS; kill the owned group on failure."""
+    with tempfile.TemporaryFile() as output:
+        proc = subprocess.Popen(command, cwd=cwd, stdout=output, start_new_session=True, env=env)
+        try:
+            while True:
+                try:
+                    code = proc.wait(timeout=1)
+                    break
+                except subprocess.TimeoutExpired:
+                    usage = subprocess.check_output(["ps", "-axo", "pid=,ppid=,rss="], text=True)
+                    processes = [tuple(map(int, line.split())) for line in usage.splitlines()]
+                    owned = {proc.pid}
+                    while True:
+                        children = {pid for pid, parent, _ in processes if parent in owned}
+                        if children <= owned:
+                            break
+                        owned.update(children)
+                    rss = sum(kib for pid, _, kib in processes if pid in owned)
+                    if rss > max_rss_mib * 1024:
+                        raise RuntimeError(f"native replay exceeded {max_rss_mib} MiB RSS budget")
+            output.seek(0)
+            if code:
+                raise subprocess.CalledProcessError(code, command, output=output.read())
+            return output.read()
+        finally:
+            if proc.poll() is None:
+                os.killpg(proc.pid, signal.SIGKILL)
+                proc.wait()
 
 
 def write_graph(payload, destination):

@@ -110,13 +110,27 @@ def current_capture(edition, record, schema, graph, inspectors):
             {f: hashlib.sha256(edition.read("tools/" + f)).hexdigest() for f in inspectors})
 
 
-def add_use_sites(edition, graph, nodes, edges, paths):
+def add_use_sites(edition, graph, nodes, edges, paths, helpers):
     record = edition.json("corpus/reading_proof_sites.json")
     inspectors = ("record_proof_sites.py", "ReadUseRegions.lean", "ReadScopedUseRegions.lean")
     current = current_capture(edition, record, "quartic-lean-reference-sites-v2", graph, inspectors)
     params = edition.json("corpus/reading_parameter_origins.json")
     param_current = current_capture(edition, params, "quartic-parameter-origins-v1", graph,
                                     ("record_parameter_origins.py", "record_proof_sites.py", "ReadParameterOrigins.lean"))
+    kernel = edition.json("corpus/reading_kernel_paths.json")
+    kernel_current = current_capture(edition, kernel, "quartic-kernel-paths-v1", graph,
+                                     ("ReadKernelPaths.lean", "record_kernel_paths.py", "record_proof_sites.py",
+                                      "record_reading_dependencies.py"))
+    kernel_current = kernel_current and kernel.get("dependency_sha256") == hashlib.sha256(
+        edition.read("corpus/reading_dependencies.json")).hexdigest()
+    replay = edition.json("corpus/reading_retained_lines.json")
+    replay_current = current_capture(edition, replay, "quartic-retained-lines-v1", graph,
+                                     ("ReadRetainedLines.lean", "record_retained_lines.py", "record_proof_sites.py",
+                                      "record_reading_dependencies.py"))
+    replay_current = replay_current and kernel_current and replay.get("kernel_sha256") == hashlib.sha256(
+        edition.read("corpus/reading_kernel_paths.json")).hexdigest()
+    compiled = defaultdict(lambda: defaultdict(dict))
+    replay_status = defaultdict(dict)
     # Every map witness has a consumer supplied by its edge, including shared prefixes.
     uses = set()
     for edge in edges:
@@ -145,9 +159,11 @@ def add_use_sites(edition, graph, nodes, edges, paths):
     def observe(caller, kind, dep, lo, hi, basis, expected=None):
         site = site_at(caller, lo, hi, basis)
         token = site["text"]
-        if basis == "compiled_rhs" and ("\n" in token or kind != "value"):
-            raise ValueError(f"{caller}: expected one source line for a compiled right hand side")
-        if (expected is not None and token != expected) or (basis == "resolved_identifier" and
+        if basis in ("retained_tactic", "compiled_rhs") and ("\n" in token or kind != "value"):
+            raise ValueError(f"{caller}: expected one source line for a compiled value")
+        if basis == "compiled_result" and ("\n" in token or kind != "type"):
+            raise ValueError(f"{caller}: expected one source line for the result type")
+        if (expected is not None and token != expected) or (basis in {"resolved_identifier", "constructor_declaration"} and
                 not (token == dep or dep.endswith("." + token.removeprefix(".")))):
             raise ValueError(f"{caller}: source span differs from {dep}")
         refs = observations[caller][dep][kind]
@@ -182,8 +198,71 @@ def add_use_sites(edition, graph, nodes, edges, paths):
                 if key in uses:
                     for occurrence in use["occurrences"]:
                         observe(*key, *occurrence["utf8_bytes"], "elaborated_application", occurrence["text"])
+    if kernel_current:
+        for name, helper in helpers.items():
+            row = kernel["nodes"][name]
+            if sig := row.get("signature"):
+                helper["compiled_signature"] = sig
+                if definition := row.get("written_definition"):
+                    helper["definition_site"] = {**site_at(name, *definition["bytes"], "definition_name"),
+                                                 "owner": definition["owner"]}
+        for caller, kind, dep in sorted(uses):
+            row = kernel["nodes"][caller]
+            witness = row[kind][dep]
+            compiled[caller][kind][dep] = witness
+            # A lambda's domain travels in the compiled value. Keep its source
+            # apart from proof lines, even when Lean resolves the name exactly.
+            if kind == "value" and witness[0].startswith("parameter:"):
+                _, _, name = witness[0].split(":", 2)
+                domains = row.get("written_domains", {}).get(name, [])
+                if len(domains) == 1:
+                    lo, hi = domains[0]
+                    for site in observations.get(caller, {}).get(dep, {}).get("type", []):
+                        a, b = site["utf8_bytes"]
+                        if site["basis"] == "resolved_identifier" and lo <= a < b <= hi:
+                            parameter_origins[caller][dep].append({**site, "basis": "written_parameter",
+                                "source_region": "declaration_parameter", "parameter": name,
+                                "domain": site_at(caller, lo, hi, "domain")["text"], "in_value_parameter": True})
+            if observations.get(caller, {}).get(dep, {}).get(kind):
+                continue
+            if kind == "structural" and witness[0] == "constructors":
+                defined = kernel["nodes"][dep].get("written_definition", {})
+                if defined.get("owner") == caller:
+                    observe(caller, kind, dep, *defined["bytes"], "constructor_declaration")
+            if kind == "type":
+                for span in row.get("constructor_uses", {}).get(dep, []):
+                    observe(caller, kind, dep, *span, "resolved_identifier")
+                if (witness[0] == "result" and row.get("result_line")
+                        and not parameter_origins.get(caller, {}).get(dep)
+                        and not observations.get(caller, {}).get(dep, {}).get(kind)):
+                    observe(caller, kind, dep, *row["result_line"], "compiled_result")
+
+    if replay_current:
+        completed = set(replay["completed_modules"])
+        for caller, kind, dep in sorted(uses):
+            if kind != "value" or dep not in replay["requests"].get(caller, []):
+                continue
+            spans = replay["nodes"].get(caller, {}).get(dep, [])
+            bounds = replay["declaration_ranges"].get(caller)
+            if nodes[caller]["module"] not in completed:
+                status = "module_uninspected"
+            elif not bounds:
+                status = "no_verified_declaration_range"
+            elif not kernel["nodes"][caller].get("tactic_spans"):
+                status = "no_eligible_tactic"
+            else:
+                status = "matched" if spans else "no_retained_match"
+            replay_status[caller][dep] = status
+            for lo, hi in spans:
+                if (status != "matched" or not bounds[0] <= lo < hi <= bounds[1]
+                        or [lo, hi] not in kernel["nodes"][caller]["tactic_spans"]):
+                    raise ValueError(f"{caller}: retained use outside verified tactic syntax")
+                observe(caller, kind, dep, lo, hi, "retained_tactic")
+
     resource = "selection/proof-use-sites.json"
     edition.add(resource, {"revision": edition.commit, "source_snapshot_sha256": graph["source_snapshot_sha256"],
+                           "kernel_index": "current" if kernel_current else "stale", "compiled_witnesses": compiled,
+                           "replay_index": "current" if replay_current else "stale", "replay_status": replay_status,
                            "reference_index": "current" if current else "stale", "observations": observations,
                            "parameter_index": "current" if param_current else "stale", "parameter_origins": parameter_origins})
     return resource
@@ -229,6 +308,7 @@ def proof_map(edition, graph, nodes, by_name, selections, statements):
         info["title"] = titles.get(name) or info["title"]
         if not info["title"]:
             raise ValueError(f"add a reader title for proof helper {name}")
+    sites = add_use_sites(edition, graph, nodes, edges, paths, helpers)
     edition.add(helper_resource, {"revision": edition.commit, "source_snapshot_sha256": result["source_snapshot_sha256"],
                 "helpers": helpers})
     # One deterministic tree of real map edges for the initial layout. Other evidence
@@ -258,5 +338,4 @@ def proof_map(edition, graph, nodes, by_name, selections, statements):
         names = sorted({name for row in rows for name in row["bindings"]})
         paper_cards[paper] = {"cards": names, "count": len(names),
                              "graph_count": sum(cards[n]["kind"] not in ("inductive", "structure", "class") for n in names)}
-    sites = add_use_sites(edition, graph, nodes, edges, paths)
     return {**result, "paper_cards": paper_cards, "use_site_resource": sites, "helper_resource": helper_resource, "closure_size": len(reachable), "cards": cards, "edges": edges, "paths": paths, "papers": papers}

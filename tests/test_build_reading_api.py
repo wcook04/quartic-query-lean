@@ -77,6 +77,18 @@ class ReadingEditionTest(unittest.TestCase):
                     self.assertIn(target, graph[name][kind])
                     name = target
         self.assertTrue(skipped)
+        sites = self.resource(view["use_site_resource"])
+        self.assertEqual(sites["kernel_index"], "current")
+        exported = {(caller, kind, dep) for caller, kinds in sites["compiled_witnesses"].items()
+                    for kind, targets in kinds.items() for dep in targets}
+        walked = set()
+        for edge in view["edges"]:
+            for cursor in edge["witnesses"].values():
+                while cursor is not None:
+                    parent, kind, target = view["paths"][cursor]
+                    walked.add((edge["from"] if parent is None else view["paths"][parent][2], kind, target))
+                    cursor = parent
+        self.assertEqual(walked, exported)
 
     def test_reference_slices_and_paper_membership_on_the_exported_map(self):
         view = self.resource(self.reading["proof_map"])
@@ -118,6 +130,31 @@ class ReadingEditionTest(unittest.TestCase):
         self.assertTrue(param["in_value_parameter"])
         self.assertFalse(refs.get(caller, {}).get(preparation, {}).get("value"))
 
+    def test_exact_source_for_constructor_result_and_written_parameter(self):
+        sites = self.resource("selection/proof-use-sites.json")
+        upper = "QuarticQuery.Upper."
+        refs = sites["observations"]
+        ctor, = refs[upper + "IsCirc"][upper + "IsCirc.step"]["structural"]
+        self.assertEqual((ctor["basis"], ctor["text"]), ("constructor_declaration", "step"))
+        name, = refs[upper + "IsCirc.step"][upper + "ReadSpec.op"]["type"]
+        self.assertEqual((name["basis"], name["text"].removeprefix(".")), ("resolved_identifier", "op"))
+        result, = refs[upper + "test_samples"][upper + "Tests"]["type"]
+        self.assertEqual(result["basis"], "compiled_result")
+        self.assertEqual(result["lines"][0], result["lines"][1])
+        caller = "QuarticQuery.Amplification.Preparation.iterate_succ"
+        dep = "QuarticQuery.Amplification.groverStep"
+        retained, = refs[caller][dep]["value"]
+        self.assertEqual((retained["basis"], retained["text"], retained["lines"]), ("retained_tactic", "rfl", [200, 200]))
+        self.assertEqual(sites["replay_status"][caller][dep], "matched")
+        written = [(caller, target, s) for caller, deps in sites["parameter_origins"].items()
+                   for target, origins in deps.items() for s in origins if s["basis"] == "written_parameter"]
+        self.assertTrue(written)
+        for caller, target, origin in written:
+            self.assertIn(origin["text"], origin["domain"])
+            self.assertEqual(origin["source_region"], "declaration_parameter")
+            self.assertTrue(sites["compiled_witnesses"][caller]["value"][target][0].endswith(":" + origin["parameter"]))
+            self.assertNotIn(origin, refs.get(caller, {}).get(target, {}).get("value", []))
+
     def test_proof_sites_follow_utf16_locations_and_withhold_stale_capture(self):
         from record_proof_sites import Source
         raw = "🟦 theorem τ :=\n  λ".encode()
@@ -127,14 +164,47 @@ class ReadingEditionTest(unittest.TestCase):
         with self.assertRaises(UnicodeDecodeError):
             source.byte(0, 1)
         edition = api.Edition(api.ROOT)
-        inspector = "tools/ReadUseRegions.lean"
-        edition.inputs[inspector] = edition.read(inspector) + b"\n"
+        for inspector in ("tools/ReadUseRegions.lean", "tools/ReadKernelPaths.lean", "tools/ReadRetainedLines.lean"):
+            edition.inputs[inspector] = edition.read(inspector) + b"\n"
         api.compile_edition(edition)
         stale = json.loads(edition.resources["selection/proof-use-sites.json"])
         self.assertEqual(stale["reference_index"], "stale")
+        self.assertEqual(stale["replay_index"], "stale")
+        self.assertEqual(stale["kernel_index"], "stale")
+        self.assertEqual(stale["compiled_witnesses"], {})
         self.assertTrue(all(site["basis"] == "elaborated_application"
                             for targets in stale["observations"].values() for regions in targets.values()
                             for sites in regions.values() for site in sites))
+
+    def test_replayed_location_must_be_an_original_tactic_node(self):
+        edition = api.Edition(api.ROOT)
+        path = "corpus/reading_retained_lines.json"
+        record = edition.json(path)
+        caller = "QuarticQuery.Amplification.Preparation.sin_two_angle"
+        graph = edition.json("corpus/reading_dependencies.json")["nodes"]
+        target = next(iter(self.resource("selection/proof-use-sites.json")["compiled_witnesses"][caller]["value"]))
+        # One byte inside the original tactic would pass a declaration-only bounds check.
+        start, stop = edition.json("corpus/reading_kernel_paths.json")["nodes"][caller]["tactic_spans"][0]
+        record["completed_modules"] = [graph[caller]["module"]]
+        record["requests"] = {caller: [target]}
+        record["declaration_ranges"] = {caller: [start, stop]}
+        record["nodes"] = {caller: {target: [[start, start + 1]]}}
+        edition.inputs[path] = json.dumps(record).encode()
+        with self.assertRaisesRegex(ValueError, "outside verified tactic syntax"):
+            api.compile_edition(edition)
+
+    def test_kernel_capture_is_bound_to_its_dependency_record(self):
+        edition = api.Edition(api.ROOT)
+        path = "corpus/reading_kernel_paths.json"
+        record = edition.json(path)
+        record["dependency_sha256"] = "0" * 64
+        edition.inputs[path] = json.dumps(record).encode()
+        api.compile_edition(edition)
+        sites = json.loads(edition.resources["selection/proof-use-sites.json"])
+        self.assertEqual(sites["kernel_index"], "stale")
+        self.assertEqual(sites["compiled_witnesses"], {})
+        self.assertEqual(sites["reference_index"], "current")
+        self.assertTrue(sites["observations"])
 
     def test_condensation_preserves_distinct_first_uses_and_stops_at_visible_cards(self):
         from reading_proof_map import map_edges, proof_map

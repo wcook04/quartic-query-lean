@@ -160,8 +160,19 @@ unknown declaration kind is labelled body. Declarations identify whether they
 are cards or helpers, their module and any available kind, title and source
 range. Use the Lean name when the title is null. A null range means the reader
 can open the pinned module; it has no separate verified excerpt for that name.
-The chain witnesses compiled dependencies at declaration level. An exact
-application site requires the separate application evidence.
+On a current kernel capture, each hop also carries `evidence.compiledWitness`.
+For an expression this gives the path from the compiled type or value to a
+constant or projection. The region identifies the result, body, or named
+parameter domain containing the occurrence. A structural witness identifies a
+Lean metadata relation, such as entry 1 of an inductive type’s constructors.
+`compiledCoverage` counts these witnesses per chain. A source highlight requires
+a separate entry in `sites`. If the original line is unavailable,
+`sourceLimitation` distinguishes a dependency found only in a parameter
+domain, a caller without a separate source excerpt, and an original occurrence
+whose location remains unresolved. Older editions may return a null compiled witness.
+For generated helpers without a separate source range, `proofPathSource` can
+return Lean’s printed type in `compiledSignature`. A `definitionSite` links the
+name to its original field or constructor token when the native index provides one.
 
 Every hop has an `evidence` response. Use `sites` to highlight its occurrences:
 `resolved_identifier` marks an identifier that Lean’s own reference index resolves
@@ -182,6 +193,25 @@ highlight, even when the constant was supplied implicitly. For example, the
 `expectFrom`. The source of a particular tactic inside a multi-line or
 backtracking proof requires separate evidence.
 
+`retained_tactic` locates a dependency inside the proof term produced by a
+closing tactic on one original line. During a separate elaboration, the
+inspector wraps that tactic’s result in a tagged identity function. It accepts
+the span only when the marker survives in the final declaration and deleting
+the markers recovers the stored compiled proof. It searches the payload for
+the dependency. For example, the final `rfl` in `Preparation.iterate_succ`
+produces a proof containing both `Circuit.run` and `groverStep`. These uses
+are visible at line 200 of `Amplification/Geometry.lean`. A tactic attempted
+in a discarded branch cannot supply a location by this method. For requested value hops, `replayStatus` distinguishes
+a match, a completed replay with no match, a caller without eligible single-line
+tactic syntax, an uninspected module, and a caller without a verified declaration range. A null status means the edition supplies
+no replay result for this hop.
+
+`compiled_result` marks a single-line written result expression when the
+target occurs in the compiled result. `constructor_declaration` marks the
+constructor’s original identifier when Lean records it inside the selected
+inductive declaration. Some constructor signatures also supply exact
+`resolved_identifier` sites.
+
 An `inherited_parameter` site identifies the type of a parameter declared earlier
 in the same module. The pinned line can be outside the declaration's excerpt.
 Show “type of inherited parameter A” with the returned `binder` text. On a
@@ -189,6 +219,12 @@ statement hop the API can use this as its location when an inline use is unavail
 On a proof or definition hop, `parameterOrigins` can explain a dependency in a
 compiled lambda parameter. These origins stay outside `sites` and the hop's
 location count until an actual proof or definition use has its own evidence.
+For an ordinary written parameter, an origin with `basis: written_parameter`
+identifies the resolved name within its written `domain`. The parameter name
+occupies the same unique slot in Lean’s compiled type and value. Its region is
+`declaration_parameter`. For example, a definition that accepts a circuit can
+carry the circuit type in its compiled lambda even when its implementation
+never names that type.
 
 `declaration_only` means the typed dependency exists but no matching source use
 was established. Offer the caller’s source range or module. `otherReferences`
@@ -210,6 +246,10 @@ arrow from the paper headline to the formal theorem.
 node tools/query_reading_api.mjs build/reading-api/v1/index.json --proof-line-coverage
 node tools/query_reading_api.mjs build/reading-api/v1/index.json --proof-path QuarticQuery.Upper.familyBoundsAt_of_lower QuarticQuery.Forrelation.forrConstant value
 ```
+
+The coverage command counts a fully located arrow only if every step of every
+route has a verified source use. Its separate `distinct_hop_navigation`
+breakdown shows how many remaining steps can open a verified parameter type.
 
 For the section outline, use `(await reader.manuscript(paper)).descriptor.contents`
 in web editions. Each row has the printed title and level, the real HTML
