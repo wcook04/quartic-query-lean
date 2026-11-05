@@ -460,3 +460,7 @@ html, body { overflow-x: clip; max-width: 100%; }
 .chip:hover { border-color: var(--query-line); color: var(--query); }
 .chip code { font-size: 0.8rem; }
 .panel__raw { margin: -2px 0 6px; color: var(--ink-3); font-size: 0.85rem; overflow-wrap: anywhere; }
+/* Formulas written in Unicode, in the papers' maths face. */
+.umath { font-family: var(--serif); font-style: italic; white-space: nowrap; }
+.decl--plain { font-family: var(--serif); font-size: 0.98rem; text-align: left; }
+.chip { font-family: var(--serif); }

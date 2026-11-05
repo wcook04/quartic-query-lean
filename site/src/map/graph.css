@@ -39,3 +39,8 @@
 /* Readable cards: a calmer title, the short Lean name in its own quiet line. */
 .graph .tree .card .card__ctitle { line-height: 1.22; letter-spacing: 0.005em; }
 .graph .card__craw { color: var(--ink-3); margin-top: 3px; }
+/* The Lean name stays in the card's label for screen readers and hover, not on the face. */
+.graph .card__craw { display: none; }
+.graph .card__math { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.graph .card__math .umath, .graph .card__math .katex { font-size: 1.02em; }
+.graph .card__math .umath { white-space: normal; overflow-wrap: anywhere; }

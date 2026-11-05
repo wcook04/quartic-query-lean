@@ -5,6 +5,7 @@ import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
 import { LeanCode, nameLinks } from "../lean/LeanCode";
 import { Axioms } from "./evidence";
+import { Title } from "../text/title";
 import { Elsewhere, Loaded, shortName } from "./common";
 import { useNav } from "./Nav";
 
@@ -66,8 +67,7 @@ function Declaration({ d, linked, titles }: { d: any; linked: Set<string>; title
   return (
     <article className="panel panel--lean" aria-labelledby="ln-h">
       <header className="panel__head">
-        <h2 id="ln-h" className="panel__title">{titles[d.name] ? titles[d.name].replace(/`/g, "") : <code>{shortName(d.name)}</code>}</h2>
-        {titles[d.name] && <p className="panel__raw"><code>{shortName(d.name)}</code></p>}
+        <h2 id="ln-h" className="panel__title">{titles[d.name] ? <Title text={titles[d.name]} /> : <code>{shortName(d.name).split(".").pop()}</code>}</h2>
         <p className="panel__where">
           {src.kind ? `${src.kind} in ` : "In "}<code>{src.module}</code>, lines {src.lines?.[0]}–{src.lines?.[1]}.{" "}
           {src.url && <a href={src.url} target="_blank" rel="noopener noreferrer">Source on GitHub</a>}
@@ -123,7 +123,7 @@ function StatedWith({ list, titles }: { list: Edge[]; titles: Record<string, str
       <p className="chips">
         {list.map((e) => (
           <button key={e.name} type="button" className="chip" onClick={() => nav.openLean(e.name)} title={titles[e.name]?.replace(/`/g, "") ?? e.name}>
-            <code>{shortName(e.name).split(".").pop()}</code>
+            {titles[e.name] ? <Title text={titles[e.name]} /> : <code>{shortName(e.name).split(".").pop()}</code>}
           </button>
         ))}
       </p>
@@ -144,10 +144,7 @@ function Neighbours({ title, empty, list, linked, titles }: { title: string; emp
     <li>
       <button type="button" className="nb" onClick={() => nav.openLean(e.name)} title={e.name}>
         {titles[e.name] ? (
-          <>
-            <span className="nb__title">{titles[e.name].replace(/`/g, "")}</span>
-            <span className="nb__meta"><code>{shortName(e.name).split(".").pop()}</code></span>
-          </>
+          <span className="nb__title"><Title text={titles[e.name]} /></span>
         ) : (
           <span className="nb__title"><code>{shortName(e.name).split(".").pop()}</code></span>
         )}

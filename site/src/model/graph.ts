@@ -45,6 +45,8 @@ export interface ArgNode {
   kindLabel?: string;
   /** How much of this Lean holds: whole, or part where it contains sorry. An axiom has its own mark. */
   leanFill?: "whole" | "part";
+  /** Quartic: the title with its maths marked up, typeset on the card. */
+  math?: string;
   /** The raw Lean name, drawn small under a plain title. */
   rawName?: string;
   /** The form a card takes: blueprint readers read definition and theorem from its shape. */

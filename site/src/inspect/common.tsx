@@ -3,6 +3,8 @@ import type { Async } from "../app/useAsync";
 import { face, statementName } from "../app/papers";
 import { useAsync } from "../app/useAsync";
 import { useReader } from "./ReaderContext";
+import { useNames } from "./Names";
+import { Title } from "../text/title";
 import { useNav } from "./Nav";
 
 export function Loaded<T>({ value, children, what }: { value: Async<T>; children: (v: T) => ReactNode; what: string }) {
@@ -24,9 +26,11 @@ export function shortName(name: string): string {
 
 export function DeclButton({ name, children }: { name: string; children?: ReactNode }) {
   const nav = useNav();
+  const names = useNames();
+  const plain = names[name];
   return (
-    <button type="button" className="decl" onClick={() => nav.openLean(name)} title={name}>
-      {children ?? <code>{shortName(name)}</code>}
+    <button type="button" className={`decl${plain ? " decl--plain" : ""}`} onClick={() => nav.openLean(name)} title={name}>
+      {children ?? (plain ? <Title text={plain} /> : <code>{shortName(name).split(".").pop()}</code>)}
     </button>
   );
 }

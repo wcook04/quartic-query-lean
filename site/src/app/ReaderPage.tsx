@@ -4,6 +4,7 @@ import { go, href, type Route } from "./router";
 import { PAPERS, SUPPLEMENT, face, statementName } from "./papers";
 import { NavContext, type Nav } from "../inspect/Nav";
 import { ReaderContext } from "../inspect/ReaderContext";
+import { NamesContext } from "../inspect/Names";
 import { PassagePanel } from "../inspect/PassagePanel";
 import { StatementPanel } from "../inspect/StatementPanel";
 import { LeanPanel } from "../inspect/LeanPanel";
@@ -39,6 +40,15 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [readingPage, setReadingPage] = useState<number | null>(null);
   const [contents, setContents] = useState<ContentsRow[]>([]);
   const [lit, setLit] = useState<string[]>([]);
+  const [names, setNames] = useState<Record<string, string>>({});
+  useEffect(() => {
+    (reader as any).proofMap().then((m: any) => {
+      if (m?.currentness !== "current") return;
+      const out: Record<string, string> = {};
+      for (const [n, c] of Object.entries<any>(m.cards)) out[n] = c.title;
+      setNames(out);
+    }, () => {});
+  }, [reader]);
   // Selections this reader has met in this edition and paper (this browser only).
   const visitKey = `quartic:visited:${edition.permalink}:${paper}`;
   const [visited, setVisited] = useState<string[]>(() => { try { return JSON.parse(localStorage.getItem(visitKey) ?? "[]"); } catch { return []; } });
@@ -183,6 +193,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   return (
     <ReaderContext.Provider value={reader}>
+    <NamesContext.Provider value={names}>
     <NavContext.Provider value={nav}>
       <div className={`desk${open ? " desk--open" : ""}`}>
         <nav className="papers" aria-label="Papers">
@@ -284,6 +295,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
         )}
       </div>
     </NavContext.Provider>
+    </NamesContext.Provider>
     </ReaderContext.Provider>
   );
 }

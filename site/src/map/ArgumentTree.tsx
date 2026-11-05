@@ -45,6 +45,8 @@ import { SIDES, beyond, chipAt, chipText, freeSpot, panToward, sameBeyond, scree
 import { traceTiming } from "./canvas/trace";
 import { SimplifiedMap } from "./canvas/SimplifiedMap";
 import "./tree.css";
+// Quartic adaptation: a card whose title carries maths is typeset (see fromProofMap).
+import { titleHtml } from "../text/title";
 
 export type { MapScene } from "./canvas/scene";
 export type { MapMode } from "./canvas/representation";
@@ -2546,7 +2548,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
               </div>
               <div className="card__compact" aria-hidden="true">
                 {isRoot && <span className="card__cmain">Main result</span>}
-                <span className={`card__ctitle${tileLean ? " lean" : ""}`}>{tileLean ? <LeanName name={tile} camel /> : isRoot ? <WholeWords text={tile} /> : tile}</span>
+                <span className={`card__ctitle${tileLean ? " lean" : ""}`}>{tileLean ? <LeanName name={tile} camel /> : isRoot ? <WholeWords text={tile} /> : node.math ? <span className="card__math" dangerouslySetInnerHTML={{ __html: titleHtml(node.math) }} /> : tile}</span>
                 {section && <span className="card__csec">{section}</span>}
                 {node.rawName && <code className="card__craw">{node.rawName}</code>}
                 {isRoot && rootExcerpt && (

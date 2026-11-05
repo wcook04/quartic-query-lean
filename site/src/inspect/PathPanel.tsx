@@ -7,10 +7,7 @@ import { LeanCode } from "../lean/LeanCode";
 import { Loaded, shortName } from "./common";
 import { useNav } from "./Nav";
 
-/** A title with `code` spans, as the edition writes them. */
-function Title({ text }: { text: string }) {
-  return <>{text.split("`").map((part, i) => (i % 2 ? <code key={i}>{part}</code> : part))}</>;
-}
+import { Title } from "../text/title";
 
 const KIND_OF: Record<string, string> = { supports: "value", lean_type_dependency: "type", lean_structural_dependency: "structural" };
 const USAGE: Record<string, string> = {
@@ -46,7 +43,7 @@ function Path({ p, from, to, kind, reader }: { p: any; from: string; to: string;
   return (
     <article className="panel panel--path" aria-labelledby="pt-h">
       <header className="panel__head">
-        <h2 id="pt-h" className="panel__title">How <code>{shortName(from).split(".").pop()}</code> reaches <code>{shortName(to).split(".").pop()}</code></h2>
+        <h2 id="pt-h" className="panel__title">How one step reaches another</h2>
         <p className="panel__where">
           The graph draws one arrow. Lean records the chain of declarations behind it. Each line says where the
           declaration above uses the one below.
@@ -99,7 +96,6 @@ function Step({ reader, decl, name, card }: { reader: any; decl: any; name: stri
         <strong>{decl?.title ? <Title text={decl.title} /> : shortName(name)}</strong>{" "}
         <span className="quiet">{card ? "card on the graph" : "helper"}{decl?.kind ? `, ${decl.kind}` : ""}</span>
       </p>
-      <p className="chain__raw"><code>{name}</code></p>
       <p className="chain__actions">
         {card ? (
           <button type="button" className="textbutton" onClick={() => nav.openLean(name)}>Open in Lean</button>
