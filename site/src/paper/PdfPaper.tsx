@@ -19,11 +19,12 @@ interface Props {
   page?: number;
   onSelect(id: string): void;
   onPage(page: number): void;
+  onReadingPage?(page: number): void;
 }
 
 interface Placed { row: Row; y: number | null }
 
-export function PdfPaper({ edition, selected, page, onSelect, onPage }: Props) {
+export function PdfPaper({ edition, selected, page, onSelect, onPage, onReadingPage }: Props) {
   const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
   const [rows, setRows] = useState<Row[]>([]);
   const [texts, setTexts] = useState<Record<string, string>>({});
@@ -115,6 +116,24 @@ export function PdfPaper({ edition, selected, page, onSelect, onPage }: Props) {
     scroller.addEventListener("scroll", on, { passive: true });
     return () => scroller.removeEventListener("scroll", on);
   }, [storeKey, pdf]);
+
+  // Report the page at the reading line as the reader scrolls.
+  useEffect(() => {
+    const scroller = box.current?.closest<HTMLElement>(".paper");
+    if (!scroller || !pdf || !onReadingPage) return;
+    let frame = 0, last = -1;
+    const look = () => {
+      frame = 0;
+      const r = scroller.getBoundingClientRect();
+      const hit = document.elementFromPoint(r.left + r.width / 3, r.top + r.height * 0.35)?.closest<HTMLElement>(".pdf__page");
+      const n = hit ? Number(hit.id.replace("page-", "")) : -1;
+      if (n > 0 && n !== last) { last = n; onReadingPage(n); }
+    };
+    const on = () => { if (!frame) frame = requestAnimationFrame(look); };
+    scroller.addEventListener("scroll", on, { passive: true });
+    const t = window.setTimeout(look, 500);
+    return () => { scroller.removeEventListener("scroll", on); cancelAnimationFrame(frame); clearTimeout(t); };
+  }, [pdf, onReadingPage]);
 
   if (error)
     return (

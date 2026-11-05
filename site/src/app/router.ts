@@ -3,7 +3,7 @@
 //   #/read/<paper>?s=<selection>&v=…     a paper, a selected passage and an open view
 import { useEffect, useState } from "react";
 
-export type View = "passage" | "statement" | "lean" | "journey" | "closed";
+export type View = "passage" | "statement" | "lean" | "journey" | "graph" | "closed";
 
 export interface Route {
   page: "home" | "read" | "about";

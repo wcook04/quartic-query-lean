@@ -6,6 +6,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { Edition } from "../app/edition";
 import { sanitizeManuscript, typeset } from "../text/html";
 import { linesOf, meaningful, rowFor, type Row } from "./selectRow";
+import { fromOutline, type ContentsRow } from "./Contents";
 
 interface Props {
   edition: Edition;
@@ -15,9 +16,12 @@ interface Props {
   onSelect(id: string): void;
   onLink(paper: string, fragment?: string): void;
   onRows?(rows: Row[]): void;
+  /** The source line at the reading line, as the reader scrolls. */
+  onReadingLine?(line: number): void;
+  onContents?(rows: ContentsRow[]): void;
 }
 
-export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, onLink, onRows }: Props) {
+export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, onLink, onRows, onReadingLine, onContents }: Props) {
   const root = useRef<HTMLDivElement>(null);
   const [rows, setRows] = useState<Row[] | null>(null);
   const [sourceView, setSourceView] = useState(false);
@@ -32,7 +36,10 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, on
     setReady(false);
     setError(null);
     (async () => {
-      const [{ html, source }, sel] = await Promise.all([edition.reader.manuscript(paper), edition.reader.resource(`selection/${paper}.json`)]);
+      const [{ html, source, descriptor }, sel] = await Promise.all([edition.reader.manuscript(paper), edition.reader.resource(`selection/${paper}.json`)]);
+      const doc = (edition.reader.documents as any)[paper];
+      const contents: ContentsRow[] = descriptor?.contents ?? (descriptor?.outline ? fromOutline(descriptor.outline, doc?.lines ?? 1e9) : []);
+      onContents?.(contents.filter((r) => r.listed !== false && !/unlisted/.test(r.title)));
       if (!live || !root.current) return;
       setSourceView(html == null);
       if (html != null) {
@@ -126,6 +133,26 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, on
     scroller.addEventListener("scroll", on, { passive: true });
     return () => scroller.removeEventListener("scroll", on);
   }, [storeKey, ready]);
+
+  // Report the block at the reading line, a third of the way down the pane.
+  useEffect(() => {
+    const el = root.current;
+    const scroller = el?.closest<HTMLElement>(".paper");
+    if (!el || !scroller || !ready || !onReadingLine) return;
+    let frame = 0, last = -1;
+    const look = () => {
+      frame = 0;
+      const box = scroller.getBoundingClientRect();
+      const x = el.getBoundingClientRect().left + Math.min(40, el.clientWidth / 2);
+      const hit = document.elementFromPoint(x, box.top + box.height * 0.35)?.closest<HTMLElement>(".source-block[data-l0]");
+      const line = hit ? Number(hit.dataset.l0) : -1;
+      if (line > 0 && line !== last) { last = line; onReadingLine(line); }
+    };
+    const on = () => { if (!frame) frame = requestAnimationFrame(look); };
+    scroller.addEventListener("scroll", on, { passive: true });
+    const t = window.setTimeout(look, 300);
+    return () => { scroller.removeEventListener("scroll", on); cancelAnimationFrame(frame); clearTimeout(t); };
+  }, [ready, onReadingLine]);
 
   function onClick(e: React.MouseEvent) {
     const target = e.target as HTMLElement;

@@ -62,6 +62,7 @@ function Declaration({ d, linked }: { d: any; linked: Set<string> }) {
         </p>
       </header>
 
+      <p className="cmp__actions"><button type="button" className="button button--small" onClick={() => nav.openGraph(d.name)}>Show it in the graph</button></p>
       <Neighbourhood self={d.name} uses={uses} users={users} linked={linked} />
 
       {src.text ? (

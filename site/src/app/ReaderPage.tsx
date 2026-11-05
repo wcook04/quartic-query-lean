@@ -10,6 +10,20 @@ import { JourneyPanel } from "../inspect/JourneyPanel";
 import { ManuscriptPaper } from "../paper/ManuscriptPaper";
 const PdfPaper = lazy(() => import("../paper/PdfPaper").then((m) => ({ default: m.PdfPaper })));
 import { meaningful, type Row } from "../paper/selectRow";
+const ProofPane = lazy(() => import("../map/ProofPane").then((m) => ({ default: m.ProofPane })));
+import { Contents, sectionAt, type ContentsRow } from "../paper/Contents";
+
+function useWide(): boolean {
+  const q = "(min-width: 901px)";
+  const [wide, setWide] = useState(() => window.matchMedia(q).matches);
+  useEffect(() => {
+    const m = window.matchMedia(q);
+    const on = () => setWide(m.matches);
+    m.addEventListener("change", on);
+    return () => m.removeEventListener("change", on);
+  }, []);
+  return wide;
+}
 
 export function ReaderPage({ edition, route }: { edition: Edition; route: Route }) {
   const paper = route.paper!;
@@ -18,6 +32,11 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [downloads, setDownloads] = useState<Record<string, any>>({});
   const aside = useRef<HTMLElement>(null);
   const lastSelected = useRef<string | undefined>(route.s);
+  const wide = useWide();
+  const [readingLine, setReadingLine] = useState<number | null>(null);
+  const [readingPage, setReadingPage] = useState<number | null>(null);
+  const [contents, setContents] = useState<ContentsRow[]>([]);
+  const [lit, setLit] = useState<string[]>([]);
   const ed = edition.pinnedOlder ? edition.permalink : undefined;
   const base: Route = { page: "read", paper, ed };
 
@@ -39,12 +58,33 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     openSelection: (p, id) => go({ page: "read", paper: p, s: id, ed }, p === paper && !route.v),
     openStatement: (id) => go({ ...base, s: route.s, p: route.p, v: "statement", st: id }),
     openLean: (name) => go({ ...base, s: route.s, p: route.p, v: "lean", d: name }),
+    openGraph: (name?: string) => go({ ...base, s: route.s, p: route.p, v: "graph", d: name ?? route.d }),
     openJourney: (id) => go({ ...base, s: route.s, p: route.p, v: "journey", j: id }),
     backToPassage: () => go({ ...base, s: route.s, p: route.p }),
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }), [paper, route.s, route.p, route.v, ed]);
 
-  const open = !!(route.s || route.p || route.v) && route.v !== "closed";
+  // Wide screens keep the proof beside the paper, as Proof Reader does; phones open it on request.
+  const open = route.v !== "closed" && (wide || !!(route.s || route.p || route.v));
+  const mode: "graph" | "lean" | "evidence" =
+    route.v === "graph" ? "graph" : route.v === "lean" ? "lean" : route.v === "statement" || route.v === "journey" ? "evidence"
+      : route.s || route.p ? "evidence" : "graph";
+
+  // The cards lit in the graph: the selected passage's, else the reading line's.
+  useEffect(() => {
+    let live = true;
+    const doc = (reader.documents as any)[paper];
+    let q: any = null;
+    const free = route.s && /^l(\d+)-\d+$/.exec(route.s);
+    if (route.s && !free) q = { paper, id: route.s };
+    else if (free) q = { paper, line: Number(free[1]) };
+    else if (route.p) q = { paper, page: route.p };
+    else if (doc?.format === "pdf" && readingPage) q = { paper, page: readingPage };
+    else if (readingLine) q = { paper, line: readingLine };
+    if (!q) { setLit([]); return; }
+    (reader as any).proofFocus(q).then((f: any) => live && setLit(f.cards ?? []), () => live && setLit([]));
+    return () => { live = false; };
+  }, [reader, paper, route.s, route.p, readingLine, readingPage]);
 
   const close = useCallback(() => {
     // Closing keeps the selection: the paper stays marked where the reader was.
@@ -104,9 +144,13 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const download = downloads[paper];
   const keyed = rows.filter((r) => r.topic && meaningful(r));
 
+  const here = sectionAt(contents, route.s && /^l(\d+)/.exec(route.s) ? Number(/^l(\d+)/.exec(route.s)![1]) : readingLine);
+  const goSection = (r: ContentsRow) => go({ ...base, s: route.s, v: route.v, st: route.st, d: route.d, j: route.j, a: r.anchor }, true);
+
   let panel = null;
   if (route.v === "statement" && route.st) panel = <StatementPanel edition={edition} id={route.st} />;
   else if (route.v === "lean" && route.d) panel = <LeanPanel edition={edition} name={route.d} />;
+  else if (mode === "graph") panel = null;
   else if (route.v === "journey" && route.j) panel = <JourneyPanel edition={edition} id={route.j} step={route.step} />;
   else if (query && route.v !== "closed") panel = <PassagePanel edition={edition} query={query} />;
 
@@ -125,7 +169,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           </ul>
         </nav>
 
-        <main id="main" className="paper" tabIndex={-1} aria-label={f.name}>
+        <main id="main" className={`paper${contents.length ? " paper--contents" : ""}`} tabIndex={-1} aria-label={f.name}>
+          {contents.length > 0 && <Contents rows={contents} current={here} onGo={goSection} />}
           <header className="paper__head">
             <h1 className="paper__title">{f.name}</h1>
             <p className="paper__byline">{f.byline}</p>
@@ -141,36 +186,66 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                   </ul>
                 </details>
               )}
+              {contents.length > 0 && (
+                <details className="jump jump--contents">
+                  <summary>Contents</summary>
+                  <ul>
+                    {contents.filter((r) => r.level <= Math.min(...contents.map((x) => x.level)) + 1).map((r) => (
+                      <li key={r.line}><a href={r.anchor ? `#${r.anchor}` : undefined} onClick={(e) => { e.preventDefault(); goSection(r); (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}>{r.title}</a></li>
+                    ))}
+                  </ul>
+                </details>
+              )}
               {paper === "reconstruction" && <a href={href({ page: "read", paper: SUPPLEMENT.id, ed })}>Verification details</a>}
+              {!wide && <button type="button" className="textbutton" onClick={() => nav.openGraph()}>Open the Lean graph</button>}
             </div>
           </header>
           {paper === "original" ? (
             <Suspense fallback={<p className="pending" role="status">Loading the PDF viewer…</p>}>
               <PdfPaper edition={edition} selected={route.s} page={route.p}
                 onSelect={(id) => go({ ...base, s: id }, !route.v || route.v === "closed")}
-                onPage={(n) => go({ ...base, p: n }, !route.v || route.v === "closed")} />
+                onPage={(n) => go({ ...base, p: n }, !route.v || route.v === "closed")}
+                onReadingPage={setReadingPage} />
             </Suspense>
           ) : (
             <ManuscriptPaper key={paper} edition={edition} paper={paper} selected={route.s} anchor={route.a} onRows={setRows}
+              onReadingLine={setReadingLine} onContents={setContents}
               onSelect={(id) => go({ ...base, s: id }, !route.v || route.v === "closed")}
               onLink={(p, fragment) => go({ page: "read", paper: p, a: fragment, ed })} />
           )}
         </main>
 
         {open && (
-          <aside ref={aside} className="inspector" aria-label="Evidence for the selected passage">
+          <aside ref={aside} className={`inspector inspector--${mode}`} aria-label="The Lean proof and its evidence">
+            <div className="inspector__modes" role="group" aria-label="What to show beside the paper">
+              <button type="button" aria-pressed={mode === "graph"} onClick={() => nav.openGraph()}>Graph</button>
+              <button type="button" aria-pressed={mode === "lean"} disabled={!route.d && !lit[0]} onClick={() => nav.openLean(route.d ?? lit[0])}>Lean</button>
+              <button type="button" aria-pressed={mode === "evidence"} disabled={!route.s && !route.p} onClick={nav.backToPassage}>Evidence</button>
+            </div>
             <div className="inspector__bar">
               <button type="button" className="inspector__close" onClick={close}>
                 <span className="wide-only">Close</span><span className="narrow-only">Back to the paper</span>
               </button>
-              {route.v && (route.s || route.p) && !(route.v === "statement" && route.s === `original/${route.st}`) && (
+              {route.v && route.v !== "graph" && (route.s || route.p) && !(route.v === "statement" && route.s === `original/${route.st}`) && (
                 <button type="button" className="textbutton" onClick={nav.backToPassage}>
                   Return to {route.s?.startsWith("original/") ? statementName(route.s.slice(9)) : "the passage"}
                 </button>
               )}
               {route.v && <button type="button" className="textbutton" onClick={() => history.back()}>Back</button>}
             </div>
-            <div className="inspector__body">{panel ?? <p className="quiet">Select a passage in the paper.</p>}</div>
+            {mode === "graph" ? (
+              <div className="inspector__graph">
+                <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
+                  <ProofPane edition={edition} lit={lit} selected={route.d ?? null} onSelect={nav.openLean} />
+                </Suspense>
+                <p className="inspector__note">
+                  {lit.length ? `${lit.length} ${lit.length === 1 ? "card is" : "cards are"} tied to the passage you are reading.` : "No card on this map is tied to the passage at the reading line."}{" "}
+                  Arrows are Lean’s; dashed arrows are uses in a statement. Choose a card to open its Lean.
+                </p>
+              </div>
+            ) : (
+              <div className="inspector__body">{panel ?? <p className="quiet">Select a passage in the paper.</p>}</div>
+            )}
           </aside>
         )}
       </div>

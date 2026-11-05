@@ -5,6 +5,7 @@ export interface Nav {
   openSelection(paper: string, id: string): void;
   openStatement(id: string): void;
   openLean(name: string): void;
+  openGraph(name?: string): void;
   openJourney(id: string): void;
   backToPassage(): void;
 }
