@@ -11,8 +11,8 @@
  "inputs": {
   "corpus/lean_dependencies.json": "1bc253fd3f3f86245e538bb71dd99d321fdb575cee596fede6bc46babbffe06c",
   "corpus/statements.json": "1a1bfce5c5c522d8055a40b555307f4e44e3cd6190c728bc74dd580afce71847",
-  "docs/reasoning_record.md": "c8c457bbe40c9aa55d6f8500399b74e62a526b5b5fb7ce72c3a2c23fb10dd16f",
-  "docs/reasoning_record_correspondence.json": "cf764cfac9510e57b9677e0bb271fba4d649f0e55f5aa6a3482e2040f0cd50e2",
+  "docs/reasoning_record.md": "85aa4d15709085d79952c762398be803e0a0541c4b36ef3f191eee41be421686",
+  "docs/reasoning_record_correspondence.json": "35f308f0d0f5200d55bdab2b785015409898c298f65333bde5586247f156ff5a",
   "docs/verification_details.md": "6ba66b0d023c9ef7565e92667760f07ad4b4d8df9dec71ade8ecf3cb43fa1fb5",
   "lean/QuarticCorpus/Construction/Challenge.lean": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
   "lean/QuarticCorpus/Construction/Solution.lean": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
@@ -86,9 +86,9 @@
  },
  "record": {
   "path": "docs/reasoning_record.md",
-  "sha256": "c8c457bbe40c9aa55d6f8500399b74e62a526b5b5fb7ce72c3a2c23fb10dd16f",
+  "sha256": "85aa4d15709085d79952c762398be803e0a0541c4b36ef3f191eee41be421686",
   "sources": {
-   "docs/reasoning_record.md": "c8c457bbe40c9aa55d6f8500399b74e62a526b5b5fb7ce72c3a2c23fb10dd16f",
+   "docs/reasoning_record.md": "85aa4d15709085d79952c762398be803e0a0541c4b36ef3f191eee41be421686",
    "docs/verification_details.md": "6ba66b0d023c9ef7565e92667760f07ad4b4d8df9dec71ade8ecf3cb43fa1fb5"
   },
   "passages_verified": 300,
@@ -7189,8 +7189,8 @@
      "passage_sha256": "d9c21f4d7242d29c98b9a250226c9f366580abd7a810715b610f04a092fe8933",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      218,
-      266
+      223,
+      271
      ]
     }
    ],
@@ -7216,8 +7216,8 @@
      "passage_sha256": "d9c21f4d7242d29c98b9a250226c9f366580abd7a810715b610f04a092fe8933",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      218,
-      266
+      223,
+      271
      ]
     }
    ],
@@ -7243,8 +7243,8 @@
      "passage_sha256": "d9c21f4d7242d29c98b9a250226c9f366580abd7a810715b610f04a092fe8933",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      218,
-      266
+      223,
+      271
      ]
     }
    ],
@@ -7309,8 +7309,8 @@
      "passage_sha256": "3af48e3bbf99e6bcb13541fe7c0a4a9a6e765157eb5dcb8c02c9d7297a96f484",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2158,
-      2173
+      2024,
+      2039
      ]
     },
     {
@@ -7331,8 +7331,8 @@
      "passage_sha256": "a431e45ae41e6cae480f362bdfefcee32a9c6618aa6fd259391863d0496d7368",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2762,
-      2804
+      2628,
+      2670
      ]
     }
    ],
@@ -7367,8 +7367,8 @@
      "passage_sha256": "2c8494ae94cf26f592fcd4752099ed1ad2fb3af9f215fccae05f431949b01b85",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      194,
-      215
+      199,
+      220
      ]
     }
    ],
@@ -7406,8 +7406,8 @@
      "passage_sha256": "5e98eaaef8e019284ab12979a80e7215d4a1aca59fa08fd521dc901216268090",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      134,
-      142
+      139,
+      147
      ]
     }
    ],
@@ -7487,8 +7487,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     },
     {
@@ -7523,8 +7523,8 @@
     "statement_id": "def-D",
     "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
     "path": "docs/reasoning_record.md",
-    "line_start": 160,
-    "line_end": 166,
+    "line_start": 165,
+    "line_end": 171,
     "excerpt_sha256": "3936b0ba5ff262d5455cc6e16d2c6ee68e606964f6ce72ab83a3bbb796a9e52b",
     "excerpt": "The predicate $D_{\\leq}(f,q)$, the [deterministic budget test][def-DLe] of the formal statement, means that there is one tree $T$ of depth at most $q$ with $T(x)=f(x)$ for every $x\\in\\mathcal D$. Define\n\n\\[\nD(f)=\\min\\{q\\in\\mathbb N:D_{\\leq}(f,q)\\}.\n\\]\n\nA randomized program is a finite list of trees $T_1,\\ldots,T_s$ with real weights $p_j>0$ and $\\sum_jp_j=1$. It selects $j$ independently of the input and runs $T_j$. Its depth is $\\max_j\\operatorname{depth}(T_j)$, and its success probability on a promised input is $\\sum_{j:T_j(x)=f(x)}p_j$. Positive weights merely discard entries of probability zero; the normalization forces $s\\geq1$."
    },
@@ -7579,8 +7579,8 @@
      "passage_sha256": "d9c21f4d7242d29c98b9a250226c9f366580abd7a810715b610f04a092fe8933",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      218,
-      266
+      223,
+      271
      ]
     },
     {
@@ -7615,8 +7615,8 @@
     "statement_id": "def-Q",
     "passage_sha256": "d9c21f4d7242d29c98b9a250226c9f366580abd7a810715b610f04a092fe8933",
     "path": "docs/reasoning_record.md",
-    "line_start": 243,
-    "line_end": 265,
+    "line_start": 248,
+    "line_end": 270,
     "excerpt_sha256": "5834baeb9d512cd30ac04ca5160a1aab3533fb4181c2c38141e1d15beafee5fb",
     "excerpt": "On a nonempty coordinate set, a budget $q$ is admissible when one normalized starting state and one program of cap at most $q$ achieve the required success on every promised input. To include the empty coordinate set, where a constant answer needs no query register, we also allow the constant case explicitly. The resulting condition, the [quantum budget condition](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#def-QLe), is\n\n\\[\n\\begin{split}\n&\\bigl[\\exists b\\in\\{0,1\\}\\ \\forall x\\in\\mathcal D,\\ f(x)=b\\bigr]\\\\\n&\\quad\\lor\\\n\\bigl[\\exists w,\\psi_0,A:\\ \\|\\psi_0\\|=1,\\\n  \\operatorname{cap}(A)\\leq q,\\\n  \\forall x\\in\\mathcal D,\\ M_A(x,\\psi_0,f(x))\\geq2/3\\bigr].\n\\end{split}\n\\]\n\nEvery existential choice in the second clause precedes the input quantifier. The first clause permits a constant answer with no query register. It is redundant when a nonempty query register is available, but necessary for this representation when $I=\\varnothing$: there is then one possible input and no unit vector in the zero-dimensional indexed query space. Every partial Boolean function on that singleton input set is constant on its promise, including an empty promise. The clause therefore supplies exactly the expected zero-query behavior.\n\nDefine $Q(f)=\\min\\{q\\in\\mathbb N:q\\text{ is admissible for }f\\}$. To see that this minimum exists, simulate a deterministic tree. On a nonempty coordinate set, prepare the basis state for its next query with answer bit zero, query once, measure the answer bit, and follow the corresponding child. Each child has its own input-independent basis permutation preparing its next coordinate. The classical history is already encoded by the program branch. Induction on the tree gives the same output and no larger cap. Constant trees, including those on empty coordinates, use the first clause. Hence\n\n\\[\nQ(f)\\leq D(f)\\leq |I|,\n\\qquad\nQ(f)\\leq q\\iff q\\text{ is admissible for }f.\n\\]\n\nAs in the classical case, nonemptiness and monotonicity of admissible budgets justify the source's natural-number infimum."
    },
@@ -7654,8 +7654,8 @@
      "passage_sha256": "d9c21f4d7242d29c98b9a250226c9f366580abd7a810715b610f04a092fe8933",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      218,
-      266
+      223,
+      271
      ]
     },
     {
@@ -7677,8 +7677,8 @@
     "statement_id": "def-Q",
     "passage_sha256": "d9c21f4d7242d29c98b9a250226c9f366580abd7a810715b610f04a092fe8933",
     "path": "docs/reasoning_record.md",
-    "line_start": 243,
-    "line_end": 265,
+    "line_start": 248,
+    "line_end": 270,
     "excerpt_sha256": "5834baeb9d512cd30ac04ca5160a1aab3533fb4181c2c38141e1d15beafee5fb",
     "excerpt": "On a nonempty coordinate set, a budget $q$ is admissible when one normalized starting state and one program of cap at most $q$ achieve the required success on every promised input. To include the empty coordinate set, where a constant answer needs no query register, we also allow the constant case explicitly. The resulting condition, the [quantum budget condition](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#def-QLe), is\n\n\\[\n\\begin{split}\n&\\bigl[\\exists b\\in\\{0,1\\}\\ \\forall x\\in\\mathcal D,\\ f(x)=b\\bigr]\\\\\n&\\quad\\lor\\\n\\bigl[\\exists w,\\psi_0,A:\\ \\|\\psi_0\\|=1,\\\n  \\operatorname{cap}(A)\\leq q,\\\n  \\forall x\\in\\mathcal D,\\ M_A(x,\\psi_0,f(x))\\geq2/3\\bigr].\n\\end{split}\n\\]\n\nEvery existential choice in the second clause precedes the input quantifier. The first clause permits a constant answer with no query register. It is redundant when a nonempty query register is available, but necessary for this representation when $I=\\varnothing$: there is then one possible input and no unit vector in the zero-dimensional indexed query space. Every partial Boolean function on that singleton input set is constant on its promise, including an empty promise. The clause therefore supplies exactly the expected zero-query behavior.\n\nDefine $Q(f)=\\min\\{q\\in\\mathbb N:q\\text{ is admissible for }f\\}$. To see that this minimum exists, simulate a deterministic tree. On a nonempty coordinate set, prepare the basis state for its next query with answer bit zero, query once, measure the answer bit, and follow the corresponding child. Each child has its own input-independent basis permutation preparing its next coordinate. The classical history is already encoded by the program branch. Induction on the tree gives the same output and no larger cap. Constant trees, including those on empty coordinates, use the first clause. Hence\n\n\\[\nQ(f)\\leq D(f)\\leq |I|,\n\\qquad\nQ(f)\\leq q\\iff q\\text{ is admissible for }f.\n\\]\n\nAs in the classical case, nonemptiness and monotonicity of admissible budgets justify the source's natural-number infimum."
    },
@@ -7733,8 +7733,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     },
     {
@@ -7769,8 +7769,8 @@
     "statement_id": "def-R",
     "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
     "path": "docs/reasoning_record.md",
-    "line_start": 169,
-    "line_end": 190,
+    "line_start": 174,
+    "line_end": 195,
     "excerpt_sha256": "b440690000496d06967bae108628ecc517ebe8adc5664e85dd5d7a163cdfbeef",
     "excerpt": "Write $R_{\\leq}(f,q)$ for the existence of such a mixture with depth at most $q$ and success at least $2/3$ on every promised input; this is the [randomized budget test][def-RLe] of the formal statement. The randomized complexity is\n\n\\[\nR(f)=\\min\\left\\{q\\in\\mathbb N:\\\n\\exists(p_j,T_j)_{j=1}^s\\quad\n\\begin{array}{l}\np_j>0,\\quad \\sum_jp_j=1,\\quad \\operatorname{depth}(T_j)\\leq q\\ \\text{for every }j,\\\\[2pt]\n\\displaystyle \\sum_{j:T_j(x)=f(x)}p_j\\geq\\frac23\\ \\text{for every }x\\in\\mathcal D\n\\end{array}\\right\\}.\n\\]\n\nThis is the distribution-over-trees convention in [Buhrman and de Wolf, §§3.1–3.2, printed pp. 5–6][BDW02]. For fixed $I$ and $q$, there are finitely many trees of depth at most $q$: at depth zero there are two leaves, and a larger tree chooses a coordinate and two smaller trees. Fixing all random choices of a capped randomized algorithm selects one such tree; grouping outcomes that select the same tree gives a finite mixture. Conversely, a finite distribution can be selected with finitely many biased coin choices before reading the input. These observations preserve the cap and pointwise success probabilities. They use the allowed arbitrary real biases; a separate restriction to a bounded number of fair coin flips requires care at an exact error threshold.\n\nThe minima exist. Query all coordinates once, then output the prescribed value on the promise and any bit elsewhere. This tree has depth at most $|I|$, including when $I$ is empty. A tree is also a one-element randomized mixture. The admissible budgets are therefore nonempty upward-closed subsets of $\\mathbb N$, giving\n\n\\[\nR(f)\\leq q\\iff R_{\\leq}(f,q),\\qquad\nD(f)\\leq q\\iff D_{\\leq}(f,q),\\qquad\nR(f)\\leq D(f)\\leq |I|.\n\\]\n\n**Formal representation.** In the source these minima are natural-number infima. The read-all witness is what makes them minima of nonempty sets; the value assigned to an empty infimum does no work. The constructor-by-constructor translation to the decision trees of complexitylib preserves both evaluation and depth, and for total functions it gives the [exact equality of the two deterministic complexities][src-complexitylib]."
    },
@@ -7808,8 +7808,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     },
     {
@@ -7831,8 +7831,8 @@
     "statement_id": "def-R",
     "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
     "path": "docs/reasoning_record.md",
-    "line_start": 169,
-    "line_end": 190,
+    "line_start": 174,
+    "line_end": 195,
     "excerpt_sha256": "b440690000496d06967bae108628ecc517ebe8adc5664e85dd5d7a163cdfbeef",
     "excerpt": "Write $R_{\\leq}(f,q)$ for the existence of such a mixture with depth at most $q$ and success at least $2/3$ on every promised input; this is the [randomized budget test][def-RLe] of the formal statement. The randomized complexity is\n\n\\[\nR(f)=\\min\\left\\{q\\in\\mathbb N:\\\n\\exists(p_j,T_j)_{j=1}^s\\quad\n\\begin{array}{l}\np_j>0,\\quad \\sum_jp_j=1,\\quad \\operatorname{depth}(T_j)\\leq q\\ \\text{for every }j,\\\\[2pt]\n\\displaystyle \\sum_{j:T_j(x)=f(x)}p_j\\geq\\frac23\\ \\text{for every }x\\in\\mathcal D\n\\end{array}\\right\\}.\n\\]\n\nThis is the distribution-over-trees convention in [Buhrman and de Wolf, §§3.1–3.2, printed pp. 5–6][BDW02]. For fixed $I$ and $q$, there are finitely many trees of depth at most $q$: at depth zero there are two leaves, and a larger tree chooses a coordinate and two smaller trees. Fixing all random choices of a capped randomized algorithm selects one such tree; grouping outcomes that select the same tree gives a finite mixture. Conversely, a finite distribution can be selected with finitely many biased coin choices before reading the input. These observations preserve the cap and pointwise success probabilities. They use the allowed arbitrary real biases; a separate restriction to a bounded number of fair coin flips requires care at an exact error threshold.\n\nThe minima exist. Query all coordinates once, then output the prescribed value on the promise and any bit elsewhere. This tree has depth at most $|I|$, including when $I$ is empty. A tree is also a one-element randomized mixture. The admissible budgets are therefore nonempty upward-closed subsets of $\\mathbb N$, giving\n\n\\[\nR(f)\\leq q\\iff R_{\\leq}(f,q),\\qquad\nD(f)\\leq q\\iff D_{\\leq}(f,q),\\qquad\nR(f)\\leq D(f)\\leq |I|.\n\\]\n\n**Formal representation.** In the source these minima are natural-number infima. The read-all witness is what makes them minima of nonempty sets; the value assigned to an empty infimum does no work. The constructor-by-constructor translation to the decision trees of complexitylib preserves both evaluation and depth, and for total functions it gives the [exact equality of the two deterministic complexities][src-complexitylib]."
    },
@@ -7870,8 +7870,8 @@
      "passage_sha256": "86eda2075745f7406c25dee2b66baa90febc7e91e06723383551cc8c6243b352",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      1537,
-      1561
+      1437,
+      1461
      ]
     },
     {
@@ -7893,8 +7893,8 @@
     "statement_id": "prop-4.2-generic",
     "passage_sha256": "86eda2075745f7406c25dee2b66baa90febc7e91e06723383551cc8c6243b352",
     "path": "docs/reasoning_record.md",
-    "line_start": 1544,
-    "line_end": 1549,
+    "line_start": 1444,
+    "line_end": 1449,
     "excerpt_sha256": "30a46659c3db3c47c24c5cefb24aa03134ebc2e4c85c38d70170b756d11b72a0",
     "excerpt": "\\[\nR(F_{P,C,m})>\\left\\lfloor\\frac{mL}{100}\\right\\rfloor.\n\\]\nThe implication holds whatever the size of the circuit. Thus the classical lower bound pays for the hardness of the address inputs, not for the length of the certificates.\n\nDefine the budget"
    },
@@ -7932,8 +7932,8 @@
      "passage_sha256": "99b368049e203f3756c137fbf38b333c9c345880a9b700494279ca86e97645d2",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      38,
-      76
+      43,
+      81
      ]
     },
     {
@@ -7955,8 +7955,8 @@
     "statement_id": "thm-1.1",
     "passage_sha256": "99b368049e203f3756c137fbf38b333c9c345880a9b700494279ca86e97645d2",
     "path": "docs/reasoning_record.md",
-    "line_start": 59,
-    "line_end": 65,
+    "line_start": 64,
+    "line_end": 70,
     "excerpt_sha256": "9283b0daabaa7c8fb66a9694b713273ee0728de503abfdc8624268127817e295",
     "excerpt": "**Theorem 1.1 (OpenAI).** The optimal power is $\\alpha_{\\mathrm{tot}}=4$. More precisely, there is an absolute constant $C>0$ such that every total Boolean function satisfies\n\n\\[\nR(f)\\leq C(1+Q(f))^4.\n\\]\n\nFor each fixed integer $k\\geq2$, there are positive constants $c_k,C_k,b_k$, a threshold $m_0(k)$, and total Boolean functions $F_{k,m}$, defined for all powers of four $m\\geq m_0(k)$, for which"
    },
@@ -7994,8 +7994,8 @@
      "passage_sha256": "99b368049e203f3756c137fbf38b333c9c345880a9b700494279ca86e97645d2",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      38,
-      76
+      43,
+      81
      ]
     },
     {
@@ -8017,8 +8017,8 @@
     "statement_id": "thm-1.1",
     "passage_sha256": "99b368049e203f3756c137fbf38b333c9c345880a9b700494279ca86e97645d2",
     "path": "docs/reasoning_record.md",
-    "line_start": 59,
-    "line_end": 65,
+    "line_start": 64,
+    "line_end": 70,
     "excerpt_sha256": "9283b0daabaa7c8fb66a9694b713273ee0728de503abfdc8624268127817e295",
     "excerpt": "**Theorem 1.1 (OpenAI).** The optimal power is $\\alpha_{\\mathrm{tot}}=4$. More precisely, there is an absolute constant $C>0$ such that every total Boolean function satisfies\n\n\\[\nR(f)\\leq C(1+Q(f))^4.\n\\]\n\nFor each fixed integer $k\\geq2$, there are positive constants $c_k,C_k,b_k$, a threshold $m_0(k)$, and total Boolean functions $F_{k,m}$, defined for all powers of four $m\\geq m_0(k)$, for which"
    },
@@ -8056,8 +8056,8 @@
      "passage_sha256": "7176735565036e4b8d58902deae3029903a8cec9ce235fd3d3682470b8d51b16",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      79,
-      100
+      84,
+      105
      ]
     },
     {
@@ -8079,8 +8079,8 @@
     "statement_id": "cor-cubic-refuted",
     "passage_sha256": "7176735565036e4b8d58902deae3029903a8cec9ce235fd3d3682470b8d51b16",
     "path": "docs/reasoning_record.md",
-    "line_start": 92,
-    "line_end": 99,
+    "line_start": 97,
+    "line_end": 104,
     "excerpt_sha256": "96ece72a6aa3988be090e856d3158447f14215031a5a9957ae59e07e377b3f16",
     "excerpt": "Already $k=3$ gives $4-2/k=10/3>3$, so\n\n\\[\n\\neg\\exists C\\in\\mathbb R\\ \\forall n\\geq1\\\n\\forall f:\\{0,1\\}^n\\to\\{0,1\\},\\qquad R(f)\\leq C Q(f)^3.\n\\]\n\nThis refutes [Aaronson et al., Conjecture 2, §7, printed p. 20 of arXiv v1][ABKRT2020]. Replacing $C$ by $\\max(C,1)$ would turn such a bound into a universal shifted cubic bound, already excluded above."
    },
@@ -8118,8 +8118,8 @@
      "passage_sha256": "7176735565036e4b8d58902deae3029903a8cec9ce235fd3d3682470b8d51b16",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      79,
-      100
+      84,
+      105
      ]
     },
     {
@@ -8141,8 +8141,8 @@
     "statement_id": "cor-cubic-refuted",
     "passage_sha256": "7176735565036e4b8d58902deae3029903a8cec9ce235fd3d3682470b8d51b16",
     "path": "docs/reasoning_record.md",
-    "line_start": 92,
-    "line_end": 99,
+    "line_start": 97,
+    "line_end": 104,
     "excerpt_sha256": "96ece72a6aa3988be090e856d3158447f14215031a5a9957ae59e07e377b3f16",
     "excerpt": "Already $k=3$ gives $4-2/k=10/3>3$, so\n\n\\[\n\\neg\\exists C\\in\\mathbb R\\ \\forall n\\geq1\\\n\\forall f:\\{0,1\\}^n\\to\\{0,1\\},\\qquad R(f)\\leq C Q(f)^3.\n\\]\n\nThis refutes [Aaronson et al., Conjecture 2, §7, printed p. 20 of arXiv v1][ABKRT2020]. Replacing $C$ by $\\max(C,1)$ would turn such a bound into a universal shifted cubic bound, already excluded above."
    },
@@ -8277,8 +8277,8 @@
      "passage_sha256": "99b368049e203f3756c137fbf38b333c9c345880a9b700494279ca86e97645d2",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      38,
-      76
+      43,
+      81
      ]
     },
     {
@@ -8300,8 +8300,8 @@
     "statement_id": "eq-2",
     "passage_sha256": "99b368049e203f3756c137fbf38b333c9c345880a9b700494279ca86e97645d2",
     "path": "docs/reasoning_record.md",
-    "line_start": 68,
-    "line_end": 75,
+    "line_start": 73,
+    "line_end": 80,
     "excerpt_sha256": "79d9b5d3b5ef9f48f1afcc46d182c075524a804fec774997c77ef95d7757ed8e",
     "excerpt": "\\[\nQ(F_{k,m})\\leq C_k\\sqrt m\\,(\\log_2 m)^{b_k},\n\\qquad\nR(F_{k,m})\\geq c_k\\frac{m^{2-1/k}}{(\\log_2 m)^2}.\n\\tag{2}\n\\]\n\nHere $m$ is the number of columns, each with an $m$-bit string; the final Boolean input also contains address inputs and certificate cells. Its physical length is counted in [§4.2](#AC-layout). The two inequalities concern the same function at each pair $(k,m)$. For the circuit family fixed in §4 we obtain $b_k=6$ in §5.4 and, after increasing the threshold, $c_k=1/400$ in §6.6."
    },
@@ -8339,8 +8339,8 @@
      "passage_sha256": "a431e45ae41e6cae480f362bdfefcee32a9c6618aa6fd259391863d0496d7368",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2762,
-      2804
+      2628,
+      2670
      ]
     },
     {
@@ -8374,8 +8374,8 @@
     "statement_id": "lem-2.1.i",
     "passage_sha256": "a431e45ae41e6cae480f362bdfefcee32a9c6618aa6fd259391863d0496d7368",
     "path": "docs/reasoning_record.md",
-    "line_start": 2796,
-    "line_end": 2803,
+    "line_start": 2662,
+    "line_end": 2669,
     "excerpt_sha256": "22cbcbf4a98529f47b3ea9f5bb881daf87c127d5dcd10dd97c118696397f51c4",
     "excerpt": "\\[\nR(P_{k,4^t})>\nL_{k,4^t},\\qquad\nL_{k,m}=\\left\\lfloor\\frac{m^{1-1/k}}{(\\log_2m)^2}\\right\\rfloor.\n\\tag{F3}\n\\]\n\nThis is the lower-bound assertion of OpenAI's Lemma 2.1(i), with the same normalization and promise [OpenAI (2026), §2.1, pp. 3–4]. The proof gives the sufficient choice $t_0(k)=13669k^2$. All analytic logarithms below are natural (the logarithm in $L_{k,m}$ is base two)."
    },
@@ -8413,8 +8413,8 @@
      "passage_sha256": "99b368049e203f3756c137fbf38b333c9c345880a9b700494279ca86e97645d2",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      38,
-      76
+      43,
+      81
      ]
     },
     {
@@ -8436,8 +8436,8 @@
     "statement_id": "thm-1.1",
     "passage_sha256": "99b368049e203f3756c137fbf38b333c9c345880a9b700494279ca86e97645d2",
     "path": "docs/reasoning_record.md",
-    "line_start": 59,
-    "line_end": 65,
+    "line_start": 64,
+    "line_end": 70,
     "excerpt_sha256": "9283b0daabaa7c8fb66a9694b713273ee0728de503abfdc8624268127817e295",
     "excerpt": "**Theorem 1.1 (OpenAI).** The optimal power is $\\alpha_{\\mathrm{tot}}=4$. More precisely, there is an absolute constant $C>0$ such that every total Boolean function satisfies\n\n\\[\nR(f)\\leq C(1+Q(f))^4.\n\\]\n\nFor each fixed integer $k\\geq2$, there are positive constants $c_k,C_k,b_k$, a threshold $m_0(k)$, and total Boolean functions $F_{k,m}$, defined for all powers of four $m\\geq m_0(k)$, for which"
    },
@@ -8475,8 +8475,8 @@
      "passage_sha256": "99b368049e203f3756c137fbf38b333c9c345880a9b700494279ca86e97645d2",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      38,
-      76
+      43,
+      81
      ]
     },
     {
@@ -8498,8 +8498,8 @@
     "statement_id": "thm-1.1",
     "passage_sha256": "99b368049e203f3756c137fbf38b333c9c345880a9b700494279ca86e97645d2",
     "path": "docs/reasoning_record.md",
-    "line_start": 59,
-    "line_end": 65,
+    "line_start": 64,
+    "line_end": 70,
     "excerpt_sha256": "9283b0daabaa7c8fb66a9694b713273ee0728de503abfdc8624268127817e295",
     "excerpt": "**Theorem 1.1 (OpenAI).** The optimal power is $\\alpha_{\\mathrm{tot}}=4$. More precisely, there is an absolute constant $C>0$ such that every total Boolean function satisfies\n\n\\[\nR(f)\\leq C(1+Q(f))^4.\n\\]\n\nFor each fixed integer $k\\geq2$, there are positive constants $c_k,C_k,b_k$, a threshold $m_0(k)$, and total Boolean functions $F_{k,m}$, defined for all powers of four $m\\geq m_0(k)$, for which"
    },
@@ -8587,8 +8587,8 @@
      "passage_sha256": "d3c0d2219eca020dd94f16845e0129e8e4efb42d283e81c6c5fe2a60c929f8ad",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      1288,
-      1300
+      1188,
+      1200
      ]
     },
     {
@@ -8623,8 +8623,8 @@
     "statement_id": "claim-winner-dominates",
     "passage_sha256": "d3c0d2219eca020dd94f16845e0129e8e4efb42d283e81c6c5fe2a60c929f8ad",
     "path": "docs/reasoning_record.md",
-    "line_start": 1295,
-    "line_end": 1299,
+    "line_start": 1195,
+    "line_end": 1199,
     "excerpt_sha256": "650a2ba017ed5349d53ea06abfae89fb56de79c9175d5e8a4f887051fe5c60ac",
     "excerpt": "$$\na_{i^\\star j}\\geq1-\\varepsilon\\qquad(j\\ne i^\\star).\n$$\n\nThe proof uses the correctness of the true winner's decoder and two deterministic facts: the winner cannot be disqualified, and its true-address pointers disqualify every opponent. Nothing is assumed about a nonwinning column's decoder. This is also why amplifying an assumed comparison bias would be unjustified: the available guarantee is a strong one-sided property of a true winner, while other pairs may have arbitrary probabilities."
    },
@@ -8662,8 +8662,8 @@
      "passage_sha256": "d3c0d2219eca020dd94f16845e0129e8e4efb42d283e81c6c5fe2a60c929f8ad",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      1288,
-      1300
+      1188,
+      1200
      ]
     },
     {
@@ -8698,8 +8698,8 @@
     "statement_id": "claim-winner-dominates",
     "passage_sha256": "d3c0d2219eca020dd94f16845e0129e8e4efb42d283e81c6c5fe2a60c929f8ad",
     "path": "docs/reasoning_record.md",
-    "line_start": 1295,
-    "line_end": 1299,
+    "line_start": 1195,
+    "line_end": 1199,
     "excerpt_sha256": "650a2ba017ed5349d53ea06abfae89fb56de79c9175d5e8a4f887051fe5c60ac",
     "excerpt": "$$\na_{i^\\star j}\\geq1-\\varepsilon\\qquad(j\\ne i^\\star).\n$$\n\nThe proof uses the correctness of the true winner's decoder and two deterministic facts: the winner cannot be disqualified, and its true-address pointers disqualify every opponent. Nothing is assumed about a nonwinning column's decoder. This is also why amplifying an assumed comparison bias would be unjustified: the available guarantee is a strong one-sided property of a true winner, while other pairs may have arbitrary probabilities."
    },
@@ -8835,8 +8835,8 @@
      "passage_sha256": "8f5d4de4f52fb3c1cebbd5fba5a85c86120f67bde9a164a57a870657bae12700",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      507,
-      518
+      500,
+      511
      ]
     },
     {
@@ -8846,8 +8846,8 @@
      "passage_sha256": "be24c58f51949c80facfc12b6d50396611d30bc531385994707aa2c7ce998a71",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      1494,
-      1504
+      1394,
+      1404
      ]
     },
     {
@@ -8857,8 +8857,8 @@
      "passage_sha256": "10c0597ffccc79224a8196c19b8970653e8f3c5bbb88d3b42d7a0bb6f503d937",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2655,
-      2706
+      2521,
+      2572
      ]
     }
    ],
@@ -8908,8 +8908,8 @@
      "passage_sha256": "d9c21f4d7242d29c98b9a250226c9f366580abd7a810715b610f04a092fe8933",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      218,
-      266
+      223,
+      271
      ]
     }
    ],
@@ -8947,8 +8947,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     }
    ],
@@ -8987,8 +8987,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     },
     {
@@ -9010,8 +9010,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     },
     {
@@ -9021,8 +9021,8 @@
      "passage_sha256": "5e98eaaef8e019284ab12979a80e7215d4a1aca59fa08fd521dc901216268090",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      134,
-      142
+      139,
+      147
      ]
     }
    ],
@@ -9031,8 +9031,8 @@
     "join": "lean_link_mention",
     "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
     "path": "docs/reasoning_record.md",
-    "line_start": 159,
-    "line_end": 160,
+    "line_start": 164,
+    "line_end": 165,
     "excerpt_sha256": "5a2d905091e4294a2ada7322f54af37450ec27f37b02d0e37b5abe776f233ef6",
     "excerpt": "<!-- claim:def-D -->\nThe predicate $D_{\\leq}(f,q)$, the [deterministic budget test][def-DLe] of the formal statement, means that there is one tree $T$ of depth at most $q$ with $T(x)=f(x)$ for every $x\\in\\mathcal D$. Define"
    },
@@ -9057,8 +9057,8 @@
      "passage_sha256": "be24c58f51949c80facfc12b6d50396611d30bc531385994707aa2c7ce998a71",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      1494,
-      1504
+      1394,
+      1404
      ]
     }
    ],
@@ -9129,8 +9129,8 @@
      "passage_sha256": "835d101d74bd3579de6f5f68c6a117b9913826a8ade99a88d233d99eea2433db",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2237,
-      2262
+      2103,
+      2128
      ]
     }
    ],
@@ -9182,8 +9182,8 @@
      "passage_sha256": "077ddfbe192dffd1396307d15b58ee23c1b65f6ecc9a1c3799db57f4b62a2b74",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      1668,
-      1701
+      1568,
+      1601
      ]
     },
     {
@@ -9205,8 +9205,8 @@
     "statement_id": "eq-19",
     "passage_sha256": "077ddfbe192dffd1396307d15b58ee23c1b65f6ecc9a1c3799db57f4b62a2b74",
     "path": "docs/reasoning_record.md",
-    "line_start": 1694,
-    "line_end": 1700,
+    "line_start": 1594,
+    "line_end": 1600,
     "excerpt_sha256": "712bd173784fcf5f4c9e7981262f04797312d50536d756e8e882d3a470a2f8cd",
     "excerpt": "\\[\n\\Pr[T\\text{ on }Y^{(0)}\\text{ queries }X_I[J_I]]\n=\\frac{\\mathbb EZ}{m}\n\\le\\frac{4G}{m^2}.\n\\tag{19}\n\\]\nThe identity and the search estimate prove separate parts of (19): the first uses independent selection, the second the cost of discovering zeros."
    },
@@ -9294,8 +9294,8 @@
      "passage_sha256": "3af48e3bbf99e6bcb13541fe7c0a4a9a6e765157eb5dcb8c02c9d7297a96f484",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2158,
-      2173
+      2024,
+      2039
      ]
     },
     {
@@ -9305,8 +9305,8 @@
      "passage_sha256": "835d101d74bd3579de6f5f68c6a117b9913826a8ade99a88d233d99eea2433db",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2237,
-      2262
+      2103,
+      2128
      ]
     },
     {
@@ -9316,8 +9316,8 @@
      "passage_sha256": "a431e45ae41e6cae480f362bdfefcee32a9c6618aa6fd259391863d0496d7368",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2762,
-      2804
+      2628,
+      2670
      ]
     }
    ],
@@ -9352,8 +9352,8 @@
      "passage_sha256": "a431e45ae41e6cae480f362bdfefcee32a9c6618aa6fd259391863d0496d7368",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2762,
-      2804
+      2628,
+      2670
      ]
     }
    ],
@@ -9499,8 +9499,8 @@
      "passage_sha256": "077ddfbe192dffd1396307d15b58ee23c1b65f6ecc9a1c3799db57f4b62a2b74",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      1668,
-      1701
+      1568,
+      1601
      ]
     },
     {
@@ -9546,8 +9546,8 @@
     "statement_id": "eq-19",
     "passage_sha256": "077ddfbe192dffd1396307d15b58ee23c1b65f6ecc9a1c3799db57f4b62a2b74",
     "path": "docs/reasoning_record.md",
-    "line_start": 1694,
-    "line_end": 1700,
+    "line_start": 1594,
+    "line_end": 1600,
     "excerpt_sha256": "712bd173784fcf5f4c9e7981262f04797312d50536d756e8e882d3a470a2f8cd",
     "excerpt": "\\[\n\\Pr[T\\text{ on }Y^{(0)}\\text{ queries }X_I[J_I]]\n=\\frac{\\mathbb EZ}{m}\n\\le\\frac{4G}{m^2}.\n\\tag{19}\n\\]\nThe identity and the search estimate prove separate parts of (19): the first uses independent selection, the second the cost of discovering zeros."
    },
@@ -9584,8 +9584,8 @@
      "passage_sha256": "5e98eaaef8e019284ab12979a80e7215d4a1aca59fa08fd521dc901216268090",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      134,
-      142
+      139,
+      147
      ]
     }
    ],
@@ -9620,8 +9620,8 @@
      "passage_sha256": "a431e45ae41e6cae480f362bdfefcee32a9c6618aa6fd259391863d0496d7368",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2762,
-      2804
+      2628,
+      2670
      ]
     }
    ],
@@ -9659,8 +9659,8 @@
      "passage_sha256": "d9c21f4d7242d29c98b9a250226c9f366580abd7a810715b610f04a092fe8933",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      218,
-      266
+      223,
+      271
      ]
     },
     {
@@ -9670,8 +9670,8 @@
      "passage_sha256": "835d101d74bd3579de6f5f68c6a117b9913826a8ade99a88d233d99eea2433db",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2237,
-      2262
+      2103,
+      2128
      ]
     }
    ],
@@ -9718,8 +9718,8 @@
      "passage_sha256": "d9c21f4d7242d29c98b9a250226c9f366580abd7a810715b610f04a092fe8933",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      218,
-      266
+      223,
+      271
      ]
     },
     {
@@ -9729,8 +9729,8 @@
      "passage_sha256": "835d101d74bd3579de6f5f68c6a117b9913826a8ade99a88d233d99eea2433db",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2237,
-      2262
+      2103,
+      2128
      ]
     },
     {
@@ -9740,8 +9740,8 @@
      "passage_sha256": "5e98eaaef8e019284ab12979a80e7215d4a1aca59fa08fd521dc901216268090",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      134,
-      142
+      139,
+      147
      ]
     }
    ],
@@ -9776,8 +9776,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     }
    ],
@@ -9803,8 +9803,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     }
    ],
@@ -9830,8 +9830,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     }
    ],
@@ -9869,8 +9869,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     },
     {
@@ -9880,8 +9880,8 @@
      "passage_sha256": "835d101d74bd3579de6f5f68c6a117b9913826a8ade99a88d233d99eea2433db",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2237,
-      2262
+      2103,
+      2128
      ]
     },
     {
@@ -9891,8 +9891,8 @@
      "passage_sha256": "a431e45ae41e6cae480f362bdfefcee32a9c6618aa6fd259391863d0496d7368",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2762,
-      2804
+      2628,
+      2670
      ]
     }
    ],
@@ -9931,8 +9931,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     },
     {
@@ -9954,8 +9954,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     },
     {
@@ -9965,8 +9965,8 @@
      "passage_sha256": "835d101d74bd3579de6f5f68c6a117b9913826a8ade99a88d233d99eea2433db",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2237,
-      2262
+      2103,
+      2128
      ]
     },
     {
@@ -9976,8 +9976,8 @@
      "passage_sha256": "5e98eaaef8e019284ab12979a80e7215d4a1aca59fa08fd521dc901216268090",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      134,
-      142
+      139,
+      147
      ]
     },
     {
@@ -9987,8 +9987,8 @@
      "passage_sha256": "a431e45ae41e6cae480f362bdfefcee32a9c6618aa6fd259391863d0496d7368",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2762,
-      2804
+      2628,
+      2670
      ]
     }
    ],
@@ -9997,8 +9997,8 @@
     "join": "lean_link_mention",
     "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
     "path": "docs/reasoning_record.md",
-    "line_start": 168,
-    "line_end": 169,
+    "line_start": 173,
+    "line_end": 174,
     "excerpt_sha256": "4894ef0791f44b361c3a4e51ba8a80d98bbf2b58bd0b9d236e511f1350630c4d",
     "excerpt": "<!-- claim:def-R -->\nWrite $R_{\\leq}(f,q)$ for the existence of such a mixture with depth at most $q$ and success at least $2/3$ on every promised input; this is the [randomized budget test][def-RLe] of the formal statement. The randomized complexity is"
    },
@@ -10023,8 +10023,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     }
    ],
@@ -10050,8 +10050,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     }
    ],
@@ -10077,8 +10077,8 @@
      "passage_sha256": "e507763d7bee0d1162b069f1b5620902ab0b36c793c6c9a62fdb7c11581cdac5",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      145,
-      191
+      150,
+      196
      ]
     }
    ],
@@ -10104,8 +10104,8 @@
      "passage_sha256": "2c8494ae94cf26f592fcd4752099ed1ad2fb3af9f215fccae05f431949b01b85",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      194,
-      215
+      199,
+      220
      ]
     }
    ],
@@ -10131,8 +10131,8 @@
      "passage_sha256": "5e98eaaef8e019284ab12979a80e7215d4a1aca59fa08fd521dc901216268090",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      134,
-      142
+      139,
+      147
      ]
     }
    ],
@@ -10185,8 +10185,8 @@
      "passage_sha256": "835d101d74bd3579de6f5f68c6a117b9913826a8ade99a88d233d99eea2433db",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2237,
-      2262
+      2103,
+      2128
      ]
     },
     {
@@ -10196,8 +10196,8 @@
      "passage_sha256": "1177fabdfc2edcd2623d7d99ec236e87a4b67c9dcfa04d85cceb977134ff382b",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2310,
-      2327
+      2176,
+      2193
      ]
     },
     {
@@ -10207,8 +10207,8 @@
      "passage_sha256": "99b368049e203f3756c137fbf38b333c9c345880a9b700494279ca86e97645d2",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      38,
-      76
+      43,
+      81
      ]
     }
    ],
@@ -10282,8 +10282,8 @@
      "passage_sha256": "be24c58f51949c80facfc12b6d50396611d30bc531385994707aa2c7ce998a71",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      1494,
-      1504
+      1394,
+      1404
      ]
     }
    ],
@@ -10309,8 +10309,8 @@
      "passage_sha256": "3c5d32ec6c5e3955777123f6f06abcbfce3a0762116f2e6440d1008a206641f4",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      599,
-      615
+      592,
+      608
      ]
     },
     {
@@ -10320,8 +10320,8 @@
      "passage_sha256": "be24c58f51949c80facfc12b6d50396611d30bc531385994707aa2c7ce998a71",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      1494,
-      1504
+      1394,
+      1404
      ]
     }
    ],
@@ -10359,8 +10359,8 @@
      "passage_sha256": "835d101d74bd3579de6f5f68c6a117b9913826a8ade99a88d233d99eea2433db",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2237,
-      2262
+      2103,
+      2128
      ]
     },
     {
@@ -10370,8 +10370,8 @@
      "passage_sha256": "99b368049e203f3756c137fbf38b333c9c345880a9b700494279ca86e97645d2",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      38,
-      76
+      43,
+      81
      ]
     }
    ],
@@ -10406,8 +10406,8 @@
      "passage_sha256": "2c8494ae94cf26f592fcd4752099ed1ad2fb3af9f215fccae05f431949b01b85",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      194,
-      215
+      199,
+      220
      ]
     }
    ],
@@ -10433,8 +10433,8 @@
      "passage_sha256": "a431e45ae41e6cae480f362bdfefcee32a9c6618aa6fd259391863d0496d7368",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2762,
-      2804
+      2628,
+      2670
      ]
     }
    ],
@@ -10497,8 +10497,8 @@
      "passage_sha256": "c2153104b8bd0c6b8ae2b651f340edb5828b5838e4db0fdb0c74ef394841ad9c",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2410,
-      2444
+      2276,
+      2310
      ]
     }
    ],
@@ -10524,8 +10524,8 @@
      "passage_sha256": "c2153104b8bd0c6b8ae2b651f340edb5828b5838e4db0fdb0c74ef394841ad9c",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2410,
-      2444
+      2276,
+      2310
      ]
     }
    ],
@@ -10551,8 +10551,8 @@
      "passage_sha256": "a431e45ae41e6cae480f362bdfefcee32a9c6618aa6fd259391863d0496d7368",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2762,
-      2804
+      2628,
+      2670
      ]
     }
    ],
@@ -10608,8 +10608,8 @@
      "passage_sha256": "2c8494ae94cf26f592fcd4752099ed1ad2fb3af9f215fccae05f431949b01b85",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      194,
-      215
+      199,
+      220
      ]
     }
    ],
@@ -10635,8 +10635,8 @@
      "passage_sha256": "5e98eaaef8e019284ab12979a80e7215d4a1aca59fa08fd521dc901216268090",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      134,
-      142
+      139,
+      147
      ]
     }
    ],
@@ -10734,8 +10734,8 @@
      "passage_sha256": "16ec88aed2bc9caaa434696ad02b2917370f7a7ddc862397e83c55747320c394",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      269,
-      305
+      274,
+      310
      ]
     }
    ],
@@ -10782,8 +10782,8 @@
      "passage_sha256": "5e98eaaef8e019284ab12979a80e7215d4a1aca59fa08fd521dc901216268090",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      134,
-      142
+      139,
+      147
      ]
     }
    ],
@@ -10818,8 +10818,8 @@
      "passage_sha256": "a431e45ae41e6cae480f362bdfefcee32a9c6618aa6fd259391863d0496d7368",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      2762,
-      2804
+      2628,
+      2670
      ]
     }
    ],

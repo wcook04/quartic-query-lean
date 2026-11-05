@@ -1,6 +1,6 @@
 ---
 title: "Reconstructing OpenAI’s nearly quartic query separation"
-subtitle: "The randomized–quantum bounds and their Lean formalization"
+subtitle: "Weighted quantum search and a classical prediction reduction"
 author: "Will Cook"
 date: "November 2026"
 bibliography: expert_companion.bib
@@ -9,26 +9,12 @@ header-includes:
   - \usepackage{float}
   - \floatplacement{figure}{H}
 abstract: |
-  OpenAI proved that four is the optimal exponent relating randomized and quantum query complexity of total Boolean functions. We reconstruct its two mechanisms: quantum comparisons find a short list before checking certificates, while hidden certificate addresses force classical queries across many columns. For each fixed $k\ge2$, their costs are $\widetilde O_k(\sqrt m)$ and $\widetilde\Omega_k(m^{2-1/k})$, giving exponent $4-2/k$. We give complete proofs of these reductions, including the exact sampling law and the caps needed for prediction. The presentation adds explicit quantitative bounds and counterexamples to invalid shortcuts. A linked theorem index connects the mathematics to the accompanying Lean proofs.
+  OpenAI's total Boolean functions have quantum query complexity $\widetilde O_k(\sqrt m)$ and randomized query complexity $\widetilde\Omega_k(m^{2-1/k})$ for each fixed $k\ge2$. Their exponent ratio approaches four, matching the universal upper bound. We reconstruct the two reductions behind this separation. A quantum algorithm samples candidates by their probabilities of defeating earlier pivots, then verifies the resulting short list. A classical query to the hidden certificate already predicts every hard answer in its address; a capped simulation bounds this event without conditioning the input law. The same certificate permits cheap comparisons, resists classical discovery and admits exact local verification, even though losing candidates may violate the underlying promise.
 ---
 
 ## 1. Introduction
 
-OpenAI's nearly quartic construction closes the gap between the earlier nearly cubic separations and the universal quartic upper bound [@OpenAI2026]. This companion explains the two reductions that make it work: a weighted quantum tournament and a classical reduction from finding a hidden cell to predicting its address.^[AI assistance: Will Cook directed the reconstruction; AI systems drafted and revised the text and Lean proofs.]
-
-The separation theorem, total function and two reductions are OpenAI's. Our contribution is a reconstruction of the reductions with explicit query bounds and counterexamples to tempting shortcuts. We concentrate on two points: how to sample a candidate without computing its weight, and how to bound an adaptive guess of a certificate's address. Appendix F describes the accompanying Lean proofs and their relation to the printed argument.
-
-### 1.1 Why the construction works
-
-The input has $m$ columns, each with a string of bits and its own array of certificate cells. A winning column is all ones. Its certificate proves that it wins by pointing to a zero in every other column and certifying its own address. That address consists of answers to hard partial-function instances. The input supplies proposed certificates; the definition accepts only a correct one.
-
-Quantumly, checking a column is much more expensive than comparing two columns. A comparison decodes their addresses and follows just the two pointers directed at each other. The winner's pointer finds a zero, while a pointer into the all-one winner cannot. Thus the winner defeats any rival with high probability, even one with an invalid address. The algorithm uses these comparisons to find a short list before paying to check certificates. Losing columns need not obey an order: their chances of surviving earlier comparisons supply the sampling weights. A direct Grover search would pay $\widetilde O_k(\sqrt m)$ for a certificate check inside each of $O(\sqrt m)$ search steps, giving $\widetilde O_k(m)$ queries. Comparisons remove that product: selection and verification each cost only $\widetilde O_k(\sqrt m)$, and their costs add.
-
-Classically, start with one zero in every column and all cells blank. Choose a column secretly and independently, erase its zero, and fill its correct cell. An algorithm can detect the change only by finding the selected zero or visiting the filled cell. A small total budget leaves most columns' hard address inputs scarcely queried. Every guessed cell position also names a candidate answer to all the address problems. The lower-bound proof bounds such predictions before taking a union over query times.
-
-For fixed $k$, the resulting bounds have scales $Q\lesssim\sqrt m$ and $R\gtrsim m\,m^{1-1/k}$, with logarithms suppressed. Their exponent ratio is $4-2/k$. Choosing $k$ large and then keeping it fixed makes this ratio as close to four as required.
-
-![Schematic bit strips (not literal lengths). The winning column $i^\star$ is all ones. Its selected cell certifies its address and points to a zero in every other column. Every column has its own address blocks and cell array; the winner's array is enlarged here. No pointer into $X_{i^\star}$ can find a zero.](figures/expert_column.svg){width=90%}
+The nearly quartic separation of OpenAI [@OpenAI2026] determines the optimal power relating randomized and quantum query complexity for total Boolean functions. This companion reconstructs the proof, concentrating on how a quantum algorithm samples unknown comparison weights and how a classical cell query becomes a capped prediction of a hidden address.^[AI assistance: Will Cook directed the reconstruction; AI systems drafted and revised the text and Lean proofs.] The theorem, construction and reductions are OpenAI's; the explicit constants below belong to this reconstruction.
 
 **Quantitative statement.** A query gives access to an input coordinate; computation between queries is free. A classical query reads one bit, while a quantum query applies
 $O_x|i,b,z\rangle=|i,b\oplus x_i,z\rangle$, possibly in superposition over $i$. Arbitrary input-independent unitary computation and finite workspace are free; no gate-time or space bound is asserted. For a partial Boolean function $f$, write $R(f)$ and $Q(f)$ for the least query caps of randomized and quantum algorithms that compute $f$ with probability at least $2/3$ on every input in its domain. A cap holds on every input and every branch, including inputs outside the promise. A promised-input cap can be enforced by stopping after that many queries, without changing promised-input behaviour; the coherent padding is described in [record §2.5](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#R3-01-BRIDGES). The optimal exponent for total functions is
@@ -53,6 +39,18 @@ The quantum estimate holds for every $m=4^t$, $t\ge1$; only the randomized estim
 Both bounds use the same circuit: the function's input contains proposed transcripts of that chosen circuit.
 
 The proofs below establish the tournament, bounded amplification and capped prediction reduction; Appendices C–D give the subroutine proofs. We use the Forrelation ingredient stated in §2 and the universal quartic bound as inputs. The reasoning record [@Record2026, §8 and Appendix A] reconstructs those two inputs as well. Its uniform Forrelation estimate is needed only for Appendix E's growing-parameter consequence. Thus the fixed-$k$ argument can be read without either the analytic reconstruction or the optional refinement.
+
+### 1.1 Why the construction works
+
+The construction must reconcile three requirements: the quantum algorithm needs cheap information about a candidate, a classical algorithm must struggle to locate that information, and the final decision must be correct on every input. It uses $m$ columns, each with a bit string and an array of certificate cells. A winning column is all ones. Its selected cell points to a zero in every rival and contains locally checkable proofs of the hard partial-function answers forming its address. The input supplies all these proposed certificates, including false ones.
+
+Quantumly, checking a column is much more expensive than comparing two columns. A comparison decodes their addresses and follows just the two pointers directed at each other. The winner's pointer finds a zero, while a pointer into the all-one winner cannot. Thus the winner defeats any rival with high probability, even one with an invalid address. The algorithm uses these comparisons to find a short list before paying to check certificates. Losing columns need not obey an order: their chances of surviving earlier comparisons supply the sampling weights. A direct Grover search would pay $\widetilde O_k(\sqrt m)$ for a certificate check inside each of $O(\sqrt m)$ search steps, giving $\widetilde O_k(m)$ queries. Comparisons remove that product: selection and verification each cost only $\widetilde O_k(\sqrt m)$, and their costs add.
+
+Classically, start with one zero in every column and all cells blank. Choose a column secretly and independently, erase its zero, and fill its correct cell. An algorithm can detect the change only by finding the selected zero or visiting the filled cell. A small total budget leaves most columns' hard address inputs scarcely queried. Every guessed cell position also names a candidate answer to all the address problems. The lower-bound proof bounds such predictions before taking a union over query times.
+
+For fixed $k$, the resulting bounds have scales $Q\lesssim\sqrt m$ and $R\gtrsim m\,m^{1-1/k}$, with logarithms suppressed. Their exponent ratio is $4-2/k$. Choosing $k$ large and then keeping it fixed makes this ratio as close to four as required.
+
+![Schematic bit strips (not literal lengths). The winning column $i^\star$ is all ones. Its selected cell certifies its address and points to a zero in every other column. Every column has its own address blocks and cell array; the winner's array is enlarged here. No pointer into $X_{i^\star}$ can find a zero.](figures/expert_column.svg){width=90%}
 
 ### 1.2 What changes from earlier constructions
 
@@ -123,7 +121,7 @@ K=m+(m-1)+r(S+2)=O_k(m\ell^3)
 $$
 tests: $m$ tests $X_i[y]=1$, $m-1$ pointer tests, $rS$ gate-consistency tests, and $2r$ output tests (domain bit $1$, value bit $s_h$). The output tests are additional to the consistency tests at the output gates: consistency determines their values, while the two tests enforce the required domain and answer. Induction in topological order shows that a gate-consistent transcript is the true evaluation, so the output tests say that $P(A_{i,h})$ is defined and equals $s_h$. Thus every test passes at $(i,s_i)$ when $i$ wins, and when $i$ does not win some test fails at $(i,s)$ for every address $s$.
 
-A gate test reads its proposed output and at most two predecessors, from the address input or transcript as appropriate, and checks the fixed Boolean gate equation. Its cap is three queries; a pointer test uses $\ell+1$ adaptive queries. Test enumeration and wire locations are fixed and query-free. Pad shorter tests with disabled reads to the common cap $\max\{3,\ell+1\}$, retain the answers, and compute their indices reversibly. This gives coherent access with the test index in superposition at constant-factor overhead; a controlled read uses at most two ordinary queries (record §§[4.4](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-local-tests)–[4.6](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-coherent-tests)). The circuit size enters through $\sqrt K$ local-test evaluations, with the $O(\ell)$ query cost of each test paid separately.
+A gate test reads at most three bits; a pointer test reads its $\ell$ address bits and the bit they name. These tests have fixed, query-free enumeration and cap $\max\{3,\ell+1\}$. Retaining answers and padding shorter tests gives a reversible evaluation controlled by the test index, with constant-factor query overhead; a controlled read uses at most two ordinary queries (record §§[4.4](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-local-tests)–[4.6](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-coherent-tests)). The circuit size enters through $\sqrt K$ local-test evaluations, with the $O(\ell)$ query cost of each test paid separately.
 
 ## 3. The quantum upper bound
 
@@ -146,7 +144,7 @@ If $i^\star$ wins, no pointer finds a zero in $X_{i^\star}=1^m$, and whenever $i
 
 ### 3.2 A tournament with probabilistic comparisons
 
-With deterministic comparisons, a candidate survives precisely when it defeats every previous pivot [@AIK2026, §6.1]. For probabilistic comparisons, replace this indicator by $w_i=\prod_{b=1}^n a_{i\rho_b}$ after pivots $\rho_1,\dots,\rho_n$. Conditional on the fixed input and pivot history, $w_i$ is the probability that fresh comparisons all favour $i$. The independence is between these fresh experiments, not between input bits. Sampling in proportion to $w_i$ extends uniform sampling from the surviving set to arbitrary complementary comparison probabilities.
+With deterministic comparisons, a candidate survives precisely when it defeats every previous pivot [@AIK2026, §6.1]. For probabilistic comparisons, replace this indicator by $w_i=\prod_{b=1}^n a_{i\rho_b}$ after pivots $\rho_1,\dots,\rho_n$. Conditional on the fixed input and pivot history, $w_i$ is the probability that fresh comparisons all favour $i$. The independence is between these fresh experiments, not between input bits. Sampling in proportion to $w_i$ extends uniform sampling from the surviving set to arbitrary complementary comparison probabilities. Complementarity will force the total weight to decrease; dominance will keep an unselected winner's weight large. Reversible access then implements the required sampling law.
 
 **Proposition 2** [@OpenAI2026, Proposition 3.2]**.** Let $m\ge2$ be an integer, $T=\lceil\log_2(1000m)\rceil$ and $\varepsilon=1/(1000T)$. Suppose a reversible comparison circuit is coherently controlled by two candidate indices, retains its workspace, and uses at most $c$ queries on every input, as does its inverse. For every fixed input its probabilities satisfy (7). One algorithm, fixed by $m$ and this circuit before the input is supplied, uses $O(c\sqrt m\,T^2\log T)$ queries on every branch and returns at most $T$ candidates. If some $i^\star$ satisfies $a_{i^\star j}\ge1-\varepsilon$ for all $j\ne i^\star$, the list contains it with probability at least $1-2m2^{-T}-T\varepsilon$.
 
@@ -208,7 +206,7 @@ $$
 R(F_{P,\mathcal C,m})>\left\lfloor\frac{mL}{100}\right\rfloor
 \qquad\text{whenever }1\le L\le m\text{ and }L<R(P).
 $$
-Forrelation enters only when we choose $L$ at the end. This reduction imposes no circuit-size restriction; size matters only for quantum verification.
+Forrelation enters only when we choose $L$ at the end. Here $L<R(P)$ supplies a hard address distribution, while $L\le m$ keeps the erased-zero search within the same budget. The reduction imposes no circuit-size restriction; size matters only for quantum verification.
 
 Choose a law $\mu$ on the domain of $P$ under which every deterministic tree of depth at most $L$ has success at most $\beta=2/3$. Such a law exists by finite minimax [@Yao1977] ([record §6.1](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-minimax)): because $L<R(P)$, the best worst-case success at cap $L$ is below $2/3$, and compactness ensures that the optimum is attained. This law is a witness for the lower bound, not part of the definition or evaluation of $F_{k,m}$. We use $r$ independent samples from it to hide an address. Their answer bits need not be uniform; even constant-output trees are covered by the success bound. A planted one-input will differ from a zero-input only at one erased zero and one filled cell. The two discovery probabilities are bounded in §§4.2–4.3.
 
@@ -255,7 +253,12 @@ Appendix D proves the lemma by induction on the query tree; no direct-product th
 
 Let $\lambda_i$ count all queries, including repetitions, to $A_{i,1},\dots,A_{i,r}$ over the entire dummy run. Call $i$ heavy if $\lambda_i>L$. Pathwise, $\sum_i\lambda_i\le G$, so at most $G/L$ columns are heavy. Conditional on that run, the independent uniform $I$ is heavy with probability equal to their number divided by $m$. Thus $\Pr[I\text{ heavy}]\le G/(mL)$.
 
-A query to a bit of $B_{i,s}$ names $s$ before reading any cell content. To turn this into a predictor, fix a column $i$ and an original-tree query time $\tau\in\{1,\dots,G\}$. This clock counts all queries; the simulator's cap counts only queries to the target address inputs. Fixing the time gives one predicted address rather than a variable list of guesses. The union over times is taken only after each prediction has been bounded.
+For a fixed column $i$ and original-tree query time $\tau\in\{1,\dots,G\}$, we construct a predictor for which
+$$
+\{i\text{ light and query }\tau\text{ lies in }B_{i,s_i}\}
+\subseteq\{\text{predictor outputs }s_i\}.
+$$
+The predictor will obey the cap on every input, so Lemma 5 bounds the event on the right under the original product law. The event on the left then inherits the bound. Fixing $\tau$ selects one guessed address; we take the union over times only afterwards. The original clock counts all queries, whereas the predictor pays only for queries to the target address inputs.
 
 Give the simulator the outside address inputs, zero locations and blank cells for free. Together these determine $Y^{(0)}$ outside the target blocks $A_{i,1},\dots,A_{i,r}$ and are jointly independent of those blocks. The simulated tree receives only the replies it asks for.
 
@@ -297,9 +300,7 @@ R(F_{P,\mathcal C,m})>\Bigl\lfloor\frac{mL}{100}\Bigr\rfloor.
 \tag{15}
 $$
 
-For $P=P_{k,m}$ take $L$ from (5) and write $a=m^{1-1/k}/\ell^2$. If $t\ge8$, then $a\ge1$ and $mL\ge200$. The elementary estimate $\lfloor x\rfloor\ge x/2$ for $x\ge1$ gives $L\ge a/2$ and $G\ge mL/200\ge ma/400$. Thus (15) implies the lower bound in (2). The [floor calculation in record §6.6](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-floors) verifies the size conditions. The exponent loss $1/k$ and denominator $\ell^2$ come from the selected Forrelation allowance; the address length handles the time union without another power loss.[^zero-refinement]
-
-[^zero-refinement]: The optional sharper erased-zero probability $2G/[m(m+1)]$ is proved in [record Appendix B.2](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-zero-optional). It is not needed for (2).
+For $P=P_{k,m}$ take $L$ from (5) and write $a=m^{1-1/k}/\ell^2$. If $t\ge8$, then $a\ge1$ and $mL\ge200$. The elementary estimate $\lfloor x\rfloor\ge x/2$ for $x\ge1$ gives $L\ge a/2$ and $G\ge mL/200\ge ma/400$. Thus (15) implies the lower bound in (2). The exponent loss $1/k$ and denominator $\ell^2$ come from the selected Forrelation allowance; the address length handles the time union without another power loss.
 
 ## 5. Completing the fixed-parameter proof
 
@@ -314,9 +315,13 @@ so no $C_\alpha$ in (1) exists. With the upper bound of [@ABKRT2021], $\alpha_{\
 
 ## 6. What produces the fourth power
 
-The certificate serves two different purposes. Its outward pointers make the genuine winner easy to compare with every rival, even when rival certificates are meaningless. Complementarity of the comparison probabilities then halves the expected surviving weight; it supplies the progress that an ordering would ordinarily provide. Exact conditional sampling makes that ideal argument a quantum algorithm, and final verification converts a short list of plausible candidates into a decision on every input.
+A valid certificate supplies reliable comparisons against every rival, although a rival's address may be undefined and its transcript false. This freedom is essential to using the partial function inside a total one. The all-one strip prevents every rival pointer from disqualifying the winner; the winner's outward pointers disqualify its rivals. Complementarity is all the tournament needs from the remaining comparisons. Exact local verification then rejects a plausible candidate that is not a winner.
 
-A classical algorithm must name the certificate cell before it can read the certificate. Planting isolates the two ways to notice it, and a query to the correct cell is already a simultaneous prediction of the hidden address answers. The capped simulator converts an adaptive cell query into a predictor to which the product bound applies. Together these reductions turn a partial separation of nearly $m$ against constant query cost into a total separation of nearly $m^2$ against $\sqrt m$. Their exponent ratio approaches four; the universal upper bound shows that no larger exponent is needed.
+The classical proof exploits a different property of the same certificate: its location is already a vector of hard answers. Those answers need not be uniform. The product law and query caps, rather than uniform guessing among cells, make a correct address difficult to predict. Truncating the predictor preserves that law while allowing the original tree to query adaptively.
+
+Thus Forrelation has three jobs: classical hardness hides the address, cheap quantum decoding permits comparisons, and a small exact circuit permits verification of the supplied transcripts. The reductions use these properties separately. Replacing Forrelation would require checking all three costs; classical hardness alone would not preserve the separation. With the present supplier, selection and verification each cost nearly $\sqrt m$, while planting forces nearly $m\cdot m^{1-1/k}$ classical queries. The fourth power comes from making these access costs coexist in one total function.
+
+\clearpage
 
 ## Appendix A. Simplifications that fail
 
@@ -328,7 +333,7 @@ Take $k=2$, $m=4$ and $z_1=z_2=(-1,1,1,1)$. Then $\Phi=-1$, so $\Phi^2=1$, yet $
 
 ### A.2 Comparisons need not describe an order or fixed orientation
 
-A deterministic three-cycle of losers is a fixed tournament with no total order. If two losers instead defeat each other with probability $1/2$, this comparator's output law is not bounded-error access to either fixed orientation. The tournament of §3.2 accommodates both cases because it uses the exact comparison probabilities. See [record §5.2](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#upper-cyclic-example).
+A deterministic three-cycle of losers is a fixed tournament with no total order. If two losers instead defeat each other with probability $1/2$, this comparator's output law is not bounded-error access to either fixed orientation. The tournament of §3.2 accommodates both cases because it uses the exact comparison probabilities. See [record Appendix E.3](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#upper-cyclic-example).
 
 For an abstract four-candidate comparison, let $a_{1j}=1$ for $j\ne1$, $a_{23}=1/3$, $a_{24}=3/4$ and $a_{34}=2/5$, with complementary reverse probabilities and zero diagonal. The two normalizations are distinct:
 
@@ -365,17 +370,11 @@ Let $P(x)=x$ on one fair bit and take query cap zero. For independent fair input
 
 ### A.7 Conditioning on terminal lightness or cap compliance
 
-Let $P$ be AND on the promised inputs $\{01,10,11\}$ with the uniform law. Every one-query deterministic tree has success at most $\beta=2/3$: one reply identifies a unique input and the other leaves two equally likely inputs with opposite answers. Query the first bit; stop and output $0$ after reply $0$, and query the second bit after reply $1$. With $L=1$, the complete run is light exactly on input $01$, so its conditional success given lightness is $1$. Truncating before the second query and defaulting to $0$ instead gives unconditional success $2/3$; correct-and-light has probability $1/3$. This is the terminal event used in §4.3 ([record §6.4](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-conditioning-counterexample)).
+Let $P$ be AND on the promised inputs $\{01,10,11\}$ with the uniform law. Every one-query deterministic tree has success at most $\beta=2/3$: one reply identifies a unique input and the other leaves two equally likely inputs with opposite answers. Query the first bit; stop and output $0$ after reply $0$, and query the second bit after reply $1$. With $L=1$, the complete run is light exactly on input $01$, so its conditional success given lightness is $1$. Truncating before the second query and defaulting to $0$ instead gives unconditional success $2/3$; correct-and-light has probability $1/3$. This is the terminal event used in §4.3 ([record Appendix B.3](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-conditioning-counterexample)).
 
 This toy satisfies Lemma 5's hard-law premise, but $R(P)=L=1$, so it does not satisfy the strict $L<R(P)$ assumption of Proposition 4. Indeed, choose a coordinate uniformly, answer $0$ after a $0$, and after a $1$ answer $1$ with probability $2/3$; every promised input then has success $2/3$. A zero-query algorithm cannot succeed with that probability on both labels.
 
-A related example concerns separate per-block compliance. Take independent instances $A,B$ of AND on two uniform bits. With cap one query per instance, the exact one-instance optimum is $\beta=3/4$. Query $A_0$, then $B_{A_0}$; query $A_0$ again if the answers differ; and output $(0,0)$. The redundant repeat query makes the run noncompliant exactly when the two observed bits differ. The one-query optimum is $1/2+1/4=3/4$: a zero determines AND, while after a one the unqueried fair bit must be guessed. The caps therefore hold on the two equal-answer branches, eight of the sixteen inputs, and the output is right on five of those eight: both observed bits zero gives four correct completions; both one gives only the completion with both unqueried bits zero. Hence
-$$
-\Pr[\text{success and compliance}]=\frac5{16}\le\beta^2,
-\qquad
-\Pr[\text{success}\mid\text{compliance}]=\frac58>\beta^2.
-$$
-The first has a joint-event bound. Here compliance is a separate cap on each block, whereas §4.3 uses terminal lightness for their aggregate count. Both examples show why replacing an original-law joint event by conditional success is invalid. The full trace is in [record Appendix B.3](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-adaptive-example).
+For a related example in which separate per-block caps bias the conditional law, see [record Appendix B.3](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-adaptive-example).
 
 ### A.8 Fixed-parameter thresholds do not justify a growing parameter
 
@@ -409,6 +408,8 @@ The closest comparison-search antecedent is the surviving-candidate set of Ambai
 
 Other comparison models make different assumptions: minimum finding assumes a total order [@DH1996]; king finding seeks a vertex reaching every other in at most two steps in a fixed tournament [@MPS2023]. Ben-David and Kothari use fixed comparisons of candidate claims followed by verification [@BDK2026, Lemma 5]. These results do not cover the arbitrary comparison probabilities between losers allowed here.
 
+\Needspace{18\baselineskip}
+
 ## Appendix C. The bounded amplifier
 
 This proves Lemma 3, used after the preparation in (9) and again for local-test verification in §3.3. The preparation has a designated, query-free success flag and reversible access, including its inverse. The schedule is fixed before its unknown success probability is supplied.
@@ -436,6 +437,8 @@ V_{d+1}(\nu)=\max\Bigl\{V_d(\nu),\ \max_y\bigl[V_d(\nu_{y,0})+V_d(\nu_{y,1})\big
 $$
 where $\nu_{y,b}$ restricts $\nu$ to inputs whose bit $y$ is $b$. The first alternative keeps any strategy using at most $d$ queries; the second queries $y$ and chooses an optimal continuation for each reply.
 
+\Needspace{13\baselineskip}
+
 A fixed adaptive transcript restricts each input separately, so its unnormalised law still factors. For product measures $\nu_1\otimes\dots\otimes\nu_r$ and remaining allowances $L_1,\dots,L_r$, induction on the tree bounds the fully correct weight by $\prod_hV_{L_h}(\nu_h)$. At a leaf output $b$, that weight is $\prod_h\nu_h(P=b_h)$, at most this product because each $V_{L_h}$ permits a constant answer. A query to coordinate $y$ of input $h$ is legal only if $L_h\ge1$; it changes only $\nu_h$ and $L_h$. The two inductive bounds sum to
 $$
 \left(\prod_{j\ne h}V_{L_j}(\nu_j)\right)
@@ -446,16 +449,16 @@ The unchanged factors can be taken outside the sum precisely because the law is 
 
 The [weighted-value proof in the record](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-weighted-values) gives the same unnormalised recurrence. We use this separate-cap form for its exact factor $\beta^r$ and short proof. Per-path allowances go back to Shaltiel's fair trees, for XOR advantage under uniform inputs [@Shaltiel2003, ECCC version, §5, Definition 4 and Theorem 5]; Drucker's Lemmas 3.1–3.2 and the fair specialisation at the end of §3 give the product bound used here [@Drucker2012]. The caps must hold on every branch, and side information must be jointly independent of the inputs (Appendices A.5–A.6).
 
-Drucker's global-budget Theorem 1.1 would also suffice. The simulator in §4.3 has total cap $L$. The substitution $T=L$, error $1/3$ and $\alpha=3/r$ is admissible since $r=20\ell\ge40$, and gives $(2^{1/r}\beta)^r=2\beta^r$ ([record Appendix B.2](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#CL-drucker-alternative)). This factor-two alternative still leaves the discrepancy below $1/3$.
-
 ## Appendix E. One family approaching four
+
+Section 5 fixes $k$ after choosing the exponent to exclude. To let $k$ grow within one family, we need estimates uniform in $k$ and a new hardness allowance. An eventual threshold for each fixed $k$ does not suffice.
 
 **Uniform analytic input.** The [uniform theorem in record §8.14](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#forr_uniform_assembly) states: for integers $k\ge2$, $t\ge1$, $m=4^t$ and $15k+2\le2t$,
 $$
 R(P_{k,m})>\frac{2}{18225}\,\frac{m^{1-1/k}}{k^2\ln(4km)}.
 \tag{16}
 $$
-The estimate has different parameter dependence from the cited bound; its value here is explicit uniform control, not a claim of dominance or priority. It gives an explicit sufficient threshold, $t\ge13669k^2$, for (5), and to permit the growing-$k$ family below. The comparison and threshold calculation are in [record §8.14](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#forr_threshold).
+The estimate gives the uniform control needed below. Its parameter dependence differs from Bansal and Sinha's bound; [record §8.14](https://github.com/wcook04/quartic-query-lean/blob/9cdcc94df84355f0ac4cd47a4a8b9c688c243041/docs/reasoning_record.md#forr_threshold) compares them and also derives an explicit threshold for (5).
 
 **Deduction from the uniform input (one family approaching four).** This uses a new allowance from (16), not the fixed-$k$ threshold for (5). Put
 $$
@@ -485,6 +488,8 @@ The formal and printed arguments sometimes prove the same conclusion by differen
 
 The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md) links readable statements to their definitions and proofs, including the separate bounded-list tournament, the original-law direct-product bound and the uniform Forrelation estimate used in Appendix E. It also gives the precise scope and checking evidence for each formal result.
 
+
+\clearpage
 
 ## References
 

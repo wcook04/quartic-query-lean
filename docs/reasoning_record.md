@@ -1,4 +1,4 @@
-# OpenAI’s nearly quartic query separation: a complete proof reconstruction
+# OpenAI’s nearly quartic query separation: a complete proof reconstruction {.unnumbered .unlisted}
 
 Will Cook · November 2026
 
@@ -7,13 +7,18 @@ Will Cook · November 2026
 The separation theorem, total function and two reductions are due to [OpenAI (2026)][OpenAI2026]. This account supplies complete derivations of the supporting results and tracks the same circuit through both complexity bounds. Its analytic chapter combines the Gaussian-chain method of Bansal and Sinha with the decision-tree martingale method of Girish, Tal and Wu to prove a bound uniform in the Forrelation parameter. That estimate also yields an explicit family whose separation exponent approaches four.
 
 <a id="record-reading-guide"></a>
-## Reading guide
+## Reading guide {.unnumbered .unlisted}
 
 The proof has two branches after one total function is constructed. Section 3 states the partial-function ingredients; §4 builds the columns and certificates; §5 gives the quantum upper bound and §6 the randomized lower bound; §7 compares their exponents. Section 8 proves the ingredients promised in §3, and Appendix A proves the universal bound that makes four optimal. The [numbering key](#record-numbering) distinguishes preprint theorem numbers from local display labels.
 
 For the construction and its two algorithms, read §§1–7. For the complete proof, continue with §8 and Appendix A: this route assumes finite-dimensional linear algebra, elementary real analysis and probability, and the standard Gaussian density, but no specialized query-complexity theorem. The Gaussian integration and martingale estimates are proved locally. Readers concerned chiefly with the query conventions can begin with §2 and its exact OR and parity examples.
 
-Appendix B collects alternative proofs and examples for the classical lower bound. Appendices C–D contain an alternative threshold calculation and technical comparisons with other Forrelation estimates. Appendix E proves the bounded amplification lemma used in §5 and gives the alternative induction used by the formal quantum argument. References and source editions follow the appendices. AI assistance is described at the [end of the paper](#ai-disclosure).
+Appendix B collects alternative proofs and examples for the classical lower bound. Appendices C–D contain an alternative threshold calculation and technical comparisons with other Forrelation estimates. Appendix E proves the bounded amplification lemma used in §5 and gives the alternative induction used by the formal quantum argument. References and source editions follow the appendices. The [formal-proof note](#record-formal-proof-note) and [AI disclosure](#ai-disclosure) precede the references.
+
+\clearpage
+\setcounter{tocdepth}{2}
+\tableofcontents
+\clearpage
 
 ## 1. The theorem and the construction
 
@@ -308,19 +313,7 @@ This is the [fixed-sequence normal form][src-fixed-sequence] of the formalizatio
 <!-- passage:R3-01-ZERO -->
 ### 2.6. Exact small examples
 
-Each example below tests one convention against a plausible misreading.
-
-**Zero queries.** Cost zero means constant on the promise; $D$, $R$ and $Q$ vanish together.
-
-**One-bit identity.** A nonconstant function needs a query; all three complexities are one.
-
-**Two-bit OR.** The success threshold $2/3$ is inclusive; $R(\mathrm{OR}_2)=1$, and a strict threshold would give two.
-
-**A one-sided promise on one bit.** An undefined input is not a false input; all three complexities are zero, and filling in false gives one.
-
-**Two-bit parity.** The cap counts every query; $D=R=2$ and $Q=1$.
-
-The construction is tested in the same way later: §8.4 shows why the circuit needs its domain bit, §4.3 works a four-column board, §5.2 gives a cyclic tournament, §6.5 an adaptive direct-product example and §6.4 the difference between a joint and a conditional event.
+The following exact calculations distinguish the query-cap, promise and error conventions.
 
 **Zero queries.** For a finite coordinate set,
 
@@ -616,7 +609,7 @@ Totality and uniqueness follow from the semantic definition (4.5) alone; the exa
 
 ### 4.3. A four-column instance
 
-This board illustrates promise certification and winner dominance. The later [XOR board in §6.2](#CL-tiny-planted-example) illustrates planting, and its [trace in §6.4](#CL-simulator-example) illustrates truncation at a query cap. The examples use different partial functions and local row conventions; their numerical decoder laws are not interchangeable.
+This board illustrates promise certification and winner dominance. The later [XOR board in §6.2](#CL-tiny-planted-example) illustrates planting, and its [trace in Appendix B.3](#CL-simulator-example) illustrates truncation at a query cap. The examples use different partial functions and local row conventions; their numerical decoder laws are not interchangeable.
 
 <a id="AC-example-promise"></a>
 <!-- passage:AC-example-promise -->
@@ -984,7 +977,7 @@ $$
 
 The same error allowance will have three uses: winner-address error in §5.3 gives dominance, stage-sampler failure contributes at most $T\varepsilon$ before the winner is selected, and fresh verification contributes at most $\varepsilon$ for the winner or $T\varepsilon$ on a zero input. The ideal miss term $2m/2^T$ is separate.
 
-Only the conclusion of the theorem below is conditional on this property of $s$. Its algorithm runs and obeys its query cap for every comparison table satisfying equation (10), and the property serves only to prove that a particular vertex is likely to occur in the returned list.
+Only the conclusion of Proposition 3.2 is conditional on this property of $s$. Its algorithm runs and obeys its query cap for every comparison table satisfying equation (10), and the property serves only to prove that a particular vertex is likely to occur in the returned list.
 <!-- /passage:upper-tournament-parameters -->
 
 <a id="upper-ideal-process"></a>
@@ -1088,62 +1081,7 @@ $$
 The outcome probability of a comparison already accounts for its entire retained workspace, so decoded outcomes hidden inside it contribute no interference terms. Different pairs may have unrelated orientations: the product multiplies the success probabilities of distinct, fresh uses of their specified circuits at one fixed oracle input.
 <!-- /passage:upper-stage-law -->
 
-<a id="upper-cyclic-example"></a>
-<!-- passage:upper-cyclic-example -->
-**An exact four-candidate example.** <!-- claim:r3-q-cyclic-example --> Let the candidates be $s,a,b,c$,
-so that $T=\lceil\log_2(4000)\rceil=12$ and
-$\varepsilon=1/12000$. In the following table, the entry in row $i$, column $j$
-is the probability that $i$ defeats $j$.
-
-| $a_{ij}$ | $s$ | $a$ | $b$ | $c$ |
-|---|---:|---:|---:|---:|
-| $s$ | $0$ | $1-\varepsilon$ | $1-\varepsilon$ | $1-\varepsilon$ |
-| $a$ | $\varepsilon$ | $0$ | $1$ | $0$ |
-| $b$ | $\varepsilon$ | $0$ | $0$ | $1$ |
-| $c$ | $\varepsilon$ | $1$ | $0$ | $0$ |
-
-The candidate $s$ is dominant, while the other three form the cycle in which
-$a$ defeats $b$, $b$ defeats $c$, and $c$ defeats $a$,
-so these three certain comparisons are inconsistent with every total ordering.
-
-If the first pivot is $a$, the weights become
-$$
- (w_s,w_a,w_b,w_c)=(11999/12000,0,0,1),
- \qquad W=23999/12000.
-$$
-The unamplified preparation succeeds with probability
-$W/4=23999/48000$. Conditioned on success, the next pivot is
-$s$ with probability $11999/23999$ and $c$ with probability
-$12000/23999$. Bounded amplification changes the probability of obtaining
-a sample and preserves these two conditional probabilities exactly.
-If the next pivot is $c$, the only remaining positive weight is
-$w_s=(11999/12000)^2$, so the following successful sample is $s$.
-
-The first-step total weight is $3\varepsilon$ if the pivot is $s$,
-and $2-\varepsilon$ for each of the other three pivots. Since the first
-pivot is uniform, its expected value is
-$$
- \frac{3\varepsilon+3(2-\varepsilon)}4=\frac32
- =\frac{4^2-4}{2\cdot4}.
-$$
-This is the exact drift identity in a cyclic example, and the ideal process selects
-$s$ within three pivots with probability one: a first pivot $s$ succeeds immediately, and first pivots $b$ or $c$ follow from the displayed $a$ case by cyclic relabeling. The example illustrates the
-weight calculation and conditional law; it is neither a construction of the
-full addressed-certificate input nor a proof of the general tournament bound.
-
-To obtain fractional weights for losing candidates on the same four vertices, change only $a_{ab}=a_{ba}=1/2$. This is an abstract comparison-table variation, not a new claim about the board in §4.3. After pivot $a$ its weights and success probability are
-$$
-(w_s,w_a,w_b,w_c)=(11999/12000,0,1/2,1),\qquad
-W=29999/12000,\qquad p=29999/48000.
-$$
-The next successful pivot has law
-$$
-(\Pr[s],\Pr[a],\Pr[b],\Pr[c])
-=(11999,0,6000,12000)/29999.
-$$
-Amplification preserves this entire conditional law, including the fractional losing weights. If the real sampler fails after the first pivot $a$, its returned list $[a]$ misses $s$; this failure is charged in the coupling below. If a successful continuation first yields $s$ and a later sampler fails, the returned list already contains $s$ and that later failure is not charged. The ideal process's certain selection in the preceding deterministic-cycle example is therefore not a certainty claim for the real stopped algorithm.
-<!-- /passage:upper-cyclic-example -->
-
+A [four-candidate example](#upper-cyclic-example) in Appendix E.3 calculates these weights and both probability laws.
 
 <a id="upper-quantum-tournament"></a>
 <!-- passage:upper-quantum-tournament -->
@@ -1196,45 +1134,7 @@ $$
 The second equality uses $1/\varepsilon=1000T$ and $T\geq1$ (indeed $T\geq11$ when $m\geq2$), the constants are absolute, and early stopping can only reduce the cost. This proves Proposition 3.2: uniformly for every family of coherently available comparison circuits satisfying the stated cap, one algorithm returns a list of at most $T$ vertices, has the displayed query cap on every input, and contains every specified dominant vertex $s$ with probability at least $1-2m/2^T-T\varepsilon$. No estimate of the $a_{ij}$'s is required.
 <!-- /passage:upper-tournament-cost -->
 
-<a id="upper-padded-tournament-budget"></a>
-<!-- passage:upper-padded-tournament-budget -->
-Here a preparation call means one use of a unitary or its inverse; a logical read is one abstract oracle operation in that unitary; a physical query is a call to the bit oracle. The compiler below charges at most two physical queries per logical read.
-
-For the exact accounting of the compiled circuit, let $c_{\mathrm{rd}}$ be the number of logical reads in a comparison, let $M_0=\lceil10\sqrt{2m}\rceil$, and keep $N=\lceil\ln(1/\varepsilon)/\ln(40/31)\rceil$. Since the compiler uses two physical bit queries per logical read, padding every stage to $T$ comparisons gives
-<!-- claim:r2-quantum-tournament-budget-6072 -->
-$$
- B_{\mathrm{list}}
- =2T^2c_{\mathrm{rd}}N(2M_0+1)
- \leq6072\,c_{\mathrm{rd}}\sqrt m\,T^2\ln T.
-$$
-Indeed, the padded-product bound above gives the intermediate bound
-
-$$
- 276\,c_{\mathrm{rd}}\sqrt{2m}\,T^2\ln(1000T).
-$$
-Since $T\geq2$, we have $\ln(1000T)\leq11\ln T$ (using $1000\leq2^{10}$), and $\sqrt{2m}\leq2\sqrt m$; multiplying the constants gives $276\cdot2\cdot11=6072$. The estimate bounds the actual padded product directly and does not infer a bound on that product from a smaller procedure's call count. When a comparison is given with $c$ ordinary bit queries, each such query is one logical read in this representation, so the same bound with $c_{\mathrm{rd}}=c$ proves the order asserted in Proposition 3.2. For the concrete construction below, we count logical reads and physical queries separately.
-<!-- /passage:upper-padded-tournament-budget -->
-
-
-<a id="upper-tournament-evidence"></a>
-<!-- passage:upper-tournament-evidence -->
-
-**Finite-law correspondence.** We can also express the list guarantee as a probability law on the finite set
-$$
- \mathcal L_T=\{L:\ L\text{ is a list of candidates and }|L|\leq T\}.
-$$
-<!-- claim:r2-quantum-coherent-list-witness -->
-There is one input-independent bounded sampler, with output law $\lambda_x$ on $\mathcal L_T$, such that for every input $x$, $\lambda_x(L)\geq0$, $\sum_L\lambda_x(L)=1$, and, for every dominant $s$,
-$$
- \sum_{L:\,s\in L}\lambda_x(L)
- \geq1-\frac{2m}{2^T}-T\varepsilon.
-$$
-The sampler is chosen before both $x$ and $s$, so it operates without knowing which vertex is dominant, and the indicator of membership of a particular $s$ appears only in the analysis. This is the bounded-list form of Proposition 3.2. Decoding and verification follow in §5.3, and [§E.1](#upper-continuation-induction) analyzes the variant used by the Lean proof, which verifies the listed candidates in sequence.
-<!-- /passage:upper-tournament-evidence -->
-
-
-
-**Comparison with earlier search procedures.** The same organization into candidate generation, comparison and certificate checking appears in Ben-David and Kothari [Ben-David and Kothari (2026), §3, Lemma 5, pp. 3–5] and in Ambainis, Iraids and Kokainis [Ambainis, Iraids and Kokainis (2026), arXiv v2]; the preprint cites these two certificate-complexity separations as recent work whose comparison-based viewpoint is particularly relevant [OpenAI (2026), §1.1, p. 2]. Their comparison concerns certificate complexity $C$, the number of bits in a certificate, rather than randomized query complexity $R$, the cost of a bounded-error algorithm, and they search for a distinguished column by a procedure different from the fractional-weight theorem proved here. Dürr and Høyer's minimum-finding algorithm uses ordered table values and a decreasing rank [Dürr and Høyer (1999), Theorem 1 and Lemmas 1–2, pp. 1–2], and Mande, Paraashar and Saurabh give a quantum algorithm for finding a king with exact edge-direction queries [Mande, Paraashar and Saurabh (2023), Theorem 19, §4, pp. 30:11–30:13]. These are antecedents and comparisons; the fractional-weight argument we follow is the one in OpenAI's Proposition 3.2. In particular, the available comparisons need not be bounded-error evaluations of any fixed orientation.
+The [numerical budget and finite-law formulation](#upper-padded-tournament-budget) are derived in Appendix E.3. The algorithm just proved can now be applied to the board.
 
 Readers arriving from the [specialist companion may return to its §3.2](expert_companion.md#32-a-tournament-with-probabilistic-comparisons).
 
@@ -1389,7 +1289,7 @@ The final bound thus concerns the same total input function on every bit string,
 
 Before simplifying asymptotically, we state an exact finite budget that records the padding and the repetitions together with the compilation constants.
 
-An amplification call is one preparation or its inverse; convert calls to ordinary bit queries by multiplying by the implemented preparation cap. The quantities $c_{\mathrm{rd}}$ in §5.2 and $c_c$ below count logical reads in one comparison, each costing at most two bit queries. The same two-query compiler applies to the decoder and local-test counts $a$ and $c_0$. The final budget $B_{k,t}$ counts physical input-bit queries and already includes these factors.
+An amplification call is one preparation or its inverse; convert calls to ordinary bit queries by multiplying by the implemented preparation cap. The quantities $c_{\mathrm{rd}}$ in Appendix E.3 and $c_c$ below count logical reads in one comparison, each costing at most two bit queries. The same two-query compiler applies to the decoder and local-test counts $a$ and $c_0$. The final budget $B_{k,t}$ counts physical input-bit queries and already includes these factors.
 
 The finite budget uses the following parameters; the first four count logical operations, before the two-query compilation factor.
 
@@ -1790,40 +1690,6 @@ With the general parameters and the hard distribution of §6.1, suppose the comp
 \]
 Nonheaviness enters as part of the event inside the probability, so the target inputs keep their original distribution. The simulator never tests whether the complete run is nonheavy: that stronger event implies the needed prefix cap and is chosen to match the complete-run heavy-column bound (20).
 <!-- /passage:CL-joint-event -->
-
-<a id="CL-simulator-example"></a>
-<!-- passage:CL-simulator-example -->
-A toy instance illustrates the reduction just proved. We return to the four-column XOR example of [§6.2](#CL-tiny-planted-example) and take \(L=1\), with both target strings independently uniform. Readers coming from the examples-first exposition should note two differences from its four-column board: here \(P\) is the total function \(a\mathbin{\mathrm{xor}}b\) on two bits, so every address is defined and only the planting and the cap are illustrated, and rows and columns are numbered from \(0\). Consider a four-query tree that first reads \(X_0[0]\), then the first bit \(a\) of \(A_{1,1}\). If \(a=1\), its third query is \(X_2[1]\); if \(a=0\), its third query is the first bit of \(A_{1,2}\). Its fourth query reads the first transcript's domain bit in \(B_{1,(a,0)}\), and it outputs that bit.
-
-In the displayed planted configuration the target first bit is \(1\), and the simulator for \(i=1,q=4\) behaves as follows.
-
-| Original time | Proposed query | Answer source | Target calls used | Simulator action |
-| ---: | --- | --- | ---: | --- |
-| 1 | $X_0[0]$ | Outside data: $1$ | 0 | Continue |
-| 2 | First bit of $A_{1,1}$ | Target oracle: $1$ | 1 | Continue |
-| 3 | $X_2[1]$ | Outside data: $1$ | 1 | Continue |
-| 4 | Domain bit in $B_{1,10}$ | No cell answer read | 1 | Output address $10$ |
-
-At time four the original tree receives \(0\) on the dummy input and \(1\) on the displayed planted input, while the simulator uses the blank dummy data and stops before that answer. On the other branch, \(a=0\), it aborts before the second target query at time three. Thus the cap is enforced during each execution, with no retrospective selection of the cheap ones.
-
-The joint-event and simulator-success probabilities follow directly from the target strings $(a,b)$ and $(c,d)$. On the nonheavy branch $a=1$, the proposed address $(1,0)$ is true exactly when $b=0$ and $c=d$, an event of probability $1/8$. On $a=0$ the simulator truncates and defaults to $(0,0)$; correctness again requires $b=0$ and $c=d$, contributing another $1/8$. Thus the simulator succeeds with probability $1/4$. For uniform two-bit XOR, a one-query algorithm succeeds with probability at most $1/2$, so \(1/4=(1/2)^2\) is the relevant two-input bound.
-
-
-We can also average over the zero locations. The tree always queries $X_0[0]$ and queries $X_2[1]$ only when $a=1$. Those two columns are distinct, so their contributions to $\mathbb EZ$ are $1/4$ and $(1/2)(1/4)$. Hence
-\[
-\mathbb EZ=\frac38,\qquad
-\Pr[\text{erased-zero hit}]=\frac3{32}=\frac{\mathbb EZ}{4}.
-\]
-These identities use the four independent uniform zero positions and a uniform independent choice of $I$. The true-cell and simulator probabilities remain $1/8$ and $1/4$, as calculated above.
-<!-- /passage:CL-simulator-example -->
-
-
-<a id="CL-conditioning-counterexample"></a>
-<!-- passage:CL-conditioning-counterexample -->
-The examples isolate different effects of conditioning. The adaptive example in [Appendix B.3](#CL-adaptive-example) shows how a union of transcript rectangles can lose its product law. The preceding simulator has extra success from its default output. The following example shows how conditioning on the nonheavy event in (21) selects inputs that are easier to solve. On the promised two-bit inputs \(\{01,10,11\}\), let \(P\) be AND and let \(\mu\) be uniform. Every one-query algorithm has success at most \(2/3\): after either coordinate is queried, one answer identifies a unique input and the other leaves two equally likely, oppositely labelled inputs.
-
-Consider the tree that queries the first bit, stops with the correct output \(0\) on the answer-zero branch, and queries the second bit on the answer-one branch. With cap \(L=1\), the complete original run is nonheavy exactly on input \(01\), so its conditional success given nonheaviness is \(1\). A simulator that aborts before the second query and defaults to \(0\) has unconditional success \(2/3\), while correct-and-nonheavy has probability \(1/3\). Thus the unconditional bound holds, while the conditional bound would read \(1\le2/3\), which is false. This meets the separate-cap lemma’s hard-law premise, but $R(P)=L=1$: choose a coordinate uniformly, output $0$ after a $0$, and output $1$ with probability $2/3$ after a $1$. The success probability is $2/3$ on each promised input; no zero-query algorithm can achieve it on both labels. Thus the toy illustrates conditioning on terminal lightness, not the strict $L<R(P)$ regime of the final construction.
-<!-- /passage:CL-conditioning-counterexample -->
 
 <a id="CL-cell-union"></a>
 <!-- passage:CL-cell-union -->
@@ -3022,6 +2888,8 @@ where $\mathcal U$ is the uniform distribution on the sign cube. Since the argum
 
 ### 8.9. Moving the derivative through the blocks
 
+The endpoints of $h_g$ are now identified: $h_g(0)$ is the uniform expectation of $g$, and $h_g(1)$ is its expectation under the correlated sign law. We must bound their difference for a shallow tree. Differentiating the interpolation introduces one bias factor in the first block. The Gaussian identity will replace that factor by a derivative in the next block, repeating until the expression contains one derivative in every block. Each crossing contributes a Walsh entry of magnitude $m^{-1/2}$.
+
 <a id="forr_identity"></a>
 <!-- passage:forr_identity -->
 For fixed Gaussian vectors, $F_g(w_s(U))$ is a polynomial in $s$ of degree at most $m$, whose finitely many coefficients are bounded functions of $U$ because all factors $X_j,Y_j$ are bounded. Taking expectations coefficient by coefficient shows that $h_g$ is itself a polynomial. In particular, differentiation commutes with the Gaussian average by finite linearity, and the ordinary chain rule gives
@@ -3145,7 +3013,7 @@ For example, the monomial $g(z)=\prod_{i\in T}z_i$ with $|T|=k+1$ has $\partial_
 
 Equation (F24) rules out simply using the degree-$k$ Fourier coefficients at zero. We bound the derivatives directly under the independent biased law.
 
-A depth-$d$ tree sees at most $d$ coordinates. Under the biased product law, a centered monomial containing an unqueried coordinate has mean zero even after the leaf is known. We therefore track only the monomials whose coordinates have all been revealed. A fresh query completes new monomials by multiplying an already known expression by one fresh centered sign. This gives the martingale increment below. We bound its size by induction on the degree, stopping before a lower-degree expression becomes too large. Choosing the coefficients to match the derivative signs then bounds their absolute sum.
+A depth-$d$ tree reveals at most $d$ coordinates. The derivative identity (F8) expresses a signed sum of derivatives as the expectation of the tree output times a polynomial in centered input signs. At a leaf, every monomial containing an unqueried coordinate has conditional mean zero. It is therefore enough to control the polynomial formed by the revealed coordinates. Its evolution is a martingale: a new query contributes one fresh centered sign times a lower-degree polynomial. The proof below bounds that lower-degree factor before each query, then uses a maximal inequality. This is where the depth $d$ enters the analytic estimate.
 
 <a id="forr_tree_growth"></a>
 <!-- passage:forr_tree_growth -->
@@ -3160,7 +3028,9 @@ A depth-$d$ tree sees at most $d$ coordinates. Under the biased product law, a c
 
 The proof adapts to bounded biases the martingale argument for ordinary trees of Girish, Tal and Wu [Girish, Tal and Wu, arXiv v2, §1.3 and Lemma 1.9, p. 8; conference Lemma 9]. We give it in full because we need its numerical constants and its raw derivative normalization under this measure.
 
-Fix $\mu$ and take independent signs with these means, so that their characters $\xi_i$ from (F8) are independent, centered and bounded by $2$. Let $Q_j$ be the set of coordinates revealed after $j$ queries. A repeated query leaves this set unchanged, and once the tree reaches a leaf we hold the set fixed, so the process has the deterministic horizon $d$.
+*The revealed polynomial.* Fix $\mu$. Ultimately we will choose each coefficient to be the sign of the corresponding derivative $\partial_JF_g(\mu)$, and zero outside $\mathcal J$. These are deterministic choices, made before any input is drawn. We prove the bound for every coefficient array of magnitude at most one, since the induction also needs the arrays obtained by fixing one coordinate.
+
+Take independent signs with means $\mu_i$, so that their characters $\xi_i$ from (F8) are independent, centered and bounded by $2$. Let $Q_j$ be the set of coordinates revealed after $j$ queries. A repeated query leaves this set unchanged, and once the tree reaches a leaf we hold the set fixed, so the process has the deterministic horizon $d$.
 
 For each degree $r$ and coefficient array $|c(J)|\le1$, we put
 
@@ -3170,6 +3040,8 @@ Y_r^c(Q,z)=
 \sum_{\substack{J\subseteq Q\\|J|=r}}c(J)\prod_{i\in J}\xi_i(z_i).
 \tag{F26}
 \]
+
+\Needspace{8\baselineskip}
 
 For a fresh coordinate $q\notin Q$, splitting the subsets according to whether they contain $q$ gives
 
@@ -3208,7 +3080,7 @@ The right side is the sum, over reachable leaves, of each leaf's cylinder probab
 
 <a id="forr_tree_stopping"></a>
 <!-- passage:forr_tree_stopping -->
-The increment in (F27) is centered, but its size contains the random lower-degree expression $Y_{r-1}^{c^q}$. We cannot apply a bounded-increment estimate until that expression is controlled. We first prove the estimate for a deterministically bounded increment, then enforce such a bound by stopping. If a centered random variable $W$ lies in $[-B,B]$, convexity of the exponential gives
+*A maximal inequality.* The increment in (F27) is centered, but its size contains the random lower-degree expression $Y_{r-1}^{c^q}$. We first bound a martingale with deterministically bounded increments, then obtain that bound for the revealed polynomial by stopping. If a centered random variable $W$ lies in $[-B,B]$, convexity of the exponential gives
 
 <!-- claim:NEW-FOR-15 -->
 \[
@@ -3237,7 +3109,7 @@ a nonnegative supermartingale. We also stop at the first time $Z_j>R$, capped at
 
 The argument uses only conditional expectation over a finite horizon.
 
-Fix $\Lambda>0$ and put $K=\sqrt{8d\Lambda}>0$. We claim that, for every bounded coefficient array and every $r\ge0$,
+*Stopping by degree.* For degree one, (F27) is a sum of at most $d$ centered increments bounded by $2$. For higher degree, each increment also contains a lower-degree polynomial. We control these factors inductively, paying one factor of order $\sqrt{d\Lambda}$ per degree. Fix $\Lambda>0$ and put $K=\sqrt{8d\Lambda}>0$. We claim that, for every bounded coefficient array and every $r\ge0$,
 
 <!-- claim:NEW-FOR-17 -->
 \[
@@ -3278,7 +3150,7 @@ At any leaf we have the crude bound $|Y_r^c|\le(2n)^r$, from at most $n^r$ subse
 \tag{F32}
 \]
 
-For the fixed tree function $g$ and bias $\mu$, the numbers $\partial_JF_g(\mu)$ are deterministic. We choose the nonrandom array $c(J)$ to be their signs for $J\in\mathcal J$ and zero for the remaining $r$-sets, so that by (F8) the left side of (F32) is the desired sum of absolute derivatives. Finally, we take
+Choose the derivative-sign array described at the start of the proof. By (F8), the left side of (F32) is then exactly the sum of absolute derivatives in (F25). Finally, take
 
 \[
 \Lambda=2r\ln(4n),\qquad K^2=16rd\ln(4n).
@@ -3576,6 +3448,20 @@ The one-block interpolation isolates one raw derivative in each labelled block a
 
 
 
+\Needspace{12\baselineskip}
+
+## Conclusion
+
+The proof joins two uses of the same certificate. Outward pointers give a true winner reliable comparisons without requiring valid rival certificates. Complementarity then makes the total surviving weight contract, and coherent sampling reproduces the exact law behind that contraction. Verification is paid only for a short list, so its cost adds to the search cost.
+
+The classical lower bound uses a pair of coupled inputs. A blank board and a planted winner differ at one zero and one certificate cell. Finding the cell entails naming its hidden address; a capped simulation turns that name into a prediction under the original independent input law. The direct product makes that event rare, while independent planting charges the remaining searches across all columns.
+
+Forrelation supplies the unequal cost of those address answers. The analytic proof explains the classical obstruction by passing a derivative through a Gaussian chain: every block contributes one derivative, and the decision-tree martingale bounds their total effect. Moment estimates and error reduction then recover a promise lower bound from comparison laws that themselves have unpromised mass.
+
+For each fixed $k$, these mechanisms give exponent $4-2/k$ up to logarithmic losses. Choosing $k$ after a proposed exponent and before the input size excludes every universal power below four; Appendix A proves that four suffices. The uniform estimates additionally permit the explicit growing-parameter family of §7.3. Neither argument asserts a constant-factor lower bound $R=\Omega(Q^4)$ for that family.
+
+\clearpage
+
 ## Appendix A. The universal quartic bound
 
 We reconstruct the known upper bound $R=O(Q^4)$, which makes four attainable. This appendix follows the star-adversary route with coefficient $35^4$. A reader who accepts the theorem of Aaronson, Ben-David, Kothari, Rao and Tal needs only the outline in the next two paragraphs.
@@ -3842,22 +3728,6 @@ A deterministic tree is a randomized algorithm whose distribution is concentrate
 <!-- /passage:R3-A-ASSEMBLY -->
 
 
-\Needspace{12\baselineskip}
-
-## Conclusion
-
-The proof joins two uses of the same certificate. Outward pointers give a true winner reliable comparisons without requiring valid rival certificates. Complementarity then makes the total surviving weight contract, and coherent sampling reproduces the exact law behind that contraction. Verification is paid only for a short list, so its cost adds to the search cost.
-
-The classical lower bound uses a pair of coupled inputs. A blank board and a planted winner differ at one zero and one certificate cell. Finding the cell entails naming its hidden address; a capped simulation turns that name into a prediction under the original independent input law. The direct product makes that event rare, while independent planting charges the remaining searches across all columns.
-
-Forrelation supplies the unequal cost of those address answers. The analytic proof explains the classical obstruction by passing a derivative through a Gaussian chain: every block contributes one derivative, and the decision-tree martingale bounds their total effect. Moment estimates and error reduction then recover a promise lower bound from comparison laws that themselves have unpromised mass.
-
-For each fixed $k$, these mechanisms give exponent $4-2/k$ up to logarithmic losses. Choosing $k$ after a proposed exponent and before the input size excludes every universal power below four; Appendix A proves that four suffices. The uniform estimates additionally permit the explicit growing-parameter family of §7.3. Neither argument asserts a constant-factor lower bound $R=\Omega(Q^4)$ for that family.
-
-### Relation to the formal proofs
-
-The accompanying Lean proofs establish formal versions of the headline theorems. Their routes sometimes differ from the printed arguments: the quantum bound uses the exact law of the measured candidate, and the universal quartic bound uses an existing formal complexity library. The stronger retained-state argument is not required for the Boolean headline result. The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md) connects mathematical statements to definitions and proofs and specifies these distinctions. Detailed verification evidence is separate from this mathematical account.
-
 ## Appendix B. Alternative classical arguments
 
 The lower bound in §6 is complete with its conditional-value direct product and early/late search estimate. The arguments here provide a second proof of the product bound, sharper erased-zero estimates, and a concrete failure of conditioning on cap compliance. They retain the hypotheses of the passages to which they refer; none strengthens the main separation claim.
@@ -4035,6 +3905,44 @@ there would remain at most $6/100$: for $m\ge4$, $2/(100m^8)\le1/100$, so this t
 because it gives $(2/3)^r$ itself and has a short proof.
 
 ### B.3. Adaptivity and conditioning on the caps
+
+The examples below examine the event inclusion used in §6.4 after the planted-cell bound has been proved. The first follows the capped simulator on an XOR board; the second shows why conditioning on a cheap run is invalid; the last treats separate per-instance cap events.
+
+<a id="CL-simulator-example"></a>
+<!-- passage:CL-simulator-example -->
+A toy instance illustrates the reduction just proved. We return to the four-column XOR example of [§6.2](#CL-tiny-planted-example) and take \(L=1\), with both target strings independently uniform. Readers coming from the examples-first exposition should note two differences from its four-column board: here \(P\) is the total function \(a\mathbin{\mathrm{xor}}b\) on two bits, so every address is defined and only the planting and the cap are illustrated, and rows and columns are numbered from \(0\). Consider a four-query tree that first reads \(X_0[0]\), then the first bit \(a\) of \(A_{1,1}\). If \(a=1\), its third query is \(X_2[1]\); if \(a=0\), its third query is the first bit of \(A_{1,2}\). Its fourth query reads the first transcript's domain bit in \(B_{1,(a,0)}\), and it outputs that bit.
+
+In the displayed planted configuration the target first bit is \(1\), and the simulator for \(i=1,q=4\) behaves as follows.
+
+| Original time | Proposed query | Answer source | Target calls used | Simulator action |
+| ---: | --- | --- | ---: | --- |
+| 1 | $X_0[0]$ | Outside data: $1$ | 0 | Continue |
+| 2 | First bit of $A_{1,1}$ | Target oracle: $1$ | 1 | Continue |
+| 3 | $X_2[1]$ | Outside data: $1$ | 1 | Continue |
+| 4 | Domain bit in $B_{1,10}$ | No cell answer read | 1 | Output address $10$ |
+
+At time four the original tree receives \(0\) on the dummy input and \(1\) on the displayed planted input, while the simulator uses the blank dummy data and stops before that answer. On the other branch, \(a=0\), it aborts before the second target query at time three. Thus the cap is enforced during each execution, with no retrospective selection of the cheap ones.
+
+The joint-event and simulator-success probabilities follow directly from the target strings $(a,b)$ and $(c,d)$. On the nonheavy branch $a=1$, the proposed address $(1,0)$ is true exactly when $b=0$ and $c=d$, an event of probability $1/8$. On $a=0$ the simulator truncates and defaults to $(0,0)$; correctness again requires $b=0$ and $c=d$, contributing another $1/8$. Thus the simulator succeeds with probability $1/4$. For uniform two-bit XOR, a one-query algorithm succeeds with probability at most $1/2$, so \(1/4=(1/2)^2\) is the relevant two-input bound.
+
+
+We can also average over the zero locations. The tree always queries $X_0[0]$ and queries $X_2[1]$ only when $a=1$. Those two columns are distinct, so their contributions to $\mathbb EZ$ are $1/4$ and $(1/2)(1/4)$. Hence
+\[
+\mathbb EZ=\frac38,\qquad
+\Pr[\text{erased-zero hit}]=\frac3{32}=\frac{\mathbb EZ}{4}.
+\]
+These identities use the four independent uniform zero positions and a uniform independent choice of $I$. The true-cell and simulator probabilities remain $1/8$ and $1/4$, as calculated above.
+<!-- /passage:CL-simulator-example -->
+
+
+<a id="CL-conditioning-counterexample"></a>
+<!-- passage:CL-conditioning-counterexample -->
+The examples isolate different effects of conditioning. The [final example below](#CL-adaptive-example) shows how a union of transcript rectangles can lose its product law. The preceding simulator has extra success from its default output. The following example shows how conditioning on the nonheavy event in (21) selects inputs that are easier to solve. On the promised two-bit inputs \(\{01,10,11\}\), let \(P\) be AND and let \(\mu\) be uniform. Every one-query algorithm has success at most \(2/3\): after either coordinate is queried, one answer identifies a unique input and the other leaves two equally likely, oppositely labelled inputs.
+
+Consider the tree that queries the first bit, stops with the correct output \(0\) on the answer-zero branch, and queries the second bit on the answer-one branch. With cap \(L=1\), the complete original run is nonheavy exactly on input \(01\), so its conditional success given nonheaviness is \(1\). A simulator that aborts before the second query and defaults to \(0\) has unconditional success \(2/3\), while correct-and-nonheavy has probability \(1/3\). Thus the unconditional bound holds, while the conditional bound would read \(1\le2/3\), which is false. This meets the separate-cap lemma’s hard-law premise, but $R(P)=L=1$: choose a coordinate uniformly, output $0$ after a $0$, and output $1$ with probability $2/3$ after a $1$. The success probability is $2/3$ on each promised input; no zero-query algorithm can achieve it on both labels. Thus the toy illustrates conditioning on terminal lightness, not the strict $L<R(P)$ regime of the final construction.
+<!-- /passage:CL-conditioning-counterexample -->
+
+
 
 <a id="CL-adaptive-example"></a>
 <!-- passage:CL-adaptive-example -->
@@ -4492,6 +4400,119 @@ give the same uniform computational-basis distribution on the first register. In
 <!-- /passage:upper-returned-register -->
 
 
+### E.3. Finite examples, query budgets and earlier search
+
+<a id="upper-cyclic-example"></a>
+<!-- passage:upper-cyclic-example -->
+**An exact four-candidate example.** <!-- claim:r3-q-cyclic-example --> Let the candidates be $s,a,b,c$,
+so that $T=\lceil\log_2(4000)\rceil=12$ and
+$\varepsilon=1/12000$. In the following table, the entry in row $i$, column $j$
+is the probability that $i$ defeats $j$.
+
+| $a_{ij}$ | $s$ | $a$ | $b$ | $c$ |
+|---|---:|---:|---:|---:|
+| $s$ | $0$ | $1-\varepsilon$ | $1-\varepsilon$ | $1-\varepsilon$ |
+| $a$ | $\varepsilon$ | $0$ | $1$ | $0$ |
+| $b$ | $\varepsilon$ | $0$ | $0$ | $1$ |
+| $c$ | $\varepsilon$ | $1$ | $0$ | $0$ |
+
+The candidate $s$ is dominant, while the other three form the cycle in which
+$a$ defeats $b$, $b$ defeats $c$, and $c$ defeats $a$,
+so these three certain comparisons are inconsistent with every total ordering.
+
+If the first pivot is $a$, the weights become
+$$
+ (w_s,w_a,w_b,w_c)=(11999/12000,0,0,1),
+ \qquad W=23999/12000.
+$$
+The unamplified preparation succeeds with probability
+$W/4=23999/48000$. Conditioned on success, the next pivot is
+$s$ with probability $11999/23999$ and $c$ with probability
+$12000/23999$. Bounded amplification changes the probability of obtaining
+a sample and preserves these two conditional probabilities exactly.
+If the next pivot is $c$, the only remaining positive weight is
+$w_s=(11999/12000)^2$, so the following successful sample is $s$.
+
+The first-step total weight is $3\varepsilon$ if the pivot is $s$,
+and $2-\varepsilon$ for each of the other three pivots. Since the first
+pivot is uniform, its expected value is
+$$
+ \frac{3\varepsilon+3(2-\varepsilon)}4=\frac32
+ =\frac{4^2-4}{2\cdot4}.
+$$
+This is the exact drift identity in a cyclic example, and the ideal process selects
+$s$ within three pivots with probability one: a first pivot $s$ succeeds immediately, and first pivots $b$ or $c$ follow from the displayed $a$ case by cyclic relabeling. The example illustrates the
+weight calculation and conditional law; it is neither a construction of the
+full addressed-certificate input nor a proof of the general tournament bound.
+
+To obtain fractional weights for losing candidates on the same four vertices, change only $a_{ab}=a_{ba}=1/2$. This is an abstract comparison-table variation, not a new claim about the board in §4.3. After pivot $a$ its weights and success probability are
+$$
+(w_s,w_a,w_b,w_c)=(11999/12000,0,1/2,1),\qquad
+W=29999/12000,\qquad p=29999/48000.
+$$
+The next successful pivot has law
+$$
+(\Pr[s],\Pr[a],\Pr[b],\Pr[c])
+=(11999,0,6000,12000)/29999.
+$$
+Amplification preserves this entire conditional law, including the fractional losing weights. If the real sampler fails after the first pivot $a$, its returned list $[a]$ misses $s$; this failure is charged in the coupling in §5.2. If a successful continuation first yields $s$ and a later sampler fails, the returned list already contains $s$ and that later failure is not charged. The ideal process's certain selection in the preceding deterministic-cycle example is therefore not a certainty claim for the real stopped algorithm.
+<!-- /passage:upper-cyclic-example -->
+
+
+
+The following refinements supplement the tournament of §5.2. They retain its all-input cap and specify the finite law used in the formal correspondence.
+
+<a id="upper-padded-tournament-budget"></a>
+<!-- passage:upper-padded-tournament-budget -->
+Here a preparation call means one use of a unitary or its inverse; a logical read is one abstract oracle operation in that unitary; a physical query is a call to the bit oracle. The compiler of §5.4 charges at most two physical queries per logical read.
+
+For the exact accounting of the compiled circuit, let $c_{\mathrm{rd}}$ be the number of logical reads in a comparison, let $M_0=\lceil10\sqrt{2m}\rceil$, and keep $N=\lceil\ln(1/\varepsilon)/\ln(40/31)\rceil$. Since the compiler uses two physical bit queries per logical read, padding every stage to $T$ comparisons gives
+<!-- claim:r2-quantum-tournament-budget-6072 -->
+$$
+ B_{\mathrm{list}}
+ =2T^2c_{\mathrm{rd}}N(2M_0+1)
+ \leq6072\,c_{\mathrm{rd}}\sqrt m\,T^2\ln T.
+$$
+Indeed, the call-cap estimate in [§E.2](#upper-amplification-proof) gives the intermediate bound
+
+$$
+ 276\,c_{\mathrm{rd}}\sqrt{2m}\,T^2\ln(1000T).
+$$
+Since $T\geq2$, we have $\ln(1000T)\leq11\ln T$ (using $1000\leq2^{10}$), and $\sqrt{2m}\leq2\sqrt m$; multiplying the constants gives $276\cdot2\cdot11=6072$. The estimate bounds the actual padded product directly and does not infer a bound on that product from a smaller procedure's call count. When a comparison is given with $c$ ordinary bit queries, each such query is one logical read in this representation, so the same bound with $c_{\mathrm{rd}}=c$ proves the order asserted in Proposition 3.2. For the concrete construction, §5.4 counts logical reads and physical queries separately.
+<!-- /passage:upper-padded-tournament-budget -->
+
+
+<a id="upper-tournament-evidence"></a>
+<!-- passage:upper-tournament-evidence -->
+
+**Finite-law correspondence.** We can also express the list guarantee as a probability law on the finite set
+$$
+ \mathcal L_T=\{L:\ L\text{ is a list of candidates and }|L|\leq T\}.
+$$
+<!-- claim:r2-quantum-coherent-list-witness -->
+There is one input-independent bounded sampler, with output law $\lambda_x$ on $\mathcal L_T$, such that for every input $x$, $\lambda_x(L)\geq0$, $\sum_L\lambda_x(L)=1$, and, for every dominant $s$,
+$$
+ \sum_{L:\,s\in L}\lambda_x(L)
+ \geq1-\frac{2m}{2^T}-T\varepsilon.
+$$
+The sampler is chosen before both $x$ and $s$, so it operates without knowing which vertex is dominant, and the indicator of membership of a particular $s$ appears only in the analysis. This is the bounded-list form of Proposition 3.2. Decoding and verification are given in §5.3, and [§E.1](#upper-continuation-induction) analyzes the variant used by the Lean proof, which verifies the listed candidates in sequence.
+<!-- /passage:upper-tournament-evidence -->
+
+
+
+**Comparison with earlier search procedures.** The same organization into candidate generation, comparison and certificate checking appears in Ben-David and Kothari [Ben-David and Kothari (2026), §3, Lemma 5, pp. 3–5] and in Ambainis, Iraids and Kokainis [Ambainis, Iraids and Kokainis (2026), arXiv v2]; the preprint cites these two certificate-complexity separations as recent work whose comparison-based viewpoint is particularly relevant [OpenAI (2026), §1.1, p. 2]. Their comparison concerns certificate complexity $C$, the number of bits in a certificate, rather than randomized query complexity $R$, the cost of a bounded-error algorithm, and they search for a distinguished column by a procedure different from the fractional-weight theorem proved here. Dürr and Høyer's minimum-finding algorithm uses ordered table values and a decreasing rank [Dürr and Høyer (1999), Theorem 1 and Lemmas 1–2, pp. 1–2], and Mande, Paraashar and Saurabh give a quantum algorithm for finding a king with exact edge-direction queries [Mande, Paraashar and Saurabh (2023), Theorem 19, §4, pp. 30:11–30:13]. These are antecedents and comparisons; the fractional-weight argument we follow is the one in OpenAI's Proposition 3.2. In particular, the available comparisons need not be bounded-error evaluations of any fixed orientation.
+
+<a id="record-formal-proof-note"></a>
+
+## Relation to the formal proofs
+
+The accompanying Lean proofs establish formal versions of the headline theorems. Their routes sometimes differ from the printed arguments: the quantum bound uses the exact law of the measured candidate, and the universal quartic bound uses an existing formal complexity library. The stronger retained-state argument is not required for the Boolean headline result. The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md) connects mathematical statements to definitions and proofs and specifies these distinctions. Detailed verification evidence is separate from this mathematical account.
+
+## Use of AI tools
+
+<a id="ai-disclosure"></a>
+Will Cook directed this reconstruction. AI agents wrote the Lean formalization, the explanatory additions and the text of this record, working from OpenAI's preprint, which contains the theorem, the construction and both analyses; the earlier ingredients keep their authors' credit as cited.
+
 ## References
 
 <a id="ROOT-REFERENCES"></a>
@@ -4646,11 +4667,6 @@ Section and theorem locators refer to the editions identified below. Source comp
 [ComplexitylibPinned]: https://github.com/cslib-community/complexitylib/tree/62ca5c21461b2482e8bd12b7cb9b4937d887a33a
 
 
-
-## Use of AI tools
-
-<a id="ai-disclosure"></a>
-Will Cook directed this reconstruction. AI agents wrote the Lean formalization, the explanatory additions and the text of this record, working from OpenAI's preprint, which contains the theorem, the construction and both analyses; the earlier ingredients keep their authors' credit as cited.
 
 <!-- lean-links -->
 [def-DLe]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L67-L69
