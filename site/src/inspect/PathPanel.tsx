@@ -54,12 +54,19 @@ function Path({ p, from, to, kind, reader }: { p: any; from: string; to: string;
       </header>
       {variants.map((v: any) => (
         <section key={v.firstKind} className="chain">
-          <h3>{VARIANT[v.firstKind] ?? v.firstKind} <span className="quiet">· {v.helperCount === 0 ? "a direct use" : `${v.helperCount} ${v.helperCount === 1 ? "helper" : "helpers"} not drawn on the graph`}</span></h3>
+          <h3>{VARIANT[v.firstKind] ?? v.firstKind}</h3>
+          <p className="quiet chain__meta">
+            {v.helperCount === 0 ? "A direct use." : `${v.helperCount} ${v.helperCount === 1 ? "helper" : "helpers"} not drawn on the graph.`}{" "}
+            {v.locationCoverage && (v.locationCoverage.complete
+              ? "Every step has its line in the Lean."
+              : `${v.locationCoverage.located} of ${v.locationCoverage.total} steps have their line in the Lean.`)}
+          </p>
           <ol className="chain__list">
             <li><Step reader={reader} decl={p.declarations[from]} name={from} card /></li>
             {v.hops.map((h: any, i: number) => (
               <li key={i}>
                 <p className="chain__usage">uses it {USAGE[h.usage] ?? h.usage}</p>
+                {h.evidence && <HopEvidence reader={reader} hop={h} />}
                 <Step reader={reader} decl={p.declarations[h.to]} name={h.to} card={h.to === to} />
               </li>
             ))}
@@ -105,6 +112,69 @@ function Step({ reader, decl, name, card }: { reader: any; decl: any; name: stri
       {src?.text && <LeanCode text={src.text} from={src.lines?.[0] ?? 1} label={`Lean source of ${name}`} />}
       {src && !src.text && src.url && <p className="quiet">No separate excerpt is recorded for this name. <a href={src.url} target="_blank" rel="noopener noreferrer">Open its module</a></p>}
       {src?.url && src.text && <p className="quiet"><a href={src.url} target="_blank" rel="noopener noreferrer">Source on GitHub</a></p>}
+    </div>
+  );
+}
+
+const BASIS: Record<string, string> = {
+  resolved_identifier: "Lean resolves this name to it here.",
+  elaborated_application: "Lean records the application here, with its arguments.",
+  compiled_rhs: "Compiled from this line: Lean finds the use in what this line produces.",
+  inherited_parameter: "The type of a parameter declared earlier in the module.",
+};
+
+/** Where in the caller's Lean one hop's use happens, from the edition's evidence. */
+function HopEvidence({ reader, hop }: { reader: any; hop: any }) {
+  const ev = hop.evidence;
+  const sites: any[] = ev.sites ?? [];
+  const [pick, setPick] = useState(0);
+  const [whole, setWhole] = useState(false);
+  const site = sites[pick];
+  const range: [number, number] | null = site
+    ? site.basis === "inherited_parameter"
+      ? [Math.max(1, site.lines[0] - 1), site.lines[1] + 1]
+      : [Math.max(ev.declarationLines?.[0] ?? site.lines[0], site.lines[0] - 2), Math.min(ev.declarationLines?.[1] ?? site.lines[1], site.lines[1] + 2)]
+    : whole ? ev.declarationLines ?? null : null;
+  const text = useAsync(async () => (range && ev.source ? (await reader.readText(ev.source)).split("\n").slice(range[0] - 1, range[1]).join("\n") : null), [ev.source, range?.[0], range?.[1]]);
+  if (ev.status === "stale_reference_index" || ev.status === "unavailable_in_edition")
+    return <p className="hop__note">Source locations are not available in this edition.</p>;
+  return (
+    <div className="hop">
+      {site ? (
+        <p className="hop__note">
+          {BASIS[site.basis] ?? "Located in the Lean."}
+          {site.basis === "inherited_parameter" && site.binder && <> Its binder is <code>{site.binder}</code>.</>}
+          {sites.length > 1 && (
+            <span className="hop__picks" role="group" aria-label="Choose a use">
+              {" "}Uses:{sites.map((x: any, i: number) => (
+                <button key={i} type="button" aria-pressed={i === pick} onClick={() => setPick(i)}>line {x.lines[0]}</button>
+              ))}
+            </span>
+          )}
+        </p>
+      ) : (
+        <p className="hop__note">
+          Lean records this dependency for the declaration as a whole; no single line was matched.{" "}
+          {ev.declarationLines && <button type="button" className="textbutton" onClick={() => setWhole(!whole)}>{whole ? "Hide the declaration" : "Show the declaration"}</button>}
+        </p>
+      )}
+      {range && text.state === "ready" && text.value && (
+        <LeanCode text={text.value} from={range[0]}
+          spans={site && site.lines[0] === site.lines[1] ? [{ line: site.lines[0], from: site.utf16_columns[0], to: site.utf16_columns[1] }] : undefined}
+          mark={site && site.lines[0] !== site.lines[1] ? site.lines : null}
+          label={`Lean around line ${site?.lines[0] ?? range[0]}`} />
+      )}
+      {site?.url && <p className="hop__src"><a href={site.url} target="_blank" rel="noopener noreferrer">Line {site.lines[0]} on GitHub</a></p>}
+      {ev.parameterOrigins?.length > 0 && (
+        <p className="hop__note">Parameter type: {ev.parameterOrigins.map((o: any, i: number) => (
+          <span key={i}>{i ? ", " : ""}<a href={o.url} target="_blank" rel="noopener noreferrer">{o.binder ? <code>{o.binder}</code> : `line ${o.lines?.[0]}`}</a></span>
+        ))}</p>
+      )}
+      {ev.otherReferences?.length > 0 && (
+        <p className="hop__note quiet">Also named elsewhere in this declaration, not as this use: {ev.otherReferences.map((o: any, i: number) => (
+          <span key={i}>{i ? ", " : ""}<a href={o.url} target="_blank" rel="noopener noreferrer">line {o.lines[0]}</a></span>
+        ))}.</p>
+      )}
     </div>
   );
 }

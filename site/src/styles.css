@@ -408,3 +408,35 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .chain__raw { margin: 0; font-size: 0.8rem; color: var(--ink-2); overflow-wrap: anywhere; }
 .chain__usage { margin: 0; font-size: 0.82rem; color: var(--query); font-style: italic; }
 .chain__actions { margin: 2px 0 0; font-size: 0.88rem; }
+.chain__meta { margin: 0 0 4px; }
+.hop { margin: 2px 0 10px; }
+.hop__note { margin: 2px 0; font-size: 0.86rem; color: var(--ink-2); }
+.hop__picks button { background: none; border: 1px solid var(--control); border-radius: 4px; padding: 0 6px; margin-left: 4px; font-size: 0.8rem; cursor: pointer; color: var(--ink-2); }
+.hop__picks button[aria-pressed="true"] { border-color: var(--query); color: var(--query); }
+.hop__src { margin: 0; font-size: 0.82rem; }
+.lean__hit { background: var(--query-wash); color: var(--query); box-shadow: 0 0 0 1px var(--query-line); border-radius: 2px; }
+/* Wide equations and tables scroll inside themselves; the paper never scrolls sideways. */
+.paper { overflow-x: clip; }
+.exponent__caption { margin: 0 0 4px; font-size: 0.85rem; color: var(--ink-2); }
+.exponent__tick--limit { transform: translateX(-100%); white-space: nowrap; color: var(--ink); }
+.reopen { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 4; background: var(--sheet); color: var(--ink); border: 1px solid var(--rule); border-right: 0; border-radius: 8px 0 0 8px; padding: 14px 8px; cursor: pointer; box-shadow: var(--shadow-panel); }
+.reopen span { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.9rem; letter-spacing: 0.02em; }
+.reopen:hover { color: var(--query); }
+.inspector__modes .inspector__close { margin-left: auto; align-self: center; border: 1px solid var(--control); border-radius: 6px; padding: 3px 10px; margin-bottom: 4px; color: var(--ink-2); }
+.inspector__modes .inspector__close:hover { color: var(--ink); }
+.inspector__bar:empty { display: none; }
+.inspector--graph .inspector__bar { display: none; }
+@media (max-width: 900px) { .inspector--graph .inspector__bar { display: none; } }
+/* The full proof's own title and byline repeat the page header. */
+.manuscript--reconstruction > .source-block[data-l0="1"],
+.manuscript--reconstruction > .source-block[data-l0="3"] { display: none; }
+@media (max-width: 640px) {
+  .inspector__modes { padding: 4px 8px 0; flex-wrap: wrap; }
+  .inspector__modes button { padding: 6px 8px 7px; }
+  .inspector__modes .inspector__close { padding: 3px 8px; }
+  .graph .vocab__name, .graph .vocab__list { display: none; }
+  .graph .vocab__reached { flex: 1; white-space: normal; }
+}
+/* Nothing may widen the page past the screen (KaTeX's hidden MathML copy can). */
+html, body { overflow-x: clip; max-width: 100%; }
+.katex .katex-mathml { max-width: 100%; overflow: hidden; }

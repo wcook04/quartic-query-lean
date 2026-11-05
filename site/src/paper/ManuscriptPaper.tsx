@@ -180,7 +180,7 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, on
       {error && <div className="failed" role="alert"><p>This paper could not be opened: {error}</p></div>}
       {!ready && !error && <p className="pending" role="status">Loading the paper…</p>}
       {ready && sourceView && <p className="quiet">Manuscript source from this edition. Select a passage to inspect its evidence.</p>}
-      <div ref={root} className="manuscript" onClick={onClick} hidden={!ready} />
+      <div ref={root} className={`manuscript manuscript--${paper}`} onClick={onClick} hidden={!ready} />
     </>
   );
 }

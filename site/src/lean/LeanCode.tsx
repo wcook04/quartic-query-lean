@@ -46,23 +46,39 @@ interface Props {
   onOpen?: (fullName: string) => void;
   /** Lines to mark, numbered like `from`. */
   mark?: [number, number] | null;
+  /** Exact spans to highlight: a line (numbered like `from`) and UTF-16 columns within it. */
+  spans?: { line: number; from: number; to: number }[];
   label?: string;
 }
 
-export function LeanCode({ text, from = 1, links, self, onOpen, mark, label }: Props) {
+export function LeanCode({ text, from = 1, links, self, onOpen, mark, spans, label }: Props) {
   const lines = useMemo(() => lineTokens(text.replace(/\s+$/, "")), [text]);
   return (
     <pre className="lean" aria-label={label ?? "Lean source"} tabIndex={0}>
       <code>
         {lines.map((pieces, i) => {
           const n = from + i;
-          const marked = !!mark && n >= mark[0] && n <= mark[1];
+          const marked = (!!mark && n >= mark[0] && n <= mark[1]) || !!spans?.some((sp) => sp.line === n);
+          const lineSpans = spans?.filter((sp) => sp.line === n) ?? [];
+          let col = 0;
           const indent = /^ */.exec(pieces.map((p) => p.text).join(""))?.[0].length ?? 0;
           return (
             <span key={i} className={`lean__line${marked ? " is-marked" : ""}`}>
               <span className="lean__no" aria-hidden="true">{n}</span>
               <span className="lean__text" style={{ "--indent": indent } as CSSProperties}>
                 {pieces.map((p, j) => {
+                  const start = col;
+                  col += p.text.length;
+                  const hit = lineSpans.find((sp) => sp.from < col && start < sp.to);
+                  if (hit) {
+                    // Split the token at the span's edges so exactly the recorded text is marked.
+                    const a = Math.max(0, hit.from - start), b = Math.min(p.text.length, hit.to - start);
+                    return (
+                      <span key={j} className={`lk lk--${p.kind}`}>
+                        {p.text.slice(0, a)}<mark className="lean__hit">{p.text.slice(a, b)}</mark>{p.text.slice(b)}
+                      </span>
+                    );
+                  }
                   const typed = p.kind === "ident" && /^[A-Z]/.test(p.text);
                   const target = p.kind === "ident" ? links?.get(p.text) : undefined;
                   if (target && target !== self && onOpen)

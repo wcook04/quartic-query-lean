@@ -35,3 +35,4 @@
 /* Proof Reader resets buttons globally; scope the same reset to the graph (zero-specificity wrapper). */
 :where(.graph) button { background: transparent; border: 0; padding: 0; cursor: pointer; font: inherit; color: inherit; }
 .vocab button { padding: 0 2px; }
+.vocab__whole { flex: none; font-size: var(--fs-xs); color: var(--lit) !important; border: 1px solid var(--rule-strong) !important; border-radius: 4px; padding: 0 6px !important; }

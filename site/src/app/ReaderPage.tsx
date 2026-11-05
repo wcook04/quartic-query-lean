@@ -38,6 +38,11 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [readingPage, setReadingPage] = useState<number | null>(null);
   const [contents, setContents] = useState<ContentsRow[]>([]);
   const [lit, setLit] = useState<string[]>([]);
+  // Selections this reader has met in this edition and paper (this browser only).
+  const visitKey = `quartic:visited:${edition.permalink}:${paper}`;
+  const [visited, setVisited] = useState<string[]>(() => { try { return JSON.parse(localStorage.getItem(visitKey) ?? "[]"); } catch { return []; } });
+  useEffect(() => { try { setVisited(JSON.parse(localStorage.getItem(visitKey) ?? "[]")); } catch { setVisited([]); } }, [visitKey]);
+  const [progress, setProgress] = useState<{ total: number; visited: { count: number; cards: string[] }; cards: string[] } | null>(null);
   const ed = edition.pinnedOlder ? edition.permalink : undefined;
   const base: Route = { page: "read", paper, ed };
 
@@ -84,13 +89,24 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     else if (doc?.format === "pdf" && readingPage) q = { paper, page: readingPage };
     else if (readingLine) q = { paper, line: readingLine };
     if (!q) { setLit([]); return; }
-    (reader as any).proofFocus(q).then((f: any) => live && setLit(f.cards ?? []), () => live && setLit([]));
+    (reader as any).proofFocus(q).then((f: any) => {
+      if (!live) return;
+      setLit(f.cards ?? []);
+      const ids: string[] = (f.matches ?? []).map((m: any) => m.id);
+      setVisited((old) => {
+        const fresh = ids.filter((id) => !old.includes(id));
+        if (!fresh.length) return old;
+        const next = [...old, ...fresh];
+        try { localStorage.setItem(visitKey, JSON.stringify(next)); } catch { /* storage unavailable */ }
+        return next;
+      });
+    }, () => live && setLit([]));
     return () => { live = false; };
   }, [reader, paper, route.s, route.p, readingLine, readingPage]);
 
   const close = useCallback(() => {
     // Closing keeps the selection: the paper stays marked where the reader was.
-    go({ ...base, s: route.s, p: route.p, v: route.s || route.p ? "closed" : undefined });
+    go({ ...base, s: route.s, p: route.p, v: "closed" });
     requestAnimationFrame(() => {
       const block = document.querySelector<HTMLElement>(".paper .is-selected, .paper .pin.is-selected");
       const fallback = document.querySelector<HTMLElement>(".paper");
@@ -145,6 +161,13 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const f = face(paper);
   const download = downloads[paper];
   const keyed = rows.filter((r) => r.topic && meaningful(r));
+
+  useEffect(() => {
+    let live = true;
+    (reader as any).paperCardProgress({ paper, edition: edition.permalink, visited })
+      .then((g: any) => live && setProgress(g.status === "current" ? g : null), () => live && setProgress(null));
+    return () => { live = false; };
+  }, [reader, paper, edition.permalink, visited]);
 
   const here = sectionAt(contents, route.s && /^l(\d+)/.exec(route.s) ? Number(/^l(\d+)/.exec(route.s)![1]) : readingLine);
   const goSection = (r: ContentsRow) => go({ ...base, s: route.s, v: route.v, st: route.st, d: route.d, j: route.j, a: r.anchor }, true);
@@ -218,17 +241,22 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           )}
         </main>
 
+        {!open && wide && (
+          <button type="button" className="reopen" onClick={() => (route.s || route.p ? nav.backToPassage() : nav.openGraph())}>
+            <span>Lean graph</span>
+          </button>
+        )}
         {open && (
           <aside ref={aside} className={`inspector inspector--${mode}`} aria-label="The Lean proof and its evidence">
             <div className="inspector__modes" role="group" aria-label="What to show beside the paper">
               <button type="button" aria-pressed={mode === "graph" || mode === "path"} onClick={() => nav.openGraph()}>Graph</button>
               <button type="button" aria-pressed={mode === "lean"} disabled={!route.d && !lit[0]} onClick={() => nav.openLean(route.d ?? lit[0])}>Lean</button>
               <button type="button" aria-pressed={mode === "evidence"} disabled={!route.s && !route.p} onClick={nav.backToPassage}>Evidence</button>
+              <button type="button" className="inspector__close" onClick={close} aria-label="Close the Lean pane">
+                <span className="wide-only">Close</span><span className="narrow-only">Paper</span>
+              </button>
             </div>
             <div className="inspector__bar">
-              <button type="button" className="inspector__close" onClick={close}>
-                <span className="wide-only">Close</span><span className="narrow-only">Back to the paper</span>
-              </button>
               {route.v && route.v !== "graph" && route.v !== "path" && (route.s || route.p) && !(route.v === "statement" && route.s === `original/${route.st}`) && (
                 <button type="button" className="textbutton" onClick={nav.backToPassage}>
                   Return to {route.s?.startsWith("original/") ? statementName(route.s.slice(9)) : "the passage"}
@@ -239,7 +267,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             {mode === "graph" ? (
               <div className="inspector__graph">
                 <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
-                  <ProofPane edition={edition} lit={lit} selected={route.d ?? null} onSelect={nav.openLean} selectedEdge={route.e ?? null} onEdge={nav.openPath} />
+                  <ProofPane edition={edition} lit={lit} selected={route.d ?? null} onSelect={nav.openLean} selectedEdge={route.e ?? null} onEdge={nav.openPath}
+                    progress={progress} paperName={face(paper).tab} />
                 </Suspense>
                 <p className="inspector__note">
                   {lit.length ? `${lit.length} ${lit.length === 1 ? "card is" : "cards are"} tied to the passage you are reading.` : "No card on this map is tied to the passage at the reading line."}{" "}
