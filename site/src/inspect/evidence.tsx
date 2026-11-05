@@ -37,8 +37,8 @@ export function Axioms({ inspection, audit }: { inspection?: any; audit?: any })
     );
   }
   if (inspection?.status === "stale" || audit?.historical_observation)
-    return <p className="ev ev--gap">An earlier axiom report exists, but the Lean source has changed since. No current axiom report for this declaration.</p>;
-  return <p className="ev ev--gap">No axiom report for this declaration.</p>;
+    return <p className="ev quiet">An earlier axiom check exists, but the Lean source has changed since, so it is not shown.</p>;
+  return <p className="ev quiet">No axiom check is recorded for this declaration. Axioms are checked for the declarations compared with the papers.</p>;
 }
 
 export function Checks({ tie }: { tie: any }) {

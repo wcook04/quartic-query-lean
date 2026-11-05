@@ -3,6 +3,7 @@ import type { Edition } from "./edition";
 import { go, href, type Route } from "./router";
 import { PAPERS, SUPPLEMENT, face, statementName } from "./papers";
 import { NavContext, type Nav } from "../inspect/Nav";
+import { ReaderContext } from "../inspect/ReaderContext";
 import { PassagePanel } from "../inspect/PassagePanel";
 import { StatementPanel } from "../inspect/StatementPanel";
 import { LeanPanel } from "../inspect/LeanPanel";
@@ -181,6 +182,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   else if (query && route.v !== "closed") panel = <PassagePanel edition={edition} query={query} />;
 
   return (
+    <ReaderContext.Provider value={reader}>
     <NavContext.Provider value={nav}>
       <div className={`desk${open ? " desk--open" : ""}`}>
         <nav className="papers" aria-label="Papers">
@@ -282,6 +284,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
         )}
       </div>
     </NavContext.Provider>
+    </ReaderContext.Provider>
   );
 }
 

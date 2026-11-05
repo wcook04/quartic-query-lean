@@ -193,6 +193,8 @@ function PdfPage({ pdf, n, width, pins, texts, selected, onSelect, onPage }: {
       c.width = vp.width;
       c.height = vp.height;
       task = p.render({ canvasContext: c.getContext("2d")!, viewport: vp, canvas: c } as any);
+      // Leaving a page before it finishes cancels its render; that is expected.
+      task?.promise.catch(() => {});
     });
     return () => { live = false; task?.cancel(); };
   }, [visible, size, pdf, n]);

@@ -39,7 +39,7 @@ export function proofGraph(map: ProofMap): ArgGraph {
     if (isType(c)) continue;
     nodes.set(name, {
       ...blank, id: name, ref: name, kind: c.kind === "axiom" ? "assumption" : "declaration",
-      kindLabel: KIND_WORDS[c.kind] ?? "Definition", label: c.title.replace(/`/g, ""), rawName: name, declaration: name,
+      kindLabel: KIND_WORDS[c.kind] ?? "Definition", label: c.title.replace(/`/g, ""), rawName: name.split(".").pop(), declaration: name,
       shape: shapeOf(c), leanFill: c.kind === "axiom" ? undefined : "whole",
       status: c.kind === "axiom" ? "axiom" : "kernel_checked", origin: LEAN,
     });

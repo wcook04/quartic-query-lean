@@ -11,8 +11,9 @@ import "./tokens.css";
 import "./graph.css";
 
 const INSETS: Insets = { top: 10, right: 12, bottom: 10, left: 12 };
-const TILE_W = 134;
-const TILE_H = 64;
+// Wide enough for a three-line title and the short Lean name beneath it.
+const TILE_W = 196;
+const TILE_H = 86;
 
 interface Props {
   map: ProofMap;

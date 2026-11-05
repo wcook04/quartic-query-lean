@@ -883,7 +883,16 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
     if (opacity !== undefined) el.style.opacity = opacity < 1 ? String(Math.max(0, opacity)) : "";
   }
 
-  const viewport = (): Viewport => ({ width: sizeRef.current.width, height: sizeRef.current.height, insets: insetsRef.current });
+  // Quartic adaptation: when the resize observer has not yet reported (the 1×1 placeholder),
+  // measure the canvas directly, so framing and panning never work from a 1px viewport.
+  const viewport = (): Viewport => {
+    let { width, height } = sizeRef.current;
+    if ((width <= 1 || height <= 1) && wrapRef.current) {
+      const r = wrapRef.current.getBoundingClientRect();
+      if (r.width > 1 && r.height > 1) { width = r.width; height = r.height; sizeRef.current = { width, height }; }
+    }
+    return { width, height, insets: insetsRef.current };
+  };
 
   /** A camera leg along the smooth-zoom path (van Wijk and Nuij), eased in and out. */
   const leg = (from: View, to: View, start: number, dur: number, linear = false): CameraLeg => {

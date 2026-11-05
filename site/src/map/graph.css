@@ -36,3 +36,6 @@
 :where(.graph) button { background: transparent; border: 0; padding: 0; cursor: pointer; font: inherit; color: inherit; }
 .vocab button { padding: 0 2px; }
 .vocab__whole { flex: none; font-size: var(--fs-xs); color: var(--lit) !important; border: 1px solid var(--rule-strong) !important; border-radius: 4px; padding: 0 6px !important; }
+/* Readable cards: a calmer title, the short Lean name in its own quiet line. */
+.graph .tree .card .card__ctitle { line-height: 1.22; letter-spacing: 0.005em; }
+.graph .card__craw { color: var(--ink-3); margin-top: 3px; }

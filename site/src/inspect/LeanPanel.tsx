@@ -24,13 +24,24 @@ function edges(node: any, side: "uses" | "used_by"): Edge[] {
 
 export function LeanPanel({ edition, name }: { edition: Edition; name: string }) {
   const data = useAsync(async () => {
-    const [d, reverse] = await Promise.all([edition.reader.fromDeclaration(name), edition.reader.resource("selection/reverse.json")]);
-    return { d, linked: new Set(Object.keys(reverse)) };
+    const [d, reverse, map] = await Promise.all([edition.reader.fromDeclaration(name), edition.reader.resource("selection/reverse.json"),
+      (edition.reader as any).proofMap().catch(() => null)]);
+    const titles: Record<string, string> = {};
+    let kind: string | null = null;
+    if (map?.currentness === "current") {
+      for (const [n, c] of Object.entries<any>(map.cards)) titles[n] = c.title;
+      kind = map.cards[name]?.kind ?? null;
+    }
+    if (!kind && (map as any)?.currentness === "current") {
+      const path = await (edition.reader as any).proofPathSource?.(name).catch(() => null);
+      kind = path?.kind ?? null;
+    }
+    return { d: { ...d, kind }, linked: new Set(Object.keys(reverse)), titles };
   }, [edition, name]);
-  return <Loaded value={data} what="Lean declaration">{({ d, linked }) => <Declaration d={d} linked={linked} />}</Loaded>;
+  return <Loaded value={data} what="Lean declaration">{({ d, linked, titles }) => <Declaration d={d} linked={linked} titles={titles} />}</Loaded>;
 }
 
-function Declaration({ d, linked }: { d: any; linked: Set<string> }) {
+function Declaration({ d, linked, titles }: { d: any; linked: Set<string>; titles: Record<string, string> }) {
   const nav = useNav();
   const src = d.source ?? {};
   const uses = useMemo(() => edges(src, "uses"), [src]);
@@ -55,7 +66,8 @@ function Declaration({ d, linked }: { d: any; linked: Set<string> }) {
   return (
     <article className="panel panel--lean" aria-labelledby="ln-h">
       <header className="panel__head">
-        <h2 id="ln-h" className="panel__title"><code>{shortName(d.name)}</code></h2>
+        <h2 id="ln-h" className="panel__title">{titles[d.name] ? titles[d.name].replace(/`/g, "") : <code>{shortName(d.name)}</code>}</h2>
+        {titles[d.name] && <p className="panel__raw"><code>{shortName(d.name)}</code></p>}
         <p className="panel__where">
           {src.kind ? `${src.kind} in ` : "In "}<code>{src.module}</code>, lines {src.lines?.[0]}–{src.lines?.[1]}.{" "}
           {src.url && <a href={src.url} target="_blank" rel="noopener noreferrer">Source on GitHub</a>}
@@ -63,7 +75,9 @@ function Declaration({ d, linked }: { d: any; linked: Set<string> }) {
       </header>
 
       <p className="cmp__actions"><button type="button" className="button button--small" onClick={() => nav.openGraph(d.name)}>Show it in the graph</button></p>
-      <Neighbourhood self={d.name} uses={uses} users={users} linked={linked} />
+      <StatedWith list={uses.filter((e) => e.kind === "type" && PROJECT.test(e.name))} titles={titles} />
+      <Neighbours title={d.kind === "theorem" || d.kind === "lemma" || /^(private |protected )?(theorem|lemma)\s/m.test(src.text ?? "") ? "Its proof uses" : "Its definition uses"} empty="Nothing else in this project." list={uses.filter((e) => e.kind !== "type")} linked={linked} titles={titles} />
+      <Neighbours title="Used by" empty="No other declaration in this project uses it." list={users} linked={linked} titles={titles} />
 
       {src.text ? (
         <section>
@@ -99,58 +113,67 @@ function Declaration({ d, linked }: { d: any; linked: Set<string> }) {
   );
 }
 
-const SHOW = 7;
-
-function Neighbourhood({ self, uses, users, linked }: { self: string; uses: Edge[]; users: Edge[]; linked: Set<string> }) {
-  const [all, setAll] = useState(false);
-  const rank = (list: Edge[]) => {
-    const project = list.filter((e) => PROJECT.test(e.name));
-    project.sort((a, b) => Number(linked.has(b.name)) - Number(linked.has(a.name)));
-    return { project, outside: list.length - project.length };
-  };
-  const right = rank(uses), left = rank(users);
-  const r = all ? right.project : right.project.slice(0, SHOW);
-  const l = all ? left.project : left.project.slice(0, SHOW);
-  const rows = Math.max(r.length, l.length, 1);
-  const H = rows * 44;
+/** The definitions a statement is written with: a compact row of names, not proof steps. */
+function StatedWith({ list, titles }: { list: Edge[]; titles: Record<string, string> }) {
+  const nav = useNav();
+  if (!list.length) return null;
   return (
-    <section className="hood" aria-labelledby="hood-h">
-      <h3 id="hood-h">What it uses, and what uses it</h3>
-      <p className="quiet">Edges reported by Lean, nearest paper-cited declarations first. A dot marks one that a paper passage cites. A name in the Lean below is a link only when it matches exactly one of these recorded edges.</p>
-      <div className="hood__map" style={{ height: H }}>
-        <svg className="hood__wires" viewBox={`0 0 100 ${H}`} preserveAspectRatio="none" aria-hidden="true">
-          {l.map((e, i) => <path key={"l" + e.name} d={`M34 ${(i + 0.5) * 44} C42 ${(i + 0.5) * 44}, 42 ${H / 2}, 50 ${H / 2}`} className={`wire wire--${e.kind}`} />)}
-          {r.map((e, i) => <path key={"r" + e.name} d={`M50 ${H / 2} C58 ${H / 2}, 58 ${(i + 0.5) * 44}, 66 ${(i + 0.5) * 44}`} className={`wire wire--${e.kind}`} />)}
-        </svg>
-        <ul className="hood__col hood__col--left" aria-label="Declarations that use it">
-          {l.map((e) => <Node key={e.name} e={e} linked={linked.has(e.name)} />)}
-          {l.length === 0 && <li className="quiet">No project declaration uses it.</li>}
-        </ul>
-        <div className="hood__self" style={{ top: H / 2 }}><code>{shortName(self).split(".").pop()}</code></div>
-        <ul className="hood__col hood__col--right" aria-label="Declarations it uses">
-          {r.map((e) => <Node key={e.name} e={e} linked={linked.has(e.name)} />)}
-          {r.length === 0 && <li className="quiet">It uses no other project declaration.</li>}
-        </ul>
-      </div>
-      <p className="hood__foot">
-        {left.project.length} project declarations use it; it uses {right.project.length}
-        {right.outside ? `, plus ${right.outside} from Mathlib and other libraries` : ""}.{" "}
-        {(left.project.length > SHOW || right.project.length > SHOW) && (
-          <button type="button" className="textbutton" onClick={() => setAll(!all)}>{all ? "Show the nearest only" : "Show all of them"}</button>
-        )}
+    <section className="nbs">
+      <h3>Its statement is written with</h3>
+      <p className="chips">
+        {list.map((e) => (
+          <button key={e.name} type="button" className="chip" onClick={() => nav.openLean(e.name)} title={titles[e.name]?.replace(/`/g, "") ?? e.name}>
+            <code>{shortName(e.name).split(".").pop()}</code>
+          </button>
+        ))}
       </p>
     </section>
   );
 }
 
-function Node({ e, linked }: { e: Edge; linked: boolean }) {
+/** What a declaration builds on, or what builds on it: paper-linked cards first, by their
+ *  plain titles; helper lemmas and library facts folded into counts the reader can open. */
+function Neighbours({ title, empty, list, linked, titles }: { title: string; empty: string; list: Edge[]; linked: Set<string>; titles: Record<string, string> }) {
   const nav = useNav();
-  return (
+  const [helpers, setHelpers] = useState(false);
+  const project = list.filter((e) => PROJECT.test(e.name));
+  const cards = project.filter((e) => titles[e.name] || linked.has(e.name));
+  const rest = project.filter((e) => !cards.includes(e));
+  const outside = list.length - project.length;
+  const Item = ({ e }: { e: Edge }) => (
     <li>
-      <button type="button" className={`node${linked ? " node--linked" : ""}`} onClick={() => nav.openLean(e.name)} title={`${e.name} (in the ${KIND_WORD[e.kind]})`}>
-        <span className="node__name">{shortName(e.name).split(".").pop()}</span>
-        <span className="sr-only">, used in the {KIND_WORD[e.kind]}{linked ? ", cited by a paper" : ""}</span>
+      <button type="button" className="nb" onClick={() => nav.openLean(e.name)} title={e.name}>
+        {titles[e.name] ? (
+          <>
+            <span className="nb__title">{titles[e.name].replace(/`/g, "")}</span>
+            <span className="nb__meta"><code>{shortName(e.name).split(".").pop()}</code></span>
+          </>
+        ) : (
+          <span className="nb__title"><code>{shortName(e.name).split(".").pop()}</code></span>
+        )}
       </button>
     </li>
+  );
+  return (
+    <section className="nbs">
+      <h3>{title}</h3>
+      {list.length === 0 ? <p className="quiet">{empty}</p> : (
+        <>
+          {cards.length > 0 && <ul className="nb__list">{cards.map((e) => <Item key={e.name} e={e} />)}</ul>}
+          {(rest.length > 0 || outside > 0) && (
+            <p className="quiet nb__more">
+              {rest.length > 0 && (
+                <button type="button" className="textbutton" aria-expanded={helpers} onClick={() => setHelpers(!helpers)}>
+                  {helpers ? "Hide" : "Show"} {rest.length} helper {rest.length === 1 ? "lemma" : "lemmas"}
+                </button>
+              )}
+              {rest.length > 0 && outside > 0 && " · "}
+              {outside > 0 && `${outside} ${outside === 1 ? "fact" : "facts"} from Mathlib and other libraries`}
+            </p>
+          )}
+          {helpers && <ul className="nb__list nb__list--helpers">{rest.map((e) => <Item key={e.name} e={e} />)}</ul>}
+        </>
+      )}
+    </section>
   );
 }
