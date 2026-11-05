@@ -22,7 +22,7 @@
 \node at (6.75,0) {$\cdots$};
 \node[listed] (end) at (7.46,0) {$p_t$};
 \node at (6.30,-0.73) {$t\le T=O(\log m)$ pivots};
-\draw[flow] (last.east) -- node[above=4pt, align=center] {Weighted pivot\\comparisons} (first.west);
+\draw[flow] (last.east) -- node[above=4pt, align=center] {Sample pivots\\by comparisons} (first.west);
 \node[draw=win, fill=win!5, rounded corners=2pt, align=center,
       minimum height=9mm, anchor=west] (check) at (10.35,0) {$K$ local tests};
 \draw[flow] (end.east) -- node[above=4pt, align=center] {Check each\\listed column} (check.west);
@@ -30,9 +30,9 @@
 \node[align=center, font=\small] at (6.30,-1.55)
   {On a yes-input the list contains\\the winner with probability $>0.99$.};
 \node at (6.10,-3.05) {$\displaystyle
-  \underbrace{\widetilde O_k(\sqrt m)}_{\text{draw the pivots}}
+  \underbrace{\widetilde O_k(\sqrt m)}_{\text{queries to draw pivots}}
   \quad+\quad
-  \underbrace{\widetilde O(\sqrt K)}_{\text{check the list}}
+  \underbrace{\widetilde O(\sqrt K)}_{\text{queries to check the list}}
   \quad=\quad\widetilde O_k(\sqrt m),
   \qquad K=O_k(m\log^3m).$};
 \end{tikzpicture}
