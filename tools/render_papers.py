@@ -107,7 +107,8 @@ HEADER_EXTRA = {
 LUA_TABLE = r"""
 function Link(el)
   if pandoc.utils.stringify(el.content) == el.target and el.target:match("^https://github.com/") then
-    el.content = {pandoc.Str("Online source")}
+    local repository = el.target:match("^https://github%.com/([%w_.%-]+/[%w_.%-]+)")
+    if repository then el.content = {pandoc.Str("github.com/" .. repository)} end
   end
   return el
 end

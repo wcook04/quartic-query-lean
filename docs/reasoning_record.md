@@ -7,7 +7,7 @@ Will Cook · November 2026
 <a id="record-reading-routes"></a>
 
 <a id="record-reading-guide"></a>
-The construction in §§1–7 uses [three properties of one address bit](#forr_bundle). Taking them as given leads to the [fixed-parameter separation](#ROOT-RATIO). [Section 8](#forr_target) starts from the Walsh matrix and proves the classical hardness estimate directly, including its dependence on $k$ for the [growing family](#ROOT-GROWING-K). [Appendix A](#R3-A-RESULT) proves the universal quartic upper bound. A [shorter proof](expert_companion.md) and a [worked introduction](exposition.md) are available separately.
+Use the [three properties of one address bit](#forr_bundle) to build the total function in §4. The [quantum list](#upper-tournament-statement) and the [classical planting argument](#CL-first-difference) give the two bounds compared in §7. With the universal upper bound of [Appendix A](#R3-A-RESULT), they determine the [optimal power](#ROOT-NO-SMALLER). To prove the address hardness itself, [§8](#forr_target) starts afresh from the Walsh matrix. Its dependence on $k$ also gives the [single growing family](#ROOT-GROWING-K). A [shorter proof](expert_companion.md) and a [worked introduction](exposition.md) are available separately.
 
 \setcounter{tocdepth}{2}
 \tableofcontents
@@ -60,7 +60,7 @@ The powers in (1.2) have ratio $4-2/k$. Already $k=3$ excludes the proposed univ
 
 <a id="ROOT-ARCHITECTURE"></a>
 <!-- passage:ROOT-ARCHITECTURE -->
-To obtain (1.2), let an all-one column certify a win by exhibiting a zero in every rival. We could search for that column by verifying candidates inside quantum search. But if one candidate presents $\widetilde O(m)$ possible defects, this takes $\sqrt m$ candidate checks at $\widetilde O(\sqrt m)$ queries each. The product already exceeds our quantum budget. The construction gives us a cheaper way to choose whom to verify.
+To obtain (1.2), let an all-one column certify a win by exhibiting a zero in every rival. We could search for that column by verifying candidates inside quantum search. But if one candidate presents $\widetilde O(m)$ possible defects, this takes $\sqrt m$ candidate checks at $\widetilde O(\sqrt m)$ queries each. The product already exceeds our quantum budget. We can afford a short list with false candidates, provided it includes the winner with high probability whenever one exists. This weaker task admits cheaper comparisons.
 
 Consider the four columns in Figure 1. Each contains four bits and, below them, four cells indexed by two-bit words. The two auxiliary inputs of column 1 have answers $1,0$. Open cell $10$ of that column. Its first pointer says to inspect row 1 of column 2, where we find a zero; the other two find zeros in row 2 of column 3 and row 3 of column 4. A pointer coming *back* from column 3 to row 3 of column 1 finds a one. In fact every row it might have chosen contains a one.
 
@@ -888,7 +888,7 @@ Since the outputs are Boolean,
 \le\mathbb E\left|T(Y^{(1)})-T(Y^{(0)})\right|
 =\Pr[T(Y^{(1)})\ne T(Y^{(0)})].
 \]
-The preceding first-difference implication and a union bound therefore give
+On the dummy board, a query to the erased zero or to the filled cell is therefore necessary for different outputs. A union bound gives
 <!-- claim:eq-18 -->
 \[
 \begin{aligned}
@@ -900,7 +900,8 @@ The preceding first-difference implication and a union bound therefore give
 \end{aligned}
 \tag{6.2}
 \]
-Inequality (6.2) is the absolute-value form of the preprint's one-sided first-difference comparison. Its second term counts any visit to the cell, which bounds the event of seeing a changed cell bit (some planted bits can equal their blank values). Every event on the right concerns the dummy run, whose law is independent of \(I\).
+All probabilities on the right can be evaluated on the dummy run, whose law is independent of $I$. A visit to the planted cell suffices for the bound even if the queried bit happens to keep its blank value. The blank-array argument in Aaronson, Ben-David and Kothari has only the cell term. Erasing a zero here gives the tree an additional way to distinguish the boards. [Aaronson, Ben-David and Kothari, Lemma 6, proof, pp. 12–13][ABK2019].
+
 <!-- /passage:CL-first-difference -->
 
 ### 6.3. Discoveries and the erased zero
@@ -946,7 +947,7 @@ In particular the erased-zero probability is at most $2G/m^2$. The original earl
 
 ### 6.4. A capped simulator for the planted cell
 
-A query to a certificate cell specifies its address before reading a bit of the cell. We will regard that address as a prediction of the $r$ hidden answers. The following lemma bounds one such prediction; its proof is in §6.5.
+A query to a certificate cell specifies its address before reading a bit of the cell. We will regard that address as a prediction of the $r$ hidden answers. Fixing a column and a query time will give one prediction. To bound its success we first need a product estimate that allows adaptive queries.
 
 <a id="CL-direct-product-statement"></a>
 <!-- passage:CL-direct-product-statement -->
@@ -981,7 +982,7 @@ Apply Lemma 6.1 to independent \(U_1,\ldots,U_r\sim\mu\): if an algorithm makes 
 \[
 \Pr[\widehat s=(P(U_1),\ldots,P(U_r))]\le(2/3)^r.
 \]
-The hard law can bias each answer bit. Its one-input success bound is all the product needs.
+This uses the one-input success bound even when $\mu$ biases the answer bit. It requires the predictor to obey the cap on every run. The board tree has only the global budget $G$.
 
 <!-- /passage:CL-address-guess -->
 
@@ -998,32 +999,34 @@ Let \(N_i\) be the number of queries made during the complete dummy run to the s
 The threshold bounds the total number of queries to all \(r\) strings of a column, so in particular a nonheavy run uses at most \(L\) queries to each of those strings.
 <!-- /passage:CL-heavy -->
 
-<a id="CL-simulator"></a>
-<!-- passage:CL-simulator -->
-Fix a column $i$ and a query time $q\le G$. Give a simulator $r$ unknown target strings from $\mu$, together with the zero locations $J_1,\ldots,J_m$ and the address strings of every other column. This outside information is jointly independent of the target tuple. Put the unknown strings in column $i$ and simulate the tree on the dummy board. An outside query can be answered from the supplied data or the blank cells. For a query to a target string, forward the query and charge one, stopping *before* an $(L+1)$-st such call.
-
-At time $q$ inspect the coordinate the tree proposes to read. If it belongs to $B_{i,s}$, output $s$ without reading the bit. If the simulation has already stopped, or the proposed coordinate is elsewhere, output a fixed default vector. The time $q$ counts all proposed board queries; the cap $L$ counts only forwarded queries.
-<!-- claim:def-simulator -->
-
-Every run of this predictor makes at most $L$ queries to the target strings in total, hence at most $L$ to each. Lemma 6.1 gives an unconditional success probability at most $(2/3)^r$.
-
-<!-- /passage:CL-simulator -->
-
 <a id="CL-joint-event"></a>
 <!-- passage:CL-joint-event -->
-With the general parameters and the hard distribution of §6.1, suppose the complete dummy run makes column \(i\) nonheavy and proposes a query in \(B_{i,s_i}\) at time \(q\). Then every preceding prefix uses at most \(L\) target queries, so the simulator follows the original run without aborting and outputs \(s_i\). Hence the joint event is contained in the simulator's success event:
+**Fixed-column, fixed-time prediction.** Fix $i\in[m]$ and $q\in\{1,\ldots,G\}$ before drawing the board. We claim
 <!-- claim:eq-21 -->
 \[
 \Pr[i\text{ is nonheavy and query }q\text{ lies in }B_{i,s_i}]
 \le(2/3)^r.
 \tag{6.5}
 \]
-Nonheaviness enters as part of the event inside the probability, so the target inputs keep their original distribution. The simulator never tests whether the complete run is nonheavy: that stronger event implies the needed prefix cap and is chosen to match the complete-run heavy-column bound (6.4).
+A run that stops before its $q$-th query does not contribute. Why keep nonheaviness inside the event? The tree decides whether to spend another query in column $i$ *after* seeing earlier answers there. For example, if it stops as soon as one answer settles the problem but continues on an ambiguous answer, the light runs select the easy cases. [Appendix B.3](#CL-conditioning-counterexample) gives a one-query instance with conditional success one. We need a predictor that operates on the original independent inputs.
+
 <!-- /passage:CL-joint-event -->
+
+<a id="CL-simulator"></a>
+<!-- passage:CL-simulator -->
+*Proof.* Give the predictor $r$ independent target strings $U_h\sim\mu$. Fill column $i$ with them. Supply the zero locations of all columns, the address strings of every other column, and the blank cells. Together these data are independent of the target tuple and specify the rest of the dummy board.
+
+Replay the queries *before time $q$*. Forward a query to a target string if fewer than $L$ target queries have been forwarded, and otherwise abort. Answer every other query from the supplied data. At time $q$ inspect just the proposed coordinate: if it lies in $B_{i,s}$, output $s$ without reading the bit. Output a fixed default vector on abort, early termination, or any other proposal. Thus $q$ counts all proposed board queries, while $L$ caps the forwarded target queries in total.
+<!-- claim:def-simulator -->
+
+On every run each target has been queried at most $L$ times, so (6.3) bounds the predictor’s success by $(2/3)^r$. On the joint event in (6.5), even the *complete* dummy run uses at most $L$ target queries. The replay therefore agrees up to time $q$ and outputs $s_i$. The predictor can also succeed on other runs, including by its default guess. Containment of the joint event in its success event proves (6.5). $\square$
+
+<!-- /passage:CL-simulator -->
 
 <a id="CL-cell-union"></a>
 <!-- passage:CL-cell-union -->
-If the dummy run visits the true cell of a nonheavy column \(i\), one of its at most \(G\) query times witnesses that visit, so a union bound of (6.5) over the times gives probability at most \(G(2/3)^r\) for each fixed \(i\). We average over the independent uniform \(I\) and then add (6.4):
+For a fixed $i$, any nonheavy visit to the true cell has a witness among the $G$ query times. Union over these times, average over the independent uniform column $I$, and add the heavy-column bound (6.4). This gives
+
 <!-- claim:eq-22 -->
 \[
 \Pr[T\text{ on }Y^{(0)}\text{ queries a bit of }B_{I,s_I}]
@@ -1036,14 +1039,13 @@ To see the cancellation, let $E_{iq}$ be the joint event in (6.5). The contribut
 \le\frac1m\sum_{i=1}^mG(2/3)^r=G(2/3)^r.
 \]
 
-A union bound tolerates repeated cell visits, and when \(G=0\) the union of query-time events is empty.
+Thus query times cost a factor $G$; the column index costs no factor because it is sampled uniformly. When $G=0$ there is no query time to consider.
 <!-- /passage:CL-cell-union -->
 
 ### 6.5. Proof of the separate-cap direct product
 
-A query can reduce the uncertainty in a single input. The separate cap limits how much uncertainty can be removed from that input, whatever happens to the others. To make that observation multiplicative in an adaptive tree, keep the *mass of correct answers* in each branch. The two possible answers partition a weight without any need to condition on the choice of a later query.
+Fix the coins and the independent outside data, leaving a deterministic predictor on $r$ independent inputs. Its guesses for the $r$ answers can be correlated: the next input to inspect and the entire output word may depend on the same history. Fix a transcript up to some node. The recorded answers determine every query the tree made on the way there, including which input it chose next. A tuple reaches that node exactly when each input agrees with its own recorded answers. Thus the compatible tuples form a product set, and their unnormalized weight factors even on a branch of weight zero. The induction will bound the correct mass there by a product of one-input values, each with its own remaining allowance.
 
-Fix the coins and the independent outside data. The resulting deterministic tree still obeys its $r$ separate caps; the input law is $\mu^{\otimes r}$. The following argument also works with different remaining caps on the different inputs.
 <a id="CL-weighted-values"></a>
 <!-- passage:CL-weighted-values -->
 
@@ -1094,18 +1096,18 @@ every branch satisfies
 \tag{6.8}
 \]
 
-We argue by induction on $T$. At a leaf with output $s$, finite
-distributivity factors the left side into
-$\prod_h\sum_{x\in D:P(x)=s_h}\nu_h(x)$, and each factor is bounded by
-$W_{c_h}(\nu_h)$. At a query to coordinate $a$ of input $h$ we have
-$c_h>0$, and we split the success sum by the answer $b$. In that branch we
-replace only $\nu_h$ by $\nu_{h,a,b}$ and only $c_h$ by $c_h-1$; the
-subtrees obey these new allowances, so induction bounds their two successes
-by the corresponding products. Since every factor other than the $h$-th is
-the same in both, factoring out these common nonnegative factors leaves the
-sum $W_{c_h-1}(\nu_{h,a,0})+W_{c_h-1}(\nu_{h,a,1})$, which (6.7) bounds by
-$W_{c_h}(\nu_h)$. This proves (6.8). Taking $\nu_h=\mu$ and $c_h=L$
-recovers (6.3), since the one-input hypothesis gives $W_L(\mu)\leq\beta$.
+At a leaf with output $s$, the success mass is exactly
+\[
+\prod_h \sum_{x\in D:P(x)=s_h}\nu_h(x)\le \prod_h W_{c_h}(\nu_h).
+\]
+For the induction step, suppose $T$ queries coordinate $a$ of input $h$, so $c_h>0$. On answer $b$, only the $h$-th factor changes: the new weight is $\nu_{h,a,b}(x)=\nu_h(x)\mathbf1_{\{x_a=b\}}$ and the allowance is $c_h-1$. Apply the induction hypothesis to both subtrees and add. Their combined success mass is at most
+\[
+\left(\prod_{j\ne h}W_{c_j}(\nu_j)\right)
+\bigl(W_{c_h-1}(\nu_{h,a,0})+W_{c_h-1}(\nu_{h,a,1})\bigr)
+\le \prod_jW_{c_j}(\nu_j)
+\]
+by (6.7). Each subtree was free to spend its next query on a different input. The only factor charged at their parent is the one actually queried there. This proves (6.8). At the root take every $\nu_h=\mu$ and $c_h=L$. Since $W_L(\mu)\le\beta$, the product is at most $\beta^r$.
+
 <!-- /passage:CL-weighted-product -->
 
 <a id="CL-independent-information"></a>
@@ -1284,7 +1286,7 @@ R(f)\leq K(1+Q(f))^\alpha.
 \]
 The construction uses a finite nonempty set of input coordinates, and a bijection with \([n]\), where \(n\geq1\) is its cardinality, preserves both query complexities: we rename each queried coordinate and leave every answer, probability and query count unchanged. Consequently the structured function is also a counterexample among the total functions \(\{0,1\}^n\to\{0,1\}\) quantified in (7.4).
 
-We have proved that every \(0\leq\alpha<4\) fails the universal bound, and the defining set for \(\alpha_{\mathrm{tot}}\) contains only exponents with \(\alpha\geq0\). Appendix A proves that four belongs to that set. Hence every member of the set is at least four and four is a member, so four is its minimum and therefore its infimum.
+Thus every $0\le\alpha<4$ fails on a total Boolean function. [Appendix A](#R3-A-RESULT) gives one absolute constant for the power four on all such functions. Four is therefore the minimum in (1.1), and $\alpha_{\mathrm{tot}}=4$.
 
 The proof chooses the parameters in the order
 \[
@@ -1999,7 +2001,7 @@ Suppose $D$ does not exceed the stated bound. Use the error reduction of §8.9 w
 
 \Needspace{12\baselineskip}
 
-For fixed $k$, the right side of (8.39) exceeds $m^{1-1/k}/(\log_2m)^2$ for all sufficiently large $m$; [Appendix C.4](#forr_threshold) gives the sufficient threshold $t\ge13669k^2$. This supplies the one-input allowance used to hide the planted certificate.
+For fixed $k$, the right side of (8.39) exceeds $m^{1-1/k}/(\log_2m)^2$ for all sufficiently large $m$; [Appendix C.4](#forr_threshold) gives the sufficient threshold $t\ge13669k^2$. For fixed $k$ this is precisely the allowance [used in the planting proof](#CL-forrelation-input). For growing $k$ one uses (8.39) itself; [Appendix C.2](#record-schedule-proof) carries both query bounds along that schedule.
 
 ## Conclusion
 
@@ -4426,7 +4428,7 @@ Section and theorem locators refer to the editions identified below. Source comp
 
 <a id="ref-OpenAI2026"></a>
 
-- OpenAI. *A Nearly Quartic Separation Between Randomized and Quantum Query Complexity*. 2026. [Online source](https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf). Preprint dated 5 October 2026.
+- OpenAI. *A Nearly Quartic Separation Between Randomized and Quantum Query Complexity*. 2026. [github.com/openai/math](https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf). Preprint dated 5 October 2026.
 
 <a id="ref-BDW02"></a>
 

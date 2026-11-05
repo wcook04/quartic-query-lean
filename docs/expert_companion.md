@@ -20,7 +20,7 @@ Start with $m$ strings of $m$ bits, arranged in columns as in earlier pointer fu
 
 Take $P$ to be $k$-fold Forrelation on $k$ blocks of $m$ bits. At fixed $k$ a quantum algorithm can decode a promised address in polylogarithmically many queries. To compare two columns it follows just the pointers they direct at each other. When the winner's address is decoded correctly, its pointer reaches a zero. Even if the rival decodes the wrong address, its return pointer reads a one. Such comparisons give a short list of candidates in $\widetilde O_k(\sqrt m)$ queries. To check a candidate, search for a bad pointer, a zero in its own column, or a fault in the circuit transcripts certifying its address. The circuit checks the promise and value of $P$ with $\widetilde O_k(m)$ gates, so verification costs another $\widetilde O_k(\sqrt m)$ queries.
 
-On the classical side even one promised instance of $P$ can require $\widetilde\Omega_k(m^{1-1/k})$ queries [@BansalSinha2021]. A query to the winning cell predicts all the answers in its address. Hiding that cell in a random column supplies a further factor of $m$. Up to logarithms, the quantum upper and randomized lower bounds are $(m,m^{3-1/k})$ for the balanced AND–OR cheat sheets using the same $P$ [@ABK2016, §3], and $(\sqrt m,m^{2-1/k})$ here. The classical bound loses a factor of $m$, yet the separation exponent rises from $3-1/k$ to $4-2/k$. Already $k=3$ excludes the cube.
+On the classical side even one promised instance of $P$ can require $\widetilde\Omega_k(m^{1-1/k})$ queries [@BansalSinha2021]. A query to the winning cell predicts all the answers in its address. Hiding that cell in a random column supplies a further factor of $m$. Up to logarithms, the quantum upper and randomized lower bounds are $(m,m^{3-1/k})$ for the balanced AND–OR cheat sheets using the same $P$ [@ABK2016, §3], and $(\sqrt m,m^{2-1/k})$ here. The classical bound loses a factor of $m$, but measuring $m^{2-1/k}$ in powers of $\sqrt m$ doubles its exponent to $4-2/k$. Already $k=3$ excludes the cube.
 
 **Theorem 1** (OpenAI [@OpenAI2026, Theorem 1.1], with explicit bounds from this reconstruction). *For each integer $k\ge2$ there are total Boolean functions $F_{k,m}$ indexed by powers of four $m\ge4$ such that, for a constant $C_k$ and $\ell=\log_2m$,*
 $$
@@ -33,7 +33,7 @@ $$
 
 ## 2. The certificate
 
-In addition to its string $X_i\in\{0,1\}^m$, column $i\in[m]$ holds $r=20\log_2m$ inputs $A_{i,1},\ldots,A_{i,r}$ to $P$, and one certificate cell $B_{i,s}$ for each $s\in\{0,1\}^r$. Even with one cell for every possible address there are just $2^r=m^{20}$ cells per column.
+In addition to its string $X_i\in\{0,1\}^m$, column $i\in[m]$ holds $r=20\log_2m$ inputs $A_{i,1},\ldots,A_{i,r}$ to $P$ and $2^r=m^{20}$ certificate cells $B_{i,s}$, one for each address $s\in\{0,1\}^r$.
 
 A certificate has to do more than point to zeros. The address itself could be false, or one of the partial-function answers could be undefined. Fix an exact fan-in-two Boolean circuit $\mathcal C$ with two outputs, a domain bit and the value of $P$ on its domain. Each cell holds a proposed evaluation of $\mathcal C$ for each address input, one bit per non-input gate. It also holds one $\ell$-bit row pointer $p_{i,s,j}$ into each column $j\ne i$. Every pointer word names a row.
 
@@ -120,7 +120,7 @@ Once the list is drawn, decode a fresh address for each listed column and search
 
 On a one-input, listing the winner and decoding its address correctly suffice for acceptance, since every test there passes. Rejection therefore has probability at most (7) plus $\varepsilon$. On a zero-input the tournament may return any list at all: comparison never reads a transcript, and a column with false transcripts might beat every rival. But every listed column fails some test at *every* address (§2). Conditional on the list, the fresh searches give false-acceptance probability at most $T\varepsilon$. Both errors are below $1/3$.
 
-The cost of checking the list is $O(T(c+\ell\sqrt K\log T))$, including fresh address decoding. With $T=O(\ell)$, $c=O_k(\ell\log\ell)$ and $K=O_k(m\ell^3)$, this and the tournament cost sum to at most $C_k\sqrt m\,\ell^6$. The number of candidates sets the first square-root cost and the size of a single certificate sets the second.
+The cost of checking the list is $O(T(c+\ell\sqrt K\log T))$, including fresh address decoding. With $T=O(\ell)$, $c=O_k(\ell\log\ell)$ and $K=O_k(m\ell^3)$, this and the tournament cost sum to at most $C_k\sqrt m\,\ell^6$. In each comparison the quantum algorithm decoded two addresses to read just one pointer from each cell. How often can a classical algorithm reach the winning cell when its very first query there must specify the entire address?
 
 \Needspace{22\baselineskip}
 
@@ -128,13 +128,13 @@ The cost of checking the list is $O(T(c+\ell\sqrt K\log T))$, including fresh ad
 
 ### 4.1 Planting one certificate
 
-For the **dummy input** $Y^{(0)}$, choose the row $J_i$ of the sole zero in $X_i$ independently and uniformly in each column. Draw all address inputs independently from a law $\mu$ on the promise of $P$, independently also of the zero positions, and set every cell bit to zero. Every column loses. Choose $I$ uniformly and independently of the entire dummy input. For the **planted input** $Y^{(1)}$, erase the zero in column $I$ and fill its true cell $B_{I,s_I}$ with the correct transcripts and the pointers $J_j$ to the other zeros. Column $I$ wins.
+For the **dummy input** $Y^{(0)}$, choose the row $J_i$ of the sole zero in $X_i$ independently and uniformly in each column. Draw the address inputs independently of one another and of the zero positions, using a common law $\mu$ on the promise of $P$. We will choose $\mu$ to make even one address bit hard to predict. Set every cell bit to zero. Every column loses. Choose $I$ uniformly and independently of the entire dummy input. For the **planted input** $Y^{(1)}$, erase the zero in column $I$ and fill its true cell $B_{I,s_I}$ with the correct transcripts and the pointers $J_j$ to the other zeros. Column $I$ wins.
 
 ![One draw of the coupled inputs, with $I=3$. All of the address problems have the same inputs in the two panels. The planted winner differs from the corresponding losing column only in its bit strip and its addressed cell.](figures/expert_planted.svg){width=100%}
 
 Run a deterministic tree on the dummy board. It sees the same replies on the planted board until it queries either the erased zero or the filled cell. The acceptance gap is at most the sum of the two discovery probabilities on the dummy run, which knows nothing about $I$ [@ABK2016, Lemma 6; @BenDavid2015, §5.1]. To reach the cell, the tree can investigate a few columns deeply and hope $I$ is among them, or it can try addresses in many columns after learning little about each.
 
-For any integer $1\le L\le m$ with $L<R(P)$, minimax gives a $\mu$ under which every deterministic depth-$L$ tree computes $P$ with success at most $\beta=2/3$ [@Yao1977]. Give the tree on the board $G=\lfloor mL/100\rfloor$ queries. We first bound the chance of bypassing the address search altogether.
+For any integer $1\le L\le m$ with $L<R(P)$, choose $\mu$ by minimax so that every deterministic depth-$L$ tree computes $P$ with success at most $\beta=2/3$ [@Yao1977]. Give the tree on the board $G=\lfloor mL/100\rfloor$ queries. We first bound the chance of bypassing the address search altogether.
 
 ### 4.2 Searching for the erased zero
 
@@ -187,7 +187,7 @@ Here $G\le mL/100\le m^2/100$, and $r=20\log_2m$ makes $(2/3)^r\le m^{-10}$ smal
 
 ## 5. Forrelation and the optimal exponent
 
-The partial function supplying these parameters is the Walsh–Hadamard form of $k$-fold Forrelation [@AA2018; @BansalSinha2021]. Let $H$ be the normalized Walsh–Hadamard matrix of order $m$, $u=m^{-1/2}(1,\ldots,1)^{\mathsf T}$, and $D_z$ the diagonal matrix of a sign vector. For $k$ such vectors of length $m$, put
+The comparisons need a fast quantum decoder for $P$, the verifier needs a nearly linear exact circuit for its promise and value, and the lower bound needs $P$ to resist classical prediction. The Walsh–Hadamard form of $k$-fold Forrelation supplies all three properties [@AA2018; @BansalSinha2021]. Let $H$ be the normalized Walsh–Hadamard matrix of order $m$, $u=m^{-1/2}(1,\ldots,1)^{\mathsf T}$, and $D_z$ the diagonal matrix of a sign vector. For $k$ such vectors of length $m$, put
 $$
  \Phi=u^{\mathsf T}D_{z_1}H D_{z_2}H\cdots H D_{z_k}u,\qquad \delta=2^{-5k}.
 $$
@@ -200,7 +200,7 @@ $$
  \frac{m^{2-1/k-\alpha/2}}{(\log_2 m)^{2+6\alpha}}
  \ \longrightarrow\ \infty.
 $$
-For every power below four, then, one fixed choice of $k$ gives a family violating that power. Together with the quartic upper bound, this gives optimal exponent four.
+Thus every exponent below four fails at some fixed $k$, matching the universal quartic upper bound. The tournament and subsequent verification each cost $\widetilde O_k(\sqrt m)$, while the random choice of winning column multiplies the classical hardness of one address bit by $m$.
 
 \Needspace{30\baselineskip}
 
