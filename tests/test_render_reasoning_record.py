@@ -99,6 +99,17 @@ class FilterTests(unittest.TestCase):
         self.assertIn("https://example.org/dir/", tex)
         self.assertNotIn("<a id", tex)
 
+    def test_bibliography_spacing_ends_before_the_next_section(self):
+        with tempfile.TemporaryDirectory() as folder:
+            folder = Path(folder)
+            source = folder / "paper.md"
+            source.write_text("## References\n\n- A cited work.\n\n## Supplement\n\nOrdinary text.\n")
+            tex = latex(source, folder)
+        start = tex.index(r"\begingroup\setlength{\parskip}")
+        self.assertLess(start, tex.index("A cited work."))
+        self.assertLess(tex.index("A cited work."), tex.index(r"\par\endgroup", start))
+        self.assertLess(tex.index(r"\par\endgroup", start), tex.index("Supplement"))
+
     def test_sibling_paper_links_open_the_online_paper_from_a_pdf(self):
         with tempfile.TemporaryDirectory() as folder:
             folder = Path(folder)

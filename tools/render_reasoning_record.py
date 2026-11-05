@@ -96,6 +96,21 @@ function Pandoc(doc)
       i = i + 1
     end
   end
+  -- Each anchored reference becomes its own one-item list. Use the tighter
+  -- entry spacing of the short papers while retaining the record's type size.
+  for n, heading in ipairs(blocks) do
+    if heading.t == "Header" and heading.identifier == "references" then
+      local after = n + 1
+      while after <= #blocks do
+        local next_block = blocks[after]
+        if next_block.t == "Header" and next_block.level <= heading.level then break end
+        after = after + 1
+      end
+      blocks:insert(after, pandoc.RawBlock("latex", "\\par\\endgroup"))
+      blocks:insert(n + 1, pandoc.RawBlock("latex", "\\begingroup\\setlength{\\parskip}{2pt plus 1pt}"))
+      break
+    end
+  end
   doc.blocks = blocks
   io.stderr:write("catalogue_backlink_groups=" .. grouped .. "\n")
   return doc
