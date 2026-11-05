@@ -137,7 +137,7 @@ def audit_bindings(edition, manuscript_root, documents, config, locate_quote):
 
 
 def selection_resources(edition, config, papers, texts, passages, compiled, statements, links, comparison,
-                        locate_quote):
+                        locate_quote, original, original_rows):
     documents = {k: v["path"] for k, v in papers.items()}
     binding = BoundLocations(edition, config, documents, texts, passages, locate_quote)
     graph, names, recorded_names = graph_resources(edition)
@@ -272,10 +272,23 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
         if ref not in by_name[name]:
             by_name[name].append(ref)
 
+    selections["original"] = original_rows
+    document_index = {p: {"path": path, "format": "markdown", "sha256": sha(edition.read(path)),
+                          "lines": len(texts[p].splitlines())} for p, path in documents.items()}
+    document_index["original"] = original
+    coverage = {}
+    by_statement = defaultdict(list)
     for paper, rows in selections.items():
+        covered = set()
+        topic_ids = set()
         for row in rows:
+            if topic_id := row.get("topic"):
+                topic_ids.add(topic_id)
             topic = topics.get(row.get("topic"), {})
-            for sid in [*row.get("statements", []), *topic.get("statements", [])]:
+            ids = set(row.get("statements", [])) | set(topic.get("statements", []))
+            covered.update(ids)
+            for sid in sorted(ids):
+                by_statement[sid].append({"paper": paper, "id": row["id"]})
                 for tie in statements[sid]["lean"]:
                     index(tie["declaration"], paper, row["id"], f"statement:{sid}")
             for name in topic.get("constituents", []):
@@ -285,8 +298,12 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
                     index(target["name"], paper, row["id"], f"label:{label}")
                     for join in target["graph_joins"]:
                         index(join["name"], paper, row["id"], join["basis"])
+        coverage[paper] = {"source_sha256": document_index[paper]["sha256"], "selections": len(rows),
+                           "linked_ledger_statements": len(covered), "editorial_topics": len(topic_ids),
+                           "scope": "published_paper_statement_index" if paper == "original" else "indexed_manuscript_selections"}
         edition.add(f"selection/{paper}.json", rows)
 
+    edition.add("selection/by-statement.json", by_statement)
     application_resources(edition, graph, recorded_names, topics)
     edition.add("selection/arguments.json", {"topics": topics, "treatments": treatments, "links": relations})
     used_by = defaultdict(list)
@@ -297,7 +314,7 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
     edition.add("selection/targets.json", formal_targets)
     edition.add("selection/reverse.json", by_name)
     edition.add("selection/index.json", {"schema": "quartic-selection-v1", "revision": edition.commit,
-               "documents": {p: {"path": path, "sha256": sha(edition.read(path)),
-                                 "lines": len(texts[p].splitlines())} for p, path in documents.items()},
+               "documents": document_index,
                "graph": graph, "modules": names, "registry_revision": registry["commit"]})
     edition.resources["reader.mjs"] = edition.read("tools/reader.mjs")
+    return coverage

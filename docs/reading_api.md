@@ -15,6 +15,36 @@ adjudication and compares the paper sources with the pinned print revision.
 A Markdown-only build returns an empty `downloads` object. A build with PDFs
 returns the three download resources in `reading.json`.
 
+## The four papers and their Lean coverage
+
+Use `reading.json.paper_ids` for the paper switcher. The verification appendix is
+listed separately in `supplement_ids`. Three papers are maintained here. The
+fourth, `original`, opens OpenAI’s published PDF at a pinned revision. Pass
+`--original-pdf /path/to/source.pdf` to serve a local copy in the same edition.
+The exporter verifies the PDF bytes and exposes its resource in `papers.original.resource`.
+The pinned upstream URL is always available.
+
+Each entry in `reading.json.coverage` identifies its exact source bytes. For the
+original, the unit is a maintained ledger statement drawn from or developed
+around the published argument. Review classifications concern the ledger wording.
+For our three papers, the unit is a selected passage, citation or claim. The count of linked ledger statements counts explicit statement IDs, while some selections link straight to Lean. Selections
+can overlap. The distinct linked-statement count describes navigation and supplies
+no denominator for the proportion of a manuscript proved in Lean.
+
+For example, resolve `{paper:"original", id:"original/eq-21"}` to open equation
+(21) on page 13 alongside the same formal evidence available to the other papers.
+The result exposes the real PDF destination where available, a page URL, and
+`relatedSelections` in the other documents that share the indexed statement.
+Unnumbered steps and local generalizations have page locations. Rows identify
+amended ledger wording and statements added in review. Whole-page requests take
+`{paper:"original", page:13, documentSha256:…}`. An unindexed page still opens.
+PDF prose is displayed from the original file. The project supplies the Lean.
+
+The [recorded page map](original_preprint.json) uses the published PDF’s
+destinations and the physical page breaks in the same Poppler layout extraction
+used by the intake ledger. Reproduce it with `python3 tools/original_preprint.py
+/path/to/source.pdf` (PyMuPDF and pdftotext). Normal exports work offline.
+
 ## Open a paper on a question
 
 Load the manifest once and resolve each logical resource through its `href`,

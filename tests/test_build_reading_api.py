@@ -42,8 +42,30 @@ class ReadingEditionTest(unittest.TestCase):
                 self.assertIn(name.rsplit(".", 1)[-1], "\n".join(lines[start - 1:end]))
                 self.assertIn(label, reverse["declarations"][name]["targets"])
 
+    def test_four_papers_and_distinct_coverage_units(self):
+        self.assertEqual(set(self.reading["paper_ids"]), {*api.PAPERS, "original"})
+        self.assertEqual(self.reading["supplement_ids"], ["verification"])
+        original = self.reading["papers"]["original"]
+        self.assertEqual(original["format"], "pdf")
+        self.assertNotIn("resource", original)
+        for paper, counts in self.reading["coverage"].items():
+            rows = self.resource(f"selection/{paper}.json")
+            self.assertEqual(len(rows), counts["selections"])
+            self.assertEqual(counts["source_sha256"], self.resource("selection/index.json")["documents"][paper]["sha256"])
+        statements = {r["id"]: r for r in self.edition.json("corpus/statements.json")}
+        rows = self.resource("selection/original.json")
+        self.assertEqual(sorted(r["statements"][0] for r in rows), sorted(statements))
+        with tempfile.TemporaryDirectory() as directory:
+            wrong = Path(directory) / "original.pdf"
+            wrong.write_bytes(b"%PDF-other")
+            with self.assertRaisesRegex(ValueError, "pinned release"):
+                api.original_paper(self.edition, statements, wrong)
+        statements["eq-21"] = {**statements["eq-21"], "source_line": 1}
+        with self.assertRaisesRegex(ValueError, "coordinates changed"):
+            api.original_paper(self.edition, statements)
+
     def test_feedback_is_qualified_and_attributed(self):
-        self.assertEqual(set(self.reading["entrances"]), set(api.PAPERS))
+        self.assertEqual(set(self.reading["entrances"]), {*api.PAPERS, "original"})
         self.assertEqual(self.reading["video"], self.edition.json(api.ROUTES)["video"])
         statement = self.resource(self.reading["fidelity"]["def-R"])
         self.assertTrue(any(t["reviewed_by"] for t in statement["lean"]))

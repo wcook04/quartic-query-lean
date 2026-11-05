@@ -259,6 +259,16 @@
         "erased-zero",
         "exponent"
       ]
+    },
+    "original": {
+      "audience": "Readers checking the result against OpenAI’s original paper",
+      "question": "What did OpenAI prove, and how closely does our Lean proof follow the published argument?",
+      "preview": "Start at Theorem 1.1 on page 1. Inspect the formal statement, then follow the two query bounds. Each indexed claim shows how closely our formalization matches the maintained reading of the paper.",
+      "stops": [
+        "headline",
+        "exponent"
+      ],
+      "first_selection": "original/thm-1.1"
     }
   },
   "semantic_probes": [

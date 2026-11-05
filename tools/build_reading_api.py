@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile the three Quartic papers and their formal reading routes for a static host."""
+"""Compile the Quartic papers and original OpenAI preprint and their formal reading routes for a static host."""
 import argparse
 from collections import defaultdict
 import hashlib
@@ -13,6 +13,7 @@ from zipfile import ZipFile, BadZipFile
 
 from build_comparator_map import PASSAGE, lean_blocks, record_passages
 from reading_evidence import evidence_resources
+from original_preprint import original_paper
 from reading_selection import audit_bindings, selection_resources
 from build_lean_links import RECORD_LINK, REPOSITORY, USE, statement_end
 
@@ -139,7 +140,7 @@ def document(edition, path, text, links):
         cites.extend({"line": n, "target": label} for label in sorted(labels))
     title = re.search(r'^title: "(.+)"$', text, re.M)
     heading = re.sub(r"\s*\{[^}]+\}$", "", outline[0]["title"])
-    return {"path": path, "title": title[1] if title else heading,
+    return {"path": path, "format": "markdown", "title": title[1] if title else heading,
             "outline": outline, "citations": cites, "record_links": record_links,
             "assets": sorted((paper.parent / a).as_posix() for a in assets),
             "bibliography": bib if path in PAPERS.values() else None}
@@ -210,7 +211,7 @@ def print_downloads(edition, folder, accepted):
     return downloads
 
 
-def compile_edition(edition, pdf_directory=None):
+def compile_edition(edition, pdf_directory=None, original_pdf=None):
     config = edition.json(ROUTES)
     routes = unique(config["routes"], "id")
     link_registry = edition.json("docs/lean_links.json")
@@ -299,7 +300,7 @@ def compile_edition(edition, pdf_directory=None):
             by_statement[statement].append(ident)
 
     entrances = config["entrances"]
-    if set(entrances) != set(PAPERS):
+    if set(entrances) != {*PAPERS, "original"}:
         raise ValueError("each paper needs an audience entrance")
     for key, entry in entrances.items():
         if not all(entry.get(k) for k in ("audience", "question", "preview", "stops")):
@@ -307,15 +308,21 @@ def compile_edition(edition, pdf_directory=None):
         if set(entry["stops"]) - routes.keys():
             raise ValueError(f"unknown reading stop: {key}")
     evidence_resources(edition, statements, by_statement, comparison, config["semantic_probes"])
-    selection_resources(edition, config, papers, texts, passages, compiled, statements, links, comparison,
-                        locate_quote)
+    original, original_rows = original_paper(edition, statements, original_pdf)
+    if entrances["original"]["first_selection"] not in {row["id"] for row in original_rows}:
+        raise ValueError("unknown first selection for the OpenAI paper")
+    coverage = selection_resources(edition, config, papers, texts, passages, compiled, statements,
+                                   links, comparison, locate_quote, original, original_rows)
+    papers["original"] = original
     edition.add("reading.json", {"papers": papers, "entrances": entrances,
+               "paper_ids": [*PAPERS, "original"], "supplement_ids": ["verification"],
+               "coverage": coverage,
                "applications": "selection/applications.json",
                "downloads": print_downloads(edition, pdf_directory, config["print_edition"]),
                "fidelity": {ident: f"fidelity/{ident}.json" for ident in statements},
                "routes": compiled, "video": video_entry(config["video"], routes)})
     edition.add("provenance.json", {
-        "papers": {"origin": "manuscript", "content": "Exact Markdown from the edition revision."},
+        "papers": {"origin": "manuscript", "content": "Quartic manuscripts use exact Markdown from the edition. The original is OpenAI’s pinned PDF."},
         "routes": {"origin": "ai_authored_navigation", "source": ROUTES,
                    "content": "Paragraph and topic selections across accounts. Editorial reading suggestions."},
         "corpus/lean_dependencies.json": {"origin": "lean_environment",
@@ -341,7 +348,7 @@ def compile_edition(edition, pdf_directory=None):
                "citations_by_target": cited_at, "record_citations_by_passage": record_citations,
                "passages_by_statement": by_statement,
                "declarations": declarations})
-    for path in ("docs/lean_links.json", "corpus/statements.json", "corpus/comparator_map.json",
+    for path in ("docs/lean_links.json", "corpus/coverage.json", "corpus/statements.json", "corpus/comparator_map.json",
                  "corpus/lean_dependencies.json", "corpus/evidence-graph.json"):
         edition.resources[path] = edition.read(path)
 
@@ -380,6 +387,7 @@ def main():
     mode.add_argument("--audit-bindings", metavar="CHECKOUT", type=Path, help="report every editorial binding affected by a manuscript draft")
     mode.add_argument("--check", action="store_true", help="validate working sources without writing")
     mode.add_argument("--output", type=Path, help="export the committed edition to this directory")
+    parser.add_argument("--original-pdf", type=Path, help="bundle a hash-verified copy of the OpenAI preprint")
     media = parser.add_mutually_exclusive_group()
     media.add_argument("--pdf-archive", type=Path, help="portable ZIP of the three adjudicated render outputs")
     media.add_argument("--pdf-directory", type=Path, help="include the adjudicated three-paper render directory")
@@ -393,9 +401,9 @@ def main():
             return int(bool(report["needs_review"]))
         if args.pdf_archive:
             with ZipFile(args.pdf_archive) as archive:
-                compile_edition(edition, archive)
+                compile_edition(edition, archive, args.original_pdf)
         else:
-            compile_edition(edition, args.pdf_directory)
+            compile_edition(edition, args.pdf_directory, args.original_pdf)
         if args.output:
             export(edition, args.output)
         print(f"Quartic reading API: {len(edition.resources)} resources validated")

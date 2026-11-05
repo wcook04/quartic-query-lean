@@ -131,23 +131,40 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
     return {revision, name, source, journeys: Object.hasOwn(applications.by_declaration, name) ? applications.by_declaration[name] : [], axiomAudit: audits[name] ?? null, comparisons: comparisonOutcomes(checks, checkIDs), treatments: Object.hasOwn(reverse, name) ? reverse[name] : []};
   }
 
-  async function resolve({paper, line, endLine = line, id, documentSha256}, bounds) {
+  async function resolve({paper, line, endLine = line, page, id, documentSha256}, bounds) {
     if (!Object.hasOwn(documents, paper)) throw new Error("Unknown paper");
     const doc = documents[paper];
     if ((id == null || documentSha256 != null) && documentSha256 !== doc.sha256)
       throw new Error("Selection belongs to a different manuscript edition");
-    if (id == null && (!Number.isSafeInteger(line) || !Number.isSafeInteger(endLine) ||
-        line < 1 || line > endLine || endLine > doc.lines)) throw new Error("Invalid paper range");
+    const pdf = doc.format === "pdf";
     const [rows, argumentsData, labels, associated] = await Promise.all([
       resource(`selection/${paper}.json`), resource("selection/arguments.json"),
       resource("selection/targets.json"), resource("selection/reverse.json")]);
-    if (id != null) {
-      const owner = rows.find(r => r.id === id);
-      if (!owner) throw new Error(`Unknown selection: ${id}`);
-      [line, endLine] = owner.lines;
+    let matches;
+    if (pdf) {
+      if (line != null || endLine != null || (page != null && id != null))
+        throw new Error("Select an original PDF page or statement ID");
+      if (id != null) {
+        const owner = rows.find(r => r.id === id);
+        if (!owner) throw new Error(`Unknown selection: ${id}`);
+        matches = [owner];
+        page = owner.location.page;
+      } else {
+        if (!Number.isSafeInteger(page) || page < 1 || page > doc.pages) throw new Error("Invalid PDF page");
+        matches = rows.filter(r => r.location.page === page);
+      }
+    } else {
+      if (page != null) throw new Error("Select a manuscript line range or ID");
+      if (id != null) {
+        const owner = rows.find(r => r.id === id);
+        if (!owner) throw new Error(`Unknown selection: ${id}`);
+        [line, endLine] = owner.lines;
+      }
+      if (!Number.isSafeInteger(line) || !Number.isSafeInteger(endLine) ||
+          line < 1 || line > endLine || endLine > doc.lines) throw new Error("Invalid paper range");
+      matches = rows.filter(r => (r.lines[0] <= line && endLine <= r.lines[1]) ||
+          ((r.label || r.referenced_passage) && line <= r.lines[0] && r.lines[1] <= endLine));
     }
-    const matches = rows.filter(r => (r.lines[0] <= line && endLine <= r.lines[1]) ||
-        ((r.label || r.referenced_passage) && line <= r.lines[0] && r.lines[1] <= endLine));
     const markedClaim = matches.some(r => r.claim);
     const topics = [...new Set(matches.map(r => r.topic).filter(Boolean))];
     const statements = new Set(), targets = new Set(), roots = new Map();
@@ -183,8 +200,8 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
       name, basis, source: await declaration(name), uses: await neighbourhood(name, "uses", associated, bounds),
       used_by: await neighbourhood(name, "used_by", associated, bounds)
     })));
-    const lines = [line, endLine];
-    const text = (await resource(doc.path)).split("\n").slice(lines[0]-1, lines[1]).join("\n");
+    const lines = pdf ? null : [line, endLine];
+    const text = pdf ? null : (await resource(doc.path)).split("\n").slice(lines[0]-1, lines[1]).join("\n");
     const [users, checks] = await Promise.all([resource("selection/statement-users.json"), resource("checks.json")]);
     const checkIDs = new Set(records.flatMap(s => s.lean.flatMap(t => t.configured_checks)));
     for (const target of cited) {
@@ -196,15 +213,18 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
     const comparisons = comparisonOutcomes(checks, checkIDs);
     const paperData = (await resource("reading.json")).papers[paper];
     const headings = [];
-    for (const h of paperData.outline) {
+    for (const h of paperData.outline || []) {
       if (h.line > line) break;
       while (headings.length && headings.at(-1).level >= h.level) headings.pop();
       headings.push(h);
     }
     const figures = topics.map(id => argumentsData.topics[id].figure).filter(Boolean);
-    const citations = [...text.matchAll(/@([A-Za-z][\w:-]*)/g)].map(m => m[1]);
+    const citations = [...(text || "").matchAll(/@([A-Za-z][\w:-]*)/g)].map(m => m[1]);
     const applications = await applicationIndex();
-    return {revision, document: doc, paper, lines, text, matches, comparisons,
+    const byStatement = await resource("selection/by-statement.json");
+    return {revision, document: doc, paper, lines, page, text, matches, comparisons,
+      relatedSelections: records.map(s => ({statement: s.id, selections: byStatement[s.id].filter(r => r.paper !== paper)})),
+      location: pdf ? {page, url: `${doc.url}#page=${page}`, ...(id ? matches[0].location : {})} : null,
       context: {headings, figures, bibliography: paperData.bibliography, citationKeys: [...new Set(citations)]},
       scope: "Review judgments apply to their named statement and declaration. Editorial examples and constituents retain their indicated roles.",
       statementDependencies: records.map(s => ({id: s.id, requires: s.depends_on,
