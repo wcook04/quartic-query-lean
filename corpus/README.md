@@ -120,3 +120,8 @@ native extraction does not establish paper fidelity or human review.
 the compiled QuarticQuery modules for the [website selection API](../docs/reading_api.md#resolve-a-paper-selection).
 The [recorder](../tools/record_reading_dependencies.py) builds the project and
 checks the full Lean source fingerprint before and after native inspection.
+
+[reading_applications.json](reading_applications.json) records selected applications
+inside compiled Lean declaration bodies, with arguments and instantiated types.
+The [source selections](../docs/reading_applications.json) and [reader contract](../docs/reading_api.md#inspect-a-theorem-application)
+explain their scope and refresh command.

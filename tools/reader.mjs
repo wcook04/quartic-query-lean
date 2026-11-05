@@ -98,11 +98,37 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
     });
   }
 
+  async function applicationIndex() {
+    return resource("selection/applications.json");
+  }
+
+  async function journey(id) {
+    const index = await applicationIndex();
+    if (index.currentness !== "current") throw new Error("Lean application inspection is stale");
+    if (!Object.hasOwn(index.journeys, id)) throw new Error("Unknown reading journey: " + id);
+    const [path, args] = await Promise.all([
+      resource(index.journeys[id].resource), resource("selection/arguments.json")]);
+    const treatments = path.topics.map(topic => ({
+      ...args.topics[topic], selections: args.treatments[topic]
+    }));
+    const statements = [...new Set(treatments.flatMap(t => t.statements))];
+    const correspondence = await Promise.all(statements.map(s => resource(`fidelity/${s}.json`)));
+    const interfaces = await Promise.all(path.interfaces.map(async name => {
+      const {source, lines, text, url} = await declaration(name);
+      if (!text) throw new Error("Missing formal interface: " + name);
+      return {name, source, lines, text, url};
+    }));
+    return {...path, revision, interfaces, treatments, correspondence, sourceSnapshot: index.source_snapshot_sha256,
+      steps: path.steps.map(s => ({...s,
+        url: `${manifest.repository}/blob/${revision}/${s.source}#L${s.lines[0]}-L${s.lines[1]}`}))};
+  }
+
   async function fromDeclaration(name) {
     const [reverse, source] = await Promise.all([resource("selection/reverse.json"), declaration(name)]);
     const [checks, audits] = await Promise.all([resource("checks.json"), resource("axiom-audits.json")]);
     const checkIDs = Object.keys(checks).filter(id => checks[id].theorem_names.includes(name));
-    return {revision, name, source, axiomAudit: audits[name] ?? null, comparisons: comparisonOutcomes(checks, checkIDs), treatments: Object.hasOwn(reverse, name) ? reverse[name] : []};
+    const applications = await applicationIndex();
+    return {revision, name, source, journeys: Object.hasOwn(applications.by_declaration, name) ? applications.by_declaration[name] : [], axiomAudit: audits[name] ?? null, comparisons: comparisonOutcomes(checks, checkIDs), treatments: Object.hasOwn(reverse, name) ? reverse[name] : []};
   }
 
   async function resolve({paper, line, endLine = line, id, documentSha256}, bounds) {
@@ -177,6 +203,7 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
     }
     const figures = topics.map(id => argumentsData.topics[id].figure).filter(Boolean);
     const citations = [...text.matchAll(/@([A-Za-z][\w:-]*)/g)].map(m => m[1]);
+    const applications = await applicationIndex();
     return {revision, document: doc, paper, lines, text, matches, comparisons,
       context: {headings, figures, bibliography: paperData.bibliography, citationKeys: [...new Set(citations)]},
       scope: "Review judgments apply to their named statement and declaration. Editorial examples and constituents retain their indicated roles.",
@@ -184,8 +211,9 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
           usedBy: users[s.id] || [], externalInputs: s.external_inputs})),
       coverage: matches.length ? (proof.length || cited.length ? "associated_targets" : "passage_only") : "unmapped",
       topics: topics.map(id => ({...argumentsData.topics[id], treatments: argumentsData.treatments[id]})),
+      journeys: [...new Set(topics.flatMap(id => applications.by_topic[id] || []))],
       editorialLinks: argumentsData.links.filter(e => topics.includes(e.source) || topics.includes(e.target)),
       statements: records, cited, proof, graph: selection.graph, citedLeanRevision: selection.registry_revision};
   }
-  return {revision, documents, resolve, expand, fromDeclaration};
+  return {revision, documents, resolve, expand, fromDeclaration, journey, applicationIndex};
 }

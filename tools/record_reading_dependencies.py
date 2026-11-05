@@ -33,24 +33,44 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkout", type=Path, default=ROOT,
                         help="checkout with the same Lean sources and its own Lake cache")
+    parser.add_argument("--applications", action="store_true",
+                        help="inspect formal arguments for the reader's selected caller/callee pairs")
     args = parser.parse_args()
     root = args.checkout.resolve()
     before = source_hashes(root)
-    inspector = INSPECTOR.read_bytes()
+    program = ROOT / "tools/ReadApplications.lean" if args.applications else INSPECTOR
+    inspector = program.read_bytes()
+    pairs = []
+    if args.applications:
+        config = json.loads((ROOT / "docs/reading_applications.json").read_text())
+        pairs = sorted({step["caller"] + "=" + name for route in config["journeys"]
+                        for step in route["steps"] for name in step["callees"]})
     if before != source_hashes(ROOT):
         parser.error("build checkout differs from edition's Lean sources")
     subprocess.run(["lake", "build", "QuarticQuery"], cwd=root / "lean", check=True)
-    raw = subprocess.check_output(["lake", "env", "lean", "--run", str(INSPECTOR)], cwd=root / "lean")
+    raw = subprocess.check_output(["lake", "env", "lean", "--run", str(program), *pairs], cwd=root / "lean")
     inspection = json.loads(raw)
-    nodes = inspection["nodes"]
-    if not nodes or source_hashes(root) != before or source_hashes(ROOT) != before or inspector != INSPECTOR.read_bytes():
+    nodes = inspection if args.applications else inspection["nodes"]
+    if not nodes or source_hashes(root) != before or source_hashes(ROOT) != before or inspector != program.read_bytes():
         parser.error("empty inspection or inputs changed during recording")
-    payload = {"schema": "quartic-reading-dependencies-v1", "module": "QuarticQuery",
-               "source_snapshot_sha256": canonical_sha256(before),
-               "inspector_sha256": hashlib.sha256(inspector).hexdigest(),
-               "toolchain": (root / "lean/lean-toolchain").read_text().strip(),
-               **inspection}
-    write_graph(payload, OUTPUT)
+    provenance = {"source_snapshot_sha256": canonical_sha256(before),
+                  "inspector_sha256": hashlib.sha256(inspector).hexdigest(),
+                  "toolchain": (root / "lean/lean-toolchain").read_text().strip()}
+    if args.applications:
+        if {caller + "=" + row["callee"] for caller, rows in inspection.items() for row in rows} != set(pairs):
+            parser.error("compiled applications differ from requested pairs")
+        payload = {**provenance, "schema": "quartic-lean-applications-v1", "callers": inspection}
+        destination = ROOT / "corpus/reading_applications.json"
+        with tempfile.NamedTemporaryFile(mode="w", dir=destination.parent, delete=False) as tmp:
+            json.dump(payload, tmp, sort_keys=True, ensure_ascii=False, indent=2)
+            tmp.write("\n")
+        recorded = Path(tmp.name)
+        recorded.chmod(0o644)
+        recorded.replace(destination)
+        print(f"Recorded {len(pairs)} selected declaration pairs")
+        return
+    write_graph({**provenance, "schema": "quartic-reading-dependencies-v1",
+                 "module": "QuarticQuery", **inspection}, OUTPUT)
     print(f"Recorded {len(nodes)} declarations in {OUTPUT.relative_to(ROOT)}")
 
 

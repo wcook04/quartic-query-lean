@@ -310,6 +310,7 @@ def compile_edition(edition, pdf_directory=None):
     selection_resources(edition, config, papers, texts, passages, compiled, statements, links, comparison,
                         locate_quote)
     edition.add("reading.json", {"papers": papers, "entrances": entrances,
+               "applications": "selection/applications.json",
                "downloads": print_downloads(edition, pdf_directory, config["print_edition"]),
                "fidelity": {ident: f"fidelity/{ident}.json" for ident in statements},
                "routes": compiled, "video": video_entry(config["video"], routes)})
@@ -324,6 +325,10 @@ def compile_edition(edition, pdf_directory=None):
             "producer": "tools/build_corpus.py", "content": "Informal dependencies between statement records."},
         "fidelity": {"origin": "reviewed_statement_ties", "source": "corpus/ties.json",
             "content": "Reviewer, effective relation, hypotheses and review freshness apply to each individual tie."},
+        "applications": {"origin": "lean_environment_and_editorial_navigation",
+            "producer": "tools/ReadApplications.lean", "source": "docs/reading_applications.json",
+            "content": "Formal binder arguments are scoped to the compiled caller/callee pair. The source site "
+                       "and associated passage are selected editorially. Paper equivalence uses the fidelity records."},
         "checks.json": {"origin": "comparator_configurations_and_receipts",
             "content": "Each configuration identifies its challenge, solution, permitted axioms and recorded outcome."},
         "axiom-audits.json": {"origin": "lean_print_axioms",

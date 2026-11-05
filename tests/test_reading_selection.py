@@ -1,14 +1,17 @@
 """Exercise the edition consumer at real mathematical selections and across edits."""
+import json
 from pathlib import Path
 import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import build_reading_api as api
 from reading_selection import BoundLocations
+from reading_applications import application_resources
 
 
 class BindingTests(unittest.TestCase):
@@ -25,6 +28,53 @@ class BindingTests(unittest.TestCase):
         texts["exposition"] = text.replace(row["exposition"], row["exposition"] + " Changed assertion.")
         with self.assertRaisesRegex(ValueError, "selected text changed"):
             locations.check(row, "exposition", quote=row["exposition"])
+
+    def test_unchanged_selection_with_changed_prerequisite(self):
+        edition = api.Edition(api.ROOT)
+        config = edition.json(api.ROUTES)
+        documents = {**api.PAPERS, "verification": api.SUPPLEMENT}
+        with tempfile.TemporaryDirectory() as temp:
+            draft = Path(temp)
+            for path in documents.values():
+                (draft / path).parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy(edition.root / path, draft / path)
+            record = draft / documents["reconstruction"]
+            marker = "<!-- passage:CL-heavy -->"
+            text = record.read_text()
+            self.assertIn(marker, text)
+            record.write_text(text.replace(marker, marker + "\nA changed threshold for a heavy column."))
+            def report():
+                return api.audit_bindings(edition, draft, documents, config, api.locate_quote)
+            audit = report()
+            self.assertEqual(audit["affected_topics"]["joint-event"], {
+                "selections_locatable": True, "selection_text_as_bound": True, "prerequisites_as_bound": False})
+            issues = audit["needs_review"]
+            self.assertEqual([(r["id"], r["kind"], r["passage"]) for r in issues],
+                             [("joint-event", "prerequisite_changed", "CL-heavy")])
+            record.write_text(text + "\nA note outside the associated passages.\n")
+            self.assertEqual(report()["needs_review"], [])
+
+    def test_application_export_requires_both_a_source_site_and_compiled_use(self):
+        edition = api.Edition(api.ROOT)
+        graph = edition.json("corpus/reading_dependencies.json")
+        plan = edition.json("docs/reading_applications.json")
+        inspection = edition.json("corpus/reading_applications.json")
+        step = plan["journeys"][0]["steps"][0]
+        original = step["site"]
+        topics = {topic: {} for j in plan["journeys"] for topic in j["topics"]}
+        inputs = {"docs/reading_applications.json": plan, "corpus/reading_applications.json": inspection}
+        with patch.object(edition, "json", side_effect=inputs.__getitem__):
+            graph["currentness"] = "stale"
+            application_resources(edition, graph, {}, topics)
+            self.assertEqual(json.loads(edition.resources["selection/applications.json"])["journeys"], {})
+            graph["currentness"] = "current"
+            step["site"] = "unwritten Lean application"
+            with self.assertRaisesRegex(ValueError, "application site"):
+                application_resources(edition, graph, graph["nodes"], topics)
+            step["site"] = original
+            inspection["callers"][step["caller"]] = []
+            with self.assertRaisesRegex(ValueError, "unwitnessed use"):
+                application_resources(edition, graph, graph["nodes"], topics)
 
 
 @unittest.skipUnless(shutil.which("node"), "Node required to exercise the ES module")
@@ -76,6 +126,36 @@ const capped = await resolve("exposition", "exposition/joint-event/0");
 assert(find(capped, ".Paper.eq_21").basis.some(b => b.review === "current" && b.relation === "exact"));
 assert(capped.editorialLinks.some(e => e.relation === "analogous_to"));
 assert(capped.statementDependencies.find(s => s.id === "eq-21").requires.includes("def-simulator"));
+
+assert(capped.journeys.includes("capped-predictor"));
+const simulator = await reader.journey("capped-predictor");
+assert(simulator.steps.some(step => step.text.includes("avg_resample") && step.text.includes("T J A i t")));
+const family = await reader.journey("forrelation-family");
+const lower = family.steps.flatMap(s => s.uses).find(u => u.declaration.endsWith(".Gvalue_lt_R_addressedF"));
+const inst = lower.compiled_uses_in_caller.find(t => t.arguments.some(a => a.binder === "hC"));
+assert(inst.arguments.some(a => a.binder === "f" && a.argument.includes("P k t")));
+assert(inst.arguments.some(a => a.binder === "L" && a.argument.includes("Lvalue k t")));
+assert(inst.arguments.some(a => a.binder === "hC" && a.proof && a.type.includes("CircuitRealises")));
+assert(family.interfaces.find(d => d.name.endsWith(".CircuitRealises")).text.includes("tr C.domainOut = true ↔ promised f x"));
+assert(family.interfaces.find(d => d.name.endsWith(".FamilyBoundsAt")).text.match(/Fkm k t Cir/g).length === 2);
+assert(family.steps.some(s => s.text.includes("Q_Fkm_le l t ht") && s.text.includes("Gvalue_lt_R_Fkm")));
+for (const step of family.steps) {
+  const caller = await reader.expand(step.caller);
+  assert(step.uses.every(use => caller.value.includes(use.declaration)));
+  assert(family.treatments.some(topic => topic.id === step.topic && topic.selections.length));
+}
+assert(simulator.steps.find(s => s.title.includes("Resample")).uses.some(u =>
+  u.compiled_uses_in_caller.some(t => t.arguments.some(a => a.binder === "hguess" && a.type.includes("guessSuccess")))));
+
+assert(family.treatments.flatMap(t => t.selections).some(s => s.paper === "expert"));
+assert(family.correspondence.some(s => s.lean.some(t => t.route === "alternative")));
+const back = await reader.fromDeclaration(lower.declaration);
+assert(back.journeys.includes(family.id));
+const gaussianTrip = await reader.journey("gaussian-transport");
+assert.equal(gaussianTrip.treatments.find(t => t.id === "gaussian-path").correspondence_scope, "constituents_only");
+assert(gaussianTrip.steps.some(s => s.caller.endsWith(".mass_ge") && s.text.includes("PhiF t")));
+assert(gaussianTrip.steps.some(s => s.caller.endsWith(".advantage_le_sharp")));
+await assert.rejects(reader.journey("absent"), /Unknown reading journey/);
 
 const gaussian = await resolve("reconstruction", "passage/forr_three_blocks");
 assert(find(gaussian, ".Int_eq_paths").basis.every(b => b.basis === "editorial_constituent"));

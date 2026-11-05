@@ -6,6 +6,7 @@ import subprocess
 
 from build_comparator_map import CLAIM, PASSAGE, lean_blocks
 from build_corpus import canonical_sha256, source_hashes
+from reading_applications import application_resources
 
 
 def sha(raw):
@@ -41,7 +42,7 @@ def graph_resources(edition):
                     edition.json("lean/lake-manifest.json")["packages"]}
     edition.add("selection/external.json", {"modules": graph.get("external_modules", {}) if current else {},
                                            "packages": dependencies})
-    return info, names, graph["nodes"].keys()
+    return info, names, graph["nodes"]
 
 
 class BoundLocations:
@@ -74,6 +75,18 @@ class BoundLocations:
                              f"and set bound_at.{paper} to the reviewed manuscript revision")
         return {**loc, "bound_at": revision}
 
+    def context(self, topic, passage, revision):
+        if passage not in self.passages:
+            raise ValueError(f"{topic}: missing prerequisite passage {passage}")
+        paper = self.passages[passage]["document"]
+        row = {"id": topic, "bound_at": {paper: revision}}
+        try:
+            loc = self.check(row, paper, passage=passage)
+        except ValueError as error:
+            raise ValueError(f"{topic}: review prerequisite {paper}/{passage} and rebind its "
+                             f"context_passages revision") from error
+        return {"passage": passage, "paper": paper, "sha256": loc["sha256"], "bound_at": revision}
+
 
 def audit_bindings(edition, manuscript_root, documents, config, locate_quote):
     """Check all authored associations against a draft before regenerating the corpus."""
@@ -87,21 +100,40 @@ def audit_bindings(edition, manuscript_root, documents, config, locate_quote):
     binding = BoundLocations(edition, config, documents, texts, passages, locate_quote)
     issues = []
     checked = 0
+    contexts = 0
+    affected = {}
     for row in config["routes"] + config["selections"]:
+        start = len(issues)
+        for passage, revision in row.get("context_passages", {}).items():
+            contexts += 1
+            try:
+                binding.context(row["id"], passage, revision)
+            except ValueError as error:
+                issues.append({"id": row["id"], "kind": "prerequisite_changed", "passage": passage,
+                               "bound_at": revision, "draft_sha256": passages.get(passage, {}).get("sha256"),
+                               "reason": str(error)})
         anchor = row.get("reconstruction") or row["passage"]
         selectors = [(k, {"quote": q}) for k, quotes in row.get("quotes", {}).items() for q in quotes]
         selectors.extend((k, {"quote": row[k]}) for k in ("expert", "exposition") if k in row)
         if anchor in passages:
             selectors.append((passages[anchor]["document"], {"passage": anchor}))
         else:
-            issues.append({"id": row["id"], "missing_passage": anchor})
+            issues.append({"id": row["id"], "kind": "locator_unresolved", "missing_passage": anchor})
         for paper, selector in selectors:
             checked += 1
             try:
                 binding.check(row, paper, **selector)
             except ValueError as error:
-                issues.append({"id": row["id"], "paper": paper, **selector, "reason": str(error)})
-    return {"bindings_examined": checked, "needs_review": issues}
+                locatable = "passage" in selector or texts[paper].count(selector["quote"]) == 1
+                kind = "selected_text_changed" if locatable else "locator_unresolved"
+                issues.append({"id": row["id"], "paper": paper, "kind": kind, **selector, "reason": str(error)})
+        kinds = {issue["kind"] for issue in issues[start:]}
+        if kinds:
+            affected[row["id"]] = {"selections_locatable": "locator_unresolved" not in kinds,
+                                   "selection_text_as_bound": not (kinds - {"prerequisite_changed"}),
+                                   "prerequisites_as_bound": "prerequisite_changed" not in kinds}
+    return {"bindings_examined": checked, "prerequisites_examined": contexts, "needs_review": issues,
+            "affected_topics": affected}
 
 
 def selection_resources(edition, config, papers, texts, passages, compiled, statements, links, comparison,
@@ -179,6 +211,11 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
         topics[ident] = {"id": ident, "title": row["title"], "kind": row.get("kind", "reading_route"),
                          "note": plan.get("note"), "statements": ids, "labels": plan.get("lean", []),
                          "constituents": plan.get("declarations", []), "passage": anchor}
+        if "correspondence_scope" in plan:
+            topics[ident]["correspondence_scope"] = plan["correspondence_scope"]
+        topics[ident]["context_passages"] = [
+            binding.context(ident, passage, revision)
+            for passage, revision in plan.get("context_passages", {}).items()]
         if plan.get("figure"):
             if plan["figure"] not in edition.resources:
                 raise ValueError(f"{ident}: missing figure")
@@ -250,6 +287,7 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
                         index(join["name"], paper, row["id"], join["basis"])
         edition.add(f"selection/{paper}.json", rows)
 
+    application_resources(edition, graph, recorded_names, topics)
     edition.add("selection/arguments.json", {"topics": topics, "treatments": treatments, "links": relations})
     used_by = defaultdict(list)
     for row in statements.values():

@@ -1,0 +1,2483 @@
+{
+  "callers": {
+    "QuarticQuery.Fkm": [
+      {
+        "arguments": [
+          {
+            "argument": "QuarticQuery.ForrelationCoord k t",
+            "binder": "κ",
+            "explicit": false,
+            "head_constant": "QuarticQuery.ForrelationCoord",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "QuarticQuery.P k t",
+            "binder": "f",
+            "explicit": true,
+            "head_constant": "QuarticQuery.P",
+            "proof": false,
+            "type": "QuarticQuery.PartialBool (QuarticQuery.ForrelationCoord k t)"
+          },
+          {
+            "argument": "C",
+            "binder": "C",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)"
+          },
+          {
+            "argument": "instHMul.hMul 2 t",
+            "binder": "ℓ",
+            "explicit": true,
+            "head_constant": "HMul.hMul",
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "instHMul.hMul 40 t",
+            "binder": "r",
+            "explicit": true,
+            "head_constant": "HMul.hMul",
+            "proof": false,
+            "type": "Nat"
+          }
+        ],
+        "callee": "QuarticQuery.addressedF",
+        "result_type": "QuarticQuery.TotalBool\n  (QuarticQuery.BitLoc (instHMul.hMul 2 t) (instHMul.hMul 40 t) C.size (QuarticQuery.ForrelationCoord k t))"
+      }
+    ],
+    "QuarticQuery.Forrelation.forrCircuit_realises": [
+      {
+        "arguments": [
+          {
+            "argument": "l",
+            "binder": "l",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          }
+        ],
+        "callee": "QuarticQuery.Forrelation.forrCore_spec",
+        "result_type": "Exists fun q =>\n  Exists fun a =>\n    Exists fun b =>\n      Exists fun c =>\n        And\n          (Eq (QuarticQuery.Forrelation.forrCore l t) { fst := q, snd := { fst := a, snd := { fst := b, snd := c } } })\n          (And (Eq (List.length q) (QuarticQuery.Forrelation.coreSize l t))\n            (And\n              (QuarticQuery.Forrelation.Rep q a fun x =>\n                ((instHSub.hSub\n                          (instHMul.hMul (instHPow.hPow 2 (instHMul.hMul 5 (instHAdd.hAdd l 1)))\n                            (QuarticQuery.forrelationNumerator (instHAdd.hAdd l 1) t x))\n                          (QuarticQuery.forrelationDenominator (instHAdd.hAdd l 1) t)).decLt\n                      0).decide\n                  (Int.instLTInt.lt\n                    (instHSub.hSub\n                      (instHMul.hMul (instHPow.hPow 2 (instHMul.hMul 5 (instHAdd.hAdd l 1)))\n                        (QuarticQuery.forrelationNumerator (instHAdd.hAdd l 1) t x))\n                      (QuarticQuery.forrelationDenominator (instHAdd.hAdd l 1) t))\n                    0))\n              (And\n                (QuarticQuery.Forrelation.Rep q b fun x =>\n                  ((instHSub.hSub (QuarticQuery.forrelationDenominator (instHAdd.hAdd l 1) t)\n                            (instHMul.hMul 2\n                              (instHMul.hMul (instHPow.hPow 2 (instHMul.hMul 5 (instHAdd.hAdd l 1)))\n                                (QuarticQuery.forrelationNumerator (instHAdd.hAdd l 1) t x)))).decLt\n                        0).decide\n                    (Int.instLTInt.lt\n                      (instHSub.hSub (QuarticQuery.forrelationDenominator (instHAdd.hAdd l 1) t)\n                        (instHMul.hMul 2\n                          (instHMul.hMul (instHPow.hPow 2 (instHMul.hMul 5 (instHAdd.hAdd l 1)))\n                            (QuarticQuery.forrelationNumerator (instHAdd.hAdd l 1) t x))))\n                      0))\n                (QuarticQuery.Forrelation.Rep q c fun x =>\n                  ((instHAdd.hAdd (QuarticQuery.forrelationDenominator (instHAdd.hAdd l 1) t)\n                            (instHMul.hMul 2\n                              (instHMul.hMul (instHPow.hPow 2 (instHMul.hMul 5 (instHAdd.hAdd l 1)))\n                                (QuarticQuery.forrelationNumerator (instHAdd.hAdd l 1) t x)))).decLt\n                        0).decide\n                    (Int.instLTInt.lt\n                      (instHAdd.hAdd (QuarticQuery.forrelationDenominator (instHAdd.hAdd l 1) t)\n                        (instHMul.hMul 2\n                          (instHMul.hMul (instHPow.hPow 2 (instHMul.hMul 5 (instHAdd.hAdd l 1)))\n                            (QuarticQuery.forrelationNumerator (instHAdd.hAdd l 1) t x))))\n                      0)))))"
+      }
+    ],
+    "QuarticQuery.ForrelationLower.advantage_le_sharp": [
+      {
+        "arguments": [
+          {
+            "argument": "n",
+            "binder": "n",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "inst✝¹",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.Walk.1993172896._hygCtx._hyg.3",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Fintype n"
+          },
+          {
+            "argument": "inst✝",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.Walk.1993172896._hygCtx._hyg.6",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "DecidableEq n"
+          },
+          {
+            "argument": "l",
+            "binder": "l",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "H",
+            "binder": "H",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Matrix n n Real"
+          },
+          {
+            "argument": "hl",
+            "binder": "hl",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLTNat.lt 0 l"
+          },
+          {
+            "argument": "g",
+            "binder": "g",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "(QuarticQuery.ForrelationLower.BC l n → Bool) → Real"
+          }
+        ],
+        "callee": "QuarticQuery.ForrelationLower.exists_identity",
+        "result_type": "Exists fun s =>\n  And (Set.instMembership.mem (Set.Ioo 0 1) s)\n    (Eq\n      (instHSub.hSub\n        (MeasureTheory.integral (QuarticQuery.ForrelationLower.gP (QuarticQuery.ForrelationLower.PC l n)) fun u =>\n          QuarticQuery.ForrelationLower.ext g (QuarticQuery.ForrelationLower.wv H 1 u))\n        (MeasureTheory.integral (QuarticQuery.ForrelationLower.gP (QuarticQuery.ForrelationLower.PC l n)) fun u =>\n          QuarticQuery.ForrelationLower.ext g (QuarticQuery.ForrelationLower.wv H 0 u)))\n      (Finset.univ.sum fun a =>\n        MeasureTheory.integral (QuarticQuery.ForrelationLower.gP (QuarticQuery.ForrelationLower.PC l n)) fun u =>\n          QuarticQuery.ForrelationLower.Int H s l 0 a\n            (QuarticQuery.ForrelationLower.D (QuarticQuery.ForrelationLower.cn 0 a) g) u))"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "n",
+            "binder": "n",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "inst✝¹",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.Cascade.3694211004._hygCtx._hyg.3",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Fintype n"
+          },
+          {
+            "argument": "inst✝",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.Cascade.3694211004._hygCtx._hyg.6",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "DecidableEq n"
+          },
+          {
+            "argument": "l",
+            "binder": "l",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "H",
+            "binder": "H",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Matrix n n Real"
+          },
+          {
+            "argument": "hH",
+            "binder": "hH",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "QuarticQuery.ForrelationLower.RowsOrth H"
+          },
+          {
+            "argument": "g",
+            "binder": "g",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "(QuarticQuery.ForrelationLower.BC l n → Bool) → Real"
+          }
+        ],
+        "callee": "QuarticQuery.ForrelationLower.integral_ext_wv_zero",
+        "result_type": "Eq\n  (MeasureTheory.integral (QuarticQuery.ForrelationLower.gP (QuarticQuery.ForrelationLower.PC l n)) fun u =>\n    QuarticQuery.ForrelationLower.ext g (QuarticQuery.ForrelationLower.wv H 0 u))\n  (QuarticQuery.ForrelationLower.ext g 0)"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "QuarticQuery.ForrelationLower.BC l n",
+            "binder": "ι",
+            "explicit": false,
+            "head_constant": "QuarticQuery.ForrelationLower.BC",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "instFintypeProd (Fin (instHAdd.hAdd l 1)) n",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.TreeGrowth.1346369175._hygCtx._hyg.3",
+            "explicit": false,
+            "head_constant": "instFintypeProd",
+            "proof": false,
+            "type": "Fintype (QuarticQuery.ForrelationLower.BC l n)"
+          },
+          {
+            "argument": "fun a b => instDecidableEqProd a b",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.TreeGrowth.1346369175._hygCtx._hyg.6",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "DecidableEq (QuarticQuery.ForrelationLower.BC l n)"
+          },
+          {
+            "argument": "Prod n (Fin l → n)",
+            "binder": "P",
+            "explicit": false,
+            "head_constant": "Prod",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "instFintypeProd n (Fin l → n)",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.TreeGrowth.1346369175._hygCtx._hyg.25",
+            "explicit": false,
+            "head_constant": "instFintypeProd",
+            "proof": false,
+            "type": "Fintype (Prod n (Fin l → n))"
+          },
+          {
+            "argument": "fun a b => instDecidableEqProd a b",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.TreeGrowth.1346369175._hygCtx._hyg.28",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "DecidableEq (Prod n (Fin l → n))"
+          },
+          {
+            "argument": "QuarticQuery.ForrelationLower.Lpath l",
+            "binder": "Lp",
+            "explicit": true,
+            "head_constant": "QuarticQuery.ForrelationLower.Lpath",
+            "proof": false,
+            "type": "Prod n (Fin l → n) → List (QuarticQuery.ForrelationLower.BC l n)"
+          },
+          {
+            "argument": null,
+            "binder": "hnd",
+            "explicit": true,
+            "head_constant": "QuarticQuery.ForrelationLower.Lpath_nodup",
+            "proof": true,
+            "type": "∀ (p : Prod n (Fin l → n)), (QuarticQuery.ForrelationLower.Lpath l p).Nodup"
+          },
+          {
+            "argument": "instHAdd.hAdd l 1",
+            "binder": "k",
+            "explicit": false,
+            "head_constant": "HAdd.hAdd",
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": null,
+            "binder": "hlen",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (p : Prod n (Fin l → n)), Eq (QuarticQuery.ForrelationLower.Lpath l p).length (instHAdd.hAdd l 1)"
+          },
+          {
+            "argument": null,
+            "binder": "hinj",
+            "explicit": true,
+            "head_constant": "QuarticQuery.ForrelationLower.Lpath_inj",
+            "proof": true,
+            "type": "Function.Injective fun p => (QuarticQuery.ForrelationLower.Lpath l p).toFinset"
+          },
+          {
+            "argument": "QuarticQuery.ForrelationLower.wv H s u",
+            "binder": "μ",
+            "explicit": false,
+            "head_constant": "QuarticQuery.ForrelationLower.wv",
+            "proof": false,
+            "type": "QuarticQuery.ForrelationLower.BC l n → Real"
+          },
+          {
+            "argument": "hμ",
+            "binder": "hμ",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (a : QuarticQuery.ForrelationLower.BC l n), Real.instLE.le (abs (QuarticQuery.ForrelationLower.wv H s u a)) (1 / 2)"
+          },
+          {
+            "argument": "Λ",
+            "binder": "Λ",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "K",
+            "binder": "K",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "d",
+            "binder": "d",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "hd",
+            "binder": "hd",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLTNat.lt 0 d"
+          },
+          {
+            "argument": "hK",
+            "binder": "hK",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Real.instLT.lt 0 K"
+          },
+          {
+            "argument": "hKsq",
+            "binder": "hKsq",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Eq (instHPow.hPow K 2) (instHMul.hMul (instHMul.hMul (instHMul.hMul 2 d.cast) (instHPow.hPow 2 2)) Λ)"
+          },
+          {
+            "argument": "hn",
+            "binder": "hn",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 1 (Fintype.card (QuarticQuery.ForrelationLower.BC l n))"
+          },
+          {
+            "argument": "T",
+            "binder": "T",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.QueryTree (QuarticQuery.ForrelationLower.BC l n)"
+          },
+          {
+            "argument": "hT",
+            "binder": "hT",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le T.depth d"
+          },
+          {
+            "argument": "v",
+            "binder": "v",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Bool → Real"
+          },
+          {
+            "argument": "hv",
+            "binder": "hv",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (b : Bool), Real.instLE.le (abs (v b)) 1"
+          }
+        ],
+        "callee": "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+        "result_type": "Real.instLE.le\n  (Finset.univ.sum fun p =>\n    abs\n      (QuarticQuery.ForrelationLower.ext\n        (QuarticQuery.ForrelationLower.Dl (QuarticQuery.ForrelationLower.Lpath l p) fun z => v (T.eval z))\n        (QuarticQuery.ForrelationLower.wv H s u)))\n  (instHAdd.hAdd (instHPow.hPow K (instHAdd.hAdd l 1))\n    (instHMul.hMul\n      (instHPow.hPow (instHMul.hMul (Fintype.card (QuarticQuery.ForrelationLower.BC l n)).cast 2) (instHAdd.hAdd l 1))\n      (instHMul.hMul\n        (instHPow.hPow (instHMul.hMul 4 (Fintype.card (QuarticQuery.ForrelationLower.BC l n)).cast) (instHAdd.hAdd l 1))\n        (Real.exp (Real.instNeg.neg Λ)))))"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "n",
+            "binder": "n",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "inst✝¹",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.Cascade.4217083379._hygCtx._hyg.3",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Fintype n"
+          },
+          {
+            "argument": "inst✝",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.Cascade.4217083379._hygCtx._hyg.6",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "DecidableEq n"
+          },
+          {
+            "argument": "l",
+            "binder": "l",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          }
+        ],
+        "callee": "QuarticQuery.ForrelationLower.Lpath_nodup",
+        "result_type": "∀ (p : Prod n (Fin l → n)), (QuarticQuery.ForrelationLower.Lpath l p).Nodup"
+      }
+    ],
+    "QuarticQuery.ForrelationLower.mass_ge": [
+      {
+        "arguments": [
+          {
+            "argument": "Fin (QuarticQuery.mValue t)",
+            "binder": "n",
+            "explicit": false,
+            "head_constant": "Fin",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "Fin.fintype (QuarticQuery.mValue t)",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.Walk.1993172896._hygCtx._hyg.3",
+            "explicit": false,
+            "head_constant": "Fin.fintype",
+            "proof": false,
+            "type": "Fintype (Fin (QuarticQuery.mValue t))"
+          },
+          {
+            "argument": "instDecidableEqFin (QuarticQuery.mValue t)",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.Walk.1993172896._hygCtx._hyg.6",
+            "explicit": false,
+            "head_constant": "instDecidableEqFin",
+            "proof": false,
+            "type": "DecidableEq (Fin (QuarticQuery.mValue t))"
+          },
+          {
+            "argument": "l",
+            "binder": "l",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "QuarticQuery.Forrelation.H t",
+            "binder": "H",
+            "explicit": true,
+            "head_constant": "QuarticQuery.Forrelation.H",
+            "proof": false,
+            "type": "Matrix (Fin (QuarticQuery.mValue t)) (Fin (QuarticQuery.mValue t)) Real"
+          },
+          {
+            "argument": "hl",
+            "binder": "hl",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLTNat.lt 0 l"
+          },
+          {
+            "argument": "QuarticQuery.ForrelationLower.PhiF t",
+            "binder": "g",
+            "explicit": true,
+            "head_constant": "QuarticQuery.ForrelationLower.PhiF",
+            "proof": false,
+            "type": "(QuarticQuery.ForrelationLower.BC l (Fin (QuarticQuery.mValue t)) → Bool) → Real"
+          }
+        ],
+        "callee": "QuarticQuery.ForrelationLower.exists_identity",
+        "result_type": "Exists fun s =>\n  And (Set.instMembership.mem (Set.Ioo 0 1) s)\n    (Eq\n      (instHSub.hSub\n        (MeasureTheory.integral\n          (QuarticQuery.ForrelationLower.gP (QuarticQuery.ForrelationLower.PC l (Fin (QuarticQuery.mValue t)))) fun u =>\n          QuarticQuery.ForrelationLower.ext (QuarticQuery.ForrelationLower.PhiF t)\n            (QuarticQuery.ForrelationLower.wv (QuarticQuery.Forrelation.H t) 1 u))\n        (MeasureTheory.integral\n          (QuarticQuery.ForrelationLower.gP (QuarticQuery.ForrelationLower.PC l (Fin (QuarticQuery.mValue t)))) fun u =>\n          QuarticQuery.ForrelationLower.ext (QuarticQuery.ForrelationLower.PhiF t)\n            (QuarticQuery.ForrelationLower.wv (QuarticQuery.Forrelation.H t) 0 u)))\n      (Finset.univ.sum fun a =>\n        MeasureTheory.integral\n          (QuarticQuery.ForrelationLower.gP (QuarticQuery.ForrelationLower.PC l (Fin (QuarticQuery.mValue t)))) fun u =>\n          QuarticQuery.ForrelationLower.Int (QuarticQuery.Forrelation.H t) s l 0 a\n            (QuarticQuery.ForrelationLower.D (QuarticQuery.ForrelationLower.cn 0 a)\n              (QuarticQuery.ForrelationLower.PhiF t))\n            u))"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "Fin (QuarticQuery.mValue t)",
+            "binder": "n",
+            "explicit": false,
+            "head_constant": "Fin",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "Fin.fintype (QuarticQuery.mValue t)",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.Cascade.3694211004._hygCtx._hyg.3",
+            "explicit": false,
+            "head_constant": "Fin.fintype",
+            "proof": false,
+            "type": "Fintype (Fin (QuarticQuery.mValue t))"
+          },
+          {
+            "argument": "instDecidableEqFin (QuarticQuery.mValue t)",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.Cascade.3694211004._hygCtx._hyg.6",
+            "explicit": false,
+            "head_constant": "instDecidableEqFin",
+            "proof": false,
+            "type": "DecidableEq (Fin (QuarticQuery.mValue t))"
+          },
+          {
+            "argument": "l",
+            "binder": "l",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "QuarticQuery.Forrelation.H t",
+            "binder": "H",
+            "explicit": true,
+            "head_constant": "QuarticQuery.Forrelation.H",
+            "proof": false,
+            "type": "Matrix (Fin (QuarticQuery.mValue t)) (Fin (QuarticQuery.mValue t)) Real"
+          },
+          {
+            "argument": null,
+            "binder": "hH",
+            "explicit": true,
+            "head_constant": "QuarticQuery.ForrelationLower.rowsOrth_H",
+            "proof": true,
+            "type": "QuarticQuery.ForrelationLower.RowsOrth (QuarticQuery.Forrelation.H t)"
+          },
+          {
+            "argument": "QuarticQuery.ForrelationLower.PhiF t",
+            "binder": "g",
+            "explicit": true,
+            "head_constant": "QuarticQuery.ForrelationLower.PhiF",
+            "proof": false,
+            "type": "(QuarticQuery.ForrelationLower.BC l (Fin (QuarticQuery.mValue t)) → Bool) → Real"
+          }
+        ],
+        "callee": "QuarticQuery.ForrelationLower.integral_ext_wv_zero",
+        "result_type": "Eq\n  (MeasureTheory.integral\n    (QuarticQuery.ForrelationLower.gP (QuarticQuery.ForrelationLower.PC l (Fin (QuarticQuery.mValue t)))) fun u =>\n    QuarticQuery.ForrelationLower.ext (QuarticQuery.ForrelationLower.PhiF t)\n      (QuarticQuery.ForrelationLower.wv (QuarticQuery.Forrelation.H t) 0 u))\n  (QuarticQuery.ForrelationLower.ext (QuarticQuery.ForrelationLower.PhiF t) 0)"
+      }
+    ],
+    "QuarticQuery.ForrelationLower.not_RLe_of_gap_sharp": [
+      {
+        "arguments": [
+          {
+            "argument": "Fin (QuarticQuery.mValue t)",
+            "binder": "n",
+            "explicit": false,
+            "head_constant": "Fin",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "Fin.fintype (QuarticQuery.mValue t)",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.Cascade.1979491273._hygCtx._hyg.3",
+            "explicit": false,
+            "head_constant": "Fin.fintype",
+            "proof": false,
+            "type": "Fintype (Fin (QuarticQuery.mValue t))"
+          },
+          {
+            "argument": "instDecidableEqFin (QuarticQuery.mValue t)",
+            "binder": "inst._@.QuarticQuery.ForrelationLower.Cascade.1979491273._hygCtx._hyg.6",
+            "explicit": false,
+            "head_constant": "instDecidableEqFin",
+            "proof": false,
+            "type": "DecidableEq (Fin (QuarticQuery.mValue t))"
+          },
+          {
+            "argument": "l",
+            "binder": "l",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "QuarticQuery.Forrelation.H t",
+            "binder": "H",
+            "explicit": true,
+            "head_constant": "QuarticQuery.Forrelation.H",
+            "proof": false,
+            "type": "Matrix (Fin (QuarticQuery.mValue t)) (Fin (QuarticQuery.mValue t)) Real"
+          },
+          {
+            "argument": "hl",
+            "binder": "hl",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLTNat.lt 0 l"
+          },
+          {
+            "argument": null,
+            "binder": "hH",
+            "explicit": true,
+            "head_constant": "QuarticQuery.ForrelationLower.rowsOrth_H",
+            "proof": true,
+            "type": "QuarticQuery.ForrelationLower.RowsOrth (QuarticQuery.Forrelation.H t)"
+          },
+          {
+            "argument": "Real.instInv.inv (instHPow.hPow 2 t)",
+            "binder": "ε",
+            "explicit": false,
+            "head_constant": "Inv.inv",
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": null,
+            "binder": "hε",
+            "explicit": true,
+            "head_constant": "le_of_lt",
+            "proof": true,
+            "type": "Real.instLE.le 0 (Real.instInv.inv (instHPow.hPow 2 t))"
+          },
+          {
+            "argument": null,
+            "binder": "hHb",
+            "explicit": true,
+            "head_constant": "QuarticQuery.ForrelationLower.abs_H_le",
+            "proof": true,
+            "type": "∀ (a b : Fin (QuarticQuery.mValue t)),\n  Real.instLE.le (abs (QuarticQuery.Forrelation.H t a b)) (Real.instInv.inv (instHPow.hPow 2 t))"
+          },
+          {
+            "argument": "Λ",
+            "binder": "Λ",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "K",
+            "binder": "K",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "instHAdd.hAdd (instHMul.hMul (instHMul.hMul 2 τ) L) 1",
+            "binder": "d",
+            "explicit": false,
+            "head_constant": "HAdd.hAdd",
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": null,
+            "binder": "hd",
+            "explicit": true,
+            "head_constant": "Nat.succ_pos",
+            "proof": true,
+            "type": "instLTNat.lt 0 (instHAdd.hAdd (instHMul.hMul (instHMul.hMul 2 τ) L) 1)"
+          },
+          {
+            "argument": "hK",
+            "binder": "hK",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Real.instLT.lt 0 K"
+          },
+          {
+            "argument": "hKsq",
+            "binder": "hKsq",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Eq (instHPow.hPow K 2)\n  (instHMul.hMul\n    (instHMul.hMul (instHMul.hMul 2 (instHAdd.hAdd (instHMul.hMul (instHMul.hMul 2 τ) L) 1).cast) (instHPow.hPow 2 2))\n    Λ)"
+          },
+          {
+            "argument": "hcard",
+            "binder": "hn",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 1 (Fintype.card (QuarticQuery.ForrelationLower.BC l (Fin (QuarticQuery.mValue t))))"
+          },
+          {
+            "argument": "T j",
+            "binder": "T",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.QueryTree (QuarticQuery.ForrelationLower.BC l (Fin (QuarticQuery.mValue t)))"
+          },
+          {
+            "argument": null,
+            "binder": "hT",
+            "explicit": true,
+            "head_constant": "LE.le.trans",
+            "proof": true,
+            "type": "instLENat.le (T j).depth (instHAdd.hAdd (instHMul.hMul (instHMul.hMul 2 τ) L) 1)"
+          },
+          {
+            "argument": "v",
+            "binder": "v",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Bool → Real"
+          },
+          {
+            "argument": "hv",
+            "binder": "hv",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (b : Bool), Real.instLE.le (abs (v b)) 1"
+          }
+        ],
+        "callee": "QuarticQuery.ForrelationLower.advantage_le_sharp",
+        "result_type": "Real.instLE.le\n  (abs\n    (instHSub.hSub\n      (MeasureTheory.integral\n        (QuarticQuery.ForrelationLower.gP (QuarticQuery.ForrelationLower.PC l (Fin (QuarticQuery.mValue t)))) fun u =>\n        QuarticQuery.ForrelationLower.ext (fun z => v ((T j).eval z))\n          (QuarticQuery.ForrelationLower.wv (QuarticQuery.Forrelation.H t) 1 u))\n      (QuarticQuery.ForrelationLower.ext (fun z => v ((T j).eval z)) 0)))\n  (instHMul.hMul (instHPow.hPow (instHMul.hMul (3 / 16) (Real.instInv.inv (instHPow.hPow 2 t))) l)\n    (instHAdd.hAdd (instHPow.hPow K (instHAdd.hAdd l 1))\n      (instHMul.hMul\n        (instHPow.hPow\n          (instHMul.hMul (Fintype.card (QuarticQuery.ForrelationLower.BC l (Fin (QuarticQuery.mValue t)))).cast 2)\n          (instHAdd.hAdd l 1))\n        (instHMul.hMul\n          (instHPow.hPow\n            (instHMul.hMul 4 (Fintype.card (QuarticQuery.ForrelationLower.BC l (Fin (QuarticQuery.mValue t)))).cast)\n            (instHAdd.hAdd l 1))\n          (Real.exp (Real.instNeg.neg Λ))))))"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          }
+        ],
+        "callee": "QuarticQuery.ForrelationLower.rowsOrth_H",
+        "result_type": "QuarticQuery.ForrelationLower.RowsOrth (QuarticQuery.Forrelation.H t)"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          }
+        ],
+        "callee": "QuarticQuery.ForrelationLower.abs_H_le",
+        "result_type": "∀ (a b : Fin (QuarticQuery.mValue t)),\n  Real.instLE.le (abs (QuarticQuery.Forrelation.H t a b)) (Real.instInv.inv (instHPow.hPow 2 t))"
+      }
+    ],
+    "QuarticQuery.Gvalue_lt_R_Fkm": [
+      {
+        "arguments": [
+          {
+            "argument": "QuarticQuery.ForrelationCoord k t",
+            "binder": "κ",
+            "explicit": false,
+            "head_constant": "QuarticQuery.ForrelationCoord",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "instFintypeProd (Fin k) (Fin (QuarticQuery.mValue t))",
+            "binder": "inst._@.QuarticQuery.LowerBound.Planted.Main.3146654221._hygCtx._hyg.3",
+            "explicit": false,
+            "head_constant": "instFintypeProd",
+            "proof": false,
+            "type": "Fintype (QuarticQuery.ForrelationCoord k t)"
+          },
+          {
+            "argument": "fun a b => instDecidableEqProd a b",
+            "binder": "inst._@.QuarticQuery.LowerBound.Planted.Main.3146654221._hygCtx._hyg.6",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "DecidableEq (QuarticQuery.ForrelationCoord k t)"
+          },
+          {
+            "argument": "QuarticQuery.P k t",
+            "binder": "f",
+            "explicit": true,
+            "head_constant": "QuarticQuery.P",
+            "proof": false,
+            "type": "QuarticQuery.PartialBool (QuarticQuery.ForrelationCoord k t)"
+          },
+          {
+            "argument": "C",
+            "binder": "C",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)"
+          },
+          {
+            "argument": "hC",
+            "binder": "hC",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "QuarticQuery.CircuitRealises C (QuarticQuery.P k t)"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "QuarticQuery.Lvalue k t",
+            "binder": "L",
+            "explicit": false,
+            "head_constant": "QuarticQuery.Lvalue",
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": null,
+            "binder": "hL1",
+            "explicit": true,
+            "head_constant": "QuarticQuery.one_le_Lvalue",
+            "proof": true,
+            "type": "instLENat.le 1 (QuarticQuery.Lvalue k t)"
+          },
+          {
+            "argument": null,
+            "binder": "hLm",
+            "explicit": true,
+            "head_constant": "QuarticQuery.Lvalue_le_mValue",
+            "proof": true,
+            "type": "instLENat.le (QuarticQuery.Lvalue k t) (QuarticQuery.mValue t)"
+          },
+          {
+            "argument": "hLR",
+            "binder": "hLR",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLTNat.lt (QuarticQuery.Lvalue k t) (QuarticQuery.R (QuarticQuery.P k t))"
+          }
+        ],
+        "callee": "QuarticQuery.Gvalue_lt_R_addressedF",
+        "result_type": "instLTNat.lt (QuarticQuery.Gvalue (QuarticQuery.mValue t) (QuarticQuery.Lvalue k t))\n  (QuarticQuery.R\n    (QuarticQuery.totalise (QuarticQuery.addressedF (QuarticQuery.P k t) C (instHMul.hMul 2 t) (instHMul.hMul 40 t))))"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "k",
+            "binder": "k",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "hk",
+            "binder": "hk",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 2 k"
+          },
+          {
+            "argument": "ht",
+            "binder": "ht",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 8 t"
+          }
+        ],
+        "callee": "QuarticQuery.one_le_Lvalue",
+        "result_type": "instLENat.le 1 (QuarticQuery.Lvalue k t)"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "k",
+            "binder": "k",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": null,
+            "binder": "hk",
+            "explicit": true,
+            "head_constant": "Decidable.byContradiction",
+            "proof": true,
+            "type": "instLENat.le 1 k"
+          },
+          {
+            "argument": null,
+            "binder": "ht",
+            "explicit": true,
+            "head_constant": "Decidable.byContradiction",
+            "proof": true,
+            "type": "instLENat.le 1 t"
+          }
+        ],
+        "callee": "QuarticQuery.Lvalue_le_mValue",
+        "result_type": "instLENat.le (QuarticQuery.Lvalue k t) (QuarticQuery.mValue t)"
+      }
+    ],
+    "QuarticQuery.Paper.avg_reachedCellAt_le": [
+      {
+        "arguments": [
+          {
+            "argument": "κ",
+            "binder": "κ",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "inst✝",
+            "binder": "inst._@.QuarticQuery.Paper.ClassicalPlanted.1629390990._hygCtx._hyg.6",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "DecidableEq κ"
+          },
+          {
+            "argument": "ℓ",
+            "binder": "ℓ",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "r",
+            "binder": "r",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "S",
+            "binder": "S",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "L",
+            "binder": "L",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "T",
+            "binder": "T",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)"
+          },
+          {
+            "argument": "J",
+            "binder": "J",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Column ℓ → QuarticQuery.Column ℓ"
+          },
+          {
+            "argument": "A",
+            "binder": "A",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Column ℓ → Fin r → QuarticQuery.BitInput κ"
+          },
+          {
+            "argument": "i",
+            "binder": "i",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Column ℓ"
+          }
+        ],
+        "callee": "QuarticQuery.Paper.addressSimulator",
+        "result_type": "QuarticQuery.OutTree (Prod (Fin r) κ) (QuarticQuery.Address r)"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "κ",
+            "binder": "κ",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "inst✝¹",
+            "binder": "inst._@.QuarticQuery.Paper.ClassicalPlanted.2722620764._hygCtx._hyg.3",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Fintype κ"
+          },
+          {
+            "argument": "inst✝",
+            "binder": "inst._@.QuarticQuery.Paper.ClassicalPlanted.2722620764._hygCtx._hyg.6",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "DecidableEq κ"
+          },
+          {
+            "argument": "ℓ",
+            "binder": "ℓ",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "r",
+            "binder": "r",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "S",
+            "binder": "S",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "L",
+            "binder": "L",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "T",
+            "binder": "T",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)"
+          },
+          {
+            "argument": "J",
+            "binder": "J",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Column ℓ → QuarticQuery.Column ℓ"
+          },
+          {
+            "argument": "A",
+            "binder": "A",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Column ℓ → Fin r → QuarticQuery.BitInput κ"
+          },
+          {
+            "argument": "i",
+            "binder": "i",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Column ℓ"
+          }
+        ],
+        "callee": "QuarticQuery.Paper.addressSimulator_depth_le",
+        "result_type": "instLENat.le (QuarticQuery.Paper.addressSimulator L t T J A i).depth L"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "QuarticQuery.BitLoc ℓ r S κ",
+            "binder": "ι",
+            "explicit": false,
+            "head_constant": "QuarticQuery.BitLoc",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "Prod (Fin r) κ",
+            "binder": "ρ",
+            "explicit": false,
+            "head_constant": "Prod",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "QuarticQuery.Address r",
+            "binder": "β",
+            "explicit": false,
+            "head_constant": "QuarticQuery.Address",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "fun x => QuarticQuery.aTarget i x",
+            "binder": "tgt",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.BitLoc ℓ r S κ → Option (Prod (Fin r) κ)"
+          },
+          {
+            "argument": "QuarticQuery.cellGuess i",
+            "binder": "guess",
+            "explicit": false,
+            "head_constant": "QuarticQuery.cellGuess",
+            "proof": false,
+            "type": "QuarticQuery.BitLoc ℓ r S κ → Option (QuarticQuery.Address r)"
+          },
+          {
+            "argument": "fun x => Bool.false",
+            "binder": "dflt",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Address r"
+          },
+          {
+            "argument": "QuarticQuery.dummy J A",
+            "binder": "base",
+            "explicit": false,
+            "head_constant": "QuarticQuery.dummy",
+            "proof": false,
+            "type": "QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r S κ)"
+          },
+          {
+            "argument": "x",
+            "binder": "x",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r S κ)"
+          },
+          {
+            "argument": "Function.uncurry U",
+            "binder": "V",
+            "explicit": true,
+            "head_constant": "Function.uncurry",
+            "proof": false,
+            "type": "QuarticQuery.BitInput (Prod (Fin r) κ)"
+          },
+          {
+            "argument": null,
+            "binder": "hbase",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (q : QuarticQuery.BitLoc ℓ r S κ),\n  Eq ((fun x => QuarticQuery.aTarget i x) q) Option.none → Eq (x q) (QuarticQuery.dummy J A q)"
+          },
+          {
+            "argument": null,
+            "binder": "hV",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (q : QuarticQuery.BitLoc ℓ r S κ) (p : Prod (Fin r) κ),\n  Eq ((fun x => QuarticQuery.aTarget i x) q) (Option.some p) → Eq (x q) (Function.uncurry U p)"
+          },
+          {
+            "argument": "T",
+            "binder": "T",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "L",
+            "binder": "c",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "q",
+            "binder": "q",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.BitLoc ℓ r S κ"
+          },
+          {
+            "argument": "QuarticQuery.trueAddr f U",
+            "binder": "s",
+            "explicit": false,
+            "head_constant": "QuarticQuery.trueAddr",
+            "proof": false,
+            "type": "QuarticQuery.Address r"
+          },
+          {
+            "argument": "hq",
+            "binder": "hq",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Eq (List.instGetElem?NatLtLength.getElem? (T.path x) t) (Option.some q)"
+          },
+          {
+            "argument": null,
+            "binder": "hs",
+            "explicit": true,
+            "head_constant": "QuarticQuery.cellGuess_of_cellOf",
+            "proof": true,
+            "type": "Eq (QuarticQuery.cellGuess i q) (Option.some (QuarticQuery.trueAddr f U))"
+          },
+          {
+            "argument": "hc",
+            "binder": "hc",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le (List.countP (fun q => ((fun x => QuarticQuery.aTarget i x) q).isSome) (List.take t (T.path x))) L"
+          }
+        ],
+        "callee": "QuarticQuery.eval_simTree",
+        "result_type": "Eq\n  ((QuarticQuery.simTree (fun x => QuarticQuery.aTarget i x) (QuarticQuery.cellGuess i) (fun x => Bool.false)\n        (QuarticQuery.dummy J A) T t L).eval\n    (Function.uncurry U))\n  (QuarticQuery.trueAddr f U)"
+      }
+    ],
+    "QuarticQuery.Paper.eq_21": [
+      {
+        "arguments": [
+          {
+            "argument": "QuarticQuery.Column ℓ",
+            "binder": "ι",
+            "explicit": false,
+            "head_constant": "QuarticQuery.Column",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "Fin r → QuarticQuery.BitInput κ",
+            "binder": "β",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "Fin.fintype (instHPow.hPow 2 ℓ)",
+            "binder": "inst._@.QuarticQuery.LowerBound.Planted.Average.967736391._hygCtx._hyg.4",
+            "explicit": false,
+            "head_constant": "Fin.fintype",
+            "proof": false,
+            "type": "Fintype (QuarticQuery.Column ℓ)"
+          },
+          {
+            "argument": "instDecidableEqFin (instHPow.hPow 2 ℓ)",
+            "binder": "inst._@.QuarticQuery.LowerBound.Planted.Average.967736391._hygCtx._hyg.7",
+            "explicit": false,
+            "head_constant": "instDecidableEqFin",
+            "proof": false,
+            "type": "DecidableEq (QuarticQuery.Column ℓ)"
+          },
+          {
+            "argument": "Pi.instFintype",
+            "binder": "inst._@.QuarticQuery.LowerBound.Planted.Average.967736391._hygCtx._hyg.10",
+            "explicit": false,
+            "head_constant": "Pi.instFintype",
+            "proof": false,
+            "type": "Fintype (Fin r → QuarticQuery.BitInput κ)"
+          },
+          {
+            "argument": "QuarticQuery.prodW μ",
+            "binder": "p",
+            "explicit": false,
+            "head_constant": "QuarticQuery.prodW",
+            "proof": false,
+            "type": "(Fin r → QuarticQuery.BitInput κ) → Real"
+          },
+          {
+            "argument": null,
+            "binder": "hp",
+            "explicit": true,
+            "head_constant": "QuarticQuery.sum_prodW",
+            "proof": true,
+            "type": "Eq (Finset.univ.sum fun b => QuarticQuery.prodW μ b) 1"
+          },
+          {
+            "argument": "i",
+            "binder": "i",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Column ℓ"
+          },
+          {
+            "argument": "fun a => QuarticQuery.Paper.reachedCellAt f L T J a i t",
+            "binder": "g",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "(QuarticQuery.Column ℓ → Fin r → QuarticQuery.BitInput κ) → Real"
+          }
+        ],
+        "callee": "QuarticQuery.avg_resample",
+        "result_type": "Eq\n  (QuarticQuery.avg (QuarticQuery.prodW (QuarticQuery.prodW μ)) fun a => QuarticQuery.Paper.reachedCellAt f L T J a i t)\n  (QuarticQuery.avg (QuarticQuery.prodW (QuarticQuery.prodW μ)) fun F =>\n    QuarticQuery.avg (QuarticQuery.prodW μ) fun b =>\n      (fun a => QuarticQuery.Paper.reachedCellAt f L T J a i t) (Function.update F i b))"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "κ",
+            "binder": "κ",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "inst✝¹",
+            "binder": "inst._@.QuarticQuery.Paper.ClassicalPlanted.644397520._hygCtx._hyg.3",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Fintype κ"
+          },
+          {
+            "argument": "inst✝",
+            "binder": "inst._@.QuarticQuery.Paper.ClassicalPlanted.644397520._hygCtx._hyg.6",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "DecidableEq κ"
+          },
+          {
+            "argument": "ℓ",
+            "binder": "ℓ",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "r",
+            "binder": "r",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "S",
+            "binder": "S",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "f",
+            "binder": "f",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.PartialBool κ"
+          },
+          {
+            "argument": "μ",
+            "binder": "μ",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.BitInput κ → Real"
+          },
+          {
+            "argument": "L",
+            "binder": "L",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "instHPow.hPow (2 / 3) r",
+            "binder": "ρ",
+            "explicit": false,
+            "head_constant": "HPow.hPow",
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "hμ",
+            "binder": "hμ",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (x : QuarticQuery.BitInput κ), Real.instLE.le 0 (μ x)"
+          },
+          {
+            "argument": "hdom",
+            "binder": "hdom",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (x : QuarticQuery.BitInput κ), Ne (μ x) 0 → QuarticQuery.promised f x"
+          },
+          {
+            "argument": null,
+            "binder": "hguess",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (U : QuarticQuery.OutTree (Prod (Fin r) κ) (Fin r → Bool)),\n  (U.capped fun x => L) → Real.instLE.le (QuarticQuery.guessSuccess f (fun x => μ) U) (instHPow.hPow (2 / 3) r)"
+          },
+          {
+            "argument": "T",
+            "binder": "T",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)"
+          },
+          {
+            "argument": "J",
+            "binder": "J",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Column ℓ → QuarticQuery.Column ℓ"
+          },
+          {
+            "argument": "A",
+            "binder": "A",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Column ℓ → Fin r → QuarticQuery.BitInput κ"
+          },
+          {
+            "argument": "i",
+            "binder": "i",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Column ℓ"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          }
+        ],
+        "callee": "QuarticQuery.Paper.avg_reachedCellAt_le",
+        "result_type": "Real.instLE.le\n  (QuarticQuery.avg (QuarticQuery.prodW μ) fun U =>\n    QuarticQuery.Paper.reachedCellAt f L T J (Function.update A i U) i t)\n  (instHPow.hPow (2 / 3) r)"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "κ",
+            "binder": "κ",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "inst✝¹",
+            "binder": "inst._@.QuarticQuery.LowerBound.Minimax.3692993534._hygCtx._hyg.3",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Fintype κ"
+          },
+          {
+            "argument": "inst✝",
+            "binder": "inst._@.QuarticQuery.LowerBound.Minimax.3692993534._hygCtx._hyg.6",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "DecidableEq κ"
+          },
+          {
+            "argument": "f",
+            "binder": "f",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.PartialBool κ"
+          },
+          {
+            "argument": "μ",
+            "binder": "μ",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.BitInput κ → Real"
+          },
+          {
+            "argument": "L",
+            "binder": "L",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "r",
+            "binder": "r",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "hμ",
+            "binder": "hμ",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (x : QuarticQuery.BitInput κ), Real.instLE.le 0 (μ x)"
+          },
+          {
+            "argument": "hard",
+            "binder": "hard",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (T : QuarticQuery.QueryTree κ), instLENat.le T.depth L → Real.instLE.le (QuarticQuery.treeSuccess f μ T) (2 / 3)"
+          },
+          {
+            "argument": "U",
+            "binder": "T",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.OutTree (Prod (Fin r) κ) (Fin r → Bool)"
+          },
+          {
+            "argument": "hU",
+            "binder": "hT",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "U.capped fun x => L"
+          }
+        ],
+        "callee": "QuarticQuery.address_guess_le",
+        "result_type": "Real.instLE.le (QuarticQuery.guessSuccess f (fun x => μ) U) (instHPow.hPow (2 / 3) r)"
+      }
+    ],
+    "QuarticQuery.Upper.Fkm_QLe": [
+      {
+        "arguments": [
+          {
+            "argument": "k",
+            "binder": "k",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "C",
+            "binder": "C",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)"
+          },
+          {
+            "argument": "hk",
+            "binder": "hk",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 1 k"
+          },
+          {
+            "argument": "n",
+            "binder": "n",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "ε",
+            "binder": "ε",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "ht",
+            "binder": "ht",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 1 t"
+          },
+          {
+            "argument": "hε",
+            "binder": "hε",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Real.instLT.lt 0 ε"
+          },
+          {
+            "argument": null,
+            "binder": "hε1",
+            "explicit": true,
+            "head_constant": "le_of_not_gt",
+            "proof": true,
+            "type": "Real.instLE.le ε 1"
+          },
+          {
+            "argument": null,
+            "binder": "hn",
+            "explicit": true,
+            "head_constant": "Eq.mpr",
+            "proof": true,
+            "type": "instLENat.le (QuarticQuery.Forrelation.repetitions k (instHDiv.hDiv ε (instHMul.hMul 40 t).cast)) n"
+          },
+          {
+            "argument": "x",
+            "binder": "x",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)"
+          },
+          {
+            "argument": "i",
+            "binder": "i",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Upper.Col t"
+          },
+          {
+            "argument": "s",
+            "binder": "s",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.Upper.Addr t"
+          },
+          {
+            "argument": null,
+            "binder": "hs",
+            "explicit": true,
+            "head_constant": "And.left",
+            "proof": true,
+            "type": "∀ (h : Fin (instHMul.hMul 40 t)), Eq (QuarticQuery.P k t (QuarticQuery.readA x i h)) (Option.some (s h))"
+          }
+        ],
+        "callee": "QuarticQuery.Upper.addrLaw_good",
+        "result_type": "Real.instLE.le (instHSub.hSub 1 ε) (QuarticQuery.Upper.addrLaw n x i s)"
+      }
+    ],
+    "QuarticQuery.Upper.Fkm_forrCircuit_QLe": [
+      {
+        "arguments": [
+          {
+            "argument": "instHAdd.hAdd l 1",
+            "binder": "k",
+            "explicit": false,
+            "head_constant": "HAdd.hAdd",
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "QuarticQuery.Forrelation.forrCircuit l t",
+            "binder": "C",
+            "explicit": false,
+            "head_constant": "QuarticQuery.Forrelation.forrCircuit",
+            "proof": false,
+            "type": "QuarticQuery.Circuit (QuarticQuery.ForrelationCoord (instHAdd.hAdd l 1) t)"
+          },
+          {
+            "argument": null,
+            "binder": "hk",
+            "explicit": true,
+            "head_constant": "Decidable.byContradiction",
+            "proof": true,
+            "type": "instLENat.le 1 (instHAdd.hAdd l 1)"
+          },
+          {
+            "argument": "ht",
+            "binder": "ht",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 1 t"
+          },
+          {
+            "argument": null,
+            "binder": "hC",
+            "explicit": true,
+            "head_constant": "QuarticQuery.Forrelation.forrCircuit_realises",
+            "proof": true,
+            "type": "QuarticQuery.CircuitRealises (QuarticQuery.Forrelation.forrCircuit l t) (QuarticQuery.P (instHAdd.hAdd l 1) t)"
+          },
+          {
+            "argument": "QuarticQuery.Forrelation.repetitions (instHAdd.hAdd l 1)\n  (instHDiv.hDiv (QuarticQuery.Tournament.epsval (QuarticQuery.mValue t)) (instHMul.hMul 40 t).cast)",
+            "binder": "n",
+            "explicit": false,
+            "head_constant": "QuarticQuery.Forrelation.repetitions",
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": null,
+            "binder": "hn",
+            "explicit": true,
+            "head_constant": "le_rfl",
+            "proof": true,
+            "type": "instLENat.le\n  (QuarticQuery.Forrelation.repetitions (instHAdd.hAdd l 1)\n    (instHDiv.hDiv (QuarticQuery.Tournament.epsval (QuarticQuery.mValue t)) (instHMul.hMul 40 t).cast))\n  (QuarticQuery.Forrelation.repetitions (instHAdd.hAdd l 1)\n    (instHDiv.hDiv (QuarticQuery.Tournament.epsval (QuarticQuery.mValue t)) (instHMul.hMul 40 t).cast))"
+          }
+        ],
+        "callee": "QuarticQuery.Upper.Fkm_QLe",
+        "result_type": "QuarticQuery.QLe\n  (QuarticQuery.totalise (QuarticQuery.Fkm (instHAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t)))\n  (QuarticQuery.Upper.budget (instHAdd.hAdd l 1) t\n    (QuarticQuery.Forrelation.repetitions (instHAdd.hAdd l 1)\n      (instHDiv.hDiv (QuarticQuery.Tournament.epsval (QuarticQuery.mValue t)) (instHMul.hMul 40 t).cast))\n    (Fintype.card (QuarticQuery.Upper.Tests t (QuarticQuery.Forrelation.forrCircuit l t))))"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "l",
+            "binder": "l",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          }
+        ],
+        "callee": "QuarticQuery.Forrelation.forrCircuit_realises",
+        "result_type": "QuarticQuery.CircuitRealises (QuarticQuery.Forrelation.forrCircuit l t) (QuarticQuery.P (instHAdd.hAdd l 1) t)"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "instHAdd.hAdd l 1",
+            "binder": "k",
+            "explicit": false,
+            "head_constant": "HAdd.hAdd",
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "QuarticQuery.Forrelation.forrCircuit l t",
+            "binder": "C",
+            "explicit": false,
+            "head_constant": "QuarticQuery.Forrelation.forrCircuit",
+            "proof": false,
+            "type": "QuarticQuery.Circuit (QuarticQuery.ForrelationCoord (instHAdd.hAdd l 1) t)"
+          },
+          {
+            "argument": "ht",
+            "binder": "ht",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 1 t"
+          },
+          {
+            "argument": null,
+            "binder": "hSz",
+            "explicit": true,
+            "head_constant": "QuarticQuery.Forrelation.forrCircuit_size_le",
+            "proof": true,
+            "type": "instLENat.le (QuarticQuery.Forrelation.forrCircuit l t).size\n  (instHMul.hMul (instHMul.hMul (QuarticQuery.Forrelation.forrConstant (instHAdd.hAdd l 1)) (QuarticQuery.mValue t))\n    (instHPow.hPow (instHMul.hMul 2 t) 2))"
+          }
+        ],
+        "callee": "QuarticQuery.Upper.budget_le",
+        "result_type": "instLENat.le\n  (QuarticQuery.Upper.budget (instHAdd.hAdd l 1) t\n    (QuarticQuery.Forrelation.repetitions (instHAdd.hAdd l 1)\n      (instHDiv.hDiv (QuarticQuery.Tournament.epsval (QuarticQuery.mValue t)) (instHMul.hMul 40 t).cast))\n    (Fintype.card (QuarticQuery.Upper.Tests t (QuarticQuery.Forrelation.forrCircuit l t))))\n  (instHMul.hMul (instHMul.hMul (QuarticQuery.Upper.budgetConst (instHAdd.hAdd l 1)) (instHPow.hPow 2 t))\n    (instHPow.hPow (instHMul.hMul 2 t) 6))"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "l",
+            "binder": "l",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "ht",
+            "binder": "ht",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 1 t"
+          }
+        ],
+        "callee": "QuarticQuery.Forrelation.forrCircuit_size_le",
+        "result_type": "instLENat.le (QuarticQuery.Forrelation.forrCircuit l t).size\n  (instHMul.hMul (instHMul.hMul (QuarticQuery.Forrelation.forrConstant (instHAdd.hAdd l 1)) (QuarticQuery.mValue t))\n    (instHPow.hPow (instHMul.hMul 2 t) 2))"
+      }
+    ],
+    "QuarticQuery.Upper.addr_samples": [
+      {
+        "arguments": [
+          {
+            "argument": "QuarticQuery.Upper.Loc k t C",
+            "binder": "ι",
+            "explicit": false,
+            "head_constant": "QuarticQuery.Upper.Loc",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "k",
+            "binder": "k",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": null,
+            "binder": "inst._@.QuarticQuery.Upper.Decode.1991179544._hygCtx._hyg.9",
+            "explicit": false,
+            "head_constant": "QuarticQuery.Upper.instNonemptyLoc",
+            "proof": true,
+            "type": "Nonempty (QuarticQuery.Upper.Loc k t C)"
+          },
+          {
+            "argument": "hk",
+            "binder": "hk",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 1 k"
+          },
+          {
+            "argument": "QuarticQuery.Upper.instLoc i h",
+            "binder": "loc",
+            "explicit": true,
+            "head_constant": "QuarticQuery.Upper.instLoc",
+            "proof": false,
+            "type": "QuarticQuery.ForrelationCoord k t → QuarticQuery.Upper.Loc k t C"
+          },
+          {
+            "argument": "n",
+            "binder": "n",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          }
+        ],
+        "callee": "QuarticQuery.Upper.decode_samples",
+        "result_type": "QuarticQuery.Upper.Samples (instHMul.hMul n k) fun x b =>\n  QuarticQuery.Upper.bern (QuarticQuery.Upper.decodeProb k t n fun c => x (QuarticQuery.Upper.instLoc i h c)) b"
+      }
+    ],
+    "QuarticQuery.alphaTot_eq_four": [
+      {
+        "arguments": [
+          {
+            "argument": null,
+            "binder": "hRreindex",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (ι κ : Type) [inst : Fintype ι] [inst_1 : Fintype κ] (e : Equiv ι κ) (f : QuarticQuery.PartialBool ι),\n  Eq (QuarticQuery.R (QuarticQuery.reindex e f)) (QuarticQuery.R f)"
+          },
+          {
+            "argument": null,
+            "binder": "hQreindex",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (ι κ : Type) [inst : Fintype ι] [inst_1 : Fintype κ] (e : Equiv ι κ) (f : QuarticQuery.PartialBool ι),\n  Eq (QuarticQuery.Q (QuarticQuery.reindex e f)) (QuarticQuery.Q f)"
+          },
+          {
+            "argument": "hfam",
+            "binder": "hfam",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "QuarticQuery.FamilyBounds"
+          },
+          {
+            "argument": null,
+            "binder": "hupper",
+            "explicit": true,
+            "head_constant": "QuarticQuery.universalPower_four",
+            "proof": true,
+            "type": "QuarticQuery.UniversalPower 4"
+          }
+        ],
+        "callee": "QuarticQuery.alphaTot_eq_four_of",
+        "result_type": "Eq QuarticQuery.alphaTot 4"
+      },
+      {
+        "arguments": [],
+        "callee": "QuarticQuery.universalPower_four",
+        "result_type": "QuarticQuery.UniversalPower 4"
+      }
+    ],
+    "QuarticQuery.family_bounds": [
+      {
+        "arguments": [
+          {
+            "argument": "l",
+            "binder": "l",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          }
+        ],
+        "callee": "QuarticQuery.Forrelation.forrCircuit",
+        "result_type": "QuarticQuery.Circuit (QuarticQuery.ForrelationCoord (instHAdd.hAdd l 1) t)"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "l",
+            "binder": "l",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          }
+        ],
+        "callee": "QuarticQuery.Forrelation.forrCircuit_realises",
+        "result_type": "QuarticQuery.CircuitRealises (QuarticQuery.Forrelation.forrCircuit l t) (QuarticQuery.P (instHAdd.hAdd l 1) t)"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "l",
+            "binder": "l",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "ht",
+            "binder": "ht",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 1 t"
+          }
+        ],
+        "callee": "QuarticQuery.Upper.Q_Fkm_le",
+        "result_type": "Real.instLE.le\n  (QuarticQuery.Q\n      (QuarticQuery.totalise (QuarticQuery.Fkm (instHAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t)))).cast\n  (instHMul.hMul (instHMul.hMul (QuarticQuery.Upper.budgetConst (instHAdd.hAdd l 1)).cast (instHPow.hPow 2 t))\n    (instHPow.hPow (instHMul.hMul 2 t.cast) 6))"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "instHAdd.hAdd l 1",
+            "binder": "k",
+            "explicit": false,
+            "head_constant": "HAdd.hAdd",
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "t",
+            "binder": "t",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "hk",
+            "binder": "hk",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 2 (instHAdd.hAdd l 1)"
+          },
+          {
+            "argument": "h8",
+            "binder": "ht",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 8 t"
+          },
+          {
+            "argument": "QuarticQuery.Forrelation.forrCircuit l t",
+            "binder": "C",
+            "explicit": true,
+            "head_constant": "QuarticQuery.Forrelation.forrCircuit",
+            "proof": false,
+            "type": "QuarticQuery.Circuit (QuarticQuery.ForrelationCoord (instHAdd.hAdd l 1) t)"
+          },
+          {
+            "argument": null,
+            "binder": "hC",
+            "explicit": true,
+            "head_constant": "QuarticQuery.Forrelation.forrCircuit_realises",
+            "proof": true,
+            "type": "QuarticQuery.CircuitRealises (QuarticQuery.Forrelation.forrCircuit l t) (QuarticQuery.P (instHAdd.hAdd l 1) t)"
+          },
+          {
+            "argument": "hLR",
+            "binder": "hLR",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLTNat.lt (QuarticQuery.Lvalue (instHAdd.hAdd l 1) t) (QuarticQuery.R (QuarticQuery.P (instHAdd.hAdd l 1) t))"
+          }
+        ],
+        "callee": "QuarticQuery.Gvalue_lt_R_Fkm",
+        "result_type": "instLTNat.lt (QuarticQuery.Gvalue (QuarticQuery.mValue t) (QuarticQuery.Lvalue (instHAdd.hAdd l 1) t))\n  (QuarticQuery.R\n    (QuarticQuery.totalise (QuarticQuery.Fkm (instHAdd.hAdd l 1) t (QuarticQuery.Forrelation.forrCircuit l t))))"
+      }
+    ],
+    "QuarticQuery.not_bound_of_familyBoundsAt": [
+      {
+        "arguments": [
+          {
+            "argument": "c",
+            "binder": "c",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "C",
+            "binder": "C",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "D",
+            "binder": "D",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "instHSub.hSub 2 (instHDiv.hDiv 1 k.cast)",
+            "binder": "s",
+            "explicit": false,
+            "head_constant": "HSub.hSub",
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "α",
+            "binder": "α",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "b",
+            "binder": "b",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "hc",
+            "binder": "hc",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Real.instLT.lt 0 c"
+          },
+          {
+            "argument": "hC",
+            "binder": "hC",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Real.instLT.lt 0 C"
+          },
+          {
+            "argument": "hD",
+            "binder": "hD",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Real.instLT.lt 0 D"
+          },
+          {
+            "argument": "hα",
+            "binder": "hα",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Real.instLE.le 0 α"
+          },
+          {
+            "argument": "hs",
+            "binder": "hs",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Real.instLT.lt (instHDiv.hDiv α 2) (instHSub.hSub 2 (instHDiv.hDiv 1 k.cast))"
+          }
+        ],
+        "callee": "QuarticQuery.exists_threshold_gap",
+        "result_type": "Exists fun T =>\n  ∀ (t : Nat),\n    instLENat.le T t →\n      ∀ (r q : Real),\n        Real.instLE.le 0 q →\n          Real.instLE.le q\n              (instHMul.hMul (instHMul.hMul C (instHPow.hPow 2 t)) (instHPow.hPow (instHMul.hMul 2 t.cast) b)) →\n            Real.instLE.le\n                (instHDiv.hDiv\n                  (instHMul.hMul c (instHPow.hPow (instHPow.hPow 4 t) (instHSub.hSub 2 (instHDiv.hDiv 1 k.cast))))\n                  (instHPow.hPow (instHMul.hMul 2 t.cast) 2))\n                r →\n              Real.instLT.lt (instHMul.hMul D (instHPow.hPow (instHAdd.hAdd 1 q) α)) r"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "hRreindex",
+            "binder": "hRreindex",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (ι κ : Type) [inst : Fintype ι] [inst_1 : Fintype κ] (e : Equiv ι κ) (f : QuarticQuery.PartialBool ι),\n  Eq (QuarticQuery.R (QuarticQuery.reindex e f)) (QuarticQuery.R f)"
+          },
+          {
+            "argument": "hQreindex",
+            "binder": "hQreindex",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (ι κ : Type) [inst : Fintype ι] [inst_1 : Fintype κ] (e : Equiv ι κ) (f : QuarticQuery.PartialBool ι),\n  Eq (QuarticQuery.Q (QuarticQuery.reindex e f)) (QuarticQuery.Q f)"
+          },
+          {
+            "argument": "D",
+            "binder": "D",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "α",
+            "binder": "α",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "hbound",
+            "binder": "h",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (n : Nat),\n  instLENat.le 1 n →\n    ∀ (f : QuarticQuery.TotalBool (Fin n)),\n      Real.instLE.le (QuarticQuery.R (QuarticQuery.totalise f)).cast\n        (instHMul.hMul D ((instHAdd.hAdd 1 (QuarticQuery.Q (QuarticQuery.totalise f)).cast).rpow α))"
+          },
+          {
+            "argument": "QuarticQuery.BitLoc (instHMul.hMul 2 (Nat.instMax.max T t₀)) (instHMul.hMul 40 (Nat.instMax.max T t₀)) Cir.size\n  (QuarticQuery.ForrelationCoord k (Nat.instMax.max T t₀))",
+            "binder": "ι",
+            "explicit": false,
+            "head_constant": "QuarticQuery.BitLoc",
+            "proof": false,
+            "type": "Type"
+          },
+          {
+            "argument": "instFintypeSum\n  (Prod (QuarticQuery.Column (instHMul.hMul 2 (Nat.instMax.max T t₀)))\n    (QuarticQuery.Column (instHMul.hMul 2 (Nat.instMax.max T t₀))))\n  (Sum\n    (Prod (QuarticQuery.Column (instHMul.hMul 2 (Nat.instMax.max T t₀)))\n      (Prod (Fin (instHMul.hMul 40 (Nat.instMax.max T t₀))) (QuarticQuery.ForrelationCoord k (Nat.instMax.max T t₀))))\n    (Sum\n      ((i : QuarticQuery.Column (instHMul.hMul 2 (Nat.instMax.max T t₀))) ×\n        Prod (QuarticQuery.Address (instHMul.hMul 40 (Nat.instMax.max T t₀)))\n          (Prod (Subtype fun j => Ne j i) (Fin (instHMul.hMul 2 (Nat.instMax.max T t₀)))))\n      (Prod (QuarticQuery.Column (instHMul.hMul 2 (Nat.instMax.max T t₀)))\n        (Prod (QuarticQuery.Address (instHMul.hMul 40 (Nat.instMax.max T t₀)))\n          (Prod (Fin (instHMul.hMul 40 (Nat.instMax.max T t₀))) (Fin Cir.size))))))",
+            "binder": "inst._@.QuarticQuery.Results.Exponent.143540296._hygCtx._hyg.122",
+            "explicit": false,
+            "head_constant": "instFintypeSum",
+            "proof": false,
+            "type": "Fintype\n  (QuarticQuery.BitLoc (instHMul.hMul 2 (Nat.instMax.max T t₀)) (instHMul.hMul 40 (Nat.instMax.max T t₀)) Cir.size\n    (QuarticQuery.ForrelationCoord k (Nat.instMax.max T t₀)))"
+          },
+          {
+            "argument": null,
+            "binder": "inst._@.QuarticQuery.Results.Exponent.143540296._hygCtx._hyg.125",
+            "explicit": false,
+            "head_constant": "QuarticQuery.bitLoc_nonempty",
+            "proof": true,
+            "type": "Nonempty\n  (QuarticQuery.BitLoc (instHMul.hMul 2 (Nat.instMax.max T t₀)) (instHMul.hMul 40 (Nat.instMax.max T t₀)) Cir.size\n    (QuarticQuery.ForrelationCoord k (Nat.instMax.max T t₀)))"
+          },
+          {
+            "argument": "QuarticQuery.Fkm k (Nat.instMax.max T t₀) Cir",
+            "binder": "f",
+            "explicit": true,
+            "head_constant": "QuarticQuery.Fkm",
+            "proof": false,
+            "type": "QuarticQuery.TotalBool\n  (QuarticQuery.BitLoc (instHMul.hMul 2 (Nat.instMax.max T t₀)) (instHMul.hMul 40 (Nat.instMax.max T t₀)) Cir.size\n    (QuarticQuery.ForrelationCoord k (Nat.instMax.max T t₀)))"
+          }
+        ],
+        "callee": "QuarticQuery.transport_bound",
+        "result_type": "Real.instLE.le (QuarticQuery.R (QuarticQuery.totalise (QuarticQuery.Fkm k (Nat.instMax.max T t₀) Cir))).cast\n  (instHMul.hMul D\n    ((instHAdd.hAdd 1\n          (QuarticQuery.Q (QuarticQuery.totalise (QuarticQuery.Fkm k (Nat.instMax.max T t₀) Cir))).cast).rpow\n      α))"
+      }
+    ],
+    "QuarticQuery.not_universalPower_of_family": [
+      {
+        "arguments": [
+          {
+            "argument": "α",
+            "binder": "α",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": "hα",
+            "binder": "hα",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Real.instLT.lt α 4"
+          }
+        ],
+        "callee": "QuarticQuery.exists_nat_exponent",
+        "result_type": "Exists fun k => And (instLENat.le 2 k) (Real.instLT.lt (instHDiv.hDiv α 2) (instHSub.hSub 2 (instHDiv.hDiv 1 k.cast)))"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "hRreindex",
+            "binder": "hRreindex",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (ι κ : Type) [inst : Fintype ι] [inst_1 : Fintype κ] (e : Equiv ι κ) (f : QuarticQuery.PartialBool ι),\n  Eq (QuarticQuery.R (QuarticQuery.reindex e f)) (QuarticQuery.R f)"
+          },
+          {
+            "argument": "hQreindex",
+            "binder": "hQreindex",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "∀ (ι κ : Type) [inst : Fintype ι] [inst_1 : Fintype κ] (e : Equiv ι κ) (f : QuarticQuery.PartialBool ι),\n  Eq (QuarticQuery.Q (QuarticQuery.reindex e f)) (QuarticQuery.Q f)"
+          },
+          {
+            "argument": "k",
+            "binder": "k",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "α",
+            "binder": "α",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Real"
+          },
+          {
+            "argument": null,
+            "binder": "hfam",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "QuarticQuery.FamilyBoundsAt k"
+          },
+          {
+            "argument": "hs",
+            "binder": "hs",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "Real.instLT.lt (instHDiv.hDiv α 2) (instHSub.hSub 2 (instHDiv.hDiv 1 k.cast))"
+          }
+        ],
+        "callee": "QuarticQuery.not_universalPower_of_familyBoundsAt",
+        "result_type": "Not (QuarticQuery.UniversalPower α)"
+      }
+    ],
+    "QuarticQuery.theorem_1_1_unconditional": [
+      {
+        "arguments": [
+          {
+            "argument": "k",
+            "binder": "k",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "hk",
+            "binder": "hk",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 2 k"
+          }
+        ],
+        "callee": "QuarticQuery.family_bounds",
+        "result_type": "Exists fun S =>\n  Exists fun A =>\n    Exists fun b =>\n      And (instLTNat.lt 0 A)\n        (∀ (t : Nat),\n          instLENat.le 1 t →\n            Exists fun C =>\n              And (QuarticQuery.CircuitRealises C (QuarticQuery.P k t))\n                (And\n                  (instLENat.le C.size\n                    (instHMul.hMul (instHMul.hMul S (QuarticQuery.mValue t)) (instHPow.hPow (instHMul.hMul 2 t) 2)))\n                  (And\n                    (Real.instLE.le (QuarticQuery.Q (QuarticQuery.totalise (QuarticQuery.Fkm k t C))).cast\n                      (instHMul.hMul (instHMul.hMul A.cast (instHPow.hPow 2 t))\n                        (instHPow.hPow (instHMul.hMul 2 t.cast) b)))\n                    (instLENat.le 8 t →\n                      instLTNat.lt (QuarticQuery.Lvalue k t) (QuarticQuery.R (QuarticQuery.P k t)) →\n                        instLTNat.lt (QuarticQuery.Gvalue (QuarticQuery.mValue t) (QuarticQuery.Lvalue k t))\n                          (QuarticQuery.R (QuarticQuery.totalise (QuarticQuery.Fkm k t C)))))))"
+      },
+      {
+        "arguments": [
+          {
+            "argument": "k",
+            "binder": "k",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "hk",
+            "binder": "a._@._internal._hyg.0",
+            "explicit": true,
+            "head_constant": null,
+            "proof": true,
+            "type": "instLENat.le 2 k"
+          }
+        ],
+        "callee": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+        "result_type": "Exists fun t₀ =>\n  ∀ (t : Nat), instLENat.le t₀ t → instLTNat.lt (QuarticQuery.Lvalue k t) (QuarticQuery.R (QuarticQuery.P k t))"
+      }
+    ],
+    "QuarticQuery.universalPower_four": [
+      {
+        "arguments": [
+          {
+            "argument": "n",
+            "binder": "n",
+            "explicit": false,
+            "head_constant": null,
+            "proof": false,
+            "type": "Nat"
+          },
+          {
+            "argument": "f",
+            "binder": "f",
+            "explicit": true,
+            "head_constant": null,
+            "proof": false,
+            "type": "QuarticQuery.TotalBool (Fin n)"
+          }
+        ],
+        "callee": "QuarticQuery.R_le_D_le_one_add_Q_pow_four",
+        "result_type": "And (Real.instLE.le (QuarticQuery.R (QuarticQuery.totalise f)).cast (QuarticQuery.D (QuarticQuery.totalise f)).cast)\n  (Real.instLE.le (QuarticQuery.D (QuarticQuery.totalise f)).cast\n    (instHMul.hMul 20736 (instHPow.hPow (instHAdd.hAdd 1 (QuarticQuery.Q (QuarticQuery.totalise f)).cast) 4)))"
+      }
+    ]
+  },
+  "inspector_sha256": "bd9d328fad70541dc5f81ccdd35ac4e0fb43b57919432f6e898c3bff9aee3ba4",
+  "schema": "quartic-lean-applications-v1",
+  "source_snapshot_sha256": "0d109ea9e9b7f4a766640d406409e30589fb4c5a4e645b6d6888569fa2edf29f",
+  "toolchain": "leanprover/lean4:v4.36.0-rc2"
+}

@@ -470,3 +470,8 @@ prepares graph and reverse indexes. [reader.mjs](reader.mjs) consumes the static
 edition, and [query_reading_api.mjs](query_reading_api.mjs) runs that client
 headlessly. [ReadDependencies.lean](ReadDependencies.lean) and its
 [recorder](record_reading_dependencies.py) own the optional native graph refresh.
+
+[ReadApplications.lean](ReadApplications.lean) inspects the actual parameters and
+proof obligations of selected Lean applications. The same recorder refreshes
+them with `--applications`. [reading_applications.py](reading_applications.py)
+binds them to manuscript topics and exact source excerpts.

@@ -1,0 +1,260 @@
+{
+  "source_snapshot_sha256": "0d109ea9e9b7f4a766640d406409e30589fb4c5a4e645b6d6888569fa2edf29f",
+  "journeys": [
+    {
+      "id": "forrelation-family",
+      "title": "Which total function achieves both bounds?",
+      "scope": "The classical theorem accepts an arbitrary partial function. The quantum proof already specializes its decoder to Forrelation. At fixed k, the exact circuit determines the input type of the board used by both bounds.",
+      "topics": [
+        "partial-function",
+        "forrelation",
+        "certificate",
+        "generic-lower",
+        "uniform-hardness",
+        "same-family",
+        "exponent",
+        "universal-upper",
+        "headline"
+      ],
+      "steps": [
+        {
+          "title": "Build the addressed board with ℓ = 2t and r = 40t",
+          "caller": "QuarticQuery.Fkm",
+          "site": "addressedF (P k t) C (2 * t) (40 * t)",
+          "callees": [
+            "QuarticQuery.addressedF"
+          ],
+          "topic": "partial-function"
+        },
+        {
+          "title": "Certify the one-sided promise and value on every input",
+          "caller": "QuarticQuery.Forrelation.forrCircuit_realises",
+          "site": "obtain ⟨q, a, b, c, e, hq, ra, rb, rc⟩ := forrCore_spec l t",
+          "callees": [
+            "QuarticQuery.Forrelation.forrCore_spec"
+          ],
+          "topic": "certificate"
+        },
+        {
+          "title": "Sample each address digit using the Forrelation decoder",
+          "caller": "QuarticQuery.Upper.addr_samples",
+          "site": "fun h => decode_samples hk (instLoc i h) n",
+          "callees": [
+            "QuarticQuery.Upper.decode_samples"
+          ],
+          "topic": "forrelation"
+        },
+        {
+          "title": "Use the promised address digits to bound the probability of a wrong address",
+          "caller": "QuarticQuery.Upper.Fkm_QLe",
+          "site": "addrLaw_good hk ht hε (by linarith) (by rw [hεd]; exact hn) hw.2.1",
+          "callees": [
+            "QuarticQuery.Upper.addrLaw_good"
+          ],
+          "topic": "forrelation"
+        },
+        {
+          "title": "Supply the exact circuit and its size to the quantum cost bound",
+          "caller": "QuarticQuery.Upper.Fkm_forrCircuit_QLe",
+          "site": "(Fkm_QLe (by omega) ht (forrCircuit_realises l t) le_rfl).mono\n    (budget_le ht (forrCircuit_size_le l t ht))",
+          "callees": [
+            "QuarticQuery.Upper.Fkm_QLe",
+            "QuarticQuery.Forrelation.forrCircuit_realises",
+            "QuarticQuery.Upper.budget_le",
+            "QuarticQuery.Forrelation.forrCircuit_size_le"
+          ],
+          "topic": "same-family"
+        },
+        {
+          "title": "Instantiate the generic classical theorem with P k t, Lvalue k t and the realizing circuit",
+          "caller": "QuarticQuery.Gvalue_lt_R_Fkm",
+          "site": "Gvalue_lt_R_addressedF (P k t) C hC (one_le_Lvalue hk ht)\n    (Lvalue_le_mValue (by omega) (by omega)) hLR",
+          "callees": [
+            "QuarticQuery.Gvalue_lt_R_addressedF",
+            "QuarticQuery.one_le_Lvalue",
+            "QuarticQuery.Lvalue_le_mValue"
+          ],
+          "topic": "generic-lower"
+        },
+        {
+          "title": "Choose one circuit for both bounds; leave hardness as an explicit premise",
+          "caller": "QuarticQuery.family_bounds",
+          "site": "exact ⟨forrCircuit l t, forrCircuit_realises l t, forrCircuit_size_le l t ht, Q_Fkm_le l t ht,\n    fun h8 hLR => Gvalue_lt_R_Fkm hk h8 _ (forrCircuit_realises l t) hLR⟩",
+          "callees": [
+            "QuarticQuery.Forrelation.forrCircuit",
+            "QuarticQuery.Forrelation.forrCircuit_realises",
+            "QuarticQuery.Upper.Q_Fkm_le",
+            "QuarticQuery.Gvalue_lt_R_Fkm"
+          ],
+          "topic": "same-family"
+        },
+        {
+          "title": "Supply the eventual hardness threshold at the same fixed order",
+          "caller": "QuarticQuery.theorem_1_1_unconditional",
+          "site": "obtain ⟨S, A, b, hA, hfam⟩ := family_bounds k hk\n  obtain ⟨t₀, ht₀⟩ := ForrelationLower.bansalSinhaLower k hk\n  refine ⟨S, A, b, max t₀ 8, hA, fun t ht => ?_⟩\n  have h1 : 1 ≤ t := le_trans (le_max_left _ _) ht\n  have h2 : max t₀ 8 ≤ t := le_trans (le_max_right _ _) ht\n  obtain ⟨C, hC, hS, hQ, hR⟩ := hfam t h1\n  exact ⟨C, hC, hS, hQ, hR (le_trans (le_max_right _ _) h2)\n    (ht₀ t (le_trans (le_max_left _ _) h2))⟩",
+          "callees": [
+            "QuarticQuery.family_bounds",
+            "QuarticQuery.ForrelationLower.bansalSinhaLower"
+          ],
+          "topic": "uniform-hardness"
+        },
+        {
+          "title": "After fixing α below four, choose k with α/2 < 2 − 1/k",
+          "caller": "QuarticQuery.not_universalPower_of_family",
+          "site": "obtain ⟨k, hk, hs⟩ := exists_nat_exponent hα\n  exact not_universalPower_of_familyBoundsAt hRreindex hQreindex (hfam k hk) hs",
+          "callees": [
+            "QuarticQuery.exists_nat_exponent",
+            "QuarticQuery.not_universalPower_of_familyBoundsAt"
+          ],
+          "topic": "exponent"
+        },
+        {
+          "title": "For any proposed constant D take t beyond both thresholds",
+          "caller": "QuarticQuery.not_bound_of_familyBoundsAt",
+          "site": "obtain ⟨T, hT⟩ := exists_threshold_gap b hc hC hD hα hs\n  obtain ⟨Cir, -, hQle, hRge⟩ := hfam (max T t₀) (le_max_right _ _)\n  have hgap := hT _ (le_max_left _ _) _ _ (Nat.cast_nonneg _) hQle hRge\n  exact absurd (transport_bound hRreindex hQreindex hbound (Fkm k (max T t₀) Cir)) (not_le.2 hgap)",
+          "callees": [
+            "QuarticQuery.exists_threshold_gap",
+            "QuarticQuery.transport_bound"
+          ],
+          "topic": "exponent"
+        },
+        {
+          "title": "Establish the independent upper bound for every total Boolean function",
+          "caller": "QuarticQuery.universalPower_four",
+          "site": "refine ⟨by norm_num, 20736, by norm_num, fun n _ f => ?_⟩\n  obtain ⟨h₁, h₂⟩ := R_le_D_le_one_add_Q_pow_four f",
+          "callees": [
+            "QuarticQuery.R_le_D_le_one_add_Q_pow_four"
+          ],
+          "topic": "universal-upper"
+        },
+        {
+          "title": "Combine exclusion below four with membership at four",
+          "caller": "QuarticQuery.alphaTot_eq_four",
+          "site": "alphaTot_eq_four_of (fun _ _ _ _ e f => R_reindex e f) (fun _ _ _ _ e f => Q_reindex e f)\n    hfam universalPower_four",
+          "callees": [
+            "QuarticQuery.alphaTot_eq_four_of",
+            "QuarticQuery.universalPower_four"
+          ],
+          "topic": "headline"
+        }
+      ],
+      "interfaces": [
+        "QuarticQuery.addressedF",
+        "QuarticQuery.P",
+        "QuarticQuery.mValue",
+        "QuarticQuery.Lvalue",
+        "QuarticQuery.CircuitRealises",
+        "QuarticQuery.Fkm",
+        "QuarticQuery.BansalSinhaLower",
+        "QuarticQuery.FamilyBoundsAt",
+        "QuarticQuery.UniversalPower"
+      ]
+    },
+    {
+      "id": "capped-predictor",
+      "title": "Why does the prediction bound survive adaptive queries?",
+      "scope": "The column and proposed query time are fixed before averaging. Lightness is inside the event under the original product law. The predictor is capped on every branch.",
+      "topics": [
+        "joint-event",
+        "address",
+        "direct-product"
+      ],
+      "steps": [
+        {
+          "title": "Cap the simulator at L target queries",
+          "caller": "QuarticQuery.Paper.avg_reachedCellAt_le",
+          "site": "let sim := addressSimulator L t T J A i\n  have hsim : sim.capped fun _ => L :=\n    OutTree.capped_of_depth_le (addressSimulator_depth_le L t T J A i) fun _ => le_rfl",
+          "callees": [
+            "QuarticQuery.Paper.addressSimulator",
+            "QuarticQuery.Paper.addressSimulator_depth_le"
+          ],
+          "topic": "joint-event"
+        },
+        {
+          "title": "Use whole-run nonheaviness to replay the prefix before the proposed query",
+          "caller": "QuarticQuery.Paper.avg_reachedCellAt_le",
+          "site": "have hc : ((T.path x).take t).countP (fun q => (aTarget i q).isSome) ≤ L :=\n            ((List.take_sublist t _).countP_le).trans (not_lt.mp hnh)\n          have hs : sim.eval (Function.uncurry U) = trueAddr f U :=\n            eval_simTree x (Function.uncurry U) (fun _ hq' => dummy_update_of_aTarget_none hq')\n              (fun _ _ hq' => dummy_update_of_aTarget_some hq') T t L hq\n              (cellGuess_of_cellOf hcell) hc",
+          "callees": [
+            "QuarticQuery.eval_simTree"
+          ],
+          "topic": "joint-event"
+        },
+        {
+          "title": "Resample the target column from its original law and apply the independent prediction bound",
+          "caller": "QuarticQuery.Paper.eq_21",
+          "site": "rw [avg_resample (sum_prodW hμ1) i]\n  refine avg_le_const (prodW_nonneg (prodW_nonneg hμ))\n    (sum_prodW (sum_prodW hμ1)) fun A => ?_\n  exact avg_reachedCellAt_le hμ hdom (fun U hU => address_guess_le hμ hard U hU) T J A i t",
+          "callees": [
+            "QuarticQuery.avg_resample",
+            "QuarticQuery.Paper.avg_reachedCellAt_le",
+            "QuarticQuery.address_guess_le"
+          ],
+          "topic": "direct-product"
+        }
+      ],
+      "interfaces": [
+        "QuarticQuery.Paper.reachedCellAt",
+        "QuarticQuery.Paper.HeavyColumn",
+        "QuarticQuery.Paper.addressSimulator",
+        "QuarticQuery.guessSuccess"
+      ]
+    },
+    {
+      "id": "gaussian-transport",
+      "title": "Where does the Gaussian derivative identity enter the proof?",
+      "scope": "These applications locate individual steps in the formal implementation. The correspondence of the entire printed derivative transport requires a separate review.",
+      "topics": [
+        "gaussian-path",
+        "promise-gap",
+        "uniform-hardness"
+      ],
+      "steps": [
+        {
+          "title": "Apply the Gaussian identity to the decision-tree observable",
+          "caller": "QuarticQuery.ForrelationLower.advantage_le_sharp",
+          "site": "set g : (BC l n → Bool) → ℝ := fun z => v (T.eval z) with hg\n  obtain ⟨s, hs, hid⟩ := exists_identity H hl g\n  rw [integral_ext_wv_zero H hH g] at hid",
+          "callees": [
+            "QuarticQuery.ForrelationLower.exists_identity",
+            "QuarticQuery.ForrelationLower.integral_ext_wv_zero"
+          ],
+          "topic": "gaussian-path"
+        },
+        {
+          "title": "Control derivative growth along distinct paths",
+          "caller": "QuarticQuery.ForrelationLower.advantage_le_sharp",
+          "site": "have hgrow := sum_abs_ext_Dl_le (Lpath l) Lpath_nodup (k := l + 1)\n      (fun p => by simp [Lpath, plist_length]) Lpath_inj hμ hd hK hKsq hn T hT v hv",
+          "callees": [
+            "QuarticQuery.ForrelationLower.sum_abs_ext_Dl_le",
+            "QuarticQuery.ForrelationLower.Lpath_nodup"
+          ],
+          "topic": "gaussian-path"
+        },
+        {
+          "title": "Specialize the matrix to the normalized Hadamard matrix",
+          "caller": "QuarticQuery.ForrelationLower.not_RLe_of_gap_sharp",
+          "site": "have := advantage_le_sharp (H t) hl (rowsOrth_H t) (ε := ((2 : ℝ) ^ t)⁻¹) (by positivity) abs_H_le\n      (d := 2 * τ * L + 1) (Nat.succ_pos _) hK hKsq hcard (T j) ((hdepth j).trans (Nat.le_succ _))\n      v hv",
+          "callees": [
+            "QuarticQuery.ForrelationLower.advantage_le_sharp",
+            "QuarticQuery.ForrelationLower.rowsOrth_H",
+            "QuarticQuery.ForrelationLower.abs_H_le"
+          ],
+          "topic": "uniform-hardness"
+        },
+        {
+          "title": "Apply the same identity to the Forrelation polynomial for the promise estimate",
+          "caller": "QuarticQuery.ForrelationLower.mass_ge",
+          "site": "obtain ⟨s, hs, hid⟩ := exists_identity (H t) hl (PhiF t : (BC l (Nm t) → Bool) → ℝ)\n  rw [integral_ext_wv_zero (H t) (rowsOrth_H t)] at hid",
+          "callees": [
+            "QuarticQuery.ForrelationLower.exists_identity",
+            "QuarticQuery.ForrelationLower.integral_ext_wv_zero"
+          ],
+          "topic": "promise-gap"
+        }
+      ],
+      "interfaces": [
+        "QuarticQuery.ForrelationLower.wv",
+        "QuarticQuery.ForrelationLower.Int",
+        "QuarticQuery.ForrelationLower.Lpath"
+      ]
+    }
+  ]
+}

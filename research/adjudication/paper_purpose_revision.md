@@ -722,3 +722,22 @@ The delivered PDFs were built with both shorter papers linked to the full proof 
 | First-principles exposition | 23 | `acbd30b39be4f95e8fe3c92dbfccde8820b7622a7084dcd48666536ffdd3be47` |
 | Specialist companion | 8 | `338dae679a317711a173e23d1748047e0ed83a5e7619e6a69b8ad4aecc7ff76e` |
 | Complete reconstruction | 89 | `d4d1c6a583ab1476847a59d226f140c8e1a503f4e102257e11694bcf7232c0d4` |
+
+## The row number and the bit read there
+
+The exposition and specialist companion were revised from `a6bd73e`. The complete reconstruction remains available at the revision identified above.
+
+In the exposition the middle pointer stored in column 1 is the row number 2. Following that pointer means reading row 2 of column 3, whose bit is zero. The first quantum query now uses rows 1 and 4 of column 1, so readers can calculate its two amplitudes on each table. The distinction between an input index and the sign contributed by its bit follows [de Wolf, §2.4](https://arxiv.org/pdf/1907.09415#page=29). The table in §3.1 uses one row per possible column drawn. For column 3, the middle probability is one half and the joint probability on the right is one eighth.
+
+Section 5 now starts with the table from §1. After four reads of its column bits, a reader can count exactly which choices of changed column would alter a reply. The complete run on the original table then gives the general count. Only after a worked simulation of both branches of a four-query tree does the exposition introduce the distribution on hard address strings. The link to the one-query AND example in Appendix C now names the result at its destination.
+
+A fresh agent reader tested a different set of four queries in Figure 5, using rows 4, 3, 2 and 3 across columns 1–4. They obtained replies 0, 1, 0 and 0, and found that three of the four possible changed columns would alter a reply. They also distinguished the conditional and joint probabilities in the sampling table, obtaining one seventh as the conditional probability of column 4 among accepted draws. We adopted their suggestion to call the circuit's promise-membership output the *domain bit* consistently.
+
+The specialist abstract states the cancellation that makes the pivot argument work even when the bias between two losing columns is arbitrary. Its transition to the classical proof asks how often a tree can read a single certificate bit when it first has to supply the address. The full reconstruction's formal links remain pinned to the edition they describe.
+
+In the delivered teaching PDF the pivot table is on page 5, the four-read example on page 12, and the revised AND-example link on page 20. The cancellation is on page 1 of the specialist paper and the question about the address is on page 4. We verified all ten links from the two reading copies into the complete proof.
+
+| Reading copy | Pages | PDF SHA-256 |
+| --- | ---: | --- |
+| Exposition | 25 | `d61c5b47b77e8f5547545569b442646d5acde58ece16a45a1f2df0f9faa0630a` |
+| Specialist companion | 8 | `0aed436a3553705b38782a85b32459a5c882debd502ce05e48006cf1069b7051` |

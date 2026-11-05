@@ -195,3 +195,55 @@ The optional `--pdf-archive PATH` accepts the same three relative paths as
 The exporter verifies the approved hashes and source revision before installing
 any edition. A plain clone builds the Markdown reader by itself. Publishing a
 new print edition requires its accepted output bytes and adjudication.
+
+## Inspect a theorem application
+
+Open a journey from a selected passage, a Lean declaration, or the edition's
+application index at `reading.json → applications`. The three starting questions cover the common Forrelation
+family, the capped predictor and the Gaussian derivative argument.
+
+```js
+const {journeys} = await reader.resolve({paper: "exposition", id: "exposition/joint-event/0"})
+const path = await reader.journey(journeys.find(id => id === "capped-predictor"))
+const fixedTime = path.steps.find(step => step.caller.endsWith(".eq_21"))
+const treatment = path.treatments.find(topic => topic.id === fixedTime.topic)
+```
+
+The journey also returns source definitions for its `interfaces`. For example,
+`CircuitRealises.correct` states both the domain-bit equivalence and value-bit
+condition, and `FamilyBoundsAt` quantifies one circuit before both inequalities.
+Each step has an exact Lean source excerpt, a revision-bound URL, and a topic
+with selections in the available papers. For each quoted callee the backend
+checks for a direct reference in the compiled caller's value. The adjoining
+`compiled_uses_in_caller` are Lean expressions for that caller/callee pair.
+They include the formal binder, instantiated type and result type. For value
+arguments the inspector displays the argument. For proof arguments it gives
+the obligation, the local proof variable when available, and the head constant
+when the witness has one. Lean's pretty-printer can abbreviate long expressions.
+
+Source snippets locate individual uses for readers. Compiled terms have
+declaration-level scope. When one caller uses the same callee twice, the API
+returns the recorded terms together, without assigning source positions to
+them. Titles and links to paper topics are editorial. The separate
+`correspondence` records carry the reviewed statement relation and proof route
+for each declaration. In particular the Gaussian journey shows uses in both
+the tree advantage estimate and the promise estimate. Its selected
+three-block worked example still has constituent-level coverage.
+
+```sh
+node tools/query_reading_api.mjs build/reading-api/v1/index.json --journey forrelation-family
+python3 tools/record_reading_dependencies.py --applications --checkout /path/to/built/checkout
+```
+
+The [journey source](reading_applications.json) owns the ordered excerpts and
+reading topics. Bind changes to a reviewed Lean snapshot, refresh the graph
+and the application inspection, then run `make check`. Existing editions keep
+their original client and inspection.
+
+A topic's `context_passages` also names manuscript prerequisites and the Git
+revision at which each was read. The draft audit reports
+`prerequisite_changed` when a named definition or hypothesis changes, even
+if the selected paragraph still resolves. Publication requires rereading the
+affected association and updating that prerequisite's revision. The audit
+covers declared prerequisites and reports byte changes. Independent review
+of mathematical equivalence remains a separate record.
