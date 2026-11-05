@@ -7,6 +7,7 @@ import { PassagePanel } from "../inspect/PassagePanel";
 import { StatementPanel } from "../inspect/StatementPanel";
 import { LeanPanel } from "../inspect/LeanPanel";
 import { JourneyPanel } from "../inspect/JourneyPanel";
+import { PathPanel } from "../inspect/PathPanel";
 import { ManuscriptPaper } from "../paper/ManuscriptPaper";
 const PdfPaper = lazy(() => import("../paper/PdfPaper").then((m) => ({ default: m.PdfPaper })));
 import { meaningful, type Row } from "../paper/selectRow";
@@ -59,6 +60,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     openStatement: (id) => go({ ...base, s: route.s, p: route.p, v: "statement", st: id }),
     openLean: (name) => go({ ...base, s: route.s, p: route.p, v: "lean", d: name }),
     openGraph: (name?: string) => go({ ...base, s: route.s, p: route.p, v: "graph", d: name ?? route.d }),
+    openPath: (edge: string) => go({ ...base, s: route.s, p: route.p, v: "path", e: edge, d: edge.split("→")[0] }),
     openJourney: (id) => go({ ...base, s: route.s, p: route.p, v: "journey", j: id }),
     backToPassage: () => go({ ...base, s: route.s, p: route.p }),
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -66,8 +68,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   // Wide screens keep the proof beside the paper, as Proof Reader does; phones open it on request.
   const open = route.v !== "closed" && (wide || !!(route.s || route.p || route.v));
-  const mode: "graph" | "lean" | "evidence" =
-    route.v === "graph" ? "graph" : route.v === "lean" ? "lean" : route.v === "statement" || route.v === "journey" ? "evidence"
+  const mode: "graph" | "path" | "lean" | "evidence" =
+    route.v === "graph" ? "graph" : route.v === "path" ? "path" : route.v === "lean" ? "lean" : route.v === "statement" || route.v === "journey" ? "evidence"
       : route.s || route.p ? "evidence" : "graph";
 
   // The cards lit in the graph: the selected passage's, else the reading line's.
@@ -150,6 +152,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   let panel = null;
   if (route.v === "statement" && route.st) panel = <StatementPanel edition={edition} id={route.st} />;
   else if (route.v === "lean" && route.d) panel = <LeanPanel edition={edition} name={route.d} />;
+  else if (route.v === "path" && route.e) panel = <PathPanel edition={edition} edge={route.e} />;
   else if (mode === "graph") panel = null;
   else if (route.v === "journey" && route.j) panel = <JourneyPanel edition={edition} id={route.j} step={route.step} />;
   else if (query && route.v !== "closed") panel = <PassagePanel edition={edition} query={query} />;
@@ -218,7 +221,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
         {open && (
           <aside ref={aside} className={`inspector inspector--${mode}`} aria-label="The Lean proof and its evidence">
             <div className="inspector__modes" role="group" aria-label="What to show beside the paper">
-              <button type="button" aria-pressed={mode === "graph"} onClick={() => nav.openGraph()}>Graph</button>
+              <button type="button" aria-pressed={mode === "graph" || mode === "path"} onClick={() => nav.openGraph()}>Graph</button>
               <button type="button" aria-pressed={mode === "lean"} disabled={!route.d && !lit[0]} onClick={() => nav.openLean(route.d ?? lit[0])}>Lean</button>
               <button type="button" aria-pressed={mode === "evidence"} disabled={!route.s && !route.p} onClick={nav.backToPassage}>Evidence</button>
             </div>
@@ -226,7 +229,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               <button type="button" className="inspector__close" onClick={close}>
                 <span className="wide-only">Close</span><span className="narrow-only">Back to the paper</span>
               </button>
-              {route.v && route.v !== "graph" && (route.s || route.p) && !(route.v === "statement" && route.s === `original/${route.st}`) && (
+              {route.v && route.v !== "graph" && route.v !== "path" && (route.s || route.p) && !(route.v === "statement" && route.s === `original/${route.st}`) && (
                 <button type="button" className="textbutton" onClick={nav.backToPassage}>
                   Return to {route.s?.startsWith("original/") ? statementName(route.s.slice(9)) : "the passage"}
                 </button>
@@ -236,11 +239,11 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             {mode === "graph" ? (
               <div className="inspector__graph">
                 <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
-                  <ProofPane edition={edition} lit={lit} selected={route.d ?? null} onSelect={nav.openLean} />
+                  <ProofPane edition={edition} lit={lit} selected={route.d ?? null} onSelect={nav.openLean} selectedEdge={route.e ?? null} onEdge={nav.openPath} />
                 </Suspense>
                 <p className="inspector__note">
                   {lit.length ? `${lit.length} ${lit.length === 1 ? "card is" : "cards are"} tied to the passage you are reading.` : "No card on this map is tied to the passage at the reading line."}{" "}
-                  Arrows are Lean’s; dashed arrows are uses in a statement. Choose a card to open its Lean.
+                  Arrows are Lean’s; dashed arrows are uses in a statement. Choose a card to open its Lean, or an arrow to see the helpers behind it.
                 </p>
               </div>
             ) : (

@@ -6,7 +6,7 @@ import { useAsync } from "../app/useAsync";
 import { GraphPane } from "./GraphPane";
 import { proofGraph, type ProofMap } from "./fromProofMap";
 
-export function ProofPane({ edition, lit, selected, onSelect }: { edition: Edition; lit: readonly string[]; selected: string | null; onSelect(name: string): void }) {
+export function ProofPane({ edition, lit, selected, onSelect, selectedEdge, onEdge }: { edition: Edition; lit: readonly string[]; selected: string | null; onSelect(name: string): void; selectedEdge: string | null; onEdge(key: string): void }) {
   const map = useAsync(() => edition.reader.proofMap() as Promise<ProofMap>, [edition]);
   const graph = useMemo(() => (map.state === "ready" && map.value.currentness === "current" ? proofGraph(map.value) : null), [map]);
   if (map.state === "loading") return <p className="pending" role="status">Loading the Lean graph…</p>;
@@ -17,5 +17,5 @@ export function ProofPane({ edition, lit, selected, onSelect }: { edition: Editi
         <p>{map.value.currentness === "stale" ? "This edition’s Lean graph was recorded for an earlier Lean source, so it is not shown." : "This edition has no Lean graph."} The evidence for each passage is still available.</p>
       </div>
     );
-  return <GraphPane map={map.value} graph={graph} lit={lit} selected={selected} onSelect={onSelect} />;
+  return <GraphPane map={map.value} graph={graph} lit={lit} selected={selected} onSelect={onSelect} selectedEdge={selectedEdge} onEdge={onEdge} />;
 }

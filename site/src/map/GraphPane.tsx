@@ -20,9 +20,11 @@ interface Props {
   lit: readonly string[];
   selected: string | null;
   onSelect(name: string): void;
+  selectedEdge: string | null;
+  onEdge(key: string): void;
 }
 
-export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, onSelect }: Props) {
+export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, onSelect, selectedEdge, onEdge }: Props) {
   const tree = useRef<MapViewHandle>(null);
   const body = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
@@ -105,6 +107,7 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
   const select = useCallback((id: string | null) => { if (id && id !== GOAL) onSelect(id); }, [onSelect]);
   const onUserMove = useCallback(() => setPause(true), [setPause]);
   const noTrace = useCallback(() => undefined, []);
+  const edgeSelect = useCallback((key: string | null) => { if (key) onEdge(key); }, [onEdge]);
 
   const view = useMemo(() => (
     <ArgumentTree
@@ -124,8 +127,10 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
       onSelect={select}
       onTrace={noTrace}
       onUserMove={onUserMove}
+      selectedEdge={selectedEdge ?? undefined}
+      onEdgeSelect={edgeSelect}
     />
-  ), [graph, selected, litIds, select, noTrace, onUserMove]);
+  ), [graph, selected, litIds, select, noTrace, onUserMove, selectedEdge, edgeSelect]);
 
   return (
     <section className="graph" aria-label="Graph of the Lean proof of Theorem 1.1">

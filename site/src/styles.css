@@ -395,3 +395,16 @@ code { font-family: var(--mono); font-size: 0.86em; }
 @media (max-width: 640px) {
   .site__about { display: none; }
 }
+
+/* The helpers behind one arrow. */
+.chain { margin-top: 14px; }
+.chain__list { list-style: none; margin: 8px 0 0; padding: 0; }
+.chain__list > li { position: relative; padding-left: 16px; border-left: 2px solid var(--rule); margin-left: 6px; }
+.chain__list > li:last-child { border-left-color: transparent; }
+.chain__step { padding: 4px 0 8px; }
+.chain__step::before { content: ""; position: absolute; left: -7px; width: 12px; height: 12px; border-radius: 3px; background: var(--sheet); border: 2px solid var(--rule); margin-top: 6px; }
+.chain__step--card::before { background: var(--lean-fill, #2f4b3b); border-color: var(--lean-fill-line, #4f7559); border-radius: 6px; }
+.chain__name { margin: 0; font-family: var(--serif); }
+.chain__raw { margin: 0; font-size: 0.8rem; color: var(--ink-2); overflow-wrap: anywhere; }
+.chain__usage { margin: 0; font-size: 0.82rem; color: var(--query); font-style: italic; }
+.chain__actions { margin: 2px 0 0; font-size: 0.88rem; }
