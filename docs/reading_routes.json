@@ -1,0 +1,218 @@
+{
+  "routes": [
+    {
+      "id": "headline",
+      "title": "The nearly quartic family",
+      "expert": "**Theorem 1** (OpenAI",
+      "exposition": "a valid certificate at its true address",
+      "reconstruction": "ROOT-RESULT",
+      "lean": [
+        "thm-headline",
+        "src-constants"
+      ]
+    },
+    {
+      "id": "certificate",
+      "title": "What makes a column win",
+      "expert": "Column $i$ **wins**",
+      "exposition": "To win, a column must be all ones",
+      "reconstruction": "AC-winner",
+      "lean": [
+        "def-wins",
+        "src-winner-unique"
+      ]
+    },
+    {
+      "id": "comparison",
+      "title": "Why a winner beats an arbitrary rival",
+      "expert": "Decode the two column addresses",
+      "exposition": "**Two columns meet.**",
+      "reconstruction": "upper-winner-dominates",
+      "lean": [
+        "src-winner-dominates"
+      ]
+    },
+    {
+      "id": "weight",
+      "title": "Why tournament weight falls",
+      "expert": "Initially all weights are one",
+      "exposition": "Why should the ideal experiment make progress",
+      "reconstruction": "upper-weight-drift",
+      "lean": [
+        "src-quantum-tournament"
+      ]
+    },
+    {
+      "id": "pivot",
+      "title": "Sampling the next pivot",
+      "expert": "the entire state of one comparison",
+      "exposition": "Try this with four columns and pivot",
+      "reconstruction": "upper-stage-law",
+      "lean": [
+        "src-stage-sampler"
+      ]
+    },
+    {
+      "id": "verification",
+      "title": "Paying for the final verification",
+      "expert": "A uniform test flags a defect",
+      "exposition": "Search for a violation in that cell",
+      "reconstruction": "upper-verification-proof",
+      "lean": [
+        "src-verifier",
+        "src-budget"
+      ]
+    },
+    {
+      "id": "planting",
+      "title": "Coupling the losing and winning boards",
+      "expert": "For the **dummy input**",
+      "exposition": "Erase one string's zero",
+      "reconstruction": "CL-planted",
+      "lean": [
+        "src-coupled-average",
+        "src-planted-core"
+      ]
+    },
+    {
+      "id": "erased-zero",
+      "title": "Finding the erased zero",
+      "expert": "If the tree discovers $Z$ zeros",
+      "exposition": "**The zero.** Until the zero",
+      "reconstruction": "CL-erased-zero-identity",
+      "lean": [
+        "src-erased-zero-identity",
+        "src-erased-zero-bound",
+        "src-zero-two",
+        "cmp-eq11"
+      ]
+    },
+    {
+      "id": "address",
+      "title": "A cell query predicts an address",
+      "expert": "the tree has to announce",
+      "exposition": "**Before seeing the bit**",
+      "reconstruction": "CL-address-guess",
+      "lean": [
+        "src-per-time"
+      ]
+    },
+    {
+      "id": "direct-product",
+      "title": "Predicting separately capped answers",
+      "expert": "The total cap gives the predictor",
+      "exposition": "We prove the separate-cap direct-product lemma",
+      "reconstruction": "CL-direct-product-statement",
+      "lean": [
+        "src-direct-product-caps"
+      ]
+    },
+    {
+      "id": "forrelation",
+      "title": "The Forrelation promise",
+      "expert": "The partial function supplying these parameters",
+      "exposition": "Asking whether the final state lies along",
+      "reconstruction": "forr_definition",
+      "lean": [
+        "src-forr-promise"
+      ]
+    },
+    {
+      "id": "exponent",
+      "title": "Why the optimal exponent is four",
+      "expert": "For every power below four, then",
+      "exposition": "No uniform constant $C$ can work",
+      "reconstruction": "ROOT-NO-SMALLER",
+      "lean": [
+        "thm-alpha",
+        "src-no-smaller-exponent"
+      ]
+    }
+  ],
+  "video": null,
+  "entrances": {
+    "exposition": {
+      "audience": "General mathematical readers familiar with probability and linear algebra",
+      "question": "How much can a quantum algorithm save when both algorithms have to read the same hidden bits?",
+      "preview": "Imagine a board with one winning column. A classical algorithm can spend almost all its queries finding the right square to inspect. A quantum algorithm can compare two columns cheaply before checking a short list of candidates. Follow a four-column example through both searches to see why the gap approaches a fourth power.",
+      "stops": [
+        "certificate",
+        "comparison",
+        "address",
+        "exponent"
+      ]
+    },
+    "expert": {
+      "audience": "Researchers familiar with query complexity",
+      "question": "What lets this construction pass the cubic separation from earlier cheat sheets?",
+      "preview": "The quantum saving comes from comparing candidates before paying to verify one. The classical obstruction is that a query to the planted cell must name an address formed from independent hard answers. Trace the weighted pivot law and the separate-cap prediction bound, then see where their exponents meet.",
+      "stops": [
+        "headline",
+        "pivot",
+        "direct-product",
+        "exponent"
+      ]
+    },
+    "reconstruction": {
+      "audience": "Readers checking the full derivation or its formal statements",
+      "question": "Which statement does Lean prove, and how does it compare with the argument on the page?",
+      "preview": "Start with the quantifiers in the headline theorem, then open the corresponding Lean statement. Follow the promised address function into the construction and inspect the bound for the erased zero. At each step you can distinguish the written argument, an alternative formal proof, and what a recorded check actually tested.",
+      "stops": [
+        "headline",
+        "forrelation",
+        "erased-zero",
+        "exponent"
+      ]
+    }
+  },
+  "semantic_probes": [
+    {
+      "statement": "def-R",
+      "name": "wrong_quantifier_order_changes_answer",
+      "file": "SemanticMutations",
+      "question": "Could a different zero-query program be chosen after seeing each input?"
+    },
+    {
+      "statement": "def-R",
+      "name": "strict_threshold_mutant_rejects_mixture",
+      "file": "SemanticMutations",
+      "question": "Does replacing success at least two thirds with strictly greater success change a boundary case?"
+    },
+    {
+      "statement": "def-partial-query",
+      "name": "off_promise_false_changes_zero_query_answer",
+      "file": "SemanticMutations",
+      "question": "Does assigning false outside the promise change the zero-query answer?"
+    },
+    {
+      "statement": "eq-4",
+      "name": "absolute_high_changes_answer",
+      "file": "SemanticMutations",
+      "question": "Would taking the absolute value on the high branch accept a negative instance?"
+    },
+    {
+      "statement": "def-comparison",
+      "name": "comparison_has_witness",
+      "file": "Semantics",
+      "question": "Can an actual comparison satisfy all of these assumptions?"
+    }
+  ],
+  "print_edition": {
+    "source_revision": "aeb9fd7ca636da7fee581882713edb5fae9bca5b",
+    "adjudication": "research/adjudication/paper_purpose_revision.md",
+    "files": {
+      "expert": {
+        "file": "expert/expert_companion.pdf",
+        "sha256": "3314426bd205db02a7589f802317b33055ba068f5230168bfd4dd1954b525b9f"
+      },
+      "exposition": {
+        "file": "exposition/exposition.pdf",
+        "sha256": "e667cb315921842bc10de9632b32a6c0862cac531990f3d58cb6da323b722b42"
+      },
+      "reconstruction": {
+        "file": "record/reasoning_record.pdf",
+        "sha256": "54d2f36d6adbbb61465dc8e1c057797ebfb5d1dc083fdeaff18f01623f767e58"
+      }
+    }
+  }
+}

@@ -5,6 +5,8 @@ The top-level Python tools use only the standard library; commands that invoke
 Lean or Comparator also need their pinned external tools. The imported finite
 checker described below additionally needs NumPy.
 
+The [reading API compiler](build_reading_api.py) exports the three papers, cross-paper routes and formal sources. [Reading evidence](reading_evidence.py) joins their existing statement reviews and recorded checks. Run `make reading-api` for the [static data contract](../docs/reading_api.md).
+
 [intake_round7_returns.py](intake_round7_returns.py) preserves four round-seven
 archives and their members without running submitted scripts. Supply their source
 directory with `--source-dir PATH`; `--verify` requires all extracted members,

@@ -18,6 +18,7 @@ Test modules mirror the commands they exercise:
 | [test_run_comparator.py](test_run_comparator.py) | Exact configured comparison subjects; comments, helper proofs and specializations cannot acquire comparison credit. |
 | [test_build_corpus.py](test_build_corpus.py) | Statement ties and separate evidence fields, including direct versus wrapper-mediated historical comparison credit. |
 | [test_build_comparator_map.py](test_build_comparator_map.py) | Challenge block parsing, verified record passages, exact quoted glosses and direct-only comparison credit in the reading map. |
+| [test_build_reading_api.py](test_build_reading_api.py) | Three-account navigation, passage and declaration provenance, fidelity and atomic edition export. |
 | [test_build_lean_links.py](test_build_lean_links.py) | Statement-only line ranges, used-label link blocks, unknown labels, and the generated registry and paper blocks being current. |
 | [test_render_reasoning_record.py](test_render_reasoning_record.py) | PDF navigation filter: anchor destinations, reviewed directory-link targets and unchanged record bytes (Pandoc required for the filter cases). |
 | [test_render_papers.py](test_render_papers.py) | Paper renderer argument handling, default and per-paper output folders, refusal of output inside the checkout and the embedded numeric citation style (no Pandoc run). |
