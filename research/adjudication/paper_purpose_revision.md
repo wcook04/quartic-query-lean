@@ -682,3 +682,23 @@ The two new reports reviewed the specialist and teaching PDFs from the preceding
 * **Complete proof.** For a fixed column and time, §6.4 states the joint event to be bounded before building the simulator. It then separates the clock on board queries from the budget on target queries. The proof in §6.5 explains why fixing a reachable transcript amounts to imposing a separate restriction on each input. This is what allows the one-input estimates to multiply despite adaptive interleaving. Drucker makes this conditioning step explicit in his product proof. The blank-array coupling in the cheat-sheet proof also singles out the location of a necessary visit before estimating its probability. Our plant gives the tree a second opportunity at the erased zero. [Drucker, §3, Lemmas 3.1–3.2](https://arxiv.org/pdf/1005.0644v2#page=11) and [Aaronson, Ben-David and Kothari, proof of Lemma 6](https://arxiv.org/pdf/1511.01937v2#page=12)
 
 The original preprint was already linked. All three PDFs now identify the repository in print, and the teaching bibliography prints the date as well. The link still opens the cited PDF revision. The [shared authoring guidance](https://github.com/wcook04/lean-exposition/blob/9588806d1091942d12ec245cd9c74df14762c467/docs/authoring.md#L365-L375) covers this use of reviews across papers: carry the observed difficulty across, then test the remedy against the receiving reader's task.
+
+### Independent readings of the trial PDFs
+
+After page one of the specialist companion, a fresh agent reader recovered both cost pairs and explained why measuring the classical lower bound in powers of the new quantum budget doubles its exponent. After reading the full paper it used the same winning cell to explain both proofs. It paused over the change from a total simulator cap to a per-input cap and resolved it from §4.3. It also spotted that the number of certificate cells was calculated in a second sentence immediately after the cells were indexed. The final definition includes the count directly.
+
+A teaching reader recovered why false candidates are affordable and verified this on a board with two all-one columns. It tried giving a predictor the parity of two independent hidden bits and found why independent outside information matters. Its first reading of the cap left open whether the simulator could continue after the last target read. The Appendix C trace settled this: the board clock can advance by answering outside queries or by intercepting the proposed cell address. The final text places this distinction in the simulation instruction. The reader followed the links to Appendices B and C on the frozen 21-page trial.
+
+A third reader followed the reconstruction’s classical reduction through §§6–7, using Appendices B.3, B.4 and C.2. It could reproduce the unconditional bound, distinguish visiting the true cell from observing a changed answer, and give a concrete failure of conditioning on terminal lightness. The proof of the finite rate for the growing family required following the link to C.2. Section 7.3 already gives the parameter choice and the balance that motivates it; C.2 is where the reader can check the full calculation. The reader located the Forrelation hardness input without auditing its entire analytic proof. These were agent readings of the stated passages.
+
+### Delivered PDFs
+
+The reading copies were built from sources at `2a45f5e5f0c1fb66b469bb2f403e15b2753daf11`. Links to the complete proof use `ba49281af72b53d9cfbb43320d7efdeb29d7ceca`.
+
+| Reading copy | Pages | PDF SHA-256 |
+| --- | ---: | --- |
+| Specialist | 8 | `9796a1b13ede81ba33d94e6f85c356bdd57dbef8c1cb88b7c321aad9b5d64568` |
+| Teaching | 21 | `53cdae051effbd00a9bfc7b21bb958ee3e531b9ee83d7a156efe1c3195ff63ad` |
+| Reconstruction | 89 | `03828fa2c99a13a6355d74870dc66b30b41c75b7dc844e62aad0fada4c4278d8` |
+
+The final typeset reading confirmed the specialist transition on page 4, the winning condition beside Figure 3 on teaching page 7, and the entire capped prediction on teaching page 10. Reconstruction pages 20–21 contain the bound, its proof, and the factorization that supports the direct product. All 129 numbered equations retain their contents and numbering. All 229 authored reconstruction destinations resolve. The primary citation in each PDF opens the dated OpenAI preprint.
