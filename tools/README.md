@@ -464,3 +464,9 @@ remaining evidence boundaries are in the
 [formal adjudication](../research/adjudication/round3_formal.md).
 
 The passage rebinder and Comparator map read both the mathematical account and its verification reference. Each passage and excerpt retains its actual file path and local line range. Moving an appendix changes its location, not its mathematical or checking status.
+
+[reading_selection.py](reading_selection.py) binds exact reading selections and
+prepares graph and reverse indexes. [reader.mjs](reader.mjs) consumes the static
+edition, and [query_reading_api.mjs](query_reading_api.mjs) runs that client
+headlessly. [ReadDependencies.lean](ReadDependencies.lean) and its
+[recorder](record_reading_dependencies.py) own the optional native graph refresh.

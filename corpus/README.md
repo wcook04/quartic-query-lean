@@ -115,3 +115,8 @@ reports and consumer operations for selected equation (19) and semantic goals.
 Their local dependency scopes and external package boundaries remain explicit.
 They are separate recorded inputs from the informal statement graph above;
 native extraction does not establish paper fidelity or human review.
+
+[reading_dependencies.json](reading_dependencies.json) records typed references in
+the compiled QuarticQuery modules for the [website selection API](../docs/reading_api.md#resolve-a-paper-selection).
+The [recorder](../tools/record_reading_dependencies.py) builds the project and
+checks the full Lean source fingerprint before and after native inspection.

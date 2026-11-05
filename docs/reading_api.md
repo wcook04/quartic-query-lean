@@ -114,3 +114,84 @@ its replacement. Change reviewed statement relationships and bind their evidence
 through [the corpus owner](../corpus/README.md). The indexes and website data
 are generated. Publishing the API requires neither a database nor a separate
 deploy service. It performs no Lean build or new fidelity assessment.
+
+## Resolve a paper selection
+
+The static export includes an ES module and prejoined selection indexes. Each
+manifest includes a `permalink` alongside `index.json`. Retain the permalink
+and objects to revisit a specific edition, including its optional print downloads.
+The client can run in a browser or Node 18+. No service process is required.
+
+```js
+const entry = new URL("/v1/index.json", location.origin);
+const initial = await (await fetch(entry)).json();
+const pinned = new URL(initial.permalink, entry);
+const {openReader} = await import(new URL(initial.resources["reader.mjs"].href, pinned));
+const reader = await openReader(pinned, {expectedRevision: initial.revision});
+const selection = await reader.resolve({paper: "reconstruction", id: "passage/upper-weight-drift"});
+```
+
+Use a stable passage or topic treatment ID from `selection/<paper>.json`, or
+supply `{paper, line, endLine, documentSha256}`. The hash must be from the
+manuscript the reader actually opened. The answer includes the selected words,
+heading context, matches, formal roots with source ranges and excerpts, both
+directions of their proof neighbourhood, other paper treatments, and scoped
+comparison outcomes. A page reference for a PDF is edition-specific. The resolver
+accepts Markdown selections; it does not interpret PDF screen coordinates.
+
+`coverage` distinguishes associated targets, a documented passage without a
+target, and unmapped text. A claim marker narrows the enclosing passage's
+statement list. Each tie's relation and review apply to that corpus statement.
+An example points to what it illustrates. An editorial constituent identifies
+a step in a proof without conferring a reviewed whole-passage equivalence.
+A named Solution reference links a compared wrapper to its implementation.
+Each join retains its origin. An absent shorter-paper treatment stays absent.
+
+`reader.expand(name)` returns direct references from a declaration's type, value
+(including theorem proof bodies), and inductive structure. It also returns the
+local declarations that use it, grouped by edge kind. Edges point from user
+to dependency in **both** traversals. The compact view follows intervening
+helpers until it reaches another paper-associated declaration. One shortest
+witness per reached endpoint suffices for display. Depth, result and visit
+bounds are explicit; use `expand` to recover direct edges beyond those limits.
+`reader.fromDeclaration(name)` gives the formal source and all indexed treatments
+of the declaration. Its selection IDs work with `resolve`.
+
+The [native inspection](../tools/ReadDependencies.lean) covers declarations in
+the QuarticQuery modules imported by the project root, including internal
+helpers. External constants terminate traversal at their defining module;
+Mathlib and complexitylib destinations use Lake's recorded dependency revisions.
+A Challenge belongs to a separate compilation context. An absent declaration
+or unavailable proof body is a boundary, not an empty proof.
+The recorded Lean-source fingerprint excludes the manuscripts. A prose change
+can move the selection while retaining the graph. A change to the inspected
+formal sources leaves the previous graph marked stale and suppresses its joins.
+Refresh using `python3 tools/record_reading_dependencies.py` in a built checkout
+or give `--checkout` a source-identical cache-bearing checkout.
+
+To inspect the same answers headlessly, use the release manifest or a local one:
+
+```sh
+node tools/query_reading_api.mjs build/reading-api/v1/index.json reconstruction passage/forr_three_blocks
+node tools/query_reading_api.mjs build/reading-api/v1/index.json --declaration QuarticQuery.Paper.quantumDrift
+```
+
+## Revise the papers and retain earlier readings
+
+Editorial treatments in [reading_routes.json](reading_routes.json) bind the whole
+selected paragraph or marked passage to the committed manuscript at
+`bindings_revision`. Moving unchanged text updates the lines automatically.
+Use `python3 tools/build_reading_api.py --audit-bindings /path/to/draft-checkout` to list all affected bindings before regenerating the correspondence. It reads the drafts without editing them.
+Changing the surrounding mathematics while retaining the selector fails the
+build. Re-read the changed treatment, adjust its selector, statement IDs, or
+role as needed, then set **that row's** `bound_at.<paper>` to the new full
+manuscript revision. Keep other bindings on the edition in which they were
+read. The manuscript change can be committed before this rebinding step.
+Claims assembled from the current correspondence still follow its own
+passage hashes and the corpus's independent review-freshness rules.
+
+The optional `--pdf-archive PATH` accepts the same three relative paths as
+`--pdf-directory`, in a portable ZIP. Supply this ZIP as a release or CI input.
+The exporter verifies the approved hashes and source revision before installing
+any edition. A plain clone builds the Markdown reader by itself. Publishing a
+new print edition requires its accepted output bytes and adjudication.

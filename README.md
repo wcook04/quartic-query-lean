@@ -75,7 +75,7 @@ Appendix A. Lemma 4.1 uses an induction on sub-distributions in place of the
 supermartingale. [The contract](docs/statement_evidence_contract.md) explains how
 statements and proofs stay aligned as derivations improve.
 
-The [website reading API](docs/reading_api.md) connects passages across the three papers to the corresponding Lean statements, proofs and fidelity reviews.
+The [selection resolver](docs/reading_api.md#resolve-a-paper-selection) opens a paper passage beside its Lean dependencies and readers can follow those declarations back to the papers. The [website reading API](docs/reading_api.md) connects passages across the three papers to the corresponding Lean statements, proofs and fidelity reviews.
 
 The [proof index](docs/proof_index.md) gives readable mathematical descriptions and links to the formal statements and their proofs. The [verification reference](docs/verification_details.md) keeps the detailed checking history outside the papers.
 

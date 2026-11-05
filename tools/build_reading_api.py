@@ -9,9 +9,11 @@ from pathlib import Path
 import re
 import subprocess
 import tempfile
+from zipfile import ZipFile, BadZipFile
 
 from build_comparator_map import PASSAGE, lean_blocks, record_passages
 from reading_evidence import evidence_resources
+from reading_selection import audit_bindings, selection_resources
 from build_lean_links import RECORD_LINK, REPOSITORY, USE, statement_end
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -192,7 +194,13 @@ def print_downloads(edition, folder, accepted):
         path = Path(spec["file"])
         if path.is_absolute() or ".." in path.parts:
             raise ValueError(f"invalid PDF path: {path}")
-        raw = (folder / path).read_bytes()
+        if isinstance(folder, ZipFile):
+            names = folder.namelist()
+            if names.count(path.as_posix()) != 1:
+                raise ValueError(f"missing or duplicate PDF: {path}")
+            raw = folder.read(path.as_posix())
+        else:
+            raw = (folder / path).read_bytes()
         if digest(raw) != spec["sha256"] or spec["sha256"] not in adjudication:
             raise ValueError(f"{paper}: PDF differs from the adjudicated reading copy")
         key = "print/" + path.name
@@ -299,6 +307,8 @@ def compile_edition(edition, pdf_directory=None):
         if set(entry["stops"]) - routes.keys():
             raise ValueError(f"unknown reading stop: {key}")
     evidence_resources(edition, statements, by_statement, comparison, config["semantic_probes"])
+    selection_resources(edition, config, papers, texts, passages, compiled, statements, links, comparison,
+                        locate_quote)
     edition.add("reading.json", {"papers": papers, "entrances": entrances,
                "downloads": print_downloads(edition, pdf_directory, config["print_edition"]),
                "fidelity": {ident: f"fidelity/{ident}.json" for ident in statements},
@@ -353,25 +363,40 @@ def export(edition, out):
         resources[path] = {"href": filename, "sha256": sha, "bytes": len(data)}
     manifest = {"schema": "quartic-reading-api-v1", "repository": REPOSITORY,
                 "revision": edition.commit, "resources": resources}
-    atomic_write(out / "index.json", encoded(manifest))
+    manifest["permalink"] = "edition-" + digest(encoded(manifest)) + ".json"
+    raw = encoded(manifest)
+    atomic_write(out / manifest["permalink"], raw)
+    atomic_write(out / "index.json", raw)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--audit-bindings", metavar="CHECKOUT", type=Path, help="report every editorial binding affected by a manuscript draft")
     mode.add_argument("--check", action="store_true", help="validate working sources without writing")
     mode.add_argument("--output", type=Path, help="export the committed edition to this directory")
-    parser.add_argument("--pdf-directory", type=Path, help="include the adjudicated three-paper render directory")
+    media = parser.add_mutually_exclusive_group()
+    media.add_argument("--pdf-archive", type=Path, help="portable ZIP of the three adjudicated render outputs")
+    media.add_argument("--pdf-directory", type=Path, help="include the adjudicated three-paper render directory")
     args = parser.parse_args()
     try:
         edition = Edition(ROOT)
-        compile_edition(edition, args.pdf_directory)
+        if args.audit_bindings:
+            report = audit_bindings(edition, args.audit_bindings, {**PAPERS, "verification": SUPPLEMENT},
+                                    edition.json(ROUTES), locate_quote)
+            print(json.dumps(report, ensure_ascii=False, indent=2))
+            return int(bool(report["needs_review"]))
+        if args.pdf_archive:
+            with ZipFile(args.pdf_archive) as archive:
+                compile_edition(edition, archive)
+        else:
+            compile_edition(edition, args.pdf_directory)
         if args.output:
             export(edition, args.output)
         print(f"Quartic reading API: {len(edition.resources)} resources validated")
-    except (OSError, KeyError, ValueError, subprocess.CalledProcessError) as exc:
+    except (OSError, KeyError, ValueError, BadZipFile, subprocess.CalledProcessError) as exc:
         parser.exit(1, f"reading API: {exc}\n")
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

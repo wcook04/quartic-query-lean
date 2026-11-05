@@ -42,3 +42,6 @@ original-return custody (including scripts and JSONL), nested decisions and
 rebased links, exact Git-pinned method and code exports, source-bound
 supplementary full texts, citation coverage and immutable destinations. Temporary
 Git and custody fixtures exercise these guards without private annex inputs.
+
+[test_reading_selection.py](test_reading_selection.py) exercises edition rebinding
+and the actual ES module at theorem, example, figure and proof-step selections.

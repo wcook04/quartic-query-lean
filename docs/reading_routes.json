@@ -9,7 +9,11 @@
       "lean": [
         "thm-headline",
         "src-constants"
-      ]
+      ],
+      "statements": [
+        "thm-1.1"
+      ],
+      "note": "The unconditional family result uses the local Forrelation bound. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers."
     },
     {
       "id": "certificate",
@@ -40,7 +44,11 @@
       "reconstruction": "upper-weight-drift",
       "lean": [
         "src-quantum-tournament"
-      ]
+      ],
+      "statements": [
+        "eq-13"
+      ],
+      "note": "Complementarity pairs the two orientations of each match. Sampling a pivot with these weights is a separate implementation step."
     },
     {
       "id": "pivot",
@@ -85,7 +93,11 @@
         "src-erased-zero-bound",
         "src-zero-two",
         "cmp-eq11"
-      ]
+      ],
+      "statements": [
+        "eq-19"
+      ],
+      "note": "The erased-zero identity, the printed coefficient four, and the sharper coefficient two are distinct targets. The reviewed whole statement uses an alternative derivation."
     },
     {
       "id": "address",
@@ -115,7 +127,8 @@
       "reconstruction": "forr_definition",
       "lean": [
         "src-forr-promise"
-      ]
+      ],
+      "note": "The quantum readout observes the squared amplitude. A certificate must separately establish the signed one-sided promise."
     },
     {
       "id": "exponent",
@@ -214,5 +227,236 @@
         "sha256": "54d2f36d6adbbb61465dc8e1c057797ebfb5d1dc083fdeaff18f01623f767e58"
       }
     }
-  }
+  },
+  "bindings_revision": "2e6c6932c8d51187e81657d62b09dfde9d24811e",
+  "selections": [
+    {
+      "id": "cycle",
+      "title": "A cycle among losing columns",
+      "passage": "upper-cyclic-example",
+      "kind": "illustrates",
+      "note": "The three arrows among losers form a cycle. The comparison theorem only needs complementary probabilities and a dominant winner. The drawing illustrates the setup; it has no reviewed theorem tie.",
+      "quotes": {
+        "exposition": [
+          "**A cycle.**",
+          "figures/exposition/fig3_tournament.svg"
+        ]
+      },
+      "figure": "docs/figures/exposition/fig3_tournament.svg",
+      "statements": [
+        "def-comparison"
+      ]
+    },
+    {
+      "id": "projection",
+      "title": "Equal probabilities for opposite signs",
+      "passage": "forr_small_instance",
+      "kind": "illustrates",
+      "note": "The final states u and −u have the same projection probability. The negative example lies outside the one-sided promise. The domain circuit checks what the decoder cannot certify.",
+      "quotes": {
+        "exposition": [
+          "Asking whether the final state lies along"
+        ],
+        "expert": [
+          "Applying the unitary product to"
+        ]
+      },
+      "statements": [
+        "claim-proj-prob",
+        "eq-4"
+      ]
+    },
+    {
+      "id": "joint-event",
+      "title": "A light visit implies a successful capped prediction",
+      "passage": "CL-joint-event",
+      "kind": "argument",
+      "note": "The predictor runs under the original product law and enforces its cap on every branch. Only the joint event implies success; conditioning the input law on final lightness changes the problem.",
+      "quotes": {
+        "exposition": [
+          "Keep lightness *inside* the event"
+        ],
+        "expert": [
+          "On a run in which $i$ ends up light"
+        ]
+      },
+      "statements": [
+        "eq-21"
+      ]
+    },
+    {
+      "id": "gaussian-path",
+      "title": "Transporting a derivative along three blocks",
+      "passage": "forr_three_blocks",
+      "kind": "worked_example",
+      "note": "The Walsh factors follow the successive block indices. The listed declarations establish the integral and path-expansion ingredients; the whole worked example has no reviewed equivalence.",
+      "declarations": [
+        "QuarticQuery.ForrelationLower.integral_walk",
+        "QuarticQuery.ForrelationLower.Int_eq_paths"
+      ]
+    },
+    {
+      "id": "promise-gap",
+      "title": "Recovering a gap on promised inputs",
+      "passage": "forr_promise_gap",
+      "kind": "argument",
+      "note": "The analytic distributions can sample off-promise inputs. A difference in means alone does not establish the promised decision-tree lower bound.",
+      "declarations": [
+        "QuarticQuery.ForrelationLower.mass_ge"
+      ]
+    },
+    {
+      "id": "uniform-hardness",
+      "title": "The uniform Forrelation bound",
+      "passage": "forr_uniform_assembly",
+      "kind": "argument",
+      "note": "This estimate carries explicit parameter restrictions. Its role in the separating family differs from the fixed-parameter theorem quoted in the short accounts.",
+      "lean": [
+        "src-forrelation-uniform"
+      ]
+    },
+    {
+      "id": "partial-function",
+      "title": "Three requirements on the address function",
+      "passage": "forr_bundle",
+      "kind": "interface",
+      "note": "The board needs an inexpensive quantum decoder, an exact circuit recognizing the promise and value, and classical query hardness.",
+      "statements": [
+        "lem-2.1"
+      ]
+    },
+    {
+      "id": "same-family",
+      "title": "Specializing both bounds to the same total function",
+      "passage": "ROOT-FAMILY-ASSEMBLY",
+      "kind": "instantiation",
+      "note": "Substituting the Forrelation partial function and its circuit into the two generic bounds gives estimates for one family.",
+      "statements": [
+        "eq-2"
+      ],
+      "lean": [
+        "src-family-conditional",
+        "src-constants"
+      ]
+    },
+    {
+      "id": "generic-lower",
+      "title": "Classical hardness of the generic board",
+      "passage": "CL-generic-statement",
+      "kind": "argument",
+      "note": "The planted lower bound accepts any partial function satisfying the hardness premise. Forrelation supplies that premise in the final family.",
+      "statements": [
+        "prop-4.2-generic"
+      ]
+    },
+    {
+      "id": "universal-upper",
+      "title": "The universal quartic upper bound",
+      "passage": "R3-A-RESULT",
+      "kind": "argument",
+      "note": "The upper bound for all total functions comes from Aaronson, Ben-David, Kothari, Rao and Tal. Its Lean implementations and constants have separate source records.",
+      "statements": [
+        "thm-A.1"
+      ]
+    },
+    {
+      "id": "quantum-interface",
+      "title": "Measured labels and retained workspace",
+      "passage": "upper-missing-physical-state",
+      "kind": "scope_boundary",
+      "note": "The Boolean evaluation uses the measured label distribution and sequential verification. This use does not establish equality of the entire retained physical state.",
+      "lean": [
+        "src-stage-sampler"
+      ]
+    },
+    {
+      "id": "stopped-process",
+      "title": "Controlling an adaptive analytic process",
+      "passage": "forr_tree_stopping",
+      "kind": "argument",
+      "note": "Stopping before the coefficient bound fails preserves the martingale calculation. Compare the capped simulator’s treatment of lightness as an analogy."
+    }
+  ],
+  "argument_links": [
+    {
+      "source": "cycle",
+      "relation": "illustrates",
+      "target": "weight"
+    },
+    {
+      "source": "weight",
+      "relation": "used_in",
+      "target": "pivot"
+    },
+    {
+      "source": "pivot",
+      "relation": "used_in",
+      "target": "verification"
+    },
+    {
+      "source": "projection",
+      "relation": "distinguishes",
+      "target": "partial-function"
+    },
+    {
+      "source": "partial-function",
+      "relation": "supplies_interface_for",
+      "target": "generic-lower"
+    },
+    {
+      "source": "joint-event",
+      "relation": "used_in",
+      "target": "generic-lower"
+    },
+    {
+      "source": "joint-event",
+      "relation": "analogous_to",
+      "target": "stopped-process"
+    },
+    {
+      "source": "gaussian-path",
+      "relation": "used_in",
+      "target": "uniform-hardness"
+    },
+    {
+      "source": "promise-gap",
+      "relation": "used_in",
+      "target": "uniform-hardness"
+    },
+    {
+      "source": "uniform-hardness",
+      "relation": "supplies_hardness_for",
+      "target": "same-family"
+    },
+    {
+      "source": "verification",
+      "relation": "used_in",
+      "target": "same-family"
+    },
+    {
+      "source": "generic-lower",
+      "relation": "specialized_in",
+      "target": "same-family"
+    },
+    {
+      "source": "same-family",
+      "relation": "used_in",
+      "target": "exponent"
+    },
+    {
+      "source": "exponent",
+      "relation": "used_in",
+      "target": "headline"
+    },
+    {
+      "source": "universal-upper",
+      "relation": "used_in",
+      "target": "headline"
+    },
+    {
+      "source": "quantum-interface",
+      "relation": "qualifies",
+      "target": "verification"
+    }
+  ]
 }

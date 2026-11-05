@@ -360,6 +360,8 @@ def placement(path, snapshot=False):
         return None if p.suffix.lower() in {".json", ".md"} else "corpus contains statement records and receipts"
     if owner == "docs":
         return None if p.suffix.lower() in EVIDENCE_SUFFIXES | {".png", ".svg", ".jpg", ".jpeg", ".webp", ".tex"} else "docs contains documentation, figure sources and supporting assets"
+    if path in {"tools/ReadDependencies.lean", "tools/reader.mjs", "tools/query_reading_api.mjs"}:
+        return None  # Compiled-environment inspector and static reading API client.
     if owner in {"tools", "tests"}:
         return None if p.suffix in {".py", ".md"} else f"{owner} contains Python maintenance code and its documentation"
     if owner == "lean":
