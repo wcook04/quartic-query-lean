@@ -81,6 +81,7 @@ def application_resources(edition, graph, nodes, topics):
         edition.add("selection/applications.json", index)
         return
 
+    family_overview = None
     blocks = {}
     offsets = {}
 
@@ -179,5 +180,7 @@ def application_resources(edition, graph, nodes, topics):
                                   "classical_power_in_m": str(Fraction(2*k-1, k)),
                                   "classical_power_in_sqrt_m": str(Fraction(4*k-2, k))}
                                  for k in (2, 3, 4, 8, 16)]}
+                family_overview = {"overview": journey["overview"], "scaling": presentation["scaling"]}
         edition.add(path, {**journey, **presentation, "steps": steps})
     edition.add("selection/applications.json", index)
+    return family_overview

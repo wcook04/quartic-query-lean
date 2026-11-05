@@ -282,7 +282,8 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
         scenes[scene["id"]] = {"id": scene["id"], "question": scene["question"], "selections": rows}
     if config["entrances"]["exposition"]["first_selection"] != scenes["known-pair"]["selections"][0]["id"]:
         raise ValueError("exposition must open on the query example")
-    edition.add("selection/board.json", board_example(texts["exposition"], scenes))
+    board = board_example(texts["exposition"], scenes)
+    edition.add("selection/board.json", board)
     selections["original"] = original_rows
     document_index = {p: {"path": path, "format": "markdown", "sha256": sha(edition.read(path)),
                           "lines": len(texts[p].splitlines())} for p, path in documents.items()}
@@ -316,7 +317,17 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
         edition.add(f"selection/{paper}.json", rows)
 
     edition.add("selection/by-statement.json", by_statement)
-    application_resources(edition, graph, recorded_names, topics)
+    family = application_resources(edition, graph, recorded_names, topics)
+    entrances = {}
+    for paper, entrance in config["entrances"].items():
+        rows = selections[paper]
+        first = entrance.get("first_selection") or next(
+            (row["id"] for row in rows if row.get("topic") == entrance["stops"][0]), None)
+        if first not in {row["id"] for row in rows}:
+            raise ValueError(f"{paper}: missing opening selection")
+        entrances[paper] = {**entrance, "first_selection": first}
+    edition.add("selection/start.json", {"revision": edition.commit, "documents": document_index,
+               "home": {"entrances": entrances, "board": board, "family": family}})
     edition.add("selection/arguments.json", {"topics": topics, "treatments": treatments, "links": relations})
     used_by = defaultdict(list)
     for row in statements.values():

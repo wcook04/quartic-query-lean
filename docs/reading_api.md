@@ -32,8 +32,16 @@ for text and `readBytes(path)` for PDF or SVG bytes. Present bundled PDFs and
 images using typed Blob URLs created from those bytes; revoke them when done.
 The optional upstream PDF link opens the publisher's copy separately.
 
+Call `reader.home()` for the opening board, each available paper’s first selection,
+and the family overview and scaling examples. A new edition packages this with its
+document index in `selection/start.json`. The full graph and proof inputs load
+when a consumer opens the corresponding evidence. On older editions the client
+reads the available opening material from the pinned edition.
+
 `reader.manuscript(paper)` returns the paper descriptor and its HTML fragment
-(or null HTML for the original PDF and older source-only editions). Render the
+when available. A source-only manuscript returns null HTML and the verified Markdown
+in `source`. Display that string as literal text, using one-based source lines for
+passage selection. The original PDF uses its PDF descriptor. Render the
 descriptor title, the fragment, and its complete TeX math spans. Images carry
 `data-resource`; pass each path to `await reader.figure(paper, path)` for a verified SVG Blob scoped to that manuscript. Set an image’s source to `URL.createObjectURL(blob)` and revoke the URL when the image is removed. Route local links marked
 `data-paper` and optional `data-fragment` within the reader. Fragment-only

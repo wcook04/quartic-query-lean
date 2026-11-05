@@ -11,8 +11,6 @@ import { ManuscriptPaper } from "../paper/ManuscriptPaper";
 const PdfPaper = lazy(() => import("../paper/PdfPaper").then((m) => ({ default: m.PdfPaper })));
 import { meaningful, type Row } from "../paper/selectRow";
 
-const KNOWN = [...PAPERS.map((p) => p.id), SUPPLEMENT.id];
-
 export function ReaderPage({ edition, route }: { edition: Edition; route: Route }) {
   const paper = route.paper!;
   const reader = edition.reader;
@@ -93,11 +91,12 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     }
   }
 
-  if (!KNOWN.includes(paper))
+  const availablePapers = PAPERS.filter(p => Object.hasOwn(reader.documents, p.id));
+  if (!Object.hasOwn(reader.documents, paper))
     return (
       <main id="main" className="notice-page">
-        <h1>There is no paper called “{paper.slice(0, 40)}”.</h1>
-        <p>Choose one of the four papers: {PAPERS.map((p, i) => <span key={p.id}>{i ? ", " : ""}<a href={href({ page: "read", paper: p.id })}>{p.tab}</a></span>)}.</p>
+        <h1>“{paper.slice(0, 40)}” is unavailable in this edition.</h1>
+        <p>Available papers include {availablePapers.map((p, i) => <span key={p.id}>{i ? ", " : ""}<a href={href({ page: "read", paper: p.id, ed })}>{p.tab}</a></span>)}.</p>
       </main>
     );
 
@@ -116,7 +115,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       <div className={`desk${open ? " desk--open" : ""}`}>
         <nav className="papers" aria-label="Papers">
           <ul>
-            {PAPERS.map((p) => (
+            {availablePapers.map((p) => (
               <li key={p.id}>
                 <a href={href({ page: "read", paper: p.id, ed })} aria-current={p.id === paper ? "page" : undefined} onClick={(e) => p.id !== paper && switchTo(p.id, e)}>
                   {p.tab}

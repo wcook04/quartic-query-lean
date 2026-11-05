@@ -20,28 +20,19 @@ const ORDER = ["exposition", "expert", "reconstruction", "original"];
 
 export function Home({ edition }: { edition: Edition }) {
   const [entrances, setEntrances] = useState<Record<string, Entrance> | null>(null);
-  const [first, setFirst] = useState<Record<string, string>>({});
+  const [loadError, setLoadError] = useState(false);
   const [board, setBoard] = useState<BoardData | null>(null);
   const [family, setFamily] = useState<any>(null);
 
   useEffect(() => {
     let live = true;
-    (async () => {
-      const reader = edition.reader;
-      const reading: any = await reader.resource("reading.json");
-      reader.resource(reading.board_example).then((b: any) => live && setBoard(b), () => {});
-      reader.journey("forrelation-family").then((f: any) => live && setFamily(f), () => {});
-      const starts: Record<string, string> = {};
-      for (const paper of ORDER) {
-        const entrance: Entrance = reading.entrances[paper];
-        if (!entrance) continue;
-        if (entrance.first_selection) { starts[paper] = entrance.first_selection; continue; }
-        const rows: { id: string; topic?: string }[] = await reader.resource(`selection/${paper}.json`);
-        const row = rows.find((r) => r.topic === entrance.stops[0]);
-        if (row) starts[paper] = row.id;
+    edition.reader.home().then(({ entrances, board, family }) => {
+      if (live) {
+        setEntrances(entrances);
+        setBoard(board);
+        setFamily(family);
       }
-      if (live) { setEntrances(reading.entrances); setFirst(starts); }
-    })().catch(() => live && setEntrances({}));
+    }, () => { if (live) setLoadError(true); });
     return () => { live = false; };
   }, [edition]);
 
@@ -56,13 +47,14 @@ export function Home({ edition }: { edition: Edition }) {
             its proof, and a Lean proof you can open beside any of them.
           </p>
           <p className="hero__links">
-            <a className="button" href={href({ page: "read", paper: "exposition", s: first.exposition })}>Start with the board</a>
-            <a className="button button--quiet" href={href({ page: "read", paper: "original", s: "original/thm-1.1", v: "statement", st: "thm-1.1" })}>
+            <a className="button" href={href({ page: "read", paper: "exposition", s: entrances?.exposition?.first_selection })}>Start with the board</a>
+            {edition.reader.documents.original && <a className="button button--quiet" href={href({ page: "read", paper: "original", s: "original/thm-1.1", v: "statement", st: "thm-1.1" })}>
               Check Theorem 1.1 against Lean
-            </a>
+            </a>}
           </p>
         </div>
-        {board ? <Board data={board} /> : <div className="board board--pending" role="status">Loading the table…</div>}
+        {board ? <Board data={board} /> : loadError ? <p role="alert">The reading guide could not be loaded.</p>
+          : !entrances && <div className="board board--pending" role="status">Loading the table…</div>}
       </section>
 
       {family && (
@@ -75,7 +67,7 @@ export function Home({ edition }: { edition: Edition }) {
       <section className="ways" aria-labelledby="ways-h">
         <h2 id="ways-h">Choose where to start</h2>
         <ol className="ways__list">
-          {ORDER.map((paper) => {
+          {ORDER.filter((paper) => paper in edition.reader.documents).map((paper) => {
             const e = entrances?.[paper];
             const p = PAPERS.find((x) => x.id === paper)!;
             return (
@@ -85,7 +77,7 @@ export function Home({ edition }: { edition: Edition }) {
                 <p className="way__who">{e?.audience}</p>
                 {e && <p className="way__preview" dangerouslySetInnerHTML={{ __html: inlineTex(e.preview) }} />}
                 <p className="way__go">
-                  <a href={href({ page: "read", paper, s: first[paper] })}>Open {paper === "original" ? "OpenAI’s paper" : `“${p.name}”`}</a>
+                  <a href={href({ page: "read", paper, s: e?.first_selection })}>Open {paper === "original" ? "OpenAI’s paper" : `“${p.name}”`}</a>
                 </p>
               </li>
             );

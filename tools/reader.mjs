@@ -66,8 +66,8 @@ export async function loadEditionResources(indexURL, {fetch: request = globalThi
   const data = new Map();
   async function resource(path) {
     if (!data.has(path)) {
-      const text = await readText(path);
-      data.set(path, path.endsWith(".json") ? JSON.parse(text) : text);
+      const decoded = readText(path).then(text => path.endsWith(".json") ? JSON.parse(text) : text);
+      data.set(path, decoded.catch(error => { data.delete(path); throw error; }));
     }
     return data.get(path);
   }
@@ -76,10 +76,43 @@ export async function loadEditionResources(indexURL, {fetch: request = globalThi
 
 export async function openReader(indexURL, options) {
   const {manifest, revision, permalink, readBytes, readText, resource} = await loadEditionResources(indexURL, options);
-  const selection = await resource("selection/index.json");
-  if (selection.revision !== revision) throw new Error("Mixed paper and graph editions");
-  const {modules, documents} = selection;
+  async function revisionResource(path) {
+    const value = await resource(path);
+    if (value.revision !== revision) throw new Error("Mixed paper and graph editions");
+    return value;
+  }
+  const indexPath = "selection/index.json";
+  const start = Object.hasOwn(manifest.resources, "selection/start.json")
+    ? await revisionResource("selection/start.json") : null;
+  const {documents} = start ?? await revisionResource(indexPath);
+
+  async function home() {
+    if (start) return start.home;
+    // Older editions retain their original first stops and available illustrations.
+    const reading = await resource("reading.json");
+    const entrances = {};
+    for (const [paper, entrance] of Object.entries(reading.entrances)) {
+      let first = entrance.first_selection;
+      if (!first) {
+        const rows = await resource(`selection/${paper}.json`);
+        first = rows.find(row => row.topic === entrance.stops[0])?.id;
+      }
+      entrances[paper] = {...entrance, first_selection: first};
+    }
+    const board = reading.board_example ? await resource(reading.board_example) : null;
+    let family = null;
+    if (Object.hasOwn(manifest.resources, "selection/applications.json")) {
+      const index = await applicationIndex();
+      const route = index.journeys["forrelation-family"];
+      if (index.currentness === "current" && route) {
+        const {overview, scaling} = await resource(route.resource);
+        if (overview && scaling) family = {overview, scaling};
+      }
+    }
+    return {entrances, board, family};
+  }
   async function expand(name) {
+    const {modules} = await revisionResource(indexPath);
     if (!Object.hasOwn(modules, name)) {
       const external = await resource("selection/external.json");
       const module = external.modules[name];
@@ -100,6 +133,7 @@ export async function openReader(indexURL, options) {
     for (const n of [depth, limit, budget])
       if (!Number.isSafeInteger(n) || n < 1) throw new Error("Invalid graph budget");
     if (direction !== "uses" && direction !== "used_by") throw new Error("Unknown graph direction");
+    const {modules} = await revisionResource(indexPath);
     const queue = [{name: root, path: []}], seen = new Set([root]), witnesses = [];
     let visited = 0, externalEdges = 0, depthLimited = false, limitReached = false;
     while (visited < queue.length && visited < budget && !limitReached) {
@@ -146,6 +180,8 @@ export async function openReader(indexURL, options) {
   }
 
   async function applicationIndex() {
+    if (!Object.hasOwn(manifest.resources, "selection/applications.json"))
+      return {currentness: "unavailable", journeys: {}, by_topic: {}, by_declaration: {}};
     return resource("selection/applications.json");
   }
 
@@ -173,11 +209,17 @@ export async function openReader(indexURL, options) {
   async function statementReview(id) {
     const reading = await resource("reading.json");
     if (!Object.hasOwn(reading.fidelity, id)) throw new Error("Unknown statement: " + id);
-    const [record, originals, related] = await Promise.all([resource(reading.fidelity[id]),
-      resource("selection/original.json"), resource("selection/by-statement.json")]);
-    const selection = originals.find(row => row.statements.includes(id));
+    const record = await resource(reading.fidelity[id]);
     const sourceURL = (path, lines) => `${manifest.repository}/blob/${revision}/${path}` +
       (lines ? `#L${lines[0]}-L${lines[1]}` : "");
+    if (!record.review_scope) {
+      // This format predates the judgment about which theorem matches the whole statement.
+      return {revision, id, format: "archived_record", ledgerStatement: record.statement,
+        ties: record.lean.map(t => ({...t, sourceURL: sourceURL(t.file, t.declaration_lines)}))};
+    }
+    const [originals, related] = await Promise.all([
+      resource("selection/original.json"), resource("selection/by-statement.json")]);
+    const selection = originals.find(row => row.statements.includes(id));
     const current = record.lean.filter(t => t.review_evidence === "current");
     const leading = t => record.review_scope.leading_matches.some(m => m.declaration === t.declaration && m.file === t.file);
     async function sourceExcerpt(path, lines) {
@@ -215,7 +257,8 @@ export async function openReader(indexURL, options) {
     if ((id == null || documentSha256 != null) && documentSha256 !== doc.sha256)
       throw new Error("Selection belongs to a different manuscript edition");
     const pdf = doc.format === "pdf";
-    const [rows, argumentsData, labels, associated] = await Promise.all([
+    const [selection, rows, argumentsData, labels, associated] = await Promise.all([
+      revisionResource(indexPath),
       resource(`selection/${paper}.json`), resource("selection/arguments.json"),
       resource("selection/targets.json"), resource("selection/reverse.json")]);
     let matches;
@@ -264,7 +307,7 @@ export async function openReader(indexURL, options) {
     const records = await Promise.all([...statements].map(s => resource(`fidelity/${s}.json`)));
     for (const row of records) {
       for (const tie of row.lean) {
-        const module = modules[tie.declaration];
+        const module = selection.modules[tie.declaration];
         if (tie.review_evidence !== "current" || tie.relation === "unassessed") continue;
         if (module && tie.file === `lean/${module.replaceAll(".", "/")}.lean`)
           root(tie.declaration, {basis: "statement_tie", statement: row.id, relation: tie.relation,
@@ -299,11 +342,12 @@ export async function openReader(indexURL, options) {
     const figures = topics.map(id => argumentsData.topics[id].figure).filter(Boolean);
     const citations = [...(text || "").matchAll(/@([A-Za-z][\w:-]*)/g)].map(m => m[1]);
     const applications = await applicationIndex();
-    const byStatement = await resource("selection/by-statement.json");
+    const byStatement = Object.hasOwn(manifest.resources, "selection/by-statement.json")
+      ? await resource("selection/by-statement.json") : {};
     const position = {edition: permalink, paper, documentSha256: doc.sha256,
       ...(id != null ? {id} : pdf ? {page} : {line, endLine})};
     return {revision, position, document: doc, paper, lines, page, text, matches, comparisons,
-      relatedSelections: records.map(s => ({statement: s.id, selections: byStatement[s.id].filter(r => r.paper !== paper)})),
+      relatedSelections: records.map(s => ({statement: s.id, selections: (byStatement[s.id] ?? []).filter(r => r.paper !== paper)})),
       location: pdf ? {page, url: `${doc.url}#page=${page}`, ...(id ? matches[0].location : {})} : null,
       context: {headings, figures, bibliography: paperData.bibliography, citationKeys: [...new Set(citations)]},
       scope: "Review judgments apply to their named statement and declaration. Editorial examples and constituents retain their indicated roles.",
@@ -324,10 +368,16 @@ export async function openReader(indexURL, options) {
   async function manuscript(paper) {
     if (!Object.hasOwn(documents, paper)) throw new Error("Unknown paper");
     const descriptor = (await resource("reading.json")).papers[paper];
-    if (!descriptor.rendered) return {descriptor, html: null};
+    if (!descriptor.rendered) {
+      const doc = documents[paper];
+      if (doc.format === "pdf") return {descriptor, html: null, source: null};
+      if (manifest.resources[doc.path]?.sha256 !== doc.sha256)
+        throw new Error("Manuscript source differs from the selected document");
+      return {descriptor, html: null, source: await readText(doc.path)};
+    }
     if (descriptor.rendered.source_sha256 !== documents[paper].sha256)
       throw new Error("Rendered manuscript belongs to a different source");
-    return {descriptor, html: await readText(descriptor.rendered.resource)};
+    return {descriptor, html: await readText(descriptor.rendered.resource), source: null};
   }
   async function figure(paper, path) {
     const papers = (await resource("reading.json")).papers;
@@ -336,5 +386,5 @@ export async function openReader(indexURL, options) {
     if (!path.endsWith(".svg")) throw new Error("Unrecognized figure format");
     return new Blob([await readBytes(path)], {type: "image/svg+xml"});
   }
-  return {revision, permalink, documents, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
+  return {revision, permalink, documents, home, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
 }

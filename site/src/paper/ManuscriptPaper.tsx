@@ -20,6 +20,7 @@ interface Props {
 export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, onLink, onRows }: Props) {
   const root = useRef<HTMLDivElement>(null);
   const [rows, setRows] = useState<Row[] | null>(null);
+  const [sourceView, setSourceView] = useState(false);
   const [ready, setReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const own = useRef<string | undefined>(undefined);
@@ -31,11 +32,26 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, on
     setReady(false);
     setError(null);
     (async () => {
-      const [{ html }, sel] = await Promise.all([edition.reader.manuscript(paper), edition.reader.resource(`selection/${paper}.json`)]);
+      const [{ html, source }, sel] = await Promise.all([edition.reader.manuscript(paper), edition.reader.resource(`selection/${paper}.json`)]);
       if (!live || !root.current) return;
-      if (html == null) throw new Error("this earlier edition was published before the reader could display manuscripts. Use the banner above to open the current edition.");
-      root.current.innerHTML = sanitizeManuscript(html);
-      typeset(root.current);
+      setSourceView(html == null);
+      if (html != null) {
+        root.current.innerHTML = sanitizeManuscript(html);
+        typeset(root.current);
+      } else if (source != null) {
+        // Keep historical Markdown literal. Each line can still open its own evidence.
+        const lines = source.split(/\r?\n/);
+        if (lines.at(-1) === "") lines.pop();
+        const body = document.createDocumentFragment();
+        for (const [index, line] of lines.entries()) {
+          const block = document.createElement("div");
+          block.className = "source-block wrap";
+          block.dataset.l0 = block.dataset.l1 = String(index + 1);
+          block.textContent = line || "\n";
+          body.append(block);
+        }
+        root.current.replaceChildren(body);
+      } else throw new Error("This edition has no manuscript source.");
       for (const img of root.current.querySelectorAll<HTMLImageElement>("img[data-resource]")) {
         edition.reader.figure(paper, img.dataset.resource!).then((blob: Blob) => {
           if (!live) return;
@@ -136,6 +152,7 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, on
     <>
       {error && <div className="failed" role="alert"><p>This paper could not be opened: {error}</p></div>}
       {!ready && !error && <p className="pending" role="status">Loading the paper…</p>}
+      {ready && sourceView && <p className="quiet">Manuscript source from this edition. Select a passage to inspect its evidence.</p>}
       <div ref={root} className="manuscript" onClick={onClick} hidden={!ready} />
     </>
   );

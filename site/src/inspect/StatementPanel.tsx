@@ -12,7 +12,16 @@ export function StatementPanel({ edition, id }: { edition: Edition; id: string }
   const review = useAsync(() => edition.reader.statementReview(id), [edition, id]);
   return (
     <Loaded value={review} what="statement comparison">
-      {(r) => <Statement r={r} />}
+      {(r) => r.format === "archived_record" ? (
+        <article className="panel">
+          <h2>{statementName(r.id)}</h2>
+          <p>{r.ledgerStatement}</p>
+          <p>This edition records the following links to Lean. Its review predates the comparison of which theorem covers the whole statement.</p>
+          <ul>{r.ties?.map((t: any) => <li key={t.file + t.declaration}>
+            <a href={t.sourceURL}>{t.declaration}</a> ({t.relation})
+          </li>)}</ul>
+        </article>
+      ) : <Statement r={r} />}
     </Loaded>
   );
 }

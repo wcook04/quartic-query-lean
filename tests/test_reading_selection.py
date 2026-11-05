@@ -190,6 +190,30 @@ for (const bad of ["//outside.test/m.json","https://outside.test/index.json","..
   await assert.rejects(openEdition(base,{edition:bad,fetch:request}),/Invalid edition permalink/);
 assert.equal(count,0);
 const trusted = await openEdition(base,{edition:info.permalink,fetch:request});
+const front = await trusted.home();
+assert.equal(count,2,"Opening the guide needs just its manifest and the compact start resource");
+assert.equal(front.entrances.exposition.first_selection, front.board.scenes[0].selections[0].id);
+for (const [paper, entry] of Object.entries(front.entrances)) {
+  assert((await trusted.resource(`selection/${paper}.json`)).some(r => r.id === entry.first_selection));
+}
+const familyDetails = await trusted.journey("forrelation-family");
+assert.deepEqual(front.family, {overview:familyDetails.overview, scaling:familyDetails.scaling});
+// Simulate the earlier manifest shape while serving the actual source-only package.
+const legacy = JSON.parse(JSON.stringify(info));
+delete legacy.permalink;
+delete legacy.resources["selection/start.json"];
+delete legacy.resources["selection/by-statement.json"];
+delete legacy.resources["selection/applications.json"];
+legacy.permalink = "edition-"+createHash("sha256").update(JSON.stringify(legacy)+"\n").digest("hex")+".json";
+const archive = await openEdition(base,{edition:legacy.permalink,fetch:(url,opts) =>
+  url.pathname.endsWith(legacy.permalink) ? Response.json(legacy) : request(url,opts)});
+const archived = await archive.manuscript("exposition");
+assert.equal(archived.html,null);
+assert.equal(createHash("sha256").update(archived.source).digest("hex"), archive.documents.exposition.sha256);
+assert.equal((await archive.home()).family,null);
+const oldSelection = await archive.resolve({paper:"exposition",id:front.entrances.exposition.first_selection});
+assert.equal(oldSelection.position.edition,legacy.permalink);
+assert.equal(oldSelection.text,archived.source.split("\n").slice(oldSelection.lines[0]-1,oldSelection.lines[1]).join("\n"));
 const first = await trusted.resolve({paper:"original",id:"original/thm-1.1"});
 assert.equal((await trusted.restore(first.position)).location.page,1);
 await assert.rejects(trusted.restore({...first.position,edition:"other"}),/different edition/);
