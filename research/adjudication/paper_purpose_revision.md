@@ -714,3 +714,11 @@ The specialist paper retains the exponent comparison on its first page. In §§2
 Two independent agent readings tested the teaching edition. The first reader saw only the opening example and the definition of one query. Asked to make column 3 all ones instead, they changed row 2 of that column, obtained replies zero and one there, and obtained one on both boards at row 3. They distinguished ruling out a single column from deciding the entire table. The text now makes that inference explicit. A second reader read the main argument of a trial PDF in order. With columns 2 and 4 flagged, they computed the amplitudes after both reflections and obtained success probability one half. Given an extra target query on the predictor's branch, they stopped before read number $L+1$ and kept the branch in the probability calculation. They flagged the first use of “domain bit”. The teaching account now names it when it defines the output for promise membership. These are agent readings of named tasks. No human evaluation or numerical quality rating was obtained.
 
 A separate agent compared the specialist and full arguments for off-promise comparisons, the classical simulation and the first two Gaussian integrations by parts. In response the specialist text now separates simulating the preceding replies from inspecting the next coordinate. In the reconstruction the prose preceding (8.16)–(8.18) identifies both the function being differentiated and the Gaussian coordinate of differentiation.
+
+The delivered PDFs were built with both shorter papers linked to the full proof at `11a2299`, and the reconstruction linked back to the shorter sources at `fff1126`. All 129 numbered displays in the reconstruction retain their equations and numbering. The 229 authored destinations resolve. On page 13 of the teaching edition, the links in the classical proof go to the separate-cap argument on page 18 and the simulation on page 19. The manuscript repository ran 269 tests with two optional skips.
+
+| Reading copy | Pages | PDF SHA-256 |
+| --- | ---: | --- |
+| First-principles exposition | 23 | `acbd30b39be4f95e8fe3c92dbfccde8820b7622a7084dcd48666536ffdd3be47` |
+| Specialist companion | 8 | `338dae679a317711a173e23d1748047e0ed83a5e7619e6a69b8ad4aecc7ff76e` |
+| Complete reconstruction | 89 | `d4d1c6a583ab1476847a59d226f140c8e1a503f4e102257e11694bcf7232c0d4` |
