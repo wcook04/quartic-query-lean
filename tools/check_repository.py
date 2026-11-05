@@ -15,7 +15,7 @@ from zipfile import BadZipFile, ZipFile
 import zlib
 
 
-ROOT_FILES = {"README.md", "CONTRIBUTING.md", "LICENSE", ".gitignore", "Makefile", "AGENTS.md"}
+ROOT_FILES = {"README.md", "CONTRIBUTING.md", "LICENSE", ".gitignore", "Makefile", "AGENTS.md", "CLAUDE.md"}
 REQUIRED = {"README.md", "CONTRIBUTING.md", "LICENSE", ".gitignore", "Makefile",
             "tools/check_repository.py", "tests/test_check_repository.py",
             "research/requests/review/common.md", "research/requests/review/boundaries.md",

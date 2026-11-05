@@ -75,6 +75,8 @@ Appendix A. Lemma 4.1 uses an induction on sub-distributions in place of the
 supermartingale. [The contract](docs/statement_evidence_contract.md) explains how
 statements and proofs stay aligned as derivations improve.
 
+For website work, start with the [frontend design brief](docs/frontend_brief.md). It connects the two reference readers to Quartic’s data and gives browser acceptance checks.
+
 The [statement comparison reader](docs/reading_api.md#compare-a-paper-result-with-lean) opens a result in the original paper beside the exact Lean source, Lean’s printed type and axioms, and the reviewer’s reasons for its match. For the headline result it distinguishes the theorem proving the whole family from the shorter theorem proving the exponent alone.
 
 The [selection resolver](docs/reading_api.md#resolve-a-paper-selection) opens a paper passage beside its Lean dependencies and readers can follow those declarations back to the papers. The [theorem application reader](docs/reading_api.md#inspect-a-theorem-application) follows the actual arguments used to assemble both bounds for one total function. The [website reading API](docs/reading_api.md) connects our three papers and OpenAI’s original PDF to Lean statements, source code and evidence about how each statement matches.
