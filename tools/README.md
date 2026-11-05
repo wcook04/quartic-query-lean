@@ -489,8 +489,19 @@ Run `make reading-web` for the [browser edition](../docs/reading_api.md#browser-
 
 [Record proof use locations](record_proof_sites.py) rebuilds Quartic, reads its
 native language-server indices, and uses [Lean's declaration parser](ReadUseRegions.lean)
-to separate statements and bodies. Run
+to separate statements and bodies. When a declaration uses local notation the
+[scoped inspector](ReadScopedUseRegions.lean) re-elaborates the module and matches
+its declaration identifier to the native index. A one-line right hand side can
+supply a location for a constant in the compiled body. Run
 `python3 tools/record_proof_sites.py --checkout /path/to/built/checkout`;
 add `--compare` for an independent repeat. Python tooling and the Lean parser
 are fingerprinted along with the pinned source snapshot. A stale capture
 withholds the corresponding use locations from new editions.
+
+[Record inherited parameter origins](record_parameter_origins.py) rechecks the
+three amplification modules with [the parameter inspector](ReadParameterOrigins.lean).
+It joins actual uses of a local variable to its original binder by Lean's variable
+ID, checks the section parameter prefix of the compiled declaration, and verifies
+the type identifier against the language-server index.
+Run `python3 tools/record_parameter_origins.py --checkout /path/to/built/checkout`
+and pass `--compare` to reproduce the saved observations.

@@ -233,11 +233,18 @@ export async function openReader(indexURL, options) {
       const located = (s, region) => ({...s, region,
         url: `${sourceURL}#L${s.lines[0]}-L${s.lines[1]}`});
       const matches = (refs[hop.kind] ?? []).map(s => located(s, hop.kind));
+      const parameterOrigins = (sites?.parameter_origins?.[hop.from]?.[hop.to] ?? [])
+        .filter(s => hop.kind === "type" || (hop.kind === "value" && s.in_value_parameter))
+        .map(s => located(s, "section_parameter"));
+      if (hop.kind === "type" && !matches.length) matches.push(...parameterOrigins);
+      const bases = new Set(matches.map(site => site.basis));
+      const preferred = ["elaborated_application", "resolved_identifier", "compiled_rhs", "inherited_parameter"]
+        .find(basis => bases.has(basis));
+      const fallback = !sites ? "unavailable_in_edition"
+        : sites.reference_index === "current" ? "declaration_only" : "stale_reference_index";
       const evidence = {
-        status: matches.some(s => s.basis === "elaborated_application") ? "elaborated_application"
-          : matches.length ? "resolved_identifier" : !sites ? "unavailable_in_edition"
-          : sites.reference_index !== "current" ? "stale_reference_index" : "declaration_only",
-        sites: matches, source: consumer.source, declarationLines: consumer.lines, sourceURL,
+        status: preferred ?? fallback,
+        sites: matches, parameterOrigins, source: consumer.source, declarationLines: consumer.lines, sourceURL,
         // Keep these locations inspectable without attributing them to this hop's kind.
         otherReferences: Object.entries(refs).filter(([region]) => region !== hop.kind)
           .flatMap(([region, values]) => values.map(s => located(s, region)))

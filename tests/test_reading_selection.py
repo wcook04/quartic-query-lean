@@ -118,6 +118,38 @@ end Fixture
         with self.assertRaisesRegex(ValueError, "source bytes"):
             witnessed_occurrences(rows, "Fixture.twice", "Fixture.keep", raw, 0, len(raw))
 
+    @unittest.skipUnless(os.environ.get("QUARTIC_LAKE_CHECKOUT"), "opt-in native parameter inspection")
+    def test_shadowed_and_unused_section_parameters(self):
+        fixture = """import Init
+namespace QuarticQuery.Fixture
+structure Box where
+  n : Nat
+section
+variable (x : Box)
+def outer := x.n
+section
+variable (x : Box)
+def inner := x.n
+def unused := 2
+def explicit (x : Box) := x.n
+end
+def resumed := x.n
+def returned : (x : Box) → Nat := fun x => x.n
+end
+end QuarticQuery.Fixture
+"""
+        with tempfile.TemporaryDirectory() as temp:
+            source = Path(temp) / "ParameterFixture.lean"
+            source.write_text(fixture)
+            rows = json.loads(subprocess.check_output([
+                "lake", "env", "lean", "--run", str(api.ROOT / "tools/ReadParameterOrigins.lean"),
+                "ParameterFixture", str(source)
+            ], cwd=Path(os.environ["QUARTIC_LAKE_CHECKOUT"]) / "lean"))
+        first = fixture.index("(x : Box)")
+        second = fixture.index("(x : Box)", first + 1)
+        self.assertEqual({(r["caller"].split(".")[-1], r["lo"], r["value"]) for r in rows},
+                         {("outer", first, True), ("inner", second, True), ("resumed", first, True)})
+
     def test_application_export_requires_both_a_source_site_and_compiled_use(self):
         edition = api.Edition(api.ROOT)
         graph = edition.json("corpus/reading_dependencies.json")
@@ -244,6 +276,17 @@ const missingSpan = await trusted.proofPathSource("QuarticQuery.Amplification.Pr
 assert.equal(missingSpan.lines,null);
 assert.equal(missingSpan.text,null);
 assert(missingSpan.url.endsWith(missingSpan.source));
+const prep = "QuarticQuery.Amplification.Preparation";
+const anglePaths = await trusted.proofPath(prep + ".angle", prep);
+const angleHop = k => anglePaths.variants.find(v => v.firstKind === k).hops[0].evidence;
+assert.equal(angleHop("type").status, "inherited_parameter");
+assert.match(angleHop("type").sites[0].url, /#L188-L188$/);
+assert.equal(angleHop("value").status, "declaration_only");
+assert.deepEqual(angleHop("value").sites, []);
+assert.equal(angleHop("value").parameterOrigins[0].binder, "(A : Preparation H)");
+const tournamentNamespace = "QuarticQuery.Tournament.";
+const expectation = await trusted.proofPath(tournamentNamespace+"expected_final_weight",tournamentNamespace+"expectFrom","value");
+assert.equal(expectation.variants[0].hops[0].evidence.status,"compiled_rhs");
 const multiple = map.edges.find(e => Object.keys(e.witnesses).length > 1);
 const choices = await trusted.proofPath(multiple.from,multiple.to);
 assert.deepEqual(choices.variants.map(v => v.firstKind),Object.keys(multiple.witnesses));

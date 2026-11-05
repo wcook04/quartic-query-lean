@@ -174,6 +174,22 @@ lines, a commit-pinned link, zero-based half-open UTF-8 byte offsets in the
 file and half-open UTF-16 columns within the first and last lines for browser
 highlighting. `locationCoverage` counts located hops in this particular chain.
 
+A `compiled_rhs` site covers the complete expression or tactic sequence that
+produced a value on one source line. Lean reports the target constant in the
+compiled body after removing the outer parameter binders. Show the whole
+highlight, even when the constant was supplied implicitly. For example, the
+`simpa` on line 215 of `Tournament/Ideal.lean` produces the proof that uses
+`expectFrom`. The source of a particular tactic inside a multi-line or
+backtracking proof requires separate evidence.
+
+An `inherited_parameter` site identifies the type of a parameter declared earlier
+in the same module. The pinned line can be outside the declaration's excerpt.
+Show “type of inherited parameter A” with the returned `binder` text. On a
+statement hop the API can use this as its location when an inline use is unavailable.
+On a proof or definition hop, `parameterOrigins` can explain a dependency in a
+compiled lambda parameter. These origins stay outside `sites` and the hop's
+location count until an actual proof or definition use has its own evidence.
+
 `declaration_only` means the typed dependency exists but no matching source use
 was established. Offer the caller’s source range or module. `otherReferences`
 records locations in another or unclassified region; those are inspectable as
@@ -191,6 +207,7 @@ the recorded map returns `not_a_dependency_edge`, including the editorial
 arrow from the paper headline to the formal theorem.
 
 ```sh
+node tools/query_reading_api.mjs build/reading-api/v1/index.json --proof-line-coverage
 node tools/query_reading_api.mjs build/reading-api/v1/index.json --proof-path QuarticQuery.Upper.familyBoundsAt_of_lower QuarticQuery.Forrelation.forrConstant value
 ```
 

@@ -137,4 +137,11 @@ module. See the [reader comparison contract](../docs/reading_api.md#compare-a-pa
 from matching compiled dependencies. Each row records the caller, callee, a
 half-open UTF-8 source span and a syntactic region (type, value or unknown).
 The reader exports the subset used on its proof paths. Reproduce the observations
-with the [reference recorder](../tools/record_proof_sites.py).
+with the [reference recorder](../tools/record_proof_sites.py). A fourth field
+`compiled_rhs` identifies a constant in the compiled expression produced by a
+whole one-line right hand side.
+
+[Inherited parameter origins](reading_parameter_origins.json) records the source
+of shared parameters for the amplification modules. It keeps both the original
+binder range and the exact identifier for its type constructor. Reproduce it
+with the [parameter recorder](../tools/record_parameter_origins.py).

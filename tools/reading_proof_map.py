@@ -104,13 +104,19 @@ def declaration_info(edition, nodes, blocks, name):
     return info
 
 
+def current_capture(edition, record, schema, graph, inspectors):
+    return (record["schema"] == schema and record["source_snapshot_sha256"] == graph["source_snapshot_sha256"]
+            and record["toolchain"] == graph["toolchain"] and record["producers"] ==
+            {f: hashlib.sha256(edition.read("tools/" + f)).hexdigest() for f in inspectors})
+
+
 def add_use_sites(edition, graph, nodes, edges, paths):
     record = edition.json("corpus/reading_proof_sites.json")
-    inspectors = ("record_proof_sites.py", "ReadUseRegions.lean")
-    current = (record["schema"] == "quartic-lean-reference-sites-v1" and
-               record["source_snapshot_sha256"] == graph["source_snapshot_sha256"] and
-               record["toolchain"] == graph["toolchain"] and record["producers"] ==
-               {f: hashlib.sha256(edition.read("tools/" + f)).hexdigest() for f in inspectors})
+    inspectors = ("record_proof_sites.py", "ReadUseRegions.lean", "ReadScopedUseRegions.lean")
+    current = current_capture(edition, record, "quartic-lean-reference-sites-v2", graph, inspectors)
+    params = edition.json("corpus/reading_parameter_origins.json")
+    param_current = current_capture(edition, params, "quartic-parameter-origins-v1", graph,
+                                    ("record_parameter_origins.py", "record_proof_sites.py", "ReadParameterOrigins.lean"))
     # Every map witness has a consumer supplied by its edge, including shared prefixes.
     uses = set()
     for edge in edges:
@@ -120,30 +126,53 @@ def add_use_sites(edition, graph, nodes, edges, paths):
                 uses.add((edge["from"] if parent is None else paths[parent][2], kind, dep))
                 cursor = parent
     observations = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
+    parameter_origins = defaultdict(lambda: defaultdict(list))
 
-    def observe(caller, kind, dep, lo, hi, basis, expected=None):
+    def site_at(caller, lo, hi, basis):
         path = "lean/" + nodes[caller]["module"].replace(".", "/") + ".lean"
         raw = edition.resources[path]
         if not 0 <= lo < hi <= len(raw):
             raise ValueError(f"{caller}: invalid source span")
         token = raw[lo:hi].decode()
-        if (expected is not None and token != expected) or (expected is None and
-                not (token == dep or dep.endswith("." + token))):
-            raise ValueError(f"{caller}: source span differs from {dep}")
+
         def utf16_column(offset):
             start = raw.rfind(b"\n", 0, offset) + 1
             return len(raw[start:offset].decode().encode("utf-16-le")) // 2
-        site = {"basis": basis, "utf8_bytes": [lo, hi], "text": token,
+        return {"basis": basis, "utf8_bytes": [lo, hi], "text": token,
                 "utf16_columns": [utf16_column(lo), utf16_column(hi)],
                 "lines": [raw.count(b"\n", 0, lo) + 1, raw.count(b"\n", 0, hi - 1) + 1]}
+
+    def observe(caller, kind, dep, lo, hi, basis, expected=None):
+        site = site_at(caller, lo, hi, basis)
+        token = site["text"]
+        if basis == "compiled_rhs" and ("\n" in token or kind != "value"):
+            raise ValueError(f"{caller}: expected one source line for a compiled right hand side")
+        if (expected is not None and token != expected) or (basis == "resolved_identifier" and
+                not (token == dep or dep.endswith("." + token.removeprefix(".")))):
+            raise ValueError(f"{caller}: source span differs from {dep}")
         refs = observations[caller][dep][kind]
         if site not in refs:
             refs.append(site)
 
     if current:
         for caller, dep in sorted({(caller, dep) for caller, _, dep in uses}):
-            for lo, hi, region in record["nodes"].get(caller, {}).get(dep, []):
-                observe(caller, region, dep, lo, hi, "resolved_identifier")
+            for lo, hi, region, *extra in record["nodes"].get(caller, {}).get(dep, []):
+                if extra not in ([], ["compiled_rhs"]):
+                    raise ValueError(f"{caller}: unrecognised source evidence")
+                observe(caller, region, dep, lo, hi, extra[0] if extra else "resolved_identifier")
+
+    if param_current:
+        for caller, dep in sorted({(caller, dep) for caller, _, dep in uses}):
+            for origin in params["nodes"].get(caller, {}).get(dep, []):
+                lo, hi = origin["binder"]
+                a, b = origin["identifier"]
+                site = site_at(caller, a, b, "inherited_parameter")
+                binder = site_at(caller, lo, hi, "section_binder")
+                if (not lo <= a < b <= hi or binder["lines"][0] != binder["lines"][1]
+                        or not (dep == site["text"] or dep.endswith("." + site["text"]))):
+                    raise ValueError(f"{caller}: invalid inherited parameter source")
+                parameter_origins[caller][dep].append({**site, "binder": binder["text"],
+                    "parameter": origin["parameter"], "in_value_parameter": origin["in_value_parameter"]})
 
     journeys = json.loads(edition.resources["selection/applications.json"])["journeys"]
     for journey in journeys.values():
@@ -155,7 +184,8 @@ def add_use_sites(edition, graph, nodes, edges, paths):
                         observe(*key, *occurrence["utf8_bytes"], "elaborated_application", occurrence["text"])
     resource = "selection/proof-use-sites.json"
     edition.add(resource, {"revision": edition.commit, "source_snapshot_sha256": graph["source_snapshot_sha256"],
-                           "reference_index": "current" if current else "stale", "observations": observations})
+                           "reference_index": "current" if current else "stale", "observations": observations,
+                           "parameter_index": "current" if param_current else "stale", "parameter_origins": parameter_origins})
     return resource
 
 

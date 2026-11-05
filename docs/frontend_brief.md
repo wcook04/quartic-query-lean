@@ -51,6 +51,9 @@ outline and its anchor destinations. Test at a mapped passage and at an
 illustration with no map card.
 
 In the path panel, show the source lines on each hop from `hop.evidence.sites`.
+Label a `compiled_rhs` highlight “compiled from this line.” Open an
+`inherited_parameter` at its pinned module line with the parameter's name and
+binder text. On proof hops, `parameterOrigins` belongs under “parameter type.”
 If there are several occurrences, let the reader choose which to open. Keep
 `otherReferences` distinct from the highlighted use. Render a helper's title
 with its Lean name beneath it. For a paper-specific “encountered” count, send

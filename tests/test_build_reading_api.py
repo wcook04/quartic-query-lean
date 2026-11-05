@@ -97,12 +97,26 @@ class ReadingEditionTest(unittest.TestCase):
                         self.assertEqual(raw[start:stop].decode(), site["text"])
                         self.assertEqual(site["lines"][0], 1 + raw.count(b"\n", 0, start))
                         if site in named:
-                            self.assertTrue(target == site["text"] or target.endswith("." + site["text"]))
+                            self.assertTrue(target == site["text"] or target.endswith("." + site["text"].removeprefix(".")))
         self.assertTrue(repeated)
         for paper, rows in view["papers"].items():
             linked = {n for row in rows for n in row["bindings"]}
             self.assertEqual(view["paper_cards"][paper]["cards"], sorted(linked))
             self.assertEqual(view["paper_cards"][paper]["count"], len(linked))
+
+    def test_statement_identifier_one_line_proof_and_shared_binder(self):
+        sites = self.resource("selection/proof-use-sites.json")
+        refs = sites["observations"]
+        walsh = refs["QuarticQuery.Forrelation.H_transpose"]["QuarticQuery.Forrelation.W_transpose"]
+        self.assertTrue(any(s["text"] == "W_transpose" and s["lines"] == [194, 194] for s in walsh["value"]))
+        proof = refs["QuarticQuery.Tournament.expected_final_weight"]["QuarticQuery.Tournament.expectFrom"]
+        self.assertEqual([(s["basis"], s["lines"]) for s in proof["value"]], [("compiled_rhs", [215, 215])])
+        preparation = "QuarticQuery.Amplification.Preparation"
+        caller = preparation + ".angle"
+        param, = sites["parameter_origins"][caller][preparation]
+        self.assertEqual((param["parameter"], param["text"], param["lines"]), ("A", "Preparation", [188, 188]))
+        self.assertTrue(param["in_value_parameter"])
+        self.assertFalse(refs.get(caller, {}).get(preparation, {}).get("value"))
 
     def test_proof_sites_follow_utf16_locations_and_withhold_stale_capture(self):
         from record_proof_sites import Source

@@ -12,10 +12,11 @@ from record_reading_dependencies import ROOT, write_graph
 
 DESTINATION = ROOT / "corpus/reading_proof_sites.json"
 PARSER = ROOT / "tools/ReadUseRegions.lean"
+SCOPED = ROOT / "tools/ReadScopedUseRegions.lean"
 
 
 def producers():
-    return {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__), PARSER)}
+    return {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__), PARSER, SCOPED)}
 
 
 class Source:
@@ -38,6 +39,10 @@ class Source:
         return self.starts[line] + len(units[:2*col].decode("utf-16-le").encode())
 
 
+def names_token(name, token):
+    return bool(token) and (name == token or name.endswith("." + token.removeprefix(".")))
+
+
 def record(checkout, compare=False):
     before = source_hashes(checkout)
     snapshot = canonical_sha256(before)
@@ -50,13 +55,24 @@ def record(checkout, compare=False):
     lean = checkout / "lean"
     subprocess.run(["lake", "build", "QuarticQuery"], cwd=lean, check=True)
     nodes = graph["nodes"]
-    commands, starts, sites = {}, {}, defaultdict(lambda: defaultdict(set))
+    commands, starts, identifiers = {}, {}, {}
+    sites = defaultdict(lambda: defaultdict(set))
     for module in sorted({node["module"] for node in nodes.values()}):
         rel = module.replace(".", "/")
         src = Source((lean / (rel + ".lean")).read_bytes())
         index = json.loads((lean / ".lake/build/lib/lean" / (rel + ".ilean")).read_bytes())
         if index["version"] != 5 or index["module"] != module:
             raise ValueError(f"unexpected Lean reference index for {module}")
+        for caller, decl in index["decls"].items():
+            node = nodes.get(caller)
+            if not node or node["module"] != module:
+                continue
+            begin, end = src.byte(*decl[:2]), src.byte(*decl[2:4])
+            name_start, name_end = src.byte(*decl[4:6]), src.byte(*decl[6:8])
+            if names_token(caller, src.raw[name_start:name_end].decode()):
+                commands[caller] = src.raw[begin:end].decode()
+                starts[caller] = begin
+                identifiers[caller] = (name_start, name_end)
         for key, refs in index["references"].items():
             target = json.loads(key).get("c", {})
             name = target.get("n")
@@ -77,7 +93,7 @@ def record(checkout, compare=False):
                 if not begin <= src.byte(*decl[6:8]) <= low < high <= end:
                     continue
                 token = src.raw[low:high].decode()
-                if not token or not (name == token or name.endswith("." + token)):
+                if not names_token(name, token):
                     continue
                 sites[caller][name].add((low, high))
                 if caller not in commands:
@@ -89,15 +105,44 @@ def record(checkout, compare=False):
         boundaries = json.loads(subprocess.check_output(["lake", "env", "lean", "--run", str(PARSER), str(inputs)], cwd=lean))
     if boundaries.keys() != commands.keys():
         raise ValueError("incomplete source-region inspection")
+    retry = defaultdict(list)
+    for caller, result in boundaries.items():
+        if result == "needs_module_context":
+            boundaries[caller] = None
+            if caller in identifiers and caller in sites:
+                retry[nodes[caller]["module"]].append(caller)
+    for module, callers in sorted(retry.items()):
+        rel = module.replace(".", "/") + ".lean"
+        print(f"Checking source syntax in {module}", flush=True)
+        output = subprocess.check_output(["lake", "env", "lean", "--run", str(SCOPED), module, rel], cwd=lean)
+        scoped = {tuple(row["id"]): row["cut"] for row in json.loads(output)}
+        for caller in callers:
+            cut = scoped.get(identifiers[caller])
+            if cut is not None:
+                boundaries[caller] = {"cut": cut - starts[caller], "rhs": None}
     rows = {}
     for caller, refs in sites.items():
-        cut = boundaries[caller]
-        if cut is not None:
-            cut += starts[caller]
-        rows[caller] = {dep: [[lo, hi, "type" if hi <= cut else "value" if lo >= cut else "unknown"]
-                               if cut is not None else [lo, hi, "unknown"] for lo, hi in sorted(spans)]
-                        for dep, spans in refs.items()}
-    payload = {"schema": "quartic-lean-reference-sites-v1", "source_snapshot_sha256": snapshot,
+        boundary = boundaries[caller]
+        cut = starts[caller] + boundary["cut"] if boundary else None
+        rows[caller] = {}
+        for dep, spans in refs.items():
+            locations = []
+            for lo, hi in sorted(spans):
+                region = "unknown"
+                if cut is not None:
+                    region = "type" if hi <= cut else "value" if lo >= cut else "unknown"
+                locations.append([lo, hi, region])
+            rows[caller][dep] = locations
+    for caller, boundary in boundaries.items():
+        if caller not in identifiers or not boundary or not boundary["rhs"]:
+            continue
+        rhs = boundary["rhs"]
+        lo, hi, deps = rhs["lo"], rhs["hi"], rhs["constants"]
+        for dep in sorted(set(deps).intersection(nodes[caller]["value"])):
+            locations = rows.setdefault(caller, {}).setdefault(dep, [])
+            if not any(site[2] == "value" for site in locations):
+                locations.append([starts[caller] + lo, starts[caller] + hi, "value", "compiled_rhs"])
+    payload = {"schema": "quartic-lean-reference-sites-v2", "source_snapshot_sha256": snapshot,
                "producers": stamp, "toolchain": graph["toolchain"], "nodes": rows}
     if (source_hashes(checkout) != before or source_hashes(ROOT) != before or stamp != producers()
             or graph_path.read_bytes() != graph_bytes):
