@@ -3,7 +3,7 @@ import type { Async } from "../app/useAsync";
 import { face, statementName } from "../app/papers";
 import { useAsync } from "../app/useAsync";
 import { useReader } from "./ReaderContext";
-import { useNames } from "./Names";
+import { declarationTitle, useNames } from "./Names";
 import { Title } from "../text/title";
 import { useNav } from "./Nav";
 
@@ -27,12 +27,17 @@ export function shortName(name: string): string {
 export function DeclButton({ name, children }: { name: string; children?: ReactNode }) {
   const nav = useNav();
   const names = useNames();
-  const plain = names[name];
+  const title = declarationTitle(names, name);
   return (
-    <button type="button" className={`decl${plain ? " decl--plain" : ""}`} onClick={() => nav.openLean(name)} title={name}>
-      {children ?? (plain ? <Title text={plain} /> : <code>{shortName(name).split(".").pop()}</code>)}
+    <button type="button" className="decl decl--plain" onClick={() => nav.openLean(name)} title={name} aria-label={children ? undefined : title.title_plain}>
+      {children ?? <Title text={title.title} />}
     </button>
   );
+}
+
+export function DeclTitle({ name }: { name: string }) {
+  const title = declarationTitle(useNames(), name);
+  return <span title={name} aria-label={title.title_plain}><Title text={title.title} /></span>;
 }
 
 

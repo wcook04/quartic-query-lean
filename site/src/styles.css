@@ -464,3 +464,16 @@ html, body { overflow-x: clip; max-width: 100%; }
 .umath { font-family: var(--serif); font-style: italic; white-space: nowrap; }
 .decl--plain { font-family: var(--serif); font-size: 0.98rem; text-align: left; }
 .chip { font-family: var(--serif); }
+
+/* Walkthrough steps: the Lean as a captioned card, then a clean list of what it uses. */
+.codecard { margin: 10px 0 8px; border: 1px solid var(--rule-2); border-radius: 8px; overflow: hidden; background: var(--code); }
+.codecard .lean { margin: 0; border-radius: 0; }
+.codecard__bar { display: flex; justify-content: space-between; margin: 0; padding: 5px 12px; font-size: 0.8rem; color: var(--ink-3); border-bottom: 1px solid var(--rule-2); }
+.codecard__from { margin: 0; padding: 5px 12px; font-size: 0.82rem; color: var(--ink-3); border-top: 1px solid var(--rule-2); }
+.codecard__from .decl--plain { font-size: 0.86rem; }
+.uses__h { margin: 10px 0 4px; font-size: 0.85rem; color: var(--ink-2); }
+.uses { display: grid; gap: 4px; }
+.use { display: flex; gap: 10px; align-items: baseline; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--rule-2); }
+.use:last-child { border-bottom: 0; }
+.tag { flex: none; font-size: 0.72rem; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-3); white-space: nowrap; margin: 0 2px; }
+.tag--exact { border-color: var(--query-line); color: var(--query); }

@@ -4,7 +4,7 @@ import { go, href, type Route } from "./router";
 import { PAPERS, SUPPLEMENT, face, statementName } from "./papers";
 import { NavContext, type Nav } from "../inspect/Nav";
 import { ReaderContext } from "../inspect/ReaderContext";
-import { NamesContext } from "../inspect/Names";
+import { NamesContext, type DeclarationTitles } from "../inspect/Names";
 import { PassagePanel } from "../inspect/PassagePanel";
 import { StatementPanel } from "../inspect/StatementPanel";
 import { LeanPanel } from "../inspect/LeanPanel";
@@ -40,14 +40,13 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [readingPage, setReadingPage] = useState<number | null>(null);
   const [contents, setContents] = useState<ContentsRow[]>([]);
   const [lit, setLit] = useState<string[]>([]);
-  const [names, setNames] = useState<Record<string, string>>({});
+  const [names, setNames] = useState<{ reader: typeof reader; titles: DeclarationTitles } | null>(null);
   useEffect(() => {
-    (reader as any).proofMap().then((m: any) => {
-      if (m?.currentness !== "current") return;
-      const out: Record<string, string> = {};
-      for (const [n, c] of Object.entries<any>(m.cards)) out[n] = c.title;
-      setNames(out);
+    let live = true;
+    (reader as any).declarationTitles().then((result: { titles: DeclarationTitles }) => {
+      if (live) setNames({ reader, titles: result.titles });
     }, () => {});
+    return () => { live = false; };
   }, [reader]);
   // Selections this reader has met in this edition and paper (this browser only).
   const visitKey = `quartic:visited:${edition.permalink}:${paper}`;
@@ -193,7 +192,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   return (
     <ReaderContext.Provider value={reader}>
-    <NamesContext.Provider value={names}>
+    <NamesContext.Provider value={names?.reader === reader ? names.titles : {}}>
     <NavContext.Provider value={nav}>
       <div className={`desk${open ? " desk--open" : ""}`}>
         <nav className="papers" aria-label="Papers">

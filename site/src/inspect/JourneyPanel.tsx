@@ -24,6 +24,19 @@ export function JourneyPanel({ edition, id, step }: { edition: Edition; id: stri
         if (bytes[i] === 10) { line++; if (line === s.lines[1] + 1) { end = i; break; } }
       }
       for (const u of s.uses) u.inExcerpt = (u.occurrences ?? []).filter((o: any) => o.utf8_bytes[0] >= start && o.utf8_bytes[1] <= end);
+      // Turn each exact occurrence's byte range into a line and character columns for highlighting.
+      const dec = new TextDecoder();
+      const at = (off: number) => {
+        let ls = off;
+        while (ls > 0 && bytes[ls - 1] !== 10) ls--;
+        let line = 1;
+        for (let i = 0; i < ls; i++) if (bytes[i] === 10) line++;
+        return { line, col: dec.decode(bytes.slice(ls, off)).length };
+      };
+      s.spans = s.uses.flatMap((u: any) => u.inExcerpt.map((o: any) => {
+        const a = at(o.utf8_bytes[0]), b = at(o.utf8_bytes[1]);
+        return a.line === b.line ? { line: a.line, from: a.col, to: b.col } : { line: a.line, from: a.col, to: a.col + 400 };
+      }));
     }
     return path;
   }, [edition, id]);
@@ -41,7 +54,9 @@ function Journey({ j, step }: { j: any; step?: string }) {
       <header className="panel__head">
         <h2 id="jr-h" className="panel__title">{j.title}</h2>
         <p className="panel__lede" dangerouslySetInnerHTML={{ __html: inlineTex(j.scope) }} />
-        <p className="quiet">The explanations are the editors’. The Lean lines, and the arguments shown beside them, are recorded from Lean.</p>
+        <p className="quiet">The explanations are the editors’. The Lean, and what it uses, are recorded from Lean. Under each step,
+          <span className="tag tag--exact">exact line</span> means Lean matched the use to the highlighted text;
+          <span className="tag">named here</span> means these lines name it and Lean confirms the declaration uses it.</p>
       </header>
       <ol className="steps">
         {j.steps.map((s: any, i: number) => <Step key={s.id} s={s} n={i + 1} current={s.id === step} />)}
@@ -72,19 +87,24 @@ function Step({ s, n, current }: { s: any; n: number; current: boolean }) {
     <li className={`step${current ? " is-current" : ""}`} id={`step-${s.id}`}>
       <h3 className="step__title"><span className="step__n">{n}</span> <span dangerouslySetInnerHTML={{ __html: inlineTex(s.title) }} /></h3>
       <p className="step__why" dangerouslySetInnerHTML={{ __html: inlineTex(s.mechanism) }} />
-      <p className="quiet">In <DeclButton name={s.caller} />, lines {s.lines[0]}–{s.lines[1]}. <a href={s.url} target="_blank" rel="noopener noreferrer">Source on GitHub</a></p>
-      <LeanCode text={s.text} from={s.lines[0]} label={`Lean lines ${s.lines[0]} to ${s.lines[1]} of ${s.caller}`} />
+      <div className="codecard">
+        <p className="codecard__bar">
+          <span>Lean, {s.lines[0] === s.lines[1] ? `line ${s.lines[0]}` : `lines ${s.lines[0]}–${s.lines[1]}`}</span>
+          <a href={s.url} target="_blank" rel="noopener noreferrer">GitHub</a>
+        </p>
+        <LeanCode text={s.text} from={s.lines[0]} spans={s.spans} label={`Lean lines ${s.lines[0]} to ${s.lines[1]}`} />
+        <p className="codecard__from">From <DeclButton name={s.caller} /></p>
+      </div>
+      <h4 className="uses__h">Uses</h4>
       <ul className="uses">
         {s.uses.map((u: any) => (
-          <li key={u.declaration}>
-            <DeclButton name={u.declaration} />{" "}
-            <span className="quiet">
-              {u.inExcerpt?.length
-                ? `Lean matched ${u.inExcerpt.length === 1 ? "an application" : `${u.inExcerpt.length} applications`} of it to the source text in these lines.`
-                : u.attribution === "exact_source_occurrence"
-                  ? "Lean matched an application of it elsewhere in this declaration, outside these lines."
-                  : "These lines name it, and Lean confirms the declaration uses it. No exact source occurrence was matched."}
-            </span>
+          <li key={u.declaration} className="use">
+            <DeclButton name={u.declaration} />
+            {u.inExcerpt?.length
+              ? <span className="tag tag--exact" title="Lean matched this use to the highlighted text">exact line</span>
+              : u.attribution === "exact_source_occurrence"
+                ? <span className="tag" title="Lean matched a use elsewhere in this declaration">elsewhere in it</span>
+                : <span className="tag" title="These lines name it; Lean confirms the declaration uses it">named here</span>}
           </li>
         ))}
       </ul>
@@ -94,7 +114,7 @@ function Step({ s, n, current }: { s: any; n: number; current: boolean }) {
           <ul>
             {s.obligations.map((o: any) => (
               <li key={o.callee + o.binder}>
-                <code>{o.binder}</code> for <code>{shortName(o.callee).split(".").pop()}</code>: {o.explanation}
+                For <DeclButton name={o.callee} />: {o.explanation}
                 {o.assembly && <> It is supplied later, at the step “{o.assembly.step.replace(/-/g, " ")}”, by <DeclButton name={o.assembly.provider} />.</>}
               </li>
             ))}
