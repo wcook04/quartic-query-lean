@@ -193,7 +193,7 @@
   "scope": "Source-reviewed mapping of every entry in the three maintained bibliographies and Appendix C. The builder checks current bibliography/source hashes and records actual packaged coverage; availability does not establish mathematical reading or exact-edition equivalence.",
   "bibliographies": {
     "docs/expert_companion.bib": {
-      "sha256": "3ec400ffea9db3ed51dbf2b9169b09d90d04ca0b0b85bfd03ba716c3efd9d63f",
+      "sha256": "a41a78623220a157359ae053ff16b1ddf31920da3e620d8114aef4d78d6f1fcc",
       "entry_count": 26
     },
     "docs/exposition.bib": {
@@ -516,13 +516,13 @@
       "paper": "expert_companion",
       "citation_key": "Record2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/5188cb6fd1cc37c123c4b30dce672f9d30c99320/docs/reasoning_record.md},\n}",
+      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/344e7c6816966d8295f0c7caaf9008b0487161a3/docs/reasoning_record.md},\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/5188cb6fd1cc37c123c4b30dce672f9d30c99320/docs/reasoning_record.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/344e7c6816966d8295f0c7caaf9008b0487161a3/docs/reasoning_record.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/reasoning_record.md",
-      "edition_note": "Internal proof record pinned to 5188cb6fd1cc37c123c4b30dce672f9d30c99320; external literature editions unchanged.",
+      "edition_note": "Internal proof record pinned to 344e7c6816966d8295f0c7caaf9008b0487161a3; external literature editions unchanged.",
       "supplementary_source_ids": [],
       "primary_annex_status": "repository_source_reference",
       "coverage_status": "repository_source_supplied"
@@ -2622,7 +2622,7 @@
     "source": "Lake-pinned tracked Git source; no compilation claim"
   },
   "edition_boundary": "A supplied older or different edition is not the exact cited edition. Supplementary metadata identifies the retrieved publisher/revision copies and remaining exceptions. Primary extracted.md is not automatically the text of a distinct supplementary PDF.",
-  "record_sha256": "0220023ab18f51b7166458c7f65339d0a5f3434d447244c4c0c2affe5a6354cc",
+  "record_sha256": "c7bde496a7bc5cc18310e715935b3164b25b233ae2a64964be52b9b42f042ba2",
   "retrieval_observations": {
     "date": "2026-11-04",
     "Yao1977": "Original not retrieved: DOI 10.1109/SFCS.1977.24 redirects to IEEE document 4567946 with JavaScript verification; direct PDF request returned HTTP 418.",
@@ -2714,6 +2714,17 @@
     "previous_record_sha256": "58d6193cb40680da54e1dfd963c78304d34527e00c1fc96d180d4c3f7a933a8f",
     "previous_bibliography_hashes": {
       "docs/expert_companion.bib": "b3683683c3387b11f4c6be1b10f750ee8d030a3e6d610b5de89eb075290dc8a3",
+      "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
+    "revision_account": "research/adjudication/paper_purpose_revision.md"
+  },
+  "reading_sequence_editorial_rebind": {
+    "reviewed_edition": "8cc8ded15e128772285d4c9ce96e2fbd90503d2b",
+    "record_source_commit": "344e7c6816966d8295f0c7caaf9008b0487161a3",
+    "previous_record_sha256": "0220023ab18f51b7166458c7f65339d0a5f3434d447244c4c0c2affe5a6354cc",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "3ec400ffea9db3ed51dbf2b9169b09d90d04ca0b0b85bfd03ba716c3efd9d63f",
       "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
       "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
     },
