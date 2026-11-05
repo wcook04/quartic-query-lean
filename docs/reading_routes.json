@@ -4,7 +4,7 @@
       "id": "headline",
       "title": "The nearly quartic family",
       "expert": "**Theorem 1** (OpenAI",
-      "exposition": "a valid certificate at its true address",
+      "exposition": "For every fixed integer $k",
       "reconstruction": "ROOT-RESULT",
       "lean": [
         "thm-headline",
@@ -13,7 +13,10 @@
       "statements": [
         "thm-1.1"
       ],
-      "note": "The unconditional family result uses the local Forrelation bound. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers."
+      "note": "The unconditional family result uses the local Forrelation bound. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers.",
+      "bound_at": {
+        "exposition": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+      }
     },
     {
       "id": "certificate",
@@ -48,7 +51,10 @@
       "statements": [
         "eq-13"
       ],
-      "note": "Complementarity pairs the two orientations of each match. Sampling a pivot with these weights is a separate implementation step."
+      "note": "Complementarity pairs the two orientations of each match. Sampling a pivot with these weights is a separate implementation step.",
+      "bound_at": {
+        "exposition": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+      }
     },
     {
       "id": "pivot",
@@ -58,7 +64,10 @@
       "reconstruction": "upper-stage-law",
       "lean": [
         "src-stage-sampler"
-      ]
+      ],
+      "bound_at": {
+        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+      }
     },
     {
       "id": "verification",
@@ -80,13 +89,16 @@
       "lean": [
         "src-coupled-average",
         "src-planted-core"
-      ]
+      ],
+      "bound_at": {
+        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+      }
     },
     {
       "id": "erased-zero",
       "title": "Finding the erased zero",
       "expert": "If the tree discovers $Z$ zeros",
-      "exposition": "**The zero.** Until the zero",
+      "exposition": "Moving an undiscovered zero between unread rows preserves the transcript",
       "reconstruction": "CL-erased-zero-identity",
       "lean": [
         "src-erased-zero-identity",
@@ -97,7 +109,10 @@
       "statements": [
         "eq-19"
       ],
-      "note": "The erased-zero identity, the printed coefficient four, and the sharper coefficient two are distinct targets. The reviewed whole statement uses an alternative derivation."
+      "note": "The erased-zero identity, the printed coefficient four, and the sharper coefficient two are distinct targets. The reviewed whole statement uses an alternative derivation.",
+      "bound_at": {
+        "exposition": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+      }
     },
     {
       "id": "address",
@@ -107,7 +122,10 @@
       "reconstruction": "CL-address-guess",
       "lean": [
         "src-per-time"
-      ]
+      ],
+      "bound_at": {
+        "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+      }
     },
     {
       "id": "direct-product",
@@ -117,29 +135,39 @@
       "reconstruction": "CL-direct-product-statement",
       "lean": [
         "src-direct-product-caps"
-      ]
+      ],
+      "bound_at": {
+        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+      }
     },
     {
       "id": "forrelation",
       "title": "The Forrelation promise",
-      "expert": "The partial function supplying these parameters",
+      "expert": "Forrelation supplies all three properties",
       "exposition": "Asking whether the final state lies along",
       "reconstruction": "forr_definition",
       "lean": [
         "src-forr-promise"
       ],
-      "note": "The quantum readout observes the squared amplitude. A certificate must separately establish the signed one-sided promise."
+      "note": "The quantum readout observes the squared amplitude. A certificate must separately establish the signed one-sided promise.",
+      "bound_at": {
+        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+      }
     },
     {
       "id": "exponent",
       "title": "Why the optimal exponent is four",
-      "expert": "For every power below four, then",
+      "expert": "Thus every exponent below four fails at some fixed",
       "exposition": "No uniform constant $C$ can work",
       "reconstruction": "ROOT-NO-SMALLER",
       "lean": [
         "thm-alpha",
         "src-no-smaller-exponent"
-      ]
+      ],
+      "bound_at": {
+        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
+        "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+      }
     }
   ],
   "video": null,
@@ -211,20 +239,20 @@
     }
   ],
   "print_edition": {
-    "source_revision": "aeb9fd7ca636da7fee581882713edb5fae9bca5b",
+    "source_revision": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
     "adjudication": "research/adjudication/paper_purpose_revision.md",
     "files": {
       "expert": {
         "file": "expert/expert_companion.pdf",
-        "sha256": "3314426bd205db02a7589f802317b33055ba068f5230168bfd4dd1954b525b9f"
+        "sha256": "9796a1b13ede81ba33d94e6f85c356bdd57dbef8c1cb88b7c321aad9b5d64568"
       },
       "exposition": {
         "file": "exposition/exposition.pdf",
-        "sha256": "e667cb315921842bc10de9632b32a6c0862cac531990f3d58cb6da323b722b42"
+        "sha256": "53cdae051effbd00a9bfc7b21bb958ee3e531b9ee83d7a156efe1c3195ff63ad"
       },
       "reconstruction": {
         "file": "record/reasoning_record.pdf",
-        "sha256": "54d2f36d6adbbb61465dc8e1c057797ebfb5d1dc083fdeaff18f01623f767e58"
+        "sha256": "03828fa2c99a13a6355d74870dc66b30b41c75b7dc844e62aad0fada4c4278d8"
       }
     }
   },
@@ -264,14 +292,17 @@
       "statements": [
         "claim-proj-prob",
         "eq-4"
-      ]
+      ],
+      "bound_at": {
+        "expert": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+      }
     },
     {
       "id": "joint-event",
       "title": "A light visit implies a successful capped prediction",
       "passage": "CL-joint-event",
       "kind": "argument",
-      "note": "The predictor runs under the original product law and enforces its cap on every branch. Only the joint event implies success; conditioning the input law on final lightness changes the problem.",
+      "note": "Fix the column and query time before sampling. Replay earlier queries with a cap on every branch, then predict the label named by the current query before reading its answer. Success contains the joint light-visit event under the original product law.",
       "quotes": {
         "exposition": [
           "Keep lightness *inside* the event"
@@ -282,7 +313,10 @@
       },
       "statements": [
         "eq-21"
-      ]
+      ],
+      "bound_at": {
+        "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11"
+      }
     },
     {
       "id": "gaussian-path",
