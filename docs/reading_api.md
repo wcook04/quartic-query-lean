@@ -124,16 +124,42 @@ scope. The separate evidence graph describes the informal statement ledger.
    shared-bad-specification fixture records acceptance of an impossible
    premise on both sides. The receipt describes that outcome. Keep it separate
    from positive comparisons and from a counterexample to a mathematical claim.
-4. `axiom-audits.json` supplies recorded transitive axiom lists for the named
-   declarations covered by the round-three inspectors. The list of axioms a
-   configuration permits answers a different question. Each audit retains its
-   log hash and snapshot freshness. Missing entries mean no indexed observation.
-5. `semantic_probes` names a specific attempted variation, its Lean example and
-   the historical receipt. For example, open `fidelity/def-R.json` to see the
-   effect of choosing the algorithm after seeing the input. An empty array
-   means there is no indexed probe for that statement. When adding a probe,
-   specify which assumption, quantifier or boundary case it challenges, and
-   retain the outcome and edition on which it ran.
+4. `axiom-audits.json` gives the transitive axioms that Lean reported for the
+   inspected declaration. Each observation carries its freshness. Earlier
+   round-three observations retain their historical scope. An absent observation
+   means unknown. The formal type displays the hypotheses a caller must supply.
+5. A semantic example has an authored question, a kind, a source location,
+   a plain-language answer bound to the Lean source snapshot, and the compiled
+   Lean type and axioms. Kinds distinguish changes to a
+   definition, boundary examples and witnesses that assumptions can hold.
+   The response explicitly identifies statements without an indexed example.
+
+### Compare a paper result with Lean
+
+Use `reader.statementReview("thm-1.1")` or
+`node tools/query_reading_api.mjs build/reading-api/v1/index.json --statement thm-1.1`.
+Open the original PDF at the returned location. Beside it, show the ledger
+wording actually assessed, the current reviewer's explanation and the formal
+type that Lean printed. Each comparison carries a link to the exact source,
+its relation and proof route, its hypotheses, and its own native observation.
+The preferred comparisons match the corpus's strongest available built relation.
+Other current comparisons remain inspectable, as do earlier or unassessed links.
+For changes to ledger wording, the response includes the previous description
+and the existing reviewers' findings with their dispositions.
+
+For Theorem 1.1 the full family theorem appears first. The shorter exponent
+theorem appears as a partial match. For equation (21) the leading type spells
+out the hypotheses on the input law. For the definition of randomized queries
+an executable example shows how changing the order of algorithm and input
+can let a zero-query algorithm appear to solve the one-bit identity problem.
+The formal observation, reviewer judgment and example each have their own source.
+
+Regenerate formal types and axioms with `python3 tools/record_reading_dependencies.py
+--statements --checkout /path/to/built-checkout`. Add `--compare` to independently
+re-extract and compare the saved payload. The recorder builds the modules, asks
+Lean to verify each defining module, and binds the results to the inspected
+source and extractor. Stale observations withhold their types and axiom lists
+from current comparisons.
 
 ## Maintain the data
 

@@ -1,0 +1,1308 @@
+{
+  "declarations": {
+    "QuarticCorpus.Independent.Eq19.Solution/QuarticQuery.Independent.Eq19.checked_eq19": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {ℓ r S : ℕ} {μ : QuarticQuery.BitInput κ → ℝ},\n  (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) →\n    ∑ x, μ x = 1 →\n      ∀ {G : ℕ} (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)),\n        T.depth ≤ G →\n          QuarticQuery.Independent.Eq19.hitProbability μ T =\n              QuarticQuery.Independent.Eq19.expectedCount μ T / ↑(2 ^ ℓ) ∧\n            QuarticQuery.Independent.Eq19.hitProbability μ T ≤ 4 * ↑G / ↑(2 ^ ℓ) ^ 2"
+    },
+    "QuarticCorpus.Independent.SemanticMutations/QuarticQuery.SemanticReview.absolute_high_changes_answer": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "QuarticQuery.SemanticReview.absoluteHighPromise 2 1 QuarticQuery.SemanticReview.negativePair ≠\n  QuarticQuery.P 2 1 QuarticQuery.SemanticReview.negativePair"
+    },
+    "QuarticCorpus.Independent.SemanticMutations/QuarticQuery.SemanticReview.off_promise_false_changes_zero_query_answer": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "QuarticQuery.RLe QuarticQuery.SemanticReview.trueOnly 0 ∧\n  ¬QuarticQuery.RLe QuarticQuery.SemanticReview.offPromiseFalse 0"
+    },
+    "QuarticCorpus.Independent.SemanticMutations/QuarticQuery.SemanticReview.strict_threshold_mutant_rejects_mixture": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "¬∀ (x : QuarticQuery.BitInput (Fin 2)) (b : Bool),\n    QuarticQuery.SemanticReview.orTwo x = Option.some b → 2 / 3 < QuarticQuery.SemanticReview.orMixture.success x b"
+    },
+    "QuarticCorpus.Independent.SemanticMutations/QuarticQuery.SemanticReview.wrong_quantifier_order_changes_answer": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "(∀ (x : QuarticQuery.BitInput (Fin 1)) (b : Bool),\n    QuarticQuery.SemanticReview.oneBitIdentity x = Option.some b → ∃ A, A.depth ≤ 0 ∧ 2 / 3 ≤ A.success x b) ∧\n  ¬QuarticQuery.RLe QuarticQuery.SemanticReview.oneBitIdentity 0"
+    },
+    "QuarticCorpus.Independent.Semantics/QuarticQuery.SemanticReview.comparison_has_witness": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∃ a, QuarticQuery.Tournament.IsComparison a"
+    },
+    "QuarticCorpus.Independent.Semantics/QuarticQuery.SemanticReview.negativePair_Phi": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "QuarticQuery.Phi 2 1 QuarticQuery.SemanticReview.negativePair = -1"
+    },
+    "QuarticCorpus.Independent.Semantics/QuarticQuery.SemanticReview.orTwo_R_eq_one": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "QuarticQuery.R QuarticQuery.SemanticReview.orTwo = 1"
+    },
+    "QuarticCorpus.Independent.Semantics/QuarticQuery.SemanticReview.trueOnly_Q_eq_zero": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "QuarticQuery.Q QuarticQuery.SemanticReview.trueOnly = 0"
+    },
+    "QuarticQuery.Amplification.Bounded/QuarticQuery.Amplification.bounded_amplification": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {γ η : ℝ},\n  0 < γ →\n    γ ≤ 1 / 2 →\n      0 < η →\n        η < 1 / 2 →\n          (QuarticQuery.Amplification.amplify γ η).callCap ≤\n              QuarticQuery.Amplification.trialCount η * (2 * QuarticQuery.Amplification.iterationBound γ + 1) ∧\n            ↑(QuarticQuery.Amplification.amplify γ η).callCap ≤ 138 * (√γ)⁻¹ * Real.log (1 / η) ∧\n              ∀ {H : Type u} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]\n                (A : QuarticQuery.Amplification.Preparation H),\n                (QuarticQuery.Amplification.amplify γ η).successProb A +\n                      (QuarticQuery.Amplification.amplify γ η).failProb A =\n                    1 ∧\n                  (∀ (h : Option H → ℝ),\n                      QuarticQuery.Amplification.PhaseInvariant h →\n                        QuarticQuery.Amplification.Proc.expect A h (QuarticQuery.Amplification.amplify γ η) A.zero =\n                          (QuarticQuery.Amplification.amplify γ η).successProb A * h (Option.some A.goodState) +\n                            (QuarticQuery.Amplification.amplify γ η).failProb A * h Option.none) ∧\n                    (∀ (k : H → ℝ),\n                        (∀ (c : ℂ), ‖c‖ = 1 → ∀ (v : H), k (c • v) = k v) →\n                          (QuarticQuery.Amplification.amplify γ η).successProb A ≠ 0 →\n                            (QuarticQuery.Amplification.amplify γ η).conditional A k = k A.goodState) ∧\n                      (QuarticQuery.Amplification.amplify γ η).wrongStateMass A = 0 ∧\n                        (γ ≤ A.prob → (QuarticQuery.Amplification.amplify γ η).failProb A ≤ η) ∧\n                          (A.prob = 0 → (QuarticQuery.Amplification.amplify γ η).failProb A = 1)"
+    },
+    "QuarticQuery.Appendix.TheoremA1/QuarticQuery.R_le_D_le_one_add_Q_pow_four": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)),\n  ↑(QuarticQuery.R (QuarticQuery.totalise f)) ≤ ↑(QuarticQuery.D (QuarticQuery.totalise f)) ∧\n    ↑(QuarticQuery.D (QuarticQuery.totalise f)) ≤ 20736 * (1 + ↑(QuarticQuery.Q (QuarticQuery.totalise f))) ^ 4"
+    },
+    "QuarticQuery.Construction.LocalTests/QuarticQuery.addressedF_eq_true_iff": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n  {x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)},\n  QuarticQuery.addressedF f C ℓ r x = Bool.true ↔ ∃ i s, QuarticQuery.WinsAt f C ℓ r x i s"
+    },
+    "QuarticQuery.Construction.LocalTests/QuarticQuery.card_testIndex": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (ℓ r S : ℕ), Fintype.card (QuarticQuery.TestIndex ℓ r S) = 2 ^ ℓ + (2 ^ ℓ - 1) + r * (S + 2)"
+    },
+    "QuarticQuery.Construction.LocalTests/QuarticQuery.winsAt_iff_paperWinsAt": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n  {x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)} {i : QuarticQuery.Column ℓ}\n  {s : QuarticQuery.Address r}, QuarticQuery.WinsAt f C ℓ r x i s ↔ QuarticQuery.PaperWinsAt f C ℓ r x i s"
+    },
+    "QuarticQuery.Construction.Transcript/QuarticQuery.gateConsistent_iff_eq_circuitEval": {
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} {C : QuarticQuery.Circuit ι} {x : QuarticQuery.BitInput ι} {tr : Fin C.size → Bool},\n  QuarticQuery.GateConsistent C x tr ↔ tr = QuarticQuery.circuitEval C x"
+    },
+    "QuarticQuery.Construction.Winner/QuarticQuery.winsAt_unique": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n  {x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)} {i i' : QuarticQuery.Column ℓ}\n  {s s' : QuarticQuery.Address r},\n  QuarticQuery.WinsAt f C ℓ r x i s → QuarticQuery.WinsAt f C ℓ r x i' s' → i = i' ∧ s = s'"
+    },
+    "QuarticQuery.Forrelation.Circuit/QuarticQuery.Forrelation.abs_numerator_le": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (l t : ℕ) (x : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord (l + 1) t)),\n  |QuarticQuery.forrelationNumerator (l + 1) t x| ≤ QuarticQuery.forrelationDenominator (l + 1) t"
+    },
+    "QuarticQuery.Forrelation.Circuit/QuarticQuery.Forrelation.exists_circuit": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k t : ℕ),\n  1 ≤ k →\n    1 ≤ t →\n      ∃ C,\n        QuarticQuery.CircuitRealises C (QuarticQuery.P k t) ∧\n          ↑C.size ≤\n            ↑(QuarticQuery.Forrelation.forrConstant k) * ↑(QuarticQuery.mValue t) *\n              Real.logb 2 ↑(QuarticQuery.mValue t) ^ 2"
+    },
+    "QuarticQuery.ForrelationLower.Main/QuarticQuery.ForrelationLower.bansalSinhaLower": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "QuarticQuery.BansalSinhaLower"
+    },
+    "QuarticQuery.LowerBound.Minimax/QuarticQuery.address_guess_average": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {S : Type} [inst_2 : Fintype S]\n  {f : QuarticQuery.PartialBool κ} {μ : QuarticQuery.BitInput κ → ℝ} {L r : ℕ},\n  (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) →\n    (∀ (T : QuarticQuery.QueryTree κ), T.depth ≤ L → QuarticQuery.treeSuccess f μ T ≤ 2 / 3) →\n      ∀ {p : S → ℝ},\n        (∀ (s : S), 0 ≤ p s) →\n          ∑ s, p s = 1 →\n            ∀ (T : S → QuarticQuery.OutTree (Fin r × κ) (Fin r → Bool)),\n              (∀ (s : S), (T s).capped fun x => L) →\n                ∑ s, p s * QuarticQuery.guessSuccess f (fun x => μ) (T s) ≤ (2 / 3) ^ r"
+    },
+    "QuarticQuery.LowerBound.Minimax/QuarticQuery.exists_hard_distribution": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {f : QuarticQuery.PartialBool κ} {L : ℕ},\n  ¬QuarticQuery.RLe f L →\n    ∃ μ,\n      (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) ∧\n        ∑ x, μ x = 1 ∧\n          (∀ (x : QuarticQuery.BitInput κ), μ x ≠ 0 → QuarticQuery.promised f x) ∧\n            ∀ (T : QuarticQuery.QueryTree κ), T.depth ≤ L → QuarticQuery.treeSuccess f μ T ≤ 2 / 3"
+    },
+    "QuarticQuery.LowerBound.Planted.Heavy/QuarticQuery.avg_heavy_le": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : DecidableEq κ] {ℓ r S L G : ℕ},\n  1 ≤ L →\n    ∀ (l : List (QuarticQuery.BitLoc ℓ r S κ)),\n      l.length ≤ G →\n        (QuarticQuery.avg (QuarticQuery.unif ℓ) fun I => QuarticQuery.ind (L < QuarticQuery.aQueries I l)) ≤\n          ↑G / (↑(2 ^ ℓ) * ↑L)"
+    },
+    "QuarticQuery.LowerBound.Planted.Main/QuarticQuery.Gvalue_lt_R_addressedF": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [DecidableEq κ] (f : QuarticQuery.PartialBool κ) (C : QuarticQuery.Circuit κ),\n  QuarticQuery.CircuitRealises C f →\n    ∀ {t L : ℕ},\n      1 ≤ L →\n        L ≤ QuarticQuery.mValue t →\n          L < QuarticQuery.R f →\n            QuarticQuery.Gvalue (QuarticQuery.mValue t) L <\n              QuarticQuery.R (QuarticQuery.totalise (QuarticQuery.addressedF f C (2 * t) (40 * t)))"
+    },
+    "QuarticQuery.LowerBound.Planted.ZeroSearch/QuarticQuery.avg_foundZero_I_le": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} {ℓ r S : ℕ} (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ))\n  (A : QuarticQuery.Column ℓ → Fin r → QuarticQuery.BitInput κ) {G : ℕ},\n  T.depth ≤ G →\n    (QuarticQuery.avg (QuarticQuery.prodW (QuarticQuery.unif ℓ)) fun J =>\n        QuarticQuery.avg (QuarticQuery.unif ℓ) (QuarticQuery.foundZero T A J)) ≤\n      2 * ↑G / ↑(2 ^ ℓ) ^ 2"
+    },
+    "QuarticQuery.Model.Classical/QuarticQuery.D_le_iff": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} [inst : Fintype ι] {f : QuarticQuery.PartialBool ι} {t : ℕ}, QuarticQuery.D f ≤ t ↔ QuarticQuery.DLe f t"
+    },
+    "QuarticQuery.Model.Classical/QuarticQuery.R_le_iff": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} [inst : Fintype ι] {f : QuarticQuery.PartialBool ι} {t : ℕ}, QuarticQuery.R f ≤ t ↔ QuarticQuery.RLe f t"
+    },
+    "QuarticQuery.Model.Quantum/QuarticQuery.Q_le_iff": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} [inst : Fintype ι] {f : QuarticQuery.PartialBool ι} {t : ℕ}, QuarticQuery.Q f ≤ t ↔ QuarticQuery.QLe f t"
+    },
+    "QuarticQuery.Paper.AppendixA/QuarticQuery.Paper.appendixA_theoremA1": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)),\n  ↑(QuarticQuery.R (QuarticQuery.totalise f)) ≤ ↑(QuarticQuery.D (QuarticQuery.totalise f)) ∧\n    ↑(QuarticQuery.D (QuarticQuery.totalise f)) ≤ 1500625 * (1 + ↑(QuarticQuery.Q (QuarticQuery.totalise f))) ^ 4"
+    },
+    "QuarticQuery.Paper.AppendixAAdversary/QuarticQuery.Paper.appendixAGammaCoord_apply": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (Γ : QuarticQuery.Paper.AppendixAMatrix n) (i : Fin n) (x y : QuarticQuery.BitInput (Fin n)),\n  QuarticQuery.Paper.appendixAGammaCoord Γ i x y = if x i ≠ y i then Γ x y else 0"
+    },
+    "QuarticQuery.Paper.AppendixAAdversary/QuarticQuery.Paper.appendixAProgress": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "{n : ℕ} →\n  {W : Type u_1} →\n    [Fintype W] →\n      QuarticQuery.Paper.AppendixAMatrix n →\n        (QuarticQuery.BitInput (Fin n) → ℝ) → (QuarticQuery.BitInput (Fin n) → Cslib.Quantum.State n W) → ℂ"
+    },
+    "QuarticQuery.Paper.AppendixAAdversary/QuarticQuery.Paper.appendixAProgress_query_quadratic": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} {W : Type u_1} [inst : Fintype W] (Γ : QuarticQuery.Paper.AppendixAMatrix n)\n  (v : QuarticQuery.BitInput (Fin n) → ℝ) (Ψ : QuarticQuery.BitInput (Fin n) → Cslib.Quantum.State n W),\n  (∀ (x y : QuarticQuery.BitInput (Fin n)), 0 ≤ Γ x y) →\n    (∀ (x : QuarticQuery.BitInput (Fin n)), 0 ≤ v x) →\n      ‖(QuarticQuery.Paper.appendixAProgress Γ v fun x => (Cslib.Quantum.phaseOracle x) (Ψ x)) -\n            QuarticQuery.Paper.appendixAProgress Γ v Ψ‖ ≤\n        2 *\n          ∑ i,\n            ∑ x,\n              ∑ y,\n                v x * ‖Cslib.Quantum.ctrlProj i (Ψ x)‖ * (v y * ‖Cslib.Quantum.ctrlProj i (Ψ y)‖) *\n                  QuarticQuery.Paper.appendixAGammaCoord Γ i x y"
+    },
+    "QuarticQuery.Paper.AppendixAAdversary/QuarticQuery.Paper.appendixA_unit_states_final_overlap": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type u_2} [inst : Fintype ι] (ψ φ : EuclideanSpace ℂ ι),\n  ‖ψ‖ = 1 →\n    ‖φ‖ = 1 →\n      ∀ (S : Finset ι),\n        Cslib.Quantum.measureProb ψ S ≤ 1 / 3 → 2 / 3 ≤ Cslib.Quantum.measureProb φ S → ‖Inner.inner ℂ ψ φ‖ ≤ 2 * √2 / 3"
+    },
+    "QuarticQuery.Paper.AppendixAHuangMatrix/QuarticQuery.Paper.huangEnd_eigenspaces_half": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (d : ℕ),\n  0 < d →\n    Module.finrank ℝ ↥((QuarticQuery.Paper.huangEnd d).eigenspace √↑d) = 2 ^ (d - 1) ∧\n      Module.finrank ℝ ↥((QuarticQuery.Paper.huangEnd d).eigenspace (-√↑d)) = 2 ^ (d - 1)"
+    },
+    "QuarticQuery.Paper.AppendixAHuangMatrix/QuarticQuery.Paper.huangMatrix": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "(d : ℕ) → Matrix (QuarticQuery.Paper.HuangVertex d) (QuarticQuery.Paper.HuangVertex d) ℝ"
+    },
+    "QuarticQuery.Paper.AppendixAHuangMatrix/QuarticQuery.Paper.huang_positive_rayleigh_witness": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (d : ℕ),\n  0 < d →\n    ∀ (U : Finset (QuarticQuery.Paper.HuangVertex d)),\n      2 ^ (d - 1) < U.card →\n        ∃ v,\n          (QuarticQuery.Paper.huangEnd d) v = √↑d • v ∧\n            v ≠ 0 ∧\n              (∀ x ∉ U, v x = 0) ∧\n                √↑d * ∑ x, |v x| ^ 2 ≤ ∑ x ∈ U, ∑ y ∈ U, |v x| * QuarticQuery.Paper.huangCubeMatrix d x y * |v y|"
+    },
+    "QuarticQuery.Paper.AppendixAHuangRoute/QuarticQuery.Paper.appendixA4_paper_route": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)),\n  ↑(Cslib.QueryComplexity.degree f) ≤ Cslib.BitString.spectralSensitivity f ^ 2"
+    },
+    "QuarticQuery.Paper.AppendixAPerron/QuarticQuery.Paper.appendixA_perron": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (Γ : QuarticQuery.Paper.AppendixAMatrix n),\n  (∀ (x y : QuarticQuery.BitInput (Fin n)), Γ x y = Γ y x) →\n    (∀ (x y : QuarticQuery.BitInput (Fin n)), 0 ≤ Γ x y) → ∃ v, QuarticQuery.Paper.AppendixAPerronWitness Γ v"
+    },
+    "QuarticQuery.Paper.AppendixARestriction/QuarticQuery.Paper.appendixA_restriction_parity_face": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)),\n  Cslib.QueryComplexity.degree f ≠ 0 →\n    ∃ S,\n      S.card = Cslib.QueryComplexity.degree f ∧\n        ∀ (z : QuarticQuery.BitInput (Fin n)),\n          Cslib.BitString.fourierCoeff (fun y => Cslib.BitString.signVal (QuarticQuery.Paper.appendixAFaceFin f S z y))\n                Finset.univ ≠\n              0 ∧\n            ∃ c,\n              2 ^ S.card <\n                  2 * {y | (QuarticQuery.Paper.appendixAFaceFin f S z y ^^ Cslib.parityOn Finset.univ y) = c}.card ∧\n                ∀ (y : QuarticQuery.BitInput (Fin S.card)),\n                  (QuarticQuery.Paper.appendixAFaceFin f S z y ^^ Cslib.parityOn Finset.univ y) = c →\n                    ∀ (i : Fin S.card),\n                      (QuarticQuery.Paper.appendixAFaceFin f S z (Function.update y i !y i) ^^\n                            Cslib.parityOn Finset.univ (Function.update y i !y i)) =\n                          c →\n                        Cslib.BitString.IsSensitiveCoord (QuarticQuery.Paper.appendixAFaceFin f S z) y i"
+    },
+    "QuarticQuery.Paper.AppendixASensitivity/QuarticQuery.Paper.appendixA_blockSensitivity_eq": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)),\n  Cslib.QueryComplexity.blockSensitivity f =\n    Finset.univ.sup fun x => (Cslib.QueryComplexity.sensitiveFamilies f x).sup Finset.card"
+    },
+    "QuarticQuery.Paper.AppendixASensitivity/QuarticQuery.Paper.appendixA_degree_le_iff_fourier": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)) (d : ℕ),\n  Cslib.QueryComplexity.degree f ≤ d ↔\n    ∀ (S : Finset (Fin n)), d < S.card → Cslib.BitString.fourierCoeff (fun x => Cslib.BitString.bitVal ℝ (f x)) S = 0"
+    },
+    "QuarticQuery.Paper.AppendixASensitivity/QuarticQuery.Paper.appendixA_exists_maximal_round_support": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)),\n  Cslib.QueryComplexity.degree f ≠ 0 →\n    ∃ S,\n      S.card = Cslib.QueryComplexity.degree f ∧\n        ∀ (x : Cslib.BitString n), ∃ B ⊆ S, B.Nonempty ∧ Cslib.QueryComplexity.IsSensitiveBlock f x B"
+    },
+    "QuarticQuery.Paper.AppendixASensitivity/QuarticQuery.Paper.appendixA_lemmaA5": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)),\n  QuarticQuery.D (QuarticQuery.totalise f) ≤ Cslib.QueryComplexity.blockSensitivity f * Cslib.QueryComplexity.degree f"
+    },
+    "QuarticQuery.Paper.AppendixASensitivity/QuarticQuery.Paper.appendixA_spectralSensitivity_eq": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)),\n  Cslib.BitString.spectralSensitivity f = ‖Matrix.toEuclideanCLM (QuarticQuery.Paper.appendixA_sensitivityMatrix f)‖"
+    },
+    "QuarticQuery.Paper.AppendixASpectralAdversary/QuarticQuery.Paper.appendixA_lemmaA2": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)) (Γ : QuarticQuery.Paper.AppendixAMatrix n),\n  (∀ (x y : QuarticQuery.BitInput (Fin n)), Γ x y = Γ y x) →\n    (∀ (x y : QuarticQuery.BitInput (Fin n)), 0 ≤ Γ x y) →\n      (∀ (x y : QuarticQuery.BitInput (Fin n)), f x = f y → Γ x y = 0) →\n        Γ ≠ 0 →\n          1 / 35 * (QuarticQuery.Paper.appendixAMatrixNorm Γ / QuarticQuery.Paper.appendixACoordinateMax Γ) ≤\n            ↑(QuarticQuery.Q (QuarticQuery.totalise f))"
+    },
+    "QuarticQuery.Paper.AppendixAStar/QuarticQuery.Paper.appendixA_blockSensitivity_star_le_Q_sq": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)),\n  Cslib.QueryComplexity.blockSensitivity f ≤ 1225 * QuarticQuery.Q (QuarticQuery.totalise f) ^ 2"
+    },
+    "QuarticQuery.Paper.AppendixAStar/QuarticQuery.Paper.appendixA_lemmaA3_adversary": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)),\n  Cslib.QueryComplexity.blockSensitivity f ≤ 1225 * QuarticQuery.Q (QuarticQuery.totalise f) ^ 2 ∧\n    Cslib.BitString.spectralSensitivity f ≤ 35 * ↑(QuarticQuery.Q (QuarticQuery.totalise f))"
+    },
+    "QuarticQuery.Paper.AppendixAStar/QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {n : ℕ} (f : QuarticQuery.TotalBool (Fin n)),\n  Cslib.BitString.spectralSensitivity f ≤ 35 * ↑(QuarticQuery.Q (QuarticQuery.totalise f))"
+    },
+    "QuarticQuery.Paper.ClassicalAsymptotics/QuarticQuery.Paper.classical_Fkm_ratio": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (l : ℕ),\n  2 ≤ l + 1 →\n    ∀ {α : ℝ},\n      0 ≤ α →\n        α / 2 < 2 - 1 / ↑(l + 1) →\n          ∃ d,\n            0 < d ∧\n              (∀ᶠ (t : ℕ) in Filter.atTop,\n                  d * ↑(QuarticQuery.mValue t) ^ (2 - 1 / ↑(l + 1) - α / 2) /\n                      Real.logb 2 ↑(QuarticQuery.mValue t) ^ (2 + α * 6) ≤\n                    ↑(QuarticQuery.R\n                          (QuarticQuery.totalise\n                            (QuarticQuery.Fkm (l + 1) t (QuarticQuery.Forrelation.forrCircuit l t)))) /\n                      (1 +\n                          ↑(QuarticQuery.Q\n                              (QuarticQuery.totalise\n                                (QuarticQuery.Fkm (l + 1) t (QuarticQuery.Forrelation.forrCircuit l t))))) ^\n                        α) ∧\n                Filter.Tendsto\n                    (fun t =>\n                      d * ↑(QuarticQuery.mValue t) ^ (2 - 1 / ↑(l + 1) - α / 2) /\n                        Real.logb 2 ↑(QuarticQuery.mValue t) ^ (2 + α * 6))\n                    Filter.atTop Filter.atTop ∧\n                  Filter.Tendsto\n                    (fun t =>\n                      ↑(QuarticQuery.R\n                            (QuarticQuery.totalise\n                              (QuarticQuery.Fkm (l + 1) t (QuarticQuery.Forrelation.forrCircuit l t)))) /\n                        (1 +\n                            ↑(QuarticQuery.Q\n                                (QuarticQuery.totalise\n                                  (QuarticQuery.Fkm (l + 1) t (QuarticQuery.Forrelation.forrCircuit l t))))) ^\n                          α)\n                    Filter.atTop Filter.atTop"
+    },
+    "QuarticQuery.Paper.ClassicalAsymptotics/QuarticQuery.Paper.classical_cor_R_omega_log2": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∃ t₀,\n      ∀ (t : ℕ),\n        t₀ ≤ t →\n          ∀ (C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)),\n            QuarticQuery.CircuitRealises C (QuarticQuery.P k t) →\n              1 / 400 * ↑(QuarticQuery.mValue t) ^ (2 - 1 / ↑k) / Real.logb 2 ↑(QuarticQuery.mValue t) ^ 2 ≤\n                ↑(QuarticQuery.R (QuarticQuery.totalise (QuarticQuery.Fkm k t C)))"
+    },
+    "QuarticQuery.Paper.ClassicalAsymptotics/QuarticQuery.Paper.classical_numeric_components": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {t : ℕ} {L G : ℝ},\n  1 ≤ L →\n    L ≤ ↑(QuarticQuery.mValue t) →\n      G ≤ ↑(QuarticQuery.mValue t) * L / 100 →\n        4 * G / ↑(QuarticQuery.mValue t) ^ 2 ≤ 4 / 100 ∧\n          G / (↑(QuarticQuery.mValue t) * L) ≤ 1 / 100 ∧\n            G * (2 / 3) ^ (40 * t) ≤ 1 / 100 ∧\n              4 * G / ↑(QuarticQuery.mValue t) ^ 2 + G / (↑(QuarticQuery.mValue t) * L) + G * (2 / 3) ^ (40 * t) ≤\n                  6 / 100 ∧\n                6 / 100 < 1 / 3"
+    },
+    "QuarticQuery.Paper.ClassicalAsymptotics/QuarticQuery.Paper.classical_tail_parameters": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k : ℕ),\n  1 ≤ k →\n    (∀ (t : ℕ),\n        ↑(QuarticQuery.Gvalue (QuarticQuery.mValue t) (QuarticQuery.Lvalue k t)) * (2 / 3) ^ (40 * t) ≤\n          1 / 100 * ↑(QuarticQuery.mValue t) ^ (2 - 20 * Real.logb 2 (3 / 2))) ∧\n      Filter.Tendsto\n        (fun t => ↑(QuarticQuery.Gvalue (QuarticQuery.mValue t) (QuarticQuery.Lvalue k t)) * (2 / 3) ^ (40 * t))\n        Filter.atTop (nhds 0)"
+    },
+    "QuarticQuery.Paper.ClassicalDirectProduct/QuarticQuery.Paper.classicalTranscriptValue": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "{κ : Type} →\n  [Fintype κ] →\n    [DecidableEq κ] →\n      {r : ℕ} →\n        QuarticQuery.PartialBool κ →\n          (Fin r → QuarticQuery.BitInput κ → ℝ) → QuarticQuery.Paper.ClassicalTranscript r κ → ℕ → Fin r → ℝ"
+    },
+    "QuarticQuery.Paper.ClassicalDirectProduct/QuarticQuery.Paper.classicalTranscriptValue_unchanged": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {r : ℕ} (f : QuarticQuery.PartialBool κ)\n  (μ : Fin r → QuarticQuery.BitInput κ → ℝ) (τ : QuarticQuery.Paper.ClassicalTranscript r κ) (L : ℕ) (h j : Fin r)\n  (q : κ) (b : Bool),\n  j ≠ h →\n    QuarticQuery.Paper.classicalTranscriptValue f μ (τ ++ [((h, q), b)]) L j =\n      QuarticQuery.Paper.classicalTranscriptValue f μ τ L j"
+    },
+    "QuarticQuery.Paper.ClassicalDirectProduct/QuarticQuery.Paper.classical_direct_product_average": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {r : ℕ} {S : Type} [inst_2 : Fintype S]\n  {f : QuarticQuery.PartialBool κ} {μ : QuarticQuery.BitInput κ → ℝ} {L : ℕ} {β : ℝ},\n  (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) →\n    QuarticQuery.Paper.classicalMass μ = 1 →\n      (∀ (T : QuarticQuery.QueryTree κ), T.depth ≤ L → QuarticQuery.treeSuccess f μ T ≤ β) →\n        ∀ {p : S → ℝ},\n          (∀ (s : S), 0 ≤ p s) →\n            ∑ s, p s = 1 →\n              ∀ (T : S → QuarticQuery.OutTree (Fin r × κ) (Fin r → Bool)),\n                (∀ (s : S), (T s).capped fun x => L) → ∑ s, p s * QuarticQuery.guessSuccess f (fun x => μ) (T s) ≤ β ^ r"
+    },
+    "QuarticQuery.Paper.ClassicalDirectProduct/QuarticQuery.Paper.classical_eq_16_transcript": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {r : ℕ} (f : QuarticQuery.PartialBool κ)\n  {μ : Fin r → QuarticQuery.BitInput κ → ℝ},\n  (∀ (j : Fin r) (x : QuarticQuery.BitInput κ), 0 ≤ μ j x) →\n    ∀ (τ : QuarticQuery.Paper.ClassicalTranscript r κ) (L : ℕ) (h : Fin r) (q : κ),\n      QuarticQuery.Paper.classicalQueriesTo τ h < L →\n        QuarticQuery.Paper.classicalBranchProbability (QuarticQuery.Paper.classicalTranscriptWeight μ τ h) q\n                Bool.false *\n              QuarticQuery.Paper.classicalTranscriptValue f μ (τ ++ [((h, q), Bool.false)]) L h +\n            QuarticQuery.Paper.classicalBranchProbability (QuarticQuery.Paper.classicalTranscriptWeight μ τ h) q\n                Bool.true *\n              QuarticQuery.Paper.classicalTranscriptValue f μ (τ ++ [((h, q), Bool.true)]) L h ≤\n          QuarticQuery.Paper.classicalTranscriptValue f μ τ L h"
+    },
+    "QuarticQuery.Paper.ClassicalDirectProduct/QuarticQuery.Paper.classical_eq_17_floor": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (m L : ℕ), QuarticQuery.Gvalue m L = ⌊↑m * ↑L / 100⌋₊"
+    },
+    "QuarticQuery.Paper.ClassicalDirectProduct/QuarticQuery.Paper.classical_final_bound": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {r : ℕ} (f : QuarticQuery.PartialBool κ)\n  (ν : Fin r → QuarticQuery.BitInput κ → ℝ) (c : Fin r → ℕ),\n  (∀ (h : Fin r) (x : QuarticQuery.BitInput κ), 0 ≤ ν h x) →\n    ∀ (s : Fin r → Bool),\n      QuarticQuery.guessSuccess f (fun h => QuarticQuery.Paper.classicalLaw (ν h)) (QuarticQuery.OutTree.leaf s) ≤\n          ∏ h,\n            Max.max (QuarticQuery.constSuccess f (QuarticQuery.Paper.classicalLaw (ν h)) Bool.false)\n              (QuarticQuery.constSuccess f (QuarticQuery.Paper.classicalLaw (ν h)) Bool.true) ∧\n        ∏ h,\n            Max.max (QuarticQuery.constSuccess f (QuarticQuery.Paper.classicalLaw (ν h)) Bool.false)\n              (QuarticQuery.constSuccess f (QuarticQuery.Paper.classicalLaw (ν h)) Bool.true) ≤\n          QuarticQuery.Paper.classicalProductValue f ν c"
+    },
+    "QuarticQuery.Paper.ClassicalDirectProduct/QuarticQuery.Paper.classical_transcript_conditional_expectation": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {r : ℕ} {β : Type} (T : QuarticQuery.OutTree (Fin r × κ) β)\n  (f : QuarticQuery.PartialBool κ) {μ : Fin r → QuarticQuery.BitInput κ → ℝ},\n  (∀ (j : Fin r) (x : QuarticQuery.BitInput κ), 0 ≤ μ j x) →\n    ∀ (τ : QuarticQuery.Paper.ClassicalTranscript r κ) (L : ℕ) (h : Fin r) (q : κ),\n      (0 < ∑ V, if QuarticQuery.Paper.classicalPrefix T τ V then ∏ j, μ j (V j) else 0) →\n        QuarticQuery.Paper.classicalQueriesTo τ h < L →\n          ∑ U,\n              ((if QuarticQuery.Paper.classicalPrefix T τ U then ∏ j, μ j (U j) else 0) /\n                  ∑ V, if QuarticQuery.Paper.classicalPrefix T τ V then ∏ j, μ j (V j) else 0) *\n                ∏ j, QuarticQuery.Paper.classicalTranscriptValue f μ (τ ++ [((h, q), U h q)]) L j ≤\n            ∏ j, QuarticQuery.Paper.classicalTranscriptValue f μ τ L j"
+    },
+    "QuarticQuery.Paper.ClassicalDirectProduct/QuarticQuery.Paper.classical_transcript_product_law": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {r : ℕ} {β : Type} (T : QuarticQuery.OutTree (Fin r × κ) β)\n  (τ : QuarticQuery.Paper.ClassicalTranscript r κ) (μ : Fin r → QuarticQuery.BitInput κ → ℝ),\n  (0 < ∑ V, if QuarticQuery.Paper.classicalPrefix T τ V then ∏ h, μ h (V h) else 0) →\n    ∀ (U : Fin r → QuarticQuery.BitInput κ),\n      ((if QuarticQuery.Paper.classicalPrefix T τ U then ∏ h, μ h (U h) else 0) /\n          ∑ V, if QuarticQuery.Paper.classicalPrefix T τ V then ∏ h, μ h (V h) else 0) =\n        ∏ h, QuarticQuery.Paper.classicalLaw (QuarticQuery.Paper.classicalTranscriptWeight μ τ h) (U h)"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.HeavyColumn": {
+      "axioms": [
+        "propext"
+      ],
+      "type": "{κ : Type} →\n  [DecidableEq κ] →\n    {ℓ r S : ℕ} →\n      ℕ →\n        QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ) →\n          (QuarticQuery.Column ℓ → Fin r → QuarticQuery.BitInput κ) →\n            (QuarticQuery.Column ℓ → QuarticQuery.Column ℓ) → QuarticQuery.Column ℓ → Prop"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.addressSimulator": {
+      "axioms": [
+        "propext"
+      ],
+      "type": "{κ : Type} →\n  [DecidableEq κ] →\n    {ℓ r S : ℕ} →\n      ℕ →\n        ℕ →\n          QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ) →\n            (QuarticQuery.Column ℓ → QuarticQuery.Column ℓ) →\n              (QuarticQuery.Column ℓ → Fin r → QuarticQuery.BitInput κ) →\n                QuarticQuery.Column ℓ → QuarticQuery.OutTree (Fin r × κ) (QuarticQuery.Address r)"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.discoveredZeros": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "{κ : Type} →\n  {ℓ r S : ℕ} →\n    QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ) →\n      (QuarticQuery.Column ℓ → Fin r → QuarticQuery.BitInput κ) → (QuarticQuery.Column ℓ → QuarticQuery.Column ℓ) → ℕ"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.dummyAvg": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "{κ : Type} →\n  [Fintype κ] →\n    [DecidableEq κ] →\n      {ℓ r S : ℕ} → (QuarticQuery.BitInput κ → ℝ) → (QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r S κ) → ℝ) → ℝ"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.dummy_planted_values_on_support": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [Fintype κ] [DecidableEq κ] {ℓ r : ℕ} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ}\n  {tr : QuarticQuery.BitInput κ → Fin C.size → Bool},\n  (∀ (x : QuarticQuery.BitInput κ), QuarticQuery.GateConsistent C x (tr x)) →\n    ∀ {μ : QuarticQuery.BitInput κ → ℝ},\n      (∀ (x : QuarticQuery.BitInput κ), μ x ≠ 0 → QuarticQuery.promised f x) →\n        ∀ (J : QuarticQuery.Column ℓ → QuarticQuery.Column ℓ)\n          (A : QuarticQuery.Column ℓ → Fin r → QuarticQuery.BitInput κ) (I : QuarticQuery.Column ℓ),\n          QuarticQuery.prodW (QuarticQuery.prodW μ) A ≠ 0 →\n            QuarticQuery.addressedF f C ℓ r (QuarticQuery.dummy J A) = Bool.false ∧\n              QuarticQuery.addressedF f C ℓ r (QuarticQuery.planted f tr J A I) = Bool.true"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.eq_18": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {ℓ r S : ℕ} {μ : QuarticQuery.BitInput κ → ℝ},\n  (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) →\n    ∀ (f : QuarticQuery.PartialBool κ) (tr : QuarticQuery.BitInput κ → Fin S → Bool)\n      (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)),\n      |(QuarticQuery.Paper.plantedAvg μ f tr fun x => QuarticQuery.ind (T.eval x = Bool.true)) -\n            QuarticQuery.Paper.dummyAvg μ fun x => QuarticQuery.ind (T.eval x = Bool.true)| ≤\n        (QuarticQuery.coupledAvg μ fun A J I => QuarticQuery.foundZero T A J I) +\n          QuarticQuery.coupledAvg μ fun A J I => QuarticQuery.Paper.cellVisit f T J A I"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.eq_19": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {ℓ r S : ℕ} {μ : QuarticQuery.BitInput κ → ℝ},\n  (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) →\n    ∑ x, μ x = 1 →\n      ∀ {G : ℕ} (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)),\n        T.depth ≤ G → (QuarticQuery.coupledAvg μ fun A J I => QuarticQuery.foundZero T A J I) ≤ 4 * ↑G / ↑(2 ^ ℓ) ^ 2"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.eq_21": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {ℓ r S : ℕ} {f : QuarticQuery.PartialBool κ}\n  {μ : QuarticQuery.BitInput κ → ℝ} {L : ℕ},\n  (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) →\n    ∑ x, μ x = 1 →\n      (∀ (x : QuarticQuery.BitInput κ), μ x ≠ 0 → QuarticQuery.promised f x) →\n        (∀ (U : QuarticQuery.QueryTree κ), U.depth ≤ L → QuarticQuery.treeSuccess f μ U ≤ 2 / 3) →\n          ∀ (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) (i : QuarticQuery.Column ℓ) (t : ℕ),\n            (QuarticQuery.avg (QuarticQuery.prodW (QuarticQuery.prodW μ)) fun A =>\n                QuarticQuery.avg (QuarticQuery.prodW (QuarticQuery.unif ℓ)) fun J =>\n                  QuarticQuery.Paper.reachedCellAt f L T J A i t) ≤\n              (2 / 3) ^ r"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.eq_22": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {ℓ r S : ℕ} {f : QuarticQuery.PartialBool κ}\n  {μ : QuarticQuery.BitInput κ → ℝ} {L G : ℕ},\n  1 ≤ L →\n    (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) →\n      ∑ x, μ x = 1 →\n        (∀ (x : QuarticQuery.BitInput κ), μ x ≠ 0 → QuarticQuery.promised f x) →\n          (∀ (U : QuarticQuery.QueryTree κ), U.depth ≤ L → QuarticQuery.treeSuccess f μ U ≤ 2 / 3) →\n            ∀ (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)),\n              T.depth ≤ G →\n                (QuarticQuery.coupledAvg μ fun A J I => QuarticQuery.Paper.cellVisit f T J A I) ≤\n                  ↑G / (↑(2 ^ ℓ) * ↑L) + ↑G * (2 / 3) ^ r"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.eq_23": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {ℓ r S : ℕ} {f : QuarticQuery.PartialBool κ}\n  {μ : QuarticQuery.BitInput κ → ℝ} {L G : ℕ} (tr : QuarticQuery.BitInput κ → Fin S → Bool),\n  1 ≤ L →\n    (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) →\n      ∑ x, μ x = 1 →\n        (∀ (x : QuarticQuery.BitInput κ), μ x ≠ 0 → QuarticQuery.promised f x) →\n          (∀ (U : QuarticQuery.QueryTree κ), U.depth ≤ L → QuarticQuery.treeSuccess f μ U ≤ 2 / 3) →\n            ∀ (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)),\n              T.depth ≤ G →\n                |(QuarticQuery.Paper.plantedAvg μ f tr fun x => QuarticQuery.ind (T.eval x = Bool.true)) -\n                      QuarticQuery.Paper.dummyAvg μ fun x => QuarticQuery.ind (T.eval x = Bool.true)| ≤\n                  4 * ↑G / ↑(2 ^ ℓ) ^ 2 + ↑G / (↑(2 ^ ℓ) * ↑L) + ↑G * (2 / 3) ^ r"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.erasedZero_eq_expectedZeros_div": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {ℓ r S : ℕ} (μ : QuarticQuery.BitInput κ → ℝ)\n  (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)),\n  (QuarticQuery.coupledAvg μ fun A J I => QuarticQuery.foundZero T A J I) =\n    QuarticQuery.Paper.expectedZeros μ T / ↑(2 ^ ℓ)"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.expectedZeros_le_four": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {ℓ r S : ℕ} {μ : QuarticQuery.BitInput κ → ℝ},\n  (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) →\n    ∑ x, μ x = 1 →\n      ∀ {G : ℕ} (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)),\n        T.depth ≤ G → QuarticQuery.Paper.expectedZeros μ T ≤ 4 * ↑G / ↑(2 ^ ℓ)"
+    },
+    "QuarticQuery.Paper.ClassicalPlanted/QuarticQuery.Paper.plantedAvg": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "{κ : Type} →\n  [Fintype κ] →\n    [DecidableEq κ] →\n      {ℓ r S : ℕ} →\n        (QuarticQuery.BitInput κ → ℝ) →\n          QuarticQuery.PartialBool κ →\n            (QuarticQuery.BitInput κ → Fin S → Bool) → (QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r S κ) → ℝ) → ℝ"
+    },
+    "QuarticQuery.Paper.ClassicalUniformZero/QuarticQuery.Paper.uniform_zero_given_transcript": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {ℓ r S : ℕ} (μ : QuarticQuery.BitInput κ → ℝ),\n  (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) →\n    ∑ x, μ x = 1 →\n      ∀ (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)) (τ : List (QuarticQuery.BitLoc ℓ r S κ × Bool))\n        (i p : QuarticQuery.Column ℓ),\n        QuarticQuery.Paper.NoZeroSeen i τ →\n          0 < QuarticQuery.Paper.dummyTraceMass μ T τ →\n            QuarticQuery.Paper.dummyTraceZeroMass μ T τ i p / QuarticQuery.Paper.dummyTraceMass μ T τ =\n              if p ∈ QuarticQuery.Paper.unqueriedRows i τ then 1 / ↑(QuarticQuery.Paper.unqueriedRows i τ).card else 0"
+    },
+    "QuarticQuery.Paper.ConstructionArithmetic/QuarticQuery.Paper.construction_butterfly_block_bound": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (q i offset : ℕ) (v : ℕ → ℤ) (B : ℤ),\n  (∀ j < 2 ^ q, |v (offset + j)| ≤ B) →\n    |∑ j ∈ Finset.range (2 ^ q), QuarticQuery.Forrelation.walshN q i j * v (offset + j)| ≤ ↑(2 ^ q) * B"
+    },
+    "QuarticQuery.Paper.ConstructionArithmetic/QuarticQuery.Paper.construction_walkN_bound": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (n l : ℕ) (σ : ℕ → ℕ → ℤ),\n  (∀ (h i : ℕ), |σ h i| ≤ 1) → ∀ (i : ℕ), |QuarticQuery.Forrelation.walkN n l σ i| ≤ ↑(2 ^ n) ^ l"
+    },
+    "QuarticQuery.Paper.ConstructionArithmetic/QuarticQuery.Paper.construction_walkN_prefix_bound": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (n l a : ℕ) (σ : ℕ → ℕ → ℤ),\n  (∀ (h i : ℕ), |σ h i| ≤ 1) → |∑ j ∈ Finset.range a, QuarticQuery.Forrelation.walkN n l σ j| ≤ ↑a * ↑(2 ^ n) ^ l"
+    },
+    "QuarticQuery.Paper.ConstructionCoherent/QuarticQuery.Paper.construction_lemma_2_2_ii": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} (C : QuarticQuery.Circuit κ) (ℓ r : ℕ) (i : QuarticQuery.Column ℓ) (s : QuarticQuery.Address r),\n  ∃ Z instZ,\n    let x := instZ;\n    ∃ o out F,\n      (∀ (e : QuarticQuery.TestIndex ℓ r C.size), QuarticQuery.Upper.IsCirc (Max.max 3 (ℓ + 1)) (F e)) ∧\n        (QuarticQuery.Upper.IsCirc (Max.max 3 (ℓ + 1)) fun x_1 => QuarticQuery.Upper.sigmaOp fun e => F e x_1) ∧\n          (∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ))\n              (a : QuarticQuery.TestIndex ℓ r C.size → ℂ) (e : QuarticQuery.TestIndex ℓ r C.size),\n              (QuarticQuery.Upper.slice e)\n                  ((QuarticQuery.Upper.sigmaOp fun e => F e x_1) (QuarticQuery.Paper.constructionIndexStart o a)) =\n                a e • (F e x_1) (QuarticQuery.Upper.rket (o e))) ∧\n            ∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (e : QuarticQuery.TestIndex ℓ r C.size)\n              (z : Z e),\n              out e z ≠ QuarticQuery.localTest C ℓ r x_1 i s e → ((F e x_1) (QuarticQuery.Upper.rket (o e))).ofLp z = 0"
+    },
+    "QuarticQuery.Paper.ConstructionComplete/QuarticQuery.Paper.construction_lemma_2_2_complete": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ} (C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)) (A : ℕ),\n  1 ≤ t →\n    QuarticQuery.CircuitRealises C (QuarticQuery.P k t) →\n      C.size ≤ A * QuarticQuery.mValue t * (2 * t) ^ 2 →\n        Fintype.card (QuarticQuery.TestIndex (2 * t) (40 * t) C.size) =\n            QuarticQuery.mValue t + (QuarticQuery.mValue t - 1) + 40 * t * (C.size + 2) ∧\n          Fintype.card (QuarticQuery.TestIndex (2 * t) (40 * t) C.size) ≤\n              (42 + 20 * A) * QuarticQuery.mValue t * (2 * t) ^ 3 ∧\n            (∀ (x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (i : QuarticQuery.Column (2 * t))\n                (s : QuarticQuery.Address (40 * t)),\n                QuarticQuery.PaperWinsAt (QuarticQuery.P k t) C (2 * t) (40 * t) x i s ↔\n                  ∀ (e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size),\n                    QuarticQuery.localTest C (2 * t) (40 * t) x i s e = Bool.true) ∧\n              (∀ (i : QuarticQuery.Column (2 * t)) (s : QuarticQuery.Address (40 * t))\n                  (e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size),\n                  (∀\n                      (x :\n                        QuarticQuery.BitInput\n                          (QuarticQuery.BitLoc (2 * t) (40 * t) C.size (QuarticQuery.ForrelationCoord k t))),\n                      (QuarticQuery.localTestTree C (2 * t) (40 * t) i s e).eval x =\n                        QuarticQuery.localTest C (2 * t) (40 * t) x i s e) ∧\n                    (QuarticQuery.localTestTree C (2 * t) (40 * t) i s e).depth ≤ 2 * t + 1) ∧\n                ∀ (i : QuarticQuery.Column (2 * t)) (s : QuarticQuery.Address (40 * t)),\n                  ∃ Z instZ,\n                    have x := instZ;\n                    ∃ o out F,\n                      (∀ (e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size),\n                          QuarticQuery.Upper.IsCirc (Max.max 3 (2 * t + 1)) (F e)) ∧\n                        (QuarticQuery.Upper.IsCirc (Max.max 3 (2 * t + 1)) fun x_1 =>\n                            QuarticQuery.Upper.sigmaOp fun e => F e x_1) ∧\n                          (∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C))\n                              (a : QuarticQuery.TestIndex (2 * t) (40 * t) C.size → ℂ)\n                              (e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size),\n                              (QuarticQuery.Upper.slice e)\n                                  ((QuarticQuery.Upper.sigmaOp fun e => F e x_1)\n                                    (QuarticQuery.Paper.constructionIndexStart o a)) =\n                                a e • (F e x_1) (QuarticQuery.Upper.rket (o e))) ∧\n                            (∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C))\n                                (e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size) (z : Z e),\n                                out e z ≠ QuarticQuery.localTest C (2 * t) (40 * t) x_1 i s e →\n                                  ((F e x_1) (QuarticQuery.Upper.rket (o e))).ofLp z = 0) ∧\n                              ∃ w emb P,\n                                ∀ (next : QuarticQuery.AdaptiveProgram (QuarticQuery.Upper.Loc k t C) w),\n                                  (P next).queryCap ≤ 2 * (2 * t + 1) + next.queryCap ∧\n                                    ∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C))\n                                      (ψ :\n                                        QuarticQuery.Upper.Reg\n                                          ((e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size) × Z e))\n                                      (b : Bool),\n                                      (P next).outputMass x_1 ((QuarticQuery.Upper.clEmb emb) ψ) b =\n                                        next.outputMass x_1\n                                          ((QuarticQuery.Upper.clEmb emb)\n                                            ((QuarticQuery.Upper.sigmaOp fun e => F e x_1) ψ))\n                                          b"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions/QuarticQuery.Paper.constructionOutwardPointers": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "{κ : Type} →\n  {ℓ r S : ℕ} →\n    QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r S κ) → QuarticQuery.Column ℓ → QuarticQuery.Address r → Prop"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions/QuarticQuery.Paper.constructionWinner": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "{κ : Type} →\n  QuarticQuery.PartialBool κ →\n    (C : QuarticQuery.Circuit κ) →\n      (ℓ r : ℕ) → QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ) → QuarticQuery.Column ℓ → Prop"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions/QuarticQuery.Paper.construction_column_layout": {
+      "axioms": [
+        "propext"
+      ],
+      "type": "∀ (ℓ r S : ℕ) (κ : Type),\n  QuarticQuery.BitLoc ℓ r S κ =\n    (QuarticQuery.Column ℓ × QuarticQuery.Column ℓ ⊕\n      QuarticQuery.Column ℓ × Fin r × κ ⊕\n        (i : QuarticQuery.Column ℓ) × QuarticQuery.Address r × { j // j ≠ i } × Fin ℓ ⊕\n          QuarticQuery.Column ℓ × QuarticQuery.Address r × Fin r × Fin S)"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions/QuarticQuery.Paper.construction_eq6": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (t : ℕ), Real.logb 2 ↑(QuarticQuery.mValue t) = ↑(2 * t) ∧ ⌈20 * Real.logb 2 ↑(QuarticQuery.mValue t)⌉₊ = 40 * t"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions/QuarticQuery.Paper.construction_layout_cardinalities": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k t : ℕ),\n  Fintype.card (QuarticQuery.Column (2 * t)) = QuarticQuery.mValue t ∧\n    Fintype.card (QuarticQuery.ForrelationCoord k t) = k * QuarticQuery.mValue t ∧\n      Fintype.card (QuarticQuery.Address (40 * t)) = 2 ^ (40 * t)"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions/QuarticQuery.Paper.construction_pointer_encoding": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (ℓ : ℕ),\n  Function.Bijective ⇑(QuarticQuery.pointerEquiv ℓ) ∧\n    ∀ (j : QuarticQuery.Column ℓ), ∃! w, (QuarticQuery.pointerEquiv ℓ) w = j"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions/QuarticQuery.Paper.construction_transcript_definition": {
+      "axioms": [],
+      "type": "∀ {κ : Type} (C : QuarticQuery.Circuit κ) (x : QuarticQuery.BitInput κ) (tr : Fin C.size → Bool),\n  QuarticQuery.GateConsistent C x tr ↔\n    ∀ (g : Fin C.size),\n      tr g =\n        (C.gate g).table (QuarticQuery.predecessorValue C x tr g (C.gate g).left)\n          (QuarticQuery.predecessorValue C x tr g (C.gate g).right)"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions/QuarticQuery.Paper.construction_trueAddress_iff": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n  (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (i : QuarticQuery.Column ℓ)\n  (hdef : ∀ (h : Fin r), QuarticQuery.promised f (QuarticQuery.readA x i h)) (s : QuarticQuery.Address r),\n  (∀ (h : Fin r), f (QuarticQuery.readA x i h) = Option.some (s h)) ↔ s = QuarticQuery.trueAddress f x i hdef"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions/QuarticQuery.Paper.construction_unique_winner": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n  (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (i j : QuarticQuery.Column ℓ),\n  QuarticQuery.Paper.constructionWinner f C ℓ r x i → QuarticQuery.Paper.constructionWinner f C ℓ r x j → i = j"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions/QuarticQuery.Paper.construction_win_at_address_outputs": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ},\n  QuarticQuery.CircuitRealises C f →\n    ∀ (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (i : QuarticQuery.Column ℓ)\n      (s : QuarticQuery.Address r),\n      QuarticQuery.WinsAt f C ℓ r x i s ↔\n        (∀ (j : QuarticQuery.Column ℓ), QuarticQuery.readX x i j = Bool.true) ∧\n          (∀ (h : Fin r), QuarticQuery.readTranscript x i s h = QuarticQuery.circuitEval C (QuarticQuery.readA x i h)) ∧\n            (∀ (h : Fin r), QuarticQuery.readTranscript x i s h C.domainOut = Bool.true) ∧\n              (∀ (h : Fin r), QuarticQuery.readTranscript x i s h C.valueOut = s h) ∧\n                QuarticQuery.Paper.constructionOutwardPointers x i s"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions/QuarticQuery.Paper.construction_winner_iff_exists_winsAt": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n  (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (i : QuarticQuery.Column ℓ),\n  QuarticQuery.Paper.constructionWinner f C ℓ r x i ↔ ∃ s, QuarticQuery.WinsAt f C ℓ r x i s"
+    },
+    "QuarticQuery.Paper.ConstructionDefinitions/QuarticQuery.Paper.construction_winsAt_iff_winner_and_address": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ}\n  (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (i : QuarticQuery.Column ℓ)\n  (s : QuarticQuery.Address r),\n  QuarticQuery.WinsAt f C ℓ r x i s ↔\n    QuarticQuery.Paper.constructionWinner f C ℓ r x i ∧\n      ∃ (hdef : ∀ (h : Fin r), QuarticQuery.promised f (QuarticQuery.readA x i h)),\n        s = QuarticQuery.trueAddress f x i hdef"
+    },
+    "QuarticQuery.Paper.ConstructionFamily/QuarticQuery.Paper.construction_equation_two": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∃ S c C,\n      0 < c ∧\n        0 < C ∧\n          ∃ b,\n            0 < b ∧\n              ∃ t₀,\n                ∀ (t : ℕ),\n                  t₀ ≤ t →\n                    ∃ Cir,\n                      QuarticQuery.CircuitRealises Cir (QuarticQuery.P k t) ∧\n                        Cir.size ≤ S * QuarticQuery.mValue t * (2 * t) ^ 2 ∧\n                          ↑(QuarticQuery.Q (QuarticQuery.totalise (QuarticQuery.Fkm k t Cir))) ≤\n                              C * √↑(QuarticQuery.mValue t) * Real.logb 2 ↑(QuarticQuery.mValue t) ^ b ∧\n                            c * (↑(QuarticQuery.mValue t)).rpow (2 - 1 / ↑k) /\n                                Real.logb 2 ↑(QuarticQuery.mValue t) ^ 2 ≤\n                              ↑(QuarticQuery.R (QuarticQuery.totalise (QuarticQuery.Fkm k t Cir)))"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationCircuit/QuarticQuery.Paper.construction_circuit_costs": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (l t : ℕ),\n  1 ≤ t →\n    QuarticQuery.Forrelation.widthTop l t + 1 ≤ (3 * l + 5) * (2 * t) ∧\n      (∀ (w : ℕ), QuarticQuery.Forrelation.whtCost w (2 * t) ≤ 2 * t * QuarticQuery.mValue t * (6 * w + 1)) ∧\n        (∀ (n w : ℕ),\n            QuarticQuery.Forrelation.layerCost n w l ≤\n              1 + (l + 1) * (QuarticQuery.Forrelation.whtCost w n + 2 ^ n * (6 * w))) ∧\n          (∀ (x : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord (l + 1) t)),\n              |QuarticQuery.forrelationNumerator (l + 1) t x| ≤ QuarticQuery.forrelationDenominator (l + 1) t) ∧\n            QuarticQuery.CircuitRealises (QuarticQuery.Forrelation.forrCircuit l t) (QuarticQuery.P (l + 1) t) ∧\n              (QuarticQuery.Forrelation.forrCircuit l t).size ≤\n                QuarticQuery.Forrelation.forrConstant (l + 1) * QuarticQuery.mValue t * (2 * t) ^ 2"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationCircuit/QuarticQuery.Paper.construction_forr_output_bits": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (l t : ℕ) (x : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord (l + 1) t))\n  (tr : Fin (QuarticQuery.Forrelation.forrCircuit l t).size → Bool),\n  QuarticQuery.GateConsistent (QuarticQuery.Forrelation.forrCircuit l t) x tr →\n    tr (QuarticQuery.Forrelation.forrCircuit l t).valueOut =\n        Decidable.decide\n          (2 ^ (5 * (l + 1)) * QuarticQuery.forrelationNumerator (l + 1) t x ≥\n            QuarticQuery.forrelationDenominator (l + 1) t) ∧\n      tr (QuarticQuery.Forrelation.forrCircuit l t).domainOut =\n        Decidable.decide\n          (2 ^ (5 * (l + 1)) * QuarticQuery.forrelationNumerator (l + 1) t x ≥\n              QuarticQuery.forrelationDenominator (l + 1) t ∨\n            2 ^ (5 * (l + 1) + 1) * |QuarticQuery.forrelationNumerator (l + 1) t x| ≤\n              QuarticQuery.forrelationDenominator (l + 1) t)"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationComparison/QuarticQuery.Paper.construction_bs_comparison_chain": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∀ (c : ℝ),\n      0 < c →\n        ∃ t₀,\n          ∀ (t : ℕ),\n            t₀ ≤ t →\n              ↑(QuarticQuery.Lvalue k t) ≤\n                  ↑(QuarticQuery.mValue t) ^ (1 - 1 / ↑k) / Real.logb 2 ↑(QuarticQuery.mValue t) ^ 2 ∧\n                ↑(QuarticQuery.mValue t) ^ (1 - 1 / ↑k) / Real.logb 2 ↑(QuarticQuery.mValue t) ^ 2 <\n                  c * ↑k ^ (-29) *\n                    (↑(QuarticQuery.mValue t) / Real.logb 2 (↑k * ↑(QuarticQuery.mValue t))) ^ (1 - 1 / ↑k)"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationComparison/QuarticQuery.Paper.construction_claim_bs_to_L": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∀ (c : ℝ),\n      0 < c →\n        ∃ t₀,\n          ∀ (t : ℕ),\n            t₀ ≤ t →\n              ↑(QuarticQuery.Lvalue k t) <\n                c * ↑k ^ (-29) * (↑(QuarticQuery.mValue t) / Real.logb 2 (↑k * ↑(QuarticQuery.mValue t))) ^ (1 - 1 / ↑k)"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationComplete/QuarticQuery.Paper.construction_lemma_2_1_complete": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k : ℕ),\n  2 ≤ k →\n    (∃ t₀, ∀ (t : ℕ), t₀ ≤ t → QuarticQuery.Lvalue k t < QuarticQuery.R (QuarticQuery.P k t)) ∧\n      (∃ A,\n          0 < A ∧\n            ∀ (t : ℕ) (η : ℝ),\n              0 < η →\n                η < 1 / 2 →\n                  ∃ n L Z instZ,\n                    have x := instZ;\n                    ∃ o out F,\n                      ↑(2 * (n * k)) ≤ A * (1 + Real.log (1 / η)) ∧\n                        QuarticQuery.Upper.IsCirc (n * k) F ∧\n                          (∀ (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t)) (b : Bool),\n                              L z b = QuarticQuery.Upper.lawOf ((F z) (QuarticQuery.Upper.rket o)) out b) ∧\n                            (∀ (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t)),\n                                0 ≤ L z Bool.false ∧ 0 ≤ L z Bool.true ∧ L z Bool.false + L z Bool.true = 1) ∧\n                              (∀ (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t)) (b : Bool),\n                                  QuarticQuery.P k t z = Option.some b → 1 - η ≤ L z b) ∧\n                                ∃ instI,\n                                  have x_1 := instI;\n                                  ∃ w emb K,\n                                    ∀ (next : QuarticQuery.AdaptiveProgram (QuarticQuery.ForrelationCoord k t) w),\n                                      (K next).queryCap ≤ 2 * (n * k) + next.queryCap ∧\n                                        ∀ (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t))\n                                          (ψ : QuarticQuery.Upper.Reg Z) (b : Bool),\n                                          (K next).outputMass z ((QuarticQuery.Upper.clEmb emb) ψ) b =\n                                            next.outputMass z ((QuarticQuery.Upper.clEmb emb) ((F z) ψ)) b) ∧\n        ∃ S,\n          0 < S ∧\n            ∀ (t : ℕ),\n              1 ≤ t →\n                ∃ C,\n                  QuarticQuery.CircuitRealises C (QuarticQuery.P k t) ∧\n                    ↑C.size ≤ ↑S * ↑(QuarticQuery.mValue t) * Real.logb 2 ↑(QuarticQuery.mValue t) ^ 2"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationComplete/QuarticQuery.Paper.construction_lemma_2_1_ii_complete": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k : ℕ),\n  1 ≤ k →\n    ∃ A,\n      0 < A ∧\n        ∀ (t : ℕ) (η : ℝ),\n          0 < η →\n            η < 1 / 2 →\n              ∃ n L Z instZ,\n                have x := instZ;\n                ∃ o out F,\n                  ↑(2 * (n * k)) ≤ A * (1 + Real.log (1 / η)) ∧\n                    QuarticQuery.Upper.IsCirc (n * k) F ∧\n                      (∀ (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t)) (b : Bool),\n                          L z b = QuarticQuery.Upper.lawOf ((F z) (QuarticQuery.Upper.rket o)) out b) ∧\n                        (∀ (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t)),\n                            0 ≤ L z Bool.false ∧ 0 ≤ L z Bool.true ∧ L z Bool.false + L z Bool.true = 1) ∧\n                          (∀ (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t)) (b : Bool),\n                              QuarticQuery.P k t z = Option.some b → 1 - η ≤ L z b) ∧\n                            ∃ instI,\n                              have x_1 := instI;\n                              ∃ w emb K,\n                                ∀ (next : QuarticQuery.AdaptiveProgram (QuarticQuery.ForrelationCoord k t) w),\n                                  (K next).queryCap ≤ 2 * (n * k) + next.queryCap ∧\n                                    ∀ (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t))\n                                      (ψ : QuarticQuery.Upper.Reg Z) (b : Bool),\n                                      (K next).outputMass z ((QuarticQuery.Upper.clEmb emb) ψ) b =\n                                        next.outputMass z ((QuarticQuery.Upper.clEmb emb) ((F z) ψ)) b"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationDefinitions/QuarticQuery.Paper.construction_N_phi": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k t : ℕ),\n  1 ≤ k →\n    ∀ (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t)),\n      (↑(QuarticQuery.forrelationNumerator k t z) =\n          (fun x => 1) ⬝ᵥ\n            (QuarticQuery.Forrelation.alternate (QuarticQuery.Forrelation.W t)\n                  (List.ofFn fun h => QuarticQuery.Forrelation.signDiag z h)).mulVec\n              fun x => 1) ∧\n        QuarticQuery.Phi k t z =\n            ↑(QuarticQuery.forrelationNumerator k t z) / ↑(QuarticQuery.forrelationDenominator k t) ∧\n          0 < QuarticQuery.forrelationDenominator k t ∧\n            ↑(QuarticQuery.forrelationDenominator k t) =\n                ↑(QuarticQuery.mValue t) * √↑(QuarticQuery.mValue t) ^ (k - 1) ∧\n              QuarticQuery.Forrelation.W t = √↑(QuarticQuery.mValue t) • QuarticQuery.Forrelation.H t ∧\n                ∀ (i j : Fin (QuarticQuery.mValue t)),\n                  QuarticQuery.Forrelation.W t i j = 1 ∨ QuarticQuery.Forrelation.W t i j = -1"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationDefinitions/QuarticQuery.Paper.construction_equation_3": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k t : ℕ),\n  1 ≤ k →\n    ∀ (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t)),\n      QuarticQuery.Phi k t z =\n          QuarticQuery.Forrelation.u t ⬝ᵥ\n            (QuarticQuery.Forrelation.alternate (QuarticQuery.Forrelation.H t)\n                  (List.ofFn fun h => QuarticQuery.Forrelation.signDiag z h)).mulVec\n              (QuarticQuery.Forrelation.u t) ∧\n        QuarticQuery.Forrelation.delta k = 2 ^ (-(5 * ↑k))"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationDefinitions/QuarticQuery.Paper.construction_equation_4": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k t : ℕ) (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t)),\n  Fintype.card (QuarticQuery.ForrelationCoord k t) = k * QuarticQuery.mValue t ∧\n    (QuarticQuery.P k t z = Option.some Bool.true ↔ QuarticQuery.Forrelation.delta k ≤ QuarticQuery.Phi k t z) ∧\n      (QuarticQuery.P k t z = Option.some Bool.false ↔\n          |QuarticQuery.Phi k t z| ≤ QuarticQuery.Forrelation.delta k / 2) ∧\n        (QuarticQuery.P k t z = Option.none ↔\n            ¬QuarticQuery.Forrelation.delta k ≤ QuarticQuery.Phi k t z ∧\n              ¬|QuarticQuery.Phi k t z| ≤ QuarticQuery.Forrelation.delta k / 2) ∧\n          ¬(QuarticQuery.Forrelation.delta k ≤ QuarticQuery.Phi k t z ∧\n              |QuarticQuery.Phi k t z| ≤ QuarticQuery.Forrelation.delta k / 2)"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationDefinitions/QuarticQuery.Paper.construction_equation_5": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k t : ℕ),\n  QuarticQuery.Lvalue k t = ⌊(↑(QuarticQuery.mValue t)).rpow (1 - 1 / ↑k) / Real.logb 2 ↑(QuarticQuery.mValue t) ^ 2⌋₊"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationDefinitions/QuarticQuery.Paper.construction_integer_tests": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k t : ℕ) (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t)),\n  (QuarticQuery.Forrelation.delta k ≤ QuarticQuery.Phi k t z ↔\n      2 ^ (5 * k) * QuarticQuery.forrelationNumerator k t z ≥ QuarticQuery.forrelationDenominator k t) ∧\n    (|QuarticQuery.Phi k t z| ≤ QuarticQuery.Forrelation.delta k / 2 ↔\n        2 ^ (5 * k + 1) * |QuarticQuery.forrelationNumerator k t z| ≤ QuarticQuery.forrelationDenominator k t) ∧\n      (QuarticQuery.promised (QuarticQuery.P k t) z ↔\n          2 ^ (5 * k) * QuarticQuery.forrelationNumerator k t z ≥ QuarticQuery.forrelationDenominator k t ∨\n            2 ^ (5 * k + 1) * |QuarticQuery.forrelationNumerator k t z| ≤ QuarticQuery.forrelationDenominator k t) ∧\n        (QuarticQuery.P k t z = Option.some Bool.true ↔\n          2 ^ (5 * k) * QuarticQuery.forrelationNumerator k t z ≥ QuarticQuery.forrelationDenominator k t)"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationDefinitions/QuarticQuery.Paper.construction_walsh_definitions": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k t : ℕ) (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t)),\n  (∀ (b : Bool), QuarticQuery.bitSign b = (-1) ^ if b = Bool.true then 1 else 0) ∧\n    (∀ (i j : Fin (QuarticQuery.mValue t)),\n        QuarticQuery.walshSign t i j =\n          (-1) ^ ∑ b ∈ Finset.range (2 * t), if ((↑i).testBit b && (↑j).testBit b) = Bool.true then 1 else 0) ∧\n      (∀ (i j : Fin (QuarticQuery.mValue t)),\n          QuarticQuery.Forrelation.H t i j = (√↑(QuarticQuery.mValue t))⁻¹ * ↑(QuarticQuery.walshSign t i j)) ∧\n        (∀ (i : Fin (QuarticQuery.mValue t)), QuarticQuery.Forrelation.u t i = (√↑(QuarticQuery.mValue t))⁻¹) ∧\n          ∀ (h : Fin k),\n            QuarticQuery.Forrelation.signDiag z h = Matrix.diagonal fun i => ↑(QuarticQuery.bitSign (z (h, i)))"
+    },
+    "QuarticQuery.Paper.ConstructionForrelationQuantum/QuarticQuery.Paper.construction_projection_test": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k t : ℕ),\n  1 ≤ k →\n    (∀ (z : QuarticQuery.BitInput (QuarticQuery.ForrelationCoord k t)),\n        QuarticQuery.Forrelation.successProb z = QuarticQuery.Phi k t z ^ 2 ∧\n          (QuarticQuery.P k t z = Option.some Bool.true →\n              QuarticQuery.Forrelation.delta k ^ 2 ≤ QuarticQuery.Forrelation.successProb z) ∧\n            (QuarticQuery.P k t z = Option.some Bool.false →\n              QuarticQuery.Forrelation.successProb z ≤ QuarticQuery.Forrelation.delta k ^ 2 / 4)) ∧\n      (QuarticQuery.Upper.Samples k fun z b => QuarticQuery.Upper.bern (QuarticQuery.Phi k t z ^ 2) b) ∧\n        ∀ [inst : Inhabited (QuarticQuery.ForrelationCoord k t)],\n          QuarticQuery.Upper.Runs (2 * k) fun z b => QuarticQuery.Upper.bern (QuarticQuery.Phi k t z ^ 2) b"
+    },
+    "QuarticQuery.Paper.ConstructionFull/QuarticQuery.Paper.construction_lemma_2_2_with_support": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ} (C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)) (A : ℕ),\n  1 ≤ t →\n    QuarticQuery.CircuitRealises C (QuarticQuery.P k t) →\n      C.size ≤ A * QuarticQuery.mValue t * (2 * t) ^ 2 →\n        (∀ (i : QuarticQuery.Column (2 * t)) (s : QuarticQuery.Address (40 * t)) (e : Fin (2 ^ (2 * t) - 1))\n            (q : Fin (2 * t) ⊕ QuarticQuery.Column (2 * t)),\n            ∃ X Y,\n              (∀ (p : QuarticQuery.BitLoc (2 * t) (40 * t) C.size (QuarticQuery.ForrelationCoord k t)),\n                  p ≠ QuarticQuery.Paper.constructionPointerLoc C (2 * t) (40 * t) i s e q → X p = Y p) ∧\n                QuarticQuery.localTest C (2 * t) (40 * t) X i s (Sum.inr (Sum.inl e)) ≠\n                  QuarticQuery.localTest C (2 * t) (40 * t) Y i s (Sum.inr (Sum.inl e))) ∧\n          Fintype.card (QuarticQuery.TestIndex (2 * t) (40 * t) C.size) =\n              QuarticQuery.mValue t + (QuarticQuery.mValue t - 1) + 40 * t * (C.size + 2) ∧\n            Fintype.card (QuarticQuery.TestIndex (2 * t) (40 * t) C.size) ≤\n                (42 + 20 * A) * QuarticQuery.mValue t * (2 * t) ^ 3 ∧\n              (∀ (x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (i : QuarticQuery.Column (2 * t))\n                  (s : QuarticQuery.Address (40 * t)),\n                  QuarticQuery.PaperWinsAt (QuarticQuery.P k t) C (2 * t) (40 * t) x i s ↔\n                    ∀ (e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size),\n                      QuarticQuery.localTest C (2 * t) (40 * t) x i s e = Bool.true) ∧\n                (∀ (i : QuarticQuery.Column (2 * t)) (s : QuarticQuery.Address (40 * t))\n                    (e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size),\n                    (∀\n                        (x :\n                          QuarticQuery.BitInput\n                            (QuarticQuery.BitLoc (2 * t) (40 * t) C.size (QuarticQuery.ForrelationCoord k t))),\n                        (QuarticQuery.localTestTree C (2 * t) (40 * t) i s e).eval x =\n                          QuarticQuery.localTest C (2 * t) (40 * t) x i s e) ∧\n                      (QuarticQuery.localTestTree C (2 * t) (40 * t) i s e).depth ≤ 2 * t + 1) ∧\n                  ∀ (i : QuarticQuery.Column (2 * t)) (s : QuarticQuery.Address (40 * t)),\n                    ∃ Z instZ,\n                      have x := instZ;\n                      ∃ o out F,\n                        (∀ (e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size),\n                            QuarticQuery.Upper.IsCirc (Max.max 3 (2 * t + 1)) (F e)) ∧\n                          (QuarticQuery.Upper.IsCirc (Max.max 3 (2 * t + 1)) fun x_1 =>\n                              QuarticQuery.Upper.sigmaOp fun e => F e x_1) ∧\n                            (∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C))\n                                (a : QuarticQuery.TestIndex (2 * t) (40 * t) C.size → ℂ)\n                                (e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size),\n                                (QuarticQuery.Upper.slice e)\n                                    ((QuarticQuery.Upper.sigmaOp fun e => F e x_1)\n                                      (QuarticQuery.Paper.constructionIndexStart o a)) =\n                                  a e • (F e x_1) (QuarticQuery.Upper.rket (o e))) ∧\n                              (∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C))\n                                  (e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size) (z : Z e),\n                                  out e z ≠ QuarticQuery.localTest C (2 * t) (40 * t) x_1 i s e →\n                                    ((F e x_1) (QuarticQuery.Upper.rket (o e))).ofLp z = 0) ∧\n                                ∃ w emb P,\n                                  ∀ (next : QuarticQuery.AdaptiveProgram (QuarticQuery.Upper.Loc k t C) w),\n                                    (P next).queryCap ≤ 2 * (2 * t + 1) + next.queryCap ∧\n                                      ∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C))\n                                        (ψ :\n                                          QuarticQuery.Upper.Reg\n                                            ((e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size) × Z e))\n                                        (b : Bool),\n                                        (P next).outputMass x_1 ((QuarticQuery.Upper.clEmb emb) ψ) b =\n                                          next.outputMass x_1\n                                            ((QuarticQuery.Upper.clEmb emb)\n                                              ((QuarticQuery.Upper.sigmaOp fun e => F e x_1) ψ))\n                                            b"
+    },
+    "QuarticQuery.Paper.ConstructionModels/QuarticQuery.Paper.constructionPartial_reconstruct": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} (f : QuarticQuery.PartialBool ι),\n  (QuarticQuery.Paper.constructionPartial {x | QuarticQuery.promised f x} fun x => Classical.choose ⋯) = f"
+    },
+    "QuarticQuery.Paper.ConstructionModels/QuarticQuery.Paper.construction_QLe_domain_iff": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} [inst : Fintype ι] (D : Set (QuarticQuery.BitInput ι)) (f : ↑D → Bool) (budget : ℕ),\n  QuarticQuery.QLe (QuarticQuery.Paper.constructionPartial D f) budget ↔\n    (∃ b, ∀ (x : QuarticQuery.BitInput ι) (hx : x ∈ D), f ⟨x, hx⟩ = b) ∨\n      ∃ w ψ₀ A,\n        ‖ψ₀‖ = 1 ∧\n          A.queryCap ≤ budget ∧ ∀ (x : QuarticQuery.BitInput ι) (hx : x ∈ D), 2 / 3 ≤ A.outputMass x ψ₀ (f ⟨x, hx⟩)"
+    },
+    "QuarticQuery.Paper.ConstructionModels/QuarticQuery.Paper.construction_RLe_domain_iff": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} (D : Set (QuarticQuery.BitInput ι)) (f : ↑D → Bool) (budget : ℕ),\n  QuarticQuery.RLe (QuarticQuery.Paper.constructionPartial D f) budget ↔\n    ∃ A, A.depth ≤ budget ∧ ∀ (x : QuarticQuery.BitInput ι) (hx : x ∈ D), 2 / 3 ≤ A.success x (f ⟨x, hx⟩)"
+    },
+    "QuarticQuery.Paper.ConstructionModels/QuarticQuery.Paper.construction_alphaTot_eq_inf": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "QuarticQuery.alphaTot =\n  InfSet.sInf\n    {α |\n      0 ≤ α ∧\n        ∃ C,\n          ∀ (n : ℕ),\n            1 ≤ n →\n              ∀ (f : QuarticQuery.TotalBool (Fin n)),\n                ↑(QuarticQuery.R (QuarticQuery.totalise f)) ≤\n                  C * (1 + ↑(QuarticQuery.Q (QuarticQuery.totalise f))).rpow α}"
+    },
+    "QuarticQuery.Paper.ConstructionModels/QuarticQuery.Paper.construction_correct_on_domain_iff": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} (D : Set (QuarticQuery.BitInput ι)) (f : ↑D → Bool) (Correct : QuarticQuery.BitInput ι → Bool → Prop),\n  (∀ (x : QuarticQuery.BitInput ι) (b : Bool),\n      QuarticQuery.Paper.constructionPartial D f x = Option.some b → Correct x b) ↔\n    ∀ (x : QuarticQuery.BitInput ι) (hx : x ∈ D), Correct x (f ⟨x, hx⟩)"
+    },
+    "QuarticQuery.Paper.ConstructionModels/QuarticQuery.Paper.construction_log2_mValue": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (t : ℕ), Real.logb 2 ↑(QuarticQuery.mValue t) = 2 * ↑t"
+    },
+    "QuarticQuery.Paper.ConstructionModels/QuarticQuery.Paper.construction_promised_iff": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} (D : Set (QuarticQuery.BitInput ι)) (f : ↑D → Bool) (x : QuarticQuery.BitInput ι),\n  QuarticQuery.promised (QuarticQuery.Paper.constructionPartial D f) x ↔ x ∈ D"
+    },
+    "QuarticQuery.Paper.ConstructionModels/QuarticQuery.Paper.construction_query_oracle": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} [inst : Fintype ι] {w : ℕ} (x : QuarticQuery.BitInput ι),\n  (∀ (i : ι) (b : Bool) (z : Fin (w + 1)),\n      QuarticQuery.bitOracle x (QuarticQuery.ket (i, b, z)) = QuarticQuery.ket (i, b ^^ x i, z)) ∧\n    (∀ (ψ : QuarticQuery.State ι w), QuarticQuery.bitOracle x (QuarticQuery.bitOracle x ψ) = ψ) ∧\n      ∃ U, ∀ (ψ : QuarticQuery.State ι w), U ψ = QuarticQuery.bitOracle x ψ"
+    },
+    "QuarticQuery.Paper.ConstructionPointerSupport/QuarticQuery.Paper.construction_pointer_every_physical_coordinate": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} (C : QuarticQuery.Circuit κ) (ℓ r : ℕ) (i : QuarticQuery.Column ℓ) (s : QuarticQuery.Address r)\n  (e : Fin (2 ^ ℓ - 1)) (q : Fin ℓ ⊕ QuarticQuery.Column ℓ),\n  ∃ X Y,\n    (∀ (p : QuarticQuery.BitLoc ℓ r C.size κ),\n        p ≠ QuarticQuery.Paper.constructionPointerLoc C ℓ r i s e q → X p = Y p) ∧\n      QuarticQuery.localTest C ℓ r X i s (Sum.inr (Sum.inl e)) ≠\n        QuarticQuery.localTest C ℓ r Y i s (Sum.inr (Sum.inl e))"
+    },
+    "QuarticQuery.Paper.ConstructionTests/QuarticQuery.Paper.construction_K_bound": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (t S A : ℕ),\n  1 ≤ t →\n    S ≤ A * QuarticQuery.mValue t * (2 * t) ^ 2 →\n      Fintype.card (QuarticQuery.TestIndex (2 * t) (40 * t) S) ≤ (42 + 20 * A) * QuarticQuery.mValue t * (2 * t) ^ 3"
+    },
+    "QuarticQuery.Paper.ConstructionTests/QuarticQuery.Paper.construction_K_count": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (t S : ℕ),\n  Fintype.card (QuarticQuery.TestIndex (2 * t) (40 * t) S) =\n    QuarticQuery.mValue t + (QuarticQuery.mValue t - 1) + 40 * t * (S + 2)"
+    },
+    "QuarticQuery.Paper.ConstructionTests/QuarticQuery.Paper.construction_K_family": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k : ℕ),\n  1 ≤ k →\n    ∃ B,\n      ∀ (t : ℕ),\n        1 ≤ t →\n          ∃ C,\n            QuarticQuery.CircuitRealises C (QuarticQuery.P k t) ∧\n              Fintype.card (QuarticQuery.TestIndex (2 * t) (40 * t) C.size) ≤ B * QuarticQuery.mValue t * (2 * t) ^ 3"
+    },
+    "QuarticQuery.Paper.ConstructionTests/QuarticQuery.Paper.construction_lemma_2_2_i": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} {f : QuarticQuery.PartialBool κ} (C : QuarticQuery.Circuit κ) (ℓ r : ℕ),\n  QuarticQuery.CircuitRealises C f →\n    (∀ (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (i : QuarticQuery.Column ℓ)\n        (s : QuarticQuery.Address r),\n        QuarticQuery.PaperWinsAt f C ℓ r x i s ↔\n          ∀ (e : QuarticQuery.TestIndex ℓ r C.size), QuarticQuery.localTest C ℓ r x i s e = Bool.true) ∧\n      ∀ (i : QuarticQuery.Column ℓ) (s : QuarticQuery.Address r) (e : QuarticQuery.TestIndex ℓ r C.size),\n        (∀ (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)),\n            (QuarticQuery.localTestTree C ℓ r i s e).eval x = QuarticQuery.localTest C ℓ r x i s e) ∧\n          (QuarticQuery.localTestTree C ℓ r i s e).depth ≤ Max.max 3 (ℓ + 1)"
+    },
+    "QuarticQuery.Paper.ConstructionTests/QuarticQuery.Paper.construction_local_dichotomy": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} {f : QuarticQuery.PartialBool κ} {C : QuarticQuery.Circuit κ} {ℓ r : ℕ},\n  QuarticQuery.CircuitRealises C f →\n    ∀ (x : QuarticQuery.BitInput (QuarticQuery.BitLoc ℓ r C.size κ)) (i : QuarticQuery.Column ℓ),\n      (QuarticQuery.Paper.constructionWinner f C ℓ r x i →\n          ∃ s, ∀ (e : QuarticQuery.TestIndex ℓ r C.size), QuarticQuery.localTest C ℓ r x i s e = Bool.true) ∧\n        (¬QuarticQuery.Paper.constructionWinner f C ℓ r x i →\n          ∀ (s : QuarticQuery.Address r), ∃ e, QuarticQuery.localTest C ℓ r x i s e = Bool.false)"
+    },
+    "QuarticQuery.Paper.Eq19Complete/QuarticQuery.Paper.eq_19_complete": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {ℓ r S : ℕ} {μ : QuarticQuery.BitInput κ → ℝ},\n  (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) →\n    ∑ x, μ x = 1 →\n      ∀ {G : ℕ} (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)),\n        T.depth ≤ G →\n          (QuarticQuery.coupledAvg μ fun A J I => QuarticQuery.foundZero T A J I) =\n              QuarticQuery.Paper.expectedZeros μ T / ↑(2 ^ ℓ) ∧\n            QuarticQuery.Paper.expectedZeros μ T / ↑(2 ^ ℓ) ≤ 4 * ↑G / ↑(2 ^ ℓ) ^ 2"
+    },
+    "QuarticQuery.Paper.Eq19Whole/QuarticQuery.Paper.eq19_whole": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {κ : Type} [inst : Fintype κ] [inst_1 : DecidableEq κ] {ℓ r S : ℕ} {μ : QuarticQuery.BitInput κ → ℝ},\n  (∀ (x : QuarticQuery.BitInput κ), 0 ≤ μ x) →\n    ∑ x, μ x = 1 →\n      ∀ {G : ℕ} (T : QuarticQuery.QueryTree (QuarticQuery.BitLoc ℓ r S κ)),\n        T.depth ≤ G →\n          (QuarticQuery.coupledAvg μ fun A J I => QuarticQuery.foundZero T A J I) =\n              QuarticQuery.Paper.expectedZeros μ T / ↑(2 ^ ℓ) ∧\n            (QuarticQuery.coupledAvg μ fun A J I => QuarticQuery.foundZero T A J I) ≤ 4 * ↑G / ↑(2 ^ ℓ) ^ 2"
+    },
+    "QuarticQuery.Paper.QuantumAmplification/QuarticQuery.Paper.quantum_coherent_tree": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} [Nonempty ι] (T : QuarticQuery.QueryTree ι),\n  QuarticQuery.Upper.Samples T.depth fun x b => QuarticQuery.Upper.pt (T.eval x) b"
+    },
+    "QuarticQuery.Paper.QuantumAmplification/QuarticQuery.Paper.quantum_eq_9": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]\n  (A : QuarticQuery.Amplification.Preparation H) {γ : ℝ},\n  0 < γ →\n    γ ≤ A.prob →\n      A.prob ≤ 1 / 2 →\n        have M := QuarticQuery.Amplification.iterationBound γ;\n        1 / 2 - 1 / (2 * ↑M * |Real.sin (2 * A.angle)|) ≤\n            1 / ↑M * ∑ ℓ ∈ Finset.range M, Real.sin ((2 * ↑ℓ + 1) * A.angle) ^ 2 ∧\n          9 / 20 ≤ 1 / 2 - 1 / (2 * ↑M * |Real.sin (2 * A.angle)|)"
+    },
+    "QuarticQuery.Paper.QuantumAmplification/QuarticQuery.Paper.quantum_grover_parameters": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (γ η : ℝ),\n  QuarticQuery.Amplification.iterationBound γ = ⌈10 / √γ⌉₊ ∧\n    QuarticQuery.Amplification.trialCount η = ⌈Real.log (1 / η) / Real.log (40 / 31)⌉₊ ∧\n      QuarticQuery.Amplification.amplify γ η =\n        QuarticQuery.Amplification.attempts (QuarticQuery.Amplification.iterationBound γ)\n          (QuarticQuery.Amplification.trialCount η)"
+    },
+    "QuarticQuery.Paper.QuantumAmplification/QuarticQuery.Paper.quantum_grover_state": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]\n  (A : QuarticQuery.Amplification.Preparation H),\n  0 < A.prob →\n    A.prob < 1 →\n      (0 < A.angle ∧ A.angle < Real.pi / 2) ∧\n        ‖A.goodState‖ = 1 ∧\n          ‖A.badState‖ = 1 ∧\n            A.good A.goodState = A.goodState ∧\n              A.good A.badState = 0 ∧\n                Inner.inner ℂ A.goodState A.badState = 0 ∧\n                  A.state = ↑(Real.sin A.angle) • A.goodState + ↑(Real.cos A.angle) • A.badState ∧\n                    ∀ (ℓ : ℕ),\n                      A.iterate ℓ =\n                          ↑(Real.sin ((2 * ↑ℓ + 1) * A.angle)) • A.goodState +\n                            ↑(Real.cos ((2 * ↑ℓ + 1) * A.angle)) • A.badState ∧\n                        (A.good (A.iterate ℓ) ≠ 0 →\n                          QuarticQuery.Amplification.PhaseEq\n                            (QuarticQuery.Amplification.normalised (A.good (A.iterate ℓ))) A.goodState)"
+    },
+    "QuarticQuery.Paper.QuantumAmplification/QuarticQuery.Paper.quantum_grover_trial_distribution": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {M : ℕ},\n  M ≠ 0 →\n    (∀ (ℓ : Fin M), QuarticQuery.Amplification.trialWeight M ↑ℓ = (if ↑ℓ = 0 then 1 / 2 else 0) + 1 / (2 * ↑M)) ∧\n      (∀ (ℓ : Fin M), 0 ≤ QuarticQuery.Amplification.trialWeight M ↑ℓ) ∧\n        ∑ ℓ, QuarticQuery.Amplification.trialWeight M ↑ℓ = 1"
+    },
+    "QuarticQuery.Paper.QuantumAmplification/QuarticQuery.Paper.quantum_grover_trial_recursion": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (M n : ℕ),\n  QuarticQuery.Amplification.attempts M (n + 1) =\n    QuarticQuery.Amplification.Proc.mix M (fun ℓ => QuarticQuery.Amplification.trialWeight M ↑ℓ) fun ℓ =>\n      (QuarticQuery.Amplification.Proc.run (QuarticQuery.Amplification.groverCircuit ↑ℓ)\n          (QuarticQuery.Amplification.Proc.success.measure (QuarticQuery.Amplification.attempts M n))).restart"
+    },
+    "QuarticQuery.Paper.QuantumAmplification/QuarticQuery.Paper.quantum_sin_two_angle": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]\n  (A : QuarticQuery.Amplification.Preparation H) {γ : ℝ},\n  γ ≤ A.prob → A.prob ≤ 1 / 2 → Real.sin (2 * A.angle) = 2 * √(A.prob * (1 - A.prob)) ∧ √γ ≤ Real.sin (2 * A.angle)"
+    },
+    "QuarticQuery.Paper.QuantumComparison/QuarticQuery.Paper.quantumComparison_complementary": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)} (n : ℕ)\n  (x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (i j : QuarticQuery.Upper.Col t),\n  i ≠ j → QuarticQuery.Upper.cmpProb n x i j + QuarticQuery.Upper.cmpProb n x j i = 1"
+    },
+    "QuarticQuery.Paper.QuantumComparison/QuarticQuery.Paper.quantumComparison_sorted": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)} (n : ℕ)\n  (x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (i j : QuarticQuery.Upper.Col t) (hij : i < j),\n  QuarticQuery.Upper.cmpProb n x i j =\n    ∑ s₁,\n      QuarticQuery.Upper.addrLaw n x i s₁ *\n        ∑ s₂,\n          QuarticQuery.Upper.addrLaw n x j s₂ *\n            if\n                QuarticQuery.Upper.firstWins (QuarticQuery.Upper.disq x i s₁ j ⋯) (QuarticQuery.Upper.disq x j s₂ i ⋯) =\n                  Bool.true then\n              1\n            else 0"
+    },
+    "QuarticQuery.Paper.QuantumComparison/QuarticQuery.Paper.quantumComparison_state": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)},\n  1 ≤ k →\n    ∀ (n : ℕ) (i j : QuarticQuery.Upper.Col t),\n      ∃ Z x o out F,\n        QuarticQuery.Upper.IsCirc (QuarticQuery.Upper.cmpCost k t n) F ∧\n          (QuarticQuery.Upper.IsCirc (QuarticQuery.Upper.cmpCost k t n) fun x_1 => (F x_1).symm) ∧\n            ∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (b : Bool),\n              QuarticQuery.Upper.lawOf ((F x_1) (QuarticQuery.Upper.rket o)) out b =\n                QuarticQuery.Upper.bern (QuarticQuery.Upper.cmpProb n x_1 i j) b"
+    },
+    "QuarticQuery.Paper.QuantumComparison/QuarticQuery.Paper.quantumComparison_unordered_state": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)},\n  1 ≤ k →\n    ∀ (n : ℕ) (i j : QuarticQuery.Upper.Col t),\n      i ≠ j →\n        ∃ Z x o out F,\n          QuarticQuery.Upper.IsCirc (QuarticQuery.Upper.cmpCost k t n) F ∧\n            ∀ (x_1 : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (b : Bool),\n              QuarticQuery.Upper.lawOf ((F x_1) (QuarticQuery.Upper.rket o)) out b =\n                  QuarticQuery.Upper.bern (QuarticQuery.Upper.cmpProb n x_1 i j) b ∧\n                QuarticQuery.Upper.lawOf ((F x_1) (QuarticQuery.Upper.rket o)) (fun z => !out z) b =\n                  QuarticQuery.Upper.bern (QuarticQuery.Upper.cmpProb n x_1 j i) b"
+    },
+    "QuarticQuery.Paper.QuantumComparison/QuarticQuery.Paper.quantumDecode": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)},\n  1 ≤ k →\n    ∀ (n : ℕ) (i : QuarticQuery.Upper.Col t),\n      QuarticQuery.Upper.Samples (QuarticQuery.Upper.addrCost k t n) fun x s => QuarticQuery.Upper.addrLaw n x i s"
+    },
+    "QuarticQuery.Paper.QuantumComparison/QuarticQuery.Paper.quantumDecode_correct": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)},\n  1 ≤ k →\n    1 ≤ t →\n      ∀ {n : ℕ} {ε : ℝ},\n        0 < ε →\n          ε ≤ 1 →\n            QuarticQuery.Forrelation.repetitions k (ε / ↑(40 * t)) ≤ n →\n              ∀ {x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)} {i : QuarticQuery.Upper.Col t}\n                {s : QuarticQuery.Upper.Addr t},\n                (∀ (h : Fin (40 * t)), QuarticQuery.P k t (QuarticQuery.readA x i h) = Option.some (s h)) →\n                  1 - ε ≤ QuarticQuery.Upper.addrLaw n x i s"
+    },
+    "QuarticQuery.Paper.QuantumComparison/QuarticQuery.Paper.quantumError_bound": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)},\n  1 ≤ k →\n    1 ≤ t →\n      QuarticQuery.CircuitRealises C (QuarticQuery.P k t) →\n        ∀ {n : ℕ},\n          QuarticQuery.Forrelation.repetitions k (QuarticQuery.Tournament.epsval (QuarticQuery.mValue t) / ↑(40 * t)) ≤\n              n →\n            ∃ val,\n              (QuarticQuery.Upper.Runs (QuarticQuery.Upper.budget k t n (Fintype.card (QuarticQuery.Upper.Tests t C)))\n                  fun x b => QuarticQuery.Upper.bern (val x) b) ∧\n                (∀\n                    (x :\n                      QuarticQuery.BitInput\n                        (QuarticQuery.BitLoc (2 * t) (40 * t) C.size (QuarticQuery.ForrelationCoord k t))),\n                    QuarticQuery.Fkm k t C x = Bool.false →\n                      val x ≤\n                        ↑(QuarticQuery.Tournament.Tval (QuarticQuery.mValue t)) *\n                          QuarticQuery.Tournament.epsval (QuarticQuery.mValue t)) ∧\n                  ∀\n                    (x :\n                      QuarticQuery.BitInput\n                        (QuarticQuery.BitLoc (2 * t) (40 * t) C.size (QuarticQuery.ForrelationCoord k t))),\n                    QuarticQuery.Fkm k t C x = Bool.true →\n                      1 - val x ≤\n                        2 * ↑(QuarticQuery.mValue t) / 2 ^ QuarticQuery.Tournament.Tval (QuarticQuery.mValue t) +\n                            ↑(QuarticQuery.Tournament.Tval (QuarticQuery.mValue t)) *\n                              QuarticQuery.Tournament.epsval (QuarticQuery.mValue t) +\n                          QuarticQuery.Tournament.epsval (QuarticQuery.mValue t)"
+    },
+    "QuarticQuery.Paper.QuantumComparison/QuarticQuery.Paper.quantumVerify": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)},\n  1 ≤ k →\n    1 ≤ t →\n      QuarticQuery.CircuitRealises C (QuarticQuery.P k t) →\n        ∀ {n : ℕ} {ε : ℝ},\n          0 < ε →\n            ε ≤ 1 →\n              QuarticQuery.Forrelation.repetitions k (ε / ↑(40 * t)) ≤ n →\n                ∃ v,\n                  (∀ (c : QuarticQuery.Upper.Col t),\n                      QuarticQuery.Upper.Runs\n                        (2 * QuarticQuery.Upper.addrCost k t n +\n                          QuarticQuery.Upper.searchCost t (Fintype.card (QuarticQuery.Upper.Tests t C)) ε)\n                        fun x b => QuarticQuery.Upper.bern (v x c) b) ∧\n                    (∀ (x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)) (c : QuarticQuery.Upper.Col t),\n                        0 ≤ v x c ∧ v x c ≤ 1) ∧\n                      (∀\n                          (x :\n                            QuarticQuery.BitInput\n                              (QuarticQuery.BitLoc (2 * t) (40 * t) C.size (QuarticQuery.ForrelationCoord k t)))\n                          (c : QuarticQuery.Column (2 * t)),\n                          (¬∃ s, QuarticQuery.WinsAt (QuarticQuery.P k t) C (2 * t) (40 * t) x c s) → v x c ≤ ε) ∧\n                        ∀\n                          (x :\n                            QuarticQuery.BitInput\n                              (QuarticQuery.BitLoc (2 * t) (40 * t) C.size (QuarticQuery.ForrelationCoord k t)))\n                          (c : QuarticQuery.Column (2 * t)) (s : QuarticQuery.Address (40 * t)),\n                          QuarticQuery.WinsAt (QuarticQuery.P k t) C (2 * t) (40 * t) x c s → 1 - ε ≤ v x c"
+    },
+    "QuarticQuery.Paper.QuantumComparison/QuarticQuery.Paper.quantumVerify_fixedAddress": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)} (i : QuarticQuery.Upper.Col t)\n  (s : QuarticQuery.Upper.Addr t) {ε : ℝ},\n  0 < ε →\n    ∃ f,\n      (∀ (x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)), 0 ≤ f x ∧ f x ≤ 1) ∧\n        (∀ (x : QuarticQuery.BitInput (QuarticQuery.BitLoc (2 * t) (40 * t) C.size (QuarticQuery.ForrelationCoord k t)))\n            (e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size),\n            QuarticQuery.localTest C (2 * t) (40 * t) x i s e = Bool.false → f x ≤ ε) ∧\n          (∀\n              (x :\n                QuarticQuery.BitInput\n                  (QuarticQuery.BitLoc (2 * t) (40 * t) C.size (QuarticQuery.ForrelationCoord k t))),\n              (∀ (e : QuarticQuery.TestIndex (2 * t) (40 * t) C.size),\n                  QuarticQuery.localTest C (2 * t) (40 * t) x i s e = Bool.true) →\n                f x = 1) ∧\n            QuarticQuery.Upper.Runs (QuarticQuery.Upper.searchCost t (Fintype.card (QuarticQuery.Upper.Tests t C)) ε)\n              fun x b => QuarticQuery.Upper.bern (f x) b"
+    },
+    "QuarticQuery.Paper.QuantumComparison/QuarticQuery.Paper.quantumWinner_dominates": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ} {C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)},\n  1 ≤ k →\n    1 ≤ t →\n      ∀ {n : ℕ} {ε : ℝ},\n        0 < ε →\n          ε ≤ 1 →\n            QuarticQuery.Forrelation.repetitions k (ε / ↑(40 * t)) ≤ n →\n              ∀ {x : QuarticQuery.BitInput (QuarticQuery.Upper.Loc k t C)} {i : QuarticQuery.Upper.Col t}\n                {s : QuarticQuery.Upper.Addr t},\n                QuarticQuery.WinsAt (QuarticQuery.P k t) C (2 * t) (40 * t) x i s →\n                  ∀ (j : QuarticQuery.Upper.Col t), j ≠ i → 1 - ε ≤ QuarticQuery.Upper.cmpProb n x i j"
+    },
+    "QuarticQuery.Paper.QuantumTensor/QuarticQuery.Paper.equation_15": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι Col Z : Type} [inst : Fintype Col] [Nonempty Col] [inst_2 : Fintype Z] {c : ℕ} (o : Z)\n  (F : Col → Col → QuarticQuery.BitInput ι → QuarticQuery.Upper.Reg Z ≃ₗᵢ[ℂ] QuarticQuery.Upper.Reg Z),\n  (∀ (i j : Col), QuarticQuery.Upper.IsCirc c (F i j)) →\n    ∀ (p : ℕ → Col) (t : ℕ),\n      ∃ i₀ A,\n        QuarticQuery.Upper.IsCirc (t * c) A ∧\n          ∀ (x : QuarticQuery.BitInput ι) (i : Col),\n            (QuarticQuery.Upper.slice i) ((A x) (QuarticQuery.Upper.rket ⟨i₀, QuarticQuery.Paper.tensorOrigin o t⟩)) =\n              ↑√(↑(Fintype.card Col))⁻¹ •\n                QuarticQuery.Paper.tensorVector (fun b => (F i (p b) x) (QuarticQuery.Upper.rket o)) t"
+    },
+    "QuarticQuery.Paper.QuantumTensor/QuarticQuery.Paper.quantumTensorStage_of_samples": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι Col : Type} [inst : Fintype Col] [Nonempty Col] {c : ℕ} {a : QuarticQuery.BitInput ι → Col → Col → ℝ},\n  (∀ (i j : Col), QuarticQuery.Upper.Samples c fun x b => QuarticQuery.Upper.bern (a x i j) b) →\n    ∀ (p : ℕ → Col) (t : ℕ),\n      ∃ L,\n        QuarticQuery.Upper.Samples (t * c) L ∧\n          ∀ (x : QuarticQuery.BitInput ι) (i : Col),\n            L x (Option.some i) = (∏ b ∈ Finset.range t, a x i (p b)) / ↑(Fintype.card Col)"
+    },
+    "QuarticQuery.Paper.QuantumTournament/QuarticQuery.Paper.quantumList_coupling": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {Col : Type} [inst : Fintype Col] [DecidableEq Col] {a : Col → Col → ℝ} {v : Col → ℝ} {f : List Col → ℝ},\n  QuarticQuery.Tournament.UnitValued a →\n    (∀ (c : Col), 0 ≤ v c ∧ v c ≤ 1) →\n      (∀ (L : List Col), 0 ≤ f L ∧ f L ≤ 1) →\n        (∀ (L : List Col), QuarticQuery.Tournament.total (QuarticQuery.Tournament.weight a L) = 0 → f L = 1) →\n          ∀ {s : Col} {ε : ℝ},\n            0 ≤ ε →\n              ε ≤ 1 →\n                QuarticQuery.Tournament.Dominant a ε s →\n                  v s = 1 →\n                    ∀ {T₀ : ℕ},\n                      ↑T₀ * ε < 1 / 2 →\n                        (∀ (L : List Col), L.length ≤ T₀ → s ∉ L → f L ≤ ε) →\n                          ∀ (T : ℕ) (L : List Col),\n                            L.length + T ≤ T₀ →\n                              1 - QuarticQuery.Upper.missFrom a s T L - ↑T * ε ≤ QuarticQuery.Upper.tval a v f T L"
+    },
+    "QuarticQuery.Paper.QuantumTournamentFacts/QuarticQuery.Paper.quantumDominant_iff": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {Col : Type} (a : Col → Col → ℝ) (ε : ℝ) (s : Col),\n  QuarticQuery.Tournament.Dominant a ε s ↔ ∀ (j : Col), j ≠ s → 1 - ε ≤ a s j"
+    },
+    "QuarticQuery.Paper.QuantumTournamentFacts/QuarticQuery.Paper.quantumDrift": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {Col : Type} [inst : Fintype Col] [DecidableEq Col] (w : Col → ℝ) {a : Col → Col → ℝ},\n  QuarticQuery.Tournament.IsComparison a →\n    ∀ {W : ℝ},\n      W = ∑ i, w i →\n        0 < W →\n          ∑ p, w p / W * ∑ i, w i * a i p = 1 / W * ∑ p, ∑ i, w p * w i * a i p ∧\n            1 / W * ∑ p, ∑ i, w p * w i * a i p = (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) ∧\n              (W ^ 2 - ∑ i, w i ^ 2) / (2 * W) ≤ W / 2"
+    },
+    "QuarticQuery.Paper.QuantumTournamentFacts/QuarticQuery.Paper.quantumStage_success": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {Col : Type} [inst : Fintype Col] [Nonempty Col] (a : Col → Col → ℝ),\n  QuarticQuery.Tournament.UnitValued a →\n    ∀ (L : List Col),\n      0 < QuarticQuery.Tournament.total (QuarticQuery.Tournament.weight a L) →\n        (∀ (o : Option Col), 0 ≤ QuarticQuery.Upper.stageLaw a L o) ∧\n          ∑ o, QuarticQuery.Upper.stageLaw a L o = 1 ∧\n            0 < ∑ i, QuarticQuery.Upper.stageLaw a L (Option.some i) ∧\n              (∀ (i : Col),\n                  QuarticQuery.Upper.stageLaw a L (Option.some i) =\n                    QuarticQuery.Tournament.weight a L i / ↑(Fintype.card Col)) ∧\n                ∑ i, QuarticQuery.Upper.stageLaw a L (Option.some i) =\n                    QuarticQuery.Tournament.total (QuarticQuery.Tournament.weight a L) / ↑(Fintype.card Col) ∧\n                  ∀ (i : Col),\n                    QuarticQuery.Upper.stageLaw a L (Option.some i) /\n                        ∑ j, QuarticQuery.Upper.stageLaw a L (Option.some j) =\n                      QuarticQuery.Tournament.weight a L i /\n                        QuarticQuery.Tournament.total (QuarticQuery.Tournament.weight a L)"
+    },
+    "QuarticQuery.Paper.QuantumTournamentFacts/QuarticQuery.Paper.quantumTournament": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι Col : Type} [inst : Fintype ι] [inst_1 : Inhabited ι] [inst_2 : Fintype Col] [inst_3 : DecidableEq Col] {cc : ℕ}\n  {a : QuarticQuery.BitInput ι → Col → Col → ℝ},\n  2 ≤ Fintype.card Col →\n    (∀ (x : QuarticQuery.BitInput ι), QuarticQuery.Tournament.IsComparison (a x)) →\n      (∀ (i p : Col), QuarticQuery.Upper.Samples cc fun x b => QuarticQuery.Upper.bern (a x i p) b) →\n        have m := Fintype.card Col;\n        have T := QuarticQuery.Tournament.Tval m;\n        have ε := QuarticQuery.Tournament.epsval m;\n        ∃ C law,\n          ↑C ≤ 6072 * ↑cc * √↑m * ↑T ^ 2 * Real.log ↑T ∧\n            QuarticQuery.Upper.Samples (T * QuarticQuery.Paper.quantumStageReads m T cc ε) law ∧\n              QuarticQuery.Upper.Runs C law ∧\n                (∀ (x : QuarticQuery.BitInput ι) (o : QuarticQuery.Paper.QuantumCandidateList Col T), 0 ≤ law x o) ∧\n                  (∀ (x : QuarticQuery.BitInput ι), ∑ o, law x o = 1) ∧\n                    ∀ (x : QuarticQuery.BitInput ι) (s : Col),\n                      QuarticQuery.Tournament.Dominant (a x) ε s →\n                        1 - 2 * ↑m / 2 ^ T - ↑T * ε ≤ ∑ o, if s ∈ ↑o then law x o else 0"
+    },
+    "QuarticQuery.Paper.QuantumTournamentFacts/QuarticQuery.Paper.quantumTournament_cost": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {m : ℕ},\n  2 ≤ m →\n    ∀ (cc : ℕ),\n      ↑(QuarticQuery.Tournament.Tval m *\n            QuarticQuery.Upper.stageCost m (QuarticQuery.Tournament.Tval m) cc (QuarticQuery.Tournament.epsval m)) ≤\n        6072 * ↑cc * √↑m * ↑(QuarticQuery.Tournament.Tval m) ^ 2 * Real.log ↑(QuarticQuery.Tournament.Tval m)"
+    },
+    "QuarticQuery.Paper.QuantumTournamentFacts/QuarticQuery.Paper.quantumTournament_parameters": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (m : ℕ),\n  QuarticQuery.Tournament.Tval m = Nat.clog 2 (1000 * m) ∧\n    QuarticQuery.Tournament.epsval m = 1 / (1000 * ↑(QuarticQuery.Tournament.Tval m))"
+    },
+    "QuarticQuery.Paper.QuantumTournamentFacts/QuarticQuery.Paper.quantumWeight_lower": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {Col : Type} [inst : Fintype Col] {a : Col → Col → ℝ} {ε : ℝ} {s : Col},\n  QuarticQuery.Tournament.UnitValued a →\n    0 ≤ ε →\n      ε ≤ 1 →\n        QuarticQuery.Tournament.Dominant a ε s →\n          ∀ {T : ℕ},\n            ↑T * ε < 1 / 2 →\n              ∀ (L : List Col),\n                L.length ≤ T →\n                  s ∉ L →\n                    (1 - ε) ^ L.length ≤ QuarticQuery.Tournament.weight a L s ∧\n                      1 - ↑T * ε ≤ (1 - ε) ^ L.length ∧\n                        1 / 2 < QuarticQuery.Tournament.weight a L s ∧\n                          0 < QuarticQuery.Tournament.total (QuarticQuery.Tournament.weight a L)"
+    },
+    "QuarticQuery.Paper.Section4/QuarticQuery.Paper.prop_4_2": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (k : ℕ),\n  2 ≤ k →\n    ∃ t₀,\n      ∀ (t : ℕ),\n        t₀ ≤ t →\n          ∀ (C : QuarticQuery.Circuit (QuarticQuery.ForrelationCoord k t)),\n            QuarticQuery.CircuitRealises C (QuarticQuery.P k t) →\n              QuarticQuery.Gvalue (QuarticQuery.mValue t) (QuarticQuery.Lvalue k t) <\n                QuarticQuery.R (QuarticQuery.totalise (QuarticQuery.Fkm k t C))"
+    },
+    "QuarticQuery.Results.Conditional/QuarticQuery.alphaTot_eq_four_of_bansalSinha": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "QuarticQuery.BansalSinhaLower → QuarticQuery.alphaTot = 4"
+    },
+    "QuarticQuery.Results.Conditional/QuarticQuery.cubic_bound_fails_of_bansalSinha": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "QuarticQuery.BansalSinhaLower →\n  ¬∃ C,\n      ∀ (n : ℕ),\n        1 ≤ n →\n          ∀ (f : QuarticQuery.TotalBool (Fin n)),\n            ↑(QuarticQuery.R (QuarticQuery.totalise f)) ≤ C * ↑(QuarticQuery.Q (QuarticQuery.totalise f)) ^ 3"
+    },
+    "QuarticQuery.Results.Conditional/QuarticQuery.theorem_1_1": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "QuarticQuery.BansalSinhaLower →\n  QuarticQuery.alphaTot = 4 ∧\n    QuarticQuery.UniversalPower 4 ∧\n      ∀ (k : ℕ),\n        2 ≤ k →\n          ∃ S A b,\n            0 < A ∧\n              ∀ (t : ℕ),\n                1 ≤ t →\n                  ∃ C,\n                    QuarticQuery.CircuitRealises C (QuarticQuery.P k t) ∧\n                      C.size ≤ S * QuarticQuery.mValue t * (2 * t) ^ 2 ∧\n                        ↑(QuarticQuery.Q (QuarticQuery.totalise (QuarticQuery.Fkm k t C))) ≤ ↑A * 2 ^ t * (2 * ↑t) ^ b ∧\n                          (8 ≤ t →\n                            QuarticQuery.Lvalue k t < QuarticQuery.R (QuarticQuery.P k t) →\n                              QuarticQuery.Gvalue (QuarticQuery.mValue t) (QuarticQuery.Lvalue k t) <\n                                QuarticQuery.R (QuarticQuery.totalise (QuarticQuery.Fkm k t C)))"
+    },
+    "QuarticQuery.Results.Exponent/QuarticQuery.Gvalue_ge": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {k t : ℕ},\n  2 ≤ k →\n    8 ≤ t →\n      1 / 400 * (4 ^ t) ^ (2 - 1 / ↑k) / (2 * ↑t) ^ 2 ≤\n        ↑(QuarticQuery.Gvalue (QuarticQuery.mValue t) (QuarticQuery.Lvalue k t))"
+    },
+    "QuarticQuery.Results.Exponent/QuarticQuery.not_universalPower_of_family": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "(∀ (ι κ : Type) [inst : Fintype ι] [inst_1 : Fintype κ] (e : ι ≃ κ) (f : QuarticQuery.PartialBool ι),\n    QuarticQuery.R (QuarticQuery.reindex e f) = QuarticQuery.R f) →\n  (∀ (ι κ : Type) [inst : Fintype ι] [inst_1 : Fintype κ] (e : ι ≃ κ) (f : QuarticQuery.PartialBool ι),\n      QuarticQuery.Q (QuarticQuery.reindex e f) = QuarticQuery.Q f) →\n    QuarticQuery.FamilyBounds → ∀ {α : ℝ}, α < 4 → ¬QuarticQuery.UniversalPower α"
+    },
+    "QuarticQuery.Results.Unconditional/QuarticQuery.alphaTot_eq_four_unconditional": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "QuarticQuery.alphaTot = 4"
+    },
+    "QuarticQuery.Results.Unconditional/QuarticQuery.cubic_bound_fails_unconditional": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "¬∃ C,\n    ∀ (n : ℕ),\n      1 ≤ n →\n        ∀ (f : QuarticQuery.TotalBool (Fin n)),\n          ↑(QuarticQuery.R (QuarticQuery.totalise f)) ≤ C * ↑(QuarticQuery.Q (QuarticQuery.totalise f)) ^ 3"
+    },
+    "QuarticQuery.Results.Unconditional/QuarticQuery.theorem_1_1_unconditional": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "QuarticQuery.alphaTot = 4 ∧\n  QuarticQuery.UniversalPower 4 ∧\n    ∀ (k : ℕ),\n      2 ≤ k →\n        ∃ S A b t₀,\n          0 < A ∧\n            ∀ (t : ℕ),\n              Max.max 1 t₀ ≤ t →\n                ∃ C,\n                  QuarticQuery.CircuitRealises C (QuarticQuery.P k t) ∧\n                    C.size ≤ S * QuarticQuery.mValue t * (2 * t) ^ 2 ∧\n                      ↑(QuarticQuery.Q (QuarticQuery.totalise (QuarticQuery.Fkm k t C))) ≤ ↑A * 2 ^ t * (2 * ↑t) ^ b ∧\n                        QuarticQuery.Gvalue (QuarticQuery.mValue t) (QuarticQuery.Lvalue k t) <\n                          QuarticQuery.R (QuarticQuery.totalise (QuarticQuery.Fkm k t C))"
+    },
+    "QuarticQuery.Tournament.Drift/QuarticQuery.Tournament.expected_weight_eq": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} [inst : Fintype ι] [DecidableEq ι] (w : ι → ℝ) {a : ι → ι → ℝ},\n  QuarticQuery.Tournament.IsComparison a →\n    ∀ {W : ℝ}, W = ∑ i, w i → 0 < W → ∑ p, w p / W * ∑ i, w i * a i p = (W ^ 2 - ∑ i, w i ^ 2) / (2 * W)"
+    },
+    "QuarticQuery.Tournament.Drift/QuarticQuery.Tournament.expected_weight_le_half": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} [inst : Fintype ι] [DecidableEq ι] (w : ι → ℝ) {a : ι → ι → ℝ},\n  QuarticQuery.Tournament.IsComparison a → ∀ {W : ℝ}, W = ∑ i, w i → 0 < W → ∑ p, w p / W * ∑ i, w i * a i p ≤ W / 2"
+    },
+    "QuarticQuery.Tournament.Ideal/QuarticQuery.Tournament.expectFrom": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "{ι : Type} → [Fintype ι] → (ι → ι → ℝ) → ℕ → List ι → ((ι → ℝ) → List ι → ℝ) → ℝ"
+    },
+    "QuarticQuery.Tournament.Ideal/QuarticQuery.Tournament.expected_final_weight": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} [inst : Fintype ι] [DecidableEq ι] {a : ι → ι → ℝ},\n  QuarticQuery.Tournament.IsComparison a →\n    QuarticQuery.Tournament.UnitValued a →\n      ∀ (T : ℕ),\n        (QuarticQuery.Tournament.expectAfter a T fun w x => QuarticQuery.Tournament.total w) ≤ ↑(Fintype.card ι) / 2 ^ T"
+    },
+    "QuarticQuery.Tournament.Ideal/QuarticQuery.Tournament.ideal_miss_le": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ {ι : Type} [inst : Fintype ι] [DecidableEq ι] {a : ι → ι → ℝ} {ε : ℝ} {s : ι},\n  QuarticQuery.Tournament.IsComparison a →\n    QuarticQuery.Tournament.UnitValued a →\n      0 ≤ ε →\n        ε ≤ 1 →\n          QuarticQuery.Tournament.Dominant a ε s →\n            ∀ {T : ℕ},\n              ↑T * ε < 1 / 2 →\n                ((QuarticQuery.Tournament.prob a T fun x l => s ∉ l) ≤\n                    QuarticQuery.Tournament.prob a T fun w x => 1 / 2 ≤ QuarticQuery.Tournament.total w) ∧\n                  (QuarticQuery.Tournament.prob a T fun w x => 1 / 2 ≤ QuarticQuery.Tournament.total w) ≤\n                    2 * ↑(Fintype.card ι) / 2 ^ T"
+    },
+    "QuarticQuery.Tournament.Ideal/QuarticQuery.Tournament.weight": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "{ι : Type} → (ι → ι → ℝ) → List ι → ι → ℝ"
+    },
+    "QuarticQuery.Upper.Bound/QuarticQuery.Upper.Q_Fkm_le": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "type": "∀ (l t : ℕ),\n  1 ≤ t →\n    ↑(QuarticQuery.Q (QuarticQuery.totalise (QuarticQuery.Fkm (l + 1) t (QuarticQuery.Forrelation.forrCircuit l t)))) ≤\n      ↑(QuarticQuery.Upper.budgetConst (l + 1)) * 2 ^ t * (2 * ↑t) ^ 6"
+    }
+  },
+  "inspector_sha256": "44d17a38ebad07391fd2da43cb5660886b430feccd78741fb36c0558f189dae8",
+  "source_snapshot_sha256": "0d109ea9e9b7f4a766640d406409e30589fb4c5a4e645b6d6888569fa2edf29f",
+  "toolchain": "leanprover/lean4:v4.36.0-rc2"
+}

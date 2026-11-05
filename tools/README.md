@@ -476,3 +476,8 @@ proof obligations of selected Lean applications. The same recorder refreshes
 them with `--applications` and independently checks them with
 `--applications --compare`. [reading_applications.py](reading_applications.py)
 binds them to manuscript topics and exact source excerpts.
+
+[ReadStatementEvidence.lean](ReadStatementEvidence.lean) uses Lean's environment
+and axiom collector for the [statement comparison reader](../docs/reading_api.md#compare-a-paper-result-with-lean).
+The [recorder](record_reading_dependencies.py) builds the selected modules and
+checks the source snapshot before and after inspection.

@@ -21,11 +21,12 @@ export async function openLocalOrHTTP(location) {
 if (process.argv[1] && import.meta.url === pathToFileURL(absolute(process.argv[1])).href) {
   const [location, paper, selector, hash] = process.argv.slice(2);
   if (!location || !paper || !selector) {
-    console.error("Usage: node tools/query_reading_api.mjs MANIFEST PAPER ID | PAPER LINE DOCUMENT_SHA256 | original PAGE PDF_SHA256 | --declaration NAME | --journey ID");
+    console.error("Usage: node tools/query_reading_api.mjs MANIFEST PAPER ID | PAPER LINE DOCUMENT_SHA256 | original PAGE PDF_SHA256 | --statement ID | --declaration NAME | --journey ID");
     process.exitCode = 2;
   } else {
     const reader = await openLocalOrHTTP(location);
     const result = paper === "--journey" ? await reader.journey(selector)
+      : paper === "--statement" ? await reader.statementReview(selector)
       : paper === "--declaration" ? await reader.fromDeclaration(selector)
       : await reader.resolve(/^\d+$/.test(selector)
         ? {paper, [reader.documents[paper]?.format === "pdf" ? "page" : "line"]: Number(selector), documentSha256: hash} : {paper, id: selector});

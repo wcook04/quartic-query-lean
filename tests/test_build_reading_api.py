@@ -64,6 +64,38 @@ class ReadingEditionTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "coordinates changed"):
             api.original_paper(self.edition, statements)
 
+    def test_every_reviewed_tie_has_its_own_native_type_and_axioms(self):
+        for sid, path in self.reading["fidelity"].items():
+            record = self.resource(path)
+            for tie in record["lean"]:
+                if tie["review_evidence"] != "current":
+                    continue
+                native = tie["inspection"]
+                self.assertEqual(native["status"], "current", sid)
+                self.assertEqual("lean/" + native["module"].replace(".", "/") + ".lean", tie["file"])
+                self.assertTrue(native["type"].strip())
+                self.assertIsInstance(native["axioms"], list)
+            for probe in record["semantic_probes"]:
+                self.assertEqual(probe["inspection"]["status"], "current")
+                self.assertTrue(probe["authored_answer"])
+        amended = self.resource("fidelity/lem-2.2.i.json")
+        self.assertNotEqual(amended["ledger_history"]["earlier_ledger_wording"], amended["statement"])
+        self.assertIn("R1-AF-00", [f["id"] for f in amended["ledger_history"]["adjudication_findings"]])
+
+    def test_changed_inspector_withholds_current_types_and_axioms(self):
+        edition = api.Edition(api.ROOT)
+        inspector = "tools/ReadStatementEvidence.lean"
+        edition.inputs[inspector] = edition.read(inspector) + b"\n"
+        api.compile_edition(edition)
+        headline = json.loads(edition.resources["fidelity/thm-1.1.json"])
+        tie = next(t for t in headline["lean"] if t["declaration"].endswith(".theorem_1_1_unconditional"))
+        self.assertEqual(tie["inspection"]["status"], "stale")
+        self.assertNotIn("axioms", tie["inspection"])
+        self.assertNotIn("type", tie["inspection"])
+        self.assertNotIn(tie["declaration"], json.loads(edition.resources["axiom-audits.json"]))
+        model = json.loads(edition.resources["fidelity/def-R.json"])
+        self.assertTrue(all(p["authored_answer"] is None for p in model["semantic_probes"]))
+
     def test_feedback_is_qualified_and_attributed(self):
         self.assertEqual(set(self.reading["entrances"]), {*api.PAPERS, "original"})
         self.assertEqual(self.reading["video"], self.edition.json(api.ROUTES)["video"])

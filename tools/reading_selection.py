@@ -267,8 +267,8 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
             raise ValueError(f"unknown endpoint in editorial link: {rel}")
 
     # Invert the same bindings used for forward resolution; retain the reason for each match.
-    def index(name, paper, ident, basis):
-        ref = {"paper": paper, "selection": ident, "basis": basis}
+    def index(name, paper, ident, basis, **evidence):
+        ref = {"paper": paper, "selection": ident, "basis": basis, **evidence}
         if ref not in by_name[name]:
             by_name[name].append(ref)
 
@@ -290,7 +290,8 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
             for sid in sorted(ids):
                 by_statement[sid].append({"paper": paper, "id": row["id"]})
                 for tie in statements[sid]["lean"]:
-                    index(tie["declaration"], paper, row["id"], f"statement:{sid}")
+                    index(tie["declaration"], paper, row["id"], f"statement:{sid}",
+                          statement=sid, source=tie["file"], relation=tie["relation"], review=tie["review_evidence"])
             for name in topic.get("constituents", []):
                 index(name, paper, row["id"], "editorial_constituent")
             for label in topic.get("labels", []) + ([row["label"]] if "label" in row else []):

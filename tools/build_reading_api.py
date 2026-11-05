@@ -307,7 +307,8 @@ def compile_edition(edition, pdf_directory=None, original_pdf=None):
             raise ValueError(f"incomplete audience entrance: {key}")
         if set(entry["stops"]) - routes.keys():
             raise ValueError(f"unknown reading stop: {key}")
-    evidence_resources(edition, statements, by_statement, comparison, config["semantic_probes"])
+    evidence_resources(edition, statements, by_statement, comparison, config["semantic_probes"],
+                       config["semantic_answers_lean_snapshot"])
     original, original_rows = original_paper(edition, statements, original_pdf)
     if entrances["original"]["first_selection"] not in {row["id"] for row in original_rows}:
         raise ValueError("unknown first selection for the OpenAI paper")
@@ -338,8 +339,10 @@ def compile_edition(edition, pdf_directory=None, original_pdf=None):
                        "and associated passage are selected editorially. Paper equivalence uses the fidelity records."},
         "checks.json": {"origin": "comparator_configurations_and_receipts",
             "content": "Each configuration identifies its challenge, solution, permitted axioms and recorded outcome."},
-        "axiom-audits.json": {"origin": "lean_print_axioms",
-            "content": "Recorded transitive axioms for named declarations in the indexed round-three inspection."},
+        "proof_graph": {"origin": "compiled_lean_environment", "producer": "tools/ReadDependencies.lean",
+            "content": "Lean reports the constants used in types and proofs. Paper links and reading notes are authored."},
+        "axiom-audits.json": {"origin": "lean_collect_axioms_and_historical_print_axioms",
+            "content": "Lean reports transitive axioms for inspected declarations. Theorem hypotheses are visible in the formal type."},
         "semantic_probes": {"origin": "authored_question_and_recorded_lean_example",
             "content": "A probe tests the named example or alternative definition. An empty list means no indexed probe."}})
     edition.add("passages.json", passages)

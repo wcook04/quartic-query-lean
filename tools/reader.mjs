@@ -123,12 +123,43 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
         url: `${manifest.repository}/blob/${revision}/${s.source}#L${s.lines[0]}-L${s.lines[1]}`}))};
   }
 
+  async function statementReview(id) {
+    const reading = await resource("reading.json");
+    if (!Object.hasOwn(reading.fidelity, id)) throw new Error("Unknown statement: " + id);
+    const [record, originals, related] = await Promise.all([resource(reading.fidelity[id]),
+      resource("selection/original.json"), resource("selection/by-statement.json")]);
+    const selection = originals.find(row => row.statements.includes(id));
+    const sourceURL = (path, lines) => `${manifest.repository}/blob/${revision}/${path}` +
+      (lines ? `#L${lines[0]}-L${lines[1]}` : "");
+    const current = record.lean.filter(t => t.review_evidence === "current");
+    const leading = t => record.review_scope.leading_matches.some(m => m.declaration === t.declaration && m.file === t.file);
+    async function sourceExcerpt(path, lines) {
+      if (!lines) return null;
+      const text = await resource(path);
+      return text.split("\n").slice(lines[0]-1, lines[1]).join("\n");
+    }
+    const ordered = [...current.filter(leading), ...current.filter(t => !leading(t))];
+    const comparisons = await Promise.all(ordered.map(async t => ({...t,
+      sourceURL: sourceURL(t.file, t.declaration_lines), rawLean: await sourceExcerpt(t.file, t.declaration_lines)})));
+    const semanticExamples = await Promise.all(record.semantic_probes.map(async p => ({...p,
+      sourceURL: sourceURL(p.source, p.lines), rawLean: await sourceExcerpt(p.source, p.lines)})));
+    return {revision, id, ledgerStatement: record.statement, ledgerHistory: record.ledger_history, scope: record.review_scope,
+      paper: {document: documents.original, selection}, comparisons,
+      otherTies: record.lean.filter(t => t.review_evidence !== "current"),
+      semanticExamples,
+      relatedSelections: related[id]};
+  }
+
   async function fromDeclaration(name) {
     const [reverse, source] = await Promise.all([resource("selection/reverse.json"), declaration(name)]);
     const [checks, audits] = await Promise.all([resource("checks.json"), resource("axiom-audits.json")]);
     const checkIDs = Object.keys(checks).filter(id => checks[id].theorem_names.includes(name));
     const applications = await applicationIndex();
-    return {revision, name, source, journeys: Object.hasOwn(applications.by_declaration, name) ? applications.by_declaration[name] : [], axiomAudit: audits[name] ?? null, comparisons: comparisonOutcomes(checks, checkIDs), treatments: Object.hasOwn(reverse, name) ? reverse[name] : []};
+    const treatments = (Object.hasOwn(reverse, name) ? reverse[name] : [])
+      .filter(t => !source.source || !t.source || t.source === source.source);
+    const audit = audits[name];
+    const axiomAudit = audit?.source && source.source && audit.source !== source.source ? null : audit ?? null;
+    return {revision, name, source, journeys: Object.hasOwn(applications.by_declaration, name) ? applications.by_declaration[name] : [], axiomAudit, comparisons: comparisonOutcomes(checks, checkIDs), treatments};
   }
 
   async function resolve({paper, line, endLine = line, page, id, documentSha256}, bounds) {
@@ -235,5 +266,5 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
       editorialLinks: argumentsData.links.filter(e => topics.includes(e.source) || topics.includes(e.target)),
       statements: records, cited, proof, graph: selection.graph, citedLeanRevision: selection.registry_revision};
   }
-  return {revision, documents, resolve, expand, fromDeclaration, journey, applicationIndex};
+  return {revision, documents, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
 }

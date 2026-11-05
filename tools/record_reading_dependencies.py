@@ -43,18 +43,68 @@ def application_pairs(config):
                    for step in journey["steps"] for name in step["callees"]})
 
 
+def statement_targets(statements, probes):
+    """Key observations by their defining module as well as their Lean name."""
+    targets = {(t["file"], t["declaration"]) for row in statements for t in row["lean"]
+               if t["review_evidence"] == "current"}
+    targets.update((f"lean/QuarticCorpus/Independent/{p['file']}.lean",
+                    "QuarticQuery.SemanticReview." + p["name"]) for p in probes)
+    return sorted(path.removeprefix("lean/").removesuffix(".lean").replace("/", ".") + "/" + name
+                  for path, name in targets)
+
+
+def record_statements(root, before, compare):
+    program = ROOT / "tools/ReadStatementEvidence.lean"
+    inspector = program.read_bytes()
+
+    def selection():
+        rows = json.loads((ROOT / "corpus/statements.json").read_bytes())
+        probes = json.loads((ROOT / "docs/reading_routes.json").read_bytes())["semantic_probes"]
+        return statement_targets(rows, probes)
+
+    targets = selection()
+    modules = sorted({target.split("/")[0] for target in targets})
+    subprocess.run(["lake", "build", *modules], cwd=root / "lean", check=True)
+    raw = subprocess.check_output(["lake", "env", "lean", "--run", str(program), *targets], cwd=root / "lean")
+    rows = json.loads(raw)
+    if (set(rows) != set(targets) or selection() != targets or inspector != program.read_bytes()
+            or source_hashes(root) != before or source_hashes(ROOT) != before):
+        raise ValueError("statement inspection incomplete or inputs changed during recording")
+    payload = {"source_snapshot_sha256": canonical_sha256(before),
+               "inspector_sha256": hashlib.sha256(inspector).hexdigest(),
+               "toolchain": (root / "lean/lean-toolchain").read_text().strip(), "declarations": rows}
+    path = ROOT / "corpus/reading_statement_evidence.json"
+    if compare:
+        if json.loads(path.read_bytes()) != payload:
+            raise ValueError("independent statement inspection differs from the saved observations")
+    else:
+        with tempfile.NamedTemporaryFile(mode="w", dir=path.parent, delete=False) as tmp:
+            json.dump(payload, tmp, ensure_ascii=False, indent=2, sort_keys=True)
+            tmp.write("\n")
+        recorded = Path(tmp.name)
+        recorded.chmod(0o644)
+        recorded.replace(path)
+    print(f"{'Reproduced' if compare else 'Recorded'} types and axioms for {len(rows)} declarations")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkout", type=Path, default=ROOT,
                         help="checkout with the same Lean sources and its own Lake cache")
-    parser.add_argument("--applications", action="store_true",
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--statements", action="store_true", help="inspect types and axioms for reviewed links and semantic examples")
+    modes.add_argument("--applications", action="store_true",
                         help="inspect formal arguments for the reader's selected caller/callee pairs")
-    parser.add_argument("--compare", action="store_true", help="repeat application inspection and compare without writing")
+    parser.add_argument("--compare", action="store_true", help="repeat the selected native inspection and compare without writing")
     args = parser.parse_args()
-    if args.compare and not args.applications:
-        parser.error("--compare requires --applications")
+    if args.compare and not (args.applications or args.statements):
+        parser.error("--compare requires --applications or --statements")
     root = args.checkout.resolve()
     before = source_hashes(root)
+    if before != source_hashes(ROOT):
+        parser.error("build checkout differs from edition's Lean sources")
+    if args.statements:
+        return record_statements(root, before, args.compare)
     program = ROOT / "tools/ReadApplications.lean" if args.applications else INSPECTOR
     inspector = program.read_bytes()
     pairs = []
@@ -62,8 +112,6 @@ def main():
         selection = ROOT / "docs/reading_applications.json"
         config = json.loads(selection.read_text())
         pairs = application_pairs(config)
-    if before != source_hashes(ROOT):
-        parser.error("build checkout differs from edition's Lean sources")
     subprocess.run(["lake", "build", "QuarticQuery"], cwd=root / "lean", check=True)
     raw = subprocess.check_output(["lake", "env", "lean", "--run", str(program), *pairs], cwd=root / "lean")
     inspection = json.loads(raw)

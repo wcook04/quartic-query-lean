@@ -276,31 +276,65 @@
       "statement": "def-R",
       "name": "wrong_quantifier_order_changes_answer",
       "file": "SemanticMutations",
-      "question": "Could a different zero-query program be chosen after seeing each input?"
+      "question": "Could a different zero-query program be chosen after seeing each input?",
+      "kind": "alternative_definition",
+      "answer": "If the algorithm may depend on the input, it can pick the correct constant answer and spend zero queries. One algorithm chosen in advance cannot compute the one-bit identity with zero queries."
     },
     {
       "statement": "def-R",
       "name": "strict_threshold_mutant_rejects_mixture",
       "file": "SemanticMutations",
-      "question": "Does replacing success at least two thirds with strictly greater success change a boundary case?"
+      "question": "Does replacing success at least two thirds with strictly greater success change a boundary case?",
+      "kind": "alternative_definition",
+      "answer": "On the all-false input the example algorithm for two-bit OR succeeds with probability exactly two thirds. Requiring strictly greater success rules out that algorithm."
     },
     {
       "statement": "def-partial-query",
       "name": "off_promise_false_changes_zero_query_answer",
       "file": "SemanticMutations",
-      "question": "Does assigning false outside the promise change the zero-query answer?"
+      "question": "Does assigning false outside the promise change the zero-query answer?",
+      "kind": "alternative_definition",
+      "answer": "A constant answer works on the example’s promise. Assigning false outside that promise creates two different required labels and forces at least one query."
     },
     {
       "statement": "eq-4",
       "name": "absolute_high_changes_answer",
       "file": "SemanticMutations",
-      "question": "Would taking the absolute value on the high branch accept a negative instance?"
+      "question": "Would taking the absolute value on the high branch accept a negative instance?",
+      "kind": "alternative_definition",
+      "answer": "The example has a large negative Forrelation value. The published promise leaves it undefined. Taking the absolute value on the high branch instead accepts it as true."
     },
     {
       "statement": "def-comparison",
       "name": "comparison_has_witness",
       "file": "Semantics",
-      "question": "Can an actual comparison satisfy all of these assumptions?"
+      "question": "Can an actual comparison satisfy all of these assumptions?",
+      "kind": "nonvacuity_witness",
+      "answer": "Two candidates with comparison weight one half in each direction satisfy the comparison assumptions. There is an actual instance to which the theorem applies."
+    },
+    {
+      "statement": "def-Q",
+      "name": "trueOnly_Q_eq_zero",
+      "file": "Semantics",
+      "kind": "boundary_example",
+      "question": "Can a quantum algorithm use zero queries when every promised input has label true?",
+      "answer": "Always answering true uses zero quantum queries and succeeds on every promised input of this example."
+    },
+    {
+      "statement": "def-R",
+      "name": "orTwo_R_eq_one",
+      "file": "Semantics",
+      "kind": "boundary_example",
+      "question": "How many randomized queries does two-bit OR require with success at least two thirds?",
+      "answer": "One randomized query suffices for two-bit OR with the stated error bound. Zero queries cannot distinguish its two labels."
+    },
+    {
+      "statement": "eq-3",
+      "name": "negativePair_Phi",
+      "file": "Semantics",
+      "kind": "boundary_example",
+      "question": "Can the Forrelation value actually reach minus one on two explicit layers?",
+      "answer": "Yes. For the two explicit sign layers, the numerator is minus eight and the denominator is eight, giving a Forrelation value of minus one."
     }
   ],
   "print_edition": {
@@ -619,5 +653,6 @@
       "relation": "qualifies",
       "target": "verification"
     }
-  ]
+  ],
+  "semantic_answers_lean_snapshot": "0d109ea9e9b7f4a766640d406409e30589fb4c5a4e645b6d6888569fa2edf29f"
 }

@@ -127,3 +127,8 @@ It also records original source spans for applications matched during
 re-elaboration, and the two complexity bounds that share a circuit binder.
 The [source selections](../docs/reading_applications.json) and [reader contract](../docs/reading_api.md#inspect-a-theorem-application)
 explain their scope and refresh command.
+
+[reading_statement_evidence.json](reading_statement_evidence.json) records Lean's
+pretty-printed type and transitive axioms for declarations in current reviewed
+links and for the indexed semantic examples. Each observation names its defining
+module. See the [reader comparison contract](../docs/reading_api.md#compare-a-paper-result-with-lean).
