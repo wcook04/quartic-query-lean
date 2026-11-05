@@ -18,8 +18,12 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
     if (!cache.has(path)) {
       const entry = manifest.resources[path];
       if (!entry) throw new Error(`Missing edition resource: ${path}`);
-      cache.set(path, bytes(new URL(entry.href, index)).then(raw => {
+      cache.set(path, bytes(new URL(entry.href, index)).then(async raw => {
         if (raw.byteLength !== entry.bytes) throw new Error(`Incomplete resource: ${path}`);
+        const crypto = globalThis.crypto || (await import("node:crypto")).webcrypto;
+        const sum = new Uint8Array(await crypto.subtle.digest("SHA-256", raw));
+        const hex = Array.from(sum, b => b.toString(16).padStart(2, "0")).join("");
+        if (hex !== entry.sha256) throw new Error(`Resource hash differs from edition: ${path}`);
         return path.endsWith(".json") ? JSON.parse(decode(raw)) : decode(raw);
       }).catch(error => { cache.delete(path); throw error; }));
     }
@@ -85,9 +89,20 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
     return {...node, text, url: `${manifest.repository}/blob/${revision}/${node.source}#L${start}-L${end}`};
   }
 
+  function comparisonOutcomes(checks, checkIDs) {
+    return [...checkIDs].map(path => {
+      const c = checks[path], r = c.latest_receipt;
+      return {path, role: c.role, configuredNames: c.theorem_names, permittedAxioms: c.permitted_axioms,
+              outcome: r?.negative_control ?? r?.status ?? "not_recorded",
+              currentness: r?.currentness ?? "not_recorded", receipt: r?.receipt ?? null};
+    });
+  }
+
   async function fromDeclaration(name) {
     const [reverse, source] = await Promise.all([resource("selection/reverse.json"), declaration(name)]);
-    return {revision, name, source, treatments: Object.hasOwn(reverse, name) ? reverse[name] : []};
+    const [checks, audits] = await Promise.all([resource("checks.json"), resource("axiom-audits.json")]);
+    const checkIDs = Object.keys(checks).filter(id => checks[id].theorem_names.includes(name));
+    return {revision, name, source, axiomAudit: audits[name] ?? null, comparisons: comparisonOutcomes(checks, checkIDs), treatments: Object.hasOwn(reverse, name) ? reverse[name] : []};
   }
 
   async function resolve({paper, line, endLine = line, id, documentSha256}, bounds) {
@@ -129,6 +144,7 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
     for (const row of records) {
       for (const tie of row.lean) {
         const module = modules[tie.declaration];
+        if (tie.review_evidence !== "current" || tie.relation === "unassessed") continue;
         if (module && tie.file === `lean/${module.replaceAll(".", "/")}.lean`)
           root(tie.declaration, {basis: "statement_tie", statement: row.id, relation: tie.relation,
               route: tie.route, review: tie.review_evidence});
@@ -151,12 +167,7 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
           checkIDs.add(path);
       }
     }
-    const comparisons = [...checkIDs].map(path => {
-      const c = checks[path], r = c.latest_receipt;
-      return {path, role: c.role, configuredNames: c.theorem_names, permittedAxioms: c.permitted_axioms,
-              outcome: r?.negative_control ?? r?.status ?? "not_recorded",
-              currentness: r?.currentness ?? "not_recorded", receipt: r?.receipt ?? null};
-    });
+    const comparisons = comparisonOutcomes(checks, checkIDs);
     const paperData = (await resource("reading.json")).papers[paper];
     const headings = [];
     for (const h of paperData.outline) {

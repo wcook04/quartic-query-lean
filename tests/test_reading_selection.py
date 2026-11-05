@@ -69,6 +69,8 @@ assert(projection.statements.some(s => s.id === "eq-4" && s.semantic_probes.leng
 assert(projection.statements.some(s => s.id === "claim-proj-prob" &&
        s.lean.some(t => t.relation === "partial")));
 assert(projection.topics.some(t => t.note.includes("negative example")));
+assert(projection.statements.some(s => s.lean.some(t => t.review_evidence === "legacy_unbound")));
+assert(!projection.proof.some(n => n.basis.some(b => b.review === "legacy_unbound")));
 
 const capped = await resolve("exposition", "exposition/joint-event/0");
 assert(find(capped, ".Paper.eq_21").basis.some(b => b.review === "current" && b.relation === "exact"));
@@ -85,6 +87,8 @@ assert(find(head, ".alphaTot_eq_four_unconditional").basis.some(b => b.relation 
 assert(head.comparisons.some(c => c.role === "positive" && c.receipt));
 const reverse = await reader.fromDeclaration("QuarticQuery.theorem_1_1_unconditional");
 assert(reverse.treatments.some(t => t.selection === "expert/headline/0"));
+const blind = await reader.fromDeclaration("Round3.SharedBadSpec.vacuous_claim");
+assert(blind.comparisons.some(c => c.role === "negative_control" && c.outcome === "accepted_shared_bad_spec_blind_spot"));
 const eq = await resolve("expert", "expert/erased-zero/0");
 assert(eq.statements.find(s => s.id === "eq-19").lean.some(t => t.relation === "stronger"));
 const exact = await resolve("exposition", "exposition/weight/0");

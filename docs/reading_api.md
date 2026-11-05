@@ -141,7 +141,7 @@ accepts Markdown selections; it does not interpret PDF screen coordinates.
 
 `coverage` distinguishes associated targets, a documented passage without a
 target, and unmapped text. A claim marker narrows the enclosing passage's
-statement list. Each tie's relation and review apply to that corpus statement.
+statement list. Each tie's relation and review apply to that corpus statement. Current reviewed ties seed the proof neighbourhood. Historical and unassessed ties stay in the returned statement records.
 An example points to what it illustrates. An editorial constituent identifies
 a step in a proof without conferring a reviewed whole-passage equivalence.
 A named Solution reference links a compared wrapper to its implementation.
