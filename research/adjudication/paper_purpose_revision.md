@@ -658,3 +658,17 @@ The reconstruction starts from the costs imposed by the board to explain why its
 A second fresh agent reader compared two anonymously labelled nine-page extracts covering §§8.5–8.9. In the earlier order the reader went back from the stopped-process induction to the interpolation identity to recover what was being bounded. With the signal already calculated, the reader could identify the common path sum, explain why its Walsh signs cancel for the statistic, and say precisely where a tree needs a bound at nonzero bias. The earlier order offered a genuine advantage for verification: the derivative lemma came with its proof before its first use. The new order gives its full statement beside its application and begins its proof in the next subsection.
 
 A third reader followed the first seven pages of the teaching PDF without the critiques. From the worked case of initial success probability one quarter, the reader computed that beginning instead at three quarters makes the same two reflections drive the success probability to zero. One question about the example required a look ahead: had the comparison outputs already been measured? The preparation now says exactly when the answers are stored coherently. These are agent readings of the specified passages.
+
+Where two mathematically valid orders compete, the [shared reader review](https://github.com/wcook04/lean-exposition/blob/9588806d1091942d12ec245cd9c74df14762c467/docs/reader-review.md) now asks what the reader could recover in each. An editorial exercise on a spin-glass proof favoured giving endpoint contact first, so strict convexity arrived beside the chord inequality. In Euclid I.5, doing the length subtraction earlier kept the two triangle congruences together. A version which referred to a point before constructing it could be repaired directly. These two exercises were simulated readings of familiar sources. [Spin-glass proof](https://github.com/wcook04/lean-exposition/blob/b972de7cddf31c6fa27930c1479617e90a7b7275/papers/qaoa-sk/short/paper.md#L268-L298) and [Euclid I.5](https://mathcs.clarku.edu/~djoyce/java/elements/bookI/propI5.html)
+
+### Reading copies
+
+The short-paper sources and renderer used for this edition are present at `aeb9fd7ca636da7fee581882713edb5fae9bca5b`. Their links to the reconstruction use `344e7c6816966d8295f0c7caaf9008b0487161a3`.
+
+| Paper | Pages | PDF SHA-256 |
+| --- | ---: | --- |
+| Specialist | 8 | `3314426bd205db02a7589f802317b33055ba068f5230168bfd4dd1954b525b9f` |
+| Teaching | 21 | `e667cb315921842bc10de9632b32a6c0862cac531990f3d58cb6da323b722b42` |
+| Reconstruction | 89 | `54d2f36d6adbbb61465dc8e1c057797ebfb5d1dc083fdeaff18f01623f767e58` |
+
+The specialist page one now holds the board, both pairs of costs and the theorem. On page five of the teaching paper, the preparation, two reflections, worked case and general angle calculation fit together. The reconstruction reaches its conclusion on page 37. The 129 numbered equations have the same mathematical content as in the preceding edition. All 229 authored destinations survive typesetting, including the destinations for the relocated analytic proofs. Every page was inspected in overview, with the changed transitions also read at full size.
