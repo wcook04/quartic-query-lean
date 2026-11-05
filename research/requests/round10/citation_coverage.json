@@ -12,7 +12,7 @@
   "appendix_c_entries": [
     {
       "citation_key": "OpenAI2026",
-      "exact_appendix_entry": "OpenAI. *A Nearly Quartic Separation Between Randomized and Quantum Query Complexity*. 2026. [Online source](https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf). Preprint dated 5 October 2026.",
+      "exact_appendix_entry": "OpenAI. *A Nearly Quartic Separation Between Randomized and Quantum Query Complexity*. 2026. [github.com/openai/math](https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf). Preprint dated 5 October 2026.",
       "matching_bib_entry_present": true,
       "current_section": "References"
     },
@@ -193,11 +193,11 @@
   "scope": "Source-reviewed mapping of every entry in the three maintained bibliographies and Appendix C. The builder checks current bibliography/source hashes and records actual packaged coverage; availability does not establish mathematical reading or exact-edition equivalence.",
   "bibliographies": {
     "docs/expert_companion.bib": {
-      "sha256": "a41a78623220a157359ae053ff16b1ddf31920da3e620d8114aef4d78d6f1fcc",
+      "sha256": "6d941accde824007b991806c0dc7c0673f40213b726153a2e5b5f4d6328e4e57",
       "entry_count": 26
     },
     "docs/exposition.bib": {
-      "sha256": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "sha256": "300d767fadd141799774defd57876eab95e6608553c23ebeb8df86b146b4d308",
       "entry_count": 24
     },
     "docs/reasoning_record.bib": {
@@ -516,13 +516,13 @@
       "paper": "expert_companion",
       "citation_key": "Record2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/344e7c6816966d8295f0c7caaf9008b0487161a3/docs/reasoning_record.md},\n}",
+      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/7f67b5359548f8397157d3404af9122ae30bcedc/docs/reasoning_record.md},\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/344e7c6816966d8295f0c7caaf9008b0487161a3/docs/reasoning_record.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/7f67b5359548f8397157d3404af9122ae30bcedc/docs/reasoning_record.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/reasoning_record.md",
-      "edition_note": "Internal proof record pinned to 344e7c6816966d8295f0c7caaf9008b0487161a3; external literature editions unchanged.",
+      "edition_note": "Internal proof record pinned to 7f67b5359548f8397157d3404af9122ae30bcedc; external literature editions unchanged.",
       "supplementary_source_ids": [],
       "primary_annex_status": "repository_source_reference",
       "coverage_status": "repository_source_supplied"
@@ -590,7 +590,7 @@
       "paper": "exposition",
       "citation_key": "OpenAI2026",
       "bibliography_path": "docs/exposition.bib",
-      "bibtex_entry": "@misc{OpenAI2026,\n  author = {{OpenAI}},\n  title = {A Nearly Quartic Separation Between Randomized and Quantum Query Complexity},\n  year = {2026},\n  note = {Preprint, 5 October 2026},\n  url = {https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf}\n}",
+      "bibtex_entry": "@misc{OpenAI2026,\n  author = {{OpenAI}},\n  title = {A Nearly Quartic Separation Between Randomized and Quantum Query Complexity},\n  year = {2026},\n  howpublished = {Preprint, 5 October 2026},\n  url = {https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf}\n}",
       "cited_urls": [
         "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf"
       ],
@@ -2622,7 +2622,7 @@
     "source": "Lake-pinned tracked Git source; no compilation claim"
   },
   "edition_boundary": "A supplied older or different edition is not the exact cited edition. Supplementary metadata identifies the retrieved publisher/revision copies and remaining exceptions. Primary extracted.md is not automatically the text of a distinct supplementary PDF.",
-  "record_sha256": "c7bde496a7bc5cc18310e715935b3164b25b233ae2a64964be52b9b42f042ba2",
+  "record_sha256": "88745ee1341a3644f7b9c61ca682502bf9e6697358a63f4ea90a9f7114bd2289",
   "retrieval_observations": {
     "date": "2026-11-04",
     "Yao1977": "Original not retrieved: DOI 10.1109/SFCS.1977.24 redirects to IEEE document 4567946 with JavaScript verification; direct PDF request returned HTTP 418.",
@@ -2725,6 +2725,17 @@
     "previous_record_sha256": "0220023ab18f51b7166458c7f65339d0a5f3434d447244c4c0c2affe5a6354cc",
     "previous_bibliography_hashes": {
       "docs/expert_companion.bib": "3ec400ffea9db3ed51dbf2b9169b09d90d04ca0b0b85bfd03ba716c3efd9d63f",
+      "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
+    "revision_account": "research/adjudication/paper_purpose_revision.md"
+  },
+  "candidate_and_prediction_editorial_rebind": {
+    "reviewed_edition": "2e6c6932c8d51187e81657d62b09dfde9d24811e",
+    "record_source_commit": "7f67b5359548f8397157d3404af9122ae30bcedc",
+    "previous_record_sha256": "c7bde496a7bc5cc18310e715935b3164b25b233ae2a64964be52b9b42f042ba2",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "a41a78623220a157359ae053ff16b1ddf31920da3e620d8114aef4d78d6f1fcc",
       "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
       "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
     },
