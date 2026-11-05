@@ -563,3 +563,11 @@ accuracy, explain what the eight-bit example actually demonstrates, and repair
 references after moving model and circuit proofs. The repository’s prior formal
 receipts continue to describe the editions they checked. This was an editorial
 reading by agents.
+
+A further reader received only the teaching PDF, without the reviews or the
+other papers. From pages 7 and 10 it recovered the four conditional
+probabilities, predicted the distribution after another pivot, and explained
+why observing the query coordinate suffices. This was an unprimed agent
+reading. In the reconstruction, inspecting the rendered pages caught an empty
+Contents heading. The reading guide now uses the manuscript’s actual heading
+level to list the sections and appendices with their page numbers.

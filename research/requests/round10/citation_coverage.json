@@ -193,7 +193,7 @@
   "scope": "Source-reviewed mapping of every entry in the three maintained bibliographies and Appendix C. The builder checks current bibliography/source hashes and records actual packaged coverage; availability does not establish mathematical reading or exact-edition equivalence.",
   "bibliographies": {
     "docs/expert_companion.bib": {
-      "sha256": "0628873a179979d7301b03844ab45bbe26d323b544f4d957ef17b39304321273",
+      "sha256": "b90726906f03a17d47a3c19e5191711d1c8e18902bdb15e0943f34ec6bda9395",
       "entry_count": 26
     },
     "docs/exposition.bib": {
@@ -516,13 +516,13 @@
       "paper": "expert_companion",
       "citation_key": "Record2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/25908361a5832d5b243846300960379b2ea228a9/docs/reasoning_record.md},\n}",
+      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/5c676e2438c4b09ce3d4e2e9177518477f50ce2e/docs/reasoning_record.md},\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/25908361a5832d5b243846300960379b2ea228a9/docs/reasoning_record.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/5c676e2438c4b09ce3d4e2e9177518477f50ce2e/docs/reasoning_record.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/reasoning_record.md",
-      "edition_note": "Internal proof record pinned to 25908361a5832d5b243846300960379b2ea228a9; external literature editions unchanged.",
+      "edition_note": "Internal proof record pinned to 5c676e2438c4b09ce3d4e2e9177518477f50ce2e; external literature editions unchanged.",
       "supplementary_source_ids": [],
       "primary_annex_status": "repository_source_reference",
       "coverage_status": "repository_source_supplied"
@@ -2622,7 +2622,7 @@
     "source": "Lake-pinned tracked Git source; no compilation claim"
   },
   "edition_boundary": "A supplied older or different edition is not the exact cited edition. Supplementary metadata identifies the retrieved publisher/revision copies and remaining exceptions. Primary extracted.md is not automatically the text of a distinct supplementary PDF.",
-  "record_sha256": "948e988e73fcf78d35eb0e57e2492383026af980b4d49479ac357ac54af8679f",
+  "record_sha256": "7fa2ae10c5506a11fa37ad0ae7538ff15ec6cdd924a0b0e24a96bd5745fffd2b",
   "retrieval_observations": {
     "date": "2026-11-04",
     "Yao1977": "Original not retrieved: DOI 10.1109/SFCS.1977.24 redirects to IEEE document 4567946 with JavaScript verification; direct PDF request returned HTTP 418.",
@@ -2688,7 +2688,7 @@
   },
   "audience_revision_rebind": {
     "baseline": "62db93011d3c20e9b6fc4d1bb5ab55d6aaeeac75",
-    "record_source_commit": "25908361a5832d5b243846300960379b2ea228a9",
+    "record_source_commit": "5c676e2438c4b09ce3d4e2e9177518477f50ce2e",
     "previous_record_sha256": "85aa4d15709085d79952c762398be803e0a0541c4b36ef3f191eee41be421686",
     "previous_bibliography_hashes": {
       "docs/expert_companion.bib": "247bdf4fa89e003cb2a2746b05521598dc752285d9aef1bf4a18b4f2943b41a1",
