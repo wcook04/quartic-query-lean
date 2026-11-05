@@ -1,6 +1,8 @@
 """Reader-facing contracts that a successful paper render alone cannot verify."""
 import hashlib
 import json
+import shutil
+from html.parser import HTMLParser
 from pathlib import Path
 import subprocess
 import sys
@@ -41,6 +43,61 @@ class ReadingEditionTest(unittest.TestCase):
                 start, end = span["declaration"]
                 self.assertIn(name.rsplit(".", 1)[-1], "\n".join(lines[start - 1:end]))
                 self.assertIn(label, reverse["declarations"][name]["targets"])
+
+    def test_board_tasks_and_their_bound_entrance(self):
+        known, hidden, pointers = self.resource(self.reading["board_example"])["scenes"]
+        self.assertEqual(known["selections"][0]["id"], self.reading["entrances"]["exposition"]["first_selection"])
+        differences = [(r+1, c+1) for r, row in enumerate(known["original"]) for c, bit in enumerate(row)
+                       if bit != known["alternative"][r][c]]
+        self.assertEqual(differences, [(4, 1)])
+        self.assertEqual(hidden["fixed_row_strategy"][2],
+                         {"rows_read": 2, "queries_per_board": 8, "difference_seen": {"numerator": 2, "denominator": 4}})
+        self.assertEqual(pointers["correct_target_bits"], [0, 0, 0])
+        self.assertEqual(pointers["altered_target_bits"], [1, 0, 0])
+        self.assertEqual(pointers["rival_target_bits"], [1, 1, 1])
+
+    @unittest.skipUnless(shutil.which("pandoc"), "Pandoc needed for the web manuscript export")
+    def test_whole_manuscripts_preserve_math_tables_destinations_and_sources(self):
+        edition = api.Edition(api.ROOT)
+        api.compile_edition(edition, web_manuscripts=True)
+        papers = json.loads(edition.resources["reading.json"])["papers"]
+        class Tags(HTMLParser):
+            def handle_starttag(self, tag, attrs):
+                tags.append((tag, dict(attrs)))
+        for key in [*api.PAPERS, "verification"]:
+            descriptor = papers[key]
+            tags = []
+            Tags().feed(edition.resources[descriptor["rendered"]["resource"]].decode())
+            ids = [a["id"] for _, a in tags if "id" in a]
+            self.assertEqual(len(ids), len(set(ids)))
+            for _, a in tags:
+                if a.get("href", "").startswith("#"):
+                    self.assertIn(a["href"][1:], ids)
+            figures = {a["data-resource"] for tag, a in tags if tag == "img"}
+            self.assertEqual(figures, set(descriptor["assets"]))
+            if key in ("exposition", "expert"):
+                cited_keys = {k for _, a in tags for k in a.get("data-cites", "").split()}
+                linked_refs = {a["href"] for _, a in tags if a.get("role") == "doc-biblioref"}
+                self.assertTrue(cited_keys)
+                self.assertTrue({"#ref-" + k for k in cited_keys} <= linked_refs)
+                notes = {a["id"]: a["href"] for _, a in tags if a.get("role") == "doc-noteref"}
+                backlinks = {a["href"] for _, a in tags if a.get("role") == "doc-backlink"}
+                self.assertEqual(set(notes), {ref[1:] for ref in backlinks})
+                self.assertTrue(notes)
+                for ref, dest in notes.items():
+                    self.assertRegex(dest, r"^#fn[0-9]+$")
+                    self.assertEqual(ref, "fnref" + dest[3:])
+            if key == "reconstruction":
+                self.assertIn("ROOT-RESULT", ids)
+                self.assertTrue(any(tag == "table" for tag, _ in tags))
+                self.assertTrue(any(a.get("class") == "math display" for _, a in tags))
+                self.assertTrue(any(a.get("data-paper") == "exposition" for _, a in tags))
+            if key == "exposition":
+                self.assertTrue(any(i.startswith("fnref") for i in ids))
+                self.assertTrue(any(i.startswith("ref-") for i in ids))
+                first = self.resource("selection/board.json")["scenes"][0]["selections"][0]
+                start = first["lines"][0]
+                self.assertTrue(any(int(a["data-l0"]) == start for _, a in tags if "data-l0" in a))
 
     def test_four_papers_and_distinct_coverage_units(self):
         self.assertEqual(set(self.reading["paper_ids"]), {*api.PAPERS, "original"})

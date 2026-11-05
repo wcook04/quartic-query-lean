@@ -1,5 +1,6 @@
 """Join authored reading paths to source sites and captured Lean application arguments."""
 from collections import defaultdict
+from fractions import Fraction
 import hashlib
 import re
 
@@ -159,5 +160,24 @@ def application_resources(edition, graph, nodes, topics):
             steps.append(result)
         for name in sorted(declarations):
             index["by_declaration"][name].append(ident)
-        edition.add(path, {**journey, "steps": steps})
+        presentation = {}
+        if "overview" in journey:
+            seen = set()
+            assigned = []
+            for stage in journey["overview"]:
+                if stage["id"] in seen or set(stage["after"]) - seen:
+                    raise ValueError(f"{ident}: invalid reading order in overview")
+                seen.add(stage["id"])
+                assigned.extend(stage["steps"])
+            if sorted(assigned) != sorted(s["id"] for s in steps):
+                raise ValueError(f"{ident}: overview must assign every inspected step exactly once")
+            if ident == "forrelation-family":
+                presentation["scaling"] = {
+                    "topic": "exponent", "scope": "leading_powers_ignoring_logarithmic_factors",
+                    "parameters": "For each proposed exponent below four, choose k large enough, keep k fixed, then let t grow in the admissible family.",
+                    "examples": [{"k": k, "quantum_power_in_m": "1/2",
+                                  "classical_power_in_m": str(Fraction(2*k-1, k)),
+                                  "classical_power_in_sqrt_m": str(Fraction(4*k-2, k))}
+                                 for k in (2, 3, 4, 8, 16)]}
+        edition.add(path, {**journey, **presentation, "steps": steps})
     edition.add("selection/applications.json", index)

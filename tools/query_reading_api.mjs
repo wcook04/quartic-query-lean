@@ -2,17 +2,14 @@
 import {readFile} from "node:fs/promises";
 import {pathToFileURL, fileURLToPath} from "node:url";
 import {resolve as absolute} from "node:path";
-import {createHash} from "node:crypto";
+import {loadEditionResources} from "./reader.mjs";
 
 export async function openLocalOrHTTP(location) {
   const url = /^https?:/.test(location) ? new URL(location) : pathToFileURL(absolute(location));
-  const request = async address => address.protocol === "file:"
-    ? new Response(await readFile(fileURLToPath(address))) : fetch(address);
-  const manifest = await (await request(url)).json();
-  const entry = manifest.resources["reader.mjs"];
-  const raw = Buffer.from(await (await request(new URL(entry.href, url))).arrayBuffer());
-  if (createHash("sha256").update(raw).digest("hex") !== entry.sha256)
-    throw new Error("Selection client differs from the edition manifest");
+  const request = async (address, options) => address.protocol === "file:"
+    ? new Response(await readFile(fileURLToPath(address))) : fetch(address, options);
+  const {manifest, readBytes} = await loadEditionResources(url, {fetch: request});
+  const raw = Buffer.from(await readBytes("reader.mjs"));
   const {openReader} = await import("data:text/javascript;base64," + raw.toString("base64"));
   // Pass the immutable manifest so a concurrent export cannot switch our edition.
   return openReader(new URL(manifest.permalink, url), {fetch: request, expectedRevision: manifest.revision});

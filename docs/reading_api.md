@@ -15,6 +15,50 @@ adjudication and compares the paper sources with the pinned print revision.
 A Markdown-only build returns an empty `downloads` object. A build with PDFs
 returns the three download resources in `reading.json`.
 
+## Browser edition
+
+Run `make reading-web` with Pandoc on PATH to package the three manuscripts
+and verification supplement as HTML. To include accepted PDFs in the same
+export, pass `--web-manuscripts` alongside the existing print options.
+The source-only export remains available. Record the Pandoc version when
+comparing editions; HTML is content-addressed alongside its source.
+
+Bundle [the reader module](../tools/reader.mjs) with the app. Pass a trusted
+deployment directory ending in a slash to `openEdition`; only its optional
+`edition` filename comes from a shared link. The loader validates the manifest
+against its permalink, constrains object paths, rejects redirects, and checks
+byte length and SHA-256. Use `reader.resource(path)` for JSON, `readText(path)`
+for text and `readBytes(path)` for PDF or SVG bytes. Present bundled PDFs and
+images using typed Blob URLs created from those bytes; revoke them when done.
+The optional upstream PDF link opens the publisher's copy separately.
+
+`reader.manuscript(paper)` returns the paper descriptor and its HTML fragment
+(or null HTML for the original PDF and older source-only editions). Render the
+descriptor title, the fragment, and its complete TeX math spans. Images carry
+`data-resource`; pass each path to `await reader.figure(paper, path)` for a verified SVG Blob scoped to that manuscript. Set an image’s source to `URL.createObjectURL(blob)` and revoke the URL when the image is removed. Route local links marked
+`data-paper` and optional `data-fragment` within the reader. Fragment-only
+links target existing IDs in the same paper. Preserve external revision pins.
+Pandoc resolves citations against that manuscript’s packaged bibliography. Numbered footnotes and their return links use the IDs in the fragment. The export rejects duplicate IDs, unresolved citations and dangling internal destinations. Render each paper in its own document or scope anchor lookup to the active paper: different papers can both use `fn1`. Its
+`data-l0` and `data-l1` describe inclusive source line groups. A group can
+contain multiple selections; present the applicable choices. Resolve the
+chosen selection for exact passage text. Keep paper markup intact when
+opening or closing evidence.
+
+`resolve()` returns a serializable `position`. `reader.restore(position)`
+requires the same immutable edition and document digest. Keep focus, viewport
+offset and proof-pane mode as UI state alongside that position. Passive
+scrolling should not replace an explicitly pinned selection or push history.
+
+Read `reading.json.board_example` via `reader.resource` for the three worked
+scenes. Each scene includes selections in the current exposition. Arrays are in
+printed row order and coordinates start at one. The known pair supplies both
+boards and their one distinguishing query. The hidden-zero probabilities apply
+to querying the first h complete rows of the coupled boards. Yes/no certificates
+apply to an unknown board. The pointer example supplies the correct and altered
+targets and the rival replies, with the comparison rule and outcome. Its scope
+is an illustration. The exposition entrance's `first_selection` starts with
+the question above the table.
+
 ## The four papers and their Lean coverage
 
 Use `reading.json.paper_ids` for the paper switcher. The verification appendix is
@@ -179,11 +223,9 @@ and objects to revisit a specific edition, including its optional print download
 The client can run in a browser or Node 18+. No service process is required.
 
 ```js
-const entry = new URL("/v1/index.json", location.origin);
-const initial = await (await fetch(entry)).json();
-const pinned = new URL(initial.permalink, entry);
-const {openReader} = await import(new URL(initial.resources["reader.mjs"].href, pinned));
-const reader = await openReader(pinned, {expectedRevision: initial.revision});
+// Bundle the repository client with the frontend. apiRoot is deployment configuration.
+import {openEdition} from "./tools/reader.mjs";
+const reader = await openEdition(apiRoot, {edition: sharedEditionFilename});
 const selection = await reader.resolve({paper: "reconstruction", id: "passage/upper-weight-drift"});
 ```
 
@@ -253,6 +295,16 @@ any edition. A plain clone builds the Markdown reader by itself. Publishing a
 new print edition requires its accepted output bytes and adjudication.
 
 ## Inspect a theorem application
+
+The returned `forrelation-family` journey includes an authored `overview`.
+Use its stage IDs and `after` lists to place the quantum and classical arguments
+beside each other. The assembly stage opens the existing shared-board witness.
+These edges describe the mathematical reading order. Expand a step to see its
+separately recorded Lean applications and graph edges. The `scaling` examples
+give exact rational leading powers for a small choice of fixed k, including
+7/2 at k = 4, together with the order of the quantifiers. Display the
+logarithmic qualification whenever showing these powers.
+
 
 Open a journey from a selected passage, a Lean declaration, or the edition's
 application index at `reading.json → applications`. The five entries cover

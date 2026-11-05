@@ -242,6 +242,64 @@
         "QuarticQuery.BansalSinhaLower",
         "QuarticQuery.FamilyBoundsAt",
         "QuarticQuery.UniversalPower"
+      ],
+      "overview": [
+        {
+          "id": "construction",
+          "title": "Construct the board and choose its circuit",
+          "steps": [
+            "board",
+            "exact-circuit"
+          ],
+          "after": []
+        },
+        {
+          "id": "quantum",
+          "title": "Read and verify a short list of candidates",
+          "steps": [
+            "sample-address",
+            "promised-address",
+            "upper-cost"
+          ],
+          "after": [
+            "construction"
+          ]
+        },
+        {
+          "id": "classical",
+          "title": "Use address hardness to bound what classical queries reveal",
+          "steps": [
+            "classical-instance",
+            "eventual-hardness"
+          ],
+          "after": [
+            "construction"
+          ]
+        },
+        {
+          "id": "assembly",
+          "title": "Apply both bounds to the same total function",
+          "steps": [
+            "common-circuit"
+          ],
+          "after": [
+            "quantum",
+            "classical"
+          ]
+        },
+        {
+          "id": "exponent",
+          "title": "Exclude each exponent below four",
+          "steps": [
+            "choose-order",
+            "grow-size",
+            "universal-upper",
+            "infimum"
+          ],
+          "after": [
+            "assembly"
+          ]
+        }
       ]
     },
     {

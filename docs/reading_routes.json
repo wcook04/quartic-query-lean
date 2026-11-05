@@ -236,7 +236,8 @@
         "comparison",
         "address",
         "exponent"
-      ]
+      ],
+      "first_selection": "exposition/known-pair/0"
     },
     "expert": {
       "audience": "Researchers familiar with query complexity",
@@ -654,5 +655,49 @@
       "target": "verification"
     }
   ],
-  "semantic_answers_lean_snapshot": "0d109ea9e9b7f4a766640d406409e30589fb4c5a4e645b6d6888569fa2edf29f"
+  "semantic_answers_lean_snapshot": "0d109ea9e9b7f4a766640d406409e30589fb4c5a4e645b6d6888569fa2edf29f",
+  "board_scenes": [
+    {
+      "id": "known-pair",
+      "question": "Which one bit distinguishes these two tables?",
+      "quotes": {
+        "exposition": [
+          "Does any column in this table have a one in every row?",
+          "| Row 4 | 0 | 1 | 1 | 1 |",
+          "Read down column 1.",
+          "Cover all sixteen numbers."
+        ]
+      },
+      "bound_at": {
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "hidden-zeros",
+      "question": "What changes when the differing square is hidden?",
+      "quotes": {
+        "exposition": [
+          "What if we move the zeros around before covering the numbers?",
+          "On a table with $m$ rows and $m$ columns"
+        ]
+      },
+      "bound_at": {
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "pointer-check",
+      "question": "Can the same comparison outcomes hide an invalid certificate?",
+      "quotes": {
+        "exposition": [
+          "To obtain a yes answer on the enlarged board,",
+          "For any two columns we use the same rule.",
+          "Could we declare a column the winner just because every comparison returns its number?"
+        ]
+      },
+      "bound_at": {
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    }
+  ]
 }

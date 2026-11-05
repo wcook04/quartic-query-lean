@@ -24,3 +24,7 @@ check-index:
 .PHONY: reading-api
 reading-api: check-generated
 	python3 tools/build_reading_api.py --output build/reading-api/v1
+
+.PHONY: reading-web
+reading-web: check-generated
+	python3 tools/build_reading_api.py --web-manuscripts --output build/reading-api/v1

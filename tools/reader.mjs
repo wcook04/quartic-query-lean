@@ -1,34 +1,81 @@
-// Read-only client for the static Quartic selection API. All mathematical joins
-// and graph edges come from the captured edition. No text similarity search.
-export async function openReader(indexURL, {fetch: request = globalThis.fetch, expectedRevision} = {}) {
+// Import this client with the application. Only edition data comes from shared links.
+const editionName = /^edition-[a-f0-9]{64}\.json$/;
+
+async function sha256(raw) {
+  const crypto = globalThis.crypto || (await import("node:crypto")).webcrypto;
+  const hash = new Uint8Array(await crypto.subtle.digest("SHA-256", raw));
+  return Array.from(hash, b => b.toString(16).padStart(2, "0")).join("");
+}
+
+// The exporter emits sorted JSON keys, UTF-8, compact separators and one LF.
+function canonical(value) {
+  if (Array.isArray(value)) return "[" + value.map(canonical).join(",") + "]";
+  if (value && typeof value === "object")
+    return "{" + Object.keys(value).sort().map(k => JSON.stringify(k) + ":" + canonical(value[k])).join(",") + "}";
+  return JSON.stringify(value);
+}
+
+export async function openEdition(apiRoot, {edition, ...options} = {}) {
+  const root = new URL(apiRoot);
+  if (!root.pathname.endsWith("/") || root.search || root.hash) throw new Error("Expected a reading API directory");
+  if (edition != null && (typeof edition !== "string" || !editionName.test(edition)))
+    throw new Error("Invalid edition permalink");
+  return openReader(new URL(edition ?? "index.json", root), options);
+}
+
+export async function loadEditionResources(indexURL, {fetch: request = globalThis.fetch, expectedRevision} = {}) {
   const index = new URL(indexURL);
+  const name = index.pathname.split("/").pop();
+  if ((name !== "index.json" && !editionName.test(name)) || index.search || index.hash)
+    throw new Error("Invalid edition manifest URL");
   async function bytes(url) {
-    const response = await request(url);
-    if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
+    const response = await request(url, {redirect: "error"});
+    if (!response.ok || response.redirected || (response.url && response.url !== url.href))
+      throw new Error(`Reading resource unavailable: ${url.pathname}`);
     return response.arrayBuffer();
   }
-  const decode = raw => new TextDecoder().decode(raw);
+  const decode = raw => new TextDecoder("utf-8", {fatal: true}).decode(raw);
   const manifest = JSON.parse(decode(await bytes(index)));
+  const {permalink, ...payload} = manifest;
   const revision = manifest.revision;
-  if (manifest.schema !== "quartic-reading-api-v1" || (expectedRevision && expectedRevision !== revision))
-    throw new Error("Reading edition mismatch");
-
+  if (manifest.schema !== "quartic-reading-api-v1" || !/^[a-f0-9]{40}$/.test(revision) ||
+      (expectedRevision && expectedRevision !== revision)) throw new Error("Reading edition mismatch");
+  const digest = await sha256(new TextEncoder().encode(canonical(payload) + "\n"));
+  if (permalink !== `edition-${digest}.json` || (name !== "index.json" && name !== permalink))
+    throw new Error("Edition manifest differs from its permalink");
+  for (const [path, entry] of Object.entries(manifest.resources)) {
+    const ext = path.match(/\.[a-z0-9]+$/)?.[0] ?? "";
+    if (!/^[a-f0-9]{64}$/.test(entry.sha256) || entry.href !== `objects/${entry.sha256}${ext}` ||
+        !Number.isSafeInteger(entry.bytes) || entry.bytes < 0) throw new Error("Invalid edition resource: " + path);
+  }
   const cache = new Map();
-  function resource(path) {
+  function verified(path) {
+    if (!Object.hasOwn(manifest.resources, path)) throw new Error("Missing edition resource: " + path);
     if (!cache.has(path)) {
       const entry = manifest.resources[path];
-      if (!entry) throw new Error(`Missing edition resource: ${path}`);
       cache.set(path, bytes(new URL(entry.href, index)).then(async raw => {
-        if (raw.byteLength !== entry.bytes) throw new Error(`Incomplete resource: ${path}`);
-        const crypto = globalThis.crypto || (await import("node:crypto")).webcrypto;
-        const sum = new Uint8Array(await crypto.subtle.digest("SHA-256", raw));
-        const hex = Array.from(sum, b => b.toString(16).padStart(2, "0")).join("");
-        if (hex !== entry.sha256) throw new Error(`Resource hash differs from edition: ${path}`);
-        return path.endsWith(".json") ? JSON.parse(decode(raw)) : decode(raw);
+        if (raw.byteLength !== entry.bytes || await sha256(raw) !== entry.sha256)
+          throw new Error("Resource differs from edition: " + path);
+        return raw;
       }).catch(error => { cache.delete(path); throw error; }));
     }
     return cache.get(path);
   }
+  const readBytes = async path => (await verified(path)).slice(0);
+  const readText = async path => decode(await verified(path));
+  const data = new Map();
+  async function resource(path) {
+    if (!data.has(path)) {
+      const text = await readText(path);
+      data.set(path, path.endsWith(".json") ? JSON.parse(text) : text);
+    }
+    return data.get(path);
+  }
+  return {manifest, revision, permalink, readBytes, readText, resource};
+}
+
+export async function openReader(indexURL, options) {
+  const {manifest, revision, permalink, readBytes, readText, resource} = await loadEditionResources(indexURL, options);
   const selection = await resource("selection/index.json");
   if (selection.revision !== revision) throw new Error("Mixed paper and graph editions");
   const {modules, documents} = selection;
@@ -253,7 +300,9 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
     const citations = [...(text || "").matchAll(/@([A-Za-z][\w:-]*)/g)].map(m => m[1]);
     const applications = await applicationIndex();
     const byStatement = await resource("selection/by-statement.json");
-    return {revision, document: doc, paper, lines, page, text, matches, comparisons,
+    const position = {edition: permalink, paper, documentSha256: doc.sha256,
+      ...(id != null ? {id} : pdf ? {page} : {line, endLine})};
+    return {revision, position, document: doc, paper, lines, page, text, matches, comparisons,
       relatedSelections: records.map(s => ({statement: s.id, selections: byStatement[s.id].filter(r => r.paper !== paper)})),
       location: pdf ? {page, url: `${doc.url}#page=${page}`, ...(id ? matches[0].location : {})} : null,
       context: {headings, figures, bibliography: paperData.bibliography, citationKeys: [...new Set(citations)]},
@@ -266,5 +315,26 @@ export async function openReader(indexURL, {fetch: request = globalThis.fetch, e
       editorialLinks: argumentsData.links.filter(e => topics.includes(e.source) || topics.includes(e.target)),
       statements: records, cited, proof, graph: selection.graph, citedLeanRevision: selection.registry_revision};
   }
-  return {revision, documents, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
+  async function restore(position, bounds) {
+    if (position?.edition !== permalink || !position.documentSha256)
+      throw new Error("Reading position belongs to a different edition");
+    return resolve(position, bounds);
+  }
+
+  async function manuscript(paper) {
+    if (!Object.hasOwn(documents, paper)) throw new Error("Unknown paper");
+    const descriptor = (await resource("reading.json")).papers[paper];
+    if (!descriptor.rendered) return {descriptor, html: null};
+    if (descriptor.rendered.source_sha256 !== documents[paper].sha256)
+      throw new Error("Rendered manuscript belongs to a different source");
+    return {descriptor, html: await readText(descriptor.rendered.resource)};
+  }
+  async function figure(paper, path) {
+    const papers = (await resource("reading.json")).papers;
+    if (!Object.hasOwn(papers, paper) || !papers[paper].assets?.includes(path))
+      throw new Error("Figure does not belong to this manuscript");
+    if (!path.endsWith(".svg")) throw new Error("Unrecognized figure format");
+    return new Blob([await readBytes(path)], {type: "image/svg+xml"});
+  }
+  return {revision, permalink, documents, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
 }

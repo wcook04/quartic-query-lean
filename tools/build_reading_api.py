@@ -14,6 +14,7 @@ from zipfile import ZipFile, BadZipFile
 from build_comparator_map import PASSAGE, lean_blocks, record_passages
 from reading_evidence import evidence_resources
 from original_preprint import original_paper
+from reading_manuscripts import manuscript_resources
 from reading_selection import audit_bindings, selection_resources
 from build_lean_links import RECORD_LINK, REPOSITORY, USE, statement_end
 
@@ -211,7 +212,7 @@ def print_downloads(edition, folder, accepted):
     return downloads
 
 
-def compile_edition(edition, pdf_directory=None, original_pdf=None):
+def compile_edition(edition, pdf_directory=None, original_pdf=None, web_manuscripts=False):
     config = edition.json(ROUTES)
     routes = unique(config["routes"], "id")
     link_registry = edition.json("docs/lean_links.json")
@@ -314,10 +315,12 @@ def compile_edition(edition, pdf_directory=None, original_pdf=None):
         raise ValueError("unknown first selection for the OpenAI paper")
     coverage = selection_resources(edition, config, papers, texts, passages, compiled, statements,
                                    links, comparison, locate_quote, original, original_rows)
+    if web_manuscripts:
+        manuscript_resources(edition, papers, texts, REPOSITORY)
     papers["original"] = original
     edition.add("reading.json", {"papers": papers, "entrances": entrances,
                "paper_ids": [*PAPERS, "original"], "supplement_ids": ["verification"],
-               "coverage": coverage,
+               "coverage": coverage, "board_example": "selection/board.json",
                "applications": "selection/applications.json",
                "downloads": print_downloads(edition, pdf_directory, config["print_edition"]),
                "fidelity": {ident: f"fidelity/{ident}.json" for ident in statements},
@@ -391,6 +394,7 @@ def main():
     mode.add_argument("--check", action="store_true", help="validate working sources without writing")
     mode.add_argument("--output", type=Path, help="export the committed edition to this directory")
     parser.add_argument("--original-pdf", type=Path, help="bundle a hash-verified copy of the OpenAI preprint")
+    parser.add_argument("--web-manuscripts", action="store_true", help="include Pandoc HTML fragments with verified source ranges")
     media = parser.add_mutually_exclusive_group()
     media.add_argument("--pdf-archive", type=Path, help="portable ZIP of the three adjudicated render outputs")
     media.add_argument("--pdf-directory", type=Path, help="include the adjudicated three-paper render directory")
@@ -404,9 +408,9 @@ def main():
             return int(bool(report["needs_review"]))
         if args.pdf_archive:
             with ZipFile(args.pdf_archive) as archive:
-                compile_edition(edition, archive, args.original_pdf)
+                compile_edition(edition, archive, args.original_pdf, args.web_manuscripts)
         else:
-            compile_edition(edition, args.pdf_directory, args.original_pdf)
+            compile_edition(edition, args.pdf_directory, args.original_pdf, args.web_manuscripts)
         if args.output:
             export(edition, args.output)
         print(f"Quartic reading API: {len(edition.resources)} resources validated")

@@ -166,6 +166,53 @@ class ReaderConsumerTests(unittest.TestCase):
 import assert from "node:assert/strict";
 import {openLocalOrHTTP} from "./tools/query_reading_api.mjs";
 const reader = await openLocalOrHTTP(process.argv[2]);
+// Shared links supply filenames only. Exercise the browser's trusted client
+// under a deployment prefix with the real export as a mock static host.
+const {openEdition, loadEditionResources} = await import("./tools/reader.mjs");
+const {readFile} = await import("node:fs/promises");
+const {dirname, join} = await import("node:path");
+const {createHash} = await import("node:crypto");
+const base = new URL("https://example.test/quartic/v1/");
+const folder = dirname(process.argv[2]);
+const info = JSON.parse(await readFile(process.argv[2]));
+let count = 0, corrupt = false, corruptFigure;
+async function request(url, opts) {
+  count++;
+  assert.equal(opts.redirect, "error");
+  assert(url.href.startsWith(base.href));
+  const path = url.href.slice(base.href.length);
+  const bytes = await readFile(join(folder,path));
+  if (corrupt && path === info.resources["docs/exposition.md"].href) bytes[0] ^= 1;
+  if (path === corruptFigure) bytes[0] ^= 1;
+  return new Response(bytes);
+}
+for (const bad of ["//outside.test/m.json","https://outside.test/index.json","../index.json","%2e%2e/foo","index.json"])
+  await assert.rejects(openEdition(base,{edition:bad,fetch:request}),/Invalid edition permalink/);
+assert.equal(count,0);
+const trusted = await openEdition(base,{edition:info.permalink,fetch:request});
+const first = await trusted.resolve({paper:"original",id:"original/thm-1.1"});
+assert.equal((await trusted.restore(first.position)).location.page,1);
+await assert.rejects(trusted.restore({...first.position,edition:"other"}),/different edition/);
+await assert.rejects(trusted.restore({...first.position,documentSha256:"other"}),/different manuscript/);
+corrupt = true;
+await assert.rejects(trusted.readText("docs/exposition.md"), /differs/);
+corrupt = false;
+assert((await trusted.readText("docs/exposition.md")).includes("Finding a column"));
+const img = (await trusted.resource("reading.json")).papers.exposition.assets[0];
+await assert.rejects(trusted.figure("original",img),/does not belong/);
+corruptFigure = info.resources[img].href;
+await assert.rejects(trusted.figure("exposition",img), /differs/);
+corruptFigure = undefined;
+const svg = await trusted.figure("exposition",img);
+assert.equal(svg.type,"image/svg+xml");
+assert((await svg.text()).includes("<svg"));
+const badManifest = {...info, repository:"changed"};
+await assert.rejects(loadEditionResources(new URL(info.permalink,base),{fetch:async()=>Response.json(badManifest)}),/permalink/);
+const dangerous = JSON.parse(JSON.stringify(info));
+dangerous.resources["reader.mjs"].href = "https://outside.test/reader.mjs";
+delete dangerous.permalink;
+dangerous.permalink = "edition-"+createHash("sha256").update(JSON.stringify(dangerous)+"\n").digest("hex")+".json";
+await assert.rejects(loadEditionResources(new URL(dangerous.permalink,base),{fetch:async()=>Response.json(dangerous)}),/Invalid edition resource/);
 const resolve = (paper, id) => reader.resolve({paper, id});
 const find = (r, name) => r.proof.find(n => n.name.endsWith(name));
 const review = await reader.statementReview("thm-1.1");
@@ -242,6 +289,8 @@ assert(capped.journeys.includes("capped-predictor"));
 const simulator = await reader.journey("capped-predictor");
 assert(simulator.steps.some(step => step.text.includes("avg_resample") && step.text.includes("T J A i t")));
 const family = await reader.journey("forrelation-family");
+assert.deepEqual(family.overview.find(g => g.id === "assembly").after, ["quantum","classical"]);
+assert.equal(family.scaling.examples.find(e => e.k === 4).classical_power_in_sqrt_m,"7/2");
 const lower = family.steps.flatMap(s => s.uses).find(u => u.declaration.endsWith(".Gvalue_lt_R_addressedF"));
 const inst = lower.compiled_uses_in_caller.find(t => t.arguments.some(a => a.binder === "hC"));
 assert(inst.arguments.some(a => a.binder === "f" && a.argument.includes("P k t")));

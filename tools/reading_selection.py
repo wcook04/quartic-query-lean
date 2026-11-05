@@ -7,6 +7,7 @@ import subprocess
 from build_comparator_map import CLAIM, PASSAGE, lean_blocks
 from build_corpus import canonical_sha256, source_hashes
 from reading_applications import application_resources
+from reading_board import board_example
 
 
 def sha(raw):
@@ -102,7 +103,7 @@ def audit_bindings(edition, manuscript_root, documents, config, locate_quote):
     checked = 0
     contexts = 0
     affected = {}
-    for row in config["routes"] + config["selections"]:
+    for row in config["routes"] + config["selections"] + config["board_scenes"]:
         start = len(issues)
         for passage, revision in row.get("context_passages", {}).items():
             contexts += 1
@@ -112,12 +113,12 @@ def audit_bindings(edition, manuscript_root, documents, config, locate_quote):
                 issues.append({"id": row["id"], "kind": "prerequisite_changed", "passage": passage,
                                "bound_at": revision, "draft_sha256": passages.get(passage, {}).get("sha256"),
                                "reason": str(error)})
-        anchor = row.get("reconstruction") or row["passage"]
+        anchor = row.get("reconstruction") or row.get("passage")
         selectors = [(k, {"quote": q}) for k, quotes in row.get("quotes", {}).items() for q in quotes]
         selectors.extend((k, {"quote": row[k]}) for k in ("expert", "exposition") if k in row)
         if anchor in passages:
             selectors.append((passages[anchor]["document"], {"passage": anchor}))
-        else:
+        elif anchor is not None:
             issues.append({"id": row["id"], "kind": "locator_unresolved", "missing_passage": anchor})
         for paper, selector in selectors:
             checked += 1
@@ -272,6 +273,16 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
         if ref not in by_name[name]:
             by_name[name].append(ref)
 
+    scenes = {}
+    for scene in config["board_scenes"]:
+        rows = []
+        for i, quote in enumerate(scene["quotes"]["exposition"]):
+            loc = binding.check(scene, "exposition", quote=quote)
+            rows.append(add("exposition", f"exposition/{scene['id']}/{i}", loc, treatment="worked_example"))
+        scenes[scene["id"]] = {"id": scene["id"], "question": scene["question"], "selections": rows}
+    if config["entrances"]["exposition"]["first_selection"] != scenes["known-pair"]["selections"][0]["id"]:
+        raise ValueError("exposition must open on the query example")
+    edition.add("selection/board.json", board_example(texts["exposition"], scenes))
     selections["original"] = original_rows
     document_index = {p: {"path": path, "format": "markdown", "sha256": sha(edition.read(path)),
                           "lines": len(texts[p].splitlines())} for p, path in documents.items()}

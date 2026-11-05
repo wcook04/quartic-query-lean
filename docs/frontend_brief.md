@@ -17,7 +17,7 @@ In the first 20–30 seconds, help a visitor understand what the separation meas
 
 ## Wire the paper before styling the graph
 
-Use the [reading API](reading_api.md#resolve-a-paper-selection) to open one immutable edition and its matching JavaScript client. Start from the existing export if available, or run `make reading-api` in a full checkout. Serve `build/reading-api` as static files. Resolve assets through the manifest relative to its URL, including when hosted under a subdirectory. Fetch `reading.json` for the paper list, entrances and downloads. Keep the edition permalink, paper ID and selection ID in shared links. On an edition mismatch, let the reader reopen the cited edition. Populate the switcher from the edition’s paper IDs and use its supplement IDs separately. On manuscript revisions, run the [binding audit](reading_api.md#revise-the-papers-and-retain-earlier-readings) before promoting the new edition.
+Use the [reading API](reading_api.md#resolve-a-paper-selection) to open one immutable edition through the client bundled with the frontend. Start from the existing export if available, or run `make reading-web` in a full checkout with Pandoc. Serve `build/reading-api` as static files. Resolve assets through the manifest relative to its URL, including when hosted under a subdirectory. Fetch `reading.json` for the paper list, entrances and downloads. Keep the edition permalink, paper ID and selection ID in shared links. On an edition mismatch, let the reader reopen the cited edition. Populate the switcher from the edition’s paper IDs and use its supplement IDs separately. On manuscript revisions, run the [binding audit](reading_api.md#revise-the-papers-and-retain-earlier-readings) before promoting the new edition.
 
 | When the reader… | Use the backend this way |
 | --- | --- |
@@ -27,6 +27,8 @@ Use the [reading API](reading_api.md#resolve-a-paper-selection) to open one immu
 | Switches accounts or goes Back | Offer the returned related selections or topic treatments, with the passage’s role. Retain the reader’s selected passage, open mode, scroll and keyboard focus. On a phone, let them open the proof as a separate view with a visible return to the same sentence. |
 
 Keep uncertainty local to the control it affects. For unmapped prose, keep the paper readable. For a partial match, show what the declaration covers. For missing axiom evidence, say “No axiom report for this declaration.” Reserve an empty axiom list for a current inspection that actually returned one. When an inspection is stale, keep its historical status visible and use the source for the chosen edition. Treat semantic examples as checks of their stated cases. A paper-wide verification percentage cannot be derived from the number of links.
+
+Use the [browser edition](reading_api.md#browser-edition) for the actual UI. Bundle `openEdition` with the app, load the prepared HTML with `manuscript()`, load its figure resources with `figure(paper, path)`, and persist the `position` that `resolve()` returns. The edition supplies the board scenarios, predictions and opening passage. Keep the known one-query decision, unknown-board certificates and enlarged-board pointer check distinct.
 
 ## Walk through these before calling the frontend ready
 
@@ -45,4 +47,4 @@ node tools/query_reading_api.mjs "$manifest" --statement def-R
 3. **Try to break a definition.** From the randomized-query definition, open the one-bit identity example. The reader should be able to explain why choosing an algorithm after seeing the input changes the answer, and inspect the Lean that checks the example.
 4. **Try a gap.** Open page 19 of the original. The PDF should still open when the page has no indexed claim. Test a missing optional download, a stale selection and an unavailable proof resource. Preserve the paper and give a usable return path.
 
-Check focus after closing the proof, readable math at narrow widths, a keyboard-accessible list of graph neighbours, and whether a direct link works in a fresh tab. Capture the actual headline comparison on desktop and the passage-to-proof round trip on mobile for review.
+Check focus after closing the proof, readable math at narrow widths, a keyboard-accessible list of graph neighbours, and whether a direct link works in a fresh tab. In the general exposition, follow a citation into the bibliography, then follow a numbered footnote and its backlink. Open a real manuscript figure from a nested deployment URL. Keep the reader’s paper selection throughout. Capture the actual headline comparison on desktop and the passage-to-proof round trip on mobile for review.

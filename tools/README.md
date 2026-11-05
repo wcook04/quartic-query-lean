@@ -481,3 +481,8 @@ binds them to manuscript topics and exact source excerpts.
 and axiom collector for the [statement comparison reader](../docs/reading_api.md#compare-a-paper-result-with-lean).
 The [recorder](record_reading_dependencies.py) builds the selected modules and
 checks the source snapshot before and after inspection.
+
+[reading_manuscripts.py](reading_manuscripts.py) produces the Pandoc HTML and
+checks source positions against the complete parse. [reading_board.py](reading_board.py)
+constructs the opening experiments from the bound source table and passages.
+Run `make reading-web` for the [browser edition](../docs/reading_api.md#browser-edition).
