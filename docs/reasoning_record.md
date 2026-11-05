@@ -3081,7 +3081,11 @@ The argument uses only conditional expectation over a finite horizon.
 <!-- passage:record-uniform-constants -->
 For $m=4^t$, $15k+2\le2t$ and $k\ge2$, we finish the numerical comparisons in the proof of [the uniform estimate](#forr_uniform_assembly).
 
-*Proof.* Suppose a promise algorithm with error at most $1/3$ has cap $D\le(2/18225)m^{1-1/k}/(k^2\ln(4km))$. Set $\tau=25k$ and $\varepsilon=(8/9)^{25k}$. The integer inequality
+*Proof.* Suppose a promise algorithm has error at most $1/3$ and query cap
+\[
+D\le\frac{2m^{1-1/k}}{18225\,k^2\ln(4km)}.
+\]
+Set $\tau=25k$ and $\varepsilon=(8/9)^{25k}$. The integer inequality
 $18\cdot8^{25}<9^{25}$ then implies
 
 \[
