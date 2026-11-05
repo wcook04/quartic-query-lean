@@ -2,7 +2,7 @@
 
 Will Cook · November 2026
 
-**Abstract.** For total Boolean functions, four is the least exponent $\alpha$ for which randomized query complexity always satisfies $R=O((1+Q)^\alpha)$, where $Q$ is quantum query complexity. We reconstruct OpenAI’s proof. A winning column on a board of $m$ columns contains a certificate pointing to a zero in every rival. A quantum algorithm uses the pointers to compare columns and needs to verify only a short list. A classical algorithm that probes the cell containing the certificate has already named its address, a vector of independent hard answers. For each fixed $k\ge2$ the resulting costs are $\widetilde O_k(\sqrt m)$ and $\widetilde\Omega_k(m^{2-1/k})$. We give a direct proof of the underlying Forrelation lower bound by transporting a derivative along a Gaussian chain. Its explicit parameter dependence also gives a single growing-parameter family whose separation exponent tends to four.
+**Abstract.** For total Boolean functions, four is the least exponent $\alpha$ for which randomized query complexity always satisfies $R=O((1+Q)^\alpha)$, where $Q$ is quantum query complexity. We reconstruct OpenAI’s proof. A winning column on a board of $m$ columns contains a certificate pointing to a zero in every rival. A quantum algorithm uses the pointers to compare columns and needs to verify only a short list. Probing the certificate cell requires naming its address. Under the classical hard distribution this amounts to predicting several independent answers at once. For each fixed $k\ge2$ the resulting costs are $\widetilde O_k(\sqrt m)$ and $\widetilde\Omega_k(m^{2-1/k})$. We give a direct proof of the underlying Forrelation lower bound by transporting a derivative along a Gaussian chain. Its explicit parameter dependence also gives a single growing-parameter family whose separation exponent tends to four.
 
 ## 1. The theorem and the construction
 
@@ -13,9 +13,9 @@ For total Boolean functions, the best examples before OpenAI’s construction ap
 
 Consider $m$ columns, each with a string of $m$ bits. To win, a column must have an all-one string and exhibit a zero in every other column. A single pointer into each rival suffices. Two columns cannot both win: the pointer from the first would have to find a zero in the all-one second column.
 
-![A winning column and its outward pointers. Each horizontal strip is one column. At the right, the answers on the winning column’s $r$ address inputs select the cell holding its pointers. A pointer from a rival into the winning column can reach only a one.](figures/expert_column.svg){width=94%}
-
 The difficulty is getting hold of the pointers. Every column owns an array of cells. Its $r$ inputs to a partial function determine which cell counts: their answer bits, read in order, are the address. The cell also contains a circuit transcript for each answer. The transcript certifies both that the input is promised and that the address bit is correct. Together these conditions define a Boolean function on *every* board, including boards on which no address is valid.
+
+![A winning column and its outward pointers. Each horizontal strip is one column. At the right, the answers on the winning column’s $r$ address inputs select the cell holding its pointers. A pointer from a rival into the winning column can reach only a one.](figures/expert_column.svg){width=94%}
 
 Now compare two columns by following their pointers into each other. The true winner can exhibit a zero in its rival; even a completely spurious pointer coming back finds a one. A quantum algorithm can obtain the winning address cheaply. Thus the comparison favors a winner with high probability even when the rival has no valid address. Losing columns can compare in any fashion. Section 5 shows that complementary comparison probabilities suffice to put the winner on a short list, after which its certificate can be checked by searching for a failed local test.
 
@@ -2278,10 +2278,9 @@ The exponent records the cost of these two operations. Quantum search costs $m^{
 
 The main proof runs from the winning column (§§1–4) through the quantum tournament (§5) and the planted classical input (§6) to the exponent calculation (§7). Section 8 proves the Forrelation lower bound used in that calculation. It can be read on its own after the definition in [§3](#forr_definition). The [specialist companion](expert_companion.md) gives a shorter proof of the reductions; the [teaching article](exposition.md) works them out on a small board.
 
-Appendix A proves the universal quartic upper bound. Appendices B–G contain alternative classical proofs, parameter estimates and source comparisons, the quantum amplification and implementation details, precise model equivalences, and the exact circuit for the promise. Proofs in the main text link directly to these derivations.
+The appendices below give the supporting proofs. Each is also linked where its result is used.
 
-\clearpage
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \tableofcontents
 \clearpage
 
