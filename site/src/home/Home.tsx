@@ -19,7 +19,8 @@ interface Entrance {
   first_selection?: string;
 }
 
-const ORDER = ["exposition", "expert", "reconstruction", "original"];
+// The three ways in; the full reasoning record is offered quietly beneath them.
+const ORDER = ["exposition", "expert", "original"];
 
 export function Home({ edition }: { edition: Edition }) {
   const [entrances, setEntrances] = useState<Record<string, Entrance> | null>(null);
@@ -117,8 +118,9 @@ export function Home({ edition }: { edition: Edition }) {
           })}
         </ol>
         <p className="ways__supplement">
+          To check every step, open the <a href={href({ page: "read", paper: "reconstruction" })}>full reasoning record</a>.{" "}
           The <a href={href({ page: "read", paper: SUPPLEMENT.id })}>verification details</a> hold the full statement
-          catalogue and checking history that accompany the complete proof.
+          catalogue and checking history that go with it.
         </p>
       </section>
 

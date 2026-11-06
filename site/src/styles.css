@@ -537,3 +537,14 @@ html, body { overflow-x: clip; max-width: 100%; }
 .legend { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--ink-3); }
 .legend__bar { display: inline-block; width: 3px; height: 1em; background: var(--exact); border-radius: 1px; }
 @media (max-width: 640px) { .source-block.is-linked::before { display: none; } }
+
+/* The full reasoning record stays available but secondary. */
+.papers li:has(a[href*="/read/reconstruction"]) { margin-left: auto; }
+.papers a[href*="/read/reconstruction"] { font-size: 0.85rem; color: var(--ink-3); }
+.papers a[href*="/read/reconstruction"][aria-current="page"] { color: var(--ink-2); border-bottom-color: var(--ink-3); }
+.strip { grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 0.75fr); }
+.strip__col--reconstruction { background: color-mix(in srgb, var(--paper) 60%, transparent); }
+.strip__col--reconstruction .strip__paper, .strip__col--reconstruction .strip__where { color: var(--ink-3); font-size: 0.8rem; }
+.ways__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1000px) { .ways__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .ways__list { grid-template-columns: minmax(0, 1fr); } .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

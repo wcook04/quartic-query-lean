@@ -10,8 +10,8 @@ export interface PaperFace {
 export const PAPERS: PaperFace[] = [
   { id: "original", tab: "OpenAI’s paper", name: "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity", byline: "OpenAI, 5 October 2026. The published PDF, unchanged. The Lean beside it is the Quartic project’s." },
   { id: "exposition", tab: "General reader", name: "How many bits must an algorithm read?", byline: "Will Cook, November 2026. A general mathematical exposition of OpenAI’s construction." },
-  { id: "expert", tab: "Expert", name: "Reconstructing OpenAI’s nearly quartic query separation", byline: "Will Cook, November 2026. The decisive steps, for readers who know query complexity." },
-  { id: "reconstruction", tab: "Full proof", name: "OpenAI’s nearly quartic query separation: a complete proof reconstruction", byline: "Will Cook, November 2026. Every step of the argument, keyed to the Lean statements." },
+  { id: "expert", tab: "Expert reader", name: "Reconstructing OpenAI’s nearly quartic query separation", byline: "Will Cook, November 2026. The decisive steps, for readers who know query complexity." },
+  { id: "reconstruction", tab: "Full reasoning record", name: "OpenAI’s nearly quartic query separation: a complete proof reconstruction", byline: "Will Cook, November 2026. Every step of the argument, keyed to the Lean statements." },
 ];
 
 export const SUPPLEMENT: PaperFace = {
