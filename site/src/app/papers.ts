@@ -8,8 +8,8 @@ export interface PaperFace {
 }
 
 export const PAPERS: PaperFace[] = [
-  { id: "original", tab: "Original paper", name: "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity", byline: "OpenAI, 5 October 2026. The published PDF, unchanged. The Lean beside it is the Quartic project’s." },
-  { id: "exposition", tab: "Learn", name: "How many bits must an algorithm read?", byline: "Will Cook, November 2026. A general mathematical exposition of OpenAI’s construction." },
+  { id: "original", tab: "OpenAI’s paper", name: "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity", byline: "OpenAI, 5 October 2026. The published PDF, unchanged. The Lean beside it is the Quartic project’s." },
+  { id: "exposition", tab: "General reader", name: "How many bits must an algorithm read?", byline: "Will Cook, November 2026. A general mathematical exposition of OpenAI’s construction." },
   { id: "expert", tab: "Expert", name: "Reconstructing OpenAI’s nearly quartic query separation", byline: "Will Cook, November 2026. The decisive steps, for readers who know query complexity." },
   { id: "reconstruction", tab: "Full proof", name: "OpenAI’s nearly quartic query separation: a complete proof reconstruction", byline: "Will Cook, November 2026. Every step of the argument, keyed to the Lean statements." },
 ];
@@ -29,6 +29,6 @@ export function statementName(id: string): string {
   if (!m) return id;
   const kind = { thm: "Theorem", lem: "Lemma", prop: "Proposition", cor: "Corollary", def: "Definition", eq: "Equation", claim: "Claim", rem: "Remark", fact: "Fact", ex: "Example" }[m[1]]!;
   if (m[1] === "eq") return `Equation (${m[2]})`;
-  if (/^[A-Z]?\d/.test(m[2])) return `${kind} ${m[2].replace(/\.(i{1,3}|iv|v)$/, "($1)")}`;
+  if (/^(?:[A-Z]\.)?\d|^[A-Z]\d/.test(m[2])) return `${kind} ${m[2].replace(/\.(i{1,3}|iv|v)$/, "($1)")}`;
   return `${kind}: ${m[2].replace(/-/g, " ")}`;
 }
