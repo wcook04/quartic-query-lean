@@ -15,7 +15,7 @@ from zipfile import BadZipFile, ZipFile
 import zlib
 
 
-ROOT_FILES = {"README.md", "CONTRIBUTING.md", "LICENSE", ".gitignore", "Makefile", "AGENTS.md"}
+ROOT_FILES = {"README.md", "CONTRIBUTING.md", "LICENSE", ".gitignore", "Makefile", "AGENTS.md", "CLAUDE.md"}
 REQUIRED = {"README.md", "CONTRIBUTING.md", "LICENSE", ".gitignore", "Makefile",
             "tools/check_repository.py", "tests/test_check_repository.py",
             "research/requests/review/common.md", "research/requests/review/boundaries.md",
@@ -360,10 +360,18 @@ def placement(path, snapshot=False):
         return None if p.suffix.lower() in {".json", ".md"} else "corpus contains statement records and receipts"
     if owner == "docs":
         return None if p.suffix.lower() in EVIDENCE_SUFFIXES | {".png", ".svg", ".jpg", ".jpeg", ".webp", ".tex"} else "docs contains documentation, figure sources and supporting assets"
+    if path in {"tools/ReadDependencies.lean", "tools/ReadApplications.lean", "tools/ReadStatementEvidence.lean", "tools/ReadUseRegions.lean", "tools/ReadScopedUseRegions.lean", "tools/ReadParameterOrigins.lean",
+                "tools/ReadKernelPaths.lean", "tools/ReadRetainedLines.lean",
+                "tools/reader.mjs", "tools/query_reading_api.mjs"}:
+        return None  # Compiled-environment inspector and static reading API client.
     if owner in {"tools", "tests"}:
         return None if p.suffix in {".py", ".md"} else f"{owner} contains Python maintenance code and its documentation"
     if owner == "lean":
         return None if p.suffix in {".lean", ".toml", ".json", ".md"} or p.name in {"lean-toolchain", "LICENSE"} else "lean contains the Lake package and Lean sources"
+    if owner == "site":
+        if len(p.parts) > 1 and p.parts[1] in {"dist", "public"}:
+            return "generated output/cache must stay untracked"
+        return None if p.suffix in {".ts", ".tsx", ".css", ".json", ".md", ".html", ".mjs", ".svg"} or p.name == ".gitignore" else "site contains the reading website's TypeScript, styles and build configuration"
     if owner == ".github" and len(p.parts) == 3 and p.parts[1] == "workflows" and p.suffix in {".yml", ".yaml"}:
         return None
     return "path has no declared directory role"

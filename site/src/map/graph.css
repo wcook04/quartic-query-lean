@@ -1,0 +1,46 @@
+/* Graph pane styles from proof-reader web/src/app/app.css at e2df888, Copyright 2026 proof-reader contributors, Apache-2.0. */
+:root, :root[data-theme="dark"] { --highlight: #6a4a14; --highlight-soft: #3f2e15; --thread: #f3a43a; }
+:root[data-theme="light"] { --highlight: #ffdf8e; --highlight-soft: #fff0c7; --thread: #b4650a; }
+.graph { flex: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+.graph__paused { flex: none; display: flex; align-items: center; gap: 10px; min-height: 28px; margin: 0; padding: 2px 16px; font-size: var(--fs-sm); color: var(--ink-2); background: var(--highlight-soft); }
+.graph__paused button { min-height: 24px; color: var(--lit); text-decoration: underline; text-underline-offset: 3px; }
+.graph__canvas { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+.graph__canvas .tree { background: var(--sheet); }
+.graph .card__src, .graph .card__inputs, .graph .src-sq { display: none; }
+.key-shape { display: inline-block; flex: none; width: 14px; height: 10px; margin-right: 6px; border: 1.5px solid var(--ink-3); background: var(--raised); vertical-align: -1px; }
+.key-shape--theorem { border-radius: 6px; }
+.key-shape--axiom { border: 2px solid var(--rel-assumes-lit); border-radius: 0; background: var(--lit-wash); transform: skewX(-14deg); }
+.graph .tree .card[data-shape="definition"] { border-radius: 2px; }
+.graph .tree .card[data-shape="theorem"] { border-radius: 14px; }
+.graph .tree .card[data-shape="axiom"] { border: 2px solid var(--rel-assumes-lit); border-radius: 0; background: var(--lit-wash); }
+.graph .tree .card[data-shape="axiom"] .card__ctitle, .graph .tree .card[data-shape="axiom"] .card__title { color: var(--rel-assumes-lit); font-weight: 600; }
+.graph .tree .card--leaf::after { display: none; }
+.graph .card__compact { justify-content: center; }
+.card__craw { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-mono); font-size: calc(10.5px / var(--k)); line-height: 1.2; color: var(--ink-2); }
+.graph .tree .card[data-lean="whole"] { background: var(--lean-fill); border-color: var(--lean-fill-line); }
+.graph .tree .card[data-lean="part"] { background: var(--lean-fill-part); border-color: color-mix(in oklab, var(--lean-fill-line) 55%, var(--card-border)); }
+.graph .tree .card[data-trail="ahead"][data-lean="whole"] { background: color-mix(in oklab, var(--lean-fill) 45%, var(--sheet)); border-color: color-mix(in oklab, var(--lean-fill-line) 50%, var(--sheet)); }
+.graph .tree .card[data-trail="ahead"][data-lean="part"] { background: color-mix(in oklab, var(--lean-fill-part) 45%, var(--sheet)); }
+.graph .tree .card[data-trail="ahead"]:not([data-shape="axiom"]) .card__ctitle { color: var(--ink-2); }
+.graph .tree .card[data-trail="here"]:not(.is-selected) { border-color: var(--lit-line); background: var(--lit-wash); box-shadow: 0 0 0 1.5px var(--lit-line); }
+.graph .link--lean_type_dependency { stroke: var(--rel-formalizes); stroke-dasharray: calc(5px / var(--k)) calc(3.5px / var(--k)); }
+.vocab { flex: none; display: flex; align-items: center; gap: 10px; height: 26px; padding: 0 12px 0 16px; border-bottom: 1px solid var(--rule); font-size: var(--fs-xs); color: var(--ink-3); }
+.vocab__list { flex: 1; min-width: 0; display: flex; gap: 12px; overflow-x: auto; scrollbar-width: none; }
+.vocab__list::-webkit-scrollbar { display: none; }
+.vocab__reached { flex: none; font-size: var(--fs-xs); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.vocab code { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--ink-3); }
+.vocab button { flex: none; min-height: 24px; white-space: nowrap; font-size: var(--fs-xs); color: var(--ink-2); border-bottom: 2px solid transparent; }
+.vocab button:hover { color: var(--ink); }
+.vocab button.is-lit { color: var(--lit); border-bottom-color: var(--thread); }
+/* Proof Reader resets buttons globally; scope the same reset to the graph (zero-specificity wrapper). */
+:where(.graph) button { background: transparent; border: 0; padding: 0; cursor: pointer; font: inherit; color: inherit; }
+.vocab button { padding: 0 2px; }
+.vocab__whole { flex: none; font-size: var(--fs-xs); color: var(--lit) !important; border: 1px solid var(--rule-strong) !important; border-radius: 4px; padding: 0 6px !important; }
+/* Readable cards: a calmer title, the short Lean name in its own quiet line. */
+.graph .tree .card .card__ctitle { line-height: 1.22; letter-spacing: 0.005em; }
+.graph .card__craw { color: var(--ink-3); margin-top: 3px; }
+/* The Lean name stays in the card's label for screen readers and hover, not on the face. */
+.graph .card__craw { display: none; }
+.graph .card__math { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.graph .card__math .umath, .graph .card__math .katex { font-size: 1.02em; }
+.graph .card__math .umath { white-space: normal; overflow-wrap: anywhere; }

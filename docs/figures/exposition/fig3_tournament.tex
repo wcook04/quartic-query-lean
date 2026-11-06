@@ -12,15 +12,18 @@
 \node[col] (c3) at (-30:2.8) {$3$};
 \node[col] (c4) at (210:2.8) {$4$};
 \node[win, font=\small, align=center, anchor=north] at (0,-0.5)
-  {winner $i^\star$:\\beats every rival};
+  {winner $i^\star=1$};
 \foreach \j in {2,3,4} \draw[->, win, very thick, shorten >=1pt] (c1) -- (c\j);
 \draw[beat] (c2) -- (c3);
 \draw[beat] (c3) -- (c4);
 \draw[beat] (c4) -- (c2);
 \node[font=\footnotesize, align=left, anchor=north] at (0,-2.0)
-  {Zero-reaching pointers (reverse pointers miss)\\
-   $p_{2,\cdot,3}=2$ finds $X_3[2]=0$\\
-   $p_{3,\cdot,4}=3$ finds $X_4[3]=0$\\
-   $p_{4,\cdot,2}=1$ finds $X_2[1]=0$};
+  {$i\to j$: comparing $i$ and $j$ returns $i$.\\[3pt]
+   \begin{tabular}{@{}c@{\qquad}cc@{}}
+     Arrow & Bit read in $X_j$ & Bit read in $X_i$ \\
+     $2\to3$ & $X_3[2]=0$ & $X_2[2]=1$ \\
+     $3\to4$ & $X_4[3]=0$ & $X_3[1]=1$ \\
+     $4\to2$ & $X_2[1]=0$ & $X_4[1]=1$
+   \end{tabular}};
 \end{tikzpicture}
 \end{document}

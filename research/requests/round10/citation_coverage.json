@@ -12,7 +12,7 @@
   "appendix_c_entries": [
     {
       "citation_key": "OpenAI2026",
-      "exact_appendix_entry": "OpenAI. *A Nearly Quartic Separation Between Randomized and Quantum Query Complexity*. 2026. [Online source](https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf). Preprint dated 5 October 2026.",
+      "exact_appendix_entry": "OpenAI. *A Nearly Quartic Separation Between Randomized and Quantum Query Complexity*. 2026. [github.com/openai/math](https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf). Preprint dated 5 October 2026.",
       "matching_bib_entry_present": true,
       "current_section": "References"
     },
@@ -193,11 +193,11 @@
   "scope": "Source-reviewed mapping of every entry in the three maintained bibliographies and Appendix C. The builder checks current bibliography/source hashes and records actual packaged coverage; availability does not establish mathematical reading or exact-edition equivalence.",
   "bibliographies": {
     "docs/expert_companion.bib": {
-      "sha256": "b6e1c8477e516998d27b02085871b137393e952bdcbabab0a7c9d6773d4c00a0",
+      "sha256": "2807fc83a7d0fe56908139d094b5c7d2fc3105753641a217a8ea7ec0ae0658ff",
       "entry_count": 26
     },
     "docs/exposition.bib": {
-      "sha256": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "sha256": "300d767fadd141799774defd57876eab95e6608553c23ebeb8df86b146b4d308",
       "entry_count": 24
     },
     "docs/reasoning_record.bib": {
@@ -226,7 +226,7 @@
       "paper": "expert_companion",
       "citation_key": "ABK2016",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@inproceedings{ABK2016,\n  author = {Aaronson, Scott and Ben-David, Shalev and Kothari, Robin},\n  title = {Separations in Query Complexity Using Cheat Sheets},\n  booktitle = {Proceedings of the 48th Annual ACM Symposium on Theory of Computing (STOC 2016)},\n  year = {2016},\n  pages = {863--876},\n  doi = {10.1145/2897518.2897644},\n  note = {Mathematical locators: arXiv:1511.01937v2}\n}",
+      "bibtex_entry": "@inproceedings{ABK2016,\n  author = {Aaronson, Scott and Ben-David, Shalev and Kothari, Robin},\n  title = {Separations in Query Complexity Using Cheat Sheets},\n  booktitle = {Proceedings of the 48th Annual ACM Symposium on Theory of Computing (STOC 2016)},\n  year = {2016},\n  pages = {863--876},\n  doi = {10.1145/2897518.2897644},\n  note = {arXiv:1511.01937v2}\n}",
       "cited_urls": [],
       "annex_slugs": [
         "quartic-ref-02-separations-in-query-complexity-using-chea"
@@ -254,7 +254,7 @@
       "paper": "expert_companion",
       "citation_key": "AA2018",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@article{AA2018,\n  author = {Aaronson, Scott and Ambainis, Andris},\n  title = {Forrelation: A Problem That Optimally Separates Quantum from Classical Computing},\n  journal = {SIAM Journal on Computing},\n  volume = {47},\n  number = {3},\n  pages = {982--1038},\n  year = {2018},\n  doi = {10.1137/15M1050902},\n  note = {Mathematical locators: arXiv:1411.5729v1, Section 3.2}\n}",
+      "bibtex_entry": "@article{AA2018,\n  author = {Aaronson, Scott and Ambainis, Andris},\n  title = {Forrelation: A Problem That Optimally Separates Quantum from Classical Computing},\n  journal = {SIAM Journal on Computing},\n  volume = {47},\n  number = {3},\n  pages = {982--1038},\n  year = {2018},\n  doi = {10.1137/15M1050902},\n  note = {arXiv:1411.5729v1, Section 3.2}\n}",
       "cited_urls": [],
       "annex_slugs": [
         "quartic-ref-01-forrelation-a-problem-that-optimally-separ"
@@ -268,7 +268,7 @@
       "paper": "expert_companion",
       "citation_key": "BansalSinha2021",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@inproceedings{BansalSinha2021,\n  author = {Bansal, Nikhil and Sinha, Makrand},\n  title = {{$k$}-{Forrelation} Optimally Separates Quantum and Classical Query Complexity},\n  booktitle = {Proceedings of the 53rd Annual ACM Symposium on Theory of Computing (STOC 2021)},\n  year = {2021},\n  pages = {1303--1316},\n  doi = {10.1145/3406325.3451040},\n  note = {Mathematical locators: arXiv:2008.07003v3}\n}",
+      "bibtex_entry": "@inproceedings{BansalSinha2021,\n  author = {Bansal, Nikhil and Sinha, Makrand},\n  title = {{$k$}-{Forrelation} Optimally Separates Quantum and Classical Query Complexity},\n  booktitle = {Proceedings of the 53rd Annual ACM Symposium on Theory of Computing (STOC 2021)},\n  year = {2021},\n  pages = {1303--1316},\n  doi = {10.1145/3406325.3451040},\n  note = {arXiv:2008.07003v3}\n}",
       "cited_urls": [],
       "annex_slugs": [
         "quartic-ref-06-k-forrelation-optimally-separates-quantum"
@@ -282,7 +282,7 @@
       "paper": "expert_companion",
       "citation_key": "SSW2023",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@article{SSW2023,\n  author = {Sherstov, Alexander A. and Storozhenko, Andrey A. and Wu, Pei},\n  title = {An Optimal Separation of Randomized and Quantum Query Complexity},\n  journal = {SIAM Journal on Computing},\n  volume = {52},\n  number = {2},\n  pages = {525--567},\n  year = {2023},\n  doi = {10.1137/22M1468943},\n  note = {Mathematical locators: arXiv:2008.10223v4, 29 January 2023}\n}",
+      "bibtex_entry": "@article{SSW2023,\n  author = {Sherstov, Alexander A. and Storozhenko, Andrey A. and Wu, Pei},\n  title = {An Optimal Separation of Randomized and Quantum Query Complexity},\n  journal = {SIAM Journal on Computing},\n  volume = {52},\n  number = {2},\n  pages = {525--567},\n  year = {2023},\n  doi = {10.1137/22M1468943},\n  note = {arXiv:2008.10223v4, 29 January 2023}\n}",
       "cited_urls": [],
       "annex_slugs": [
         "quartic-ref-23-an-optimal-separation-of-randomized-and-qu"
@@ -296,7 +296,7 @@
       "paper": "expert_companion",
       "citation_key": "Tal2020",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@inproceedings{Tal2020,\n  author = {Tal, Avishay},\n  title = {Towards Optimal Separations between Quantum and Randomized Query Complexities},\n  booktitle = {Proceedings of the 61st Annual IEEE Symposium on Foundations of Computer Science (FOCS 2020)},\n  year = {2020},\n  pages = {228--239},\n  note = {Mathematical locators: arXiv:1912.12561v1}\n}",
+      "bibtex_entry": "@inproceedings{Tal2020,\n  author = {Tal, Avishay},\n  title = {Towards Optimal Separations between Quantum and Randomized Query Complexities},\n  booktitle = {Proceedings of the 61st Annual IEEE Symposium on Foundations of Computer Science (FOCS 2020)},\n  year = {2020},\n  pages = {228--239},\n  note = {arXiv:1912.12561v1}\n}",
       "cited_urls": [],
       "annex_slugs": [
         "quartic-ref-26-towards-optimal-separations-between-quantu"
@@ -326,7 +326,7 @@
       "paper": "expert_companion",
       "citation_key": "ABBLSS2017",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@article{ABBLSS2017,\n  author = {Ambainis, Andris and Balodis, Kaspars and Belovs, Aleksandrs and Lee, Troy and Santha, Miklos and Smotrovs, Juris},\n  title = {Separations in Query Complexity Based on Pointer Functions},\n  journal = {Journal of the ACM},\n  volume = {64},\n  number = {5},\n  pages = {32:1--32:24},\n  year = {2017},\n  note = {Mathematical locators: arXiv:1506.04719v3, 26 October 2015}\n}",
+      "bibtex_entry": "@article{ABBLSS2017,\n  author = {Ambainis, Andris and Balodis, Kaspars and Belovs, Aleksandrs and Lee, Troy and Santha, Miklos and Smotrovs, Juris},\n  title = {Separations in Query Complexity Based on Pointer Functions},\n  journal = {Journal of the ACM},\n  volume = {64},\n  number = {5},\n  pages = {32:1--32:24},\n  year = {2017},\n  note = {arXiv:1506.04719v3, 26 October 2015}\n}",
       "cited_urls": [],
       "annex_slugs": [
         "quartic-ref-04-separations-in-query-complexity-based-on-p"
@@ -415,7 +415,7 @@
       "paper": "expert_companion",
       "citation_key": "BBHT1998",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@article{BBHT1998,\n  author = {Boyer, Michel and Brassard, Gilles and H{\\o}yer, Peter and Tapp, Alain},\n  title = {Tight Bounds on Quantum Searching},\n  journal = {Fortschritte der Physik},\n  volume = {46},\n  number = {4--5},\n  pages = {493--505},\n  doi = {10.1002/(SICI)1521-3978(199806)46:4/5<493::AID-PROP493>3.0.CO;2-P},\n  note = {Lemma locator: arXiv:quant-ph/9605034v1, Section 4},\n  year = {1998}\n}",
+      "bibtex_entry": "@article{BBHT1998,\n  author = {Boyer, Michel and Brassard, Gilles and H{\\o}yer, Peter and Tapp, Alain},\n  title = {Tight Bounds on Quantum Searching},\n  journal = {Fortschritte der Physik},\n  volume = {46},\n  number = {4--5},\n  pages = {493--505},\n  doi = {10.1002/(SICI)1521-3978(199806)46:4/5<493::AID-PROP493>3.0.CO;2-P},\n  note = {arXiv:quant-ph/9605034v1, Section 4},\n  year = {1998}\n}",
       "cited_urls": [],
       "annex_slugs": [
         "quartic-ref-11-tight-bounds-on-quantum-searching"
@@ -429,7 +429,7 @@
       "paper": "expert_companion",
       "citation_key": "BHMT2002",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@incollection{BHMT2002,\n  author = {Brassard, Gilles and H{\\o}yer, Peter and Mosca, Michele and Tapp, Alain},\n  title = {Quantum Amplitude Amplification and Estimation},\n  booktitle = {Quantum Computation and Quantum Information},\n  series = {Contemporary Mathematics},\n  volume = {305},\n  pages = {53--74},\n  publisher = {American Mathematical Society},\n  note = {Mathematical locators: arXiv:quant-ph/0005055v1},\n  year = {2002}\n}",
+      "bibtex_entry": "@incollection{BHMT2002,\n  author = {Brassard, Gilles and H{\\o}yer, Peter and Mosca, Michele and Tapp, Alain},\n  title = {Quantum Amplitude Amplification and Estimation},\n  booktitle = {Quantum Computation and Quantum Information},\n  series = {Contemporary Mathematics},\n  volume = {305},\n  pages = {53--74},\n  publisher = {American Mathematical Society},\n  note = {arXiv:quant-ph/0005055v1},\n  year = {2002}\n}",
       "cited_urls": [],
       "annex_slugs": [
         "quartic-ref-12-quantum-amplitude-amplification-and-estima"
@@ -443,7 +443,7 @@
       "paper": "expert_companion",
       "citation_key": "Drucker2012",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@article{Drucker2012,\n  author = {Drucker, Andrew},\n  title = {Improved Direct Product Theorems for Randomized Query Complexity},\n  journal = {Computational Complexity},\n  volume = {21},\n  number = {2},\n  pages = {197--244},\n  year = {2012},\n  doi = {10.1007/s00037-012-0043-7},\n  note = {Mathematical locators: arXiv:1005.0644v2}\n}",
+      "bibtex_entry": "@article{Drucker2012,\n  author = {Drucker, Andrew},\n  title = {Improved Direct Product Theorems for Randomized Query Complexity},\n  journal = {Computational Complexity},\n  volume = {21},\n  number = {2},\n  pages = {197--244},\n  year = {2012},\n  doi = {10.1007/s00037-012-0043-7},\n  note = {arXiv:1005.0644v2}\n}",
       "cited_urls": [],
       "annex_slugs": [
         "quartic-ref-13-improved-direct-product-theorems-for-rando"
@@ -457,7 +457,7 @@
       "paper": "expert_companion",
       "citation_key": "Shaltiel2003",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@article{Shaltiel2003,\n  author = {Shaltiel, Ronen},\n  title = {Towards Proving Strong Direct Product Theorems},\n  journal = {Computational Complexity},\n  volume = {12},\n  number = {1--2},\n  pages = {1--22},\n  note = {Fair-tree locators: ECCC TR01-009, Section 5},\n  year = {2003}\n}",
+      "bibtex_entry": "@article{Shaltiel2003,\n  author = {Shaltiel, Ronen},\n  title = {Towards Proving Strong Direct Product Theorems},\n  journal = {Computational Complexity},\n  volume = {12},\n  number = {1--2},\n  pages = {1--22},\n  note = {ECCC TR01-009, Section 5},\n  year = {2003}\n}",
       "cited_urls": [],
       "annex_slugs": [
         "quartic-ref-22-towards-proving-strong-direct-product-theo"
@@ -516,13 +516,13 @@
       "paper": "expert_companion",
       "citation_key": "Record2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md},\n}",
+      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md},\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/11fc9a44ded573d6354245d1195eef74ffc28c1a/docs/reasoning_record.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/reasoning_record.md",
-      "edition_note": "Internal proof record pinned to 11fc9a44ded573d6354245d1195eef74ffc28c1a; external literature editions unchanged.",
+      "edition_note": "Internal proof record pinned to 11a229980430460236d53580798d703674c56ee5; external literature editions unchanged.",
       "supplementary_source_ids": [],
       "primary_annex_status": "repository_source_reference",
       "coverage_status": "repository_source_supplied"
@@ -590,7 +590,7 @@
       "paper": "exposition",
       "citation_key": "OpenAI2026",
       "bibliography_path": "docs/exposition.bib",
-      "bibtex_entry": "@misc{OpenAI2026,\n  author = {{OpenAI}},\n  title = {A Nearly Quartic Separation Between Randomized and Quantum Query Complexity},\n  year = {2026},\n  note = {Preprint, 5 October 2026},\n  url = {https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf}\n}",
+      "bibtex_entry": "@misc{OpenAI2026,\n  author = {{OpenAI}},\n  title = {A Nearly Quartic Separation Between Randomized and Quantum Query Complexity},\n  year = {2026},\n  howpublished = {Preprint, 5 October 2026},\n  url = {https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf}\n}",
       "cited_urls": [
         "https://github.com/openai/math/blob/4eaee875/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf"
       ],
@@ -2622,7 +2622,7 @@
     "source": "Lake-pinned tracked Git source; no compilation claim"
   },
   "edition_boundary": "A supplied older or different edition is not the exact cited edition. Supplementary metadata identifies the retrieved publisher/revision copies and remaining exceptions. Primary extracted.md is not automatically the text of a distinct supplementary PDF.",
-  "record_sha256": "c8c457bbe40c9aa55d6f8500399b74e62a526b5b5fb7ce72c3a2c23fb10dd16f",
+  "record_sha256": "6199badf872f7b262a80f21a2b74422478222acad53db015f9525a34f55eb822",
   "retrieval_observations": {
     "date": "2026-11-04",
     "Yao1977": "Original not retrieved: DOI 10.1109/SFCS.1977.24 redirects to IEEE document 4567946 with JavaScript verification; direct PDF request returned HTTP 418.",
@@ -2673,5 +2673,83 @@
       "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
     },
     "decision": "Internal record links and current source hashes rebound after proof relocation. External literature editions, reference entries, coverage judgments and sent review archives are unchanged."
+  },
+  "reader_control_editorial_rebind": {
+    "baseline": "a7f89f453651a47a2ec40bc5d7b7c02760e0583c",
+    "record_source_commit": "fccaaaca89125aab66cfc39edd8a1d01368e290c",
+    "previous_record_sha256": "c8c457bbe40c9aa55d6f8500399b74e62a526b5b5fb7ce72c3a2c23fb10dd16f",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "b6e1c8477e516998d27b02085871b137393e952bdcbabab0a7c9d6773d4c00a0",
+      "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
+    "decision": "Current source hashes and the internal Record2026 citation rebound after the November 5 composition revision. All 29 mapped reference entries occur unchanged in the record. External literature editions, coverage judgments and sent review archives are unchanged.",
+    "revision_account": "research/adjudication/paper_purpose_revision.md"
+  },
+  "audience_revision_rebind": {
+    "baseline": "62db93011d3c20e9b6fc4d1bb5ab55d6aaeeac75",
+    "record_source_commit": "5c676e2438c4b09ce3d4e2e9177518477f50ce2e",
+    "previous_record_sha256": "85aa4d15709085d79952c762398be803e0a0541c4b36ef3f191eee41be421686",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "247bdf4fa89e003cb2a2746b05521598dc752285d9aef1bf4a18b4f2943b41a1",
+      "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
+    "revision_account": "research/adjudication/paper_purpose_revision.md"
+  },
+  "design_choice_editorial_rebind": {
+    "reviewed_edition": "4ee21a96feb41423ee5f7a91f35774a6d6bd456e",
+    "record_source_commit": "3bb0970ec6174ee78083e0bbd2dbd5080fb89662",
+    "previous_record_sha256": "7fa2ae10c5506a11fa37ad0ae7538ff15ec6cdd924a0b0e24a96bd5745fffd2b",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "b90726906f03a17d47a3c19e5191711d1c8e18902bdb15e0943f34ec6bda9395",
+      "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
+    "revision_account": "research/adjudication/paper_purpose_revision.md"
+  },
+  "chapter_flow_editorial_rebind": {
+    "reviewed_edition": "7f3c7ee6ed426d62f6c1f3980f651e274b69262d",
+    "record_source_commit": "5188cb6fd1cc37c123c4b30dce672f9d30c99320",
+    "previous_record_sha256": "58d6193cb40680da54e1dfd963c78304d34527e00c1fc96d180d4c3f7a933a8f",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "b3683683c3387b11f4c6be1b10f750ee8d030a3e6d610b5de89eb075290dc8a3",
+      "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
+    "revision_account": "research/adjudication/paper_purpose_revision.md"
+  },
+  "reading_sequence_editorial_rebind": {
+    "reviewed_edition": "8cc8ded15e128772285d4c9ce96e2fbd90503d2b",
+    "record_source_commit": "344e7c6816966d8295f0c7caaf9008b0487161a3",
+    "previous_record_sha256": "0220023ab18f51b7166458c7f65339d0a5f3434d447244c4c0c2affe5a6354cc",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "3ec400ffea9db3ed51dbf2b9169b09d90d04ca0b0b85bfd03ba716c3efd9d63f",
+      "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
+    "revision_account": "research/adjudication/paper_purpose_revision.md"
+  },
+  "candidate_and_prediction_editorial_rebind": {
+    "reviewed_edition": "2e6c6932c8d51187e81657d62b09dfde9d24811e",
+    "record_source_commit": "ba49281af72b53d9cfbb43320d7efdeb29d7ceca",
+    "previous_record_sha256": "c7bde496a7bc5cc18310e715935b3164b25b233ae2a64964be52b9b42f042ba2",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "a41a78623220a157359ae053ff16b1ddf31920da3e620d8114aef4d78d6f1fcc",
+      "docs/exposition.bib": "c4cbe1d7ff2f6b5f767b869e0ec2437d382f2d192e702671400ad5e5cffecc98",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
+    "revision_account": "research/adjudication/paper_purpose_revision.md"
+  },
+  "first_principles_humanizer_rebind": {
+    "reviewed_edition": "66dc5f1e8a59d7547a817be836e797fc31aaa543",
+    "record_source_commit": "11a229980430460236d53580798d703674c56ee5",
+    "previous_record_sha256": "0ec6c18f06903742edb53743d05b1299e8d302ed448718049db165f1a3532a5e",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "6f6664a88814345eac5fdcb9585154d20dda519561d8b8538c1cbc56c1c06fb9",
+      "docs/exposition.bib": "300d767fadd141799774defd57876eab95e6608553c23ebeb8df86b146b4d308",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
+    "revision_account": "research/adjudication/paper_purpose_revision.md"
   }
 }

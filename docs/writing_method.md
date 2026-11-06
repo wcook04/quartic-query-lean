@@ -363,3 +363,63 @@ Check local section numbers separately from locators in cited papers. Inspect
 page transitions and preserve a short theorem, algorithm or parameter table as
 a reading unit when the layout allows. A successful link check cannot detect
 a direction that now sends the reader to the wrong stage of the argument.
+
+## Reader control and reusable arguments
+
+The November 5 revision distinguishes a property used by a proof from the
+particular construction that supplies it. In the companion, classical hardness,
+quantum decoding and exact local certification have separate consumers. In the
+exposition, rejection sampling first explains the desired label law; the quantum
+preparation and amplifier then implement it. In the record, the signed derivative
+moment explains why the proof tracks a polynomial on revealed coordinates.
+None of these explanations asserts that the chosen construction is unique.
+
+The same pass preserves the immediate use of a difficult inference. The record's
+capped simulator now leads directly from its joint-event bound to the union
+over query times. Its complete worked examples remain in Appendix B.3. The
+specialist retains the supporting product and amplification proofs, while an
+unused alternative bound stays in the record. The teaching article keeps the
+fractional-weight calculation beside the sampler because that example supplies
+an operation its reader is learning.
+
+Its main amplification example now starts with success probability $1/4$, reaches
+one after a single iteration, and returns to $1/4$ after two. This existing example
+shows both the promised improvement and overshoot. The previous $1/2$ case left
+the probability unchanged and could not do that explanatory work. A boundary
+case still belongs first when the failure itself is what the passage explains,
+as with the projection experiment's need for a one-sided promise.
+
+The [revision account](../research/adjudication/paper_purpose_revision.md#november-5-reader-control-revision)
+records the inspected literature, transfer cases and limits. These decisions
+refine the existing shared paper purposes and reader-review procedure; numerical
+register comparisons remain diagnostics, not a measure of literary quality.
+
+## Choosing where to slow down
+
+Read a proof in the intended reader’s literature before setting the outline.
+In the cheat-sheet paper a query to the filled cell already singles out a vector
+of answers. The extra difficulty here is that an adaptive tree can spend its
+budget on whichever columns it likes. The specialist paper can cite the first
+observation and spend its space constructing the capped predictor. A learner
+first needs to see that the *index of a query* names a whole address, even before
+the queried bit comes back. The reconstruction gives both the predictor and the
+product argument under the distribution on which it runs.
+
+This revision applies the [shared authoring method](https://github.com/wcook04/lean-exposition/blob/a2511096cdb28a57621ce304903f8cc6ed537e0a/docs/authoring.md)
+and its [sequential reader review](https://github.com/wcook04/lean-exposition/blob/a2511096cdb28a57621ce304903f8cc6ed537e0a/docs/reader-review.md).
+The [edition account](../research/adjudication/paper_purpose_revision.md#reading-the-three-papers-after-62db930)
+locates the source comparisons and the proof passages they changed.
+
+## Choosing the next step
+
+Stop at a decision that the paper asks its reader to understand. What does the reader know at this point, and what must the next step accomplish? In the specialist paper the comparison between two losing columns can have any bias. Putting the two possible choices of pivot side by side gives the reader a reason to match their coefficients. In the reconstruction the Gaussian bias must stay bounded while its derivative keeps a positive sign. These constraints let a reader choose parameters within the proposed family, though many choices work.
+
+For an editorial reading, show the passage up to that decision and withhold its continuation. Record what the reader proposed and why. A different construction that satisfies the same requirements can be a successful reading. Checking a formula supplied by the author tests a different skill. That test stops at a choice. Also read through what the choice makes possible. In the teaching paper the count on a fixed tournament leads straight to the corresponding calculation with fractional weights. The identity would be harder to recover if the reader had to carry the unfinished calculation through a Walsh transform first. The specialist paper can invoke the separate-cap product lemma in two sentences. The full reconstruction keeps the proof because it is the place a reader goes to recover the argument.
+
+For a whole-paper pass, let a fresh reader identify the interruption before telling them where the editor suspects it lies. Try the cut and read across the join. Sometimes the passage that looks like repetition does new work on a different input or under weaker hypotheses. The [shared authoring procedure](https://github.com/wcook04/lean-exposition/blob/b972de7cddf31c6fa27930c1479617e90a7b7275/docs/authoring.md) and [reader review](https://github.com/wcook04/lean-exposition/blob/b972de7cddf31c6fa27930c1479617e90a7b7275/docs/reader-review.md) apply this check to each paper form.
+
+## Teaching a first operation
+
+Give a reader a fresh input before showing the answer. In this exposition, cover a four-by-four table and let the reader ask for the number in row 2 of column 3. Can they specify its row and column, give the reply on each of two tables, and tell which columns might still consist of ones? A specialist can start much later, at the two addressed reads in a comparison. A reader checking the classical proof needs to know exactly which of the simulator's reads count against its budget. In all three accounts, say who chooses the index, which value is stored there, and which conclusion follows from reading it. A column can contain a row number. The algorithm is what reads that number and uses it to choose a row.
+
+When using another paper as a model, locate the passage where its author first asks the reader to perform a comparable operation. Identify the information already on the page at that point. Let the reader change a zero to a one elsewhere in the table and work out which query would now distinguish the two tables. The [shared reader review](https://github.com/wcook04/lean-exposition/blob/0064f9b1a9534720721ed49b16c765b2e0eef134/docs/reader-review.md) and the [teaching skill](https://github.com/wcook04/lean-exposition/blob/0064f9b1a9534720721ed49b16c765b2e0eef134/skills/record-to-expository/SKILL.md) give this test for other papers.

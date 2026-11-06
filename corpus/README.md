@@ -115,3 +115,39 @@ reports and consumer operations for selected equation (19) and semantic goals.
 Their local dependency scopes and external package boundaries remain explicit.
 They are separate recorded inputs from the informal statement graph above;
 native extraction does not establish paper fidelity or human review.
+
+[reading_dependencies.json](reading_dependencies.json) records typed references in
+the compiled QuarticQuery modules for the [website selection API](../docs/reading_api.md#resolve-a-paper-selection).
+The [recorder](../tools/record_reading_dependencies.py) builds the project and
+checks the full Lean source fingerprint before and after native inspection.
+
+[reading_applications.json](reading_applications.json) records selected applications
+inside compiled Lean declaration bodies, with arguments and instantiated types.
+It also records original source spans for applications matched during
+re-elaboration, and the two complexity bounds that share a circuit binder.
+The [source selections](../docs/reading_applications.json) and [reader contract](../docs/reading_api.md#inspect-a-theorem-application)
+explain their scope and refresh command.
+
+[reading_statement_evidence.json](reading_statement_evidence.json) records Lean's
+pretty-printed type and transitive axioms for declarations in current reviewed
+links and for the indexed semantic examples. Each observation names its defining
+module. See the [reader comparison contract](../docs/reading_api.md#compare-a-paper-result-with-lean).
+
+[Lean reference sites](reading_proof_sites.json) stores named project references
+from matching compiled dependencies. Each row records the caller, callee, a
+half-open UTF-8 source span and a syntactic region (type, value or unknown).
+The reader exports the subset used on its proof paths. Reproduce the observations
+with the [reference recorder](../tools/record_proof_sites.py). A fourth field
+`compiled_rhs` identifies a constant in the compiled expression produced by a
+whole one-line right hand side.
+
+[Inherited parameter origins](reading_parameter_origins.json) records the source
+of shared parameters for the amplification modules. It keeps both the original
+binder range and the exact identifier for its type constructor. Reproduce it
+with the [parameter recorder](../tools/record_parameter_origins.py).
+
+[Kernel paths](reading_kernel_paths.json) records occurrences in the compiled
+headline dependency closure. The reader exports only the steps on its graph.
+[Retained lines](reading_retained_lines.json) records written tactics whose
+tagged proof payload survived replay and matched the stored proof after erasure.
+Both records bind the Lean source snapshot, toolchain and inspector versions.

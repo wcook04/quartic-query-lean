@@ -1,0 +1,703 @@
+{
+  "routes": [
+    {
+      "id": "headline",
+      "title": "The nearly quartic family",
+      "expert": "**Theorem 1** (OpenAI",
+      "exposition": "More generally, OpenAI constructs, for every fixed integer $k\\ge2$",
+      "reconstruction": "ROOT-RESULT",
+      "lean": [
+        "thm-headline",
+        "src-constants"
+      ],
+      "statements": [
+        "thm-1.1"
+      ],
+      "note": "The unconditional family result uses the local Forrelation bound. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers.",
+      "bound_at": {
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "ROOT-FAMILY-ASSEMBLY": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "ROOT-NO-SMALLER": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "R3-A-RESULT": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
+    },
+    {
+      "id": "certificate",
+      "title": "What makes a column win",
+      "expert": "Column $i$ **wins** if $X_i=1^m$, all its address inputs",
+      "exposition": "To obtain a yes answer on the enlarged board,",
+      "reconstruction": "AC-winner",
+      "lean": [
+        "def-wins",
+        "src-winner-unique"
+      ],
+      "bound_at": {
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      },
+      "context_passages": {
+        "AC-circuit": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "comparison",
+      "title": "Why a winner beats an arbitrary rival",
+      "expert": "For $i\\ne j$, decode addresses $s$ for $i$ and",
+      "exposition": "**What can we learn by following two pointers?** Compare",
+      "reconstruction": "upper-winner-dominates",
+      "lean": [
+        "src-winner-dominates"
+      ],
+      "bound_at": {
+        "expert": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "AC-winner": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "weight",
+      "title": "Why tournament weight falls",
+      "expert": "Initially all weights are one. After drawing $j$, replace",
+      "exposition": "Fix the list so far. What is the expected",
+      "reconstruction": "upper-weight-drift",
+      "lean": [
+        "src-quantum-tournament"
+      ],
+      "statements": [
+        "eq-13"
+      ],
+      "note": "Complementarity pairs the two orientations of each match. Sampling a pivot with these weights is a separate implementation step.",
+      "bound_at": {
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "upper-comparison-model": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "upper-ideal-process": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "pivot",
+      "title": "Sampling the next pivot",
+      "expert": "The quantum algorithm has only the reversible comparison circuit",
+      "exposition": "Suppose the fixed comparisons of Figure 2 give us",
+      "reconstruction": "upper-stage-law",
+      "lean": [
+        "src-stage-sampler"
+      ],
+      "bound_at": {
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      },
+      "context_passages": {
+        "upper-comparison-model": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "upper-tournament-parameters": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "verification",
+      "title": "Paying for the final verification",
+      "expert": "For each listed column, decode a fresh address with",
+      "exposition": "For each listed column number, estimate the address afresh.",
+      "reconstruction": "upper-verification-proof",
+      "lean": [
+        "src-verifier",
+        "src-budget"
+      ],
+      "bound_at": {
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      },
+      "context_passages": {
+        "AC-circuit": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "AC-local-equivalence": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "planting",
+      "title": "Coupling the losing and winning boards",
+      "expert": "For the **dummy input** $Y^{(0)}$, choose the row $J_i$",
+      "exposition": "To build the first board, start with $m$ columns",
+      "reconstruction": "CL-planted",
+      "lean": [
+        "src-coupled-average",
+        "src-planted-core"
+      ],
+      "bound_at": {
+        "expert": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "erased-zero",
+      "title": "Finding the erased zero",
+      "expert": "Let $Z$ count the columns $i$ in which the",
+      "exposition": "Before any query has found the zero in a",
+      "reconstruction": "CL-erased-zero-identity",
+      "lean": [
+        "src-erased-zero-identity",
+        "src-erased-zero-bound",
+        "src-zero-two",
+        "cmp-eq11"
+      ],
+      "statements": [
+        "eq-19"
+      ],
+      "note": "The erased-zero identity, the printed coefficient four, and the sharper coefficient two are distinct targets. The reviewed whole statement uses an alternative derivation.",
+      "bound_at": {
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
+    },
+    {
+      "id": "address",
+      "title": "A cell query predicts an address",
+      "expert": "The index of any query to a bit of",
+      "exposition": "Now fix *in advance* any column $i$ and query",
+      "reconstruction": "CL-address-guess",
+      "lean": [
+        "src-per-time"
+      ],
+      "bound_at": {
+        "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "direct-product",
+      "title": "Predicting separately capped answers",
+      "expert": "The total cap gives the predictor at most $L$",
+      "exposition": "By the choice of $\\mu$, $L$ reads of one",
+      "reconstruction": "CL-direct-product-statement",
+      "lean": [
+        "src-direct-product-caps"
+      ],
+      "bound_at": {
+        "expert": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "forrelation",
+      "title": "The Forrelation promise",
+      "expert": "We require a partial function $P$ with a low-query",
+      "exposition": "This is the $k$-block *Forrelation* quantity [@AA2018, §3.2, Figure",
+      "reconstruction": "forr_definition",
+      "lean": [
+        "src-forr-promise"
+      ],
+      "note": "The quantum readout observes the squared amplitude. A certificate must separately establish the signed one-sided promise.",
+      "bound_at": {
+        "expert": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "upper-decode": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "forr_bundle": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
+    },
+    {
+      "id": "exponent",
+      "title": "Why the optimal exponent is four",
+      "expert": "Thus for each exponent below four some fixed $k$",
+      "exposition": "Measured in powers of $\\sqrt m$, the classical exponent",
+      "reconstruction": "ROOT-NO-SMALLER",
+      "lean": [
+        "thm-alpha",
+        "src-no-smaller-exponent"
+      ],
+      "bound_at": {
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "ROOT-FAMILY-ASSEMBLY": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "ROOT-LOGS": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
+    }
+  ],
+  "video": null,
+  "entrances": {
+    "exposition": {
+      "audience": "General mathematical readers familiar with probability and linear algebra",
+      "question": "How much can a quantum algorithm save when both algorithms have to read the same hidden bits?",
+      "preview": "Imagine a board with one winning column. A classical algorithm can spend almost all its queries finding the right square to inspect. A quantum algorithm can compare two columns cheaply before checking a short list of candidates. Follow a four-column example through both searches to see why the gap approaches a fourth power.",
+      "stops": [
+        "certificate",
+        "comparison",
+        "address",
+        "exponent"
+      ],
+      "first_selection": "exposition/known-pair/0"
+    },
+    "expert": {
+      "audience": "Researchers familiar with query complexity",
+      "question": "What lets this construction pass the cubic separation from earlier cheat sheets?",
+      "preview": "The quantum saving comes from comparing candidates before paying to verify one. The classical obstruction is that a query to the planted cell must name an address formed from independent hard answers. Trace the weighted pivot law and the separate-cap prediction bound, then see where their exponents meet.",
+      "stops": [
+        "headline",
+        "pivot",
+        "direct-product",
+        "exponent"
+      ]
+    },
+    "reconstruction": {
+      "audience": "Readers checking the full derivation or its formal statements",
+      "question": "Which statement does Lean prove, and how does it compare with the argument on the page?",
+      "preview": "Start with the quantifiers in the headline theorem, then open the corresponding Lean statement. Follow the promised address function into the construction and inspect the bound for the erased zero. At each step you can distinguish the written argument, an alternative formal proof, and what a recorded check actually tested.",
+      "stops": [
+        "headline",
+        "forrelation",
+        "erased-zero",
+        "exponent"
+      ]
+    },
+    "original": {
+      "audience": "Readers checking the result against OpenAI’s original paper",
+      "question": "What did OpenAI prove, and how closely does our Lean proof follow the published argument?",
+      "preview": "Start at Theorem 1.1 on page 1. Inspect the formal statement, then follow the two query bounds. Each indexed claim shows how closely our formalization matches the maintained reading of the paper.",
+      "stops": [
+        "headline",
+        "exponent"
+      ],
+      "first_selection": "original/thm-1.1"
+    }
+  },
+  "semantic_probes": [
+    {
+      "statement": "def-R",
+      "name": "wrong_quantifier_order_changes_answer",
+      "file": "SemanticMutations",
+      "question": "Could a different zero-query program be chosen after seeing each input?",
+      "kind": "alternative_definition",
+      "answer": "If the algorithm may depend on the input, it can pick the correct constant answer and spend zero queries. One algorithm chosen in advance cannot compute the one-bit identity with zero queries."
+    },
+    {
+      "statement": "def-R",
+      "name": "strict_threshold_mutant_rejects_mixture",
+      "file": "SemanticMutations",
+      "question": "Does replacing success at least two thirds with strictly greater success change a boundary case?",
+      "kind": "alternative_definition",
+      "answer": "On the all-false input the example algorithm for two-bit OR succeeds with probability exactly two thirds. Requiring strictly greater success rules out that algorithm."
+    },
+    {
+      "statement": "def-partial-query",
+      "name": "off_promise_false_changes_zero_query_answer",
+      "file": "SemanticMutations",
+      "question": "Does assigning false outside the promise change the zero-query answer?",
+      "kind": "alternative_definition",
+      "answer": "A constant answer works on the example’s promise. Assigning false outside that promise creates two different required labels and forces at least one query."
+    },
+    {
+      "statement": "eq-4",
+      "name": "absolute_high_changes_answer",
+      "file": "SemanticMutations",
+      "question": "Would taking the absolute value on the high branch accept a negative instance?",
+      "kind": "alternative_definition",
+      "answer": "The example has a large negative Forrelation value. The published promise leaves it undefined. Taking the absolute value on the high branch instead accepts it as true."
+    },
+    {
+      "statement": "def-comparison",
+      "name": "comparison_has_witness",
+      "file": "Semantics",
+      "question": "Can an actual comparison satisfy all of these assumptions?",
+      "kind": "nonvacuity_witness",
+      "answer": "Two candidates with comparison weight one half in each direction satisfy the comparison assumptions. There is an actual instance to which the theorem applies."
+    },
+    {
+      "statement": "def-Q",
+      "name": "trueOnly_Q_eq_zero",
+      "file": "Semantics",
+      "kind": "boundary_example",
+      "question": "Can a quantum algorithm use zero queries when every promised input has label true?",
+      "answer": "Always answering true uses zero quantum queries and succeeds on every promised input of this example."
+    },
+    {
+      "statement": "def-R",
+      "name": "orTwo_R_eq_one",
+      "file": "Semantics",
+      "kind": "boundary_example",
+      "question": "How many randomized queries does two-bit OR require with success at least two thirds?",
+      "answer": "One randomized query suffices for two-bit OR with the stated error bound. Zero queries cannot distinguish its two labels."
+    },
+    {
+      "statement": "eq-3",
+      "name": "negativePair_Phi",
+      "file": "Semantics",
+      "kind": "boundary_example",
+      "question": "Can the Forrelation value actually reach minus one on two explicit layers?",
+      "answer": "Yes. For the two explicit sign layers, the numerator is minus eight and the denominator is eight, giving a Forrelation value of minus one."
+    }
+  ],
+  "print_edition": {
+    "source_revision": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+    "adjudication": "research/adjudication/paper_purpose_revision.md",
+    "files": {
+      "expert": {
+        "file": "expert/expert_companion.pdf",
+        "sha256": "0aed436a3553705b38782a85b32459a5c882debd502ce05e48006cf1069b7051"
+      },
+      "exposition": {
+        "file": "exposition/exposition.pdf",
+        "sha256": "d61c5b47b77e8f5547545569b442646d5acde58ece16a45a1f2df0f9faa0630a"
+      },
+      "reconstruction": {
+        "file": "record/reasoning_record.pdf",
+        "sha256": "d4d1c6a583ab1476847a59d226f140c8e1a503f4e102257e11694bcf7232c0d4"
+      }
+    }
+  },
+  "bindings_revision": "2e6c6932c8d51187e81657d62b09dfde9d24811e",
+  "selections": [
+    {
+      "id": "cycle",
+      "title": "A cycle among losing columns",
+      "passage": "upper-cyclic-example",
+      "kind": "illustrates",
+      "note": "The three arrows among losers form a cycle. The comparison theorem only needs complementary probabilities and a dominant winner. The drawing illustrates the setup; it has no reviewed theorem tie.",
+      "quotes": {
+        "exposition": [
+          "**Which columns should go on the list?** Draw an",
+          "figures/exposition/fig3_tournament.svg"
+        ]
+      },
+      "figure": "docs/figures/exposition/fig3_tournament.svg",
+      "statements": [
+        "def-comparison"
+      ],
+      "bound_at": {
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "correspondence_scope": "illustration"
+    },
+    {
+      "id": "projection",
+      "title": "Equal probabilities for opposite signs",
+      "passage": "forr_small_instance",
+      "kind": "illustrates",
+      "note": "The final states u and −u have the same projection probability. The negative example lies outside the one-sided promise. The domain circuit checks what the decoder cannot certify.",
+      "quotes": {
+        "exposition": [
+          "For $a^0$ the measured position can never be $00$."
+        ],
+        "expert": [
+          "Set $P=1$ when $\\Phi\\ge\\delta$, $P=0$ when $|\\Phi|\\le\\delta/2$, and leave"
+        ]
+      },
+      "statements": [
+        "claim-proj-prob",
+        "eq-4"
+      ],
+      "bound_at": {
+        "expert": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      },
+      "context_passages": {
+        "forr_definition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "AC-circuit": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "correspondence_scope": "illustration"
+    },
+    {
+      "id": "joint-event",
+      "title": "A light visit implies a successful capped prediction",
+      "passage": "CL-joint-event",
+      "kind": "argument",
+      "note": "Fix the column and query time before sampling. Replay earlier queries with a cap on every branch, then predict the label named by the current query before reading its answer. Success contains the joint light-visit event under the original product law.",
+      "quotes": {
+        "exposition": [
+          "On any run where $i$ is light and the"
+        ],
+        "expert": [
+          "If $i$ is light at the end of the"
+        ]
+      },
+      "statements": [
+        "eq-21"
+      ],
+      "bound_at": {
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "CL-dummy": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "CL-heavy": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "CL-simulator": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "CL-direct-product-statement": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
+    },
+    {
+      "id": "gaussian-path",
+      "title": "Transporting a derivative along three blocks",
+      "passage": "forr_three_blocks",
+      "kind": "worked_example",
+      "note": "The Walsh factors follow the successive block indices. The listed declarations establish the integral and path-expansion ingredients; the whole worked example has no reviewed equivalence.",
+      "declarations": [
+        "QuarticQuery.ForrelationLower.integral_walk",
+        "QuarticQuery.ForrelationLower.Int_eq_paths"
+      ],
+      "bound_at": {
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "forr_distribution": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "forr_stein": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "forr_identity": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "correspondence_scope": "constituents_only"
+    },
+    {
+      "id": "promise-gap",
+      "title": "Recovering a gap on promised inputs",
+      "passage": "forr_promise_gap",
+      "kind": "argument",
+      "note": "The analytic distributions can sample off-promise inputs. A difference in means alone does not establish the promised decision-tree lower bound.",
+      "declarations": [
+        "QuarticQuery.ForrelationLower.mass_ge"
+      ]
+    },
+    {
+      "id": "uniform-hardness",
+      "title": "The uniform Forrelation bound",
+      "passage": "forr_uniform_assembly",
+      "kind": "argument",
+      "note": "This estimate carries explicit parameter restrictions. Its role in the separating family differs from the fixed-parameter theorem quoted in the short accounts.",
+      "lean": [
+        "src-forrelation-uniform"
+      ],
+      "bound_at": {
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "forr_target": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "forr_promise_gap": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
+    },
+    {
+      "id": "partial-function",
+      "title": "Three requirements on the address function",
+      "passage": "forr_bundle",
+      "kind": "interface",
+      "note": "The board needs an inexpensive quantum decoder, an exact circuit recognizing the promise and value, and classical query hardness.",
+      "statements": [
+        "lem-2.1"
+      ],
+      "bound_at": {
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "forr_definition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "AC-circuit": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
+    },
+    {
+      "id": "same-family",
+      "title": "Specializing both bounds to the same total function",
+      "passage": "ROOT-FAMILY-ASSEMBLY",
+      "kind": "instantiation",
+      "note": "Substituting the Forrelation partial function and its circuit into the two generic bounds gives estimates for one family.",
+      "statements": [
+        "eq-2"
+      ],
+      "lean": [
+        "src-family-conditional",
+        "src-constants"
+      ],
+      "bound_at": {
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "forr_bundle": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "CL-concrete-lower": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "upper-asymptotic-bound": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "forr_definition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "generic-lower",
+      "title": "Classical hardness of the generic board",
+      "passage": "CL-generic-statement",
+      "kind": "argument",
+      "note": "The planted lower bound accepts any partial function satisfying the hardness premise. Forrelation supplies that premise in the final family.",
+      "statements": [
+        "prop-4.2-generic"
+      ],
+      "bound_at": {
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      },
+      "context_passages": {
+        "CL-entry-interface": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "CL-minimax": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
+    },
+    {
+      "id": "universal-upper",
+      "title": "The universal quartic upper bound",
+      "passage": "R3-A-RESULT",
+      "kind": "argument",
+      "note": "The upper bound for all total functions comes from Aaronson, Ben-David, Kothari, Rao and Tal. Its Lean implementations and constants have separate source records.",
+      "statements": [
+        "thm-A.1"
+      ],
+      "context_passages": {
+        "R3-A-DEFINITIONS": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "R3-A-ASSEMBLY": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+      }
+    },
+    {
+      "id": "quantum-interface",
+      "title": "Measured labels and retained workspace",
+      "passage": "upper-missing-physical-state",
+      "kind": "scope_boundary",
+      "note": "The Boolean evaluation uses the measured label distribution and sequential verification. This use does not establish equality of the entire retained physical state.",
+      "lean": [
+        "src-stage-sampler"
+      ]
+    },
+    {
+      "id": "stopped-process",
+      "title": "Controlling an adaptive analytic process",
+      "passage": "forr_tree_stopping",
+      "kind": "argument",
+      "note": "Stopping before the coefficient bound fails preserves the martingale calculation. Compare the capped simulator’s treatment of lightness as an analogy."
+    }
+  ],
+  "argument_links": [
+    {
+      "source": "cycle",
+      "relation": "illustrates",
+      "target": "weight"
+    },
+    {
+      "source": "weight",
+      "relation": "used_in",
+      "target": "pivot"
+    },
+    {
+      "source": "pivot",
+      "relation": "used_in",
+      "target": "verification"
+    },
+    {
+      "source": "projection",
+      "relation": "distinguishes",
+      "target": "partial-function"
+    },
+    {
+      "source": "partial-function",
+      "relation": "supplies_interface_for",
+      "target": "generic-lower"
+    },
+    {
+      "source": "joint-event",
+      "relation": "used_in",
+      "target": "generic-lower"
+    },
+    {
+      "source": "joint-event",
+      "relation": "analogous_to",
+      "target": "stopped-process"
+    },
+    {
+      "source": "gaussian-path",
+      "relation": "used_in",
+      "target": "uniform-hardness"
+    },
+    {
+      "source": "promise-gap",
+      "relation": "used_in",
+      "target": "uniform-hardness"
+    },
+    {
+      "source": "uniform-hardness",
+      "relation": "supplies_hardness_for",
+      "target": "same-family"
+    },
+    {
+      "source": "verification",
+      "relation": "used_in",
+      "target": "same-family"
+    },
+    {
+      "source": "generic-lower",
+      "relation": "specialized_in",
+      "target": "same-family"
+    },
+    {
+      "source": "same-family",
+      "relation": "used_in",
+      "target": "exponent"
+    },
+    {
+      "source": "exponent",
+      "relation": "used_in",
+      "target": "headline"
+    },
+    {
+      "source": "universal-upper",
+      "relation": "used_in",
+      "target": "headline"
+    },
+    {
+      "source": "quantum-interface",
+      "relation": "qualifies",
+      "target": "verification"
+    }
+  ],
+  "semantic_answers_lean_snapshot": "0d109ea9e9b7f4a766640d406409e30589fb4c5a4e645b6d6888569fa2edf29f",
+  "board_scenes": [
+    {
+      "id": "known-pair",
+      "question": "Which one bit distinguishes these two tables?",
+      "quotes": {
+        "exposition": [
+          "Does any column in this table have a one in every row?",
+          "| Row 4 | 0 | 1 | 1 | 1 |",
+          "Read down column 1.",
+          "Cover all sixteen numbers."
+        ]
+      },
+      "bound_at": {
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "hidden-zeros",
+      "question": "What changes when the differing square is hidden?",
+      "quotes": {
+        "exposition": [
+          "What if we move the zeros around before covering the numbers?",
+          "On a table with $m$ rows and $m$ columns"
+        ]
+      },
+      "bound_at": {
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    },
+    {
+      "id": "pointer-check",
+      "question": "Can the same comparison outcomes hide an invalid certificate?",
+      "quotes": {
+        "exposition": [
+          "To obtain a yes answer on the enlarged board,",
+          "For any two columns we use the same rule.",
+          "Could we declare a column the winner just because every comparison returns its number?"
+        ]
+      },
+      "bound_at": {
+        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+      }
+    }
+  ]
+}

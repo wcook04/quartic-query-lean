@@ -34,9 +34,13 @@
   \node at (2*1.35,0) {$\cdots$};
   \node[font=\small, addr, anchor=south] at (1.35*1.5,0.36)
     {$r$ address inputs};
-  \node[font=\small, addr] (s) at (1.35*1.5,-1.05)
-    {$r$-bit address $s$};
-  \foreach \h in {0,1,3} \draw[->, addr] (A\h.south) -- (A\h.south |- s.north);
+  \foreach \h/\b in {0/1,1/2,3/r} {
+    \node[addr] (s\h) at (1.35*\h,-0.85) {$s_{\b}$};
+    \draw[->, addr] (A\h.south) -- (s\h.north);}
+  \node[addr] at (2*1.35,-0.85) {$\cdots$};
+  \draw[decorate, decoration={brace, mirror, amplitude=3pt}, addr]
+    (s0.south west) -- (s3.south east)
+    node[midway, below=3pt, font=\small] (s) {cell address $s$};
 \end{scope}
 % ---- the cell array B_{i*,s}, s in {0,1}^r ------------------------------
 \begin{scope}[shift={(6.45,0.6)}]

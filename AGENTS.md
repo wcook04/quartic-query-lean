@@ -25,6 +25,8 @@ including how to audit completed packet batches without changing their inputs.
 - `corpus/` holds statement records. `ties.json` is reviewed input; `lean_dependencies.json` and `receipts/`
   are recorded inputs. The statement, graph and coverage files are generated. See [corpus/README.md](corpus/README.md).
 - `tools/` holds maintenance programs; `tests/` holds their regression tests.
+- `site/` holds the reading website. It presents one generated reading edition
+  and adds no mathematical joins of its own; see [site/README.md](site/README.md).
 - `README.md` and the directory READMEs explain current use. Keep commands and
   links aligned with the files they describe.
 - PDFs, ZIPs, Lake dependencies and build products are local inputs or outputs,

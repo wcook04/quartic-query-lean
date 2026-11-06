@@ -96,6 +96,21 @@ function Pandoc(doc)
       i = i + 1
     end
   end
+  -- Each anchored reference becomes its own one-item list. Use the tighter
+  -- entry spacing of the short papers while retaining the record's type size.
+  for n, heading in ipairs(blocks) do
+    if heading.t == "Header" and heading.identifier == "references" then
+      local after = n + 1
+      while after <= #blocks do
+        local next_block = blocks[after]
+        if next_block.t == "Header" and next_block.level <= heading.level then break end
+        after = after + 1
+      end
+      blocks:insert(after, pandoc.RawBlock("latex", "\\par\\endgroup"))
+      blocks:insert(n + 1, pandoc.RawBlock("latex", "\\begingroup\\setlength{\\parskip}{2pt plus 1pt}"))
+      break
+    end
+  end
   doc.blocks = blocks
   io.stderr:write("catalogue_backlink_groups=" .. grouped .. "\n")
   return doc
@@ -194,7 +209,7 @@ function Link(el)
   local sibling = el.target:match("^(expert_companion%.md.*)$") or
                   el.target:match("^(exposition%.md.*)$")
   if sibling then
-    el.target = "https://github.com/wcook04/quartic-query-lean/blob/main/docs/" .. sibling
+    el.target = "https://github.com/wcook04/quartic-query-lean/blob/SIBLING_REVISION/docs/" .. sibling
     return el
   end
   local replacement = directory_targets[el.target]
@@ -206,36 +221,37 @@ end
 '''
 
 
-def navigation_filter():
+def navigation_filter(sibling_revision="main"):
     """The navigation Lua filter with the reviewed directory-link targets."""
     entries = ",\n".join(f"  [{json.dumps(link)}] = {json.dumps(link + name)}"
                          for link, name in sorted(DIRECTORY_TARGETS.items()))
-    return NAVIGATION_LAYOUT.replace("DIRECTORY_TARGETS_TABLE", "{\n" + entries + "\n}")
+    layout = NAVIGATION_LAYOUT.replace("DIRECTORY_TARGETS_TABLE", "{\n" + entries + "\n}")
+    return layout.replace("SIBLING_REVISION", sibling_revision)
 
 
-def write_filters(stage):
+def write_filters(stage, sibling_revision="main"):
     """Stage the submitted layout filter with its adaptations, then navigation."""
     layout = stage / "pdf_layout.lua"
     shutil.copyfile(LAYOUT / "pdf_layout.lua", layout)
     with layout.open("a") as handle:
         handle.write(CODE_LAYOUT)
     navigation = stage / "pdf_navigation.lua"
-    navigation.write_text(navigation_filter(), encoding="utf-8")
+    navigation.write_text(navigation_filter(sibling_revision), encoding="utf-8")
     return [layout, navigation]
 
 
 def maintained_figures(nodes, source):
     images = {node["c"][2][0] for node in nodes if node.get("t") == "Image"}
     figure_groups = {}
-    for image in images:
+    for image in sorted(images):
         file = (source.parent / image).resolve()
         matches = [(kind, folder, names) for kind, (folder, names) in FIGURES.items()
                    if file.parent == folder and file.stem in names and file.suffix == ".svg"]
         if len(matches) != 1:
             raise ValueError(f"record figure needs a maintained figure source: {image}")
-        kind, folder, names = matches[0]
-        figure_groups[kind] = (folder, names)
-    return images, figure_groups
+        kind = matches[0][0]
+        figure_groups.setdefault(kind, []).append(image)
+    return figure_groups
 
 
 def navigation_inputs(ast, source):
@@ -329,10 +345,12 @@ def main():
         parser.error("Pandoc citation nodes found: supply --bibliography or manuscript bibliography metadata")
     try:
         navigation = navigation_inputs(ast, source)
-        images, figure_groups = maintained_figures(nodes, source)
+        figure_groups = maintained_figures(nodes, source)
     except ValueError as error:
         parser.error(str(error))
+    sibling_revision = command(["git", "rev-parse", "HEAD"], cwd=ROOT).strip()
     receipt = {
+        "sibling_paper_revision": sibling_revision,
         "schema": "quartic-reasoning-record-render-v1", "source": str(source),
         "navigation": navigation,
         "renderer_sha256": digest(Path(__file__)),
@@ -359,7 +377,8 @@ def main():
     }
     # Reuse the companion papers' actual style and TikZ sources, and bind them.
     receipt["layout_sources"][str(ROOT / "tools/render_papers.py")] = digest(ROOT / "tools/render_papers.py")
-    for folder, names in figure_groups.values():
+    for kind in figure_groups:
+        folder, names = FIGURES[kind]
         for path in [folder / (name + ".tex") for name in names] + [folder / "style.tex"]:
             if path.exists():
                 receipt["layout_sources"][str(path)] = digest(path)
@@ -377,13 +396,12 @@ def main():
     with tempfile.TemporaryDirectory(prefix="render-", dir=output) as temporary:
         stage = Path(temporary)
         shutil.copyfile(LAYOUT / "pdf_header.tex", stage / "pdf_header.tex")
-        write_filters(stage)
+        write_filters(stage, sibling_revision)
         image_paths = {}
-        for kind in figure_groups:
+        for kind, images in figure_groups.items():
             compiled = build_figures(kind, output / kind, write_svg=False)
             for image in images:
-                if (source.parent / image).resolve().parent == FIGURES[kind][0]:
-                    image_paths[image] = str(compiled / (Path(image).stem + ".pdf"))
+                image_paths[image] = str(compiled / (Path(image).stem + ".pdf"))
         image_filter = stage / "pdf_images.lua"
         entries = ",\n".join(f"[{json.dumps(k)}] = {json.dumps(v)}" for k, v in image_paths.items())
         image_filter.write_text("local paths = {" + entries + "}\nfunction Image(el)\n"

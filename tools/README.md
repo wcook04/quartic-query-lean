@@ -5,6 +5,8 @@ The top-level Python tools use only the standard library; commands that invoke
 Lean or Comparator also need their pinned external tools. The imported finite
 checker described below additionally needs NumPy.
 
+The [proof map builder](reading_proof_map.py) condenses the headline dependency closure into passage-linked cards with typed path witnesses. The [reading API compiler](build_reading_api.py) exports our three papers, the original OpenAI PDF reading option, cross-paper routes and formal sources. The [original preprint adapter](original_preprint.py) verifies the published PDF’s statement locations. [Reading evidence](reading_evidence.py) joins their existing statement reviews and recorded checks. Run `make reading-api` for the [static data contract](../docs/reading_api.md).
+
 [intake_round7_returns.py](intake_round7_returns.py) preserves four round-seven
 archives and their members without running submitted scripts. Supply their source
 directory with `--source-dir PATH`; `--verify` requires all extracted members,
@@ -462,3 +464,69 @@ remaining evidence boundaries are in the
 [formal adjudication](../research/adjudication/round3_formal.md).
 
 The passage rebinder and Comparator map read both the mathematical account and its verification reference. Each passage and excerpt retains its actual file path and local line range. Moving an appendix changes its location, not its mathematical or checking status.
+
+[reading_selection.py](reading_selection.py) binds exact reading selections and
+prepares graph and reverse indexes. [Declaration titles](reading_titles.py) validates the complete edition label set and supplies its card and helper projections. The earlier helper-title file remains an input to the native kernel-path recorder. [reader.mjs](reader.mjs) consumes the static
+edition, and [query_reading_api.mjs](query_reading_api.mjs) runs that client
+headlessly. [ReadDependencies.lean](ReadDependencies.lean) and its
+[recorder](record_reading_dependencies.py) own the optional native graph refresh.
+
+[ReadApplications.lean](ReadApplications.lean) inspects the actual parameters and
+proof obligations of selected Lean applications. The same recorder refreshes
+them with `--applications` and independently checks them with
+`--applications --compare`. [reading_applications.py](reading_applications.py)
+binds them to manuscript topics and exact source excerpts.
+
+[ReadStatementEvidence.lean](ReadStatementEvidence.lean) uses Lean's environment
+and axiom collector for the [statement comparison reader](../docs/reading_api.md#compare-a-paper-result-with-lean).
+The [recorder](record_reading_dependencies.py) builds the selected modules and
+checks the source snapshot before and after inspection.
+
+[reading_manuscripts.py](reading_manuscripts.py) produces the Pandoc HTML and
+checks source positions against the complete parse. [reading_board.py](reading_board.py)
+constructs the opening experiments from the bound source table and passages.
+Run `make reading-web` for the [browser edition](../docs/reading_api.md#browser-edition).
+
+[Record proof use locations](record_proof_sites.py) rebuilds Quartic, reads its
+native language-server indices, and uses [Lean's declaration parser](ReadUseRegions.lean)
+to separate statements and bodies. When a declaration uses local notation the
+[scoped inspector](ReadScopedUseRegions.lean) re-elaborates the module and matches
+its declaration identifier to the native index. A one-line right hand side can
+supply a location for a constant in the compiled body. Run
+`python3 tools/record_proof_sites.py --checkout /path/to/built/checkout`;
+add `--compare` for an independent repeat. Python tooling and the Lean parser
+are fingerprinted along with the pinned source snapshot. A stale capture
+withholds the corresponding use locations from new editions.
+
+[Record inherited parameter origins](record_parameter_origins.py) rechecks the
+three amplification modules with [the parameter inspector](ReadParameterOrigins.lean).
+It joins actual uses of a local variable to its original binder by Lean's variable
+ID, checks the section parameter prefix of the compiled declaration, and verifies
+the type identifier against the language-server index.
+Run `python3 tools/record_parameter_origins.py --checkout /path/to/built/checkout`
+and pass `--compare` to reproduce the saved observations.
+
+[Record kernel paths](record_kernel_paths.py) checks each dependency address
+against the [compiled declaration](ReadKernelPaths.lean).
+[Record retained lines](record_retained_lines.py) runs the
+[tagged tactic replay](ReadRetainedLines.lean) for selected modules. With an
+up-to-date built checkout, run these commands sequentially:
+
+```sh
+python3 tools/record_kernel_paths.py --checkout /path/to/built/checkout
+python3 tools/record_retained_lines.py --checkout /path/to/built/checkout
+```
+
+Both commands require a warm Lake build. They take the same nonblocking lock
+in the build cache and run one native inspection at a time. Each enforces a
+process-tree memory limit. Retained-line capture records modules that exceeded
+its budget and publishes locations only from completed inspections.
+For an incremental run, add one or more `--module` arguments to the replay
+command. It keeps current results from other modules with the same scheduled
+requests. A failed retry leaves earlier verified locations available and
+records the failed attempt separately.
+
+Pass `--compare` to check a capture against its saved record. To select proof
+body candidates after a map change, pass `--select-from build/reading-api/v1/index.json`
+to the retained-line recorder. Capturing uses the native toolchain. Packaging
+and opening the saved edition only need the recorded inputs.
