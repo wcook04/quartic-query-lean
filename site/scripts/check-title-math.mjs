@@ -1,4 +1,4 @@
-// Validate authored declaration titles with the same KaTeX package and options
+// Validate authored declaration titles and ledger statement presentations with the same KaTeX package and options
 // as src/text/math.ts. A release must not depend on the reader's TeX fallback.
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
@@ -11,13 +11,14 @@ if (args.length > 1) {
   console.error("Usage: node scripts/check-title-math.mjs [titles.json]");
   process.exit(1);
 }
-const path = args.length ? resolve(args[0]) : defaultPath;
+const declarationPath = args.length ? resolve(args[0]) : defaultPath;
+const statementPath = fileURLToPath(new URL("../../docs/reading_statement_presentations.json", import.meta.url));
 const errors = [];
 let formulaCount = 0;
 let titleCount = 0;
+let statementCount = 0;
 
 function checkTitle(name, value) {
-  titleCount++;
   const paired = Array.isArray(value);
   if (!(typeof value === "string" || (paired && value.length === 2 && value.every(v => typeof v === "string")))) {
     errors.push(`${name}: expected an English string or [rich title, plain title]`);
@@ -59,7 +60,7 @@ function checkTitle(name, value) {
 }
 
 try {
-  const document = JSON.parse(readFileSync(path, "utf8"));
+  const document = JSON.parse(readFileSync(declarationPath, "utf8"));
   if (!document || typeof document !== "object" || Array.isArray(document)) {
     throw new Error("expected an object containing source_snapshot_sha256 and titles");
   }
@@ -69,15 +70,25 @@ try {
   if (!document.titles || typeof document.titles !== "object" || Array.isArray(document.titles) || !Object.keys(document.titles).length) {
     errors.push("titles: expected a nonempty object keyed by declaration name");
   } else {
+    titleCount = Object.keys(document.titles).length;
     for (const [name, value] of Object.entries(document.titles)) checkTitle(name, value);
   }
+  if (!args.length) {
+    const entries = JSON.parse(readFileSync(statementPath, "utf8"));
+    for (const [id, entry] of Object.entries(entries)) {
+      checkTitle(id + " title", entry.title);
+      checkTitle(id + " body", entry.body);
+      statementCount++;
+    }
+    if (!statementCount) errors.push("Missing ledger statement presentations");
+  }
 } catch (error) {
-  errors.push(`${path}: ${error.message}`);
+  errors.push(error.message);
 }
 
 if (errors.length) {
-  console.error(`Declaration title validation failed (${errors.length} errors):\n${errors.map(error => `- ${error}`).join("\n")}`);
+  console.error(`Reader math validation failed (${errors.length} errors):\n${errors.map(error => `- ${error}`).join("\n")}`);
   process.exitCode = 1;
 } else {
-  console.log(`Validated ${titleCount} declaration titles and ${formulaCount} inline formulas with KaTeX ${katex.version}.`);
+  console.log(`Validated ${titleCount} declaration titles, ${statementCount} statement presentations and ${formulaCount} inline formulas with KaTeX ${katex.version}.`);
 }

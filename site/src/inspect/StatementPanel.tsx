@@ -2,11 +2,11 @@
 import { useState } from "react";
 import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
-import { statementName } from "../app/papers";
 import { LeanCode } from "../lean/LeanCode";
 import { Axioms, Checks, RelationMark, Reviewer, relationSentence } from "./evidence";
-import { DeclButton, DeclTitle, Elsewhere, Loaded } from "./common";
-import { declarationTitle, useNames } from "./Names";
+import { DeclButton, DeclTitle, Elsewhere, Loaded, StatementLabel } from "./common";
+import { declarationTitle, useNames, useStatementNames } from "./Names";
+import { Title } from "../text/title";
 import { useNav } from "./Nav";
 
 export function StatementPanel({ edition, id }: { edition: Edition; id: string }) {
@@ -15,7 +15,7 @@ export function StatementPanel({ edition, id }: { edition: Edition; id: string }
     <Loaded value={review} what="statement comparison">
       {(r) => r.format === "archived_record" ? (
         <article className="panel">
-          <h2>{statementName(r.id)}</h2>
+          <h2><StatementLabel id={r.id} /></h2>
           <p>{r.ledgerStatement}</p>
           <p>This edition records the following links to Lean. Its review predates the comparison of which theorem covers the whole statement.</p>
           <ul>{r.ties?.map((t: any) => <li key={t.file + t.declaration}>
@@ -29,12 +29,14 @@ export function StatementPanel({ edition, id }: { edition: Edition; id: string }
 
 function Statement({ r }: { r: any }) {
   const nav = useNav();
+  const statementNames = useStatementNames();
+  const archived = statementNames.status === "unavailable_in_edition" || statementNames.status === "archived_partial";
   const [lead, ...rest] = r.comparisons as any[];
   const page = r.paper?.selection?.location?.page;
   return (
     <article className="panel panel--statement" aria-labelledby="st-h">
       <header className="panel__head">
-        <h2 id="st-h" className="panel__title">{statementName(r.id)}</h2>
+        <h2 id="st-h" className="panel__title"><StatementLabel id={r.id} presentation={r.presentation} /></h2>
         {page && (
           <p className="panel__where">
             Page {page} of OpenAI’s paper.{" "}
@@ -64,7 +66,13 @@ function Statement({ r }: { r: any }) {
 
       <section className="ledger">
         <h3>The statement that was compared</h3>
-        <p className="ledger__text">{r.ledgerStatement}</p>
+        <p className="ledger__text">{r.presentation ? <span aria-label={r.presentation.body_plain}><Title text={r.presentation.body} /></span> : archived ? r.ledgerStatement : "Statement text unavailable in this edition."}</p>
+        {!archived && (
+          <details className="more more--inline">
+            <summary>Original ledger wording</summary>
+            <p>{r.ledgerStatement}</p>
+          </details>
+        )}
         <p className="quiet">
           This is the project’s maintained reading of the paper, not a quotation.
           {r.paper?.selection ? " Open the PDF for OpenAI’s exact wording." : ""}

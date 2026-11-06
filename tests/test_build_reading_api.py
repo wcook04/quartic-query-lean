@@ -44,6 +44,38 @@ class ReadingEditionTest(unittest.TestCase):
                 self.assertIn(name.rsplit(".", 1)[-1], "\n".join(lines[start - 1:end]))
                 self.assertIn(label, reverse["declarations"][name]["targets"])
 
+    def test_statement_presentations_match_the_maintained_ledger_and_compact_index(self):
+        index = self.resource(self.reading["statement_titles"])
+        statements = self.edition.json("corpus/statements.json")
+        self.assertEqual(index["revision"], self.edition.commit)
+        self.assertEqual(index["titles"].keys(), {row["id"] for row in statements})
+        for row in statements:
+            with self.subTest(statement=row["id"]):
+                record = self.resource(self.reading["fidelity"][row["id"]])
+                display = record["presentation"]
+                self.assertEqual(display["statement_sha256"], api.digest(record["statement"].encode()))
+                self.assertEqual(record["statement"], row["statement"])
+                self.assertTrue(display["body"] and display["body_plain"])
+                self.assertEqual(index["titles"][row["id"]],
+                                 {key: display[key] for key in ("title", "title_plain")})
+
+    def test_changed_ledger_wording_requires_new_statement_presentation(self):
+        from reading_titles import statement_presentations, STATEMENT_SOURCE
+        edition = api.Edition(api.ROOT)
+        entries = edition.json(STATEMENT_SOURCE)
+        row = next(r for r in edition.json("corpus/statements.json") if r["id"] == "eq-13")
+        entry = entries[row["id"]]
+        edition.inputs[STATEMENT_SOURCE] = json.dumps({row["id"]: entry}).encode()
+        mutation = {**row, "statement": row["statement"] + " under a different distribution"}
+        for changed in [mutation, {**mutation, "statement_sha256": api.digest(mutation["statement"].encode())}]:
+            with self.assertRaisesRegex(ValueError, "eq-13: review"):
+                statement_presentations(edition, {row["id"]: changed})
+        with self.assertRaisesRegex(ValueError, "obsolete statements.*eq-13"):
+            statement_presentations(edition, {})
+        edition.inputs[STATEMENT_SOURCE] = b"{}"
+        with self.assertRaisesRegex(ValueError, "missing statements.*eq-13"):
+            statement_presentations(edition, {row["id"]: row})
+
     def test_declaration_titles_cover_reader_endpoints_and_match_map_projections(self):
         index = self.resource(self.reading["declaration_titles"])
         graph = self.resource("selection/index.json")
@@ -83,7 +115,7 @@ class ReadingEditionTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "new Lean source snapshot"):
             declaration_titles(edition, graph, set())
         edition.inputs[SOURCE] = b'{"titles":{"A":"First","A":"Second"}}'
-        with self.assertRaisesRegex(ValueError, "duplicate declaration title"):
+        with self.assertRaisesRegex(ValueError, "duplicate reader presentation key"):
             declaration_titles(edition, graph, {"A"})
         declaration_titles(edition, {**graph, "currentness": "stale"}, {"A"})
         self.assertEqual(json.loads(edition.resources[RESOURCE])["titles"], {})

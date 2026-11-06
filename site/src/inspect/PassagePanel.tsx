@@ -1,10 +1,11 @@
 // A selected passage: what it says, what it is linked to, and where to go next.
 import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
-import { statementName } from "../app/papers";
 import { inlineTex } from "../text/html";
 import { COVERAGE_SENTENCE, RelationMark } from "./evidence";
-import { DeclButton, Elsewhere, Loaded } from "./common";
+import { DeclButton, Elsewhere, Loaded, StatementLabel } from "./common";
+import { useStatementNames } from "./Names";
+import { Title } from "../text/title";
 import { useNav } from "./Nav";
 
 export function PassagePanel({ edition, query }: { edition: Edition; query: any }) {
@@ -21,6 +22,7 @@ function bestTie(statement: any) {
 
 function Passage({ r }: { r: any }) {
   const nav = useNav();
+  const statementNames = useStatementNames();
   const heading = r.context?.headings?.at(-1)?.title;
   const statements: any[] = r.statements ?? [];
   const topics: any[] = r.topics ?? [];
@@ -34,7 +36,7 @@ function Passage({ r }: { r: any }) {
     <article className="panel panel--passage" aria-labelledby="ps-h">
       <header className="panel__head">
         <h2 id="ps-h" className="panel__title">
-          {r.paper === "original" && r.position?.id ? statementName(r.position.id.replace(/^original\//, "")) : topics[0]?.title ?? (r.page ? `Page ${r.page}` : heading ?? "Selected passage")}
+          {r.paper === "original" && r.position?.id ? <StatementLabel id={r.position.id.replace(/^original\//, "")} /> : topics[0]?.title ?? (r.page ? `Page ${r.page}` : heading ?? "Selected passage")}
         </h2>
         {heading && topics[0] && <p className="panel__where">In “{heading}”.</p>}
       </header>
@@ -47,7 +49,7 @@ function Passage({ r }: { r: any }) {
       {r.paper === "original" && !r.position?.id && r.matches?.length > 0 && (
         <ul className="plain">
           {r.matches.map((m: any) => (
-            <li key={m.id}><button type="button" className="textbutton" onClick={() => nav.openSelection("original", m.id)}>{statementName(m.statements?.[0] ?? m.id)}</button></li>
+            <li key={m.id}><button type="button" className="textbutton" onClick={() => nav.openSelection("original", m.id)}><StatementLabel id={m.statements?.[0] ?? m.id.replace(/^original\//, "")} /></button></li>
           ))}
         </ul>
       )}
@@ -55,7 +57,7 @@ function Passage({ r }: { r: any }) {
         <p className="quiet">
           This paragraph holds other selections too:{" "}
           {choices.map((m: any, i: number) => (
-            <span key={m.id}>{i ? ", " : ""}<button type="button" className="textbutton" onClick={() => nav.openSelection(r.paper, m.id)}>{m.topic ? m.topic.replace(/-/g, " ") : m.id.split("/").pop()}</button></span>
+            <span key={m.id}>{i ? ", " : ""}<button type="button" className="textbutton" onClick={() => nav.openSelection(r.paper, m.id)}>{m.statements?.length ? <StatementLabel id={m.statements[0]} /> : m.topic ? m.topic.replace(/-/g, " ") : m.id.split("/").pop()}</button></span>
           ))}
         </p>
       )}
@@ -78,9 +80,12 @@ function Passage({ r }: { r: any }) {
               return (
                 <li key={s.id} className="claim">
                   <p className="claim__head">
-                    <strong>{statementName(s.id)}</strong> {tie ? <RelationMark relation={tie.relation} /> : <span className="rel rel--unassessed">Not assessed</span>}
+                    <strong><StatementLabel id={s.id} presentation={s.presentation} /></strong> {tie ? <RelationMark relation={tie.relation} /> : <span className="rel rel--unassessed">Not assessed</span>}
                   </p>
-                  <p className="claim__text">{s.statement}</p>
+                  <p className="claim__text">{s.presentation
+                    ? <span aria-label={s.presentation.body_plain}><Title text={s.presentation.body} /></span>
+                    : statementNames.status === "unavailable_in_edition" || statementNames.status === "archived_partial" ? s.statement : "Statement text unavailable in this edition."}</p>
+                  {s.presentation && <details className="more more--inline"><summary>Original ledger wording</summary><p>{s.statement}</p></details>}
                   <p className="claim__foot">
                     {tie && <DeclButton name={tie.declaration} />}
                     <button type="button" className="textbutton" onClick={() => nav.openStatement(s.id)}>Compare</button>

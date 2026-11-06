@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import type { Async } from "../app/useAsync";
-import { face, statementName } from "../app/papers";
+import { face } from "../app/papers";
 import { useAsync } from "../app/useAsync";
 import { useReader } from "./ReaderContext";
-import { declarationTitle, useNames } from "./Names";
+import { declarationTitle, statementTitle, useNames, useStatementNames, type DeclarationTitle } from "./Names";
 import { Title } from "../text/title";
 import { useNav } from "./Nav";
 
@@ -40,6 +40,12 @@ export function DeclTitle({ name }: { name: string }) {
   return <span title={name} aria-label={title.title_plain}><Title text={title.title} /></span>;
 }
 
+export function StatementLabel({ id, presentation }: { id: string; presentation?: DeclarationTitle | null }) {
+  const index = useStatementNames();
+  const title = statementTitle(presentation ? { status: "current", titles: { [id]: presentation } } : index, id);
+  return <span aria-label={title.title_plain}><Title text={title.title} /></span>;
+}
+
 
 export interface Place { paper: string; id: string; treatment?: string; lines?: number[] }
 
@@ -49,12 +55,13 @@ export interface Place { paper: string; id: string; treatment?: string; lines?: 
 function usePlaces(rows: Place[]) {
   const nav = useNav();
   const reader = useReader();
+  const titles = useStatementNames();
   const key = rows.map((r) => r.paper + r.id).join("|");
   return useAsync(async () => {
     const reading: any = await reader.resource("reading.json");
     const papers = [...new Set(rows.map((r) => r.paper))];
     const tables = Object.fromEntries(await Promise.all(papers.map(async (p) => [p, await reader.resource(`selection/${p}.json`).catch(() => [])])));
-    const out: Record<string, { id: string; where: string; quote?: string }[]> = {};
+    const out: Record<string, { id: string; where: string; wherePlain?: string; quote?: string }[]> = {};
     for (const p of papers) {
       const contents: any[] = reading.papers[p]?.contents ?? reading.papers[p]?.outline ?? [];
       const found = rows.filter((r) => r.paper === p).map((r) => ({ r, row: (tables[p] as any[]).find((x) => x.id === r.id) ?? r }));
@@ -66,7 +73,9 @@ function usePlaces(rows: Place[]) {
       out[p] = await Promise.all(kept.map(async ({ r, row }) => {
         if (p === "original") {
           const sid = row.statements?.[0] ?? r.id.replace(/^original\//, "");
-          return { id: r.id, where: `${await statementLabel(reader, sid)}, page ${row.location?.page ?? "?"}` };
+          const title = statementTitle(titles, sid);
+          const page = `, page ${row.location?.page ?? "?"}`;
+          return { id: r.id, where: title.title + page, wherePlain: title.title_plain + page };
         }
         const line = row.lines?.[0];
         let sec: any = null;
@@ -74,31 +83,16 @@ function usePlaces(rows: Place[]) {
         const title = (sec?.title ?? "").replace(/\s*\{[^}]*\}\s*$/, "");
         const quote = row.quote ? cleanQuote(row.quote) : "";
         const where = readable(title);
-        return { id: r.id, where: /^(thm|lem|prop|cor|def|eq|claim)-/.test(where) ? await statementLabel(reader, where) : where || (line ? `Line ${line}` : "Passage"), quote: isPhrase(quote) ? quote : undefined };
+        const statement = Object.hasOwn(titles.titles, where) || /^(thm|lem|prop|cor|def|eq|claim|rem|fact|ex|construct)-/.test(where)
+          ? statementTitle(titles, where) : null;
+        return { id: r.id, where: statement?.title ?? (where || (line ? `Line ${line}` : "Passage")), wherePlain: statement?.title_plain, quote: isPhrase(quote) ? quote : undefined };
       }));
       // One card per section of a paper: the first (most specific) passage stands for it.
       const bySection = new Set<string>();
       out[p] = out[p].filter((pl) => !bySection.has(pl.where) && bySection.add(pl.where));
     }
     return out;
-  }, [reader, key, nav.paper]);
-}
-
-/** A statement's readable name: numbered results by number; a claim by its own opening words. */
-const labelCache = new Map<string, Promise<string>>();
-export function statementLabel(reader: any, id: string): Promise<string> {
-  if (!/^claim-/.test(id)) return Promise.resolve(statementName(id));
-  if (!labelCache.has(id)) {
-    labelCache.set(id, reader.resource(`fidelity/${id}.json`).then((f: any) => {
-      // Prefer a typeset title when the edition has one; ASCII pseudo-maths is never shown raw.
-      if (f.title) return f.title;
-      const text = String(f.statement ?? "").replace(/\s+/g, " ").trim();
-      if (!text || /[_{}^]|\\[a-z]|\b(sum|sqrt)_?\b/.test(text)) return "An unnumbered claim";
-      const words = text.split(" ");
-      return `“${words.slice(0, 9).join(" ")}${words.length > 9 ? "…" : ""}”`;
-    }, () => statementName(id)));
-  }
-  return labelCache.get(id)!;
+  }, [reader, key, nav.paper, titles]);
 }
 
 const span = (r: any) => (r.lines ? r.lines[1] - r.lines[0] : 0);
@@ -111,7 +105,7 @@ const cleanQuote = (q: string) => q.split(/(\$[^$]*\$)/).map((part, i) => (i % 2
 const isPhrase = (q: string) => q.replace(/\$[^$]*\$/g, "x").split(/\s+/).filter(Boolean).length >= 6;
 /** Section titles that are bare statement IDs read as statement names. */
 const readable = (t: string) => {
-  const m = /^\W*((?:thm|lem|prop|cor|def|eq|claim)-[\w.-]+?)\W*$/.exec(t);
+  const m = /^\W*((?:thm|lem|prop|cor|def|eq|claim|rem|fact|ex|construct)-[\w.-]+?)\W*$/.exec(t);
   return m ? m[1] : t;
 };
 
@@ -144,7 +138,7 @@ export function Elsewhere({ rows, here, current }: { rows: Place[]; here: string
               {list.slice(0, 3).map((pl, k) => (
                 <button key={pl.id} type="button" className="strip__go"
                   onClick={() => (isHere && current ? nav.showInPaper(pl.id) : isHere ? nav.showInPaper(pl.id) : nav.openSelection(paper, pl.id))}>
-                  <span className="strip__where">{pl.where}</span>
+                  <span className="strip__where" aria-label={pl.wherePlain}><Title text={pl.where} /></span>
                   {k === 0 && pl.quote && <span className="strip__quote">“<Title text={pl.quote} />…”</span>}
                 </button>
               ))}

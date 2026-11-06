@@ -8,7 +8,8 @@ import * as pdfjs from "pdfjs-dist";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import type { PDFDocumentProxy } from "pdfjs-dist";
 import type { Edition } from "../app/edition";
-import { statementName } from "../app/papers";
+import { StatementLabel } from "../inspect/common";
+import { statementTitle, useStatementNames } from "../inspect/Names";
 import type { Row } from "./selectRow";
 
 pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
@@ -27,7 +28,6 @@ interface Placed { row: Row; y: number | null }
 export function PdfPaper({ edition, selected, page, onSelect, onPage, onReadingPage }: Props) {
   const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
   const [rows, setRows] = useState<Row[]>([]);
-  const [texts, setTexts] = useState<Record<string, string>>({});
   const [placed, setPlaced] = useState<Map<number, Placed[]>>(new Map());
   const [error, setError] = useState<string | null>(null);
   const [width, setWidth] = useState(0);
@@ -70,12 +70,6 @@ export function PdfPaper({ edition, selected, page, onSelect, onPage, onReadingP
       if (!live) return;
       setPlaced(map);
       setPdf(doc);
-      edition.reader.resource("corpus/statements.json").then((all: any[]) => {
-        if (!live) return;
-        const t: Record<string, string> = {};
-        for (const s of all) t[s.id] = s.statement;
-        setTexts(t);
-      }, () => {});
     })().catch((e) => live && setError(e instanceof Error ? e.message : String(e)));
     return () => { live = false; void doc?.destroy(); };
   }, [edition]);
@@ -146,7 +140,7 @@ export function PdfPaper({ edition, selected, page, onSelect, onPage, onReadingP
     <div ref={box} className="pdf">
       {!pdf && <p className="pending" role="status">Loading OpenAI’s PDF…</p>}
       {pdf && width > 0 && Array.from({ length: pdf.numPages }, (_, i) => (
-        <PdfPage key={i} pdf={pdf} n={i + 1} width={width} pins={placed.get(i + 1) ?? []} texts={texts}
+        <PdfPage key={i} pdf={pdf} n={i + 1} width={width} pins={placed.get(i + 1) ?? []}
           selected={selected} onSelect={onSelect} onPage={onPage} />
       ))}
       {pdf && upstream && <p className="pdf__foot">OpenAI’s published copy is also <a href={upstream} target="_blank" rel="noopener noreferrer">on GitHub</a>.</p>}
@@ -154,9 +148,10 @@ export function PdfPaper({ edition, selected, page, onSelect, onPage, onReadingP
   );
 }
 
-function PdfPage({ pdf, n, width, pins, texts, selected, onSelect, onPage }: {
-  pdf: PDFDocumentProxy; n: number; width: number; pins: Placed[]; texts: Record<string, string>; selected?: string; onSelect(id: string): void; onPage(p: number): void;
+function PdfPage({ pdf, n, width, pins, selected, onSelect, onPage }: {
+  pdf: PDFDocumentProxy; n: number; width: number; pins: Placed[]; selected?: string; onSelect(id: string): void; onPage(p: number): void;
 }) {
+  const statementNames = useStatementNames();
   const canvas = useRef<HTMLCanvasElement>(null);
   const holder = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState<{ w: number; h: number; scale: number } | null>(null);
@@ -212,11 +207,11 @@ function PdfPage({ pdf, n, width, pins, texts, selected, onSelect, onPage }: {
         {pins.length === 0 && <p className="quiet">No indexed statement on this page.</p>}
         <ul>
           {pins.map((p) => {
-            const sid = p.row.statements?.[0] ?? p.row.id;
+            const sid = p.row.statements?.[0] ?? p.row.id.replace(/^original\//, "");
             return (
               <li key={p.row.id} id={`pin-${p.row.id}`}>
-                <button type="button" className={`pin${p.row.id === selected ? " is-selected" : ""}`} aria-pressed={p.row.id === selected} onClick={() => onSelect(p.row.id)} title={texts[sid]}>
-                  {statementName(sid)}
+                <button type="button" className={`pin${p.row.id === selected ? " is-selected" : ""}`} aria-pressed={p.row.id === selected} onClick={() => onSelect(p.row.id)} title={statementTitle(statementNames, sid).title_plain}>
+                  <StatementLabel id={sid} />
                 </button>
               </li>
             );

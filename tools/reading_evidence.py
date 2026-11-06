@@ -4,6 +4,7 @@ import re
 
 from build_comparator_map import lean_blocks
 from build_corpus import canonical_sha256, currentness, source_hashes
+from reading_titles import statement_presentations
 from record_reading_dependencies import statement_targets
 
 
@@ -125,6 +126,7 @@ def evidence_resources(edition, statements, passages_by_statement, comparison, p
         for sid in finding["ledger_rows_affected"]:
             findings.setdefault(sid, []).append({k: finding[k] for k in
                 ("id", "claim", "verdict", "paper_locus", "reason")})
+    presentations = statement_presentations(edition, statements)
     for ident, statement in statements.items():
         reviewers = {t["declaration"]: t.get("reviewed_by") for t in authored.get(ident, [])}
         ties = []
@@ -147,7 +149,7 @@ def evidence_resources(edition, statements, passages_by_statement, comparison, p
         best = statement["evidence"]["formal_statement"]
         best_matches = [{"declaration": t["declaration"], "file": t["file"]} for t in ties
                         if t["review_evidence"] == "current" and t["relation"] == best and t["built"]]
-        edition.add(f"fidelity/{ident}.json", {**statement, "lean": ties,
+        edition.add(f"fidelity/{ident}.json", {**statement, "lean": ties, "presentation": presentations[ident],
                     "ledger_history": ledger_history,
                     "review_scope": {"compared_text": "maintained_ledger_statement",
                                      "relation_origin": "authored_review",

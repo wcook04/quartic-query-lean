@@ -1,10 +1,11 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Edition } from "./edition";
 import { go, href, type Route } from "./router";
-import { PAPERS, SUPPLEMENT, face, statementName } from "./papers";
+import { PAPERS, SUPPLEMENT, face } from "./papers";
 import { NavContext, type Nav } from "../inspect/Nav";
 import { ReaderContext } from "../inspect/ReaderContext";
-import { NamesContext, type DeclarationTitles } from "../inspect/Names";
+import { NamesContext, StatementNamesContext, type DeclarationTitles, type StatementTitles } from "../inspect/Names";
+import { StatementLabel } from "../inspect/common";
 import { PassagePanel } from "../inspect/PassagePanel";
 import { StatementPanel } from "../inspect/StatementPanel";
 import { LeanPanel } from "../inspect/LeanPanel";
@@ -41,6 +42,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [contents, setContents] = useState<ContentsRow[]>([]);
   const [lit, setLit] = useState<string[]>([]);
   const [names, setNames] = useState<{ reader: typeof reader; titles: DeclarationTitles } | null>(null);
+  const [statementNames, setStatementNames] = useState<{ reader: typeof reader; index: StatementTitles } | null>(null);
   // Selections this reader has met in this edition and paper (this browser only).
   const visitKey = `quartic:visited:${edition.permalink}:${paper}`;
   const [visited, setVisited] = useState<string[]>(() => { try { return JSON.parse(localStorage.getItem(visitKey) ?? "[]"); } catch { return []; } });
@@ -95,6 +97,16 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     }, () => {});
     return () => { live = false; };
   }, [reader, needsTitles]);
+
+  const needsStatementTitles = paper === "original" || needsTitles;
+  useEffect(() => {
+    if (!needsStatementTitles) return;
+    let live = true;
+    reader.statementTitles().then((index: StatementTitles) => {
+      if (live) setStatementNames({ reader, index });
+    }, () => live && setStatementNames({ reader, index: { status: "failed", titles: {} } }));
+    return () => { live = false; };
+  }, [reader, needsStatementTitles]);
 
   useEffect(() => {
     if (!following || mode !== "evidence" || route.v || paper === "original" || readingLine == null) return;
@@ -219,6 +231,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   return (
     <ReaderContext.Provider value={reader}>
     <NamesContext.Provider value={names?.reader === reader ? names.titles : {}}>
+    <StatementNamesContext.Provider value={statementNames?.reader === reader ? statementNames.index : { status: "loading", titles: {} }}>
     <NavContext.Provider value={nav}>
       <div className={`desk${open ? " desk--open" : ""}`}>
         <nav className="papers" aria-label="Papers">
@@ -298,7 +311,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             <div className="inspector__bar">
               {route.v && route.v !== "graph" && route.v !== "path" && (route.s || route.p) && !(route.v === "statement" && route.s === `original/${route.st}`) && (
                 <button type="button" className="textbutton" onClick={nav.backToPassage}>
-                  Return to {route.s?.startsWith("original/") ? statementName(route.s.slice(9)) : "the passage"}
+                  Return to {route.s?.startsWith("original/") ? <StatementLabel id={route.s.slice(9)} /> : "the passage"}
                 </button>
               )}
               {route.v && <button type="button" className="textbutton" onClick={() => history.back()}>Back</button>}
@@ -329,6 +342,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
         )}
       </div>
     </NavContext.Provider>
+    </StatementNamesContext.Provider>
     </NamesContext.Provider>
     </ReaderContext.Provider>
   );

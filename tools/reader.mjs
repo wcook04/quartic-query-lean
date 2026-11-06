@@ -477,6 +477,17 @@ export async function openReader(indexURL, options) {
         url: `${manifest.repository}/blob/${revision}/${s.source}#L${s.lines[0]}-L${s.lines[1]}`}))};
   }
 
+  async function statementTitles() {
+    const path = "selection/statement-titles.json";
+    if (!Object.hasOwn(manifest.resources, path))
+      return {revision, status: "unavailable_in_edition", titles: {}};
+    const index = await revisionResource(path);
+    if (index.schema !== "quartic-statement-titles-v1" || !index.titles ||
+        typeof index.titles !== "object" || Array.isArray(index.titles))
+      throw new Error("Invalid statement title index");
+    return {revision, status: "current", titles: index.titles};
+  }
+
   async function statementReview(id) {
     const reading = await resource("reading.json");
     if (!Object.hasOwn(reading.fidelity, id)) throw new Error("Unknown statement: " + id);
@@ -485,7 +496,7 @@ export async function openReader(indexURL, options) {
       (lines ? `#L${lines[0]}-L${lines[1]}` : "");
     if (!record.review_scope) {
       // This format predates the judgment about which theorem matches the whole statement.
-      return {revision, id, format: "archived_record", ledgerStatement: record.statement,
+      return {revision, id, format: "archived_record", presentation: null, ledgerStatement: record.statement,
         ties: record.lean.map(t => ({...t, sourceURL: sourceURL(t.file, t.declaration_lines)}))};
     }
     const [originals, related] = await Promise.all([
@@ -503,7 +514,7 @@ export async function openReader(indexURL, options) {
       sourceURL: sourceURL(t.file, t.declaration_lines), rawLean: await sourceExcerpt(t.file, t.declaration_lines)})));
     const semanticExamples = await Promise.all(record.semantic_probes.map(async p => ({...p,
       sourceURL: sourceURL(p.source, p.lines), rawLean: await sourceExcerpt(p.source, p.lines)})));
-    return {revision, id, ledgerStatement: record.statement, ledgerHistory: record.ledger_history, scope: record.review_scope,
+    return {revision, id, presentation: record.presentation ?? null, ledgerStatement: record.statement, ledgerHistory: record.ledger_history, scope: record.review_scope,
       paper: {document: documents.original, selection}, comparisons,
       otherTies: record.lean.filter(t => t.review_evidence !== "current"),
       semanticExamples,
@@ -657,5 +668,5 @@ export async function openReader(indexURL, options) {
     if (!path.endsWith(".svg")) throw new Error("Unrecognized figure format");
     return new Blob([await readBytes(path)], {type: "image/svg+xml"});
   }
-  return {revision, permalink, documents, home, declarationTitles, declarationTitle, proofMap, proofFocus, paperCardProgress, proofWitness, proofPath, proofPathSource, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementReview};
+  return {revision, permalink, documents, home, declarationTitles, declarationTitle, proofMap, proofFocus, paperCardProgress, proofWitness, proofPath, proofPathSource, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementTitles, statementReview};
 }

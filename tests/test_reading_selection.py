@@ -261,6 +261,9 @@ const path = await archived.reader.proofPath(goal,helper);
 assert.equal(path.declarations[helper].title_plain,"A y helper");
 
 const empty = await open({});
+assert.deepEqual(await empty.reader.statementTitles(),{revision,status:"unavailable_in_edition",titles:{}});
+const mixedStatements = await open({"selection/statement-titles.json":{revision:otherRevision,titles:{}}});
+await assert.rejects(mixedStatements.reader.statementTitles(),/Mixed paper and graph editions/);
 assert.deepEqual(await empty.reader.declarationTitles(),{revision,status:"unavailable_in_edition",titles:{}});
 assert.equal(empty.server.requests.length,2,"Absent legacy title resources cause no speculative fetches");
 const stale = await open({"selection/proof-map.json":{...map,currentness:"stale"},"selection/proof-helpers.json":helpers});
@@ -461,6 +464,10 @@ await assert.rejects(loadEditionResources(new URL(dangerous.permalink,base),{fet
 const resolve = (paper, id) => reader.resolve({paper, id});
 const find = (r, name) => r.proof.find(n => n.name.endsWith(name));
 const review = await reader.statementReview("thm-1.1");
+const statementIndex = await reader.statementTitles();
+assert.equal(statementIndex.status, "current");
+assert.deepEqual(statementIndex.titles[review.id], {title: review.presentation.title, title_plain: review.presentation.title_plain});
+assert((await reader.statementReview("eq-13")).presentation.body.includes("$"));
 assert.equal(review.paper.selection.location.destination, "theorem.1.1");
 assert.equal(review.comparisons[0].declaration, "QuarticQuery.theorem_1_1_unconditional");
 assert.equal(review.comparisons[0].relation, "exact");
@@ -480,6 +487,7 @@ assert(model.semanticExamples.some(p => p.kind === "alternative_definition" &&
   p.inspection.type.includes("oneBitIdentity") && p.inspection.status === "current"));
 await assert.rejects(reader.statementReview("nonexistent"));
 const original = await resolve("original", "original/thm-1.1");
+assert.deepEqual(original.statements.find(s => s.id === review.id).presentation, review.presentation);
 assert.equal(original.location.destination, "theorem.1.1");
 assert.equal(original.text, null);
 assert.equal(original.location.page, 1);

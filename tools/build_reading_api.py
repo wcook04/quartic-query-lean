@@ -15,7 +15,7 @@ from build_comparator_map import PASSAGE, lean_blocks, record_passages
 from reading_evidence import evidence_resources
 from original_preprint import original_paper
 from reading_manuscripts import manuscript_resources
-from reading_titles import RESOURCE as TITLE_RESOURCE, SOURCE as TITLE_SOURCE
+from reading_titles import RESOURCE as TITLE_RESOURCE, SOURCE as TITLE_SOURCE, STATEMENT_RESOURCE, STATEMENT_SOURCE
 from reading_selection import audit_bindings, selection_resources
 from build_lean_links import RECORD_LINK, REPOSITORY, USE, statement_end
 
@@ -323,6 +323,7 @@ def compile_edition(edition, pdf_directory=None, original_pdf=None, web_manuscri
                "paper_ids": [*PAPERS, "original"], "supplement_ids": ["verification"],
                "proof_map": "selection/proof-map.json", "coverage": coverage, "board_example": "selection/board.json",
                "applications": "selection/applications.json", "declaration_titles": TITLE_RESOURCE,
+               "statement_titles": STATEMENT_RESOURCE,
                "downloads": print_downloads(edition, pdf_directory, config["print_edition"]),
                "fidelity": {ident: f"fidelity/{ident}.json" for ident in statements},
                "routes": compiled, "video": video_entry(config["video"], routes)})
@@ -343,6 +344,8 @@ def compile_edition(edition, pdf_directory=None, original_pdf=None, web_manuscri
                        "and associated passage are selected editorially. Paper equivalence uses the fidelity records."},
         "checks.json": {"origin": "comparator_configurations_and_receipts",
             "content": "Each configuration identifies its challenge, solution, permitted axioms and recorded outcome."},
+        "statement_presentations": {"origin": "editorial_typesetting", "source": STATEMENT_SOURCE,
+            "content": "Titles and readable restatements of the maintained ledger wording, bound by its digest."},
         "declaration_titles": {"origin": "editorial_titles", "source": TITLE_SOURCE,
             "content": "Reading labels for named declarations. Statement correspondence and Lean evidence are recorded separately."},
         "proof_graph": {"origin": "compiled_lean_environment", "producer": "tools/ReadDependencies.lean",

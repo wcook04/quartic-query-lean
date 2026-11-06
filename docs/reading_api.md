@@ -403,6 +403,35 @@ scope. The separate evidence graph describes the informal statement ledger.
    definition, boundary examples and witnesses that assumptions can hold.
    The response explicitly identifies statements without an indexed example.
 
+### Read or label a ledger statement
+
+Use `await reader.statementTitles()` for links, PDF sidebars and cross-references.
+This loads one edition-bound index with `titles[id].title` for inline KaTeX and
+`titles[id].title_plain` for accessible text. The index includes definitions,
+unnumbered claims and rows added during review. Use the PDF locator for an
+actual printed destination.
+
+```js
+const review = await reader.statementReview("eq-13")
+const display = review.presentation
+if (display) {
+  renderInlineMath(display.title)
+  renderInlineMath(display.body)
+}
+```
+
+Each published statement has a descriptive title, a typeset body, their plain copies
+(`title_plain` and `body_plain`), and the SHA-256 of the maintained wording.
+Passage selections already include the same object on each `resolve().statements` row.
+The review applies to `ledgerStatement`, which remains available verbatim.
+The [editorial presentations](reading_statement_presentations.json) are checked against
+individual maintained statements at export. A changed statement requires revisiting its
+title and body. Manuscript edits can keep the presentation when the ledger wording is unchanged.
+
+The bundled client returns `unavailable_in_edition` and an empty title index for an earlier
+edition without this resource. Its statement review has `presentation: null` and keeps
+that edition’s wording.
+
 ### Compare a paper result with Lean
 
 Use `reader.statementReview("thm-1.1")` or

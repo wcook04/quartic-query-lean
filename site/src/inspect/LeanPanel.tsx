@@ -5,9 +5,7 @@ import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
 import { LeanCode, nameLinks } from "../lean/LeanCode";
 import { Axioms, RelationMark } from "./evidence";
-import { statementName } from "../app/papers";
-import { DeclTitle, Elsewhere, Loaded, statementLabel } from "./common";
-import { useReader } from "./ReaderContext";
+import { DeclTitle, Elsewhere, Loaded, StatementLabel } from "./common";
 import { useNav } from "./Nav";
 
 const KIND_WORD: Record<string, string> = { value: "proof or body", type: "statement", structural: "structure" };
@@ -206,10 +204,4 @@ function Neighbours({ title, empty, list, linked, mapped, modules }: { title: st
       )}
     </section>
   );
-}
-
-function StatementLabel({ id }: { id: string }) {
-  const reader = useReader();
-  const label = useAsync(() => statementLabel(reader, id), [reader, id]);
-  return <>{label.state === "ready" ? label.value : statementName(id)}</>;
 }
