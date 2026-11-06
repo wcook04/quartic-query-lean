@@ -330,8 +330,8 @@ checking the proof with the quantifiers. Keep each opening short enough to
 speak in roughly 20–30 seconds. Give the reader a reason to care and a concrete
 step they can take immediately.
 
-The `video` field is currently null. Once the video exists, set it in
-[the route source](reading_routes.json) to an object with `youtube_id` and
+The published video is configured in [the route source](reading_routes.json).
+Its `video` object contains `youtube_id`, title, description, duration and
 `chapters`. A chapter has a nonnegative integer `start_seconds` and a stable
 `route` ID. The compiler verifies increasing timestamps and route membership.
 The video and the papers can then open on the same mathematical question.

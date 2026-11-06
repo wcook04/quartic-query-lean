@@ -30,6 +30,9 @@ what is already known. No person has reviewed it yet.
 
 ## Start reading
 
+- Watch [the video explanation](https://www.youtube.com/watch?v=3hZaKK0-leY) (27:13),
+  from light-wave interference to the fourth-power query bound.
+
 - Follow the [Lean source map](lean/README.md) from the shared definitions to
   [the unconditional result](lean/QuarticQuery/Results/Unconditional.lean).
 - Use the [statement corpus](corpus/README.md) to distinguish statement alignment,
