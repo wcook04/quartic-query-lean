@@ -52,18 +52,15 @@ function Statement({ r }: { r: any }) {
           </p>
           <p className="verdict__line">{relationSentence(lead.relation, lead.route)}
           </p>
-          {rest.some((c) => c.relation !== lead.relation) && (
-            <p className="verdict__more">
-              {rest.length === 1 ? "One other Lean theorem is" : `${rest.length} other Lean theorems are`} also compared below,{" "}
-              {rest.map((c, i) => (
-                <span key={c.declaration}>{i ? ", " : ""}<DeclButton name={c.declaration} /> ({c.relation})</span>
-              ))}.
-            </p>
-          )}
         </section>
       ) : (
         <section className="verdict"><p className="verdict__line">No current review compares a Lean declaration with this statement.</p></section>
       )}
+
+      <section className="where-else" aria-label="The same statement in the papers">
+        <h3>Read it in the papers</h3>
+        <Elsewhere rows={r.relatedSelections ?? []} here={nav.paper} />
+      </section>
 
       <section className="ledger">
         <h3>The statement that was compared</h3>
@@ -77,7 +74,22 @@ function Statement({ r }: { r: any }) {
         </p>
       </section>
 
-      {r.comparisons.map((c: any, i: number) => <Comparison key={c.declaration + c.file} c={c} leading={i === 0} />)}
+      {(() => {
+        const key = (c: any) => JSON.stringify([c.inspection?.status, c.inspection?.axioms, c.build_evidence, c.comparison_evidence]);
+        const shared = r.comparisons.length > 1 && r.comparisons.every((c: any) => key(c) === key(r.comparisons[0]));
+        return (
+          <>
+            {shared && (
+              <section className="sharedfacts" aria-label="Checked by Lean for every theorem below">
+                <h3>Checked by Lean, for all {r.comparisons.length} theorems below</h3>
+                <Axioms inspection={r.comparisons[0].inspection} />
+                <Checks tie={r.comparisons[0]} />
+              </section>
+            )}
+            {r.comparisons.map((c: any, i: number) => <Comparison key={c.declaration + c.file} c={c} leading={i === 0} shared={shared} />)}
+          </>
+        );
+      })()}
 
       {r.semanticExamples?.length > 0 && (
         <section className="examples">
@@ -86,10 +98,6 @@ function Statement({ r }: { r: any }) {
         </section>
       )}
 
-      <section>
-        <h3>The same statement in the other papers</h3>
-        <Elsewhere rows={r.relatedSelections ?? []} here={nav.paper} />
-      </section>
 
       {(r.ledgerHistory?.adjudication_findings?.length > 0 || r.otherTies?.length > 0) && (
         <details className="more">
@@ -123,7 +131,7 @@ function Statement({ r }: { r: any }) {
   );
 }
 
-function Comparison({ c, leading }: { c: any; leading: boolean }) {
+function Comparison({ c, leading, shared }: { c: any; leading: boolean; shared: boolean }) {
   const nav = useNav();
   const title = declarationTitle(useNames(), c.declaration);
   const [showType, setShowType] = useState(leading);
@@ -137,13 +145,10 @@ function Comparison({ c, leading }: { c: any; leading: boolean }) {
       {c.note && (
         <p className="cmp__note"><Reviewer by={c.reviewed_by} /> {c.note}</p>
       )}
-      {assumptions.length > 0 ? (
-        <p className="ev ev--gap">This theorem still assumes {assumptions.map((a, i) => <span key={a}>{i ? ", " : ""}<code>{a}</code></span>)} as a hypothesis.</p>
-      ) : (
-        <p className="ev">It takes no hypotheses beyond its stated parameters.</p>
+      {assumptions.length > 0 && (
+        <p className="ev ev--gap">Still assumes {assumptions.map((a, i) => <span key={a}>{i ? ", " : ""}<code>{a}</code></span>)} as a hypothesis.</p>
       )}
-      <Axioms inspection={c.inspection} />
-      <Checks tie={c} />
+      {!shared && <><Axioms inspection={c.inspection} /><Checks tie={c} /></>}
       {c.inspection?.status === "current" && c.inspection.type && (
         <div className="cmp__type">
           <button type="button" className="disclose" aria-expanded={showType} onClick={() => setShowType(!showType)}>
@@ -152,10 +157,6 @@ function Comparison({ c, leading }: { c: any; leading: boolean }) {
           {showType && <LeanCode text={c.inspection.type} label={`Type of ${c.declaration} as printed by Lean`} from={1} />}
         </div>
       )}
-      <p className="cmp__actions">
-        <button type="button" className="button button--small" onClick={() => nav.openLean(c.declaration)}>Open the Lean proof</button>
-        <a href={c.sourceURL} target="_blank" rel="noopener noreferrer">Source on GitHub</a>
-      </p>
     </section>
   );
 }

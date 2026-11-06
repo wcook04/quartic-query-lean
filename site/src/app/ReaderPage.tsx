@@ -71,11 +71,15 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     openPath: (edge: string) => go({ ...base, s: route.s, p: route.p, v: "path", e: edge, d: edge.split("→")[0] }),
     openJourney: (id) => go({ ...base, s: route.s, p: route.p, v: "journey", j: id }),
     backToPassage: () => go({ ...base, s: route.s, p: route.p }),
+    showInPaper: (id: string) => { setFollowing(false); go({ ...base, s: id, v: route.v, st: route.st, d: route.d, j: route.j, e: route.e, step: route.step }, true); },
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }), [paper, route.s, route.p, route.v, ed]);
+  }), [paper, route.s, route.p, route.v, route.st, route.d, route.j, route.e, route.step, ed]);
 
   // Wide screens keep the proof beside the paper, as Proof Reader does; phones open it on request.
   const open = route.v !== "closed" && (wide || !!(route.s || route.p || route.v));
+  // Evidence follows the reading line, as the graph does, until the reader pins a passage.
+  const [following, setFollowing] = useState(true);
+  const followed = useRef<string | undefined>(undefined);
   const mode: "graph" | "path" | "lean" | "evidence" =
     route.v === "graph" ? "graph" : route.v === "path" ? "path" : route.v === "lean" ? "lean" : route.v === "statement" || route.v === "journey" ? "evidence"
       : route.s || route.p ? "evidence" : "graph";
@@ -91,6 +95,23 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     }, () => {});
     return () => { live = false; };
   }, [reader, needsTitles]);
+
+  useEffect(() => {
+    if (!following || mode !== "evidence" || route.v || paper === "original" || readingLine == null) return;
+    const hit = rows.filter((r) => meaningful(r) && r.lines && r.lines[0] <= readingLine && readingLine <= r.lines[1])
+      .sort((x, y) => (x.topic ? 0 : 1) - (y.topic ? 0 : 1) || (x.lines![1] - x.lines![0]) - (y.lines![1] - y.lines![0]))[0];
+    if (!hit || hit.id === route.s) return;
+    followed.current = hit.id;
+    go({ ...base, s: hit.id }, true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [following, mode, readingLine, rows, paper]);
+
+  useEffect(() => {
+    if (!following || mode !== "evidence" || route.v || paper !== "original" || readingPage == null || route.p === readingPage) return;
+    if (route.s && rows.find((r) => r.id === route.s)?.location?.page === readingPage) return;
+    go({ ...base, p: readingPage }, true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [following, mode, readingPage, paper]);
 
   // The cards lit in the graph: the selected passage's, else the reading line's.
   useEffect(() => {
@@ -218,6 +239,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             <h1 className="paper__title">{f.name}</h1>
             <p className="paper__byline">{f.byline}</p>
             <div className="paper__tools">
+              {paper !== "original" && <span className="legend"><span className="legend__bar" aria-hidden="true" />Paragraphs marked Lean are tied to the formal proof</span>}
               {download && <DownloadLink edition={edition} resource={download.resource} label="Download the PDF" name={`${paper}.pdf`} />}
               {keyed.length > 0 && (
                 <details className="jump">
@@ -246,14 +268,14 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           {paper === "original" ? (
             <Suspense fallback={<p className="pending" role="status">Loading the PDF viewer…</p>}>
               <PdfPaper edition={edition} selected={route.s} page={route.p}
-                onSelect={(id) => go({ ...base, s: id }, !route.v || route.v === "closed")}
+                onSelect={(id) => { setFollowing(false); go({ ...base, s: id }, !route.v || route.v === "closed"); }}
                 onPage={(n) => go({ ...base, p: n }, !route.v || route.v === "closed")}
                 onReadingPage={setReadingPage} />
             </Suspense>
           ) : (
             <ManuscriptPaper key={paper} edition={edition} paper={paper} selected={route.s} anchor={route.a} onRows={setRows}
-              onReadingLine={setReadingLine} onContents={setContents}
-              onSelect={(id) => go({ ...base, s: id }, !route.v || route.v === "closed")}
+              onReadingLine={setReadingLine} onContents={setContents} followed={followed.current}
+              onSelect={(id) => { setFollowing(false); go({ ...base, s: id }, !route.v || route.v === "closed"); }}
               onLink={(p, fragment) => go({ page: "read", paper: p, a: fragment, ed })} />
           )}
         </main>
@@ -293,7 +315,15 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                 </p>
               </div>
             ) : (
-              <div className="inspector__body">{panel ?? <p className="quiet">Select a passage in the paper.</p>}</div>
+              <div className="inspector__body">
+                {mode === "evidence" && !route.v && (
+                  <p className={`follow${following ? "" : " follow--pinned"}`} role="status">
+                    {following ? <>Following the paper as you read. <span className="quiet">Click a paragraph to pin it.</span></>
+                      : <>Pinned to this passage. <button type="button" className="textbutton" onClick={() => setFollowing(true)}>Follow the paper again</button></>}
+                  </p>
+                )}
+                {panel ?? <p className="quiet">Scroll to a linked passage, or click one, to see its evidence.</p>}
+              </div>
             )}
           </aside>
         )}

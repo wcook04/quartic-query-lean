@@ -6,7 +6,8 @@ import type { Edition } from "../app/edition";
 import { LeanCode, nameLinks } from "../lean/LeanCode";
 import { Axioms, RelationMark } from "./evidence";
 import { statementName } from "../app/papers";
-import { DeclTitle, Elsewhere, Loaded } from "./common";
+import { DeclTitle, Elsewhere, Loaded, statementLabel } from "./common";
+import { useReader } from "./ReaderContext";
 import { useNav } from "./Nav";
 
 const KIND_WORD: Record<string, string> = { value: "proof or body", type: "statement", structural: "structure" };
@@ -81,29 +82,29 @@ function Declaration({ d, linked, cards, modules }: { d: any; linked: Set<string
         <h2 id="ln-h" className="panel__title"><DeclTitle name={d.name} /></h2>
       </header>
 
-      {ties.size > 0 && (
-        <section className="tie" aria-label="Its place in the papers">
-          {[...ties].map(([st, t]) => (
-            <p key={st} className="tie__line">
-              {t.review === "current" && t.relation !== "unassessed"
-                ? <><RelationMark relation={t.relation} /> The Lean form of <strong>{statementName(st)}</strong>.</>
-                : <>Linked by the editors to <strong>{statementName(st)}</strong>; no current review compares them.</>}{" "}
-              <button type="button" className="textbutton" onClick={() => nav.openStatement(st)}>Compare with the paper</button>
-            </p>
-          ))}
-        </section>
-      )}
+      {ties.size > 0 && (() => {
+        const reviewed = [...ties].filter(([, t]) => t.review === "current" && t.relation !== "unassessed");
+        const linkedOnly = [...ties].filter(([, t]) => !(t.review === "current" && t.relation !== "unassessed"));
+        const names = (list: typeof reviewed) => list.map(([st], i) => (
+          <span key={st}>{i ? (i === list.length - 1 ? " and " : ", ") : ""}<button type="button" className="textbutton" onClick={() => nav.openStatement(st)}><StatementLabel id={st} /></button></span>
+        ));
+        return (
+          <section className="tie" aria-label="Its place in the papers">
+            {reviewed.map(([st, t]) => (
+              <p key={st} className="tie__line"><RelationMark relation={t.relation} /> The Lean form of <button type="button" className="textbutton" onClick={() => nav.openStatement(st)}><StatementLabel id={st} /></button>.</p>
+            ))}
+            {linkedOnly.length > 0 && <p className="tie__line">Linked by the editors to {names(linkedOnly)}; no current review compares {linkedOnly.length === 1 ? "the two" : "it with them"}.</p>}
+          </section>
+        );
+      })()}
+
+      <section className="where-else" aria-label="Where the papers discuss it">
+        <h3>Read it in the papers</h3>
+        <Elsewhere rows={treatments} here="" current={nav.paper} />
+      </section>
 
       <p className="cmp__actions"><button type="button" className="button button--small" onClick={() => nav.openGraph(d.name)}>Show it in the graph</button></p>
 
-      {src.text ? (
-        <section>
-          <h3>What it says in Lean</h3>
-          <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean} label={`Lean source of ${d.name}`} />
-        </section>
-      ) : (
-        <p className="ev quiet">No source text is recorded for this declaration.</p>
-      )}
 
       <Neighbours title={isTheorem ? "What its proof relies on" : "What its definition relies on"} empty="Nothing else in this project." list={steps} linked={linked} mapped={cards} modules={modules} />
       {vocabulary.length > 0 && (
@@ -113,6 +114,15 @@ function Declaration({ d, linked, cards, modules }: { d: any; linked: Set<string
         </details>
       )}
       <Neighbours title="What uses it" empty="No other declaration in this project uses it." list={users} linked={linked} mapped={cards} modules={modules} />
+
+      {src.text ? (
+        <section>
+          <h3>What it says in Lean</h3>
+          <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean} label={`Lean source of ${d.name}`} />
+        </section>
+      ) : (
+        <p className="ev quiet">No source text is recorded for this declaration.</p>
+      )}
 
       {d.journeys?.length > 0 && (
         <section>
@@ -125,11 +135,6 @@ function Declaration({ d, linked, cards, modules }: { d: any; linked: Set<string
         </section>
       )}
 
-      <section>
-        <h3>Where the papers discuss it</h3>
-        <Elsewhere rows={treatments} here="" />
-        <p className="quiet">The editors made these links; Lean does not report them.</p>
-      </section>
 
       <section>
         <h3>Axioms</h3>
@@ -201,4 +206,10 @@ function Neighbours({ title, empty, list, linked, mapped, modules }: { title: st
       )}
     </section>
   );
+}
+
+function StatementLabel({ id }: { id: string }) {
+  const reader = useReader();
+  const label = useAsync(() => statementLabel(reader, id), [reader, id]);
+  return <>{label.state === "ready" ? label.value : statementName(id)}</>;
 }

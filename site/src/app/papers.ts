@@ -29,6 +29,6 @@ export function statementName(id: string): string {
   if (!m) return id;
   const kind = { thm: "Theorem", lem: "Lemma", prop: "Proposition", cor: "Corollary", def: "Definition", eq: "Equation", claim: "Claim", rem: "Remark", fact: "Fact", ex: "Example" }[m[1]]!;
   if (m[1] === "eq") return `Equation (${m[2]})`;
-  if (/^[A-Z]?\d/.test(m[2])) return `${kind} ${m[2]}`;
+  if (/^[A-Z]?\d/.test(m[2])) return `${kind} ${m[2].replace(/\.(i{1,3}|iv|v)$/, "($1)")}`;
   return `${kind}: ${m[2].replace(/-/g, " ")}`;
 }

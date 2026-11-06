@@ -3,7 +3,7 @@ import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
 import { statementName } from "../app/papers";
 import { inlineTex } from "../text/html";
-import { COVERAGE_SENTENCE, RelationMark, relationSentence } from "./evidence";
+import { COVERAGE_SENTENCE, RelationMark } from "./evidence";
 import { DeclButton, Elsewhere, Loaded } from "./common";
 import { useNav } from "./Nav";
 
@@ -64,6 +64,11 @@ function Passage({ r }: { r: any }) {
         <p key={t.id} className="note"><span className="ev__who">Editors’ note</span> <span dangerouslySetInnerHTML={{ __html: inlineTex(t.note) }} /></p>
       ))}
 
+      <section className="where-else" aria-label="The same mathematics in the other papers">
+        <h3>Read it in the other papers</h3>
+        <Elsewhere rows={elsewhere} here={nav.paper} />
+      </section>
+
       {statements.length > 0 && (
         <section aria-label="What Lean proves">
           <h3>What Lean proves</h3>
@@ -76,8 +81,10 @@ function Passage({ r }: { r: any }) {
                     <strong>{statementName(s.id)}</strong> {tie ? <RelationMark relation={tie.relation} /> : <span className="rel rel--unassessed">Not assessed</span>}
                   </p>
                   <p className="claim__text">{s.statement}</p>
-                  {tie && <p className="quiet">{relationSentence(tie.relation, tie.route)} Lean theorem: <DeclButton name={tie.declaration} /></p>}
-                  <button type="button" className="button button--small" onClick={() => nav.openStatement(s.id)}>Compare it with Lean</button>
+                  <p className="claim__foot">
+                    {tie && <DeclButton name={tie.declaration} />}
+                    <button type="button" className="textbutton" onClick={() => nav.openStatement(s.id)}>Compare</button>
+                  </p>
                 </li>
               );
             })}
@@ -96,22 +103,23 @@ function Passage({ r }: { r: any }) {
         </section>
       )}
 
-      <section>
-        <h3>The same mathematics elsewhere</h3>
-        <Elsewhere rows={elsewhere} here={nav.paper} />
-      </section>
 
       {roots.length > 0 && (
         <section>
-          <h3>Lean declarations to start from</h3>
-          <ul className="roots">
-            {roots.map((p) => (
-              <li key={p.name}>
-                <DeclButton name={p.name} />
-                <span className="quiet"> {p.basis.some((b: any) => b.basis === "statement_tie") ? "reviewed against a statement here" : "linked by the editors"}</span>
-              </li>
-            ))}
-          </ul>
+          <h3>Lean to start from</h3>
+          {[["Reviewed against this passage", roots.filter((p) => p.basis.some((b: any) => b.basis === "statement_tie"))],
+            ["Linked by the editors", roots.filter((p) => !p.basis.some((b: any) => b.basis === "statement_tie"))]]
+            .filter(([, list]) => (list as any[]).length).map(([label, list]) => (
+            <div key={label as string} className="rootgroup">
+              <p className="rootgroup__label">{label as string}</p>
+              <ul className="roots">
+                {(list as any[]).map((p) => {
+                  const rel = p.basis.find((b: any) => b.basis === "statement_tie")?.relation;
+                  return <li key={p.name}><DeclButton name={p.name} />{rel && <> <RelationMark relation={rel} /></>}</li>;
+                })}
+              </ul>
+            </div>
+          ))}
         </section>
       )}
       {r.comparisons?.length > 0 && (

@@ -63,51 +63,100 @@ function usePlaces(rows: Place[]) {
       const kept: typeof found = [];
       for (const f of found) if (!kept.some((k) => overlaps(k.row, f.row))) kept.push(f);
       kept.sort((a, b) => (a.row.lines?.[0] ?? a.row.location?.page ?? 0) - (b.row.lines?.[0] ?? b.row.location?.page ?? 0));
-      out[p] = kept.map(({ r, row }) => {
-        if (p === "original") return { id: r.id, where: `${statementName(row.statements?.[0] ?? r.id.replace(/^original\//, ""))}, page ${row.location?.page ?? "?"}` };
+      out[p] = await Promise.all(kept.map(async ({ r, row }) => {
+        if (p === "original") {
+          const sid = row.statements?.[0] ?? r.id.replace(/^original\//, "");
+          return { id: r.id, where: `${await statementLabel(reader, sid)}, page ${row.location?.page ?? "?"}` };
+        }
         const line = row.lines?.[0];
         let sec: any = null;
         for (const c of contents) if (line != null && c.line <= line && (c.end_line == null || line <= c.end_line) && (!sec || c.level >= sec.level)) sec = c;
         const title = (sec?.title ?? "").replace(/\s*\{[^}]*\}\s*$/, "");
-        return { id: r.id, where: title || (line ? `Line ${line}` : "Passage"), quote: row.quote ? cleanQuote(row.quote) : undefined };
-      });
+        const quote = row.quote ? cleanQuote(row.quote) : "";
+        const where = readable(title);
+        return { id: r.id, where: /^(thm|lem|prop|cor|def|eq|claim)-/.test(where) ? await statementLabel(reader, where) : where || (line ? `Line ${line}` : "Passage"), quote: isPhrase(quote) ? quote : undefined };
+      }));
+      // One card per section of a paper: the first (most specific) passage stands for it.
+      const bySection = new Set<string>();
+      out[p] = out[p].filter((pl) => !bySection.has(pl.where) && bySection.add(pl.where));
     }
     return out;
   }, [reader, key, nav.paper]);
 }
 
+/** A statement's readable name: numbered results by number; a claim by its own opening words. */
+const labelCache = new Map<string, Promise<string>>();
+export function statementLabel(reader: any, id: string): Promise<string> {
+  if (!/^claim-/.test(id)) return Promise.resolve(statementName(id));
+  if (!labelCache.has(id)) {
+    labelCache.set(id, reader.resource(`fidelity/${id}.json`).then((f: any) => {
+      // Prefer a typeset title when the edition has one; ASCII pseudo-maths is never shown raw.
+      if (f.title) return f.title;
+      const text = String(f.statement ?? "").replace(/\s+/g, " ").trim();
+      if (!text || /[_{}^]|\\[a-z]|\b(sum|sqrt)_?\b/.test(text)) return "An unnumbered claim";
+      const words = text.split(" ");
+      return `“${words.slice(0, 9).join(" ")}${words.length > 9 ? "…" : ""}”`;
+    }, () => statementName(id)));
+  }
+  return labelCache.get(id)!;
+}
+
 const span = (r: any) => (r.lines ? r.lines[1] - r.lines[0] : 0);
 const overlaps = (a: any, b: any) => !!a.lines && !!b.lines && a.lines[0] <= b.lines[1] && b.lines[0] <= a.lines[1];
 /** A quote selector as words: drop Markdown emphasis and table bars. */
-const cleanQuote = (q: string) => q.replace(/\*\*|__|`/g, "").replace(/^\|\s*|\s*\|$/g, "").replace(/\s*\|\s*/g, " · ").replace(/\$([^$]*)\$/g, "$1").trim();
+/** Markdown emphasis and table bars removed outside maths; maths (with its |x|) kept intact. */
+const cleanQuote = (q: string) => q.split(/(\$[^$]*\$)/).map((part, i) => (i % 2 ? part
+  : part.replace(/\*\*|__/g, "").replace(/^\s*\|\s*|\s*\|\s*$/g, "").replace(/\s+\|\s+/g, " · "))).join("").trim();
+/** A quote is shown only when it is a real phrase, not a short matching key. */
+const isPhrase = (q: string) => q.replace(/\$[^$]*\$/g, "x").split(/\s+/).filter(Boolean).length >= 6;
+/** Section titles that are bare statement IDs read as statement names. */
+const readable = (t: string) => {
+  const m = /^\W*((?:thm|lem|prop|cor|def|eq|claim)-[\w.-]+?)\W*$/.exec(t);
+  return m ? m[1] : t;
+};
 
 const ORDER = ["original", "exposition", "expert", "reconstruction", "verification"];
 
-/** Links to the same mathematics in the other papers, named by where they are. */
-export function Elsewhere({ rows, here }: { rows: Place[]; here: string }) {
+const MAIN = ["original", "exposition", "expert", "reconstruction"];
+
+/** Where the papers discuss this: one compact column per paper, always in the same order.
+ *  The paper being read is marked; a place in it scrolls the paper without leaving the
+ *  view. The verification details are a single link beneath. */
+export function Elsewhere({ rows, here, current }: { rows: Place[]; here: string; current?: string }) {
   const nav = useNav();
   const seen = new Set<string>();
-  const unique = rows.filter((r) => r.paper !== here && ORDER.includes(r.paper) && !seen.has(r.paper + r.id) && seen.add(r.paper + r.id));
+  const unique = rows.filter((r) => ORDER.includes(r.paper) && !seen.has(r.paper + r.id) && seen.add(r.paper + r.id));
   const places = usePlaces(unique);
-  if (!unique.length) return <p className="quiet">No other paper has a linked passage on this.</p>;
+  const mine = current ?? here;
+  if (!unique.length) return <p className="quiet">No paper has a linked passage on this.</p>;
   if (places.state !== "ready") return <p className="quiet">Finding the passages…</p>;
+  const supplement = places.value.verification?.[0];
   return (
-    <ul className="elsewhere">
-      {ORDER.filter((p) => places.value[p]?.length).map((paper) => (
-        <li key={paper}>
-          <span className="elsewhere__paper">{face(paper).tab}</span>
-          <ul>
-            {places.value[paper].map((pl) => (
-              <li key={pl.id}>
-                <button type="button" className="elsewhere__go" onClick={() => nav.openSelection(paper, pl.id)}>
-                  <span className="elsewhere__where">{pl.where}</span>
-                  {pl.quote && <span className="elsewhere__quote">“{pl.quote}…”</span>}
+    <>
+      <div className="strip">
+        {MAIN.map((paper) => {
+          const list = places.value[paper] ?? [];
+          const isHere = paper === mine;
+          return (
+            <div key={paper} className={`strip__col strip__col--${paper}${isHere ? " is-here" : ""}${list.length ? "" : " is-empty"}`}>
+              <p className="strip__paper">{face(paper).tab}{isHere && <span className="strip__here"> · you are here</span>}</p>
+              {list.length === 0 && <p className="strip__none">Not discussed</p>}
+              {list.slice(0, 3).map((pl, k) => (
+                <button key={pl.id} type="button" className="strip__go"
+                  onClick={() => (isHere && current ? nav.showInPaper(pl.id) : isHere ? nav.showInPaper(pl.id) : nav.openSelection(paper, pl.id))}>
+                  <span className="strip__where">{pl.where}</span>
+                  {k === 0 && pl.quote && <span className="strip__quote">“<Title text={pl.quote} />…”</span>}
                 </button>
-              </li>
-            ))}
-          </ul>
-        </li>
-      ))}
-    </ul>
+              ))}
+            </div>
+          );
+        })}
+      </div>
+      {supplement && (
+        <p className="strip__more quiet">
+          Also catalogued in the <button type="button" className="textbutton" onClick={() => nav.openSelection("verification", supplement.id)}>verification details</button>.
+        </p>
+      )}
+    </>
   );
 }

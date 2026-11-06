@@ -129,10 +129,10 @@ export function PdfPaper({ edition, selected, page, onSelect, onPage, onReadingP
       const n = hit ? Number(hit.id.replace("page-", "")) : -1;
       if (n > 0 && n !== last) { last = n; onReadingPage(n); }
     };
-    const on = () => { if (!frame) frame = requestAnimationFrame(look); };
+    const on = () => { if (!frame) frame = window.setTimeout(look, 80); };
     scroller.addEventListener("scroll", on, { passive: true });
     const t = window.setTimeout(look, 500);
-    return () => { scroller.removeEventListener("scroll", on); cancelAnimationFrame(frame); clearTimeout(t); };
+    return () => { scroller.removeEventListener("scroll", on); clearTimeout(frame); clearTimeout(t); };
   }, [pdf, onReadingPage]);
 
   if (error)

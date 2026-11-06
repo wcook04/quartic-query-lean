@@ -44,8 +44,11 @@ function Path({ p, from, to, kind, reader }: { p: any; from: string; to: string;
       <header className="panel__head">
         <h2 id="pt-h" className="panel__title">How one step reaches another</h2>
         <p className="panel__where">
-          The graph draws one arrow. Lean records the chain of declarations behind it. Each line says where the
-          declaration above uses the one below.
+          The graph draws one arrow; Lean records the chain of declarations behind it, each using the next.
+          Tags say how the use was found: <span className="tag tag--exact">named here</span> Lean resolves the name on the highlighted text,
+          <span className="tag tag--exact">compiled from this line</span> the line produces the use,
+          <span className="tag">parameter type</span> it enters through a parameter declared earlier,
+          <span className="tag">whole declaration</span> no single line was matched.
         </p>
       </header>
       {variants.map((v: any) => (
@@ -112,10 +115,10 @@ function Step({ reader, decl, name, card }: { reader: any; decl: any; name: stri
 }
 
 const BASIS: Record<string, string> = {
-  resolved_identifier: "Lean resolves this name to it here.",
-  elaborated_application: "Lean records the application here, with its arguments.",
-  compiled_rhs: "Compiled from this line: Lean finds the use in what this line produces.",
-  inherited_parameter: "The type of a parameter declared earlier in the module.",
+  resolved_identifier: "named here",
+  elaborated_application: "applied here",
+  compiled_rhs: "compiled from this line",
+  inherited_parameter: "parameter type",
 };
 
 /** Where in the caller's Lean one hop's use happens, from the edition's evidence. */
@@ -137,7 +140,7 @@ function HopEvidence({ reader, hop }: { reader: any; hop: any }) {
     <div className="hop">
       {site ? (
         <p className="hop__note">
-          {BASIS[site.basis] ?? "Located in the Lean."}
+          <span className={`tag${site.basis === "inherited_parameter" ? "" : " tag--exact"}`}>{BASIS[site.basis] ?? "located"}</span>
           {site.basis === "inherited_parameter" && site.binder && <> Its binder is <code>{site.binder}</code>.</>}
           {sites.length > 1 && (
             <span className="hop__picks" role="group" aria-label="Choose a use">
@@ -149,7 +152,7 @@ function HopEvidence({ reader, hop }: { reader: any; hop: any }) {
         </p>
       ) : (
         <p className="hop__note">
-          Lean records this dependency for the declaration as a whole; no single line was matched.{" "}
+          <span className="tag">whole declaration</span>{" "}
           {ev.declarationLines && <button type="button" className="textbutton" onClick={() => setWhole(!whole)}>{whole ? "Hide the declaration" : "Show the declaration"}</button>}
         </p>
       )}

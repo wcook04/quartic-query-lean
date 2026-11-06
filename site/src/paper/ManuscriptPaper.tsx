@@ -19,9 +19,11 @@ interface Props {
   /** The source line at the reading line, as the reader scrolls. */
   onReadingLine?(line: number): void;
   onContents?(rows: ContentsRow[]): void;
+  /** A selection made by following the reading line: highlight it, never scroll to it. */
+  followed?: string;
 }
 
-export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, onLink, onRows, onReadingLine, onContents }: Props) {
+export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, onLink, onRows, onReadingLine, onContents, followed }: Props) {
   const root = useRef<HTMLDivElement>(null);
   const [rows, setRows] = useState<Row[] | null>(null);
   const [sourceView, setSourceView] = useState(false);
@@ -102,7 +104,7 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, on
         const target = el.querySelector<HTMLElement>(`[id="${CSS.escape(anchor)}"]`);
         if (target) { target.scrollIntoView({ block: "start" }); return true; }
       }
-      if (selected && selected !== own.current) {
+      if (selected && selected !== own.current && selected !== followed) {
         const target = el.querySelector<HTMLElement>(".is-selected");
         if (target) { target.scrollIntoView({ block: "center" }); return true; }
       }
@@ -148,10 +150,11 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, on
       const line = hit ? Number(hit.dataset.l0) : -1;
       if (line > 0 && line !== last) { last = line; onReadingLine(line); }
     };
-    const on = () => { if (!frame) frame = requestAnimationFrame(look); };
+    // A short timer, not an animation frame: frames pause in background tabs.
+    const on = () => { if (!frame) frame = window.setTimeout(look, 80); };
     scroller.addEventListener("scroll", on, { passive: true });
     const t = window.setTimeout(look, 300);
-    return () => { scroller.removeEventListener("scroll", on); cancelAnimationFrame(frame); clearTimeout(t); };
+    return () => { scroller.removeEventListener("scroll", on); clearTimeout(frame); clearTimeout(t); };
   }, [ready, onReadingLine]);
 
   function onClick(e: React.MouseEvent) {
@@ -171,6 +174,8 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, on
     const block = target.closest<HTMLElement>(".source-block[data-l0]");
     if (!block || !rows) return;
     const id = rowFor(rows, Number(block.dataset.l0), Number(block.dataset.l1));
+    // Plain prose has nothing to show: a click there leaves the panel on the last linked passage.
+    if (/^l\d+-\d+$/.test(id)) return;
     own.current = id;
     onSelect(id);
   }

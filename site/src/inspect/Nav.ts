@@ -9,6 +9,8 @@ export interface Nav {
   openPath(edge: string): void;
   openJourney(id: string): void;
   backToPassage(): void;
+  /** Scroll the paper to a passage in it, keeping the current view open. */
+  showInPaper(id: string): void;
 }
 
 export const NavContext = createContext<Nav | null>(null);
