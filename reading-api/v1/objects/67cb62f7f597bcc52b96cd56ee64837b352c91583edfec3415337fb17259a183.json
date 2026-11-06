@@ -1,0 +1,13 @@
+{
+  "challenge_module": "QuarticCorpus.Independent.DecoderSharp.Challenge",
+  "solution_module": "QuarticCorpus.Independent.DecoderSharp.Solution",
+  "theorem_names": [
+    "QuarticQuery.Paper.construction_decoder_sharp"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

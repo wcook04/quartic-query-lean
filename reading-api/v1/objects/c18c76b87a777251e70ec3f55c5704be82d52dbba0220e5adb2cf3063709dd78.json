@@ -1,0 +1,16 @@
+{
+  "challenge_module": "QuarticCorpus.Construction.Challenge",
+  "solution_module": "QuarticCorpus.Construction.Solution",
+  "theorem_names": [
+    "QuarticQuery.Checked.winsAt_unique",
+    "QuarticQuery.Checked.existsUnique_gateConsistent",
+    "QuarticQuery.Checked.winner_no_incoming_zero",
+    "QuarticQuery.Checked.winner_finds_zero"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

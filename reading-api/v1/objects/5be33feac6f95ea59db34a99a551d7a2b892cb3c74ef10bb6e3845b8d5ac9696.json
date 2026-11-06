@@ -1,0 +1,13 @@
+{
+  "challenge_module": "QuarticCorpus.Independent.RealizedCaps.Challenge",
+  "solution_module": "QuarticCorpus.Independent.RealizedCaps.Solution",
+  "theorem_names": [
+    "QuarticQuery.direct_product_external_finite_realized_caps"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

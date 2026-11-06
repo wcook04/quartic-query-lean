@@ -1,0 +1,13 @@
+{
+  "challenge_module": "QuarticCorpus.Independent.ModelZero.Challenge",
+  "solution_module": "QuarticCorpus.Independent.ModelZero.Solution",
+  "theorem_names": [
+    "QuarticQuery.Independent.ModelZero.checked_zero_query_characterization"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

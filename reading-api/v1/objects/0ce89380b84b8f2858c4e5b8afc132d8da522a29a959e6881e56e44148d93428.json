@@ -1,0 +1,7 @@
+{
+  "challenge_module": "QuarticCorpus.Independent.Eq19.Challenge",
+  "solution_module": "QuarticCorpus.Independent.Eq19.NegativeInequalityOnly",
+  "theorem_names": ["QuarticQuery.Independent.Eq19.checked_eq19"],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}

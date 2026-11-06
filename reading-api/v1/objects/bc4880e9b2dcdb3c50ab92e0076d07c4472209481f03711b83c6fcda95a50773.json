@@ -1,0 +1,35 @@
+{
+ "statements": 121,
+ "corrected": 12,
+ "ledger_ids_without_a_row": [
+  "claim-butterfly",
+  "def-P"
+ ],
+ "review": {
+  "current": 121
+ },
+ "formal_statement": {
+  "exact": 51,
+  "partial": 39,
+  "stronger": 31
+ },
+ "formal_origin": {
+  "ours": 121
+ },
+ "build": {
+  "built_at_pin": 121
+ },
+ "comparator": {
+  "compared": 4,
+  "not_run": 117
+ },
+ "route": {
+  "alternative": 9,
+  "none": 58,
+  "same": 54
+ },
+ "reach": {
+  "outside": 56,
+  "reached": 65
+ }
+}

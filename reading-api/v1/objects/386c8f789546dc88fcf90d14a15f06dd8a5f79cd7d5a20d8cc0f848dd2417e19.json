@@ -1,0 +1,7 @@
+{
+  "challenge_module": "QuarticCorpus.Independent.Controls.SharedChallenge",
+  "solution_module": "QuarticCorpus.Independent.Controls.SharedSolution",
+  "theorem_names": ["Round3.SharedBadSpec.vacuous_claim"],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}
