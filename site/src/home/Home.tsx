@@ -82,7 +82,7 @@ export function Home({ edition }: { edition: Edition }) {
       {family && (
         <section className="math-bands">
           {family.scaling && <Exponent examples={family.scaling.examples} parameters={family.scaling.parameters} />}
-          {family.overview && <Architecture stages={family.overview} />}
+          {family.overview && <Architecture stages={family.overview} edition={edition} />}
         </section>
       )}
 

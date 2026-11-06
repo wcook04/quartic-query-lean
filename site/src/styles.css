@@ -131,14 +131,24 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .exponent__bar { position: absolute; left: 0; top: 8px; height: 14px; background: var(--query); transition: width 220ms ease; }
 .exponent__tick { position: absolute; top: 30px; transform: translateX(-50%); font-family: var(--serif); font-size: 0.9rem; color: var(--ink-2); }
 .exponent__read { font-family: var(--serif); font-size: 1.1rem; }
-.arch__flow { list-style: none; padding: 0; margin: 8px 0 12px; display: grid; gap: 10px; }
-.arch__flow > li { display: flex; justify-content: center; position: relative; }
-.arch__flow > li + li::before { content: ""; position: absolute; top: -10px; left: 50%; height: 10px; border-left: 1px solid var(--ink-2); }
-.arch__pair { gap: 10px; }
-.arch__box { display: block; flex: 1; text-align: center; padding: 10px 12px; border: 1px solid var(--ink); color: var(--ink); text-decoration: none; font-family: var(--serif); background: var(--sheet); max-width: 420px; }
-.arch__box:hover { border-color: var(--query); color: var(--query); }
-.arch__box--quantum { border-left: 4px solid var(--query); }
-.arch__box--classical { border-left: 4px solid var(--ink-2); }
+.arch__flow { display: grid; gap: 22px; margin: 14px 0 16px; position: relative; }
+.arch__flow::before { content: ""; position: absolute; left: 13px; top: 14px; bottom: 14px; border-left: 1px solid var(--rule-2); }
+.arch__pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.arch__stage { position: relative; padding: 0 0 0 44px; }
+.arch__pair .arch__stage + .arch__stage { padding-left: 22px; border-left: 1px solid var(--rule-2); }
+.arch__kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 4px; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+.arch__n { position: absolute; left: 0; top: 0; width: 27px; height: 27px; display: grid; place-items: center; border: 1px solid var(--query-line); border-radius: 50%; background: var(--paper); color: var(--query); font-family: var(--serif); font-size: 0.95rem; letter-spacing: 0; }
+.arch__pair .arch__stage + .arch__stage .arch__n { position: static; flex: none; }
+.arch__title { margin: 0 0 6px; font-family: var(--serif); font-size: 1.22rem; font-weight: 500; line-height: 1.3; color: var(--ink); }
+.arch__steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 3px; }
+.arch__steps a { display: inline-block; padding: 2px 0; color: var(--ink-2); text-decoration: none; font-size: 0.95rem; line-height: 1.45; }
+.arch__steps a::after { content: " →"; color: var(--ink-3); }
+.arch__steps a:hover, .arch__steps a:focus-visible { color: var(--query); }
+@media (max-width: 760px) {
+  .arch__pair { grid-template-columns: minmax(0, 1fr); }
+  .arch__pair .arch__stage + .arch__stage { padding-left: 44px; border-left: 0; }
+  .arch__pair .arch__stage + .arch__stage .arch__n { position: absolute; }
+}
 @media (prefers-reduced-motion: reduce) { .exponent__bar { transition: none; } }
 
 .ways { border-top: 1px solid var(--rule); padding: 40px 0; }
@@ -414,7 +424,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .hop__picks button { background: none; border: 1px solid var(--control); border-radius: 4px; padding: 0 6px; margin-left: 4px; font-size: 0.8rem; cursor: pointer; color: var(--ink-2); }
 .hop__picks button[aria-pressed="true"] { border-color: var(--query); color: var(--query); }
 .hop__src { margin: 0; font-size: 0.82rem; }
-.lean__hit { background: var(--query-wash); color: var(--query); box-shadow: 0 0 0 1px var(--query-line); border-radius: 2px; }
+.lean__hit { background: var(--query-wash); color: var(--query); border-radius: 0; padding: 1px 0; box-decoration-break: clone; }
 /* Wide equations and tables scroll inside themselves; the paper never scrolls sideways. */
 .paper { overflow-x: clip; }
 .exponent__caption { margin: 0 0 4px; font-size: 0.85rem; color: var(--ink-2); }

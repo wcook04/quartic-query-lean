@@ -33,9 +33,18 @@ export function JourneyPanel({ edition, id, step }: { edition: Edition; id: stri
         for (let i = 0; i < ls; i++) if (bytes[i] === 10) line++;
         return { line, col: dec.decode(bytes.slice(ls, off)).length };
       };
+      // The shown excerpt may be re-indented; shift columns by the difference
+      // between the file line's indent and the shown line's indent.
+      const srcLines = dec.decode(bytes).split("\n");
+      const shown: string[] = s.text.split("\n");
+      const lead = (t: string | undefined) => (t ? /^\s*/.exec(t)![0].length : 0);
+      const shift = (line: number) => lead(srcLines[line - 1]) - lead(shown[line - s.lines[0]]);
       s.spans = s.uses.flatMap((u: any) => u.inExcerpt.map((o: any) => {
         const a = at(o.utf8_bytes[0]), b = at(o.utf8_bytes[1]);
-        return a.line === b.line ? { line: a.line, from: a.col, to: b.col } : { line: a.line, from: a.col, to: a.col + 400 };
+        const d = shift(a.line);
+        return a.line === b.line
+          ? { line: a.line, from: a.col - d, to: b.col - d }
+          : { line: a.line, from: a.col - d, to: a.col - d + 400 };
       }));
     }
     return path;
