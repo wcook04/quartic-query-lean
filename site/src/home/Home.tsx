@@ -10,6 +10,7 @@ import type { BoardData } from "./Board";
 import { FilmSlot, type Chapter } from "../family/FilmSlot";
 import { SisterSites } from "../family/SisterSites";
 import type { FamilyFilm } from "../family/family";
+import videoThumbnail from "../family/quartic-video-thumbnail.webp";
 
 interface Entrance {
   audience: string;
@@ -143,7 +144,7 @@ export function Home({ edition }: { edition: Edition }) {
 
 function heldFilm(v: any): FamilyFilm {
   return {
-    id: "quartic", short: "Quartic", still: null,
+    id: "quartic", short: "Quartic", still: v?.youtube_id ? videoThumbnail : null,
     title: v?.title ?? "A nearly quartic separation, explained",
     description: v?.description ?? "The board, the quantum comparisons and why the exponent approaches four.",
     youtube: v?.youtube_id ? `https://www.youtube.com/watch?v=${v.youtube_id}` : null,

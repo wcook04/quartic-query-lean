@@ -16,6 +16,19 @@ SPEC.loader.exec_module(CHECKER)
 
 
 class RepositoryTests(unittest.TestCase):
+    def test_site_raster_sources_do_not_admit_generated_site_outputs(self):
+        source = "site/src/family/video-thumbnail.webp"
+        self.write(source, "maintained raster asset")
+        self.assertEqual([], self.errors())
+        self.git("add", source)
+        self.assertEqual([], self.errors(index=True))
+        for directory in ("site/public", "site/dist"):
+            cached = f"{directory}/video-thumbnail.webp"
+            self.write(cached, "generated raster output")
+            self.assertTrue(any(cached in error for error in self.errors()))
+            self.git("add", cached)
+            self.assertTrue(any(cached in error for error in self.errors(index=True)))
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

@@ -27,3 +27,13 @@ edition manifest. Figures and PDFs are displayed from verified Blob URLs.
 Adapted code carries its upstream notice: KaTeX handling from
 [lean-exposition](https://github.com/wcook04/lean-exposition) and the Lean tokenizer
 and PDF approach from [proof-reader](https://github.com/wcook04/proof-reader), both Apache-2.0.
+
+## Published video
+
+[Watch the explanation on YouTube](https://www.youtube.com/watch?v=3hZaKK0-leY) (27:13).
+The title, link and paper-linked chapters are in [`docs/reading_routes.json`](../docs/reading_routes.json).
+The reader exporter includes them in the immutable edition. The homepage uses
+[`src/family/quartic-video-thumbnail.webp`](src/family/quartic-video-thumbnail.webp),
+a local copy of the published thumbnail; `src/family/` owns these shared video
+components and their maintained image assets. Generated `public/` and `dist/`
+contents remain untracked.

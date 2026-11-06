@@ -371,7 +371,7 @@ def placement(path, snapshot=False):
     if owner == "site":
         if len(p.parts) > 1 and p.parts[1] in {"dist", "public"}:
             return "generated output/cache must stay untracked"
-        return None if p.suffix in {".ts", ".tsx", ".css", ".json", ".md", ".html", ".mjs", ".svg"} or p.name == ".gitignore" else "site contains the reading website's TypeScript, styles and build configuration"
+        return None if p.suffix in {".ts", ".tsx", ".css", ".json", ".md", ".html", ".mjs", ".svg", ".png", ".jpg", ".jpeg", ".webp"} or p.name == ".gitignore" else "site contains the reading website's TypeScript, styles and build configuration"
     if owner == ".github" and len(p.parts) == 3 and p.parts[1] == "workflows" and p.suffix in {".yml", ".yaml"}:
         return None
     return "path has no declared directory role"

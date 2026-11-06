@@ -225,7 +225,59 @@
       }
     }
   ],
-  "video": null,
+  "video": {
+    "youtube_id": "3hZaKK0-leY",
+    "title": "How much faster can a quantum computer be? OpenAI's fourth-power result",
+    "description": "I compare how many times quantum and classical computers must look at the same data, then explain why four is the best possible power for total yes-or-no questions.",
+    "duration_seconds": 1633,
+    "chapters": [
+      {
+        "start_seconds": 0,
+        "route": "headline",
+        "title": "The fourth-power question"
+      },
+      {
+        "start_seconds": 436,
+        "route": "certificate",
+        "title": "Columns, pointers and certificates"
+      },
+      {
+        "start_seconds": 574,
+        "route": "forrelation",
+        "title": "Forrelation"
+      },
+      {
+        "start_seconds": 708,
+        "route": "comparison",
+        "title": "Comparing two columns"
+      },
+      {
+        "start_seconds": 846,
+        "route": "weight",
+        "title": "Weighted pivots"
+      },
+      {
+        "start_seconds": 978,
+        "route": "pivot",
+        "title": "Sampling pivots"
+      },
+      {
+        "start_seconds": 1062,
+        "route": "planting",
+        "title": "The two classical inputs"
+      },
+      {
+        "start_seconds": 1165,
+        "route": "direct-product",
+        "title": "Guessing the hidden address"
+      },
+      {
+        "start_seconds": 1246,
+        "route": "exponent",
+        "title": "Where the four comes from"
+      }
+    ]
+  },
   "entrances": {
     "exposition": {
       "audience": "General mathematical readers familiar with probability and linear algebra",
