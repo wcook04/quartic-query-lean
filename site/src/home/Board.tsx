@@ -40,8 +40,8 @@ export function Board({ data }: { data: BoardData }) {
   );
 }
 
-function Table({ bits, caption, open, onRead, mark, disabled }: {
-  bits: Bits; caption: string; open?: Set<string>; onRead?: (r: number, c: number) => void; mark?: { row: number; column: number } | null; disabled?: boolean;
+function Table({ bits, caption, open, onRead, mark, disabled, shade = 0 }: {
+  bits: Bits; caption: string; open?: Set<string>; onRead?: (r: number, c: number) => void; mark?: { row: number; column: number } | null; disabled?: boolean; shade?: number;
 }) {
   return (
     <table className="bits">
@@ -49,8 +49,8 @@ function Table({ bits, caption, open, onRead, mark, disabled }: {
       <thead><tr><td /><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th></tr></thead>
       <tbody>
         {bits.map((row, r) => (
-          <tr key={r}>
-            <th scope="row">Row {r + 1}</th>
+          <tr key={r} className={r < shade ? "is-shaded" : undefined}>
+            <th scope="row"><span className="bits__word">Row </span>{r + 1}</th>
             {row.map((bit, c) => {
               const key = `${r}-${c}`;
               const marked = mark && mark.row === r + 1 && mark.column === c + 1;
@@ -100,7 +100,7 @@ function KnownPair({ s }: { s: BoardData["scenes"][0] }) {
       {decided && (
         <p className="scene__next">Knowing where two inputs differ makes the question cheap. The next question hides that square.</p>
       )}
-      <p className="scene__read"><a href={read(s.selections)}>Read this in the exposition, Section 1</a></p>
+      <p className="scene__read"><a href={read(s.selections)}>Read this in the general reader, Section 1 →</a></p>
     </div>
   );
 }
@@ -125,29 +125,33 @@ function HiddenZeros({ s }: { s: BoardData["scenes"][1] }) {
       <p className="scene__q">{s.question}</p>
       <p className="scene__promise">Each column has one zero in a random row. Half the time one random column’s zero has been erased. Is there a column of ones?</p>
       <div className="scene__tables">
-        <Table bits={bits} caption="Covered table" open={open} disabled={!!answer} onRead={(r, c) => setOpen(new Set(open).add(`${r}-${c}`))} />
+        <Table bits={bits} caption="Covered table" open={open} shade={h} disabled={!!answer} onRead={(r, c) => setOpen(new Set(open).add(`${r}-${c}`))} />
         <div className="scene__aside">
-          <p><strong>To prove yes:</strong> {s.yes_certificate}</p>
-          <p><strong>To prove no:</strong> {s.no_certificate}</p>
+          <dl className="scene__certs">
+            <dt>To prove yes</dt><dd>{s.yes_certificate}</dd>
+            <dt>To prove no</dt><dd>{s.no_certificate}</dd>
+          </dl>
           <p className="scene__status" aria-live="polite">
             {answer === "yes" && <>Yes, column {allOnes + 1}. You read {open.size} squares.</>}
             {answer === "no" && <>No: every column has a zero. You read {open.size} squares.</>}
-            {!answer && <>{open.size} {open.size === 1 ? "square" : "squares"} read.</>}
+            {!answer && (open.size === 0 ? <>Click a square to read it.</> : <>{open.size} {open.size === 1 ? "square" : "squares"} read.</>)}
           </p>
-          {answer && <button type="button" className="textbutton" onClick={() => { setGame(sample()); setOpen(new Set()); }}>Cover a new table</button>}
+          {answer && <button type="button" className="scene__again" onClick={() => { setGame(sample()); setOpen(new Set()); }}>Cover a new table</button>}
+          <div className="scene__fixed">
+            <label htmlFor="rows-read">Or fix the reads in advance</label>
+            <div className="scene__slider">
+              <input id="rows-read" type="range" min={0} max={4} value={h} onChange={(e) => setH(Number(e.target.value))} />
+              <output htmlFor="rows-read">top {h} {h === 1 ? "row" : "rows"}</output>
+            </div>
+            <p>
+              {row.queries_per_board} queries, and the erased zero is seen with probability{" "}
+              <strong>{row.difference_seen.numerator}/{row.difference_seen.denominator}</strong>. On an <em>m</em>-by-<em>m</em> table, <em>h</em> rows cost <em>mh</em> queries and succeed with probability <em>h</em>/<em>m</em>.
+            </p>
+          </div>
         </div>
       </div>
-      <div className="scene__fixed">
-        <label htmlFor="rows-read">Fix the reads in advance: read the top</label>{" "}
-        <input id="rows-read" type="range" min={0} max={4} value={h} onChange={(e) => setH(Number(e.target.value))} />{" "}
-        <output htmlFor="rows-read">{h} {h === 1 ? "row" : "rows"}</output>
-        <p>
-          That costs {row.queries_per_board} queries per table and sees the changed square with probability{" "}
-          {row.difference_seen.numerator}/{row.difference_seen.denominator}. On an <em>m</em>-by-<em>m</em> table, <em>h</em> rows cost <em>mh</em> queries and succeed with probability <em>h/m</em>.
-        </p>
-      </div>
       <p className="scene__next">This shows what reading in a fixed pattern buys. It is not yet a lower bound: an adaptive algorithm chooses each square after seeing the earlier bits, and Section 5 handles that case.</p>
-      <p className="scene__read"><a href={read(s.selections)}>Read this in the exposition, Section 1</a></p>
+      <p className="scene__read"><a href={read(s.selections)}>Read this in the general reader, Section 1 →</a></p>
     </div>
   );
 }
@@ -166,30 +170,31 @@ function PointerCheck({ s }: { s: BoardData["scenes"][2] }) {
       <table className="pointers">
         <caption>Comparing column {s.candidate} with each rival</caption>
         <thead>
-          <tr><th scope="col">Rival</th><th scope="col">Row stored by column {s.candidate}</th><th scope="col">Bit found there</th><th scope="col">Rival’s pointer into column {s.candidate} finds</th><th scope="col">Comparison returns</th></tr>
+          <tr><th scope="col">Rival</th><th scope="col">Column {s.candidate} points to</th><th scope="col">Bit there</th><th scope="col">Rival’s pointer finds</th><th scope="col">Winner</th></tr>
         </thead>
         <tbody>
           {s.rivals.map((rival, i) => (
             <tr key={rival} className={bits[i] !== 0 ? "is-wrong" : ""}>
               <th scope="row">Column {rival}</th>
-              <td>{rows[i]}</td>
-              <td>{bits[i]}</td>
-              <td>{s.rival_target_bits[i]}</td>
+              <td>row {rows[i]}</td>
+              <td className={bits[i] === 0 ? "is-zero" : "is-one"}>{bits[i]}</td>
+              <td className={s.rival_target_bits[i] === 0 ? "is-zero" : "is-one"}>{s.rival_target_bits[i]}</td>
               <td>Column {s.candidate}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <p>
-        <label className="toggle">
-          <input type="checkbox" checked={altered} onChange={(e) => setAltered(e.target.checked)} /> Change column {s.candidate}’s pointer for column {s.rivals[0]} from row {s.correct_pointer_rows[0]} to row {s.altered_pointer_rows[0]}
-        </label>
+      <p className="scene__toggle">
+        <button type="button" aria-pressed={altered} onClick={() => setAltered(!altered)}>
+          {altered ? "Restore the pointer" : `Move one pointer to row ${s.altered_pointer_rows[0]}`}
+        </button>
+        <span className="quiet">Column {s.candidate}’s pointer for column {s.rivals[0]}, from row {s.correct_pointer_rows[0]} to row {s.altered_pointer_rows[0]}.</span>
       </p>
       <p className="scene__status" aria-live="polite">
         {valid ? "Every stored row points to a zero. The certificate is valid and column 1 wins every comparison." : <>The pointer now finds a one, so the certificate is invalid. {s.conclusion}</>}
       </p>
       <p className="scene__next">{s.comparison} Comparisons can draw up a short list cheaply, but each candidate’s certificate must still be verified.</p>
-      <p className="scene__read"><a href={read(s.selections)}>Read this in the exposition, Section 2</a></p>
+      <p className="scene__read"><a href={read(s.selections)}>Read this in the general reader, Section 2 →</a></p>
     </div>
   );
 }

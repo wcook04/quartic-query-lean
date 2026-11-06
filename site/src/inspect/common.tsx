@@ -97,10 +97,9 @@ function usePlaces(rows: Place[]) {
 
 const span = (r: any) => (r.lines ? r.lines[1] - r.lines[0] : 0);
 const overlaps = (a: any, b: any) => !!a.lines && !!b.lines && a.lines[0] <= b.lines[1] && b.lines[0] <= a.lines[1];
-/** A quote selector as words: drop Markdown emphasis and table bars. */
 /** Markdown emphasis and table bars removed outside maths; maths (with its |x|) kept intact. */
 const cleanQuote = (q: string) => q.split(/(\$[^$]*\$)/).map((part, i) => (i % 2 ? part
-  : part.replace(/\*\*|__/g, "").replace(/^\s*\|\s*|\s*\|\s*$/g, "").replace(/\s+\|\s+/g, " · "))).join("").trim();
+  : part.replace(/\*\*|__/g, "").replace(/(^|[^\w*])\*([^*\s][^*]*?)\*(?!\w)/g, "$1$2").replace(/(^|[^\w*])\*(?=\S)/g, "$1").replace(/^\s*\|\s*|\s*\|\s*$/g, "").replace(/\s+\|\s+/g, " · "))).join("").trim();
 /** A quote is shown only when it is a real phrase, not a short matching key. */
 const isPhrase = (q: string) => q.replace(/\$[^$]*\$/g, "x").split(/\s+/).filter(Boolean).length >= 6;
 /** Section titles that are bare statement IDs read as statement names. */
