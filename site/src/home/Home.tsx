@@ -111,7 +111,7 @@ export function Home({ edition }: { edition: Edition }) {
                 <p className="way__who">{e?.audience}</p>
                 {e && <p className="way__preview" dangerouslySetInnerHTML={{ __html: inlineTex(e.preview) }} />}
                 <p className="way__go">
-                  <a href={href({ page: "read", paper, s: e?.first_selection })}>Open {paper === "original" ? "OpenAI’s paper" : `“${p.name}”`}</a>
+                  <a href={href({ page: "read", paper, s: e?.first_selection })} aria-label={`Start reading ${p.name}`}>{paper === "original" ? "Open the paper" : "Start reading"}</a>
                 </p>
               </li>
             );
