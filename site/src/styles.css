@@ -253,7 +253,6 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .panel section { margin: 0; }
 .ev { font-size: 0.92rem; margin: 4px 0; }
 .ev--gap { color: var(--gap); }
-.ev__who { font-size: 0.78rem; font-weight: 700; color: var(--editorial); margin-right: 4px; }
 .rel { font-size: 0.85rem; font-weight: 700; white-space: nowrap; }
 .rel::before { content: ""; display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.35em; background: currentColor; vertical-align: 0; }
 .rel--exact { color: var(--exact); }
@@ -301,16 +300,6 @@ code { font-family: var(--mono); font-size: 0.86em; }
 
 .lean { font-family: var(--mono); font-size: 0.78rem; line-height: 1.5; background: var(--code); padding: 10px 0; margin: 8px 0; overflow-x: auto; max-height: 60vh; }
 .lean { overscroll-behavior: contain; scrollbar-width: thin; }
-.lean code { font-size: inherit; display: block; }
-.lean__line { display: grid; grid-template-columns: 3.4em 1fr; }
-.lean__line.is-marked { background: var(--query-wash); }
-.lean__no { color: var(--ink-2); text-align: right; padding-right: 10px; user-select: none; opacity: 0.7; }
-.lean__text { white-space: pre-wrap; overflow-wrap: anywhere; padding-left: calc(var(--indent, 0) * 1ch); text-indent: calc(var(--indent, 0) * -1ch); padding-right: 10px; }
-.lk--keyword { color: var(--editorial); }
-.lk--type { color: var(--stronger); }
-.lk--comment, .lk--prose { color: var(--ink-2); font-style: italic; }
-.lk--number { color: var(--partial); }
-.lean__ref { font: inherit; background: none; border: 0; padding: 0; color: var(--query); cursor: pointer; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 0.2em; }
 
 .hood__map { position: relative; margin: 10px 0 6px; }
 .hood__wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
@@ -469,7 +458,6 @@ a.film-chapters__name::after { content: " →"; color: var(--ink-3); }
 .hop__picks button { background: none; border: 1px solid var(--control); border-radius: 4px; padding: 0 6px; margin-left: 4px; font-size: 0.8rem; cursor: pointer; color: var(--ink-2); }
 .hop__picks button[aria-pressed="true"] { border-color: var(--query); color: var(--query); }
 .hop__src { margin: 0; font-size: 0.82rem; }
-.lean__hit { background: var(--query-wash); color: var(--query); border-radius: 0; padding: 1px 0; box-decoration-break: clone; }
 /* Wide equations and tables scroll inside themselves; the paper never scrolls sideways. */
 .paper { overflow-x: clip; }
 .exponent__caption { margin: 0 0 4px; font-size: 0.85rem; color: var(--ink-2); }
@@ -521,11 +509,6 @@ html, body { overflow-x: clip; max-width: 100%; }
 .chip { font-family: var(--serif); }
 
 /* Walkthrough steps: the Lean as a captioned card, then a clean list of what it uses. */
-.codecard { margin: 10px 0 8px; border: 1px solid var(--rule-2); border-radius: 8px; overflow: hidden; background: var(--code); }
-.codecard .lean { margin: 0; border-radius: 0; }
-.codecard__bar { display: flex; justify-content: space-between; margin: 0; padding: 5px 12px; font-size: 0.8rem; color: var(--ink-3); border-bottom: 1px solid var(--rule-2); }
-.codecard__from { margin: 0; padding: 5px 12px; font-size: 0.82rem; color: var(--ink-3); border-top: 1px solid var(--rule-2); }
-.codecard__from .decl--plain { font-size: 0.86rem; }
 .uses__h { margin: 10px 0 4px; font-size: 0.85rem; color: var(--ink-2); }
 .uses { display: grid; gap: 4px; }
 .use { display: flex; gap: 10px; align-items: baseline; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--rule-2); }
@@ -566,10 +549,6 @@ html, body { overflow-x: clip; max-width: 100%; }
 
 /* Where the papers discuss it: a calm four-column strip. */
 .strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--rule-2); border-radius: 8px; overflow: hidden; margin-top: 6px; }
-.strip__col { padding: 8px 10px 10px; border-left: 1px solid var(--rule-2); display: flex; flex-direction: column; gap: 5px; min-width: 0; }
-.strip__col:first-child { border-left: 0; }
-.strip__col.is-here { background: color-mix(in srgb, var(--query-wash) 45%, transparent); }
-.strip__col.is-empty { opacity: 0.6; }
 .strip__paper { margin: 0; font-size: 0.74rem; font-weight: 700; color: var(--ink-3); }
 .strip__here { font-weight: 400; color: var(--query); }
 .strip__none { margin: 0; font-size: 0.82rem; color: var(--ink-3); }
@@ -578,7 +557,7 @@ html, body { overflow-x: clip; max-width: 100%; }
 .strip__go:hover .strip__where { color: var(--query); text-decoration-color: var(--query-line); }
 .strip__quote { font-family: var(--serif); font-size: 0.8rem; line-height: 1.3; color: var(--ink-2); }
 .strip__more { margin: 6px 0 0; font-size: 0.82rem; }
-@media (max-width: 640px) { .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } .strip__col:nth-child(3) { border-left: 0; } .strip__col:nth-child(n+3) { border-top: 1px solid var(--rule-2); } }
+@media (max-width: 640px) { .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* Paragraphs tied to Lean are marked in the margin; plain prose has no mark. */
 .source-block.is-linked { border-left-color: color-mix(in srgb, var(--exact) 70%, transparent); }
@@ -649,9 +628,6 @@ html, body { overflow-x: clip; max-width: 100%; }
 .paper__edition { font-size: .85rem; color: var(--ink-2); }
 .passage-detours { display: grid; gap: 9px; margin-bottom: 18px; }
 .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.strip__col:nth-child(odd) { border-left: 0; }
-.strip__col:nth-child(n+3) { border-top: 1px solid var(--rule-2); }
-.strip__col.is-empty { opacity: 1; }
 .strip__go + .strip__go { margin-top: 6px; }
 .strip__paper { font-size: .82rem; }
 .strip__quote { font-size: .88rem; line-height: 1.4; }

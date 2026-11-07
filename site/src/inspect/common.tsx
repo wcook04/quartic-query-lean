@@ -6,19 +6,37 @@ import { useReader } from "./ReaderContext";
 import { declarationTitle, statementTitle, useNames, useStatementNames, type DeclarationTitle } from "./Names";
 import { Title } from "../text/title";
 import { useNav } from "./Nav";
+import "./inspect.css";
 
 export function Loaded<T>({ value, children, what }: { value: Async<T>; children: (v: T) => ReactNode; what: string }) {
-  if (value.state === "loading") return <p className="pending" role="status">Loading {what}…</p>;
+  if (value.state === "loading")
+    return (
+      <div className="panel-state panel-state--loading" role="status">
+        <p className="panel-state__line">Loading the {what}…</p>
+        <div className="panel-state__skeleton" aria-hidden="true"><span /><span /><span /><span /></div>
+      </div>
+    );
   if (value.state === "failed")
     return (
-      <div className="failed" role="alert">
-        <p>The {what} could not be loaded: {value.error.message}</p>
-        <p>The paper stays open on the left. Try again, or return to the passage.</p>
-        <button type="button" className="textbutton" onClick={() => location.reload()}>Reload this page</button>
+      <div className="panel-state panel-state--failed" role="alert">
+        <p className="panel-state__title">The {what} could not be loaded.</p>
+        <p className="panel-state__detail"><code>{value.error.message}</code></p>
+        <p>The paper stays open beside this pane. Reload to try again, or go back to the passage.</p>
+        <button type="button" className="button button--small" onClick={() => location.reload()}>Reload this page</button>
       </div>
     );
   return <>{children(value.value)}</>;
 }
+
+/** Authored names of the walkthroughs, by edition ID. */
+export const JOURNEY_NAMES: Record<string, string> = {
+  "forrelation-family": "How one family gives both query bounds",
+  "capped-predictor": "Why naming the true cell reveals the whole address",
+  "gaussian-transport": "How the Gaussian identity enters two estimates",
+  "weighted-tournament": "Why weighted comparisons halve the candidates",
+  "sign-blind-decoder": "Why the decoder needs an exact domain test",
+};
+export const journeyName = (id: string) => JOURNEY_NAMES[id] ?? id.replace(/-/g, " ");
 
 export function shortName(name: string): string {
   return name.replace(/^QuarticQuery\./, "").replace(/^QuarticCorpus\./, "");
@@ -110,18 +128,28 @@ const ORDER = ["expert", "exposition", "reconstruction", "original", "verificati
 
 const MAIN = ["expert", "exposition", "reconstruction", "original"];
 
-/** Where the papers discuss this: one compact column per paper, always in the same order.
+/** Where the papers discuss this: one row per paper, always in the same order.
  *  The paper being read is marked; a place in it scrolls the paper without leaving the
- *  view. The verification details are a single link beneath. */
-export function Elsewhere({ rows, here, current }: { rows: Place[]; here: string; current?: string }) {
+ *  view. The selected passage itself is listed in its own paper. The verification
+ *  details are a single link beneath. */
+export function Elsewhere({ rows, here, current, selected }: { rows: Place[]; here: string; current?: string; selected?: { paper: string; id: string } }) {
   const nav = useNav();
   const seen = new Set<string>();
-  const unique = rows.filter((r) => ORDER.includes(r.paper) && !seen.has(r.paper + r.id) && seen.add(r.paper + r.id));
+  const all = selected && ORDER.includes(selected.paper) ? [...rows, { paper: selected.paper, id: selected.id }] : rows;
+  const unique = all.filter((r) => ORDER.includes(r.paper) && !seen.has(r.paper + r.id) && seen.add(r.paper + r.id));
   const places = usePlaces(unique);
   const mine = current ?? here;
   if (!unique.length) return <p className="quiet">No paper has a linked passage on this.</p>;
-  if (places.state !== "ready") return <p className="quiet">Finding the passages…</p>;
+  if (places.state !== "ready") return <p className="quiet" role="status">Finding the passages…</p>;
   const supplement = places.value.verification?.[0];
+  const go = (paper: string, id: string) => (paper === mine ? nav.showInPaper(id) : nav.openSelection(paper, id));
+  const Place = ({ paper, pl }: { paper: string; pl: { id: string; where: string; wherePlain?: string; quote?: string } }) => (
+    <button type="button" className="strip__go" onClick={() => go(paper, pl.id)}>
+      <span className="strip__where" aria-label={pl.wherePlain}><Title text={pl.where} /></span>
+      {selected && pl.id === selected.id && <span className="strip__sel">Selected passage</span>}
+      {pl.quote && <span className="strip__quote">“<Title text={pl.quote} />…”</span>}
+    </button>
+  );
   return (
     <>
       <div className="strip">
@@ -129,19 +157,18 @@ export function Elsewhere({ rows, here, current }: { rows: Place[]; here: string
           const list = places.value[paper] ?? [];
           const isHere = paper === mine;
           return (
-            <div key={paper} className={`strip__col strip__col--${paper}${isHere ? " is-here" : ""}${list.length ? "" : " is-empty"}`}>
-              <p className="strip__paper">{face(paper).tab}{isHere && <span className="strip__here"> · you are here</span>}</p>
-              {list.length === 0 && <p className="strip__none">No passage linked yet</p>}
-              {list.slice(0, 3).map((pl, k) => (
-                <button key={pl.id} type="button" className="strip__go"
-                  onClick={() => (isHere && current ? nav.showInPaper(pl.id) : isHere ? nav.showInPaper(pl.id) : nav.openSelection(paper, pl.id))}>
-                  <span className="strip__where" aria-label={pl.wherePlain}><Title text={pl.where} /></span>
-                  {pl.quote && <span className="strip__quote">“<Title text={pl.quote} />…”</span>}
-                </button>
-              ))}
-              {list.length > 3 && <details className="more more--inline"><summary>{list.length - 3} more passages</summary>
-                {list.slice(3).map((pl) => <button key={pl.id} type="button" className="strip__go" onClick={() => isHere ? nav.showInPaper(pl.id) : nav.openSelection(paper, pl.id)}><span className="strip__where"><Title text={pl.where} /></span></button>)}
-              </details>}
+            <div key={paper} className={`strip__row strip__row--${paper}${isHere ? " is-here" : ""}${list.length ? "" : " is-empty"}`}>
+              <p className="strip__paper">{face(paper).tab}{isHere && <span className="strip__here">You are reading this</span>}</p>
+              <div className="strip__places">
+                {list.length === 0 && <p className="strip__none">No passage linked yet</p>}
+                {list.slice(0, 3).map((pl) => <Place key={pl.id} paper={paper} pl={pl} />)}
+                {list.length > 3 && (
+                  <details className="strip__extra">
+                    <summary>{list.length - 3} more {list.length - 3 === 1 ? "passage" : "passages"}</summary>
+                    {list.slice(3).map((pl) => <Place key={pl.id} paper={paper} pl={pl} />)}
+                  </details>
+                )}
+              </div>
             </div>
           );
         })}
