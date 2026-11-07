@@ -9,16 +9,28 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArgumentTree, type Insets, type MapViewHandle } from "./ArgumentTree";
 import type { ArgEdge, ArgGraph } from "../model/graph";
-import { GOAL, isType, type ProofMap } from "./fromProofMap";
+import { GOAL, drawnEdgeKey, isType, type ProofMap } from "./fromProofMap";
 import { Title } from "../text/title";
 import { reach } from "./treeModel";
+import { drawnHelpers, edgeSentence } from "./edgeMeaning";
+import { EdgeEvidence } from "./EdgeEvidence";
+import { GraphKey } from "./GraphKey";
+import { GraphList } from "./GraphList";
 import "./tokens.css";
 import "./graph.css";
 
-const INSETS: Insets = { top: 10, right: 12, bottom: 10, left: 12 };
-// Wide enough for a three-line title and the short Lean name beneath it.
-const TILE_W = 196;
-const TILE_H = 86;
+const INSETS: Insets = { top: 14, right: 14, bottom: 14, left: 14 };
+// Card titles here are short sentences (median about 60 characters, nine in
+// ten under 90). At one 12px size, a 204 x 96 tile holds five lines at k = 1
+// and four at k = 0.8, so typical titles show whole at the pane's usual scale.
+const TILE_W = 204;
+const TILE_H = 96;
+// One size for every card in a view: 12px at the usual scale, growing with
+// the camera up to 14px so a closer view is not a large card of small text.
+const TITLE_SIZES = (k: number) => [Math.min(14, Math.max(12, Math.round(12 * k * 2) / 2))];
+const ROOT_TILE = { w: 440, h: 84 };
+/** Below this pane width the map's tiles cannot hold readable titles; the list reads instead. */
+const LIST_BELOW = 440;
 
 /** SK's actual Lean neighbourhood, adapted to Quartic's ArgGraph.
  * Context edges attach retained roots to the paper claim for layout only;
@@ -63,6 +75,8 @@ export interface GraphFocus {
 export interface GraphFocusRequest { nonce: number; passage: string; cards: readonly string[] }
 
 interface Props {
+  /** The edition's reading client, for the evidence behind a line. */
+  reader: unknown;
   map: ProofMap;
   graph: ArgGraph;
   lit: readonly string[];
@@ -79,7 +93,7 @@ interface Props {
   onFocusChange?(focus: GraphFocus): void;
 }
 
-export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, onSelect, selectedEdge, onEdge, progress, paperName: _paperName, selectionKey, onFollow, focusPassages = [], focusRequest, onFocusChange }: Props) {
+export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, selected, onSelect, selectedEdge, onEdge, progress: _progress, paperName: _paperName, selectionKey, onFollow, focusPassages = [], focusRequest, onFocusChange }: Props) {
   const tree = useRef<MapViewHandle>(null);
   const body = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
@@ -97,13 +111,25 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
   const passageKey = focusPassages.join("|");
   const litRef = useRef(currentMapped);
   litRef.current = currentMapped;
-  // This paper's cards; the rest of the proof is drawn faded, as Proof Reader does.
-  const coverage = useMemo(() => (progress ? new Set([GOAL, map.root, ...progress.cards]) : null), [progress, map.root]);
   // Keep SK's actual branching neighbourhood, not a compressed ancestry path.
   const [whole, setWhole] = useState(false);
   const drawnGraph = useMemo(() => whole ? graph : neighbourhood(graph, GOAL, scopeLit), [graph, whole, scopeLit]);
-  const passed = useMemo(() => new Set(progress?.visited.cards ?? []), [progress]);
   const types = useMemo(() => Object.entries(map.cards).filter(([, c]) => isType(c)), [map]);
+  const caption = useRef<HTMLParagraphElement>(null);
+  const [notes, setNotes] = useState<HTMLElement | null>(null);
+  // The line whose evidence is open under the map; Escape or the close button returns to the line.
+  const [inspect, setInspect] = useState<string | null>(null);
+  const [form, setForm] = useState<"map" | "list" | null>(null);
+  const [narrow, setNarrow] = useState(false);
+  const section = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = section.current;
+    if (!el) return;
+    const observer = new ResizeObserver(() => { if (el.clientWidth) setNarrow(el.clientWidth < LIST_BELOW); });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  const shownView = form ?? (narrow ? "list" : "map");
 
   const inView = useCallback((ids: readonly string[]) => {
     const canvas = body.current?.getBoundingClientRect();
@@ -122,7 +148,9 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
   useEffect(() => {
     body.current?.querySelectorAll<HTMLElement>(".card[data-record]").forEach((card) => {
       const id = card.dataset.record!;
-      const state = litIds?.has(id) ? "here" : coverage?.has(id) && !passed.has(id) && id !== GOAL && id !== map.root ? "ahead" : "";
+      // Only the passage's own steps are marked. Fading every card the reader has
+      // not yet passed left most of the map looking disabled before any reading.
+      const state = litIds?.has(id) ? "here" : "";
       if ((card.dataset.trail ?? "") !== state) card.dataset.trail = state;
     });
   });
@@ -196,7 +224,9 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
       size = next;
       window.clearTimeout(timer);
       timer = window.setTimeout(() => {
-        if (overviewHeld.current) tree.current?.fitAll(false);
+        const open = inspectRef.current;
+        if (open) tree.current?.panTo([open.from, open.to], { centre: true });
+        else if (overviewHeld.current) tree.current?.fitAll(false);
         else if (!pausedRef.current && litRef.current.length && !inView(litRef.current)) tree.current?.panTo(litRef.current);
       }, 140);
     });
@@ -250,10 +280,34 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
   }, [onSelect, setPause]);
   const onUserMove = useCallback(() => { overviewHeld.current = false; setPause(true); }, [setPause]);
   const noTrace = useCallback(() => undefined, []);
+  const lastHit = useRef<string | null>(null);
+  const inspectRef = useRef<ArgEdge | null>(null);
   const edgeSelect = useCallback((key: string | null) => {
-    // The neighbourhood's goal attachments have no proofPath endpoint pair.
-    if (key && graph.edges.some((edge) => edge.key === key)) onEdge(key);
-  }, [onEdge, graph]);
+    if (!key) { setInspect(null); return; }
+    // The neighbourhood's goal attachments are not Lean dependencies; they open in place and say so.
+    if (drawnGraph.edges.some((edge) => edge.key === key)) { lastHit.current = key; setInspect(key); }
+  }, [drawnGraph]);
+  const closeEvidence = useCallback(() => {
+    const key = lastHit.current;
+    setInspect(null);
+    // Return keyboard focus to the line that opened the evidence, when it is still drawn.
+    window.requestAnimationFrame(() => {
+      const hits = body.current?.querySelectorAll<SVGPathElement>(".hit[role=button]");
+      const label = key && drawnGraph.edges.find((e) => e.key === key);
+      if (!hits || !label) return;
+      const name = describe(label);
+      [...hits].find((h) => h.getAttribute("aria-label")?.startsWith(name))?.focus();
+    });
+  }, [drawnGraph]);
+  const nameOf = useCallback((id: string) => graph.nodes.get(id)?.label ?? id, [graph]);
+  const describe = useCallback((edge: ArgEdge) => edgeSentence(graph, edge, nameOf), [graph, nameOf]);
+  const badge = useCallback((edge: ArgEdge) => {
+    const n = drawnHelpers(edge);
+    return n ? `+${n}` : null;
+  }, []);
+  const inspected = inspect ? drawnGraph.edges.find((e) => e.key === inspect) ?? null : null;
+  inspectRef.current = inspected;
+  const routeEdge = drawnEdgeKey(drawnGraph, selectedEdge);
 
   const view = useMemo(() => (
     <ArgumentTree
@@ -266,7 +320,8 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
       tileWidth={TILE_W}
       tileHeight={TILE_H}
       oneCardEach
-      fitMax={1.8}
+      fitMax={1.15}
+      rootTile={ROOT_TILE}
       selected={selected && drawnGraph.nodes.has(selected) ? selected : undefined}
       frameSelection={false}
       litIds={litIds}
@@ -274,46 +329,79 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
       onSelect={select}
       onTrace={noTrace}
       onUserMove={onUserMove}
-      selectedEdge={selectedEdge && drawnGraph.edges.some((edge) => edge.key === selectedEdge) ? selectedEdge : undefined}
+      selectedEdge={inspect ?? routeEdge ?? undefined}
       onEdgeSelect={edgeSelect}
+      captionRef={caption}
+      notesHost={notes}
+      describeEdge={describe}
+      edgeBadge={whole ? undefined : badge}
+      titleSizes={TITLE_SIZES}
     />
-  ), [drawnGraph, selected, litIds, select, noTrace, onUserMove, selectedEdge, edgeSelect]);
+  ), [drawnGraph, selected, litIds, select, noTrace, onUserMove, inspect, routeEdge, edgeSelect, notes, describe, badge, whole]);
 
+  const following = !paused;
+  // Under the map: the canvas shrinks and the camera keeps the line's two cards in view.
+  const evidence = inspected && (
+    <EdgeEvidence reader={reader} graph={drawnGraph} edge={inspected} onClose={closeEvidence}
+      onOpenChain={(key) => { setInspect(null); onEdge(key); }} onOpenLean={(name) => { setInspect(null); select(name); }} />
+  );
   return (
-    <section className="graph" aria-label="Graph of the Lean proof of Theorem 1.1">
-      {paused && (
-        <p className="graph__paused" role="status">
-          Keeping this graph in place.
-          <button type="button" onClick={follow}>Follow the paper again</button>
-        </p>
-      )}
-      <div className="vocab" aria-label="Types the proof is written in">
-        <span className="vocab__name">Types</span>
-        <div className="vocab__list">
-          {types.map(([name, c]) => (
-            <button key={name} type="button" className={lit.includes(name) ? "is-lit" : ""} onClick={() => onSelect(name)} title={name} aria-label={c.title_plain || "Title unavailable"}><Title text={c.title || "Title unavailable"} /></button>
-          ))}
-        </div>
-        <button type="button" className="vocab__whole" aria-pressed={whole} onClick={toggleWhole}>
-          {whole ? "This passage" : "Whole proof"}
-        </button>
-      </div>
-      {/* Adapted from Lean Exposition's MapStrip controls and map shortcuts. */}
-      <div className="graph__controls" role="group" aria-label="Graph view controls" onKeyDown={(event) => {
+    <section ref={section} className={`graph${shownView === "list" ? " graph--list" : ""}`} aria-label="Graph of the Lean proof of Theorem 1.1">
+      {/* One toolbar, adapted from Lean Exposition's MapStrip controls and map shortcuts. */}
+      <div className="graph__bar" role="toolbar" aria-label="Graph view controls" onKeyDown={(event) => {
+        if ((event.target as HTMLElement).closest("details")) return;
         if (event.key === "+" || event.key === "=") { event.preventDefault(); zoom(1.25); }
         else if (event.key === "-" || event.key === "_") { event.preventDefault(); zoom(1 / 1.25); }
         else if (event.key === "0") { event.preventDefault(); fit(); }
       }}>
-        <button type="button" className="map-fit" aria-label="Zoom out" title="Zoom out (−)" onClick={() => zoom(1 / 1.25)}>−</button>
-        <button type="button" className="map-fit" aria-label="Zoom in" title="Zoom in (+)" onClick={() => zoom(1.25)}>+</button>
-        <button type="button" className="map-fit" title="Show the whole displayed graph (0)" onClick={fit}>
-          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          Fit
+        <div className="graph__group" role="group" aria-label="Scope">
+          <button type="button" className="gbtn" aria-pressed={!whole} onClick={() => whole && toggleWhole()}>This passage</button>
+          <button type="button" className="gbtn" aria-pressed={whole} onClick={() => !whole && toggleWhole()}>Whole proof</button>
+        </div>
+        <div className="graph__group" role="group" aria-label="Form">
+          <button type="button" className="gbtn" aria-pressed={shownView === "map"} onClick={() => setForm("map")}>Map</button>
+          <button type="button" className="gbtn" aria-pressed={shownView === "list"} onClick={() => setForm("list")}>List</button>
+        </div>
+        {shownView === "map" && (
+          <div className="graph__group graph__group--zoom" role="group" aria-label="Zoom">
+            <button type="button" className="gbtn gbtn--icon" aria-label="Zoom out" title="Zoom out (−)" onClick={() => zoom(1 / 1.25)}>−</button>
+            <button type="button" className="gbtn gbtn--icon" aria-label="Zoom in" title="Zoom in (+)" onClick={() => zoom(1.25)}>+</button>
+            <button type="button" className="gbtn" title="Show the whole displayed graph (0)" onClick={fit}>
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              Fit
+            </button>
+            <button type="button" className="gbtn" disabled={!selected && !scopeLit.length} onClick={focus}>{selected ? "Selected card" : "This step"}</button>
+          </div>
+        )}
+        {types.length > 0 && (
+          <details className="graph__types">
+            <summary className="gbtn">Types <span className="graph__count">{types.length}</span></summary>
+            <div className="graph__typespop" role="group" aria-label="Types the proof is written in">
+              <p className="graph__typesnote">The structures the proof is written in. Choose one for its Lean.</p>
+              {types.map(([name, c]) => (
+                <button key={name} type="button" className={lit.includes(name) ? "is-lit" : ""} onClick={(event) => { (event.currentTarget.closest("details") as HTMLDetailsElement).open = false; onSelect(name); }} title={name} aria-label={c.title_plain || "Title unavailable"}><Title text={c.title || "Title unavailable"} /></button>
+              ))}
+            </div>
+          </details>
+        )}
+        <button type="button" className={`gstatus${following ? "" : " gstatus--pinned"}`} aria-pressed={following} onClick={follow}
+          title={following ? "The graph moves to each linked passage as you read" : "Resume following the paper"}>
+          <span className="gstatus__dot" aria-hidden="true" />
+          {following ? "Following the paper" : <>Pinned here · <span className="gstatus__act">Follow the paper</span></>}
         </button>
-        <button type="button" className="map-fit" disabled={!selected && !scopeLit.length} onClick={focus}>{selected ? "Selected card" : "Around this step"}</button>
-        <button type="button" className="map-fit" aria-pressed={!paused} onClick={follow}>Follow paper</button>
       </div>
-      <div className="graph__canvas" ref={body}>{view}</div>
+      <div className="graph__canvas" ref={body} hidden={shownView !== "map"}>
+        {view}
+        <p ref={caption} className="graph__caption" hidden aria-live="polite" />
+      </div>
+      {shownView === "list" && (
+        <div className="graph__listwrap">
+          <GraphList graph={drawnGraph} lit={litIds} selected={selected} selectedEdge={inspect ?? routeEdge}
+            onSelect={(id) => select(id)} onEdge={(e) => { lastHit.current = e.key; setInspect(e.key); }} />
+        </div>
+      )}
+      {evidence}
+      <GraphKey graph={drawnGraph} notesRef={setNotes} />
     </section>
   );
 });

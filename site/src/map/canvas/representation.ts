@@ -222,8 +222,10 @@ export interface TitleFit {
  * word, so a tile never stands empty. `reserve` is room kept for a line under
  * the title, in screen pixels.
  */
-export function fitTitle(t: MeasuredTitle, w: number, h: number, k: number, kind: TitleKind, box: TileBox = TILE, reserve = 0): TitleFit {
-  const { sizes, lineH } = TITLE_SIZES[kind];
+export function fitTitle(t: MeasuredTitle, w: number, h: number, k: number, kind: TitleKind, box: TileBox = TILE, reserve = 0, only?: number[]): TitleFit {
+  const { lineH } = TITLE_SIZES[kind];
+  // Quartic: a caller may fix the sizes a tile tries, so one class of card reads at one size.
+  const sizes = only?.length ? only : TITLE_SIZES[kind].sizes;
   const width = widthOf(w, k, kind, box);
   const room = roomOf(h, k, kind, box, reserve);
   if (kind === "root") {
