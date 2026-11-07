@@ -77,7 +77,10 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   useEffect(() => { reader.resource("reading.json").then((r: any) => {
     setDownloads(r.downloads ?? {});
     setOriginal(r.papers?.original);
-    setTopicTitles(Object.fromEntries((r.routes ?? []).map((topic: any) => [topic.id, topic.title])));
+    setTopicTitles((titles) => ({ ...titles, ...Object.fromEntries((r.routes ?? []).map((topic: any) => [topic.id, topic.title])) }));
+  }, () => {}); }, [reader]);
+  useEffect(() => { reader.resource("selection/arguments.json").then((r: any) => {
+    setTopicTitles((titles) => ({ ...titles, ...Object.fromEntries(Object.entries(r.topics ?? {}).map(([id, topic]: [string, any]) => [id, topic.title])) }));
   }, () => {}); }, [reader]);
   useEffect(() => { reader.proofMap().then((m: any) => { if (m.currentness === "current") setRootDeclaration(m.root); }, () => {}); }, [reader]);
   // Adapt SimplifiedMap's dismissal: Escape belongs to the open menu before

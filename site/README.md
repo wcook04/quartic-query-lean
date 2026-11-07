@@ -80,3 +80,10 @@ keyboard dismisses it too. Menus start below the entire toolbar, including
 when its controls wrap. On phones, the covered paper and paper tabs are inert
 while the proof is open; closing it returns focus to the selected passage.
 The theme owner also updates the browser colour from the current page token.
+
+Manuscript links have actual reader URLs: copy-link, middle-click and
+Cmd/Ctrl-click open the intended paper or footnote separately. Ordinary clicks
+retain the reading excursion and its Return control. An explicitly selected
+older edition stays pinned in those URLs. Additional passage names come from
+the same edition's existing argument index, including topics outside the
+shorter route list.

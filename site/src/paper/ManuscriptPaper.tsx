@@ -8,6 +8,7 @@ import { sanitizeManuscript, typeset } from "../text/html";
 import { linesOf, meaningful, rowFor, type Row } from "./selectRow";
 import { fromOutline, type ContentsRow } from "./Contents";
 import { isRestoringReadingPlace } from "../app/restore";
+import { href } from "../app/router";
 
 interface Props {
   edition: Edition;
@@ -53,6 +54,20 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
       if (html != null) {
         root.current.innerHTML = sanitizeManuscript(html);
         typeset(root.current);
+        // Keep real reader destinations for copy-link, middle-click and
+        // Cmd/Ctrl-click; plain clicks retain the reading-position excursion.
+        const ed = edition.pinnedOlder ? edition.permalink : undefined;
+        for (const link of root.current.querySelectorAll<HTMLAnchorElement>("a[href]")) {
+          if (link.dataset.paper) {
+            link.href = href({ page: "read", paper: link.dataset.paper, a: link.dataset.fragment, ed });
+          } else if (link.getAttribute("href")?.startsWith("#")) {
+            const raw = link.getAttribute("href")!.slice(1);
+            let fragment = raw;
+            try { fragment = decodeURIComponent(raw); } catch { /* retain a literal fragment */ }
+            link.dataset.localFragment = fragment;
+            link.href = href({ page: "read", paper, a: fragment, ed });
+          }
+        }
       } else if (source != null) {
         // Keep historical Markdown literal. Each line can still open its own evidence.
         const lines = source.split(/\r?\n/);
@@ -177,16 +192,17 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
   }, [ready, onReadingLine]);
 
   function onClick(e: React.MouseEvent) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     const target = e.target as HTMLElement;
     const a = target.closest("a");
     if (a) {
       const toPaper = a.getAttribute("data-paper");
-      const hrefAttr = a.getAttribute("href") ?? "";
       if (toPaper) { e.preventDefault(); onLink(toPaper, a.getAttribute("data-fragment") ?? undefined); return; }
-      if (hrefAttr.startsWith("#")) {
+      const fragment = a.getAttribute("data-local-fragment");
+      if (fragment != null) {
         e.preventDefault();
         onNavigateWithin?.();
-        root.current?.querySelector<HTMLElement>(`[id="${CSS.escape(hrefAttr.slice(1))}"]`)?.scrollIntoView({ block: "center" });
+        root.current?.querySelector<HTMLElement>(`[id="${CSS.escape(fragment)}"]`)?.scrollIntoView({ block: "center" });
       }
       return;
     }

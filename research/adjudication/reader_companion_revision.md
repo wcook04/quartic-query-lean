@@ -205,3 +205,19 @@ to wide equations. The sequential menu interaction joins the existing
 reading-column contract in the site guide; no additional general writing rule
 is needed. Validation and rendered inspection remain distinct from proof or
 independent human review.
+
+The link review also reproduced an existing browser-behaviour defect:
+Cmd/Ctrl-clicking a companion link changed the current paper and opened no
+new tab. The manuscript view now gives its existing paper and fragment links
+actual reader URLs, using the shared router builder, and intercepts only an
+unmodified primary click. Normal passage excursions and Return remain in
+place. Modified clicks, middle clicks and copied links preserve their native
+browser behaviour; footnotes and backlinks have usable reader URLs too.
+Links made in an explicitly selected older edition preserve that edition.
+The source HTML, original citation pins and PDF links remain unchanged.
+
+The additional projection and joint-event menu entries now use their authored
+titles from the same edition's argument index. The narrower route list remains
+a compatibility source for earlier data. No title or mathematical explanation
+is invented in the frontend. The full binding audit still covers 63 selections
+and 36 prerequisites without a changed mathematical association.
