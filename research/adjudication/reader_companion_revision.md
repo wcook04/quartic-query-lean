@@ -95,6 +95,6 @@ from its statistical flags. The bounded prose review retained the unaffected
 examples, definitions, calculations, formal boundary and attribution.
 
 `make check` passes the generated-source and layout checks and all 314 tests
-(5 conditional skips). The binding audit reviews 63 selections and 36
+(6 conditional skips). The binding audit reviews 63 selections and 36
 prerequisites with no remaining changed association. No new proof-check or
 human-review claim follows from these editorial checks.
