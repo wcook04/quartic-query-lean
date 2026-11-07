@@ -18,15 +18,35 @@ edition manifest. Figures and PDFs are displayed from verified Blob URLs.
 
 | Directory | Owns |
 | --- | --- |
-| `src/app` | Edition loading, hash routes, the reading desk and paper switcher |
+| `src/app` | Edition loading, hash routes, the reading desk, paper switcher and history-entry scroll/focus restoration |
 | `src/home` | The three board scenes, the exponent control and the proof outline |
-| `src/paper` | The manuscript pane (edition HTML) and the original PDF pane (pdf.js) |
+| `src/paper` | The four papers as edition HTML, their own contents, and the original PDF pane (pdf.js) |
 | `src/inspect` | Passage, statement comparison, Lean declaration and journey panels |
 | `src/lean`, `src/text` | Lean listings and KaTeX typesetting |
 
 Adapted code carries its upstream notice: KaTeX handling from
 [lean-exposition](https://github.com/wcook04/lean-exposition) and the Lean tokenizer
 and PDF approach from [proof-reader](https://github.com/wcook04/proof-reader), both Apache-2.0.
+
+The expert companion is the first reading entrance. The four tabs describe the
+documents' jobs: expert companion, worked exposition, full proof reconstruction
+and OpenAI original. Switching a tab restores that paper's own position. Following
+a matched passage keeps a visible return to the origin, including its scroll,
+selection and open proof view. Restoration adapts Lean Exposition's history and
+late-content handling and stops immediately when the reader takes control.
+
+On desktop Graph opens beside the paper. SK’s Lean-graph neighborhood isolates the
+linked passage’s steps and lays out that subgraph; unlinked paragraphs keep the
+last valid view. Whole proof expands the full graph, and the local view retains the real branching dependencies. Lean is the second tab; Passage offers alternative
+explanations and statement comparisons. The graph has explicit zoom, full-bounds
+fit and selected-step controls. A manual
+camera survives switching views and resizing; Follow resumes movement with the
+paper. Dependencies and helper lists follow the source listing.
+
+OpenAI's [pinned source and conversion checks](../docs/original_source/README.md)
+produce a native reading copy while retaining the unchanged PDF. The original
+keeps its authorship, numbering and section structure. The three accompanying
+PDFs are admitted only with their exact source revision and accepted hashes.
 
 ## Published video
 

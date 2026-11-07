@@ -8,10 +8,10 @@ export interface PaperFace {
 }
 
 export const PAPERS: PaperFace[] = [
-  { id: "original", tab: "OpenAI’s paper", name: "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity", byline: "OpenAI, 5 October 2026. The published PDF, unchanged. The Lean beside it is the Quartic project’s." },
-  { id: "exposition", tab: "General reader", name: "How many bits must an algorithm read?", byline: "Will Cook, November 2026. A general mathematical exposition of OpenAI’s construction." },
-  { id: "expert", tab: "Expert reader", name: "Reconstructing OpenAI’s nearly quartic query separation", byline: "Will Cook, November 2026. The decisive steps, for readers who know query complexity." },
-  { id: "reconstruction", tab: "Full reasoning record", name: "OpenAI’s nearly quartic query separation: a complete proof reconstruction", byline: "Will Cook, November 2026. Every step of the argument, keyed to the Lean statements." },
+  { id: "expert", tab: "Expert companion", name: "Reconstructing OpenAI’s nearly quartic query separation", byline: "Will Cook, November 2026. A concise account of the construction and its two proof mechanisms. Start here if you know query complexity; no prior reading of the original is needed." },
+  { id: "exposition", tab: "Worked exposition", name: "How many bits must an algorithm read?", byline: "Will Cook, November 2026. The construction through examples, diagrams and intermediate calculations. Assumes probability and finite-dimensional linear algebra." },
+  { id: "reconstruction", tab: "Full proof reconstruction", name: "OpenAI’s nearly quartic query separation: a complete proof reconstruction", byline: "Will Cook, November 2026. Detailed proofs, the Forrelation lower bound and quantitative refinements, with correspondence to the original and Lean." },
+  { id: "original", tab: "OpenAI original", name: "A Nearly Quartic Separation Between Randomized and Quantum Query Complexity", byline: "OpenAI, 5 October 2026. The source paper. The accompanying explanations, passage links and Lean development are the Quartic project’s." },
 ];
 
 export const SUPPLEMENT: PaperFace = {

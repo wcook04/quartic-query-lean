@@ -3,6 +3,7 @@ import { createContext, useContext } from "react";
 export interface Nav {
   paper: string;
   openSelection(paper: string, id: string): void;
+  openPassage(paper: string, anchor?: string): void;
   openStatement(id: string): void;
   openLean(name: string): void;
   openGraph(name?: string): void;

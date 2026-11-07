@@ -35,7 +35,12 @@ export function LeanPanel({ edition, name }: { edition: Edition; name: string })
       const path = await (edition.reader as any).proofPathSource?.(name).catch(() => null);
       kind = path?.kind ?? null;
     }
-    return { d: { ...d, kind }, linked: new Set(Object.keys(reverse)), cards, modules: graph.modules };
+    const statements = [...new Set<string>((d.treatments ?? []).filter((t: any) => t.statement && t.review === "current" && t.relation === "partial").map((t: any) => t.statement))];
+    const notes = Object.fromEntries(await Promise.all(statements.map(async (id) => {
+      const review: any = await edition.reader.statementReview(id).catch(() => null);
+      return [id, review?.comparisons?.find((c: any) => c.declaration === name)?.note];
+    })));
+    return { d: { ...d, kind, notes }, linked: new Set(Object.keys(reverse)), cards, modules: graph.modules };
   }, [edition, name]);
   return <Loaded value={data} what="Lean declaration">{({ d, linked, cards, modules }) => <Declaration d={d} linked={linked} cards={cards} modules={modules} />}</Loaded>;
 }
@@ -80,6 +85,15 @@ function Declaration({ d, linked, cards, modules }: { d: any; linked: Set<string
         <h2 id="ln-h" className="panel__title"><DeclTitle name={d.name} /></h2>
       </header>
 
+      {src.text ? (
+        <section>
+          <h3>What it says in Lean</h3>
+          <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean} label={`Lean source of ${d.name}`} />
+        </section>
+      ) : (
+        <p className="ev quiet">No source text is recorded for this declaration.</p>
+      )}
+
       {ties.size > 0 && (() => {
         const reviewed = [...ties].filter(([, t]) => t.review === "current" && t.relation !== "unassessed");
         const linkedOnly = [...ties].filter(([, t]) => !(t.review === "current" && t.relation !== "unassessed"));
@@ -89,17 +103,19 @@ function Declaration({ d, linked, cards, modules }: { d: any; linked: Set<string
         return (
           <section className="tie" aria-label="Its place in the papers">
             {reviewed.map(([st, t]) => (
-              <p key={st} className="tie__line"><RelationMark relation={t.relation} /> The Lean form of <button type="button" className="textbutton" onClick={() => nav.openStatement(st)}><StatementLabel id={st} /></button>.</p>
+              <div key={st}><p className="tie__line"><RelationMark relation={t.relation} /> Compared with <button type="button" className="textbutton" onClick={() => nav.openStatement(st)}><StatementLabel id={st} /></button>.</p>
+                {t.relation === "partial" && <p className="cmp__note">{d.notes[st] ?? "This declaration covers only part of the statement. Open the comparison for the reviewed scope."}</p>}
+              </div>
             ))}
             {linkedOnly.length > 0 && <p className="tie__line">Linked by the editors to {names(linkedOnly)}; no current review compares {linkedOnly.length === 1 ? "the two" : "it with them"}.</p>}
           </section>
         );
       })()}
 
-      <section className="where-else" aria-label="Where the papers discuss it">
-        <h3>Read it in the papers</h3>
+      <details className="more where-else">
+        <summary>Read this step in the papers</summary>
         <Elsewhere rows={treatments} here="" current={nav.paper} />
-      </section>
+      </details>
 
       <p className="cmp__actions"><button type="button" className="button button--small" onClick={() => nav.openGraph(d.name)}>Show it in the graph</button></p>
 
@@ -113,14 +129,7 @@ function Declaration({ d, linked, cards, modules }: { d: any; linked: Set<string
       )}
       <Neighbours title="What uses it" empty="No other declaration in this project uses it." list={users} linked={linked} mapped={cards} modules={modules} />
 
-      {src.text ? (
-        <section>
-          <h3>What it says in Lean</h3>
-          <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean} label={`Lean source of ${d.name}`} />
-        </section>
-      ) : (
-        <p className="ev quiet">No source text is recorded for this declaration.</p>
-      )}
+
 
       {d.journeys?.length > 0 && (
         <section>

@@ -7,12 +7,14 @@ import type { Edition } from "../app/edition";
 import { sanitizeManuscript, typeset } from "../text/html";
 import { linesOf, meaningful, rowFor, type Row } from "./selectRow";
 import { fromOutline, type ContentsRow } from "./Contents";
+import { isRestoringReadingPlace } from "../app/restore";
 
 interface Props {
   edition: Edition;
   paper: string;
   selected?: string;
   anchor?: string;
+  page?: number;
   onSelect(id: string): void;
   onLink(paper: string, fragment?: string): void;
   onRows?(rows: Row[]): void;
@@ -23,12 +25,13 @@ interface Props {
   followed?: string;
 }
 
-export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, onLink, onRows, onReadingLine, onContents, followed }: Props) {
+export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSelect, onLink, onRows, onReadingLine, onContents, followed }: Props) {
   const root = useRef<HTMLDivElement>(null);
   const [rows, setRows] = useState<Row[] | null>(null);
   const [sourceView, setSourceView] = useState(false);
   const [ready, setReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const descriptor = useRef<any>(null);
   const own = useRef<string | undefined>(undefined);
   const storeKey = `quartic:scroll:${edition.permalink}:${paper}`;
 
@@ -38,11 +41,13 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, on
     setReady(false);
     setError(null);
     (async () => {
-      const [{ html, source, descriptor }, sel] = await Promise.all([edition.reader.manuscript(paper), edition.reader.resource(`selection/${paper}.json`)]);
-      const doc = (edition.reader.documents as any)[paper];
-      const contents: ContentsRow[] = descriptor?.contents ?? (descriptor?.outline ? fromOutline(descriptor.outline, doc?.lines ?? 1e9) : []);
-      onContents?.(contents.filter((r) => r.listed !== false && !/unlisted/.test(r.title)));
+      const [manuscript, sel] = await Promise.all([edition.reader.manuscript(paper), edition.reader.resource(`selection/${paper}.json`)]);
       if (!live || !root.current) return;
+      const { html, source } = manuscript;
+      descriptor.current = manuscript.descriptor;
+      const doc = (edition.reader.documents as any)[paper];
+      const contents: ContentsRow[] = descriptor.current?.contents ?? (descriptor.current?.outline ? fromOutline(descriptor.current.outline, doc?.lines ?? 1e9) : []);
+      onContents?.(contents.filter((r) => r.listed !== false && !/unlisted/.test(r.title)));
       setSourceView(html == null);
       if (html != null) {
         root.current.innerHTML = sanitizeManuscript(html);
@@ -99,7 +104,9 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, on
     const el = root.current;
     if (!el || !ready) return;
     const scroller = el.closest<HTMLElement>(".paper");
+    let cancelled = false;
     const place = () => {
+      if (cancelled || isRestoringReadingPlace()) return false;
       if (anchor) {
         const target = el.querySelector<HTMLElement>(`[id="${CSS.escape(anchor)}"]`);
         if (target) { target.scrollIntoView({ block: "start" }); return true; }
@@ -107,6 +114,14 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, on
       if (selected && selected !== own.current && selected !== followed) {
         const target = el.querySelector<HTMLElement>(".is-selected");
         if (target) { target.scrollIntoView({ block: "center" }); return true; }
+      }
+      if (page && paper === "original") {
+        const location = descriptor.current?.page_locations?.find((p: any) => p.page === page);
+        const anchorTarget = location?.anchor && el.querySelector<HTMLElement>(`[id="${CSS.escape(location.anchor)}"]`);
+        if (anchorTarget) { anchorTarget.scrollIntoView({ block: "start" }); return true; }
+        const line = location?.lines?.[0];
+        const target = typeof line === "number" ? [...el.querySelectorAll<HTMLElement>(".source-block[data-l0]")].find((b) => Number(b.dataset.l0) <= line && line <= Number(b.dataset.l1)) : null;
+        if (target) { target.scrollIntoView({ block: "start" }); return true; }
       }
       return false;
     };
@@ -116,13 +131,16 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, onSelect, on
       const again = () => { if (--pending <= 0) place(); };
       images.forEach((i) => { i.addEventListener("load", again, { once: true }); i.addEventListener("error", again, { once: true }); });
       const t = window.setTimeout(place, 700);
-      return () => { clearTimeout(t); images.forEach((i) => { i.removeEventListener("load", again); i.removeEventListener("error", again); }); };
+      const stop = () => { cancelled = true; clearTimeout(t); };
+      const input = ["wheel", "touchstart", "pointerdown", "keydown"] as const;
+      input.forEach((type) => window.addEventListener(type, stop, { capture: true, passive: true }));
+      return () => { stop(); input.forEach((type) => window.removeEventListener(type, stop, true)); images.forEach((i) => { i.removeEventListener("load", again); i.removeEventListener("error", again); }); };
     }
-    if (!selected && !anchor && scroller) {
+    if (!isRestoringReadingPlace() && !selected && !anchor && !page && scroller) {
       try { scroller.scrollTop = Number(sessionStorage.getItem(storeKey) ?? 0); } catch { /* no storage */ }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ready, selected, anchor]);
+  }, [ready, selected, anchor, page]);
 
   useEffect(() => {
     const scroller = root.current?.closest<HTMLElement>(".paper");

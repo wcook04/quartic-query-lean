@@ -44,3 +44,11 @@
 .graph .card__math { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .graph .card__math .umath, .graph .card__math .katex { font-size: 1.02em; }
 .graph .card__math .umath { white-space: normal; overflow-wrap: anywhere; }
+
+/* Adapted from lean-exposition site/src/map/map-page.css MapStrip / map-fit,
+   Copyright 2026 lean-exposition contributors, Apache-2.0. */
+.graph__controls { flex: none; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; min-width: 0; min-height: 34px; padding: 4px 12px; border-bottom: 1px solid var(--rule); }
+.graph .map-fit { flex: none; display: inline-flex; align-items: center; gap: 6px; min-width: 28px; min-height: 28px; padding: 0 8px; border: 0; border-radius: 4px; background: none; color: var(--ink-2); font-size: var(--fs-sm); cursor: pointer; }
+.graph .map-fit:hover, .graph .map-fit[aria-pressed="true"] { color: var(--ink); background: color-mix(in oklab, var(--ink) 6%, transparent); }
+.graph .map-fit:focus-visible { outline: 2px solid var(--lit); outline-offset: 1px; }
+.graph .map-fit:disabled { opacity: .45; cursor: default; }

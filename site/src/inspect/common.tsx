@@ -87,9 +87,7 @@ function usePlaces(rows: Place[]) {
           ? statementTitle(titles, where) : null;
         return { id: r.id, where: statement?.title ?? (where || (line ? `Line ${line}` : "Passage")), wherePlain: statement?.title_plain, quote: isPhrase(quote) ? quote : undefined };
       }));
-      // One card per section of a paper: the first (most specific) passage stands for it.
-      const bySection = new Set<string>();
-      out[p] = out[p].filter((pl) => !bySection.has(pl.where) && bySection.add(pl.where));
+      // Distinct passages in one section can answer different questions.
     }
     return out;
   }, [reader, key, nav.paper, titles]);
@@ -108,9 +106,9 @@ const readable = (t: string) => {
   return m ? m[1] : t;
 };
 
-const ORDER = ["original", "exposition", "expert", "reconstruction", "verification"];
+const ORDER = ["expert", "exposition", "reconstruction", "original", "verification"];
 
-const MAIN = ["original", "exposition", "expert", "reconstruction"];
+const MAIN = ["expert", "exposition", "reconstruction", "original"];
 
 /** Where the papers discuss this: one compact column per paper, always in the same order.
  *  The paper being read is marked; a place in it scrolls the paper without leaving the
@@ -133,14 +131,17 @@ export function Elsewhere({ rows, here, current }: { rows: Place[]; here: string
           return (
             <div key={paper} className={`strip__col strip__col--${paper}${isHere ? " is-here" : ""}${list.length ? "" : " is-empty"}`}>
               <p className="strip__paper">{face(paper).tab}{isHere && <span className="strip__here"> · you are here</span>}</p>
-              {list.length === 0 && <p className="strip__none">Not discussed</p>}
+              {list.length === 0 && <p className="strip__none">No passage linked yet</p>}
               {list.slice(0, 3).map((pl, k) => (
                 <button key={pl.id} type="button" className="strip__go"
                   onClick={() => (isHere && current ? nav.showInPaper(pl.id) : isHere ? nav.showInPaper(pl.id) : nav.openSelection(paper, pl.id))}>
                   <span className="strip__where" aria-label={pl.wherePlain}><Title text={pl.where} /></span>
-                  {k === 0 && pl.quote && <span className="strip__quote">“<Title text={pl.quote} />…”</span>}
+                  {pl.quote && <span className="strip__quote">“<Title text={pl.quote} />…”</span>}
                 </button>
               ))}
+              {list.length > 3 && <details className="more more--inline"><summary>{list.length - 3} more passages</summary>
+                {list.slice(3).map((pl) => <button key={pl.id} type="button" className="strip__go" onClick={() => isHere ? nav.showInPaper(pl.id) : nav.openSelection(paper, pl.id)}><span className="strip__where"><Title text={pl.where} /></span></button>)}
+              </details>}
             </div>
           );
         })}

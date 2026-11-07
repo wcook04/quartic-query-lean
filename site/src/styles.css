@@ -152,7 +152,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 @media (prefers-reduced-motion: reduce) { .exponent__bar { transition: none; } }
 
 .ways { border-top: 1px solid var(--rule); padding: 40px 0; }
-.ways__list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+.ways__list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
 .way { display: flex; flex-direction: column; padding: 22px 22px 20px; border: 1px solid var(--rule-2); border-radius: 10px; background: var(--sheet); }
 .way--exposition { border-color: var(--query-line); }
 .way__tab { margin: 0 0 10px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--query); }
@@ -186,7 +186,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .jump ul { position: absolute; z-index: 4; background: var(--sheet); border: 1px solid var(--rule); margin: 6px 0 0; padding: 8px 16px; list-style: none; max-height: 50vh; overflow: auto; columns: 2; min-width: 320px; }
 .jump li { break-inside: avoid; padding: 2px 0; }
 
-.manuscript { max-width: 42rem; margin: 0 auto; font-family: var(--serif); font-size: 1.1rem; line-height: 1.62; }
+.manuscript { width: 100%; min-width: 0; max-width: 42rem; margin: 0 auto; font-family: var(--serif); font-size: 1.1rem; line-height: 1.62; }
 .manuscript h1, .manuscript h2, .manuscript h3 { font-weight: 600; line-height: 1.25; margin: 1.8em 0 0.5em; }
 .manuscript h1 { font-size: 1.45rem; }
 .manuscript h2 { font-size: 1.2rem; }
@@ -554,14 +554,6 @@ html, body { overflow-x: clip; max-width: 100%; }
 .legend__bar { display: inline-block; width: 3px; height: 1em; background: var(--exact); border-radius: 1px; }
 @media (max-width: 640px) { .source-block.is-linked::before { display: none; } }
 
-/* The full reasoning record stays available but secondary. */
-.papers li:has(a[href*="/read/reconstruction"]) { margin-left: auto; }
-.papers a[href*="/read/reconstruction"] { font-size: 0.85rem; color: var(--ink-3); }
-.papers a[href*="/read/reconstruction"][aria-current="page"] { color: var(--ink-2); border-bottom-color: var(--ink-3); }
-.strip { grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 0.75fr); }
-.strip__col--reconstruction { background: color-mix(in srgb, var(--paper) 60%, transparent); }
-.strip__col--reconstruction .strip__paper, .strip__col--reconstruction .strip__where { color: var(--ink-3); font-size: 0.8rem; }
-@media (max-width: 640px) { .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* Board scenes: one register, quiet links, a slider that marks the rows it reads. */
 .scene__promise { font-size: 1rem; }
@@ -608,4 +600,24 @@ html, body { overflow-x: clip; max-width: 100%; }
   .bits__word { display: none; }
   .bit { width: 28px; height: 28px; font-size: 1rem; }
   .bits th { padding: 2px 4px; }
+}
+
+/* The four accounts have equal navigation weight. Passage previews adapt the
+   existing SK-style account strip to the narrower accompanying pane. */
+.inspector__graph[hidden] { display: none; }
+.inspector__context { padding: 0 18px; }
+.papers__return { padding: 5px 34px; border-top: 1px solid var(--rule-2); font-size: .85rem; }
+.paper__edition { font-size: .85rem; color: var(--ink-2); }
+.passage-detours { display: grid; gap: 9px; margin-bottom: 18px; }
+.strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.strip__col:nth-child(odd) { border-left: 0; }
+.strip__col:nth-child(n+3) { border-top: 1px solid var(--rule-2); }
+.strip__col.is-empty { opacity: 1; }
+.strip__go + .strip__go { margin-top: 6px; }
+.strip__paper { font-size: .82rem; }
+.strip__quote { font-size: .88rem; line-height: 1.4; }
+.panel--lean > section:first-of-type { margin-top: 12px; }
+@media (max-width: 640px) {
+  .papers ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
+  .papers a { font-size: .84rem; padding: 7px 8px; white-space: normal; }
 }

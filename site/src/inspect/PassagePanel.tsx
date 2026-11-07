@@ -67,7 +67,12 @@ function Passage({ r }: { r: any }) {
       ))}
 
       <section className="where-else" aria-label="The same mathematics in the other papers">
-        <h3>Read it in the other papers</h3>
+        <h3>Follow this step</h3>
+        {topics.some((t) => t.detours?.length) && <ul className="plain passage-detours">
+          {topics.flatMap((t) => t.detours ?? []).filter((d: any, i: number, all: any[]) => all.findIndex((x: any) => x.paper === d.paper && x.anchor === d.anchor) === i).map((d: any) => (
+            <li key={`${d.paper}/${d.anchor}`}><button type="button" className="textbutton" onClick={() => nav.openPassage(d.paper, d.anchor)}>{d.question}</button></li>
+          ))}
+        </ul>}
         <Elsewhere rows={elsewhere} here={nav.paper} />
       </section>
 
@@ -86,6 +91,7 @@ function Passage({ r }: { r: any }) {
                     ? <span aria-label={s.presentation.body_plain}><Title text={s.presentation.body} /></span>
                     : statementNames.status === "unavailable_in_edition" || statementNames.status === "archived_partial" ? s.statement : "Statement text unavailable in this edition."}</p>
                   {s.presentation && <details className="more more--inline"><summary>Original ledger wording</summary><p>{s.statement}</p></details>}
+                  {tie?.relation === "partial" && tie.note && <p className="cmp__note">{tie.note}</p>}
                   <p className="claim__foot">
                     {tie && <DeclButton name={tie.declaration} />}
                     <button type="button" className="textbutton" onClick={() => nav.openStatement(s.id)}>Compare</button>
@@ -133,12 +139,13 @@ function Passage({ r }: { r: any }) {
           <ul className="plain">
             {r.comparisons.map((c: any) => (
               <li key={c.path}>
-                {c.role === "negative_control" || /negative/.test(c.path) ? "A deliberately broken specification" : "A check against an independently written specification"}:{" "}
+                {c.role === "negative_control" || /negative/.test(c.path) ? "A deliberately broken specification" : "A check against a separately compiled specification"}:{" "}
                 <strong>{c.outcome === "passed" ? "passed" : c.outcome.replace(/_/g, " ")}</strong>
                 {c.currentness !== "current" ? ", recorded for an earlier version of the Lean" : ""}.
               </li>
             ))}
           </ul>
+          <p className="quiet">Comparator checks that the submitted Lean theorem has the specified type. This is distinct from a review of the paper’s mathematics or the meaning of those definitions.</p>
         </section>
       )}
     </article>

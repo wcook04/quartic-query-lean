@@ -12,9 +12,8 @@
 // recorded support already joins two records, and says so.
 //
 // Every record always shows words (DESIGN.md). Past k = 0.8 a card shows its
-// title alone in a tile; the camera stops at the scale where a tile still holds
-// words at 11px. "Steps" opens at k = 1. "Overview" draws the whole argument in
-// a dense layout of tiles and pans when it is taller than the canvas.
+// title alone in a tile. "Steps" opens at k = 1. "Overview" can fit the
+// whole argument; zooming in returns to reading-size titles.
 //
 // Layout, connectors and motion are this project's own engine (./engine): a
 // layered layout, an orthogonal connector router planned once per layout and
@@ -38,7 +37,7 @@ import { arrowHead, polygonPath, roundedPath, route, type Plan, type Pt, type Ro
 import { ensureVisible, fitBounds, frameBox, revealBox, travelMs, zoomPath, type Bounds, type View, type Viewport } from "./engine/camera";
 import { CAMERA_MS, MOVE_MS, easeMove, lerp } from "./engine/motion";
 import { METRICS, METRICS_COMPACT, METRICS_DENSE, type EngineEdge, type Layout, type Rect, type Size } from "./engine/types";
-import { COMPACT_FLOOR, DENSE_H, DENSE_H_SECTION, DENSE_MIN_K, DENSE_ROOT_H, DENSE_ROOT_W, DENSE_TILE, DENSE_W, LEAN_BREAK, MAX_K, REF_PX, STEPS_FLOOR, STEPS_K, TILE, fitPlate, fitTitle, floorK, repFor, titlePieces, type MapMode, type MeasuredTitle, type Rep, type TitleKind } from "./canvas/representation";
+import { COMPACT_FLOOR, DENSE_H, DENSE_H_SECTION, DENSE_ROOT_H, DENSE_ROOT_W, DENSE_TILE, DENSE_W, LEAN_BREAK, MAX_K, REF_PX, STEPS_FLOOR, STEPS_K, TILE, fitPlate, fitTitle, floorK, repFor, titlePieces, type MapMode, type MeasuredTitle, type Rep, type TitleKind } from "./canvas/representation";
 import type { MapScene } from "./canvas/scene";
 import { useReducedMotion } from "./canvas/useReducedMotion";
 import { SIDES, beyond, chipAt, chipText, freeSpot, panToward, sameBeyond, screenRects, type Beyond, type Side } from "./canvas/chips";
@@ -103,6 +102,8 @@ export interface TreeProps {
   region?: string;
   onRegion?(id: string | null): void;
   selected?: string;
+  /** Let the parent own the camera while selection still lights cards and arrows. */
+  frameSelection?: boolean;
   trace?: Trace;
   lens?: Stage;
   /**
@@ -131,6 +132,8 @@ export interface TreeProps {
   /** The selected edge, as an ArgEdge.key (`${from}→${to}→${kind}`). */
   selectedEdge?: string;
   onEdgeSelect?(key: string | null): void;
+  /** Reveal the actual stored route behind a compressed paper/passage-lens line. */
+  onRevealThrough?(ids: readonly string[]): void;
   /** A per-account view: when set, the tree only shows records in this set (the root always). */
   within?: ReadonlySet<string>;
   /**
@@ -404,6 +407,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
 
   const [heights, setHeights] = useState<Map<string, number>>(() => new Map());
   const committed = useRef<Built | null>(null);
+  const committedGraph = useRef<ArgGraph | null>(null);
   const committedGoal = useRef<string | null>(null);
   const pinRef = useRef<string | null>(null);
   /** The last Steps layout, which Overview leaves alone and Steps comes back to. */
@@ -436,6 +440,8 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
     // Overview's order is its own, the same on every visit; Steps comes back to the order it had.
     const sameForm = prev?.layout.metrics === metrics;
     let prevLayout = orderHome.current ?? (sameForm ? prev!.layout : dense ? null : lastSteps.current);
+    // A passage lens is a new compact map, not holes in the previous layout.
+    if (dense && (committedGraph.current !== graph || within !== lastWithin.current)) prevLayout = null;
     const hold = !!prevLayout && (keepOrder.current || !sameForm || within !== lastWithin.current);
     let pin = pinRef.current;
     if (pin && !nodeSet.has(pin)) {
@@ -832,7 +838,18 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       set(els, `plitcase:${pe.key}`, d);
       set(els, `mask:${pe.key}`, d);
       set(els, `sel:${pe.key}`, d);
-      set(els, `hit:${pe.key}`, roundedPath(re.own, r));
+      let hitPath = roundedPath(re.own, r);
+      // Straight SVG paths otherwise have a zero-width/height focus box even
+      // though their stroke is clickable. Give the transparent target a small
+      // cross-stroke so keyboard focus and browser hit testing have real bounds.
+      if (re.own.length > 1) {
+        const xs = re.own.map((p) => p.x), ys = re.own.map((p) => p.y);
+        const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+        const pad = 4 / viewRef.current.k, cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+        if (x1 - x0 < pad) hitPath += ` M${cx - pad},${cy} L${cx + pad},${cy}`;
+        if (y1 - y0 < pad) hitPath += ` M${cx},${cy - pad} L${cx},${cy + pad}`;
+      }
+      set(els, `hit:${pe.key}`, hitPath);
       if (pe.arrow) {
         const head = pe.bus ? routed.buses.get(pe.from)?.head : routed.heads.get(pe.key);
         if (head) {
@@ -1083,6 +1100,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
     renderedRef.current = new Set([...layout.boxes.keys(), ...exiting]);
     if (!built.provisional) {
       committed.current = built;
+      committedGraph.current = graph;
       committedGoal.current = `${goal}|${compact}`;
       pinRef.current = null;
       keepOrder.current = false;
@@ -1194,7 +1212,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
   const boxOf = (l: Layout, id: string, pad = 0): Bounds | null => boundsOf(l, [id], pad);
 
   const floor = compact ? COMPACT_FLOOR : STEPS_FLOOR;
-  /** The camera never goes below the scale at which a tile still shows its words. */
+  /** Steps retains a reading floor; Overview can fit the full layout. */
   const minK = floorK(dense, compact);
 
   /** Reading scale for a box: k = 1, or down to the floor if that fits the box across; never lower. */
@@ -1235,8 +1253,9 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
     (l: Layout): View => {
       const b = layoutBounds(l);
       const box = { x0: b.x0 - 16, y0: b.y0 - 16, x1: b.x1 + 16, y1: b.y1 + 16 };
-      // As large as fits, never below the 11px floor: what does not fit then pans.
-      if (denseRef.current) return frameBox(box, viewport(), { min: DENSE_MIN_K, max: fitMaxRef.current, anchor: boxOf(l, goalRef.current), top: fitMaxRef.current <= 1.15 });
+      // Full layout bounds, including the root and outermost leaves. The title
+      // readability threshold is not a camera floor for this deliberate overview.
+      if (denseRef.current) return fitBounds(box, viewport(), { min: floorK(true, false), max: fitMaxRef.current });
       return fitBounds(box, viewport(), { max: 1, min: floorK(false, compact) });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1908,6 +1927,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
     return { ids: selected ? [selected] : [], anchor: selected ?? null };
   };
   askViewRef.current = () => {
+    if (props.frameSelection === false) return null;
     const { ids, anchor } = askedIds();
     const l = builtRef.current.layout;
     // Overview keeps the whole goal fitted until the reader moves the camera.
@@ -2081,7 +2101,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
     }
     const e = edgeByKey.get(edgeKeyOf(key));
     // A line that closes up a lens is no recorded relation, so there is nothing to name.
-    showCaption(e ? relationPhrase(e.kind, nameOf(e.from), nameOf(e.to)) : "");
+    showCaption(e?.semanticClass === "neighbourhood_context" ? (e as ArgEdge & { note?: string }).note ?? "Context only" : e ? relationPhrase(e.kind, nameOf(e.from), nameOf(e.to)) : "");
   };
   const leaveEdge = () => {
     setHoverEdge(null);
@@ -2110,6 +2130,16 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
   // ---- Light ------------------------------------------------------------------------
 
   const edgeByKey = useMemo(() => new Map(fullGraph.edges.map((e) => [e.key, e])), [fullGraph]);
+  const lensEdges = useMemo(() => new Map(graph.edges.map((e) => [e.key, e as ThroughEdge])), [graph]);
+  const activateEdge = (key: string, from: string) => {
+    const edge = lensEdges.get(edgeKeyOf(key));
+    if (edge?.semanticClass === "neighbourhood_context") {
+      onSelect(edge.to);
+    } else if (edge?.through?.length && props.onRevealThrough) {
+      props.onRevealThrough([edge.from, ...edge.through, edge.to]);
+    } else if (onEdgeSelect && edgeByKey.has(edgeKeyOf(key))) onEdgeSelect(edgeKeyOf(key));
+    else onSelect(recordOf(from));
+  };
 
   const hoverTouch = useMemo(() => {
     if (!hoverEdge) return null;
@@ -2306,7 +2336,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       }}
     >
       <div ref={worldRef} className="tree__world" style={{ width: Math.max(1, bounds.x1), height: Math.max(1, bounds.y1) }}>
-        <svg className="tree__links" width={1} height={1} aria-hidden="true">
+        <svg className="tree__links" width={Math.max(1, bounds.x1)} height={Math.max(1, bounds.y1)} aria-label="Proof dependencies">
           {entering && enterMask && (
             <defs>
               <mask id={`${uid}-enter`} maskUnits="userSpaceOnUse" x={-100000} y={-100000} width={200000} height={200000}>
@@ -2329,7 +2359,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
               .map((pe) => (
                 <g key={pe.key}>
                   <path ref={pathRef(`case:${pe.key}`)} className="casing" />
-                  <path ref={pathRef(`edge:${pe.key}`)} className={`link link--${pe.kind}`} />
+                  <path ref={pathRef(`edge:${pe.key}`)} className={`link link--${pe.kind}`} data-context={edgeByKey.get(edgeKeyOf(pe.key))?.semanticClass === "neighbourhood_context" || undefined} />
                 </g>
               ))}
             {ghostsAndFresh.ghosts.map((g) => (
@@ -2391,14 +2421,19 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
                   key={pe.key}
                   ref={pathRef(`hit:${pe.key}`)}
                   className="hit"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={lensEdges.get(edgeKeyOf(pe.key))?.semanticClass === "neighbourhood_context" ? `Context only: ${nameOf(recordOf(pe.to))}; its users are outside this neighbourhood` : lensEdges.get(edgeKeyOf(pe.key))?.through?.length ? `Show hidden steps between ${nameOf(recordOf(pe.from))} and ${nameOf(recordOf(pe.to))}` : `Inspect dependency from ${nameOf(recordOf(pe.from))} to ${nameOf(recordOf(pe.to))}`}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") { event.preventDefault(); event.stopPropagation(); activateEdge(pe.key, pe.from); }
+                  }}
                   onPointerEnter={() => enterEdge(pe.key)}
                   onPointerLeave={leaveEdge}
                   onClick={(event) => {
                     event.stopPropagation();
                     showCaption("");
-                    // A line that closes up a lens is no recorded step: it opens the record that uses.
-                    if (onEdgeSelect && edgeByKey.has(edgeKeyOf(pe.key))) onEdgeSelect(edgeKeyOf(pe.key));
-                    else onSelect(recordOf(pe.from));
+                    // Compressed lines reveal their real route, never a fabricated direct dependency.
+                    activateEdge(pe.key, pe.from);
                   }}
                 />
               ))}

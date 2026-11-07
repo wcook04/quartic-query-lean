@@ -1,6 +1,6 @@
 # Expert-first reader and companion revision
 
-7 November 2026. The operator supplied an earlier assessment conversation and screenshots, then asked for a working reading website and revisions to the three accounts. The conversation is advisory evidence: its historical page counts, section numbers, scores and instructions are not current source authority. Later steering selects Lean as the default companion view, with Graph second.
+7 November 2026. The operator supplied an earlier assessment conversation and screenshots, then asked for a working reading website and revisions to the three accounts. The conversation is advisory evidence: its historical page counts, section numbers, scores and instructions are not current source authority. The final steering selects Graph as the default once it isolates the linked passage’s subgraph, with Lean second. Unlinked prose must retain the last valid graph.
 
 ## Manuscript decisions
 
@@ -14,7 +14,7 @@ The [passage rebind](reader_20261107_record_rebind.json) records four reworded p
 
 The four visible roles are Expert companion, Worked exposition, Full proof reconstruction and OpenAI original. The homepage offers the expert route first. Ordinary paper tabs restore each document’s own place; selected explanatory detours retain a visible return and restore scroll, focus and disclosures. Each paper is mounted with its own edition identity so prior contents and selections cannot leak into the next paper. Missing links are labelled as missing links.
 
-Lean source appears before dependencies and users. The three tabs are Lean, Graph and Passage. Passage offers authored mathematical questions and exact manuscript destinations. Partial relations show their reviewed scope, and Comparator descriptions distinguish checking a formal specification from reviewing the mathematics. The graph exposes zoom, fit, selected-step and follow controls; the overview floor allows full containment while reading views retain a legible scale. Manual movement survives resizing and switches to Lean.
+Lean source appears before dependencies and users. The three tabs are Graph, Lean and Passage. Passage offers authored mathematical questions and exact manuscript destinations. Partial relations show their reviewed scope, and Comparator descriptions distinguish checking a formal specification from reviewing the mathematics. The graph exposes zoom, fit, selected-step and follow controls; the overview floor allows full containment while reading views retain a legible scale. SK’s Lean-graph neighborhood hides unrelated branches and compacts the remaining layout. The local view retains each focused declaration’s immediate dependencies and users, with the original relations between them. Layout attachments to the main result are distinguished from recorded dependencies. Unlinked prose retains the last valid subgraph. Whole proof restores the full map. Manual movement survives resizing and switches to Lean.
 
 The implementation adapts the actual Proof Reader map and source components already imported here, and Lean Exposition’s history/late-content restoration and map controls. The existing typography, math renderer and manuscript fragments remain the presentation owners. The [frontend brief](../../docs/frontend_brief.md) and [site guide](../../site/README.md) now carry the reading and camera contracts.
 
@@ -30,4 +30,4 @@ PDF source revision: `e3ed60253dd8d7fab06b30a91a625773d460dbdd`. The native rend
 
 ## Validation and publication
 
-Source and browser validation is recorded below after the complete reading edition is built. Publication is not implied by the local render acceptance.
+Local validation: `make check` passes all 314 tests (5 conditional skips), generated-source and repository-layout checks; the site typecheck and binding audit pass (63 bindings, 36 prerequisites). The exported reading edition validates 624 resources including the four PDFs. Browser inspection confirms all 528 original formulas and 3,257 reconstruction formulas render without KaTeX errors, original figure/citation navigation and PDF-page-to-text mapping work, and exact paper/inspector/disclosure state returns after an explanation excursion. The receiving integrator inspected the actual branching address-prediction neighborhood, source-first Lean listing and desktop paper containment. The graph uses SK’s Lean neighborhood (inputs and users), not its paper lens: the earlier selected-only filter and long ancestry-chain expansion were rejected and replaced. Publication remains a separate final step.
