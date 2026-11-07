@@ -441,9 +441,10 @@ class ReadingEditionTest(unittest.TestCase):
         video["chapters"] *= 2
         with self.assertRaisesRegex(ValueError, "chapter"):
             api.video_entry(video, {"pivot"})
-        video["chapters"] = [{"start_seconds": 0, "page": "verification"}, {"start_seconds": 5, "title": "Credits"}]
+        video["chapters"] = [{"start_seconds": 0, "page": "verification", "title": "Checking"}, {"start_seconds": 5, "title": "Credits"}]
         self.assertEqual(api.video_entry(video, set()), video)
-        for bad in ({"start_seconds": 0, "page": "nowhere"}, {"start_seconds": 0},
+        for bad in ({"start_seconds": 0, "page": "nowhere", "title": "X"}, {"start_seconds": 0},
+                    {"start_seconds": 0, "page": "verification"},
                     {"start_seconds": 0, "route": "pivot", "page": "verification"}):
             video["chapters"] = [bad]
             with self.assertRaisesRegex(ValueError, "chapter"):
