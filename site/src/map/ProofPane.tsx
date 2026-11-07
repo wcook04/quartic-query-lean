@@ -19,5 +19,5 @@ export function ProofPane({ edition, lit, selected, onSelect, selectedEdge, onEd
         <p>{map.value.currentness === "stale" ? "This edition’s Lean graph was recorded for an earlier Lean source, so it is not shown." : "This edition has no Lean graph."} The evidence for each passage is still available.</p>
       </div>
     );
-  return <GraphPane map={map.value} graph={graph} lit={lit} selected={selected} onSelect={onSelect} selectedEdge={selectedEdge} onEdge={onEdge} progress={progress} paperName={paperName} selectionKey={selectionKey} onFollow={onFollow} focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onFocusChange} />;
+  return <GraphPane reader={edition.reader} map={map.value} graph={graph} lit={lit} selected={selected} onSelect={onSelect} selectedEdge={selectedEdge} onEdge={onEdge} progress={progress} paperName={paperName} selectionKey={selectionKey} onFollow={onFollow} focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onFocusChange} />;
 }
