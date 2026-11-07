@@ -78,7 +78,7 @@ function Passage({ r }: { r: any }) {
 
       {statements.length > 0 && (
         <section className="block" aria-labelledby="ps-proves">
-          <h3 id="ps-proves" className="block__h">What Lean proves <Who kind="review" /></h3>
+          <h3 id="ps-proves" className="block__h">What Lean proves <Who kind="review" by={statements.map((s) => bestTie(s)?.reviewed_by)} /></h3>
           <ul className="claims">
             {statements.map((s) => {
               const tie = bestTie(s);

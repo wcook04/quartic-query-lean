@@ -13,13 +13,15 @@ const CLASS: Record<LineStyle, string> = {
   context: "link link--formalizes",
 };
 
-export function GraphKey({ graph, notesRef }: { graph: ArgGraph; notesRef(el: HTMLElement | null): void }) {
+/** `badges`: the map draws "+N" helper badges (not in Whole proof). `list`: the list form
+ *  is shown, which draws no arrows; its rows carry the same line samples and name helpers in words. */
+export function GraphKey({ graph, notesRef, badges = true, list = false }: { graph: ArgGraph; notesRef(el: HTMLElement | null): void; badges?: boolean; list?: boolean }) {
   const present = new Set(graph.edges.map(lineStyle));
-  const helpers = graph.edges.some((e) => (drawnHelpers(e) ?? 0) > 0);
+  const helpers = badges && !list && graph.edges.some((e) => (drawnHelpers(e) ?? 0) > 0);
   return (
     <div className="gkey">
-      <p className="gkey__intro">An arrow points from a declaration to the result that uses it. Select a line for the Lean where it is used.</p>
-      <ul className="gkey__list" aria-label="Line styles">
+      {!list && <p className="gkey__intro">An arrow points from a declaration to the result that uses it. Select a line for the Lean where it is used.</p>}
+      <ul className="gkey__list" aria-label={list ? "Line styles in the rows" : "Line styles"}>
         {ORDER.filter((s) => s === "proof" || present.has(s)).map((s) => (
           <li key={s}>
             <svg className="gkey__sample" viewBox="0 0 28 8" width="28" height="8" aria-hidden="true">
