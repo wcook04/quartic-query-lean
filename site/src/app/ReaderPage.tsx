@@ -16,7 +16,8 @@ import { ManuscriptPaper } from "../paper/ManuscriptPaper";
 const PdfPaper = lazy(() => import("../paper/PdfPaper").then((m) => ({ default: m.PdfPaper })));
 import { meaningful, type Row } from "../paper/selectRow";
 const ProofPane = lazy(() => import("../map/ProofPane").then((m) => ({ default: m.ProofPane })));
-import { Contents, sectionAt, type ContentsRow } from "../paper/Contents";
+import { Contents, NumberedTitle, sectionAt, type ContentsRow } from "../paper/Contents";
+import { BackIcon, Chevron, CloseIcon, PaneIcon } from "./icons";
 import type { GraphFocus, GraphFocusRequest } from "../map/GraphPane";
 import { ReaderSplit } from "./ReaderSplit";
 import { Title } from "../text/title";
@@ -387,9 +388,20 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const availablePapers = PAPERS.filter(p => Object.hasOwn(reader.documents, p.id));
   if (!Object.hasOwn(reader.documents, paper))
     return (
-      <main id="main" className="notice-page">
-        <h1>“{paper.slice(0, 40)}” is unavailable in this edition.</h1>
-        <p>Available papers include {availablePapers.map((p, i) => <span key={p.id}>{i ? ", " : ""}<a href={href({ page: "read", paper: p.id, ed })}>{p.tab}</a></span>)}.</p>
+      <main id="main" className="notice-page" tabIndex={-1}>
+        <h1>This edition has no paper called “{paper.slice(0, 40)}”</h1>
+        <p>The link may name a paper from another edition, or its address may have been shortened. Choose one of the papers this edition holds.</p>
+        <ul className="notice-papers">
+          {availablePapers.map((p) => (
+            <li key={p.id}>
+              <a href={href({ page: "read", paper: p.id, ed })}>
+                <span className="notice-papers__tab">{p.tab}</span>
+                <span className="notice-papers__name">{p.name}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p><a href={href({ page: "home" })}>Go to the front page</a></p>
       </main>
     );
 
@@ -422,16 +434,23 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     <NavContext.Provider value={nav}>
       <div className={`desk${open ? " desk--open" : ""}`}>
         <nav className="papers" aria-label="Papers" inert={open && !wide}>
-          <ul>
-            {availablePapers.map((p) => (
-              <li key={p.id}>
-                <a href={href({ page: "read", paper: p.id, ed })} aria-current={p.id === paper ? "page" : undefined} onClick={(e) => p.id !== paper && switchTo(p.id, e)}>
-                  {p.tab}
-                </a>
-              </li>
-            ))}
-          </ul>
-          {returnTo && <div className="papers__return"><button type="button" className="textbutton" onClick={returnTo.returnToOrigin}>Return to {returnTo.label}</button></div>}
+          <div className="papers__bar">
+            <ul>
+              {availablePapers.map((p) => (
+                <li key={p.id}>
+                  <a href={href({ page: "read", paper: p.id, ed })} aria-current={p.id === paper ? "page" : undefined} onClick={(e) => p.id !== paper && switchTo(p.id, e)}>
+                    {p.tab}
+                  </a>
+                </li>
+              ))}
+              {paper === SUPPLEMENT.id && <li><a href={href({ page: "read", paper, ed })} aria-current="page">{SUPPLEMENT.tab}</a></li>}
+            </ul>
+            <button type="button" className="papers__pane" aria-pressed={open} onClick={() => (open ? close() : nav.openGraph())}
+              title={open ? "Hide the graph, Lean and passages beside the paper" : "Show the graph, Lean and passages beside the paper"}>
+              <PaneIcon /><span>Lean and graph</span>
+            </button>
+          </div>
+          {returnTo && <div className="papers__return"><button type="button" className="textbutton" onClick={returnTo.returnToOrigin}><BackIcon /> Return to {returnTo.label}</button></div>}
         </nav>
 
         <main id="main" className={`paper${contents.length ? " paper--contents" : ""}`} tabIndex={-1} aria-label={f.name} inert={open && !wide}
@@ -441,34 +460,39 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           {contents.length > 0 && <Contents rows={contents} current={here} onGo={goSection} />}
           <header className="paper__head">
             <h1 className="paper__title">{f.name}</h1>
+            {f.by && <p className="paper__by">{f.by}</p>}
             <p className="paper__byline">{f.byline}</p>
             <div className="paper__tools" ref={paperTools}>
-              {(paper !== "original" || originalHtml) && <span className="legend"><span className="legend__bar" aria-hidden="true" />Select a marked paragraph to follow its proof and related explanations</span>}
-              {download && <DownloadLink edition={edition} resource={download.resource} label="Download the PDF" name={`${paper}.pdf`} />}
-              {paper === "original" && original?.rendered && <button type="button" className="textbutton" onClick={() => { setShowPdf(!showPdf); setContents([]); }}>{showPdf ? "Read the text edition" : "View the original PDF"}</button>}
               {keyed.length > 0 && (
                 <details className="jump" name="paper-tools" onToggle={(event) => fitPaperMenu(event.currentTarget)}>
-                  <summary>Linked passages</summary>
+                  <summary>Linked passages <span className="jump__count">{keyed.length}</span><Chevron /></summary>
                   <ul>
                     {keyed.map((r) => (
-                      <li key={r.id}><a href={href({ page: "read", paper, s: r.id, ed })} onClick={(e) => { (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}>{topicTitles[r.topic!] ?? r.topic!.replace(/-/g, " ")}</a></li>
+                      <li key={r.id}><a href={href({ page: "read", paper, s: r.id, ed })} aria-current={r.id === route.s ? "true" : undefined} onClick={(e) => { (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}><Title text={topicTitles[r.topic!] ?? r.topic!.replace(/-/g, " ")} /></a></li>
                     ))}
                   </ul>
                 </details>
               )}
               {contents.length > 0 && (
                 <details className="jump jump--contents" name="paper-tools" onToggle={(event) => fitPaperMenu(event.currentTarget)}>
-                  <summary>Contents</summary>
+                  <summary>Contents<Chevron /></summary>
                   <ul>
                     {contents.filter((r) => r.level <= Math.min(...contents.map((x) => x.level)) + 1).map((r) => (
-                      <li key={r.line}><a href={r.anchor ? `#${r.anchor}` : undefined} onClick={(e) => { e.preventDefault(); goSection(r); (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}><Title text={r.title} /></a></li>
+                      <li key={r.line} className={r.level > Math.min(...contents.map((x) => x.level)) ? "jump__sub" : undefined}><a href={r.anchor ? `#${r.anchor}` : undefined} aria-current={here === r ? "location" : undefined} onClick={(e) => { e.preventDefault(); goSection(r); (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}><NumberedTitle text={r.title} /></a></li>
                     ))}
                   </ul>
                 </details>
               )}
-              {paper === "reconstruction" && <a href={href({ page: "read", paper: SUPPLEMENT.id, ed })}>Verification details</a>}
-              {!wide && <button type="button" className="textbutton" onClick={() => nav.openGraph()}>Open the proof for this passage</button>}
+              {paper === "original" && original?.rendered && <button type="button" className="tool" onClick={() => { setShowPdf(!showPdf); setContents([]); }}>{showPdf ? "Read the text edition" : "View the original PDF"}</button>}
+              {download && <DownloadLink edition={edition} resource={download.resource} label="Download the PDF" name={`${paper}.pdf`} />}
+              {paper === "reconstruction" && <a className="tool" href={href({ page: "read", paper: SUPPLEMENT.id, ed })}>Verification details</a>}
             </div>
+            {(paper !== "original" || originalHtml) && (
+              <p className="legend"><span className="lean-tag" aria-hidden="true">Lean</span>
+                {wide ? "Marked paragraphs are linked to Lean. Click one to follow its proof; click it again for its Lean, then for other explanations."
+                  : "Marked paragraphs are linked to Lean. Tap one to see its proof."}
+              </p>
+            )}
             {originalHtml && <p className="paper__edition">Reading edition rendered from OpenAI’s source. The original wording, numbering and authorship are retained; our passage links are an editorial layer.</p>}
           </header>
           {paper === "original" && !originalHtml ? (
@@ -486,11 +510,6 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           )}
         </main>
 
-        {!open && wide && (
-          <button type="button" className="reopen" onClick={() => nav.openGraph()}>
-            <span>Open proof</span>
-          </button>
-        )}
         {open && wide && <ReaderSplit />}
         {open && (
           <aside ref={aside} className={`inspector inspector--${mode}`} aria-label="The Lean proof and its evidence">
@@ -498,8 +517,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               <button type="button" aria-pressed={mode === "graph" || mode === "path"} onClick={() => nav.openGraph()}>Graph</button>
               <button type="button" aria-pressed={mode === "lean"} disabled={!activeLean} onClick={() => activeLean && nav.openLean(activeLean)}>Lean</button>
               <button type="button" aria-pressed={mode === "evidence"} disabled={!currentSelection && !route.p} onClick={nav.backToPassage}>Passage</button>
-              <button type="button" className="inspector__close" onClick={close} aria-label="Close the proof pane">
-                <span className="wide-only">Close</span><span className="narrow-only">Paper</span>
+              <button type="button" className="inspector__close" onClick={close} aria-label={wide ? "Close the Lean pane" : undefined} title={wide ? "Close (Esc)" : undefined}>
+                {wide ? <CloseIcon /> : <><BackIcon /><span>Back to paper</span></>}
               </button>
             </div>
             <div className="inspector__bar">
@@ -563,7 +582,7 @@ function DownloadLink({ edition, resource, label, name }: { edition: Edition; re
     } catch { setState("failed"); }
   }
   return (
-    <button type="button" className="textbutton" onClick={get} disabled={state === "busy"}>
+    <button type="button" className="tool" onClick={get} disabled={state === "busy"}>
       {state === "failed" ? "The PDF is not in this edition" : state === "busy" ? "Preparing the PDF…" : label}
     </button>
   );
