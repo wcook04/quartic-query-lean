@@ -17,6 +17,7 @@ interface Props {
   page?: number;
   onSelect(id: string): void;
   onLink(paper: string, fragment?: string): void;
+  onNavigateWithin?(): void;
   onRows?(rows: Row[]): void;
   /** The source line at the reading line, as the reader scrolls. */
   onReadingLine?(line: number): void;
@@ -25,7 +26,7 @@ interface Props {
   followed?: string;
 }
 
-export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSelect, onLink, onRows, onReadingLine, onContents, followed }: Props) {
+export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSelect, onLink, onRows, onReadingLine, onContents, followed, onNavigateWithin }: Props) {
   const root = useRef<HTMLDivElement>(null);
   const [rows, setRows] = useState<Row[] | null>(null);
   const [sourceView, setSourceView] = useState(false);
@@ -184,6 +185,7 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
       if (toPaper) { e.preventDefault(); onLink(toPaper, a.getAttribute("data-fragment") ?? undefined); return; }
       if (hrefAttr.startsWith("#")) {
         e.preventDefault();
+        onNavigateWithin?.();
         root.current?.querySelector<HTMLElement>(`[id="${CSS.escape(hrefAttr.slice(1))}"]`)?.scrollIntoView({ block: "center" });
       }
       return;
