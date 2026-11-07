@@ -55,7 +55,7 @@ PDFs are admitted only with their exact source revision and accepted hashes.
 
 ## Published video
 
-[Watch the explanation on YouTube](https://www.youtube.com/watch?v=3hZaKK0-leY) (27:13).
+[Watch the explanation on YouTube](https://www.youtube.com/watch?v=CBHPBKcx2ck) (34:02).
 The title, link and paper-linked chapters are in [`docs/reading_routes.json`](../docs/reading_routes.json).
 The reader exporter includes them in the immutable edition. The homepage uses
 [`src/family/quartic-video-thumbnail.webp`](src/family/quartic-video-thumbnail.webp),
