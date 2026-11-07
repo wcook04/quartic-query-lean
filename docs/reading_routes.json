@@ -15,7 +15,7 @@
       ],
       "note": "The unconditional family result uses the local Forrelation bound. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers.",
       "bound_at": {
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "exposition": "685f757ec50918fd659b926a44f2ba988e11359d",
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       },
       "context_passages": {
@@ -40,7 +40,19 @@
       },
       "context_passages": {
         "AC-circuit": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
-      }
+      },
+      "detours": [
+        {
+          "question": "An all-one column that still fails the certificate — worked example",
+          "paper": "exposition",
+          "anchor": "domain-bit-board"
+        },
+        {
+          "question": "Full definition and uniqueness of a winning column",
+          "paper": "reconstruction",
+          "anchor": "AC-winner"
+        }
+      ]
     },
     {
       "id": "comparison",
@@ -75,12 +87,24 @@
       "note": "Complementarity pairs the two orientations of each match. Sampling a pivot with these weights is a separate implementation step.",
       "bound_at": {
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
-        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+        "expert": "685f757ec50918fd659b926a44f2ba988e11359d"
       },
       "context_passages": {
         "upper-comparison-model": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
         "upper-ideal-process": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
-      }
+      },
+      "detours": [
+        {
+          "question": "See why the weights give probabilities 4/7, 0, 2/7, 1/7",
+          "paper": "exposition",
+          "anchor": "weighted-sampling-example"
+        },
+        {
+          "question": "Follow the full expected-weight calculation",
+          "paper": "reconstruction",
+          "anchor": "upper-weight-drift"
+        }
+      ]
     },
     {
       "id": "pivot",
@@ -92,13 +116,30 @@
         "src-stage-sampler"
       ],
       "bound_at": {
-        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "expert": "685f757ec50918fd659b926a44f2ba988e11359d",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
       },
       "context_passages": {
         "upper-comparison-model": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
         "upper-tournament-parameters": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
-      }
+      },
+      "detours": [
+        {
+          "question": "Work through sampling with unequal weights",
+          "paper": "exposition",
+          "anchor": "weighted-sampling-example"
+        },
+        {
+          "question": "Why amplification preserves the exact output law",
+          "paper": "exposition",
+          "anchor": "amplification-schedule"
+        },
+        {
+          "question": "Read the bounded schedule and retained-register proof",
+          "paper": "reconstruction",
+          "anchor": "upper-amplification-statement"
+        }
+      ]
     },
     {
       "id": "verification",
@@ -166,9 +207,26 @@
       ],
       "bound_at": {
         "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
-        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "expert": "685f757ec50918fd659b926a44f2ba988e11359d",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
-      }
+      },
+      "detours": [
+        {
+          "question": "Follow a cell query becoming an address prediction",
+          "paper": "exposition",
+          "anchor": "query-index-prediction"
+        },
+        {
+          "question": "Why conditioning on a light column fails",
+          "paper": "exposition",
+          "anchor": "lightness-joint-event"
+        },
+        {
+          "question": "Read the complete capped simulation",
+          "paper": "reconstruction",
+          "anchor": "CL-simulator"
+        }
+      ]
     },
     {
       "id": "direct-product",
@@ -180,9 +238,21 @@
         "src-direct-product-caps"
       ],
       "bound_at": {
-        "expert": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "expert": "e3ed60253dd8d7fab06b30a91a625773d460dbdd",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
-      }
+      },
+      "detours": [
+        {
+          "question": "Check the lightness and separate-budget assumptions",
+          "paper": "exposition",
+          "anchor": "lightness-joint-event"
+        },
+        {
+          "question": "Read the full direct-product argument",
+          "paper": "reconstruction",
+          "anchor": "CL-direct-product-statement"
+        }
+      ]
     },
     {
       "id": "forrelation",
@@ -202,7 +272,19 @@
       "context_passages": {
         "upper-decode": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
         "forr_bundle": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
-      }
+      },
+      "detours": [
+        {
+          "question": "Compare the concrete positive and negative inputs",
+          "paper": "exposition",
+          "anchor": "forrelation-primitive"
+        },
+        {
+          "question": "Read the full Forrelation lower-bound proof",
+          "paper": "reconstruction",
+          "anchor": "forr_target"
+        }
+      ]
     },
     {
       "id": "exponent",
@@ -222,7 +304,24 @@
       "context_passages": {
         "ROOT-FAMILY-ASSEMBLY": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
         "ROOT-LOGS": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
-      }
+      },
+      "detours": [
+        {
+          "question": "Work through excluding an exponent below four",
+          "paper": "exposition",
+          "anchor": "fixed-k-exponent"
+        },
+        {
+          "question": "Read OpenAI’s §5: The optimal power",
+          "paper": "original",
+          "anchor": "sec:exponent"
+        },
+        {
+          "question": "Follow the complete fixed-k argument",
+          "paper": "reconstruction",
+          "anchor": "ROOT-NO-SMALLER"
+        }
+      ]
     }
   ],
   "video": {
@@ -304,8 +403,8 @@
     },
     "reconstruction": {
       "audience": "Readers checking the full derivation or its formal statements",
-      "question": "Which statement does Lean prove, and how does it compare with the argument on the page?",
-      "preview": "Start with the quantifiers in the headline theorem, then open the corresponding Lean statement. Follow the promised address function into the construction and inspect the bound for the erased zero. At each step you can distinguish the written argument, an alternative formal proof, and what a recorded check actually tested.",
+      "question": "How do the detailed proofs and quantitative estimates fit together?",
+      "preview": "Read the complete separation argument, the supporting quantum and classical proofs, and the Forrelation lower bound. Consult a particular derivation or follow the continuous proof; source correspondence explains where the argument and the Lean take different routes.",
       "stops": [
         "headline",
         "forrelation",
@@ -315,8 +414,8 @@
     },
     "original": {
       "audience": "Readers checking the result against OpenAI’s original paper",
-      "question": "What did OpenAI prove, and how closely does our Lean proof follow the published argument?",
-      "preview": "Start at Theorem 1.1 on page 1. Inspect the formal statement, then follow the two query bounds. Each indexed claim shows how closely our formalization matches the maintained reading of the paper.",
+      "question": "What does OpenAI’s original paper state and prove?",
+      "preview": "Read the original wording, construction and proof in a source-preserving text edition, or open the published PDF. Editorial links connect its statements to the accompanying explanations and Lean.",
       "stops": [
         "headline",
         "exponent"
@@ -391,20 +490,20 @@
     }
   ],
   "print_edition": {
-    "source_revision": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
-    "adjudication": "research/adjudication/paper_purpose_revision.md",
+    "source_revision": "e3ed60253dd8d7fab06b30a91a625773d460dbdd",
+    "adjudication": "research/adjudication/reader_companion_revision.md",
     "files": {
       "expert": {
         "file": "expert/expert_companion.pdf",
-        "sha256": "0aed436a3553705b38782a85b32459a5c882debd502ce05e48006cf1069b7051"
+        "sha256": "ca01098a7f2faaf66548ab39eeda7e1d16ac47f9aaca4efe3d2319578b82d220"
       },
       "exposition": {
         "file": "exposition/exposition.pdf",
-        "sha256": "d61c5b47b77e8f5547545569b442646d5acde58ece16a45a1f2df0f9faa0630a"
+        "sha256": "7f73766787d0e23d160697a29168b79b9ad6ac15285b6ea1fea9de70c478d8e3"
       },
       "reconstruction": {
         "file": "record/reasoning_record.pdf",
-        "sha256": "d4d1c6a583ab1476847a59d226f140c8e1a503f4e102257e11694bcf7232c0d4"
+        "sha256": "a1eae43067b4c8dfd8306cb2838dee65436838ba1f637ec0a02c404428f44394"
       }
     }
   },
@@ -480,14 +579,26 @@
       "bound_at": {
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
         "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
-        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+        "expert": "685f757ec50918fd659b926a44f2ba988e11359d"
       },
       "context_passages": {
         "CL-dummy": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
         "CL-heavy": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
         "CL-simulator": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
         "CL-direct-product-statement": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
-      }
+      },
+      "detours": [
+        {
+          "question": "Follow the two query clocks in the worked simulation",
+          "paper": "exposition",
+          "anchor": "lightness-joint-event"
+        },
+        {
+          "question": "Read the complete capped simulation",
+          "paper": "reconstruction",
+          "anchor": "CL-simulator"
+        }
+      ]
     },
     {
       "id": "gaussian-path",
@@ -615,6 +726,18 @@
       "note": "The Boolean evaluation uses the measured label distribution and sequential verification. This use does not establish equality of the entire retained physical state.",
       "lean": [
         "src-stage-sampler"
+      ],
+      "detours": [
+        {
+          "question": "What the measured-law and retained-state theorems each establish",
+          "paper": "exposition",
+          "anchor": "measured-law-scope"
+        },
+        {
+          "question": "Read the designated retained-register argument",
+          "paper": "reconstruction",
+          "anchor": "upper-returned-register"
+        }
       ]
     },
     {

@@ -78,7 +78,7 @@ Appendix A. Lemma 4.1 uses an induction on sub-distributions in place of the
 supermartingale. [The contract](docs/statement_evidence_contract.md) explains how
 statements and proofs stay aligned as derivations improve.
 
-For website work, run `make reading-web` to export the four-paper reader with source-linked manuscript HTML, then start with the [frontend design brief](docs/frontend_brief.md). It connects the two reference readers to Quartic’s data and gives browser acceptance checks.
+For website work, run `make reading-web` to export the four-paper reader with source-linked HTML, including [OpenAI's preserved source edition](docs/original_source/README.md), then start with the [frontend design brief](docs/frontend_brief.md). The expert companion is the main entrance; the worked exposition, full reconstruction and original are available through matched passages with an exact return. Lean opens beside the paper, with the dependency graph one tab away.
 
 The [statement comparison reader](docs/reading_api.md#compare-a-paper-result-with-lean) opens a result in the original paper beside the exact Lean source, Lean’s printed type and axioms, and the reviewer’s reasons for its match. The [statement presentations](docs/reading_api.md#read-or-label-a-ledger-statement) give each ledger entry a readable title and typeset wording. For the headline result it distinguishes the theorem proving the whole family from the shorter theorem proving the exponent alone.
 

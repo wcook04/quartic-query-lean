@@ -193,7 +193,7 @@
   "scope": "Source-reviewed mapping of every entry in the three maintained bibliographies and Appendix C. The builder checks current bibliography/source hashes and records actual packaged coverage; availability does not establish mathematical reading or exact-edition equivalence.",
   "bibliographies": {
     "docs/expert_companion.bib": {
-      "sha256": "2807fc83a7d0fe56908139d094b5c7d2fc3105753641a217a8ea7ec0ae0658ff",
+      "sha256": "11431be58145eb7691563f9ca1dad4b1b7d4dd5a8c3f84f30a483e8006545c59",
       "entry_count": 26
     },
     "docs/exposition.bib": {
@@ -516,13 +516,13 @@
       "paper": "expert_companion",
       "citation_key": "Record2026",
       "bibliography_path": "docs/expert_companion.bib",
-      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md},\n}",
+      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/685f757ec50918fd659b926a44f2ba988e11359d/docs/reasoning_record.md},\n}",
       "cited_urls": [
-        "https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md"
+        "https://github.com/wcook04/quartic-query-lean/blob/685f757ec50918fd659b926a44f2ba988e11359d/docs/reasoning_record.md"
       ],
       "annex_slugs": [],
       "repository_source": "repository/docs/reasoning_record.md",
-      "edition_note": "Internal proof record pinned to 11a229980430460236d53580798d703674c56ee5; external literature editions unchanged.",
+      "edition_note": "Internal proof record pinned to 685f757ec50918fd659b926a44f2ba988e11359d; external literature editions unchanged.",
       "supplementary_source_ids": [],
       "primary_annex_status": "repository_source_reference",
       "coverage_status": "repository_source_supplied"
@@ -2622,7 +2622,7 @@
     "source": "Lake-pinned tracked Git source; no compilation claim"
   },
   "edition_boundary": "A supplied older or different edition is not the exact cited edition. Supplementary metadata identifies the retrieved publisher/revision copies and remaining exceptions. Primary extracted.md is not automatically the text of a distinct supplementary PDF.",
-  "record_sha256": "6199badf872f7b262a80f21a2b74422478222acad53db015f9525a34f55eb822",
+  "record_sha256": "7db0b84a0b04bd650c38b36a41b475b706262d1de4a55f2d6083b69b3727ae31",
   "retrieval_observations": {
     "date": "2026-11-04",
     "Yao1977": "Original not retrieved: DOI 10.1109/SFCS.1977.24 redirects to IEEE document 4567946 with JavaScript verification; direct PDF request returned HTTP 418.",
@@ -2751,5 +2751,32 @@
       "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
     },
     "revision_account": "research/adjudication/paper_purpose_revision.md"
+  },
+  "reader_20261107_editorial_rebind": {
+    "source_revision": "e3ed60253dd8d7fab06b30a91a625773d460dbdd",
+    "record_source_commit": "685f757ec50918fd659b926a44f2ba988e11359d",
+    "previous_record_sha256": "6199badf872f7b262a80f21a2b74422478222acad53db015f9525a34f55eb822",
+    "previous_bibliography_hashes": {
+      "docs/expert_companion.bib": "2807fc83a7d0fe56908139d094b5c7d2fc3105753641a217a8ea7ec0ae0658ff",
+      "docs/exposition.bib": "300d767fadd141799774defd57876eab95e6608553c23ebeb8df86b146b4d308",
+      "docs/reasoning_record.bib": "9c0d076952df454670fbf5f510ebc04b2be5b1605e779a9594fbe20600f4f8a5"
+    },
+    "previous_internal_record_citation": {
+      "paper": "expert_companion",
+      "citation_key": "Record2026",
+      "bibliography_path": "docs/expert_companion.bib",
+      "bibtex_entry": "@misc{Record2026,\n  author = {Cook, Will},\n  title = {OpenAI’s Nearly Quartic Query Separation: A Complete Proof Reconstruction},\n  year = {2026},\n  url = {https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md},\n}",
+      "cited_urls": [
+        "https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md"
+      ],
+      "annex_slugs": [],
+      "repository_source": "repository/docs/reasoning_record.md",
+      "edition_note": "Internal proof record pinned to 11a229980430460236d53580798d703674c56ee5; external literature editions unchanged.",
+      "supplementary_source_ids": [],
+      "primary_annex_status": "repository_source_reference",
+      "coverage_status": "repository_source_supplied"
+    },
+    "decision": "Current bibliography and record hashes, and the internal Record2026 citation, rebound after the November 7 reader-purpose revision. All 29 mapped reference entries occur unchanged in the current record. External literature editions, source coverage judgments, historical review metadata and sent review archives are unchanged. This is a source-byte and internal-link rebind, not a new mathematical or independent review.",
+    "revision_account": "research/adjudication/reader_companion_revision.md"
   }
 }

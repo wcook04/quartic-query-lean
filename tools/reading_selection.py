@@ -216,6 +216,8 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
                          "constituents": plan.get("declarations", []), "passage": anchor}
         if "correspondence_scope" in plan:
             topics[ident]["correspondence_scope"] = plan["correspondence_scope"]
+        if "detours" in plan:
+            topics[ident]["detours"] = plan["detours"]
         topics[ident]["context_passages"] = [
             binding.context(ident, passage, revision)
             for passage, revision in plan.get("context_passages", {}).items()]

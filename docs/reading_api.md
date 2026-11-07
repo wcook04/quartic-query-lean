@@ -17,8 +17,10 @@ returns the three download resources in `reading.json`.
 
 ## Browser edition
 
-Run `make reading-web` with Pandoc on PATH to package the three manuscripts
-and verification supplement as HTML. To include accepted PDFs in the same
+Run `make reading-web` with Pandoc on PATH to package all four papers
+and the verification supplement as HTML. OpenAI's reading copy uses the
+[vendored original source](original_source/README.md), its pinned PDF numbering
+and original figure. To include accepted PDFs in the same
 export, pass `--web-manuscripts` alongside the existing print options.
 The source-only export remains available. Record the Pandoc version when
 comparing editions; HTML is content-addressed alongside its source.
@@ -41,9 +43,13 @@ reads the available opening material from the pinned edition.
 `reader.manuscript(paper)` returns the paper descriptor and its HTML fragment
 when available. A source-only manuscript returns null HTML and the verified Markdown
 in `source`. Display that string as literal text, using one-based source lines for
-passage selection. The original PDF uses its PDF descriptor. Render the
+passage selection. The original retains its PDF identity and gains a `rendered`
+resource, `contents`, `anchors`, `source_lines` and `page_locations`. Its selections
+also carry source `lines` and `location.anchor`; existing PDF destinations and
+page links are preserved. Page locations select the source paragraph at the
+print-page boundary; HTML reflows. Render the
 descriptor title, the fragment, and its complete TeX math spans. Images carry
-`data-resource`; pass each path to `await reader.figure(paper, path)` for a verified SVG Blob scoped to that manuscript. Set an image’s source to `URL.createObjectURL(blob)` and revoke the URL when the image is removed. Route local links marked
+`data-resource`; pass each path to `await reader.figure(paper, path)` for a verified SVG or original-figure PNG Blob scoped to that manuscript. Set an image’s source to `URL.createObjectURL(blob)` and revoke the URL when the image is removed. Route local links marked
 `data-paper` and optional `data-fragment` within the reader. Fragment-only
 links target existing IDs in the same paper. Preserve external revision pins.
 Pandoc resolves citations against that manuscript’s packaged bibliography. Numbered footnotes and their return links use the IDs in the fragment. The export rejects duplicate IDs, unresolved citations and dangling internal destinations. Render each paper in its own document or scope anchor lookup to the active paper: different papers can both use `fn1`. Its
@@ -288,7 +294,8 @@ the reading line. Older editions retain their original `outline` and source loca
 
 Use `reading.json.paper_ids` for the paper switcher. The verification appendix is
 listed separately in `supplement_ids`. Three papers are maintained here. The
-fourth, `original`, opens OpenAI’s published PDF at a pinned revision. Pass
+fourth, `original`, supplies both a source-rendered reading copy and OpenAI's
+published PDF at a pinned revision. Pass
 `--original-pdf /path/to/source.pdf` to serve a local copy in the same edition.
 The exporter verifies the PDF bytes and exposes its resource in `papers.original.resource`.
 The pinned upstream URL is always available.
@@ -307,7 +314,8 @@ The result exposes the real PDF destination where available, a page URL, and
 Unnumbered steps and local generalizations have page locations. Rows identify
 amended ledger wording and statements added in review. Whole-page requests take
 `{paper:"original", page:13, documentSha256:…}`. An unindexed page still opens.
-PDF prose is displayed from the original file. The project supplies the Lean.
+The HTML preserves OpenAI's source wording and the PDF is displayed from the
+original file. The project supplies the Lean and the editorial links.
 
 The [recorded page map](original_preprint.json) uses the published PDF’s
 destinations and the physical page breaks in the same Poppler layout extraction
