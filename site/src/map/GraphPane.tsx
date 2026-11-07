@@ -30,7 +30,7 @@ const TILE_H = 96;
 const TITLE_SIZES = (k: number) => [Math.min(14, Math.max(12, Math.round(12 * k * 2) / 2))];
 const ROOT_TILE = { w: 440, h: 84 };
 /** Below this pane width the map's tiles cannot hold readable titles; the list reads instead. */
-const LIST_BELOW = 520;
+const LIST_BELOW = 440;
 
 /** SK's actual Lean neighbourhood, adapted to Quartic's ArgGraph.
  * Context edges attach retained roots to the paper claim for layout only;
