@@ -436,6 +436,18 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   );
   return (
     <section ref={section} className={`graph${shownView === "list" ? " graph--list" : ""}`} aria-label="Graph of the Lean proof of Theorem 1.1">
+      {/* The question the tab answers, beside whether it follows the paper. */}
+      <div className="graph__head">
+        {/* A heading by role, not an h2: the reader moves focus to a panel's h2, and the graph keeps focus where it was. */}
+        <p className="graph__title" role="heading" aria-level={2}>{whole ? "The whole Lean proof" : "What this paragraph relies on"}</p>
+        {/* A stable accessible name ("Follow the paper") with aria-pressed for the state;
+            the visible words change, so the state is also announced politely. */}
+        <button type="button" className={`gstatus${following ? "" : " gstatus--pinned"}`} aria-pressed={following} aria-label="Follow the paper" onClick={follow}
+          title={following ? "The graph moves to each linked passage as you read" : "Resume following the paper"}>
+          <span className="gstatus__dot" aria-hidden="true" />
+          <span aria-hidden="true">{following ? "Following the paper" : <>Pinned here · <span className="gstatus__act">Follow the paper</span></>}</span>
+        </button>
+      </div>
       {/* One toolbar, adapted from Lean Exposition's MapStrip controls and map shortcuts. */}
       <div className="graph__bar" role="toolbar" aria-label="Graph view controls" onKeyDown={(event) => {
         if ((event.target as HTMLElement).closest("details")) return;
@@ -480,13 +492,6 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
             </div>
           </details>
         )}
-        {/* A stable accessible name ("Follow the paper") with aria-pressed for the state;
-            the visible words change, so the state is also announced politely. */}
-        <button type="button" className={`gstatus${following ? "" : " gstatus--pinned"}`} aria-pressed={following} aria-label="Follow the paper" onClick={follow}
-          title={following ? "The graph moves to each linked passage as you read" : "Resume following the paper"}>
-          <span className="gstatus__dot" aria-hidden="true" />
-          <span aria-hidden="true">{following ? "Following the paper" : <>Pinned here · <span className="gstatus__act">Follow the paper</span></>}</span>
-        </button>
       </div>
       <span className="sr-only" role="status">{following ? "The graph follows the paper." : "The graph is pinned here."}</span>
       <div className="graph__canvas" ref={body} hidden={shownView !== "map"}>

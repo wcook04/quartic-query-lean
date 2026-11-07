@@ -657,11 +657,13 @@ html, body { overflow-x: clip; max-width: 100%; }
 }
 @keyframes desk-slide { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
 
-/* The pane's one status bar: what it is following, then its actions. */
-.inspector__bar { align-items: center; flex-wrap: wrap; gap: 4px 14px; padding: 7px 18px; background: color-mix(in srgb, var(--query-wash) 30%, var(--sheet)); font-size: 0.88rem; }
-.inspector__status { flex: 1 1 14rem; min-width: 0; margin: 0; color: var(--ink-2); line-height: 1.4; }
+/* The pane's one quiet status line: what it is following, then at most two actions. */
+.inspector__bar { align-items: center; flex-wrap: wrap; gap: 4px 14px; padding: 6px 22px; background: var(--sheet); font-size: 0.875rem; }
+.inspector__status { flex: 1 1 8rem; min-width: 0; margin: 0; color: var(--ink-2); line-height: 1.4; }
 .inspector__actions { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-left: auto; }
 .inspector__actions .textbutton { min-height: 28px; }
+.inspector__actions .inspector__back { color: var(--ink-2); text-decoration-color: var(--rule); }
+.inspector__actions .inspector__back:hover { color: var(--ink); }
 
 /* The pane's exit: a quiet cross beside the paper, a named return on phones. */
 .inspector__modes .inspector__close { margin-left: auto; align-self: center; display: inline-grid; place-items: center; width: 32px; height: 32px; margin-bottom: 4px; padding: 0; border: 0; border-radius: 6px; background: none; color: var(--ink-3); cursor: pointer; }

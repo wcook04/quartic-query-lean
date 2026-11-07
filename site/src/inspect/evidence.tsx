@@ -1,3 +1,4 @@
+import type React from "react";
 // Plain words for each kind of evidence. Each sentence says who produced the
 // fact: Lean, a reviewer, a recorded check, or the editors' reading links.
 export type Relation = "exact" | "stronger" | "partial" | "unassessed" | string;
@@ -41,21 +42,38 @@ export function Who({ kind, by, children }: { kind: Source; by?: string | readon
   return <span className={`who who--${kind}`} title={ai ? AI_REVIEW_TITLE : WHO_TITLE[kind]}>{children ?? (ai ? AI_REVIEW : WHO[kind])}</span>;
 }
 
+/** Who produced a section's facts, said once in a quiet line at its end. The words
+ *  carry the same disclosures as the badges: Lean's report, a review (and whether it
+ *  was carried out with AI), a recorded check, or the editors' reading links. */
+export function SourceLine({ kind, by, children }: { kind: Source; by?: string | readonly (string | null | undefined)[] | null; children?: React.ReactNode }) {
+  const ai = kind === "review" && byAI(by);
+  return <p className="srcline" title={ai ? AI_REVIEW_TITLE : WHO_TITLE[kind]}>{children ?? SOURCE_WORDS[kind](ai)}</p>;
+}
+const SOURCE_WORDS: Record<Source, (ai: boolean) => string> = {
+  lean: () => "From Lean, for the project’s source in this edition.",
+  review: (ai) => `Compared ${ai ? "by AI review" : "by review"}, bound to the current Lean source.`,
+  check: () => "From recorded Lean builds and Comparator runs.",
+  editors: () => "Linked by the editors, to help reading; not a proof.",
+};
+export const reviewWords = (by?: string | readonly (string | null | undefined)[] | null) => (byAI(by) ? "AI review" : "review");
+
 export function RelationMark({ relation }: { relation: Relation }) {
   return <span className={`rel rel--${relation}`}>{RELATION_WORD[relation] ?? relation}</span>;
 }
 
 const STANDARD = new Set(["propext", "Classical.choice", "Quot.sound"]);
 
-/** Axioms are reported by Lean only when a current inspection exists. */
-export function Axioms({ inspection, audit }: { inspection?: any; audit?: any }) {
-  const current = inspection?.status === "current" ? inspection.axioms : audit?.snapshot_currentness === "current" ? audit.axioms : null;
+/** Axioms are reported by Lean only when a current inspection exists. `plain` says
+ *  "Lean reports" in words instead of the source badge. */
+export function Axioms({ inspection, audit, plain }: { inspection?: any; audit?: any; plain?: boolean }) {
+  const current = currentAxioms(inspection, audit);
+  const who = plain ? <>Lean reports</> : <Who kind="lean" />;
   if (Array.isArray(current)) {
-    if (current.length === 0) return <p className="ev"><Who kind="lean" /> that this declaration depends on no axioms.</p>;
+    if (current.length === 0) return <p className="ev">{who} that this declaration depends on no axioms.</p>;
     const extra = current.filter((a: string) => !STANDARD.has(a));
     return (
       <p className="ev">
-        <Who kind="lean" /> these axioms: {current.map((a: string, i: number) => <span key={a}>{i ? ", " : ""}<code>{a}</code></span>)}.{" "}
+        {who} these axioms: {current.map((a: string, i: number) => <span key={a}>{i ? ", " : ""}<code>{a}</code></span>)}.{" "}
         {extra.length === 0 ? "These are the three standard axioms of Lean’s classical mathematics." : <>Beyond the standard three: <strong>{extra.join(", ")}</strong>.</>}
       </p>
     );
@@ -63,6 +81,18 @@ export function Axioms({ inspection, audit }: { inspection?: any; audit?: any })
   if (inspection?.status === "stale" || audit?.historical_observation)
     return <p className="ev quiet">An earlier axiom check exists, but the Lean source has changed since, so it is not shown.</p>;
   return <p className="ev quiet">No axiom check is recorded for this declaration. Axioms are checked for the declarations compared with the papers.</p>;
+}
+
+const currentAxioms = (inspection?: any, audit?: any): string[] | null =>
+  inspection?.status === "current" ? inspection.axioms : audit?.snapshot_currentness === "current" ? audit.axioms : null;
+
+/** The axioms in a few words, for a folded line: whether anything beyond the standard three appears. */
+export function axiomSummary(audit?: any): string {
+  const current = currentAxioms(undefined, audit);
+  if (!Array.isArray(current)) return "Axioms: not checked for this source";
+  if (current.length === 0) return "Axioms: none";
+  const extra = current.filter((a) => !STANDARD.has(a));
+  return extra.length ? `Axioms: also ${extra.join(", ")}` : "Axioms: only the standard three";
 }
 
 export function Checks({ tie }: { tie: any }) {
