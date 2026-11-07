@@ -12,7 +12,7 @@ abstract: |
   OpenAI proved that the optimal exponent bounding randomized query complexity in terms of quantum query complexity for total Boolean functions is four. The quantum algorithm compares columns before verifying certificates. A comparison between two losing columns can have any bias. Give each column a weight equal to its probability of winning fresh comparisons against all previous pivots. When the next pivot is sampled proportionally to these weights, the bias of each pair cancels and the expected total weight falls by at least half. For the lower bound, a simulator with a fixed query budget predicts independent Boolean values from the cell address in a classical query for one certificate bit.
 ---
 
-This companion gives the construction and both query bounds for readers familiar with query complexity and quantum search; prior reading of OpenAI's paper is not required. The [worked exposition](exposition.md) develops the operations through small examples. The [full proof reconstruction](reasoning_record.md) supplies the supporting derivations, including the Forrelation lower bound used here as an ingredient.
+This companion gives the construction and both query bounds for readers familiar with query complexity and quantum search; prior reading of OpenAI's paper is not required. We derive the sampling rule by cancelling arbitrary comparison biases and use a capped predictor to avoid conditioning on an adaptively chosen query count. The [worked exposition](exposition.md) develops the operations through small examples; the [full proof reconstruction](reasoning_record.md) supplies the supporting derivations, including the Forrelation lower bound used here.
 
 ## 1. The fourth power
 
@@ -24,13 +24,15 @@ Take $P$ to be $k$-fold Forrelation on $k$ blocks of $m$ bits. At fixed $k$ a qu
 
 Computing $P$ on promised inputs requires $\widetilde\Omega_k(m^{1-1/k})$ randomized queries [@BansalSinha2021]. A classical algorithm querying the winning certificate must specify its entire address. A uniform choice of winning column gives a further factor $m$. Up to logarithms, the quantum upper and randomized lower bounds are $(m,m^{3-1/k})$ for balanced AND–OR cheat sheets using the same $P$ [@ABK2016, §3], and $(\sqrt m,m^{2-1/k})$ here. In powers of $\sqrt m$ the new lower bound has exponent $4-2/k$. Already $k=3$ rules out the cubic conjecture.
 
-**Theorem 1** (OpenAI [@OpenAI2026, Theorem 1.1], with explicit bounds from this reconstruction). *For each integer $k\ge2$ there are total Boolean functions $F_{k,m}$ indexed by powers of four $m\ge4$ such that, for a constant $C_k$ and $\ell=\log_2m$,*
+\Needspace{10\baselineskip}
+
+**Theorem 1** (OpenAI [@OpenAI2026, Theorem 1.1], with explicit bounds from this reconstruction). *For each integer $k\ge2$ there are total Boolean functions $F_{k,m}$ indexed by powers of four $m\ge4$ such that, for a constant $C_k$ and $\ell=\log_2m$, the quantum bound below holds for every such $m$ and the randomized bound holds for all sufficiently large $m$ at fixed $k$:*
 $$
  Q(F_{k,m})\le C_k\sqrt m\,\ell^6,
  \qquad R(F_{k,m})\ge \frac{m^{2-1/k}}{400\ell^2}.
 \tag{1}
 $$
-*The quantum bound holds for all such $m$ and the randomized bound for all sufficiently large $m$ at fixed $k$. The optimal universal exponent in $R(f)=O((1+Q(f))^\alpha)$ for total Boolean $f$ is four.*^[We use worst-case bit-query caps and error at most $1/3$. For partial functions the cap applies on every input and branch, the error bound on the promise.]
+*The optimal universal exponent in $R(f)=O((1+Q(f))^\alpha)$ for total Boolean $f$ is four.*^[We use worst-case bit-query caps and error at most $1/3$. For partial functions the cap applies on every input and branch, the error bound on the promise.]
 
 
 ## 2. The certificate
@@ -81,7 +83,7 @@ For deterministic comparisons one can retain the candidates selected over every 
 $$
  w_i=\prod_{h=1}^n a_{i\rho_h},\qquad W=\sum_i w_i.
 $$
-Initially all weights are one. After drawing $j$, replace each $w_i$ by $w_i a_{ij}$, so the new weight of $j$ is zero. Suppose the probability of drawing $j$ is $q_j$. The contribution of an unordered pair $i,j$ to the expected remaining weight is $w_i q_j a_{ij}+w_j q_i a_{ji}$. For uniform sampling the two coefficients can differ. By (4), independence from an arbitrary comparison bias requires $w_i q_j=w_j q_i$. Drawing $j$ with probability $w_j/W$ gives equality for every pair.^[In the [four-column sampling example](exposition.md#weighted-sampling-example), weights $(1,0,1/2,1/4)$ give pivot probabilities $(4/7,0,2/7,1/7)$.] Hence, while $W>0$,
+Initially all weights are one. After drawing $j$, replace each $w_i$ by $w_i a_{ij}$, so the new weight of $j$ is zero. Suppose the probability of drawing $j$ is $q_j$. The contribution of an unordered pair $i,j$ to the expected remaining weight is $w_i q_j a_{ij}+w_j q_i a_{ji}$. For uniform sampling the two coefficients can differ. By (4), independence from an arbitrary comparison bias requires $w_i q_j=w_j q_i$. Drawing $j$ with probability $w_j/W$ gives equality for every pair.^[In the [worked exposition, §3.1](exposition.md#weighted-sampling-example), weights $(1,0,1/2,1/4)$ give pivot probabilities $(4/7,0,2/7,1/7)$.] Hence, while $W>0$,
 $$
  \mathbb E[W_{\rm new}\mid w]
  =\frac1W\sum_{i,j}w_i w_j a_{ij}
@@ -157,7 +159,7 @@ $$
 
 In a light column the tree has made at most $L$ queries to those $r$ inputs. We cannot apply a direct-product bound conditional on the column being light. The tree may use earlier replies to decide whether to query the column again, so this conditioning can change the input distribution.^[For AND on the equally likely inputs $01,10,11$, one query has optimal success $2/3$. Reading the first bit and stopping after one read only when it is zero gives success one conditional on using just one read. The [joint-event calculation](exposition.md#lightness-joint-event) explains why this does not contradict the one-query bound.]
 
-Fix a column $i$ and query time $\tau\le G$. Use the predictor's $r$ unknown strings as $A_{i,1},\ldots,A_{i,r}$. Independently sample all zero rows and the other columns' address strings as on a dummy input, and set all cell bits to zero. Simulate the tree's queries before $\tau$, querying the unknown strings only for requested bits of $A_{i,h}$. Stop before the $(L+1)$-st such query in total. Inspect the bit index the tree would query at time $\tau$. If it specifies a bit of $B_{i,s}$, output $s$ without reading that bit. For any other index, early termination of the tree, or a simulation already stopped by the cap, output a fixed $r$-bit string. The [four-query trace](exposition.md#predictor-trace) separates the tree’s query time from the predictor’s target-read count.
+Fix a column $i$ and query time $\tau\le G$. Use the predictor's $r$ unknown strings as $A_{i,1},\ldots,A_{i,r}$. Independently sample all zero rows and the other columns' address strings as on a dummy input, and set all cell bits to zero. Simulate the tree's queries before $\tau$, querying the unknown strings only for requested bits of $A_{i,h}$. Stop before the $(L+1)$-st such query in total. Inspect the bit index the tree would query at time $\tau$. If it specifies a bit of $B_{i,s}$, output $s$ without reading that bit. For any other index, early termination of the tree, or a simulation already stopped by the cap, output a fixed $r$-bit string. The [worked exposition, Appendix C, “Two clocks in a capped simulation”](exposition.md#predictor-trace) separates the tree’s query time from the predictor’s target-read count.
 
 The total cap gives the predictor at most $L$ queries to *each* target input, on every branch. Under $\mu^{\otimes r}$ its success probability is therefore at most $\beta^r$ by the separate-cap direct-product bound. This bound allows adaptive interleaving and side information and coins jointly independent of the tuple [@Drucker2012, §3; @OpenAI2026, Lemma 4.1].^[Fix the independent coins and side information. Given the queried indices and replies, the $r$ strings remain independent. For each string take the greatest probability of predicting its value under $P$ with its remaining queries. A query to one input leaves the other factors fixed and cannot increase the chosen factor in expectation, since that query was already an available next step. The product gives the [separate-cap bound](https://github.com/wcook04/quartic-query-lean/blob/685f757ec50918fd659b926a44f2ba988e11359d/docs/reasoning_record.md#CL-product-law).]
 
@@ -175,6 +177,8 @@ $$
  = \frac G{mL}+G\beta^r .
 \tag{10}
 $$
+
+\Needspace{18\baselineskip}
 
 ### 4.4 The randomized bound
 

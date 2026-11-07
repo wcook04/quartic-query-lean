@@ -379,7 +379,7 @@
   },
   "entrances": {
     "exposition": {
-      "audience": "General mathematical readers familiar with probability and linear algebra",
+      "audience": "General mathematical readers familiar with probability and linear algebra; Sections 1–6 form the main argument, with optional appendices",
       "question": "How much can a quantum algorithm save when both algorithms have to read the same hidden bits?",
       "preview": "Imagine a board with one winning column. A classical algorithm can spend almost all its queries finding the right square to inspect. A quantum algorithm can compare two columns cheaply before checking a short list of candidates. Follow a four-column example through both searches to see why the gap approaches a fourth power.",
       "stops": [
