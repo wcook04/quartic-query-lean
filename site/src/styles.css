@@ -80,7 +80,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 /* Home */
 .home { max-width: 1180px; margin: 0 auto; padding: 0 20px 80px; }
 .hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: start; padding: 56px 0 48px; }
-.hero__title { font-family: var(--serif); font-weight: 400; font-size: clamp(2.3rem, 4.6vw, 3.6rem); line-height: 1.05; margin: 0 0 22px; letter-spacing: -0.01em; }
+.hero__title { font-family: var(--serif); font-weight: 400; font-size: clamp(2.3rem, 4vw, 3.15rem); line-height: 1.08; margin: 0 0 22px; letter-spacing: -0.015em; text-wrap: balance; }
 .hero__lede { font-family: var(--serif); font-size: 1.2rem; line-height: 1.55; max-width: 34rem; margin: 0 0 26px; }
 .hero__links { display: flex; flex-wrap: wrap; gap: 12px; }
 
@@ -124,6 +124,8 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .math-bands { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; border-top: 1px solid var(--rule); padding: 40px 0; }
 .math-bands h2, .ways h2, .credit h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; margin: 0 0 12px; }
 .exponent, .arch { margin: 0; }
+/* The short exponent column travels beside the long outline rather than ending in a dead gap. */
+@media (min-width: 1001px) { .exponent { position: sticky; top: calc(var(--head) + 24px); align-self: start; } }
 .exponent__control { display: flex; gap: 12px; align-items: center; margin: 14px 0; }
 .exponent__ks { display: flex; gap: 4px; }
 .kbtn { min-width: 40px; padding: 4px 8px; border: 1px solid var(--rule); background: var(--sheet); cursor: pointer; font-family: var(--serif); font-size: 1.05rem; }
@@ -594,12 +596,12 @@ html, body { overflow-x: clip; max-width: 100%; }
 .scene__tables { gap: 28px; }
 .scene__aside { min-width: 0; flex: 1 1 260px; }
 .scene__certs { margin: 22px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 0.93rem; }
-.scene__certs dt { color: var(--ink-3); font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; padding-top: 2px; }
+.scene__certs dt { color: var(--ink-3); font-size: 0.88rem; font-weight: 600; padding-top: 2px; }
 .scene__certs dd { margin: 0; color: var(--ink-2); }
 .scene__again { margin: 0 0 8px; padding: 6px 12px; border: 1px solid var(--query-line); border-radius: 6px; background: none; color: var(--query); cursor: pointer; font: inherit; font-size: 0.9rem; }
 .scene__again:hover { background: var(--query-wash); }
 .scene__fixed { margin-top: 16px; padding-top: 14px; font-size: 0.92rem; color: var(--ink-2); }
-.scene__fixed label { display: block; color: var(--ink-3); font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.scene__fixed label { display: block; color: var(--ink-3); font-size: 0.88rem; font-weight: 600; }
 .scene__slider { display: flex; align-items: center; gap: 12px; margin: 8px 0 6px; }
 .scene__slider input { width: 160px; margin: 0; accent-color: var(--query); border-radius: 999px; }
 .scene__slider input:focus-visible { outline: 2px solid var(--query-line); outline-offset: 4px; }
@@ -610,7 +612,7 @@ html, body { overflow-x: clip; max-width: 100%; }
 .pointers { width: 100%; border-collapse: collapse; margin: 6px 0 10px; font-size: 0.93rem; }
 .pointers caption { text-align: left; font-size: 0.85rem; color: var(--ink-2); padding-bottom: 6px; }
 .pointers th, .pointers td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--rule-2); white-space: nowrap; }
-.pointers thead th { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-3); white-space: normal; vertical-align: bottom; }
+.pointers thead th { font-size: 0.85rem; font-weight: 600; color: var(--ink-3); white-space: normal; vertical-align: bottom; }
 .pointers tbody th { font-weight: 500; color: var(--ink); }
 .pointers td.is-zero { color: var(--query); font-family: var(--serif); font-size: 1.05rem; }
 .pointers td.is-one { font-family: var(--serif); font-size: 1.05rem; }
@@ -669,3 +671,6 @@ html, body { overflow-x: clip; max-width: 100%; }
   .desk[data-narrow-paper] .contents { display: none; }
   .desk[data-narrow-paper] .jump--contents { display: block; }
 }
+
+/* At desktop the two printed tables and the covered one share a row, so the puzzle sits whole on the first screen. */
+@media (min-width: 1001px) { .scene__tables { gap: 16px; flex-wrap: nowrap; } .bit { width: 32px; height: 32px; } .bits th { padding: 2px 4px; } }

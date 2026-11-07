@@ -35,7 +35,7 @@ export function Exponent({ examples, parameters }: { examples: Example[]; parame
       <p className="exponent__read" id="exp-read" aria-live="polite">
         With <em>k</em> = {e.k}: quantum ≈ <em>m</em><sup>{e.quantum_power_in_m}</sup>, randomized ≈ <em>m</em><sup>{e.classical_power_in_m}</sup> = (<em>m</em><sup>1/2</sup>)<sup>{e.classical_power_in_sqrt_m}</sup>, ignoring logarithmic factors.
       </p>
-      <p className="quiet">{parameters} No single family reaches four, but every exponent below four fails on the family for some fixed <em>k</em>.</p>
+      <p className="quiet">{parameters.split(/\b([kt])\b/).map((part, i) => (i % 2 ? <em key={i}>{part}</em> : part))} No single family reaches four, but every exponent below four fails on the family for some fixed <em>k</em>.</p>
     </figure>
   );
 }
