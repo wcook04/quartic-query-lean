@@ -47,6 +47,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [showPdf, setShowPdf] = useState(false);
   const [rootDeclaration, setRootDeclaration] = useState<string | undefined>();
   const aside = useRef<HTMLElement>(null);
+  const panelMove = useRef(0);
   const wide = useWide();
   const [readingLine, setReadingLine] = useState<number | null>(null);
   const [readingPage, setReadingPage] = useState<number | null>(null);
@@ -86,6 +87,9 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   // A paragraph click is held only until the next deliberate paper scroll.
   // Scroll input is separate from line changes, including small wheel moves.
   const resumePaperFollowing = useCallback(() => {
+    // A citation/footnote jump owns the paper immediately, even while the
+    // previous panel's delayed focus/selection placement is still pending.
+    window.clearTimeout(panelMove.current);
     if (!clickPin && !clickPending.current) return;
     clickSequence.current++;
     clickPending.current = null;
@@ -272,13 +276,18 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const panelKey = `${route.v}|${route.st}|${route.d}|${route.j}|${route.s}|${route.p}`;
   useEffect(() => {
     if (!open || !route.v || isRestoringReadingPlace()) return;
-    const t = window.setTimeout(() => {
+    panelMove.current = window.setTimeout(() => {
       if (isRestoringReadingPlace()) return;
       const h = aside.current?.querySelector<HTMLElement>("h2");
       if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
       document.querySelector<HTMLElement>(".paper .is-selected")?.scrollIntoView({ block: "nearest" });
     }, 120);
-    return () => clearTimeout(t);
+    // Reuse the manuscript navigation guard: after another deliberate input,
+    // delayed panel work must not pull the paper back or steal keyboard focus.
+    const stop = () => window.clearTimeout(panelMove.current);
+    const input = ["wheel", "touchstart", "pointerdown", "keydown"] as const;
+    input.forEach((type) => window.addEventListener(type, stop, { capture: true, passive: true }));
+    return () => { stop(); input.forEach((type) => window.removeEventListener(type, stop, true)); };
   }, [panelKey, open]);
 
   useEffect(() => {
