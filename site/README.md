@@ -87,3 +87,8 @@ retain the reading excursion and its Return control. An explicitly selected
 older edition stays pinned in those URLs. Additional passage names come from
 the same edition's existing argument index, including topics outside the
 shorter route list.
+
+Menu height is bounded by the visible paper pane rather than a fixed share of
+the screen. A menu opens above its toolbar when space below is insufficient,
+and repositions on resize. The last choice remains scrollable and clickable
+on short phone screens.

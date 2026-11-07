@@ -36,6 +36,19 @@ function useWide(): boolean {
   return wide;
 }
 
+function fitPaperMenu(menu: HTMLDetailsElement) {
+  const tools = menu.closest<HTMLElement>(".paper__tools");
+  const paper = menu.closest<HTMLElement>(".paper");
+  const list = menu.querySelector<HTMLElement>("ul");
+  if (!menu.open || !menu.getClientRects().length || menu.closest("[inert]") || !tools || !paper || !list) return;
+  const anchor = tools.getBoundingClientRect(), pane = paper.getBoundingClientRect();
+  const below = Math.max(0, Math.min(pane.bottom, window.innerHeight) - anchor.bottom - 12);
+  const above = Math.max(0, anchor.top - Math.max(pane.top, 0) - 12);
+  const opensAbove = below < 120 && above > below;
+  list.dataset.placement = opensAbove ? "above" : "below";
+  list.style.maxHeight = `${Math.min(window.innerHeight / 2, opensAbove ? above : below)}px`;
+}
+
 export function ReaderPage({ edition, route }: { edition: Edition; route: Route }) {
   const paper = route.paper!;
   const reader = edition.reader;
@@ -89,6 +102,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     const root = paperTools.current;
     if (!root) return;
     const opened = () => root.querySelector<HTMLDetailsElement>("details.jump[open]");
+    const onResize = () => { const menu = opened(); if (menu) fitPaperMenu(menu); };
     const onDown = (event: PointerEvent) => {
       const menu = opened();
       if (menu && !menu.contains(event.target as Node)) menu.open = false;
@@ -108,10 +122,12 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     document.addEventListener("pointerdown", onDown);
     document.addEventListener("focusin", onFocus);
     window.addEventListener("keydown", onKey, true);
+    window.addEventListener("resize", onResize);
     return () => {
       document.removeEventListener("pointerdown", onDown);
       document.removeEventListener("focusin", onFocus);
       window.removeEventListener("keydown", onKey, true);
+      window.removeEventListener("resize", onResize);
     };
   }, [paper]);
   const originalHtml = paper === "original" && !!original?.rendered && !showPdf;
@@ -410,7 +426,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               {download && <DownloadLink edition={edition} resource={download.resource} label="Download the PDF" name={`${paper}.pdf`} />}
               {paper === "original" && original?.rendered && <button type="button" className="textbutton" onClick={() => { setShowPdf(!showPdf); setContents([]); }}>{showPdf ? "Read the text edition" : "View the original PDF"}</button>}
               {keyed.length > 0 && (
-                <details className="jump" name="paper-tools">
+                <details className="jump" name="paper-tools" onToggle={(event) => fitPaperMenu(event.currentTarget)}>
                   <summary>Linked passages</summary>
                   <ul>
                     {keyed.map((r) => (
@@ -420,7 +436,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                 </details>
               )}
               {contents.length > 0 && (
-                <details className="jump jump--contents" name="paper-tools">
+                <details className="jump jump--contents" name="paper-tools" onToggle={(event) => fitPaperMenu(event.currentTarget)}>
                   <summary>Contents</summary>
                   <ul>
                     {contents.filter((r) => r.level <= Math.min(...contents.map((x) => x.level)) + 1).map((r) => (

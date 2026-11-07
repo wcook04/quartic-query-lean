@@ -187,6 +187,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .jump ul { position: absolute; top: 100%; left: 0; right: 0; z-index: 4; background: var(--sheet); border: 1px solid var(--rule); margin: 6px 0 0; padding: 8px 16px; list-style: none; max-height: 50vh; overflow: auto; columns: 2; }
 .jump li { break-inside: avoid; padding: 2px 0; }
 .jump ul { overscroll-behavior: contain; scrollbar-width: thin; }
+.jump ul[data-placement="above"] { top: auto; bottom: calc(100% + 6px); margin: 0; }
 
 .manuscript { width: 100%; min-width: 0; max-width: 42rem; margin: 0 auto; font-family: var(--serif); font-size: 1.1rem; line-height: 1.62; }
 .manuscript h1, .manuscript h2, .manuscript h3 { font-weight: 600; line-height: 1.25; margin: 1.8em 0 0.5em; }

@@ -170,7 +170,7 @@ while accepting existing and percent-encoded anchors.
 7 November 2026. The next visual pass applies the existing-project and web
 interface guidance to the current components, retaining the established
 palette, typefaces, reading widths and mathematical material. The source
-review uses the current Vercel Web Interface Guidelines and the actual local
+review uses the current [Vercel Web Interface Guidelines](https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md) and the actual local
 SimplifiedMap, PickMenu and native reader implementations, rather than a
 replacement frontend.
 
@@ -221,3 +221,14 @@ titles from the same edition's argument index. The narrower route list remains
 a compatibility source for earlier data. No title or mathematical explanation
 is invented in the frontend. The full binding audit still covers 63 selections
 and 36 prerequisites without a changed mathematical association.
+
+A final short-height check found that a 390-by-664 viewport could put the
+menu bottom at y=836 while the paper ended at y=664. The native disclosure now
+uses the actual available paper space, opens above when the space below is
+insufficient, and remeasures on resize. This extends the earlier width and
+mutual-dismissal tests to short screens and access to the final menu choice.
+The ordinary/native-link tests cover modified and middle clicks, separate
+footnote tabs, normal footnote/backlink scrolling, the ordinary excursion and
+Return, complete menu titles, and a fresh load of an explicitly older edition.
+A loaded reader deliberately retains one immutable edition; changing only its
+hash is not an edition reload.
