@@ -43,6 +43,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const returnTo = useReturnToPaper();
   const [rows, setRows] = useState<Row[]>([]);
   const [downloads, setDownloads] = useState<Record<string, any>>({});
+  const [topicTitles, setTopicTitles] = useState<Record<string, string>>({});
   const [original, setOriginal] = useState<any>(null);
   const [showPdf, setShowPdf] = useState(false);
   const [rootDeclaration, setRootDeclaration] = useState<string | undefined>();
@@ -72,7 +73,11 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const ed = edition.pinnedOlder ? edition.permalink : undefined;
   const base: Route = { page: "read", paper, ed };
 
-  useEffect(() => { reader.resource("reading.json").then((r: any) => { setDownloads(r.downloads ?? {}); setOriginal(r.papers?.original); }, () => {}); }, [reader]);
+  useEffect(() => { reader.resource("reading.json").then((r: any) => {
+    setDownloads(r.downloads ?? {});
+    setOriginal(r.papers?.original);
+    setTopicTitles(Object.fromEntries((r.routes ?? []).map((topic: any) => [topic.id, topic.title])));
+  }, () => {}); }, [reader]);
   useEffect(() => { reader.proofMap().then((m: any) => { if (m.currentness === "current") setRootDeclaration(m.root); }, () => {}); }, [reader]);
   const originalHtml = paper === "original" && !!original?.rendered && !showPdf;
   const lineSelection = rows.filter((r) => meaningful(r) && r.lines && readingLine != null && r.lines[0] <= readingLine && readingLine <= r.lines[1])
@@ -370,7 +375,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                   <summary>Linked passages</summary>
                   <ul>
                     {keyed.map((r) => (
-                      <li key={r.id}><a href={href({ page: "read", paper, s: r.id, ed })} onClick={(e) => { (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}>{r.topic!.replace(/-/g, " ")}</a></li>
+                      <li key={r.id}><a href={href({ page: "read", paper, s: r.id, ed })} onClick={(e) => { (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}>{topicTitles[r.topic!] ?? r.topic!.replace(/-/g, " ")}</a></li>
                     ))}
                   </ul>
                 </details>
