@@ -8,7 +8,7 @@ evidence come from one immutable reading edition built by
 ```sh
 npm install
 npm run dev          # links ../build/reading-api into public/ and serves it
-VITE_BASE_PATH=/quartic/ npm run build   # dist/ plus a copy of the edition
+VITE_BASE_PATH=/quartic-query-lean/ npm run build   # dist/ plus a copy of the edition
 ```
 
 The site bundles [the reading client](../tools/reader.mjs) and opens the edition

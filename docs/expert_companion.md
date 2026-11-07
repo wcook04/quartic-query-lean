@@ -49,6 +49,8 @@ contains the true circuit evaluations and $X_j[p_{i,s_i,j}]=0$ for every $j\ne i
 
 ![A comparison with the winning column $i^\star$. From the true cell of $i^\star$ the algorithm obtains row 6 and reads $X_j[6]=0$. At any decoded address $t$ for $j$, the reverse pointer stores a row $u$ with $X_{i^\star}[u]=1$.](figures/expert_column.svg){width=85%}
 
+\Needspace{15\baselineskip}
+
 To verify column $i$ at a proposed address $s$, test that $X_i=1^m$ and that $X_j[p_{i,s,j}]=0$ for every $j\ne i$. In the proposed evaluation of $\mathcal C$ on $A_{i,h}$ (the *transcript*), compare each gate bit to the gate applied to its inputs, and the two output bits to $(1,s_h)$. By induction in circuit order, a transcript consistent at every gate equals the true evaluation. A false transcript therefore disagrees at some gate. A true transcript for an off-promise input or an incorrect address bit disagrees at an output. For a losing column at least one test fails at *every* address.^[The [off-promise example](exposition.md#domain-bit-board) isolates the domain test: an all-one column has correct gate values and pointers to zeros, yet its address is undefined.] There are
 $$
  K=m+(m-1)+r(S+2)
@@ -83,6 +85,8 @@ For deterministic comparisons one can retain the candidates selected over every 
 $$
  w_i=\prod_{h=1}^n a_{i\rho_h},\qquad W=\sum_i w_i.
 $$
+\Needspace{14\baselineskip}
+
 Initially all weights are one. After drawing $j$, replace each $w_i$ by $w_i a_{ij}$, so the new weight of $j$ is zero. Suppose the probability of drawing $j$ is $q_j$. The contribution of an unordered pair $i,j$ to the expected remaining weight is $w_i q_j a_{ij}+w_j q_i a_{ji}$. For uniform sampling the two coefficients can differ. By (4), independence from an arbitrary comparison bias requires $w_i q_j=w_j q_i$. Drawing $j$ with probability $w_j/W$ gives equality for every pair.^[In the [worked exposition, §3.1](exposition.md#weighted-sampling-example), weights $(1,0,1/2,1/4)$ give pivot probabilities $(4/7,0,2/7,1/7)$.] Hence, while $W>0$,
 $$
  \mathbb E[W_{\rm new}\mid w]
@@ -139,6 +143,8 @@ For the **dummy input** $Y^{(0)}$, choose the row $J_i$ of the sole zero in $X_i
 Run a deterministic decision tree on both inputs. The sequences of queried bit indices and replies coincide up to the first query to $X_I[J_I]$ or to a bit of $B_{I,s_I}$. Thus the acceptance gap is at most the sum of the probabilities that the tree queries these locations on the dummy input [@ABK2016, Lemma 6; @BenDavid2015, §5.1]. The dummy transcript is independent of $I$. For the cell, we distinguish runs with many queries to the strings $A_{I,h}$ from runs with few such queries that nevertheless include a query to $B_{I,s_I}$.
 
 For any integer $1\le L\le m$ with $L<R(P)$, choose $\mu$ by minimax so that every deterministic depth-$L$ tree computes $P$ with success at most $\beta=2/3$ [@Yao1977]. Give the tree on the coupled inputs $G=\lfloor mL/100\rfloor$ queries. First bound the probability of querying the erased zero.
+
+\Needspace{14\baselineskip}
 
 ### 4.2 Searching for the erased zero
 

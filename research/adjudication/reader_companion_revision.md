@@ -98,3 +98,27 @@ examples, definitions, calculations, formal boundary and attribution.
 (6 conditional skips). The binding audit reviews 63 selections and 36
 prerequisites with no remaining changed association. No new proof-check or
 human-review claim follows from these editorial checks.
+
+## Cosmetic follow-up
+
+7 November 2026. The operator asked to continue cosmetic repairs after the
+reviewed publication. At the 1,280-pixel reader width with proof closed, the
+heading started at x=450 while the manuscript started at x=348. The two used
+72ch in different typefaces and sizes. Counting visible prose characters in
+the first six paragraphs gave maximum line lengths of 83–90. A shared measure
+based on the actual manuscript size aligns both edges and shortens the lines,
+while preserving the existing size increase on wider displays. Captions,
+references and footnotes scale with that manuscript size.
+
+The existing account-card emphasis now follows the expert-first reading
+order. Contents links have a 28-pixel minimum height; the two disclosure menus
+are positioned within the paper's tools rather than the viewport. The home
+skip link can focus the main element, and browser tab titles use the readable
+account names. The documented deployment base matches the live project URL.
+
+The expert PDF reserves space for the certificate-verification paragraph,
+the sampling calculation and the complete erased-zero subsection. No paper
+wording, mathematical expression, hypothesis, figure or citation is changed.
+This is a typography and interface pass; it supplies no new mathematical or
+independent-review claim. The existing shared-measure and native-rendering
+owners are used. Validation and print acceptance follow the actual render.

@@ -60,7 +60,7 @@ export function Home({ edition }: { edition: Edition }) {
   }, [edition]);
 
   return (
-    <main id="main" className="home">
+    <main id="main" className="home" tabIndex={-1}>
       <section className="hero">
         <div className="hero__text">
           <h1 className="hero__title">How many bits must an algorithm read?</h1>
