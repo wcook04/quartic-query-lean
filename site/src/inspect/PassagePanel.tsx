@@ -118,7 +118,7 @@ function Passage({ r }: { r: any }) {
       {roots.length > 0 && (
         <section className="block" aria-labelledby="ps-roots">
           <h3 id="ps-roots" className="block__h">Lean to start from</h3>
-          {[["Reviewed against this passage", roots.filter((p) => p.basis.some((b: any) => b.basis === "statement_tie"))],
+          {[["Reviewed against this passage’s statement", roots.filter((p) => p.basis.some((b: any) => b.basis === "statement_tie"))],
             ["Linked by the editors", roots.filter((p) => !p.basis.some((b: any) => b.basis === "statement_tie"))]]
             .filter(([, list]) => (list as any[]).length).map(([label, list]) => (
             <div key={label as string} className="rootgroup">
