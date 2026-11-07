@@ -171,6 +171,8 @@ Fix a column $i$ and query time $\tau\le G$. Use the predictor's $r$ unknown str
 
 The total cap gives the predictor at most $L$ queries to *each* target input, on every branch. Under $\mu^{\otimes r}$ its success probability is therefore at most $\beta^r$ by the separate-cap direct-product bound. This bound allows adaptive interleaving and side information and coins jointly independent of the tuple [@Drucker2012, §3; @OpenAI2026, Lemma 4.1].^[Fix the independent coins and side information. Given the queried indices and replies, the $r$ strings remain independent. For each string take the greatest probability of predicting its value under $P$ with its remaining queries. A query to one input leaves the other factors fixed and cannot increase the chosen factor in expectation, since that query was already an available next step. The product gives the [separate-cap bound](https://github.com/wcook04/quartic-query-lean/blob/685f757ec50918fd659b926a44f2ba988e11359d/docs/reasoning_record.md#CL-product-law).]
 
+\Needspace{9\baselineskip}
+
 If $i$ is light at the end of the run, the simulation uses at most $L$ target queries through time $\tau$. If the tree queries $B_{i,s_i}$ at that time, the predictor outputs $s_i$. Correct default guesses can also make the predictor succeed; only this event inclusion is needed for the joint bound
 $$
  \Pr[i\text{ light and query }\tau\text{ is in }B_{i,s_i}]
