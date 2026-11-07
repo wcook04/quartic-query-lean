@@ -232,3 +232,14 @@ footnote tabs, normal footnote/backlink scrolling, the ordinary excursion and
 Return, complete menu titles, and a fresh load of an explicitly older edition.
 A loaded reader deliberately retains one immutable edition; changing only its
 hash is not an edition reload.
+
+Rendered inspection of the height-bounded menu caught a second axis: CSS
+multi-column layout could create implicit columns sideways. The menu now uses
+the reader's existing two-column grid pattern, with one column on phones,
+so bounded height produces ordinary vertical scrolling. The short-screen
+probe also asserts no horizontal overflow, verifies the last link's full
+bounds and clicks that choice. Twelve width/height/theme combinations pass,
+including 568- and 664-pixel-high phone panes and resize with an open menu.
+The final Python suite passes 314 tests with 5 conditional skips; browser
+interaction checks, TypeScript, KaTeX and the 623-resource export are separate
+validation. All three accepted PDF files retain their existing hashes.

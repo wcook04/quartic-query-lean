@@ -184,8 +184,9 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .paper__byline { color: var(--ink-2); margin: 0 0 10px; }
 .paper__tools { position: relative; display: flex; flex-wrap: wrap; gap: 18px; align-items: baseline; font-size: 0.92rem; margin: 0; }
 .jump summary { cursor: pointer; color: var(--query); }
-.jump ul { position: absolute; top: 100%; left: 0; right: 0; z-index: 4; background: var(--sheet); border: 1px solid var(--rule); margin: 6px 0 0; padding: 8px 16px; list-style: none; max-height: 50vh; overflow: auto; columns: 2; }
-.jump li { break-inside: avoid; padding: 2px 0; }
+.jump ul { position: absolute; top: 100%; left: 0; right: 0; z-index: 4; background: var(--sheet); border: 1px solid var(--rule); margin: 6px 0 0; padding: 8px 16px; list-style: none; max-height: 50vh; overflow: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 18px; align-content: start; }
+.jump li { min-width: 0; padding: 2px 0; }
+.jump a { overflow-wrap: anywhere; }
 .jump ul { overscroll-behavior: contain; scrollbar-width: thin; }
 .jump ul[data-placement="above"] { top: auto; bottom: calc(100% + 6px); margin: 0; }
 
@@ -356,7 +357,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
   .papers a { padding: 10px 10px 9px; }
   .manuscript { font-size: 1.05rem; }
   .source-block { margin-left: -12px; padding-left: 9px; }
-  .jump ul { columns: 1; }
+  .jump ul { grid-template-columns: minmax(0, 1fr); }
   .inspector__body { padding: 16px 16px 60px; }
   .elsewhere > li { grid-template-columns: minmax(0, 1fr); gap: 0; }
 }
