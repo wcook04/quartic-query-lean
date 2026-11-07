@@ -17,6 +17,19 @@ export function relationSentence(relation: Relation, route?: string): string {
   }
 }
 
+/** Who produced a fact, in the four kinds the About page defines. */
+export type Source = "lean" | "review" | "check" | "editors";
+const WHO: Record<Source, string> = { lean: "Lean reports", review: "AI review", check: "Recorded check", editors: "Editors" };
+const WHO_TITLE: Record<Source, string> = {
+  lean: "Reported by Lean from the project's source in this edition",
+  review: "A review judgment, carried out with AI and bound to the current Lean source",
+  check: "A recorded Lean build or Comparator run",
+  editors: "An editorial reading link or explanation; it helps reading and is not a proof",
+};
+export function Who({ kind, children }: { kind: Source; children?: string }) {
+  return <span className={`who who--${kind}`} title={WHO_TITLE[kind]}>{children ?? WHO[kind]}</span>;
+}
+
 export function RelationMark({ relation }: { relation: Relation }) {
   return <span className={`rel rel--${relation}`}>{RELATION_WORD[relation] ?? relation}</span>;
 }
@@ -27,11 +40,11 @@ const STANDARD = new Set(["propext", "Classical.choice", "Quot.sound"]);
 export function Axioms({ inspection, audit }: { inspection?: any; audit?: any }) {
   const current = inspection?.status === "current" ? inspection.axioms : audit?.snapshot_currentness === "current" ? audit.axioms : null;
   if (Array.isArray(current)) {
-    if (current.length === 0) return <p className="ev">Lean reports that this declaration depends on no axioms.</p>;
+    if (current.length === 0) return <p className="ev"><Who kind="lean" /> that this declaration depends on no axioms.</p>;
     const extra = current.filter((a: string) => !STANDARD.has(a));
     return (
       <p className="ev">
-        <span className="ev__who">Lean reports</span> these axioms: {current.map((a: string, i: number) => <span key={a}>{i ? ", " : ""}<code>{a}</code></span>)}.{" "}
+        <Who kind="lean" /> these axioms: {current.map((a: string, i: number) => <span key={a}>{i ? ", " : ""}<code>{a}</code></span>)}.{" "}
         {extra.length === 0 ? "These are the three standard axioms of Lean’s classical mathematics." : <>Beyond the standard three: <strong>{extra.join(", ")}</strong>.</>}
       </p>
     );
@@ -47,12 +60,12 @@ export function Checks({ tie }: { tie: any }) {
     tie.comparison_evidence === "current"
       ? "A recorded Comparator run checked this declaration against a separately written specification."
       : "No Comparator check targets this declaration directly.";
-  return <p className="ev">{build} {compared}</p>;
+  return <p className="ev"><Who kind="check" /> {build} {compared}</p>;
 }
 
 export function Reviewer({ by }: { by?: string }) {
   if (!by) return null;
-  return <span className="ev__who">{by.startsWith("ai:") ? "AI review" : "Review"}</span>;
+  return by.startsWith("ai:") ? <Who kind="review" /> : <Who kind="review">Review</Who>;
 }
 
 export const COVERAGE_SENTENCE: Record<string, string> = {

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
 import { LeanCode } from "../lean/LeanCode";
-import { Axioms, Checks, RelationMark, Reviewer, relationSentence } from "./evidence";
+import { Axioms, Checks, RelationMark, Reviewer, relationSentence, Who } from "./evidence";
 import { DeclButton, DeclTitle, Elsewhere, Loaded, StatementLabel } from "./common";
 import { declarationTitle, useNames, useStatementNames } from "./Names";
 import { Title } from "../text/title";
@@ -49,6 +49,7 @@ function Statement({ r }: { r: any }) {
 
       {lead ? (
         <section className="verdict" aria-label="What Lean proves">
+          <p className="verdict__src"><Who kind="review" /></p>
           <p className="verdict__line">
             <RelationMark relation={lead.relation} /> <DeclButton name={lead.declaration} />
           </p>
@@ -59,13 +60,13 @@ function Statement({ r }: { r: any }) {
         <section className="verdict"><p className="verdict__line">No current review compares a Lean declaration with this statement.</p></section>
       )}
 
-      <section className="where-else" aria-label="The same statement in the papers">
-        <h3>Read it in the papers</h3>
-        <Elsewhere rows={r.relatedSelections ?? []} here={nav.paper} />
+      <section className="block where-else" aria-labelledby="st-papers">
+        <h3 id="st-papers" className="block__h">Read it in the papers <Who kind="editors" /></h3>
+        <Elsewhere rows={r.relatedSelections ?? []} here={nav.paper} selected={r.paper?.selection ? { paper: "original", id: r.paper.selection.id } : undefined} />
       </section>
 
-      <section className="ledger">
-        <h3>The statement that was compared</h3>
+      <section className="block ledger" aria-labelledby="st-ledger">
+        <h3 id="st-ledger" className="block__h">The statement that was compared</h3>
         <p className="ledger__text">{r.presentation ? <span aria-label={r.presentation.body_plain}><Title text={r.presentation.body} /></span> : archived ? r.ledgerStatement : "Statement text unavailable in this edition."}</p>
         {!archived && (
           <details className="more more--inline">
@@ -89,7 +90,7 @@ function Statement({ r }: { r: any }) {
           <>
             {shared && (
               <section className="sharedfacts" aria-label="Checked by Lean for every theorem below">
-                <h3>Checked by Lean, for all {r.comparisons.length} theorems below</h3>
+                <h3>Lean reports and recorded checks, the same for all {r.comparisons.length} theorems below</h3>
                 <Axioms inspection={r.comparisons[0].inspection} />
                 <Checks tie={r.comparisons[0]} />
               </section>
@@ -100,8 +101,8 @@ function Statement({ r }: { r: any }) {
       })()}
 
       {r.semanticExamples?.length > 0 && (
-        <section className="examples">
-          <h3>Try to break the definition</h3>
+        <section className="block examples" aria-labelledby="st-ex">
+          <h3 id="st-ex" className="block__h">Try to break the definition</h3>
           {r.semanticExamples.map((ex: any) => <Example key={ex.declaration} ex={ex} />)}
         </section>
       )}
@@ -162,7 +163,7 @@ function Comparison({ c, leading, shared }: { c: any; leading: boolean; shared: 
           <button type="button" className="disclose" aria-expanded={showType} onClick={() => setShowType(!showType)}>
             {showType ? "Hide" : "Show"} the statement Lean printed
           </button>
-          {showType && <LeanCode text={c.inspection.type} label={`Type of ${c.declaration} as printed by Lean`} from={1} />}
+          {showType && <LeanCode text={c.inspection.type} label={`Type of ${c.declaration} as printed by Lean`} from={1} caption={<span>Statement as printed by Lean</span>} />}
         </div>
       )}
     </section>
@@ -178,8 +179,9 @@ function Example({ ex }: { ex: any }) {
       <Axioms inspection={ex.inspection} />
       {ex.receipt_currentness === "stale" && <p className="ev ev--gap">Its recorded build receipt predates the current source. Lean’s type and axioms above are from the current inspection.</p>}
       <button type="button" className="disclose" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? "Hide" : "Show"} the Lean that checks this</button>
-      {open && ex.rawLean && <LeanCode text={ex.rawLean} from={ex.lines?.[0] ?? 1} label={`Lean source of ${ex.declaration}`} />}
-      {open && <p><a href={ex.sourceURL} target="_blank" rel="noopener noreferrer">Source on GitHub</a></p>}
+      {open && ex.rawLean && <LeanCode text={ex.rawLean} from={ex.lines?.[0] ?? 1} label={`Lean source of ${ex.declaration}`} url={ex.sourceURL}
+        caption={<span>{ex.lines ? `Lean, lines ${ex.lines[0]}–${ex.lines[1] ?? ex.lines[0]}` : "Lean source"}</span>} />}
+      {open && !ex.rawLean && ex.sourceURL && <p><a href={ex.sourceURL} target="_blank" rel="noopener noreferrer">Source on GitHub</a></p>}
     </div>
   );
 }
