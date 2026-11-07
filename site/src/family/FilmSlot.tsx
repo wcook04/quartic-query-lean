@@ -5,7 +5,7 @@
 // edition's `video` names one. Chapters open the papers on the same question.
 import { clockTime, FILM_SERIES, isReleased, spokenTime, type FamilyFilm } from "./family";
 
-export interface Chapter { start_seconds: number; route: string; title?: string; href?: string }
+export interface Chapter { start_seconds: number; route?: string; page?: string; title?: string; href?: string }
 
 export function FilmSlot({ film, chapters = [], size = "large" }: { film: FamilyFilm; chapters?: Chapter[]; size?: "small" | "large" }) {
   const classes = ["film-slot", `film-slot--${size}`, !isReleased(film) && "film-slot--pending"].filter(Boolean).join(" ");
@@ -41,17 +41,26 @@ export function FilmSlot({ film, chapters = [], size = "large" }: { film: Family
           </a>
         </p>
         <p className="film-slot__text">{film.description}</p>
-        {chapters.length > 0 && (
-          <ol className="film-chapters">
-            {chapters.map((c) => (
-              <li key={c.start_seconds}>
-                <a href={`${film.youtube}&t=${c.start_seconds}s`} target="_blank" rel="noopener noreferrer">{clockTime(c.start_seconds)}</a>{" "}
-                {c.href ? <a href={c.href}>{c.title ?? c.route.replace(/-/g, " ")}</a> : (c.title ?? c.route.replace(/-/g, " "))}
-              </li>
-            ))}
-          </ol>
-        )}
+        {chapters.length > 0 && <FilmChapters film={film} chapters={chapters} />}
       </figcaption>
     </figure>
+  );
+}
+
+/** Chapters as an index keyed by time: the time opens the video there, the title opens the papers. */
+export function FilmChapters({ film, chapters }: { film: FamilyFilm; chapters: Chapter[] }) {
+  return (
+    <ol className="film-chapters">
+      {chapters.map((c) => {
+        const name = c.title ?? c.route?.replace(/-/g, " ") ?? "";
+        return (
+          <li key={c.start_seconds}>
+            <a className="film-chapters__time" href={`${film.youtube}&t=${c.start_seconds}s`} target="_blank" rel="noopener noreferrer"
+              aria-label={`Watch from ${clockTime(c.start_seconds)}: ${name}`}>{clockTime(c.start_seconds)}</a>
+            {c.href ? <a className="film-chapters__name" href={c.href}>{name}</a> : <span className="film-chapters__name">{name}</span>}
+          </li>
+        );
+      })}
+    </ol>
   );
 }

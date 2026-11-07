@@ -1,5 +1,7 @@
 // The paper's sections, following the reading line. Rows come from the
 // edition's manuscript `contents` (older editions: its outline).
+import { Title } from "../text/title";
+
 export interface ContentsRow { title: string; level: number; line: number; end_line: number; anchor?: string; listed?: boolean }
 
 export function sectionAt(rows: ContentsRow[], line: number | null): ContentsRow | null {
@@ -20,7 +22,7 @@ export function Contents({ rows, current, onGo }: { rows: ContentsRow[]; current
             <a href={r.anchor ? `#${r.anchor}` : undefined} aria-current={current === r || (current && current.line >= r.line && current.end_line <= r.end_line && r.level < current.level) ? "location" : undefined}
               className={current === r ? "is-here" : ""}
               onClick={(e) => { e.preventDefault(); onGo(r); }}>
-              {r.title}
+              <Title text={r.title} />
             </a>
           </li>
         ))}

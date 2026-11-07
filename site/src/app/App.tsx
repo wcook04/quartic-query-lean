@@ -3,7 +3,7 @@ import { openEdition, type Edition } from "./edition";
 import { go, href, useRoute } from "./router";
 import { Home } from "../home/Home";
 import { ReaderPage } from "./ReaderPage";
-import { face } from "./papers";
+import { face, PAPERS, SUPPLEMENT } from "./papers";
 import { About } from "./About";
 import { FAMILY } from "../family/family";
 import { useScheme } from "../family/theme";
@@ -22,7 +22,8 @@ export function App() {
 
   useEffect(() => {
     const titles: Record<string, string> = { home: "Quartic reader", about: "How to read the evidence · Quartic reader" };
-    document.title = route.page === "read" ? `${face(route.paper!).tab} · Quartic reader` : titles[route.page];
+    const known = route.paper != null && (PAPERS.some((p) => p.id === route.paper) || route.paper === SUPPLEMENT.id);
+    document.title = route.page === "read" ? `${known ? face(route.paper!).tab : "Paper unavailable"} · Quartic reader` : titles[route.page] ?? titles.home;
   }, [route.page, route.paper]);
 
   return (

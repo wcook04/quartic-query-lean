@@ -19,6 +19,7 @@ const ProofPane = lazy(() => import("../map/ProofPane").then((m) => ({ default: 
 import { Contents, sectionAt, type ContentsRow } from "../paper/Contents";
 import type { GraphFocus, GraphFocusRequest } from "../map/GraphPane";
 import { ReaderSplit } from "./ReaderSplit";
+import { Title } from "../text/title";
 
 type PassageMode = "graph" | "lean" | "passage";
 const nextPassageMode = (view: PassageMode | undefined): PassageMode => view === "graph" ? "lean" : view === "lean" ? "passage" : "graph";
@@ -440,7 +441,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                   <summary>Contents</summary>
                   <ul>
                     {contents.filter((r) => r.level <= Math.min(...contents.map((x) => x.level)) + 1).map((r) => (
-                      <li key={r.line}><a href={r.anchor ? `#${r.anchor}` : undefined} onClick={(e) => { e.preventDefault(); goSection(r); (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}>{r.title}</a></li>
+                      <li key={r.line}><a href={r.anchor ? `#${r.anchor}` : undefined} onClick={(e) => { e.preventDefault(); goSection(r); (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}><Title text={r.title} /></a></li>
                     ))}
                   </ul>
                 </details>
