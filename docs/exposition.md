@@ -7,6 +7,8 @@ bibliography: exposition.bib
 link-citations: true
 ---
 
+This worked exposition develops OpenAI's nearly quartic separation from small boards and explicit queries. It assumes finite-dimensional linear algebra, conditional probability and asymptotic notation, with no prior knowledge of quantum algorithms. Sections 1–6 form a continuous argument; the appendices give optional calculations, tests of the hypotheses and exercises. The [expert companion](expert_companion.md) gives a shorter route, and the [full proof reconstruction](reasoning_record.md) contains the detailed supporting proofs.
+
 # 1. Finding a column of ones
 
 Does any column in this table have a one in every row?
@@ -70,6 +72,8 @@ Compare columns $2$ and $3$ twice on the same board. For some choices of pointer
 
 ## 3.1 Counting the indices retained by random comparisons
 
+[]{#weighted-sampling-example}
+
 Suppose the first pivot is column number $2$ and a fresh comparison of columns $3$ and $2$ returns $3$ with probability $1/2$. Give column $3$ a *weight* of $1/2$. Now suppose the next pivot is $4$ and a fresh comparison of $3$ with $4$ also returns $3$ with probability $1/2$. The chance of obtaining $3$ in *both* comparisons is $1/2\times1/2=1/4$, since we make the comparisons independently. The new weight of column $3$ is $1/4$. In general, the weight of a column is the probability that we would keep its number after comparing it afresh with every pivot already listed. With fixed comparison results, the weight is one for each retained number and zero for each discarded number.
 
 How can we draw a pivot without making a list of all the retained numbers? Draw a column number uniformly. Discard the number if it is already on the pivot list. Otherwise compare the drawn column with every listed pivot and accept the draw if every comparison returns the drawn number. Suppose column 2 is the only pivot so far. Each column has probability $1/4$ of being drawn. To get the probability of drawing *and* accepting column 3, multiply $1/4$ by the probability $1/2$ of accepting it once drawn.
@@ -121,7 +125,7 @@ Measuring now gives column number $1$ with certainty. To implement the second re
 
 For arbitrary weights, split the prepared vector into the sum of two vectors. One contains all amplitudes whose flag is one and has zeros in the other coordinates. The second contains all amplitudes whose flag is zero and has zeros elsewhere. Their squared lengths are the acceptance probability $q$ and the rejection probability $1-q$. The two vectors are orthogonal because their nonzero coordinates have disjoint labels. When $0<q<1$, divide each by its length to get unit vectors $g$ for acceptance and $b$ for rejection. The prepared state is $\sqrt q\,g+\sqrt{1-q}\,b$.
 
-The sign reversal negates the coefficient of $g$ and leaves the coefficient of $b$ unchanged. The second reflection is about the prepared vector, also in the plane of $g$ and $b$. Consequently, after either operation all amplitudes with flag one are still proportional to their original amplitudes, with the same multiplier for every accepted column number. Conditional on measuring flag one, column $i$ still has probability $w_i/W$.
+The sign reversal negates the coefficient of $g$ and leaves the coefficient of $b$ unchanged. The second reflection is about the prepared vector, also in the plane of $g$ and $b$. Consequently, after either operation all amplitudes with flag one are still proportional to their original amplitudes, with the same multiplier for every accepted column number. Conditional on measuring flag one, column $i$ still has probability $w_i/W$. The algorithm stores this measured column number and prepares fresh comparison registers at the next stage. [Appendix E](#measured-law-scope) specifies what Lean proves about this law and the stronger retained-state assertion.
 
 []{#pivot-schedule}Let $\theta$ be the angle from $b$ to the prepared vector, measured towards $g$, so $\sin\theta=\sqrt q$. The sign reversal takes angle $\theta$ to $-\theta$. Reflection about the prepared vector takes $-\theta$ to $3\theta$. Each pair of reflections adds $2\theta$, so after $u$ pairs the probability of measuring flag one is $\sin^2((2u+1)\theta)$. For small $q$, $\theta$ is approximately $\sqrt q$ radians. The number of pairs needed to approach angle $\pi/2$ is therefore of order $1/\sqrt q$. More pairs can reduce the probability again. In the four-column example, $\theta=\pi/6$ and the first pair gives probability one, but the second gives $\sin^2(5\pi/6)=1/4$. When $q=0$ the flag is always zero, and when $q=1$ the initial preparation already gives flag one.
 
@@ -130,6 +134,8 @@ The algorithm has no prior value for $q$, so it chooses the number of reflection
 Stop if the schedule obtains no accepted number or the list reaches length $T$. While the winning number is missing, its weight exceeds $1/2$ and hence $q=W/m>1/(2m)$. Whenever the schedule succeeds we can use its measured number as the draw for the ideal procedure of Section 3.1. The chance of stopping on failure before listing the winning number is at most $T\varepsilon$, summed over at most $T$ stages. Together with the ideal procedure's error bound, this gives probability at most $1/500+T\varepsilon$ of omitting the winning number. Each preparation compares with at most $T$ pivots. The entire list therefore uses $O(T^2\sqrt m\log(1/\varepsilon))$ comparisons and reversed comparisons.
 
 # 4. Computing an address and checking its certificate
+
+[]{#forrelation-primitive}
 
 In Figure 1, column $1$ has two address inputs. Each is a string of eight bits. The prescribed answer for $0111\,1000$ is the digit one and the prescribed answer for $0100\,1000$ is the digit zero. Together these digits specify pointer record $10$. Here is how to calculate the digits.
 
@@ -189,7 +195,7 @@ For use inside the quantum search, retain each trial’s position label in a sep
 
 The exact calculation can be written as a Boolean *circuit*, an ordered sequence of operations called gates. Each gate takes at most two bits from the original input or earlier gate outputs and computes one output bit. A *transcript* lists the proposed output bit for every gate in order. For instance, one gate in the four-position circuit computes $u$ OR $y$, with $u$ the output of an earlier gate and $y$ an input bit. The verifier reads the listed bit for $u$, the original input bit $y$ and the listed output for the OR gate. If these three bits are $(1,0,0)$, there is an error because one OR zero equals one. In any incorrect transcript there is a first gate whose listed output differs from its true output. That gate uses correct input bits and correctly listed earlier outputs, so its local check must expose the error. Conversely, passing every check ensures that the two listed circuit outputs are correct. One address input uses $S=O_k(m\ell^2)$ gates ([Appendix A.6](#exact-certification)).
 
-[]{#domain-bit-board}Take column strings $0111,1111,1011,1101$ and give column $2$ the address inputs $(a^-,a^0)$. In every record of column $2$ store the exact gate outputs for those two inputs and pointers to zeros in columns $1,3,4$. Consider the record labelled $00$. The two value bits are zero and zero, matching the record label. But the domain bit for $a^-$ is zero. Thus the all-one column has an undefined first address digit, and every other column contains a zero. The board's answer is no.
+[]{#domain-bit-board}To isolate the promise requirement, change the four column strings to $0111,1111,1011,1101$ and give the now all-one column $2$ the address inputs $(a^-,a^0)$. Here $a^-=1000\,1000$ has no prescribed digit, while $a^0=0100\,1000$ has prescribed digit zero; their exact (domain, value) outputs are $(0,0)$ and $(1,0)$. In every record of column $2$ store the exact gate outputs for those two inputs and pointers to zeros in columns $1,3,4$. Consider the record labelled $00$. The two value bits are zero and zero, matching the record label. But the domain bit for $a^-$ is zero. Thus the all-one column has an undefined first address digit, and every other column contains a zero. The board's answer is no.
 
 For each listed column number, estimate the address afresh. The verifier uses tests on the column string and the record at this estimated address. There is one test for a one at each of the $m$ positions in the column string and one test for a zero at each of the $m-1$ pointer destinations. For each of the $r$ transcripts there is one test per gate and two more tests on the circuit outputs. The domain bit must be one, and the value bit must match the corresponding digit in the record label. In all there are
 $$
@@ -209,7 +215,7 @@ How many ordinary bit queries would it take to find the winning certificate? Ret
 
 ![The fourth bit of column 1 changes from zero to one. The three arrows from its filled cell show which row to read in each of the other columns.](figures/exposition/fig4_planted.svg){width=90%}
 
-Consider one query. Specify column $1$, cell $10$, and the position in its first transcript reserved for the domain bit. The reply on the upper board is $0$ because all bits in all cells are zero. The reply on the lower board is $1$ because the first address input satisfies the promise and this cell contains the correct gate outputs. If we were given the true label in every column, we could read the first domain bit in each indicated cell. At most $m$ queries would suffice to detect the change.
+[]{#query-index-prediction}Consider one query. Specify column $1$, cell $10$, and the position in its first transcript reserved for the domain bit. The reply on the upper board is $0$ because all bits in all cells are zero. The reply on the lower board is $1$ because the first address input satisfies the promise and this cell contains the correct gate outputs. If we were given the true label in every column, we could read the first domain bit in each indicated cell. At most $m$ queries would suffice to detect the change.
 
 Without those labels, the algorithm still has to specify a column, a cell label, and a position within the cell *before* it receives its one-bit reply. Specifying $10$ in the changed column of Figure 5 already gives both correct address digits, even if the algorithm merely guessed. On a random board, how often could the algorithm encounter either the zero we erased or the cell we filled? Those are the only places where a reply can differ. We will count the two probabilities separately.
 
@@ -264,6 +270,8 @@ Set $G=\lfloor mL/100\rfloor$. Since $L\le m$, the sum is at most $4/100+1/100+1
 
 # 6. Why the exponent is four
 
+[]{#fixed-k-exponent}
+
 Could there be a constant $C$ such that $R(f)\le C(1+Q(f))^3$ for every total Boolean function $f$, whatever its input length? Try the boards with $k=3$. Ignoring logarithmic factors for a moment, their quantum cost is at most $\sqrt m$ and their classical cost is at least $m^{5/3}$. Cubing $\sqrt m$ gives $m^{3/2}$. The ratio $m^{5/3}/m^{3/2}=m^{1/6}$ grows without bound. Restoring the logarithms divides this ratio by at most a fixed power of $\log m$ and still leaves a quantity tending to infinity. Thus every proposed cubic constant fails on sufficiently large boards.
 
 More generally, OpenAI constructs, for every fixed integer $k\ge2$ and all sufficiently large powers of four $m=4^t$, a total Boolean function $F_{k,m}$ with $Q(F_{k,m})=\widetilde O_k(\sqrt m)$ and $R(F_{k,m})=\widetilde\Omega_k(m^{2-1/k})$ [@OpenAI2026, Theorem 1.1 and its proof]. The tildes suppress powers of $\log m$. In explicit form, [Appendix A.1](#quantum-query-count) and Section 5 give the following bounds on this same function, using the same circuit in both estimates.
@@ -272,7 +280,7 @@ Q(F_{k,m})\le C_k\sqrt m\,(\log_2m)^6,
 \qquad
 R(F_{k,m})\ge \frac{m^{2-1/k}}{400(\log_2m)^2}.
 $$
-The first comes from listing columns by quantum comparisons and checking the list. For the second, the bound $R>\lfloor mL/100\rfloor$ uses the limit of $L=\lfloor m^{1-1/k}/(\log_2m)^2\rfloor$ bit reads for predicting a single address digit. With $m$ possible columns, $mL/100$ total reads leave at most one column in a hundred above that limit. For large $m$, rounding down to $L$ retains at least half the unrounded value, so the displayed constant $1/400$ suffices. Both the quantum constant $C_k$ and the size threshold for $m$ may depend on $k$.
+The first comes from listing columns by quantum comparisons and checking the list. For the second, the bound $R>\lfloor mL/100\rfloor$ uses the limit of $L=\lfloor m^{1-1/k}/(\log_2m)^2\rfloor$ bit reads for predicting a single address digit. With $m$ possible columns, $mL/100$ total reads leave at most one column in a hundred above that limit. For large $m$, rounding down to $L$ retains at least half the unrounded value, so the displayed constant $1/400$ suffices. Both the quantum constant $C_k$ and the size threshold for $m$ may depend on $k$. We will choose $k$ first and then increase $m$, so these dependencies stay fixed.
 
 Measured in powers of $\sqrt m$, the classical exponent is $4-2/k$, since $(\sqrt m)^{4-2/k}=m^{2-1/k}$. Given any proposed $0\le\alpha<4$, first choose an integer $k\ge2$ with $4-2/k>\alpha$. Keep this $k$ fixed and increase $m$. In the ratio of the classical lower bound to the $\alpha$th power of the quantum upper bound the excess exponent of $m$ is now positive:
 $$
@@ -354,7 +362,7 @@ since $\sin(2\theta)=2\sqrt{q(1-q)}\ge\sqrt{2\gamma}$. Thus the randomized-itera
 
 ## A.4 The small circuit and its local tests
 
-[]{#circuit-check}The [explicit circuit for the four-column board](https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md#AC-example-promise) has $S=180$ non-input gates, so each candidate has $K=4+3+2(180+2)=371$ tests. In its zero-based numbering, write $x,y$ for input bits $6$ and $7$. Gates $1$ and $2$ compute $u=\neg x$, then $v=u\lor y$. On $a^+$ these last two input bits are both zero. To test gate $2$, read two bits from the transcript, the recorded outputs $u$ and $v$ of gates $1$ and $2$. Read $y$ from position $7$ of the address input itself. If $(u,y,v)=(1,0,0)$, the recorded output $v=0$ is wrong for those two input values, since $1\lor0=1$. Gate $178$ reports promise membership and gate $179$ reports the address digit. Every cell contains $6$ pointer bits and $360$ transcript bits. With four cells in each of four columns, the full board has $4[4+16+4(6+360)]=5936$ input bits. To verify a listed column, read transcript and pointer bits only from the cell at its proposed address. The row bits identified by the pointers are in the other columns. This four-column example uses $r=2$. Substituting $m=4$ into the formula $r=20\log_2m$ would give $r=40$. The classical lower bound applies for sufficiently large $m$.
+[]{#circuit-check}The [explicit circuit for the four-column board](reasoning_record.md#AC-example-tests) has $S=180$ non-input gates, so each candidate has $K=4+3+2(180+2)=371$ tests. The reconstruction’s board uses different address inputs, with $\Phi=\pm1/2$ instead of the $\pm1$ in Section 4. The circuit computes the same promise and value on all eight-bit strings, so its gate and input counts apply to both examples; the projection probabilities differ. In the circuit’s zero-based numbering, write $x,y$ for input bits $6$ and $7$ (the last two input bits). Gates $1$ and $2$ compute $u=\neg x$, then $v=u\lor y$. On $a^+$ these last two input bits are both zero. To test gate $2$, read two bits from the transcript, the recorded outputs $u$ and $v$ of gates $1$ and $2$. Read $y$ from position $7$ of the address input itself. If $(u,y,v)=(1,0,0)$, the recorded output $v=0$ is wrong for those two input values, since $1\lor0=1$. Gate $178$ reports promise membership and gate $179$ reports the address digit. Every cell contains $6$ pointer bits and $360$ transcript bits. With four cells in each of four columns, the full board has $4[4+16+4(6+360)]=5936$ input bits. To verify a listed column, read transcript and pointer bits only from the cell at its proposed address. The row bits identified by the pointers are in the other columns. This four-column example uses $r=2$. Substituting $m=4$ into the formula $r=20\log_2m$ would give $r=40$. The classical lower bound applies for sufficiently large $m$.
 
 []{#decoder-repetitions}
 
@@ -417,6 +425,8 @@ Choose a row in advance in each of four columns and read its bit. Let $Z$ count 
 
 Now choose $I$ uniformly among columns where a zero was found, falling back to a uniform choice from all four if none was found. By symmetry each column still has probability $1/4$ of selection. But the selected zero was read whenever *any* zero was found, with probability $1-(3/4)^4=175/256$. Independence from the run is what permits the averaging step in Section 5.1.
 
+[]{#lightness-joint-event}
+
 ### Lightness is a joint event
 
 Take AND on the three equally likely promised inputs $01,10,11$. A single query to either bit settles the answer on one input (the reply is zero) and leaves an equal choice between the two answers on the other two inputs. Thus the best one-query success is $2/3$.
@@ -427,7 +437,7 @@ Now read the first bit, return $0$ if it is zero, and otherwise read the second 
 
 ### Two clocks in a capped simulation
 
-Return to the parity example in Section 5.2. The target column is $i=2$. Write $B_{i,s}$ for the cell at label $s$ in column $i$. The tree's fourth query specifies the first transcript's domain bit in $B_{i,(a,0)}$, then the tree stops. In the [four-query tree](https://github.com/wcook04/quartic-query-lean/blob/11a229980430460236d53580798d703674c56ee5/docs/reasoning_record.md#CL-simulator-example), the simulator counts only its reads of $a,b,c,d$ against its limit $L=1$. The table records this count as $q$.
+Return to the parity example in Section 5.2. The target column is $i=2$. Write $B_{i,s}$ for the cell at label $s$ in column $i$. The tree's fourth query specifies the first transcript's domain bit in $B_{i,(a,0)}$, then the tree stops. The [same four-query tree in the reconstruction](reasoning_record.md#CL-simulator-example) uses row and column labels smaller by one: its column $1$ is our column $2$. Here the simulator counts only its reads of $a,b,c,d$ against its limit $L=1$. The table records this count as $q$.
 
 | Query number | Tree specifies | Simulator action |
 | --- | --- | --- |
@@ -484,9 +494,11 @@ In the classical simulation, stop at the proposed cell query and output its labe
 
 # Appendix E. Following the formal proofs {.unnumbered}
 
-The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md) connects the mathematical statements to their Lean definitions and proofs. For example, the [winning condition](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#def-wins) requires every address input of a winning column to satisfy the promise. In the example of Section 4, this excludes column $2$, the only all-one column. The [family theorem](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#thm-headline) uses one circuit for both query bounds. The [explicit bounds](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#src-constants) give the logarithmic exponent six and the factor $1/400$ in Section 6.
+The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md) connects the mathematical statements to their Lean definitions and proofs. For example, the [winning condition](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#def-wins) requires every address input of a winning column to satisfy the promise. In the [second board of Section 4](#domain-bit-board), this excludes column $2$, the only all-one column, because its first address input is off-promise. The [family theorem](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#thm-headline) uses one circuit for both query bounds. The [explicit bounds](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#src-constants) give the logarithmic exponent six and the factor $1/400$ in Section 6.
 
-The formal quantum proof uses the probability distribution of the measured column label and verifies the resulting candidates. A stronger statement would identify the normalized state of all registers conditional on measuring flag one. That statement is still to be formalized. The [optimal-exponent theorem](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#thm-alpha) combines the constructed family with a formal proof of the universal quartic bound.
+[]{#measured-law-scope}The formal quantum proof uses the exact conditional distribution of the measured column label and verifies the resulting candidates. The [full amplification proof](reasoning_record.md#upper-returned-register) also identifies the normalized successful state in a designated output register, including the preparation’s original workspace; records of earlier trials occupy additional registers. Equality of measured-label distributions alone does not identify this state.
+
+Lean also proves a retained-factor identity when success is specified by a set of basis labels. The full physical statement for an arbitrary fixed success projector, including identification of the designated output subsystem after compilation and uncomputation, is not yet fully formalized; the [theorem index](proof_index.md#src-amplification) gives the scope of these results. The measured-label theorem suffices for the Boolean query bound. The [optimal-exponent theorem](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#thm-alpha) combines the constructed family with a formal proof of the universal quartic bound.
 
 # References {.unnumbered}
 

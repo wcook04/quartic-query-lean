@@ -2,12 +2,28 @@
 
 Will Cook · November 2026
 
-**Abstract.** Let $R(f)$ and $Q(f)$ denote the randomized and quantum query complexities of a Boolean function, with error at most $1/3$. We reconstruct OpenAI’s proof that four is the least exponent $\alpha$ for which $R(f)=O((1+Q(f))^\alpha)$ holds for every total Boolean function. The input consists of $m$ columns. A column wins if its bit string consists of ones and its correctly addressed cell contains valid circuit transcripts and the row of a zero in each other column. A quantum algorithm compares columns and verifies only the candidates on a short list. On the classical side, the algorithm must specify the entire address of a cell before reading even one of its bits. We choose the address bits as answers to independent instances of a partial function. With $k\ge2$ blocks in each auxiliary input and $k$ fixed, the quantum algorithm uses at most $\sqrt m$ times a polylogarithmic factor in queries. Randomized algorithms require at least order $m^{2-1/k}/(\log m)^2$ queries. We prove the underlying lower bound for $k$-fold Forrelation by Gaussian integration by parts. Tracking its dependence on $k$ gives a single family with separation exponent tending to four.
+**Abstract.** Let $R(f)$ and $Q(f)$ denote the randomized and quantum query complexities of a Boolean function, with error at most $1/3$. We reconstruct OpenAI’s proof that four is the least exponent $\alpha$ for which $R(f)=O((1+Q(f))^\alpha)$ holds for every total Boolean function. The input consists of $m$ columns. A column wins if its bit string consists of ones and its correctly addressed cell contains valid circuit transcripts and the row of a zero in each other column. A quantum algorithm compares columns and verifies only the candidates on a short list. On the classical side, the algorithm must specify the entire address of a cell before reading even one of its bits. We choose the address bits as answers to independent instances of a partial function. With $k\ge2$ blocks in each auxiliary input and $k$ fixed, the quantum algorithm uses at most $\sqrt m$ times a polylogarithmic factor in queries. Randomized algorithms require at least order $m^{2-1/k}/(\log m)^2$ queries. We give an alternative proof of the required $k$-fold Forrelation lower bound by Gaussian integration by parts. A separate quantitative argument, using estimates uniform in $k$, gives a single family with separation exponent tending to four.
 
 <a id="record-reading-routes"></a>
 
 <a id="record-reading-guide"></a>
-Use the [three properties of one address bit](#forr_bundle) to build the total function in §4. The [quantum list](#upper-tournament-statement) and the [classical planting argument](#CL-first-difference) give the two bounds compared in §7. With the universal upper bound of [Appendix A](#R3-A-RESULT), they determine the [optimal power](#ROOT-NO-SMALLER). To prove the address hardness itself, [§8](#forr_target) starts afresh from the Walsh matrix. Its dependence on $k$ also gives the [single growing family](#ROOT-GROWING-K). A [shorter proof](expert_companion.md) and a [worked introduction](exposition.md) are available separately.
+**Reading this reconstruction.** This is the detailed proof reference for the [expert companion](expert_companion.md). It supplies the supporting derivations, alternative arguments and quantitative estimates that the companion cites. A specialist seeking the main mechanisms can start with that shorter account; the [worked exposition](exposition.md) develops the construction and its operations through examples. OpenAI’s preprint remains the source of the separation theorem and construction.
+
+For a continuous reading here, use the [three properties of one address bit](#forr_bundle) to build the total function in §4. The [quantum list](#upper-tournament-statement) and the [classical planting argument](#CL-first-difference) give the two bounds compared in §§7.1–7.2. With the universal upper bound of [Appendix A](#R3-A-RESULT), they determine the [optimal power](#ROOT-NO-SMALLER). That argument keeps $k$ fixed. The alternative Forrelation proof in [§8](#forr_target) can be read separately; its uniform estimate also supports the additional [growing-parameter consequence in §7.3](#ROOT-GROWING-K). The appendices retain the supporting proofs and conventions at the destinations cited in the main text.
+
+<a id="record-source-map"></a>
+**From OpenAI’s statements to their proofs here.** The labels in the first column belong to the [5 October preprint][OpenAI2026]; those in the second belong to this reconstruction.
+
+| OpenAI’s preprint | Detailed destination here |
+|---|---|
+| Lemma 2.1: three Forrelation properties | [Lemma 3.1](#forr_bundle); alternative hardness proof in [§8](#forr_target), [decoder in Appendix G.2](#forr_quantum) and [exact circuit in G.3](#forr_circuit) |
+| Lemma 2.2: local certification | [§4.4](#AC-tests), with the reversible implementation in [Appendix E.4](#AC-coherent) |
+| Lemma 3.1: bounded amplification | [Lemma E.1 and its proof](#upper-amplification-statement), including the [retained-register argument](#upper-returned-register) |
+| Propositions 3.2–3.3: tournament and quantum bound | [§§5.1–5.4](#upper-tournament-statement) |
+| Lemma 4.1 and Proposition 4.2: classical lower bound | [Predictor and product lemma in §6.4](#CL-direct-product-statement); [product proof in §6.5](#CL-weighted-values); [bound in §6.6](#CL-concrete-lower) |
+| Theorem 1.1 and §5: optimal exponent | [§§7.1–7.2](#ROOT-RATIO); universal upper bound in [Appendix A](#R3-A-RESULT) |
+
+The [full correspondence](#record-numbering) also matches numbered equations and records the change from Walsh blocks $1,\ldots,k$ to $0,\ldots,k-1$. Section 6.5 proves the product lemma with unnormalized success masses; [Appendix B.1](#CL-product-law) recovers the source’s conditional-value proof. Section 8 and the growing-parameter calculation are additional derivations, with their antecedents identified in [Appendix D](#forr_credit). The [formal-proof note](#record-formal-proof-note) distinguishes checked statements from the additional assertions in their printed proofs.
 
 \setcounter{tocdepth}{2}
 \tableofcontents
@@ -65,6 +81,8 @@ To construct the functions in (1.2), we require a certificate for an all-one col
 Consider the four columns in Figure 1. Each contains four bits and, below them, four cells indexed by two-bit words. For column 1 the two auxiliary inputs have answers $1,0$, so we examine cell $10$. Its three pointers specify row 1 of column 2, row 2 of column 3 and row 3 of column 4. Each of those bits is zero. In the reverse direction, the pointer from column 3 specifies row 3 of column 1, whose bit is one. In fact every bit of column 1 is one.
 
 ![A certificate in a four-column input. The auxiliary inputs $a^+,a^0,a^-$ have respective values one, zero and undefined. Cell $10$ of column 1 contains the row of a zero in each other column. The dashed arrow indicates row 3 of column 1, whose bit is one.](figures/exposition/fig2_board.svg){width=91%}
+
+The diagram uses the same column bits and pointers as the worked exposition. The auxiliary inputs specified here in [§4.3](#AC-example-promise) have Forrelation values $+1/2,0,-1/2$; the exposition’s corresponding inputs have values $+1,0,-1$. The address values and winning column agree, but the quantum projection probabilities differ.
 
 The three pointers alone would also fit in a cell at the wrong address. To verify the address itself, the algorithm checks a stored list of all gate values of a Boolean circuit on each auxiliary input. Its two output bits specify whether the input is in the domain of the partial function and, if so, its value. A valid list must agree with the auxiliary input bits and with the rule at every gate.
 
@@ -316,7 +334,7 @@ Figure 1 uses $a^+,a^0,a^-$ for the following three eight-bit inputs. The table 
 | $0001\,0010$ | $0$ | $0$ | $(1,0)$ |
 | $1111\,0000$ | $-1/2$ | undefined | $(0,0)$ |
 
-The projection decoder succeeds in a single projection with probability $\Phi^2$. Its success probability is $1/4$ on both the first and third rows, although the third input has no promised value. Their domain bits differ. This is precisely the distinction the transcript must certify.
+The projection decoder succeeds in a single projection with probability $\Phi^2$. Its success probability is $1/4$ on both the first and third rows, although the third input has no promised value. Their domain bits differ. This is precisely the distinction the transcript must certify. The [worked exposition](exposition.md#forrelation-primitive) uses different auxiliary strings with values $+1$ and $-1$, whose projection probabilities are both one; it illustrates the same promise distinction on different inputs.
 
 <!-- /passage:AC-example-promise -->
 
@@ -1302,6 +1320,8 @@ Letting \(k\) grow with \(t\) requires estimates uniform in \(k\); these go beyo
 
 <a id="ROOT-GROWING-K"></a>
 <!-- passage:ROOT-GROWING-K -->
+This is a quantitative consequence of the estimates developed in this reconstruction, beyond the fixed-$k$ argument needed for OpenAI’s Theorem 1.1. It uses the uniform lower bound of Theorem 8.2 and the explicit quantum constant in Appendix E.5; substituting a growing $k$ into (7.1) alone would not justify it. The final choice of $k(t)$ and its rate are an ordinary deduction in [Appendix C.2](#record-schedule-proof), separate from the formally stated fixed-$k$ family.
+
 Write $m=4^t$, $\ell=2t$. To let $k$ grow, compare the bounds on $\log_2 R$ and $4\log_2 Q$. The classical exponent $2-1/k$ gives $2\ell-\ell/k$ in the lower bound. In the quantum upper bound the decoding factor $2^{10k}$ adds $40k$ after taking the fourth power and the logarithm. Balancing $\ell/k$ with $40k$ gives
 \[
 k(t)=\left\lfloor\sqrt{t/20}\right\rfloor,\qquad F_t=F_{k(t),4^t}\quad(t\ge80).
@@ -1362,7 +1382,7 @@ This is the lower-bound assertion of OpenAI's Lemma 2.1(i), with the same normal
 \[
 R(P_{k,m})>\frac2{18225}\frac{m^{1-1/k}}{k^2\ln(4km)}.
 \]
-This estimate implies (8.3) for fixed $k$ and supplies the lower bound for the growing family of §7.3. Its proof concludes in [§8.10](#forr_uniform_assembly).
+This estimate implies (8.3) for fixed $k$ and supplies the lower bound for the growing family of §7.3. Its proof concludes in [§8.10](#forr_uniform_assembly). The [formal uniform estimate](proof_index.md#the-partial-function-and-its-certificates) has this same numerical constant and dimension condition. This correspondence concerns the stated bound; it does not certify every source comparison in Appendix D or independently review the printed derivation.
 
 We compare two distributions on the same signs. In the first the signs are independent and fair. In the second we sample independent Gaussian vectors, pair each with its Walsh transform, and then sample signs with biases depending on the resulting pairs. We will prove that the mean of $\Phi$ differs appreciably between the two distributions, while the mean output of every sufficiently shallow decision tree differs very little. For both comparisons we interpolate between the distributions and expand the derivative as a sum over paths, with one coordinate per block and a Walsh entry for each consecutive pair of coordinates.
 
@@ -3063,6 +3083,8 @@ The lower bound also shows that both promise values occur in these dimensions, s
 
 ## Appendix D. Antecedents and comparisons
 
+This appendix identifies the earlier results used in the reconstruction and compares particular arguments. The displayed source discrepancies in §§D.3–D.4 concern the specified versions and passages. They are not needed to prove the separation, and no author-confirmed correction or exhaustive audit of those works is claimed.
+
 ### D.1. The Walsh promise and its known lower bounds
 
 <a id="forr_attribution"></a>
@@ -3317,7 +3339,7 @@ At the empty history with $n=T_0=T$, the ideal estimate gives $I_T([])\leq2m/2^T
 
 ### E.2. Proof of bounded amplification and the retained-state assertion
 
-We prove Lemma E.1, including the measured-output contract used in §§5.2–5.4 and Appendix E.1. The first part proves the trial law and all-branch cap; the final part identifies a designated retained subsystem.
+We prove Lemma E.1, including the measured-output contract used in §§5.2–5.4 and Appendix E.1. The first part proves the trial law and all-branch cap; the final part identifies a designated retained subsystem. The headline formal quantum bound uses the measured-label law. A separate formal theorem also supplies a retained original-register factor for a success condition defined on basis labels; the general-projector and physical correspondence qualifications are stated in the [formal-proof note](#record-formal-proof-note). Equality of measured probabilities alone does not give that factorization.
 
 <a id="upper-amplification-statement"></a>
 <!-- passage:upper-amplification-statement -->
@@ -4415,7 +4437,11 @@ In the edition that first replaced the F labels by section numbers, the tree est
 
 ## Relation to the formal proofs
 
-The accompanying Lean proofs establish formal versions of the headline theorems. Their routes sometimes differ from the printed arguments: the quantum bound uses the exact law of the measured candidate, and the universal quartic bound uses an existing formal complexity library. The stronger retained-state argument is not required for the Boolean headline result. The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md) connects mathematical statements to definitions and proofs and specifies these distinctions. Detailed verification evidence is separate from this mathematical account.
+The accompanying Lean proofs establish the optimal exponent and the fixed-$k$ separation family, including one realizing circuit for both query bounds. They also establish the uniform Forrelation inequality of Theorem 8.2. The explicit schedule in §7.3 is an ordinary deduction from uniform bounds, proved in Appendix C.2; it is not a clause of the formal headline family theorem. The [theorem index](proof_index.md) links each result to its statement and substantive proof.
+
+For the quantum bound, the headline proof uses the exact distribution of the measured candidate and its query cap. A separate checked amplification theorem identifies the normalized successful state in the original register, tensored with an auxiliary vector, for success conditions specified on basis labels. Its selector is fixed before the preparation unitary is supplied. Thus retained-state mathematics is represented as well as label probabilities. The general fixed-projector version of Lemma E.1 and the identification of its designated subsystem through the chosen physical compilation require the further correspondence described in the [verification supplement](verification_details.md#upper-missing-physical-state). They do not follow merely from equality of measured-label laws, and the Boolean headline proof does not require them.
+
+Other proof routes also differ: the formal universal quartic bound uses an existing complexity library, while Appendix A develops the adversary and sensitivity argument. A proof of the same endpoint does not check each sentence of a different derivation. The recorded builds and statement comparisons are distinct from mathematical review; no human review of this reconstruction is claimed. In particular, the passage-specific comparisons in Appendix D remain identified calculations concerning the cited editions, not author-confirmed errata or independent validation of those sources.
 
 ## Use of AI tools
 
