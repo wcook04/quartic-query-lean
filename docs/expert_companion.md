@@ -122,6 +122,8 @@ $$
 
 Rebuilding at most $T$ comparisons per preparation for at most $T$ stages costs $O(c\sqrt m\,T^2\log T)$ queries on every input.
 
+\Needspace{12\baselineskip}
+
 ### 3.3 Verifying the listed columns
 
 For each listed column, decode a fresh address with error at most $\varepsilon$ on promised inputs and use bounded quantum search to find any of its $K$ tests that fails. Accept if at least one search returns no defect. When a test fails, a uniformly chosen test detects a defect with probability at least $1/K$. Using this threshold, the search costs $O(\ell\sqrt K\log(1/\varepsilon))$ queries per column and misses an existing defect with probability at most $\varepsilon$.
