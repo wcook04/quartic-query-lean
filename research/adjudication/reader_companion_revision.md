@@ -98,3 +98,69 @@ examples, definitions, calculations, formal boundary and attribution.
 (6 conditional skips). The binding audit reviews 63 selections and 36
 prerequisites with no remaining changed association. No new proof-check or
 human-review claim follows from these editorial checks.
+
+## Cosmetic follow-up
+
+7 November 2026. The operator asked to continue cosmetic repairs after the
+reviewed publication. At the 1,280-pixel reader width with proof closed, the
+heading started at x=450 while the manuscript started at x=348. The two used
+72ch in different typefaces and sizes. Counting visible prose characters in
+the first six paragraphs gave maximum line lengths of 83–90. A shared measure
+based on the actual manuscript size aligns both edges and shortens the lines,
+while preserving the existing size increase on wider displays. Captions,
+references and footnotes scale with that manuscript size.
+
+The existing account-card emphasis now follows the expert-first reading
+order. Contents links have a 28-pixel minimum height; the two disclosure menus
+are positioned within the paper's tools rather than the viewport. The home
+skip link can focus the main element, and browser tab titles use the readable
+account names. The documented deployment base matches the live project URL.
+
+The expert PDF reserves space for the certificate-verification paragraph,
+the sampling calculation and the complete erased-zero subsection. No paper
+wording, mathematical expression, hypothesis, figure or citation is changed.
+This is a typography and interface pass; it supplies no new mathematical or
+independent-review claim. The existing shared-measure and native-rendering
+owners are used. Validation and print acceptance follow the actual render.
+
+### Cosmetic render and interface acceptance
+
+The expert PDF is rendered from `dfae385` and remains eight pages. The
+certificate-verification paragraph is complete on page 3, the weighted
+sampling calculation begins cleanly on page 4, candidate verification starts
+on page 5, the erased-zero proof is complete on page 6, and the prediction
+event inclusion starts page 7 beside its inequality. Pages 6–7 and the
+all-page layout were inspected after the final pagination adjustment.
+Stripping page-space reservations from old and new Markdown gives identical
+source. The PDF has zero invalid internal destinations. The unchanged
+exposition and reconstruction reuse the earlier accepted PDFs.
+
+Accepted expert SHA-256: `fb5808a2d5d0f331ef1dabe04042788328592145f26e63b488fd7bffec2084f4`.
+
+Native browser checks at widths 390, 901, 1280, 1440 and 1920, in both colour
+themes, confirm the common heading/manuscript edges, contained menus, no
+window overflow, readable tab titles and actual skip-link focus. At width
+1280 the first six paragraph maxima are 75, 73, 72, 77, 78 and 72 visible
+prose characters per line, compared with 86, 83, 83, 85, 90 and 83 before.
+The split view and keyboard resizing were exercised at widths 901 and 1440.
+The passage menu now uses the existing authored route titles from its own
+reading edition, retaining topic IDs only for addresses and older-edition
+compatibility. Changed menus, account cards and manuscript pages were
+visually reviewed in both themes and at laptop and phone sizes.
+
+The generic public-web audit misclassifies hash-router addresses as missing
+fragment IDs and overestimates some formula-bearing line lengths. Its raw
+reports remain diagnostic evidence. The actual routes, normal manuscript
+anchors, visible prose, menu bounds and keyboard focus were tested in the
+rendered reader. Those observations determine this interface acceptance.
+The reusable lesson is the existing shared-measure rule applied across
+fonts; no new writing doctrine is needed (`nothing_to_refine`).
+
+The final `make check` run passed all 314 tests with 5 conditional skips,
+along with layout and generated-source checks. The production build passed
+TypeScript and KaTeX checks. A second ten-combination browser run exercised
+the final descriptive menu labels and fully loaded split graphs. All 623
+reading resources and the accepted PDFs were exported from the committed
+source. The hash-route false positive was also repaired in the audit owner;
+a separate browser fixture still reports a truly missing section fragment
+while accepting existing and percent-encoded anchors.

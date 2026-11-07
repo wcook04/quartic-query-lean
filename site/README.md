@@ -8,7 +8,7 @@ evidence come from one immutable reading edition built by
 ```sh
 npm install
 npm run dev          # links ../build/reading-api into public/ and serves it
-VITE_BASE_PATH=/quartic/ npm run build   # dist/ plus a copy of the edition
+VITE_BASE_PATH=/quartic-query-lean/ npm run build   # dist/ plus a copy of the edition
 ```
 
 The site bundles [the reading client](../tools/reader.mjs) and opens the edition
@@ -67,3 +67,9 @@ The paper–proof separator adapts Proof Reader’s dock handle. Drag it, use th
 arrow keys, or double-click to reset; the chosen split is remembered. Wider
 reading columns use larger manuscript text, and contents move into their menu
 when the paper pane becomes narrow.
+
+The paper heading and manuscript share one reading measure, computed from
+manuscript type size, across the closed and resizable proof views. Captions
+and footnotes scale with that size. Linked-passage menus use the edition's
+authored route titles and stay within the reading column. The account cards
+emphasize the expert entrance, matching the first reading action.
