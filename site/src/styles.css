@@ -463,8 +463,6 @@ html, body { overflow-x: clip; max-width: 100%; }
 .claim__foot { display: flex; gap: 12px; align-items: baseline; justify-content: space-between; margin: 4px 0 0; }
 .sharedfacts { margin: 10px 0 4px; padding: 8px 12px; border: 1px solid var(--rule-2); border-radius: 6px; }
 .sharedfacts h3 { margin: 0 0 4px; font-size: 0.85rem; color: var(--ink-2); }
-.follow { margin: 0 0 12px; padding: 6px 10px; font-size: 0.85rem; border-radius: 6px; background: color-mix(in srgb, var(--query-wash) 45%, transparent); }
-.follow--pinned { background: var(--raised); }
 
 /* The same mathematics in the papers: cards, not a table. */
 .where-else { margin: 10px 0 14px; }
@@ -544,7 +542,6 @@ html, body { overflow-x: clip; max-width: 100%; }
 /* The four accounts have equal navigation weight. Passage previews adapt the
    existing SK-style account strip to the narrower accompanying pane. */
 .inspector__graph[hidden] { display: none; }
-.inspector__context { padding: 0 18px; }
 .passage-detours { display: grid; gap: 9px; margin-bottom: 18px; }
 .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .strip__go + .strip__go { margin-top: 6px; }
@@ -706,6 +703,12 @@ html, body { overflow-x: clip; max-width: 100%; }
   .pending__bar::after { animation: desk-slide 1.2s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
 }
 @keyframes desk-slide { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+
+/* The pane's one status bar: what it is following, then its actions. */
+.inspector__bar { align-items: center; flex-wrap: wrap; gap: 4px 14px; padding: 7px 18px; background: color-mix(in srgb, var(--query-wash) 30%, var(--sheet)); font-size: 0.88rem; }
+.inspector__status { flex: 1 1 14rem; min-width: 0; margin: 0; color: var(--ink-2); line-height: 1.4; }
+.inspector__actions { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-left: auto; }
+.inspector__actions .textbutton { min-height: 28px; }
 
 /* The pane's exit: a quiet cross beside the paper, a named return on phones. */
 .inspector__modes .inspector__close { margin-left: auto; align-self: center; display: inline-grid; place-items: center; width: 32px; height: 32px; margin-bottom: 4px; padding: 0; border: 0; border-radius: 6px; background: none; color: var(--ink-3); cursor: pointer; }

@@ -521,14 +521,35 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                 {wide ? <CloseIcon /> : <><BackIcon /><span>Back to paper</span></>}
               </button>
             </div>
-            <div className="inspector__bar">
-              {route.v && route.v !== "graph" && route.v !== "path" && (route.s || route.p) && !(route.v === "statement" && route.s === `original/${route.st}`) && (
-                <button type="button" className="textbutton" onClick={nav.backToPassage}>
-                  Return to {route.s?.startsWith("original/") ? <StatementLabel id={route.s.slice(9)} /> : "the passage"}
-                </button>
-              )}
-              {route.v && <button type="button" className="textbutton" onClick={() => history.back()}>Back</button>}
-            </div>
+            {mode !== "graph" && (() => {
+              // One compact bar: what the pane is doing, then at most three actions.
+              const returnable = route.v && route.v !== "graph" && route.v !== "path" && (route.s || route.p) && !(route.v === "statement" && route.s === `original/${route.st}`);
+              const nextWord = route.v === "lean" ? "other explanations" : route.v === "passage" ? "the graph" : "its Lean";
+              const leanFallback = mode === "lean" && !route.d && !lit.length && !passageLean;
+              const pinnedLean = mode === "lean" && route.v === "lean";
+              const passageView = (mode === "lean" || mode === "evidence") && (!route.v || route.v === "passage");
+              const status = clickPin ? <>Click the paragraph again for {nextWord}.</>
+                : leanFallback ? <>No Lean is linked to this paragraph; showing the main result.</>
+                : pinnedLean ? <>Keeping this declaration open.</>
+                : passageView ? (following ? <>Following the paper as you read.</> : <>Pinned to this passage.</>)
+                : null;
+              const refollow = !clickPin && (pinnedLean ? () => { setFollowing(true); go({ ...base, s: lineSelection }); } : passageView && !following ? () => setFollowing(true) : null);
+              if (!status && !returnable && !route.v) return null;
+              return (
+                <div className="inspector__bar">
+                  {status && <p className="inspector__status" role="status">{status}</p>}
+                  <span className="inspector__actions">
+                    {refollow && <button type="button" className="textbutton" onClick={refollow}>Follow the paper</button>}
+                    {returnable && (
+                      <button type="button" className="textbutton" onClick={nav.backToPassage}>
+                        Return to {route.s?.startsWith("original/") ? <StatementLabel id={route.s.slice(9)} /> : "the passage"}
+                      </button>
+                    )}
+                    {route.v && <button type="button" className="textbutton" onClick={() => history.back()}>Back</button>}
+                  </span>
+                </div>
+              );
+            })()}
             {(graphOpened || mode === "graph") && (
               <div className="inspector__graph" hidden={mode !== "graph"}>
                 <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
@@ -537,23 +558,13 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                     focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onGraphFocus}
                     onFollow={() => { resumePaperFollowing(); passageCycle.current = null; setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} />
                 </Suspense>
-                <p className="inspector__note">
-                  The highlighted steps appear with their inputs and uses. Dotted links from the main result give context; other lines are recorded dependencies. Choose a card for its Lean, or a dependency for its helpers.
+                <p className="inspector__note" role="status">
+                  {clickPin ? "Click the paragraph again for its Lean; scrolling the paper resumes following." : "Choose a card for its Lean, or a line for where it is used."}
                 </p>
-                {clickPin && <p className="inspector__note">Click this paragraph again for Lean. Scrolling resumes following the paper.</p>}
               </div>
             )}
             {mode !== "graph" && (
               <div className="inspector__body">
-                {(mode === "lean" || mode === "evidence") && (!route.v || route.v === "passage") && (
-                  <p className={`follow${following ? "" : " follow--pinned"}`} role="status">
-                    {clickPin ? <>Click this paragraph again for Graph. Scrolling resumes following the paper.</>
-                      : following ? <>Following the paper as you read.</>
-                      : <>Pinned to this passage. <button type="button" className="textbutton" onClick={() => setFollowing(true)}>Follow the paper again</button></>}
-                  </p>
-                )}
-                {mode === "lean" && !route.d && !lit.length && !passageLean && <p className="quiet inspector__context">The main result is shown here. No declaration is linked to the current paragraph.</p>}
-                {mode === "lean" && route.v === "lean" && <p className="follow follow--pinned">{clickPin ? <>Click this paragraph again for Passage. Scrolling resumes following the paper.</> : <>Keeping this declaration open. <button type="button" className="textbutton" onClick={() => { setFollowing(true); go({ ...base, s: lineSelection }); }}>Follow the paper again</button></>}</p>}
                 {clickError && <p className="failed" role="alert">This passage could not be opened: {clickError}</p>}
                 {panel ?? <p className="quiet">Scroll to a linked passage, or click one, to see its evidence.</p>}
               </div>
