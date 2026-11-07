@@ -67,3 +67,9 @@ The paper–proof separator adapts Proof Reader’s dock handle. Drag it, use th
 arrow keys, or double-click to reset; the chosen split is remembered. Wider
 reading columns use larger manuscript text, and contents move into their menu
 when the paper pane becomes narrow.
+
+The paper heading and manuscript share one reading measure, computed from
+manuscript type size, across the closed and resizable proof views. Captions
+and footnotes scale with that size. Linked-passage menus use the edition's
+authored route titles and stay within the reading column. The account cards
+emphasize the expert entrance, matching the first reading action.

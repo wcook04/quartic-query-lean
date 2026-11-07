@@ -155,3 +155,12 @@ anchors, visible prose, menu bounds and keyboard focus were tested in the
 rendered reader. Those observations determine this interface acceptance.
 The reusable lesson is the existing shared-measure rule applied across
 fonts; no new writing doctrine is needed (`nothing_to_refine`).
+
+The final `make check` run passed all 314 tests with 5 conditional skips,
+along with layout and generated-source checks. The production build passed
+TypeScript and KaTeX checks. A second ten-combination browser run exercised
+the final descriptive menu labels and fully loaded split graphs. All 623
+reading resources and the accepted PDFs were exported from the committed
+source. The hash-route false positive was also repaired in the audit owner;
+a separate browser fixture still reports a truly missing section fragment
+while accepting existing and percent-encoded anchors.
