@@ -398,7 +398,13 @@ a.film-chapters__name::after { content: " →"; color: var(--ink-3); }
 :root:not([data-theme="light"]) .readerstill__img--light, :root[data-theme="light"] .readerstill__img--dark { display: none; }
 @media (max-width: 1000px) { .readerstill { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
 .home-foot { border-top: 1px solid var(--rule-2); margin-top: 48px; padding: 28px 0 0; }
-@media (max-width: 1000px) { .film { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 1000px) {
+  .film { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .film > div { display: contents; }
+  .film h2 { order: -2; }
+  .film > div > p { order: -1; }
+  .film > .film-slot { margin-bottom: 24px; }
+}
 
 /* Graph, Lean and evidence beside the paper. */
 .desk--open { grid-template-columns: minmax(0, 1fr) clamp(440px, 38vw, 620px); }
