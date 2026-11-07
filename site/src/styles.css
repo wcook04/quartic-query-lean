@@ -83,6 +83,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .hero__title { font-family: var(--serif); font-weight: 400; font-size: clamp(2.3rem, 4vw, 3.15rem); line-height: 1.08; margin: 0 0 22px; letter-spacing: -0.015em; text-wrap: balance; }
 .hero__lede { font-family: var(--serif); font-size: 1.2rem; line-height: 1.55; max-width: 34rem; margin: 0 0 26px; }
 .hero__links { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero__note { font-size: 0.92rem; line-height: 1.5; color: var(--ink-2); max-width: 30rem; margin: -10px 0 24px; }
 
 .board { margin: 0; background: var(--sheet); border: 1px solid var(--rule-2); border-radius: 8px; box-shadow: var(--shadow-sheet); padding: 20px 22px 18px; }
 .board--pending { min-height: 360px; color: var(--ink-2); }
@@ -161,6 +162,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .way__tab { margin: 0 0 8px; font-size: 0.9rem; font-weight: 600; color: var(--query); }
 .way__q { font-family: var(--serif); font-weight: 400; font-size: 1.28rem; line-height: 1.3; margin: 0 0 8px; color: var(--ink); text-wrap: balance; }
 .way__who { color: var(--ink-3); font-size: 0.85rem; line-height: 1.45; margin: 0 0 14px; }
+.way__badge { margin-left: 10px; padding: 1px 8px; border-radius: 999px; background: var(--query-wash); color: var(--query); font-size: 0.78rem; font-weight: 600; vertical-align: 1px; }
 .way__preview { color: var(--ink-2); font-size: 0.93rem; line-height: 1.6; margin: 0 0 18px; }
 .way__go { margin: auto 0 0; }
 .way__go a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--query-line); border-radius: 6px; color: var(--query); text-decoration: none; font-weight: 600; font-size: 0.92rem; }
@@ -680,3 +682,17 @@ html, body { overflow-x: clip; max-width: 100%; }
 
 /* At desktop the two printed tables and the covered one share a row, so the puzzle sits whole on the first screen. */
 @media (min-width: 1001px) { .scene__tables { gap: 16px; flex-wrap: nowrap; } .bit { width: 32px; height: 32px; } .bits th { padding: 2px 4px; } }
+
+/* Phones: the three puzzle questions stay one row and scroll, rather than orphaning the third. */
+@media (max-width: 640px) {
+  .board__steps { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-right: -12px; padding-right: 12px; }
+  .board__steps::-webkit-scrollbar { display: none; }
+  .board__step { flex: none; white-space: nowrap; }
+}
+
+/* Cards in a row share their rows (label, question, audience, preview, action), so headings and buttons line up. */
+@supports (grid-template-rows: subgrid) {
+  .ways__list { row-gap: 20px; }
+  .way { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; }
+  .way__go { align-self: end; }
+}
