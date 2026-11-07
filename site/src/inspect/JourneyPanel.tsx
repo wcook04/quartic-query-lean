@@ -1,5 +1,6 @@
 // An authored path through the proof: each step says why a theorem is applied
-// there, then shows the Lean line and the arguments Lean recorded.
+// there, then shows the Lean line and the arguments Lean recorded. Who wrote what is
+// said once in quiet lines; the only marks left are plain words under each use.
 import { useState } from "react";
 import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
@@ -7,7 +8,7 @@ import { LeanCode } from "../lean/LeanCode";
 import { inlineTex } from "../text/html";
 import { useEffect } from "react";
 import { DeclButton, Elsewhere, Loaded, shortName } from "./common";
-import { Who } from "./evidence";
+import { SourceLine } from "./evidence";
 import { useNav } from "./Nav";
 
 export function JourneyPanel({ edition, id, step }: { edition: Edition; id: string; step?: string }) {
@@ -64,20 +65,27 @@ function Journey({ j, step }: { j: any; step?: string }) {
       <header className="panel__head">
         <h2 id="jr-h" className="panel__title">{j.title}</h2>
         <p className="panel__lede" dangerouslySetInnerHTML={{ __html: inlineTex(j.scope) }} />
-        <p className="journey__key"><Who kind="editors" /> wrote the explanations. <Who kind="lean" /> the source lines and what they use. Under each step,
-          <span className="tag tag--exact">exact line</span> means Lean matched the use to the highlighted text;
-          <span className="tag">named here</span> means these lines name it and Lean confirms the declaration uses it.</p>
+        <SourceLine kind="editors">The editors wrote the explanations, to help reading; not a proof. Lean reports the source lines and what they use.</SourceLine>
+        <details className="fold journey__key">
+          <summary>What the words beside each use mean</summary>
+          <ul className="plain marklist">
+            <li><span className="usemark usemark--exact">exact line</span> Lean matched the use to the highlighted text.</li>
+            <li><span className="usemark">elsewhere in it</span> Lean matched a use elsewhere in this declaration.</li>
+            <li><span className="usemark">named here</span> These lines name it, and Lean confirms the declaration uses it.</li>
+          </ul>
+        </details>
       </header>
       <ol className="steps">
         {j.steps.map((s: any, i: number) => <Step key={s.id} s={s} n={i + 1} current={s.id === step} />)}
       </ol>
       <section className="block">
-        <h3 className="block__h">Read this argument in a paper <Who kind="editors" /></h3>
+        <h3 className="block__h">Read this argument in a paper</h3>
         <Elsewhere rows={rows} here={nav.paper} />
+        <SourceLine kind="editors">Passages linked by the editors, to help reading; not a proof.</SourceLine>
       </section>
       {j.interfaces?.length > 0 && (
-        <details className="more">
-          <summary>The definitions this argument relies on</summary>
+        <details className="fold journey__defs">
+          <summary>The definitions this argument relies on <span className="fold__n">{j.interfaces.length}</span></summary>
           {j.interfaces.map((f: any) => (
             <div key={f.name}>
               <h4><DeclButton name={f.name} /></h4>
@@ -100,16 +108,16 @@ function Step({ s, n, current }: { s: any; n: number; current: boolean }) {
       <LeanCode text={s.text} from={s.lines[0]} spans={s.spans} label={`Lean lines ${s.lines[0]} to ${s.lines[1]}`} url={s.url}
         caption={<span>Lean, {s.lines[0] === s.lines[1] ? `line ${s.lines[0]}` : `lines ${s.lines[0]}–${s.lines[1]}`}</span>}
         foot={<p className="leancode__foot">In <DeclButton name={s.caller} /></p>} />
-      <h4 className="uses__h">Uses <span className="uses__src">(recorded from Lean)</span></h4>
+      <h4 className="uses__h">Uses, as Lean records them</h4>
       <ul className="uses">
         {s.uses.map((u: any) => (
           <li key={u.declaration} className="use">
             <DeclButton name={u.declaration} />
             {u.inExcerpt?.length
-              ? <span className="tag tag--exact" title="Lean matched this use to the highlighted text">exact line</span>
+              ? <span className="usemark usemark--exact" title="Lean matched this use to the highlighted text">exact line</span>
               : u.attribution === "exact_source_occurrence"
-                ? <span className="tag" title="Lean matched a use elsewhere in this declaration">elsewhere in it</span>
-                : <span className="tag" title="These lines name it; Lean confirms the declaration uses it">named here</span>}
+                ? <span className="usemark" title="Lean matched a use elsewhere in this declaration">elsewhere in it</span>
+                : <span className="usemark" title="These lines name it; Lean confirms the declaration uses it">named here</span>}
           </li>
         ))}
       </ul>

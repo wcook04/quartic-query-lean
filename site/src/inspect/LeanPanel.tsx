@@ -156,7 +156,7 @@ function Declaration({ d, linked, cards, modules, forStep }: { d: any; linked: S
         )}
         <details className="fold">
           <summary>{axiomSummary(d.axiomAudit)}</summary>
-          <Axioms audit={d.axiomAudit} plain />
+          <Axioms audit={d.axiomAudit} />
         </details>
       </section>
     </article>

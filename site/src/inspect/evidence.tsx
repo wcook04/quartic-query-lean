@@ -20,14 +20,12 @@ export function relationSentence(relation: Relation, route?: string): string {
 
 /** Who produced a fact, in the four kinds the About page defines. */
 export type Source = "lean" | "review" | "check" | "editors";
-const WHO: Record<Source, string> = { lean: "Lean reports", review: "Review", check: "Recorded check", editors: "Editors" };
 const WHO_TITLE: Record<Source, string> = {
   lean: "Reported by Lean from the project's source in this edition",
   review: "A review judgment bound to the current Lean source",
   check: "A recorded Lean build or Comparator run",
   editors: "An editorial reading link or explanation; it helps reading and is not a proof",
 };
-const AI_REVIEW = "AI review";
 const AI_REVIEW_TITLE = "A review judgment, carried out with AI and bound to the current Lean source";
 
 /** A review is labelled as carried out with AI only when every reviewer the edition
@@ -37,13 +35,8 @@ export function byAI(by?: string | readonly (string | null | undefined)[] | null
   return ids.length > 0 && ids.every((id) => id.startsWith("ai:"));
 }
 
-export function Who({ kind, by, children }: { kind: Source; by?: string | readonly (string | null | undefined)[] | null; children?: string }) {
-  const ai = kind === "review" && byAI(by);
-  return <span className={`who who--${kind}`} title={ai ? AI_REVIEW_TITLE : WHO_TITLE[kind]}>{children ?? (ai ? AI_REVIEW : WHO[kind])}</span>;
-}
-
 /** Who produced a section's facts, said once in a quiet line at its end. The words
- *  carry the same disclosures as the badges: Lean's report, a review (and whether it
+ *  disclose who produced them: Lean's report, a review (and whether it
  *  was carried out with AI), a recorded check, or the editors' reading links. */
 export function SourceLine({ kind, by, children }: { kind: Source; by?: string | readonly (string | null | undefined)[] | null; children?: React.ReactNode }) {
   const ai = kind === "review" && byAI(by);
@@ -63,11 +56,10 @@ export function RelationMark({ relation }: { relation: Relation }) {
 
 const STANDARD = new Set(["propext", "Classical.choice", "Quot.sound"]);
 
-/** Axioms are reported by Lean only when a current inspection exists. `plain` says
- *  "Lean reports" in words instead of the source badge. */
-export function Axioms({ inspection, audit, plain }: { inspection?: any; audit?: any; plain?: boolean }) {
+/** Axioms are reported by Lean only when a current inspection exists. */
+export function Axioms({ inspection, audit }: { inspection?: any; audit?: any }) {
   const current = currentAxioms(inspection, audit);
-  const who = plain ? <>Lean reports</> : <Who kind="lean" />;
+  const who = <>Lean reports</>;
   if (Array.isArray(current)) {
     if (current.length === 0) return <p className="ev">{who} that this declaration depends on no axioms.</p>;
     const extra = current.filter((a: string) => !STANDARD.has(a));
@@ -101,12 +93,7 @@ export function Checks({ tie }: { tie: any }) {
     tie.comparison_evidence === "current"
       ? "A recorded Comparator run checked this declaration against a separately written specification."
       : "No Comparator check targets this declaration directly.";
-  return <p className="ev"><Who kind="check" /> {build} {compared}</p>;
-}
-
-export function Reviewer({ by }: { by?: string }) {
-  if (!by) return null;
-  return <Who kind="review" by={by} />;
+  return <p className="ev">{build} {compared}</p>;
 }
 
 export const COVERAGE_SENTENCE: Record<string, string> = {
