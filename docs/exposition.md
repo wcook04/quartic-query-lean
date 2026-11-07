@@ -116,7 +116,7 @@ A *superposition* of column numbers is a linear combination of their basis vecto
 
 Start with equal amplitudes on all $m$ column numbers. For each number $i$, compute fresh comparisons with all listed pivots, retaining each comparison result. Compute one more bit, the *acceptance flag*. Set it to one when $i$ is new and every comparison returns $i$. Set it to zero otherwise. Call the preparation $A$. Each possible measurement result now specifies the drawn column number, the comparison results and the flag, together with the intermediate bits used to compute them. The probability of measuring both number $i$ and flag one is $w_i/m$, summed over all possible intermediate results. We have not yet measured anything.
 
-Suppose the fixed comparisons of Figure 2 give us the pivot list $2,4$. The acceptance flag is one only for column $1$. In column order the four amplitudes are $(1/2,1/2,1/2,1/2)$, with each column's comparison results and flag recorded. Apply the following two operations before measuring.
+Suppose the fixed comparisons of Figure 2 give us the pivot list $2,4$. The acceptance flag is one only for column $1$. In column order the four amplitudes are $(1/2,1/2,1/2,1/2)$, with each column's comparison results and flag recorded. These four coordinates refer to four orthogonal states of the column label and its full comparison workspace. The reflection below acts on that whole state. Apply the following two operations before measuring.
 
 1. Reverse the sign of each amplitude whose flag is one. The four amplitudes become $(-1/2,1/2,1/2,1/2)$.
 2. Reflect the vector about the line spanned by the original equal-amplitude vector. For four equal starting amplitudes this replaces each current amplitude $x$ by $2\bar x-x$, where $\bar x$ is the mean of the four current amplitudes. That mean is $1/4$. The amplitude for column $1$ becomes $1/2-(-1/2)=1$. The amplitude for each of columns $2,3,4$ becomes $1/2-1/2=0$.
@@ -211,6 +211,8 @@ For fixed $k$, constructing the list costs about $\sqrt m$ comparisons up to pow
 
 # 5. A classical query to the hidden cell
 
+The quantum algorithm can locate and check a certificate with about $\sqrt m$ queries, up to logarithmic factors. For the classical lower bound, we must show that an adaptive algorithm cannot cheaply discover either the changed column bit or the correctly addressed certificate.
+
 How many ordinary bit queries would it take to find the winning certificate? Return to the table at the start of Section 1. Reading down its columns gives $1110,0111,1011,1101$. Put address strings satisfying the promise beside each column and fill every certificate cell with zeros. This is the upper board in Figure 5. Each column contains a zero, so the answer is $0$. Copy the board and change the fourth bit of column $1$ from $0$ to $1$. The answers to the two address questions in that column are $1$ and $0$. In the cell labelled $10$, write the output bit of every gate for each of the two address inputs. In the same cell write row number $1$ for column $2$, row number $2$ for column $3$, and row number $3$ for column $4$. Each of these three row numbers identifies a zero, and column $1$ now contains four ones. The answer on the copy is $1$.
 
 ![The fourth bit of column 1 changes from zero to one. The three arrows from its filled cell show which row to read in each of the other columns.](figures/exposition/fig4_planted.svg){width=90%}
@@ -292,6 +294,8 @@ $$
 Here $c_{k,\alpha}>0$ is independent of $m$. Hence for every constant $C$ some total function violates $R(f)\le C(1+Q(f))^\alpha$.
 
 It remains to show that the power four suffices for *every* total Boolean function. Write $D(f)$ for the least worst-case number of queries in a deterministic algorithm that computes $f$ exactly. The theorem of Aaronson, Ben-David, Kothari, Rao and Tal, building on Huang's sensitivity theorem, gives $D(f)=O(Q(f)^4)$ for total functions. A randomized algorithm may use the deterministic one, so $R(f)\le D(f)$. If $\alpha_{\rm tot}$ denotes the infimum of the nonnegative exponents for which one constant works for all total functions, these two results give $\alpha_{\rm tot}=4$. [@ABKRT2020; @Huang2019]
+
+Return to the four-column puzzle. Changing a single zero to one changes the answer, but the algorithm must discover where that change occurred. In the enlarged board, pointers and quantum comparisons let it find a short list and check the certificates. A classical algorithm must instead find the erased zero or specify the hidden certificate address. Hiding that address with Forrelation makes the classical cost approach the fourth power of the quantum cost.
 
 [^ai]: The theorem and construction are OpenAI's. This exposition and its Lean development were prepared with AI systems under the author's direction.
 

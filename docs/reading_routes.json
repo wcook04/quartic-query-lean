@@ -16,7 +16,8 @@
       "note": "The unconditional family result uses the local Forrelation bound. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers.",
       "bound_at": {
         "exposition": "685f757ec50918fd659b926a44f2ba988e11359d",
-        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+        "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "expert": "70580ee73a01da95fd32c42680a93dc15fbd3c09"
       },
       "context_passages": {
         "ROOT-FAMILY-ASSEMBLY": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
@@ -87,7 +88,7 @@
       "note": "Complementarity pairs the two orientations of each match. Sampling a pivot with these weights is a separate implementation step.",
       "bound_at": {
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
-        "expert": "685f757ec50918fd659b926a44f2ba988e11359d"
+        "expert": "70580ee73a01da95fd32c42680a93dc15fbd3c09"
       },
       "context_passages": {
         "upper-comparison-model": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
@@ -117,7 +118,7 @@
       ],
       "bound_at": {
         "expert": "685f757ec50918fd659b926a44f2ba988e11359d",
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+        "exposition": "70580ee73a01da95fd32c42680a93dc15fbd3c09"
       },
       "context_passages": {
         "upper-comparison-model": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
@@ -379,7 +380,7 @@
   },
   "entrances": {
     "exposition": {
-      "audience": "General mathematical readers familiar with probability and linear algebra",
+      "audience": "General mathematical readers familiar with probability and linear algebra; Sections 1–6 form the main argument, with optional appendices",
       "question": "How much can a quantum algorithm save when both algorithms have to read the same hidden bits?",
       "preview": "Imagine a board with one winning column. A classical algorithm can spend almost all its queries finding the right square to inspect. A quantum algorithm can compare two columns cheaply before checking a short list of candidates. Follow a four-column example through both searches to see why the gap approaches a fourth power.",
       "stops": [
@@ -490,16 +491,16 @@
     }
   ],
   "print_edition": {
-    "source_revision": "e3ed60253dd8d7fab06b30a91a625773d460dbdd",
+    "source_revision": "70580ee73a01da95fd32c42680a93dc15fbd3c09",
     "adjudication": "research/adjudication/reader_companion_revision.md",
     "files": {
       "expert": {
         "file": "expert/expert_companion.pdf",
-        "sha256": "ca01098a7f2faaf66548ab39eeda7e1d16ac47f9aaca4efe3d2319578b82d220"
+        "sha256": "245a135db127044e9d0276d35a9079adcd476caff278f04c80a21f0d5d38f93d"
       },
       "exposition": {
         "file": "exposition/exposition.pdf",
-        "sha256": "7f73766787d0e23d160697a29168b79b9ad6ac15285b6ea1fea9de70c478d8e3"
+        "sha256": "94999df97309f56a0ddb9acd14da22ec3d3964b09046171550f04c8b626188bb"
       },
       "reconstruction": {
         "file": "record/reasoning_record.pdf",

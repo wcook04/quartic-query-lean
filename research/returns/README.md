@@ -107,3 +107,11 @@ These conversations include successive reconsiderations and an extracted-formula
 criticism that must be checked against the actual source. The
 [revision account](../adjudication/paper_purpose_revision.md) separates the
 adjudicated changes from the reviewers' proposed edits and scores.
+
+## Companion polish, 7 November 2026
+
+The supplied [expert assessment](reader_companion_expert_20261107.md) and
+[exposition assessment](reader_companion_exposition_20261107.md) are preserved
+verbatim. Their scores describe writing, not a correctness audit. The
+[revision decisions](../adjudication/reader_companion_revision.md#follow-up-companion-polish)
+identify the accepted changes and current section destinations.
