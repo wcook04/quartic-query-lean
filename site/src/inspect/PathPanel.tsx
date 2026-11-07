@@ -107,9 +107,9 @@ function Step({ reader, decl, name, card }: { reader: any; decl: any; name: stri
           </button>
         )}
       </p>
-      {src?.text && <LeanCode text={src.text} from={src.lines?.[0] ?? 1} label={`Lean source of ${name}`} />}
+      {src?.text && <LeanCode text={src.text} from={src.lines?.[0] ?? 1} label={`Lean source of ${name}`} url={src.url} foldOver={14}
+        caption={<span>{src.lines ? `Lean, lines ${src.lines[0]}–${src.lines[1]}` : "Lean source"}</span>} />}
       {src && !src.text && src.url && <p className="quiet">No separate excerpt is recorded for this name. <a href={src.url} target="_blank" rel="noopener noreferrer">Open its module</a></p>}
-      {src?.url && src.text && <p className="quiet"><a href={src.url} target="_blank" rel="noopener noreferrer">Source on GitHub</a></p>}
     </div>
   );
 }
@@ -160,9 +160,10 @@ function HopEvidence({ reader, hop }: { reader: any; hop: any }) {
         <LeanCode text={text.value} from={range[0]}
           spans={site && site.lines[0] === site.lines[1] ? [{ line: site.lines[0], from: site.utf16_columns[0], to: site.utf16_columns[1] }] : undefined}
           mark={site && site.lines[0] !== site.lines[1] ? site.lines : null}
-          label={`Lean around line ${site?.lines[0] ?? range[0]}`} />
+          label={`Lean around line ${site?.lines[0] ?? range[0]}`} url={site?.url}
+          caption={<span>Lean, lines {range[0]}–{range[1]}</span>} />
       )}
-      {site?.url && <p className="hop__src"><a href={site.url} target="_blank" rel="noopener noreferrer">Line {site.lines[0]} on GitHub</a></p>}
+      {site?.url && !(range && text.state === "ready" && text.value) && <p className="hop__src"><a href={site.url} target="_blank" rel="noopener noreferrer">Line {site.lines[0]} on GitHub</a></p>}
       {ev.parameterOrigins?.length > 0 && (
         <p className="hop__note">Parameter type: {ev.parameterOrigins.map((o: any, i: number) => (
           <span key={i}>{i ? ", " : ""}<a href={o.url} target="_blank" rel="noopener noreferrer">{o.binder ? <code>{o.binder}</code> : `line ${o.lines?.[0]}`}</a></span>

@@ -1,11 +1,11 @@
 // One Lean declaration: its source, what Lean says it depends on, what uses it,
 // and the paper passages that cite it. Edges are Lean's; paper links are editorial.
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
 import { LeanCode, nameLinks } from "../lean/LeanCode";
-import { Axioms, RelationMark } from "./evidence";
-import { DeclTitle, Elsewhere, Loaded, StatementLabel } from "./common";
+import { Axioms, RelationMark, Who } from "./evidence";
+import { DeclTitle, Elsewhere, journeyName, Loaded, StatementLabel } from "./common";
 import { useNav } from "./Nav";
 
 const KIND_WORD: Record<string, string> = { value: "proof or body", type: "statement", structural: "structure" };
@@ -78,86 +78,94 @@ function Declaration({ d, linked, cards, modules }: { d: any; linked: Set<string
   const kindWord = isTheorem ? "Theorem" : d.kind === "structure" || d.kind === "inductive" ? "Type" : "Definition";
   const steps = uses.filter((e) => e.kind !== "type");
   const vocabulary = uses.filter((e) => e.kind === "type" && Object.hasOwn(modules, e.name));
+  const file = (src.source ?? "").replace(/^lean\//, "");
+  const range = src.lines ? (src.lines[0] === src.lines[1] ? `line ${src.lines[0]}` : `lines ${src.lines[0]}–${src.lines[1]}`) : "";
+  const reviewed = [...ties].filter(([, t]) => t.review === "current" && t.relation !== "unassessed");
+  const linkedOnly = [...ties].filter(([, t]) => !(t.review === "current" && t.relation !== "unassessed"));
+  const statementButton = (st: string) => <button type="button" className="textbutton" onClick={() => nav.openStatement(st)}><StatementLabel id={st} /></button>;
   return (
     <article className="panel panel--lean" aria-labelledby="ln-h">
-      <header className="panel__head">
-        <p className="panel__kind">{kindWord} in Lean{src.url && <> · <a href={src.url} target="_blank" rel="noopener noreferrer">source on GitHub</a></>}</p>
-        <h2 id="ln-h" className="panel__title"><DeclTitle name={d.name} /></h2>
+      <header className="panel__head decl-head">
+        <p className="panel__kind">{kindWord} in Lean</p>
+        <h2 id="ln-h" className="panel__title decl-head__title"><DeclTitle name={d.name} /></h2>
+        <p className="decl-head__raw">
+          <code>{d.name}</code>
+          <CopyName name={d.name} />
+          <button type="button" className="decl-head__act" onClick={() => nav.openGraph(d.name)}>Show in graph</button>
+        </p>
       </header>
 
       {src.text ? (
-        <section>
-          <h3>What it says in Lean</h3>
-          <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean} label={`Lean source of ${d.name}`} />
-        </section>
+        <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean}
+          label={`Lean source of ${d.name}`} url={src.url} foldOver={14} foldWord={isTheorem ? "proof" : "definition body"}
+          caption={<><span className="leancode__file">{file || "Lean source"}</span>{range && <span>{range}</span>}</>} />
       ) : (
-        <p className="ev quiet">No source text is recorded for this declaration.</p>
+        <p className="panel-empty">No source text is recorded for this declaration.</p>
       )}
 
-      {ties.size > 0 && (() => {
-        const reviewed = [...ties].filter(([, t]) => t.review === "current" && t.relation !== "unassessed");
-        const linkedOnly = [...ties].filter(([, t]) => !(t.review === "current" && t.relation !== "unassessed"));
-        const names = (list: typeof reviewed) => list.map(([st], i) => (
-          <span key={st}>{i ? (i === list.length - 1 ? " and " : ", ") : ""}<button type="button" className="textbutton" onClick={() => nav.openStatement(st)}><StatementLabel id={st} /></button></span>
-        ));
-        return (
-          <section className="tie" aria-label="Its place in the papers">
-            {reviewed.map(([st, t]) => (
-              <div key={st}><p className="tie__line"><RelationMark relation={t.relation} /> Compared with <button type="button" className="textbutton" onClick={() => nav.openStatement(st)}><StatementLabel id={st} /></button>.</p>
-                {t.relation === "partial" && <p className="cmp__note">{d.notes[st] ?? "This declaration covers only part of the statement. Open the comparison for the reviewed scope."}</p>}
-              </div>
-            ))}
-            {linkedOnly.length > 0 && <p className="tie__line">Linked by the editors to {names(linkedOnly)}; no current review compares {linkedOnly.length === 1 ? "the two" : "it with them"}.</p>}
-          </section>
-        );
-      })()}
+      {ties.size > 0 && (
+        <section className="block tie" aria-labelledby="ln-tie">
+          <h3 id="ln-tie" className="block__h">Compared with the papers{reviewed.length > 0 && <Who kind="review" />}</h3>
+          {reviewed.map(([st, t]) => (
+            <div key={st} className="tie__item">
+              <p className="tie__line"><RelationMark relation={t.relation} /> <span className="tie__vs">against</span> {statementButton(st)}</p>
+              {t.relation === "partial" && <p className="tie__note">{d.notes[st] ?? "This declaration covers only part of the statement. Open the comparison for the reviewed scope."}</p>}
+            </div>
+          ))}
+          {linkedOnly.length > 0 && (
+            <div className="tie__item">
+              <p className="tie__line tie__line--linked"><Who kind="editors" /> Linked to {linkedOnly.length === 1 ? "this statement" : "these statements"}; no current review compares {linkedOnly.length === 1 ? "the two" : "it with them"}.</p>
+              <ul className="plain tie__list">{linkedOnly.map(([st]) => <li key={st}>{statementButton(st)}</li>)}</ul>
+            </div>
+          )}
+        </section>
+      )}
 
-      <details className="more where-else">
-        <summary>Read this step in the papers</summary>
+      <section className="block" aria-labelledby="ln-lean">
+        <h3 id="ln-lean" className="block__h">Dependencies <Who kind="lean" /></h3>
+        <Neighbours title={isTheorem ? "Its proof relies on" : "Its definition relies on"} empty="Nothing else in this project." list={steps} linked={linked} mapped={cards} modules={modules} />
+        {vocabulary.length > 0 && (
+          <details className="more more--inline">
+            <summary>{vocabulary.length} {vocabulary.length === 1 ? "definition" : "definitions"} its statement is written in</summary>
+            <StatedWith list={vocabulary} />
+          </details>
+        )}
+        <Neighbours title="Used by" empty="No other declaration in this project uses it." list={users} linked={linked} mapped={cards} modules={modules} />
+        <div className="nbs">
+          <h4 className="nbs__h">Axioms</h4>
+          <Axioms audit={d.axiomAudit} />
+        </div>
+      </section>
+
+      <section className="block" aria-labelledby="ln-papers">
+        <h3 id="ln-papers" className="block__h">In the papers <Who kind="editors" /></h3>
         <Elsewhere rows={treatments} here="" current={nav.paper} />
-      </details>
-
-      <p className="cmp__actions"><button type="button" className="button button--small" onClick={() => nav.openGraph(d.name)}>Show it in the graph</button></p>
-
-
-      <Neighbours title={isTheorem ? "What its proof relies on" : "What its definition relies on"} empty="Nothing else in this project." list={steps} linked={linked} mapped={cards} modules={modules} />
-      {vocabulary.length > 0 && (
-        <details className="more more--inline">
-          <summary>{vocabulary.length} {vocabulary.length === 1 ? "definition" : "definitions"} its statement is written in</summary>
-          <StatedWith list={vocabulary} />
-        </details>
-      )}
-      <Neighbours title="What uses it" empty="No other declaration in this project uses it." list={users} linked={linked} mapped={cards} modules={modules} />
-
-
-
-      {d.journeys?.length > 0 && (
-        <section>
-          <h3>Walk through the argument it belongs to</h3>
-          <ul className="plain">
+        {d.journeys?.length > 0 && (
+          <ul className="plain journeys">
             {d.journeys.map((j: string) => (
-              <li key={j}><button type="button" className="textbutton" onClick={() => nav.openJourney(j)}>{JOURNEY_NAMES[j] ?? j.replace(/-/g, " ")}</button></li>
+              <li key={j}><button type="button" className="journey-link" onClick={() => nav.openJourney(j)}><span className="journey-link__k">Walkthrough</span> {journeyName(j)}</button></li>
             ))}
           </ul>
-        </section>
-      )}
-
-
-      <section>
-        <h3>Axioms</h3>
-        <Axioms audit={d.axiomAudit} />
+        )}
       </section>
     </article>
   );
 }
 
-const JOURNEY_NAMES: Record<string, string> = {
-  "forrelation-family": "How one family gives both query bounds",
-  "capped-predictor": "Why naming the true cell reveals the whole address",
-  "gaussian-transport": "How the Gaussian identity enters two estimates",
-  "weighted-tournament": "Why weighted comparisons halve the candidates",
-  "sign-blind-decoder": "Why the decoder needs an exact domain test",
-};
+/** Adapted from Proof Reader's CopyName (web/src/proof/DeclBlock.tsx at e2df888, Apache-2.0). */
+function CopyName({ name }: { name: string }) {
+  const [copied, setCopied] = useState(false);
+  useEffect(() => {
+    if (!copied) return;
+    const timer = window.setTimeout(() => setCopied(false), 1600);
+    return () => window.clearTimeout(timer);
+  }, [copied]);
+  return (
+    <button type="button" className="decl-head__act" onClick={() => void navigator.clipboard?.writeText(name).then(() => setCopied(true), () => {})}>
+      <span aria-live="polite">{copied ? "Copied" : "Copy name"}</span>
+    </button>
+  );
+}
 
 function StatedWith({ list }: { list: Edge[] }) {
   const nav = useNav();
@@ -193,7 +201,7 @@ function Neighbours({ title, empty, list, linked, mapped, modules }: { title: st
   );
   return (
     <section className="nbs">
-      <h3>{title}</h3>
+      <h4 className="nbs__h">{title}{list.length > 0 && <span className="nbs__n">{list.length}</span>}</h4>
       {list.length === 0 ? <p className="quiet">{empty}</p> : (
         <>
           {cards.length > 0 && <ul className="nb__list">{cards.map((e) => <Item key={e.name} e={e} />)}</ul>}
@@ -204,8 +212,8 @@ function Neighbours({ title, empty, list, linked, mapped, modules }: { title: st
                   {helpers ? "Hide" : "Show"} {rest.length} helper {rest.length === 1 ? "lemma" : "lemmas"}
                 </button>
               )}
-              {rest.length > 0 && outside > 0 && " · "}
-              {outside > 0 && `${outside} ${outside === 1 ? "fact" : "facts"} from Mathlib and other libraries`}
+              {rest.length > 0 && outside > 0 && <span aria-hidden="true"> · </span>}
+              {outside > 0 && <span>{outside} {outside === 1 ? "fact" : "facts"} from Mathlib and other libraries</span>}
             </p>
           )}
           {helpers && <ul className="nb__list nb__list--helpers">{rest.map((e) => <Item key={e.name} e={e} />)}</ul>}

@@ -78,9 +78,10 @@ code { font-family: var(--mono); font-size: 0.86em; }
 /* Home */
 .home { max-width: 1180px; margin: 0 auto; padding: 0 20px 80px; }
 .hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: start; padding: 56px 0 48px; }
-.hero__title { font-family: var(--serif); font-weight: 400; font-size: clamp(2.3rem, 4.6vw, 3.6rem); line-height: 1.05; margin: 0 0 22px; letter-spacing: -0.01em; }
+.hero__title { font-family: var(--serif); font-weight: 400; font-size: clamp(2.3rem, 4vw, 3.15rem); line-height: 1.08; margin: 0 0 22px; letter-spacing: -0.015em; text-wrap: balance; }
 .hero__lede { font-family: var(--serif); font-size: 1.2rem; line-height: 1.55; max-width: 34rem; margin: 0 0 26px; }
 .hero__links { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero__note { font-size: 0.92rem; line-height: 1.5; color: var(--ink-2); max-width: 30rem; margin: -10px 0 24px; }
 
 .board { margin: 0; background: var(--sheet); border: 1px solid var(--rule-2); border-radius: 8px; box-shadow: var(--shadow-sheet); padding: 20px 22px 18px; }
 .board--pending { min-height: 360px; color: var(--ink-2); }
@@ -122,6 +123,8 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .math-bands { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; border-top: 1px solid var(--rule); padding: 40px 0; }
 .math-bands h2, .ways h2, .credit h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; margin: 0 0 12px; }
 .exponent, .arch { margin: 0; }
+/* The short exponent column travels beside the long outline rather than ending in a dead gap. */
+@media (min-width: 1001px) { .exponent { position: sticky; top: calc(var(--head) + 24px); align-self: start; } }
 .exponent__control { display: flex; gap: 12px; align-items: center; margin: 14px 0; }
 .exponent__ks { display: flex; gap: 4px; }
 .kbtn { min-width: 40px; padding: 4px 8px; border: 1px solid var(--rule); background: var(--sheet); cursor: pointer; font-family: var(--serif); font-size: 1.05rem; }
@@ -157,6 +160,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .way__tab { margin: 0 0 8px; font-size: 0.9rem; font-weight: 600; color: var(--query); }
 .way__q { font-family: var(--serif); font-weight: 400; font-size: 1.28rem; line-height: 1.3; margin: 0 0 8px; color: var(--ink); text-wrap: balance; }
 .way__who { color: var(--ink-3); font-size: 0.85rem; line-height: 1.45; margin: 0 0 14px; }
+.way__badge { margin-left: 10px; padding: 1px 8px; border-radius: 999px; background: var(--query-wash); color: var(--query); font-size: 0.78rem; font-weight: 600; vertical-align: 1px; }
 .way__preview { color: var(--ink-2); font-size: 0.93rem; line-height: 1.6; margin: 0 0 18px; }
 .way__go { margin: auto 0 0; }
 .way__go a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--query-line); border-radius: 6px; color: var(--query); text-decoration: none; font-weight: 600; font-size: 0.92rem; }
@@ -221,7 +225,6 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .panel section { margin: 0; }
 .ev { font-size: 0.92rem; margin: 4px 0; }
 .ev--gap { color: var(--gap); }
-.ev__who { font-size: 0.78rem; font-weight: 700; color: var(--editorial); margin-right: 4px; }
 .rel { font-size: 0.85rem; font-weight: 700; white-space: nowrap; }
 .rel::before { content: ""; display: inline-block; width: 0.7em; height: 0.7em; margin-right: 0.35em; background: currentColor; vertical-align: 0; }
 .rel--exact { color: var(--exact); }
@@ -269,16 +272,6 @@ code { font-family: var(--mono); font-size: 0.86em; }
 
 .lean { font-family: var(--mono); font-size: 0.78rem; line-height: 1.5; background: var(--code); padding: 10px 0; margin: 8px 0; overflow-x: auto; max-height: 60vh; }
 .lean { overscroll-behavior: contain; scrollbar-width: thin; }
-.lean code { font-size: inherit; display: block; }
-.lean__line { display: grid; grid-template-columns: 3.4em 1fr; }
-.lean__line.is-marked { background: var(--query-wash); }
-.lean__no { color: var(--ink-2); text-align: right; padding-right: 10px; user-select: none; opacity: 0.7; }
-.lean__text { white-space: pre-wrap; overflow-wrap: anywhere; padding-left: calc(var(--indent, 0) * 1ch); text-indent: calc(var(--indent, 0) * -1ch); padding-right: 10px; }
-.lk--keyword { color: var(--editorial); }
-.lk--type { color: var(--stronger); }
-.lk--comment, .lk--prose { color: var(--ink-2); font-style: italic; }
-.lk--number { color: var(--partial); }
-.lean__ref { font: inherit; background: none; border: 0; padding: 0; color: var(--query); cursor: pointer; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 0.2em; }
 
 .hood__map { position: relative; margin: 10px 0 6px; }
 .hood__wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
@@ -356,7 +349,13 @@ a.film-chapters__name::after { content: " →"; color: var(--ink-3); }
 :root:not([data-theme="light"]) .readerstill__img--light, :root[data-theme="light"] .readerstill__img--dark { display: none; }
 @media (max-width: 1000px) { .readerstill { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
 .home-foot { border-top: 1px solid var(--rule-2); margin-top: 48px; padding: 28px 0 0; }
-@media (max-width: 1000px) { .film { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 1000px) {
+  .film { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .film > div { display: contents; }
+  .film h2 { order: -2; }
+  .film > div > p { order: -1; }
+  .film > .film-slot { margin-bottom: 24px; }
+}
 
 /* Graph, Lean and evidence beside the paper. */
 .desk--open { grid-template-columns: minmax(0, 1fr) clamp(440px, 38vw, 620px); }
@@ -399,7 +398,6 @@ a.film-chapters__name::after { content: " →"; color: var(--ink-3); }
 .hop__picks button { background: none; border: 1px solid var(--control); border-radius: 4px; padding: 0 6px; margin-left: 4px; font-size: 0.8rem; cursor: pointer; color: var(--ink-2); }
 .hop__picks button[aria-pressed="true"] { border-color: var(--query); color: var(--query); }
 .hop__src { margin: 0; font-size: 0.82rem; }
-.lean__hit { background: var(--query-wash); color: var(--query); border-radius: 0; padding: 1px 0; box-decoration-break: clone; }
 /* Wide equations and tables scroll inside themselves; the paper never scrolls sideways. */
 .paper { overflow-x: clip; }
 .exponent__caption { margin: 0 0 4px; font-size: 0.85rem; color: var(--ink-2); }
@@ -446,11 +444,6 @@ html, body { overflow-x: clip; max-width: 100%; }
 .chip { font-family: var(--serif); }
 
 /* Walkthrough steps: the Lean as a captioned card, then a clean list of what it uses. */
-.codecard { margin: 10px 0 8px; border: 1px solid var(--rule-2); border-radius: 8px; overflow: hidden; background: var(--code); }
-.codecard .lean { margin: 0; border-radius: 0; }
-.codecard__bar { display: flex; justify-content: space-between; margin: 0; padding: 5px 12px; font-size: 0.8rem; color: var(--ink-3); border-bottom: 1px solid var(--rule-2); }
-.codecard__from { margin: 0; padding: 5px 12px; font-size: 0.82rem; color: var(--ink-3); border-top: 1px solid var(--rule-2); }
-.codecard__from .decl--plain { font-size: 0.86rem; }
 .uses__h { margin: 10px 0 4px; font-size: 0.85rem; color: var(--ink-2); }
 .uses { display: grid; gap: 4px; }
 .use { display: flex; gap: 10px; align-items: baseline; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--rule-2); }
@@ -491,10 +484,6 @@ html, body { overflow-x: clip; max-width: 100%; }
 
 /* Where the papers discuss it: a calm four-column strip. */
 .strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--rule-2); border-radius: 8px; overflow: hidden; margin-top: 6px; }
-.strip__col { padding: 8px 10px 10px; border-left: 1px solid var(--rule-2); display: flex; flex-direction: column; gap: 5px; min-width: 0; }
-.strip__col:first-child { border-left: 0; }
-.strip__col.is-here { background: color-mix(in srgb, var(--query-wash) 45%, transparent); }
-.strip__col.is-empty { opacity: 0.6; }
 .strip__paper { margin: 0; font-size: 0.74rem; font-weight: 700; color: var(--ink-3); }
 .strip__here { font-weight: 400; color: var(--query); }
 .strip__none { margin: 0; font-size: 0.82rem; color: var(--ink-3); }
@@ -503,7 +492,7 @@ html, body { overflow-x: clip; max-width: 100%; }
 .strip__go:hover .strip__where { color: var(--query); text-decoration-color: var(--query-line); }
 .strip__quote { font-family: var(--serif); font-size: 0.8rem; line-height: 1.3; color: var(--ink-2); }
 .strip__more { margin: 6px 0 0; font-size: 0.82rem; }
-@media (max-width: 640px) { .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } .strip__col:nth-child(3) { border-left: 0; } .strip__col:nth-child(n+3) { border-top: 1px solid var(--rule-2); } }
+@media (max-width: 640px) { .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* Board scenes: one register, quiet links, a slider that marks the rows it reads. */
 .scene__promise { font-size: 1rem; }
@@ -515,12 +504,12 @@ html, body { overflow-x: clip; max-width: 100%; }
 .scene__tables { gap: 28px; }
 .scene__aside { min-width: 0; flex: 1 1 260px; }
 .scene__certs { margin: 22px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 0.93rem; }
-.scene__certs dt { color: var(--ink-3); font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; padding-top: 2px; }
+.scene__certs dt { color: var(--ink-3); font-size: 0.88rem; font-weight: 600; padding-top: 2px; }
 .scene__certs dd { margin: 0; color: var(--ink-2); }
 .scene__again { margin: 0 0 8px; padding: 6px 12px; border: 1px solid var(--query-line); border-radius: 6px; background: none; color: var(--query); cursor: pointer; font: inherit; font-size: 0.9rem; }
 .scene__again:hover { background: var(--query-wash); }
 .scene__fixed { margin-top: 16px; padding-top: 14px; font-size: 0.92rem; color: var(--ink-2); }
-.scene__fixed label { display: block; color: var(--ink-3); font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.scene__fixed label { display: block; color: var(--ink-3); font-size: 0.88rem; font-weight: 600; }
 .scene__slider { display: flex; align-items: center; gap: 12px; margin: 8px 0 6px; }
 .scene__slider input { width: 160px; margin: 0; accent-color: var(--query); border-radius: 999px; }
 .scene__slider input:focus-visible { outline: 2px solid var(--query-line); outline-offset: 4px; }
@@ -531,7 +520,7 @@ html, body { overflow-x: clip; max-width: 100%; }
 .pointers { width: 100%; border-collapse: collapse; margin: 6px 0 10px; font-size: 0.93rem; }
 .pointers caption { text-align: left; font-size: 0.85rem; color: var(--ink-2); padding-bottom: 6px; }
 .pointers th, .pointers td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--rule-2); white-space: nowrap; }
-.pointers thead th { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-3); white-space: normal; vertical-align: bottom; }
+.pointers thead th { font-size: 0.85rem; font-weight: 600; color: var(--ink-3); white-space: normal; vertical-align: bottom; }
 .pointers tbody th { font-weight: 500; color: var(--ink); }
 .pointers td.is-zero { color: var(--query); font-family: var(--serif); font-size: 1.05rem; }
 .pointers td.is-one { font-family: var(--serif); font-size: 1.05rem; }
@@ -558,9 +547,6 @@ html, body { overflow-x: clip; max-width: 100%; }
 .inspector__context { padding: 0 18px; }
 .passage-detours { display: grid; gap: 9px; margin-bottom: 18px; }
 .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.strip__col:nth-child(odd) { border-left: 0; }
-.strip__col:nth-child(n+3) { border-top: 1px solid var(--rule-2); }
-.strip__col.is-empty { opacity: 1; }
 .strip__go + .strip__go { margin-top: 6px; }
 .strip__paper { font-size: .82rem; }
 .strip__quote { font-size: .88rem; line-height: 1.4; }
@@ -793,4 +779,21 @@ html, body { overflow-x: clip; max-width: 100%; }
 @media (max-width: 640px) {
   .about, .notice-page { padding: 36px 16px 72px; }
   .evidence-kinds, .notice-papers { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* At desktop the two printed tables and the covered one share a row, so the puzzle sits whole on the first screen. */
+@media (min-width: 1001px) { .scene__tables { gap: 16px; flex-wrap: nowrap; } .bit { width: 32px; height: 32px; } .bits th { padding: 2px 4px; } }
+
+/* Phones: the three puzzle questions stay one row and scroll, rather than orphaning the third. */
+@media (max-width: 640px) {
+  .board__steps { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-right: -12px; padding-right: 12px; }
+  .board__steps::-webkit-scrollbar { display: none; }
+  .board__step { flex: none; white-space: nowrap; }
+}
+
+/* Cards in a row share their rows (label, question, audience, preview, action), so headings and buttons line up. */
+@supports (grid-template-rows: subgrid) {
+  .ways__list { row-gap: 20px; }
+  .way { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; }
+  .way__go { align-self: end; }
 }

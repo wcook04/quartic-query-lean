@@ -7,6 +7,7 @@ import { LeanCode } from "../lean/LeanCode";
 import { inlineTex } from "../text/html";
 import { useEffect } from "react";
 import { DeclButton, Elsewhere, Loaded, shortName } from "./common";
+import { Who } from "./evidence";
 import { useNav } from "./Nav";
 
 export function JourneyPanel({ edition, id, step }: { edition: Edition; id: string; step?: string }) {
@@ -63,15 +64,15 @@ function Journey({ j, step }: { j: any; step?: string }) {
       <header className="panel__head">
         <h2 id="jr-h" className="panel__title">{j.title}</h2>
         <p className="panel__lede" dangerouslySetInnerHTML={{ __html: inlineTex(j.scope) }} />
-        <p className="quiet">The explanations are the editors’. The Lean, and what it uses, are recorded from Lean. Under each step,
+        <p className="journey__key"><Who kind="editors" /> wrote the explanations. <Who kind="lean" /> the source lines and what they use. Under each step,
           <span className="tag tag--exact">exact line</span> means Lean matched the use to the highlighted text;
           <span className="tag">named here</span> means these lines name it and Lean confirms the declaration uses it.</p>
       </header>
       <ol className="steps">
         {j.steps.map((s: any, i: number) => <Step key={s.id} s={s} n={i + 1} current={s.id === step} />)}
       </ol>
-      <section>
-        <h3>Read this argument in a paper</h3>
+      <section className="block">
+        <h3 className="block__h">Read this argument in a paper <Who kind="editors" /></h3>
         <Elsewhere rows={rows} here={nav.paper} />
       </section>
       {j.interfaces?.length > 0 && (
@@ -80,7 +81,7 @@ function Journey({ j, step }: { j: any; step?: string }) {
           {j.interfaces.map((f: any) => (
             <div key={f.name}>
               <h4><DeclButton name={f.name} /></h4>
-              <LeanCode text={f.text} from={f.lines[0]} label={`Lean source of ${f.name}`} />
+              <LeanCode text={f.text} from={f.lines[0]} label={`Lean source of ${f.name}`} caption={<span>Lean, lines {f.lines[0]}–{f.lines[1] ?? f.lines[0]}</span>} foldOver={14} foldWord="definition body" />
             </div>
           ))}
         </details>
@@ -96,15 +97,10 @@ function Step({ s, n, current }: { s: any; n: number; current: boolean }) {
     <li className={`step${current ? " is-current" : ""}`} id={`step-${s.id}`}>
       <h3 className="step__title"><span className="step__n">{n}</span> <span dangerouslySetInnerHTML={{ __html: inlineTex(s.title) }} /></h3>
       <p className="step__why" dangerouslySetInnerHTML={{ __html: inlineTex(s.mechanism) }} />
-      <div className="codecard">
-        <p className="codecard__bar">
-          <span>Lean, {s.lines[0] === s.lines[1] ? `line ${s.lines[0]}` : `lines ${s.lines[0]}–${s.lines[1]}`}</span>
-          <a href={s.url} target="_blank" rel="noopener noreferrer">GitHub</a>
-        </p>
-        <LeanCode text={s.text} from={s.lines[0]} spans={s.spans} label={`Lean lines ${s.lines[0]} to ${s.lines[1]}`} />
-        <p className="codecard__from">From <DeclButton name={s.caller} /></p>
-      </div>
-      <h4 className="uses__h">Uses</h4>
+      <LeanCode text={s.text} from={s.lines[0]} spans={s.spans} label={`Lean lines ${s.lines[0]} to ${s.lines[1]}`} url={s.url}
+        caption={<span>Lean, {s.lines[0] === s.lines[1] ? `line ${s.lines[0]}` : `lines ${s.lines[0]}–${s.lines[1]}`}</span>}
+        foot={<p className="leancode__foot">In <DeclButton name={s.caller} /></p>} />
+      <h4 className="uses__h">Uses <span className="uses__src">(recorded from Lean)</span></h4>
       <ul className="uses">
         {s.uses.map((u: any) => (
           <li key={u.declaration} className="use">

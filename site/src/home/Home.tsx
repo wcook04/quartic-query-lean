@@ -77,6 +77,10 @@ export function Home({ edition }: { edition: Edition }) {
             power of its quantum query cost. Four is the best possible exponent. Read their paper, three accounts of
             its proof, and a Lean proof you can open beside any of them.
           </p>
+          <p className="hero__note">
+            The theorem and its proof are OpenAI’s. The three accounts, the Lean and the links between them were
+            prepared with AI. <a href={href({ page: "about" })}>How to read the evidence</a>
+          </p>
           <p className="hero__links">
             <a className="button" href={href({ page: "read", paper: "expert" })}>Read the expert companion</a>
             <a className="button button--quiet" href={href({ page: "read", paper: "exposition" })}>Start with a worked example</a>
@@ -117,12 +121,12 @@ export function Home({ edition }: { edition: Edition }) {
             const p = PAPERS.find((x) => x.id === paper)!;
             return (
               <li key={paper} className={`way way--${paper}`}>
-                <p className="way__tab">{p.tab}</p>
+                <p className="way__tab">{p.tab}{paper === "expert" && <span className="way__badge">Start here</span>}</p>
                 <h3 className="way__q">{e ? e.question : " "}</h3>
                 <p className="way__who">{e?.audience}</p>
                 {e && <p className="way__preview" dangerouslySetInnerHTML={{ __html: inlineTex(e.preview) }} />}
                 <p className="way__go">
-                  <a href={href({ page: "read", paper, s: e?.first_selection })} aria-label={`Start reading ${p.name}`}>{paper === "original" ? "Open the paper" : "Start reading"}</a>
+                  <a href={href({ page: "read", paper, s: e?.first_selection })} >{paper === "original" ? "Read OpenAI’s paper" : `Read the ${p.tab.charAt(0).toLowerCase()}${p.tab.slice(1)}`}</a>
                 </p>
               </li>
             );
