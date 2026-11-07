@@ -187,7 +187,7 @@ def print_downloads(edition, folder, accepted):
     revision = accepted["source_revision"]
     if not re.fullmatch(r"[a-f0-9]{40}", revision) or set(accepted["files"]) != set(PAPERS):
         raise ValueError("invalid print edition")
-    inputs = [*PAPERS.values(), "docs/*.bib", "docs/figures", "tools/render_papers.py",
+    inputs = [*PAPERS.values(), *(str(Path(p).with_suffix(".bib")) for p in PAPERS.values()), "docs/figures", "tools/render_papers.py",
               "tools/render_reasoning_record.py", SUPPLEMENT]
     diff = subprocess.run(["git", "diff", "--quiet", revision, "--", *inputs], cwd=edition.root)
     if diff.returncode:
