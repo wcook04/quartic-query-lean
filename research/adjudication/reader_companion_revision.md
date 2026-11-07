@@ -66,3 +66,35 @@ unchanged meanings before rebinding. The settled prose received the bounded
 humanizer audit. This applies the existing long-to-short, record-to-expository
 and register methods; it does not justify another general writing rule
 (`nothing_to_refine`). Earlier PDF acceptance remains edition-bound.
+
+### Follow-up render acceptance
+
+The expert and exposition were rendered from `70580ee` with the native renderer.
+They remain 8 and 25 pages. The theorem and its size restriction now appear
+together at the start of expert page 2; the complete randomized gap argument
+appears on page 7. The exposition's main argument concludes on page 16.
+All-page layout sheets and the changed pages were visually inspected at
+reading size. Both revised PDFs have zero invalid internal destinations and
+zero relative Markdown remote-PDF links. The reconstruction's source and
+92-page PDF are unchanged; its previously accepted bytes are reused.
+
+The three-paper print edition accepts these exact PDF hashes:
+
+- expert: `245a135db127044e9d0276d35a9079adcd476caff278f04c80a21f0d5d38f93d`.
+- exposition: `94999df97309f56a0ddb9acd14da22ec3d3964b09046171550f04c8b626188bb`.
+- reconstruction: `a1eae43067b4c8dfd8306cb2838dee65436838ba1f637ec0a02c404428f44394`.
+
+Register comparison used the retained cited cheat-sheet, amplification and
+direct-product papers, with the previous two manuscripts as baselines.
+Brassard et al., Lemma 1 and the following whole-state reflection, the blank
+array in Aaronson–Ben-David–Kothari, Lemma 6, and Drucker's §1.3 account of
+conditioning were reread. These mathematical source passages support the
+retained operations; their whole-document profile is contextual and is not a
+matched teaching corpus or a quality score. No further broad rewrite follows
+from its statistical flags. The bounded prose review retained the unaffected
+examples, definitions, calculations, formal boundary and attribution.
+
+`make check` passes the generated-source and layout checks and all 314 tests
+(5 conditional skips). The binding audit reviews 63 selections and 36
+prerequisites with no remaining changed association. No new proof-check or
+human-review claim follows from these editorial checks.
