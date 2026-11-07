@@ -1,11 +1,13 @@
 // The helpers behind one arrow of the Lean graph, in order, from the edition's
-// recorded dependency chains. Each hop says how Lean used the next declaration.
+// recorded dependency chains. Each hop says how Lean used the next declaration, in
+// plain words; what those words mean is folded, and Lean is named once at the end.
 import { useState } from "react";
 import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
 import { LeanCode } from "../lean/LeanCode";
 import { Title } from "../text/title";
 import { Loaded } from "./common";
+import { SourceLine } from "./evidence";
 import { useNav } from "./Nav";
 
 const KIND_OF: Record<string, string> = { supports: "value", lean_type_dependency: "type", lean_structural_dependency: "structural" };
@@ -43,13 +45,16 @@ function Path({ p, from, to, kind, reader }: { p: any; from: string; to: string;
     <article className="panel panel--path" aria-labelledby="pt-h">
       <header className="panel__head">
         <h2 id="pt-h" className="panel__title">How one step reaches another</h2>
-        <p className="panel__where">
-          The graph draws one arrow; Lean records the chain of declarations behind it, each using the next.
-          Tags say how the use was found: <span className="tag tag--exact">named here</span> Lean resolves the name on the highlighted text,
-          <span className="tag tag--exact">compiled from this line</span> the line produces the use,
-          <span className="tag">parameter type</span> it enters through a parameter declared earlier,
-          <span className="tag">whole declaration</span> no single line was matched.
-        </p>
+        <p className="panel__where">The graph draws one arrow; Lean records the chain of declarations behind it, each using the next.</p>
+        <details className="fold">
+          <summary>What the words beside each use mean</summary>
+          <ul className="plain marklist">
+            <li><span className="usemark usemark--exact">named here</span> Lean resolves the name on the highlighted text.</li>
+            <li><span className="usemark usemark--exact">compiled from this line</span> The line produces the use.</li>
+            <li><span className="usemark">parameter type</span> It enters through a parameter declared earlier.</li>
+            <li><span className="usemark">whole declaration</span> No single line was matched.</li>
+          </ul>
+        </details>
       </header>
       {variants.map((v: any) => (
         <section key={v.firstKind} className="chain">
@@ -72,7 +77,7 @@ function Path({ p, from, to, kind, reader }: { p: any; from: string; to: string;
           </ol>
         </section>
       ))}
-      <p className="quiet">These chains are Lean’s recorded dependencies between whole declarations. The exact line where each use happens needs the separate application evidence, shown in the walkthroughs.</p>
+      <SourceLine kind="lean">These chains are Lean’s recorded dependencies between whole declarations. The exact line where each use happens needs the separate application evidence, shown in the walkthroughs.</SourceLine>
       <p className="cmp__actions">
         <button type="button" className="button button--small" onClick={() => nav.openGraph(from)}>Back to the graph</button>
       </p>
@@ -140,7 +145,7 @@ function HopEvidence({ reader, hop }: { reader: any; hop: any }) {
     <div className="hop">
       {site ? (
         <p className="hop__note">
-          <span className={`tag${site.basis === "inherited_parameter" ? "" : " tag--exact"}`}>{BASIS[site.basis] ?? "located"}</span>
+          <span className={`usemark${site.basis === "inherited_parameter" ? "" : " usemark--exact"}`}>{BASIS[site.basis] ?? "located"}</span>
           {site.basis === "inherited_parameter" && site.binder && <> Its binder is <code>{site.binder}</code>.</>}
           {sites.length > 1 && (
             <span className="hop__picks" role="group" aria-label="Choose a use">
@@ -152,7 +157,7 @@ function HopEvidence({ reader, hop }: { reader: any; hop: any }) {
         </p>
       ) : (
         <p className="hop__note">
-          <span className="tag">whole declaration</span>{" "}
+          <span className="usemark">whole declaration</span>{" "}
           {ev.declarationLines && <button type="button" className="textbutton" onClick={() => setWhole(!whole)}>{whole ? "Hide the declaration" : "Show the declaration"}</button>}
         </p>
       )}
