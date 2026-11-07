@@ -154,6 +154,24 @@ end
 """,
 }
 
+# Reuse the record renderer's sibling-link adaptation for every reading copy.
+# Relative Markdown links otherwise become remote-PDF actions in hyperref.
+SIBLING_LINK_LAYOUT = r'''local function sibling_link(el)
+  local file = el.target:match("^([%w_]+)%.md$") or el.target:match("^([%w_]+)%.md#")
+  if file == "expert_companion" or file == "exposition" or
+     file == "reasoning_record" or file == "proof_index" or
+     file == "verification_details" then
+    el.target = "https://github.com/wcook04/quartic-query-lean/blob/SIBLING_REVISION/docs/" .. el.target
+    return el
+  end
+end
+'''
+
+
+def sibling_link_filter(revision="main"):
+    return SIBLING_LINK_LAYOUT.replace("SIBLING_REVISION", revision)
+
+
 # Numeric citation style for the expert paper (the exposition uses Pandoc's default).
 NUMERIC_CSL = r'''<?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only">
@@ -269,7 +287,10 @@ def render(paper, out):
     figdir = build_figures(paper, out)
     (out / "header.tex").write_text(
         HEADER + HEADER_EXTRA[paper].replace("@OUT@", str(out)))
-    lua = LUA[paper].replace("FIGDIR", repr(str(figdir)))
+    sibling_revision = run(["git", "rev-parse", "HEAD"], cwd=ROOT).stdout.strip()
+    lua = (LUA[paper].replace("FIGDIR", repr(str(figdir))) + "\n"
+           + sibling_link_filter(sibling_revision)
+           + "\nfunction Link(el) return sibling_link(el) end\n")
     if paper == "expert":
         (out / "numeric.csl").write_text(NUMERIC_CSL)
         (out / "images.lua").write_text(lua)
@@ -299,7 +320,7 @@ def render(paper, out):
     if input_hashes(paper) != before:
         raise RuntimeError("paper inputs changed during rendering")
     receipt = {"schema": "quartic-paper-render-v1", "status": "rendered_requires_visual_review",
-               "inputs": before, "pdf_sha256": hashlib.sha256((out / f"{name}.pdf").read_bytes()).hexdigest()}
+               "inputs": before, "sibling_paper_revision": sibling_revision, "pdf_sha256": hashlib.sha256((out / f"{name}.pdf").read_bytes()).hexdigest()}
     (out / "render.json").write_text(json.dumps(receipt, indent=2) + "\n")
     print(out / f"{name}.pdf")
 
