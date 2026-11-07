@@ -20,7 +20,7 @@ export function GraphKey({ graph, notesRef, badges = true, list = false }: { gra
   const helpers = badges && !list && graph.edges.some((e) => (drawnHelpers(e) ?? 0) > 0);
   return (
     <div className="gkey">
-      {!list && <p className="gkey__intro">An arrow points from a declaration to the result that uses it. Select a line for the Lean where it is used.</p>}
+      <p className="gkey__intro">{list ? "Choose a row for its Lean, or a line for where it is used." : "Arrows point to the result that uses each step. Choose a card for its Lean, or a line for where it is used."}</p>
       <ul className="gkey__list" aria-label={list ? "Line styles in the rows" : "Line styles"}>
         {ORDER.filter((s) => s === "proof" || present.has(s)).map((s) => (
           <li key={s}>

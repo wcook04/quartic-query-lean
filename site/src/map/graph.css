@@ -79,6 +79,10 @@
 .graph__caption[hidden] { display: none; }
 .gkey { --k: 1; flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; padding: 8px 14px; border-top: 1px solid var(--rule); font-size: var(--fs-xs); line-height: 1.4; color: var(--ink-2); }
 .gkey__intro { flex-basis: 100%; margin: 0; color: var(--ink-3); }
+/* The tab's question, on one line with the follow status above the controls. */
+.graph__head { flex: none; display: flex; align-items: center; gap: 4px 12px; padding: 8px 12px 0 16px; min-width: 0; }
+.graph__title { margin: 0; min-width: 0; font-family: var(--sans); font-size: var(--fs-base); font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.graph__head .gstatus { margin-left: auto; }
 .gkey__list { display: contents; list-style: none; }
 .gkey__list li { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .gkey__sample { flex: none; overflow: visible; }

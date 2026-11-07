@@ -1,11 +1,11 @@
-// A selected passage: what it says, what it is linked to, and where to go next.
+// A selected passage, answering "this step in each paper": the four papers' passages
+// first, then what the Lean proves (one row per declaration with its match), then
+// walkthroughs and the editors' note. Each section names its source once, at its end.
 import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
 import { inlineTex } from "../text/html";
-import { COVERAGE_SENTENCE, RelationMark, Who } from "./evidence";
+import { byAI, COVERAGE_SENTENCE, RelationMark, SourceLine } from "./evidence";
 import { DeclButton, Elsewhere, journeyName, Loaded, StatementLabel } from "./common";
-import { useStatementNames } from "./Names";
-import { Title } from "../text/title";
 import { useNav } from "./Nav";
 
 export function PassagePanel({ edition, query }: { edition: Edition; query: any }) {
@@ -14,15 +14,12 @@ export function PassagePanel({ edition, query }: { edition: Edition; query: any 
   return <Loaded value={r} what="passage">{(v) => <Passage r={v} />}</Loaded>;
 }
 
-function bestTie(statement: any) {
-  const current = (statement.lean ?? []).filter((t: any) => t.review_evidence === "current" && t.relation !== "unassessed");
-  const lead = statement.review_scope?.leading_matches?.[0];
-  return current.find((t: any) => lead && t.declaration === lead.declaration) ?? current[0] ?? null;
-}
+const reviewedTies = (statement: any) => (statement.lean ?? []).filter((t: any) => t.review_evidence === "current" && t.relation !== "unassessed");
+
+interface Row { name: string; relation?: string; note?: string }
 
 function Passage({ r }: { r: any }) {
   const nav = useNav();
-  const statementNames = useStatementNames();
   const heading = r.context?.headings?.at(-1)?.title;
   const statements: any[] = r.statements ?? [];
   const topics: any[] = r.topics ?? [];
@@ -32,22 +29,44 @@ function Passage({ r }: { r: any }) {
   ];
   const roots: any[] = (r.proof ?? []).slice(0, 6);
   const choices: any[] = (r.matches ?? []).filter((m: any) => m.id !== r.position?.id && (m.topic || m.statements?.length));
+  const ownStatement = r.paper === "original" && r.position?.id ? r.position.id.replace(/^original\//, "") : null;
+  const detours = topics.flatMap((t) => t.detours ?? []).filter((d: any, i: number, all: any[]) => all.findIndex((x: any) => x.paper === d.paper && x.anchor === d.anchor) === i);
+
+  // What the Lean proves: for each statement, its reviewed declarations (the review's
+  // leading match first), then the graph's starting points tied to it; the remaining
+  // starting points are the editors' links.
+  const shown = new Set<string>();
+  const groups = statements.map((s) => {
+    const lead = s.review_scope?.leading_matches?.[0]?.declaration;
+    const ties = [...reviewedTies(s)].sort((a: any, b: any) => Number(b.declaration === lead) - Number(a.declaration === lead));
+    const rows: Row[] = ties.map((t: any) => ({ name: t.declaration, relation: t.relation, note: t.relation === "partial" ? t.note : undefined }));
+    for (const p of roots) {
+      const tie = p.basis.find((b: any) => b.basis === "statement_tie" && b.statement === s.id);
+      if (tie && !rows.some((x) => x.name === p.name)) rows.push({ name: p.name, relation: tie.relation });
+    }
+    rows.forEach((x) => shown.add(x.name));
+    return { s, rows };
+  });
+  const tiedRoots = roots.filter((p) => !shown.has(p.name) && p.basis.some((b: any) => b.basis === "statement_tie"));
+  const editorial = roots.filter((p) => !shown.has(p.name) && !p.basis.some((b: any) => b.basis === "statement_tie"));
+  const by = statements.flatMap((s) => reviewedTies(s).map((t: any) => t.reviewed_by));
+  const anyReviewed = groups.some((g) => g.rows.some((x) => x.relation)) || tiedRoots.length > 0;
+  const noLean = r.coverage !== "associated_targets" ? COVERAGE_SENTENCE[r.coverage] ?? COVERAGE_SENTENCE.documented_passage : null;
+  const notes = topics.filter((t) => t.note);
+
   return (
     <article className="panel panel--passage" aria-labelledby="ps-h">
       <header className="panel__head">
         <h2 id="ps-h" className="panel__title">
-          {r.paper === "original" && r.position?.id ? <StatementLabel id={r.position.id.replace(/^original\//, "")} /> : topics[0]?.title ?? (r.page ? `Page ${r.page}` : heading ?? "Selected passage")}
+          {ownStatement ? <StatementLabel id={ownStatement} /> : topics[0]?.title ?? (r.page ? `Page ${r.page}` : heading ?? "Selected passage")}
         </h2>
-        {heading && topics[0] && <p className="panel__where">In “{heading}”.</p>}
+        {r.paper === "original"
+          ? <p className="panel__where">{r.position?.id ? `Page ${r.page} of OpenAI’s paper; a margin mark shows where it begins, when the PDF records the spot.` : r.matches?.length ? `${r.matches.length} indexed statements on page ${r.page}.` : `No statement is indexed on page ${r.page}. The page reads as normal.`}</p>
+          : heading && topics[0] && <p className="panel__where">In “{heading}”.</p>}
       </header>
 
-      <p className="ev">
-        {r.paper === "original"
-          ? r.position?.id ? `Page ${r.page} of OpenAI’s paper. A mark in the margin shows where it begins, when the PDF records the spot.` : r.matches?.length ? `${r.matches.length} indexed statements on page ${r.page}.` : `No statement is indexed on page ${r.page}. The page reads as normal.`
-          : `${COVERAGE_SENTENCE[r.coverage] ?? ""} The selected text stays highlighted in the paper.`}
-      </p>
       {r.paper === "original" && !r.position?.id && r.matches?.length > 0 && (
-        <ul className="plain">
+        <ul className="plain linklist">
           {r.matches.map((m: any) => (
             <li key={m.id}><button type="button" className="textbutton" onClick={() => nav.openSelection("original", m.id)}><StatementLabel id={m.statements?.[0] ?? m.id.replace(/^original\//, "")} /></button></li>
           ))}
@@ -62,80 +81,75 @@ function Passage({ r }: { r: any }) {
         </p>
       )}
 
-      {topics.map((t) => t.note && (
-        <p key={t.id} className="note"><Who kind="editors">Editors’ note</Who> <span dangerouslySetInnerHTML={{ __html: inlineTex(t.note) }} /></p>
-      ))}
-
-      <section className="block where-else" aria-labelledby="ps-follow">
-        <h3 id="ps-follow" className="block__h">Follow this step <Who kind="editors" /></h3>
-        {topics.some((t) => t.detours?.length) && <ul className="plain passage-detours">
-          {topics.flatMap((t) => t.detours ?? []).filter((d: any, i: number, all: any[]) => all.findIndex((x: any) => x.paper === d.paper && x.anchor === d.anchor) === i).map((d: any) => (
-            <li key={`${d.paper}/${d.anchor}`}><button type="button" className="textbutton" onClick={() => nav.openPassage(d.paper, d.anchor)}>{d.question}</button></li>
-          ))}
-        </ul>}
+      <section className="block block--first" aria-labelledby="ps-each">
+        <h3 id="ps-each" className="block__h">This step in each paper</h3>
         <Elsewhere rows={elsewhere} here={nav.paper} selected={r.position?.id ? { paper: r.paper, id: r.position.id } : undefined} />
+        {detours.length > 0 && (
+          <>
+          <p className="linklist__lead">Go further</p>
+          <ul className="plain linklist">
+            {detours.map((d: any) => (
+              <li key={`${d.paper}/${d.anchor}`}><button type="button" className="textbutton" onClick={() => nav.openPassage(d.paper, d.anchor)}>{d.question}</button></li>
+            ))}
+          </ul>
+          </>
+        )}
+        <SourceLine kind="editors">Passages linked by the editors, to help reading; not a proof.</SourceLine>
       </section>
 
-      {statements.length > 0 && (
+      {(groups.length > 0 || tiedRoots.length > 0 || editorial.length > 0) && (
         <section className="block" aria-labelledby="ps-proves">
-          <h3 id="ps-proves" className="block__h">What Lean proves <Who kind="review" by={statements.map((s) => bestTie(s)?.reviewed_by)} /></h3>
-          <ul className="claims">
-            {statements.map((s) => {
-              const tie = bestTie(s);
-              return (
-                <li key={s.id} className="claim">
-                  <p className="claim__head">
-                    <span className="claim__name"><StatementLabel id={s.id} presentation={s.presentation} /></span> {tie ? <RelationMark relation={tie.relation} /> : <span className="rel rel--unassessed">Not assessed</span>}
-                  </p>
-                  <p className="claim__text">{s.presentation
-                    ? <span aria-label={s.presentation.body_plain}><Title text={s.presentation.body} /></span>
-                    : statementNames.status === "unavailable_in_edition" || statementNames.status === "archived_partial" ? s.statement : "Statement text unavailable in this edition."}</p>
-                  {s.presentation && <details className="more more--inline"><summary>Original ledger wording</summary><p>{s.statement}</p></details>}
-                  {tie?.relation === "partial" && tie.note && <p className="cmp__note">{tie.note}</p>}
-                  <p className="claim__foot">
-                    {tie && <span className="claim__decl"><span className="claim__k">Lean</span> <DeclButton name={tie.declaration} /></span>}
-                    <button type="button" className="button button--small" onClick={() => nav.openStatement(s.id)}>Compare in full</button>
-                  </p>
-                </li>
-              );
-            })}
-          </ul>
+          <h3 id="ps-proves" className="block__h">What the Lean proves</h3>
+          {groups.map(({ s, rows }) => (
+            <div key={s.id} className="proves">
+              <p className="proves__against">
+                <span>Against {s.id === ownStatement ? "this statement" : <StatementLabel id={s.id} presentation={s.presentation} />}</span>
+                <button type="button" className="textbutton proves__cmp" onClick={() => nav.openStatement(s.id)}>Compare in full</button>
+              </p>
+              {rows.length > 0 ? <Rows rows={rows} /> : <p className="quiet proves__none">No current review compares a Lean declaration with this statement.</p>}
+            </div>
+          ))}
+          {tiedRoots.length > 0 && (
+            <div className="proves">
+              <Rows rows={tiedRoots.map((p) => ({ name: p.name, relation: p.basis.find((b: any) => b.basis === "statement_tie")?.relation }))} />
+            </div>
+          )}
+          {editorial.length > 0 && (
+            <div className="proves">
+              {(groups.length > 0 || tiedRoots.length > 0) && <p className="proves__against"><span>Also linked to this passage</span></p>}
+              <Rows rows={editorial.map((p) => ({ name: p.name }))} />
+            </div>
+          )}
+          <SourceLine kind={anyReviewed ? "review" : "editors"} by={by}>
+            {anyReviewed && <>Matches judged by {byAI(by) ? "AI review" : "review"} against the paper’s statement, bound to the current Lean source.</>}
+            {anyReviewed && editorial.length > 0 && " "}
+            {editorial.length > 0 && <>{anyReviewed ? "Unmarked rows are" : "These declarations are"} linked by the editors.</>}
+          </SourceLine>
+        </section>
+      )}
+
+      {groups.length === 0 && tiedRoots.length === 0 && editorial.length === 0 && noLean && (r.paper !== "original" || r.position?.id) && (
+        <section className="block" aria-labelledby="ps-proves">
+          <h3 id="ps-proves" className="block__h">What the Lean proves</h3>
+          <p className="quiet">{noLean}</p>
         </section>
       )}
 
       {r.journeys?.length > 0 && (
         <section className="block" aria-labelledby="ps-why">
-          <h3 id="ps-why" className="block__h">Why it works, step by step <Who kind="editors" /></h3>
-          <ul className="plain journeys">
+          <h3 id="ps-why" className="block__h">Why it works, step by step</h3>
+          <ul className="plain linklist">
             {r.journeys.map((j: string) => (
-              <li key={j}><button type="button" className="journey-link" onClick={() => nav.openJourney(j)}><span className="journey-link__k">Walkthrough</span> {journeyName(j)}</button></li>
+              <li key={j}><button type="button" className="textbutton" onClick={() => nav.openJourney(j)}>{journeyName(j)}</button></li>
             ))}
           </ul>
+          <SourceLine kind="editors">Written by the editors, to help reading; not a proof.</SourceLine>
         </section>
       )}
 
-
-      {roots.length > 0 && (
-        <section className="block" aria-labelledby="ps-roots">
-          <h3 id="ps-roots" className="block__h">Lean to start from</h3>
-          {[["Reviewed against this passage’s statement", roots.filter((p) => p.basis.some((b: any) => b.basis === "statement_tie"))],
-            ["Linked by the editors", roots.filter((p) => !p.basis.some((b: any) => b.basis === "statement_tie"))]]
-            .filter(([, list]) => (list as any[]).length).map(([label, list]) => (
-            <div key={label as string} className="rootgroup">
-              <p className="rootgroup__label"><Who kind={label === "Linked by the editors" ? "editors" : "review"}>{label as string}</Who></p>
-              <ul className="roots">
-                {(list as any[]).map((p) => {
-                  const rel = p.basis.find((b: any) => b.basis === "statement_tie")?.relation;
-                  return <li key={p.name}><DeclButton name={p.name} />{rel && <> <RelationMark relation={rel} /></>}</li>;
-                })}
-              </ul>
-            </div>
-          ))}
-        </section>
-      )}
       {r.comparisons?.length > 0 && (
         <section className="block" aria-labelledby="ps-checks">
-          <h3 id="ps-checks" className="block__h">Recorded Comparator checks <Who kind="check" /></h3>
+          <h3 id="ps-checks" className="block__h">Recorded Comparator checks</h3>
           <ul className="plain">
             {r.comparisons.map((c: any) => (
               <li key={c.path}>
@@ -145,9 +159,30 @@ function Passage({ r }: { r: any }) {
               </li>
             ))}
           </ul>
-          <p className="quiet">Comparator checks that the submitted Lean theorem has the specified type. This is distinct from a review of the paper’s mathematics or the meaning of those definitions.</p>
+          <SourceLine kind="check">Comparator checks that the submitted Lean theorem has the specified type. This is distinct from a review of the paper’s mathematics or the meaning of those definitions.</SourceLine>
+        </section>
+      )}
+
+      {notes.length > 0 && (
+        <section className="block block--quiet" aria-label="Editors’ note">
+          {notes.map((t) => <p key={t.id} className="editnote"><span className="editnote__k">Editors’ note.</span> <span dangerouslySetInnerHTML={{ __html: inlineTex(t.note) }} /></p>)}
         </section>
       )}
     </article>
+  );
+}
+
+/** One compact row per declaration: its plain title, then its match mark when reviewed. */
+function Rows({ rows }: { rows: Row[] }) {
+  return (
+    <ul className="plain proves__rows">
+      {rows.map((x) => (
+        <li key={x.name} className="proves__row">
+          <span className="proves__decl"><DeclButton name={x.name} /></span>
+          {x.relation && <RelationMark relation={x.relation} />}
+          {x.note && <span className="proves__note">{x.note}</span>}
+        </li>
+      ))}
+    </ul>
   );
 }

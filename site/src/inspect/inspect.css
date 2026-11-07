@@ -1,8 +1,9 @@
 /* The Lean, Passage, statement and walkthrough panels beside the paper.
    Loaded after styles.css, so these rules settle the panels' look.
-   Hierarchy: a compact head, the Lean listing straight under the name, then
-   blocks separated by a rule, each labelled with who produced its facts
-   (Lean, AI review, recorded check, editors) as the About page defines them. */
+   Hierarchy: a compact head, then a few blocks separated by a rule. Each block
+   answers one thing and ends with one quiet source line saying who produced its
+   facts (Lean, AI review, recorded check, editors), as the About page defines
+   them. The only marks are the match marks: Exact, Stronger, Partial. */
 
 .panel { font-size: 0.95rem; line-height: 1.55; }
 :where(.panel) p { margin: 0 0 8px; }
@@ -128,7 +129,7 @@
 .strip__go { background: none; border: 0; padding: 0; text-align: left; cursor: pointer; display: grid; gap: 2px; color: var(--ink); font: inherit; }
 .strip__where { font-family: var(--serif); font-size: 1rem; line-height: 1.3; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
 .strip__go:hover .strip__where { color: var(--query); text-decoration-color: var(--query-line); }
-.strip__sel { font-size: 0.76rem; font-weight: 600; color: var(--query); }
+.strip__sel { font-size: 0.8rem; color: var(--ink-3); }
 .strip__quote { font-family: var(--serif); font-size: 0.92rem; line-height: 1.4; color: var(--ink-2); }
 .strip__extra summary { font-size: 0.84rem; color: var(--query); cursor: pointer; }
 .strip__extra .strip__go { margin-top: 8px; }
@@ -216,3 +217,59 @@
 .leancode__pre.is-scroll .leancode__line { column-gap: 0; grid-template-columns: 6ch max-content; }
 .leancode__pre.is-scroll .leancode__no { z-index: 1; padding-right: 1.4ch; box-shadow: 1px 0 0 var(--rule-2); }
 .leancode__pre.is-scroll .leancode__text { padding-left: 1.4ch; }
+
+/* ------------------------------------- quiet structure (pane clarity) */
+.panel .block--first { margin-top: 6px; border-top: 0; padding-top: 0; }
+.panel .block--quiet { display: grid; gap: 8px; }
+.panel .block__h--next { margin-top: 18px; }
+.panel__kindsep { margin: 0 2px; color: var(--ink-3); }
+/* Who produced the section's facts: one grey line at its end, never a badge. */
+.panel .srcline { margin: 10px 0 0; font-size: 0.875rem; line-height: 1.45; color: var(--ink-3); cursor: help; }
+.panel details .srcline { margin-top: 8px; }
+
+/* How a declaration matches the paper: one line each. */
+.panel .match { padding-top: 12px; }
+.match__item + .match__item { margin-top: 8px; }
+.match__line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; margin: 0; font-size: 0.95rem; }
+.match__k { font-weight: 600; color: var(--ink); }
+.match__vs { color: var(--ink-3); }
+.panel .match__st { font-family: var(--serif); font-size: 1rem; line-height: 1.35; color: var(--ink); text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.panel .match__st:hover { color: var(--query); text-decoration-color: var(--query-line); }
+.match__note { margin: 4px 0 0; font-size: 0.92rem; color: var(--ink-2); }
+
+/* Plain lists of declaration titles (Uses, Used by). */
+.declist { display: grid; gap: 4px; margin: 0 0 4px; }
+.declink { background: none; border: 0; padding: 1px 0; text-align: left; cursor: pointer; font-family: var(--serif); font-size: 1rem; line-height: 1.35; color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.declink:hover, .declink:focus-visible { color: var(--query); text-decoration-color: var(--query-line); }
+.declist--sub { margin: 6px 0 4px; padding-left: 14px; border-left: 1px solid var(--rule-2); }
+.declist__more { margin: 2px 0 0; font-size: 0.875rem; color: var(--ink-2); }
+
+/* Plain links with a small lead word (walkthroughs, further passages). */
+.linklist { display: grid; gap: 6px; margin: 4px 0 0; }
+.linklist__lead { margin: 14px 0 4px; font-size: 0.875rem; color: var(--ink-3); }
+.linklist li { font-size: 0.95rem; line-height: 1.4; }
+.linklist__k { font-size: 0.875rem; color: var(--ink-3); margin-right: 2px; }
+.panel .linklist .textbutton { font-family: var(--serif); font-size: 1rem; color: var(--ink); text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.panel .linklist .textbutton:hover { color: var(--query); text-decoration-color: var(--query-line); }
+
+/* Quiet folds at the end of a panel. */
+.fold summary { font-size: 0.9rem; color: var(--ink-2); cursor: pointer; padding: 2px 0; }
+.fold summary:hover { color: var(--ink); }
+.fold[open] summary { margin-bottom: 8px; }
+.fold__n { color: var(--ink-3); margin-left: 4px; }
+
+/* What the Lean proves: one row per declaration. */
+.proves + .proves { margin-top: 12px; }
+.proves__against { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 12px; margin: 0 0 4px; font-size: 0.875rem; color: var(--ink-2); }
+.proves__cmp { font-size: 0.875rem; white-space: nowrap; }
+.proves__rows { display: grid; margin: 0; }
+.proves__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; align-items: baseline; padding: 7px 0; border-top: 1px solid var(--rule-2); }
+.proves__row:last-child { border-bottom: 1px solid var(--rule-2); }
+.proves__decl .decl--plain { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; background: none; border: 0; padding: 0; cursor: pointer; }
+.proves__decl .decl--plain:hover { color: var(--query); text-decoration-color: var(--query-line); }
+.proves__note { grid-column: 1 / -1; margin-top: 2px; font-size: 0.875rem; line-height: 1.45; color: var(--ink-2); }
+.proves__none { margin: 4px 0 0; }
+
+/* The editors' note: quiet text at the end. */
+.editnote { margin: 0; font-size: 0.92rem; color: var(--ink-2); }
+.editnote__k { font-weight: 600; color: var(--ink-2); }
