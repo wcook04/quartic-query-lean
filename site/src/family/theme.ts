@@ -10,9 +10,16 @@ export function currentScheme(): Scheme {
   return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
 }
 
+function syncBrowserColour() {
+  const colour = getComputedStyle(document.documentElement).getPropertyValue("--paper").trim();
+  const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+  if (meta && colour) meta.content = colour;
+}
+
 export function setScheme(next: Scheme) {
   const root = document.documentElement;
   root.setAttribute("data-theme", next);
+  syncBrowserColour();
   try { if (next === "dark") localStorage.removeItem(KEY); else localStorage.setItem(KEY, next); } catch { /* storage unavailable */ }
   document.dispatchEvent(new CustomEvent("quartic:scheme"));
 }
@@ -20,6 +27,7 @@ export function setScheme(next: Scheme) {
 export function useScheme(): [Scheme, (s: Scheme) => void] {
   const [scheme, set] = useState<Scheme>(currentScheme);
   useEffect(() => {
+    syncBrowserColour();
     const on = () => set(currentScheme());
     document.addEventListener("quartic:scheme", on);
     return () => document.removeEventListener("quartic:scheme", on);

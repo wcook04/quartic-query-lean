@@ -73,3 +73,22 @@ manuscript type size, across the closed and resizable proof views. Captions
 and footnotes scale with that size. Linked-passage menus use the edition's
 authored route titles and stay within the reading column. The account cards
 emphasize the expert entrance, matching the first reading action.
+
+The two paper menus form one native disclosure group. Escape dismisses the
+menu before the proof pane; an outside pointer click or leaving the menu by
+keyboard dismisses it too. Menus start below the entire toolbar, including
+when its controls wrap. On phones, the covered paper and paper tabs are inert
+while the proof is open; closing it returns focus to the selected passage.
+The theme owner also updates the browser colour from the current page token.
+
+Manuscript links have actual reader URLs: copy-link, middle-click and
+Cmd/Ctrl-click open the intended paper or footnote separately. Ordinary clicks
+retain the reading excursion and its Return control. An explicitly selected
+older edition stays pinned in those URLs. Additional passage names come from
+the same edition's existing argument index, including topics outside the
+shorter route list.
+
+Menu height is bounded by the visible paper pane rather than a fixed share of
+the screen. A menu opens above its toolbar when space below is insufficient,
+and repositions on resize. The last choice remains scrollable and clickable
+on short phone screens.

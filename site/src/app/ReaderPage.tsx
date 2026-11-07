@@ -36,6 +36,19 @@ function useWide(): boolean {
   return wide;
 }
 
+function fitPaperMenu(menu: HTMLDetailsElement) {
+  const tools = menu.closest<HTMLElement>(".paper__tools");
+  const paper = menu.closest<HTMLElement>(".paper");
+  const list = menu.querySelector<HTMLElement>("ul");
+  if (!menu.open || !menu.getClientRects().length || menu.closest("[inert]") || !tools || !paper || !list) return;
+  const anchor = tools.getBoundingClientRect(), pane = paper.getBoundingClientRect();
+  const below = Math.max(0, Math.min(pane.bottom, window.innerHeight) - anchor.bottom - 12);
+  const above = Math.max(0, anchor.top - Math.max(pane.top, 0) - 12);
+  const opensAbove = below < 120 && above > below;
+  list.dataset.placement = opensAbove ? "above" : "below";
+  list.style.maxHeight = `${Math.min(window.innerHeight / 2, opensAbove ? above : below)}px`;
+}
+
 export function ReaderPage({ edition, route }: { edition: Edition; route: Route }) {
   const paper = route.paper!;
   const reader = edition.reader;
@@ -48,6 +61,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [showPdf, setShowPdf] = useState(false);
   const [rootDeclaration, setRootDeclaration] = useState<string | undefined>();
   const aside = useRef<HTMLElement>(null);
+  const paperTools = useRef<HTMLDivElement>(null);
   const panelMove = useRef(0);
   const wide = useWide();
   const [readingLine, setReadingLine] = useState<number | null>(null);
@@ -76,9 +90,46 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   useEffect(() => { reader.resource("reading.json").then((r: any) => {
     setDownloads(r.downloads ?? {});
     setOriginal(r.papers?.original);
-    setTopicTitles(Object.fromEntries((r.routes ?? []).map((topic: any) => [topic.id, topic.title])));
+    setTopicTitles((titles) => ({ ...titles, ...Object.fromEntries((r.routes ?? []).map((topic: any) => [topic.id, topic.title])) }));
+  }, () => {}); }, [reader]);
+  useEffect(() => { reader.resource("selection/arguments.json").then((r: any) => {
+    setTopicTitles((titles) => ({ ...titles, ...Object.fromEntries(Object.entries(r.topics ?? {}).map(([id, topic]: [string, any]) => [id, topic.title])) }));
   }, () => {}); }, [reader]);
   useEffect(() => { reader.proofMap().then((m: any) => { if (m.currentness === "current") setRootDeclaration(m.root); }, () => {}); }, [reader]);
+  // Adapt SimplifiedMap's dismissal: Escape belongs to the open menu before
+  // the surrounding proof pane, and returns keyboard focus to its summary.
+  useEffect(() => {
+    const root = paperTools.current;
+    if (!root) return;
+    const opened = () => root.querySelector<HTMLDetailsElement>("details.jump[open]");
+    const onResize = () => { const menu = opened(); if (menu) fitPaperMenu(menu); };
+    const onDown = (event: PointerEvent) => {
+      const menu = opened();
+      if (menu && !menu.contains(event.target as Node)) menu.open = false;
+    };
+    const onFocus = (event: FocusEvent) => {
+      const menu = opened();
+      if (menu && !menu.contains(event.target as Node)) menu.open = false;
+    };
+    const onKey = (event: KeyboardEvent) => {
+      const menu = opened();
+      if (event.key !== "Escape" || event.defaultPrevented || !menu?.getClientRects().length || menu.closest("[inert]")) return;
+      event.preventDefault();
+      event.stopPropagation();
+      menu.open = false;
+      menu.querySelector<HTMLElement>("summary")?.focus({ preventScroll: true });
+    };
+    document.addEventListener("pointerdown", onDown);
+    document.addEventListener("focusin", onFocus);
+    window.addEventListener("keydown", onKey, true);
+    window.addEventListener("resize", onResize);
+    return () => {
+      document.removeEventListener("pointerdown", onDown);
+      document.removeEventListener("focusin", onFocus);
+      window.removeEventListener("keydown", onKey, true);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [paper]);
   const originalHtml = paper === "original" && !!original?.rendered && !showPdf;
   const lineSelection = rows.filter((r) => meaningful(r) && r.lines && readingLine != null && r.lines[0] <= readingLine && readingLine <= r.lines[1])
     .sort((a, b) => (a.topic ? 0 : 1) - (b.topic ? 0 : 1) || (a.lines![1] - a.lines![0]) - (b.lines![1] - b.lines![0]))[0]?.id;
@@ -169,6 +220,10 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   // SK's passage lens makes the graph a compact default; the exact Lean is one tab away.
   const open = route.v !== "closed" && (wide || !!(route.s || route.p || route.v));
+  useEffect(() => {
+    if (!open || wide || aside.current?.contains(document.activeElement)) return;
+    aside.current?.querySelector<HTMLButtonElement>(".inspector__close")?.focus({ preventScroll: true });
+  }, [open, wide]);
   // Evidence follows the reading line, as the graph does, until the reader pins a passage.
   const followed = useRef<string | undefined>(undefined);
   const mode: "graph" | "path" | "lean" | "evidence" =
@@ -296,7 +351,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   }, [panelKey, open]);
 
   useEffect(() => {
-    const on = (e: KeyboardEvent) => { if (e.key === "Escape" && open) close(); };
+    const on = (e: KeyboardEvent) => { if (e.key === "Escape" && open && !e.defaultPrevented) { e.preventDefault(); close(); } };
     window.addEventListener("keydown", on);
     return () => window.removeEventListener("keydown", on);
   }, [open, close]);
@@ -345,7 +400,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     <StatementNamesContext.Provider value={statementNames?.reader === reader ? statementNames.index : { status: "loading", titles: {} }}>
     <NavContext.Provider value={nav}>
       <div className={`desk${open ? " desk--open" : ""}`}>
-        <nav className="papers" aria-label="Papers">
+        <nav className="papers" aria-label="Papers" inert={open && !wide}>
           <ul>
             {availablePapers.map((p) => (
               <li key={p.id}>
@@ -358,7 +413,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           {returnTo && <div className="papers__return"><button type="button" className="textbutton" onClick={returnTo.returnToOrigin}>Return to {returnTo.label}</button></div>}
         </nav>
 
-        <main id="main" className={`paper${contents.length ? " paper--contents" : ""}`} tabIndex={-1} aria-label={f.name}
+        <main id="main" className={`paper${contents.length ? " paper--contents" : ""}`} tabIndex={-1} aria-label={f.name} inert={open && !wide}
           onWheelCapture={resumePaperFollowing} onTouchMoveCapture={resumePaperFollowing}
           onKeyDownCapture={(event) => { if (["PageDown", "PageUp", "ArrowDown", "ArrowUp", "Home", "End", " "].includes(event.key) && !(event.target as HTMLElement).closest("input,textarea,select,button,a")) resumePaperFollowing(); }}
           onPointerDownCapture={(event) => { const box = event.currentTarget.getBoundingClientRect(); if (event.clientX >= box.left + event.currentTarget.clientWidth) resumePaperFollowing(); }}>
@@ -366,12 +421,12 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           <header className="paper__head">
             <h1 className="paper__title">{f.name}</h1>
             <p className="paper__byline">{f.byline}</p>
-            <div className="paper__tools">
+            <div className="paper__tools" ref={paperTools}>
               {(paper !== "original" || originalHtml) && <span className="legend"><span className="legend__bar" aria-hidden="true" />Select a marked paragraph to follow its proof and related explanations</span>}
               {download && <DownloadLink edition={edition} resource={download.resource} label="Download the PDF" name={`${paper}.pdf`} />}
               {paper === "original" && original?.rendered && <button type="button" className="textbutton" onClick={() => { setShowPdf(!showPdf); setContents([]); }}>{showPdf ? "Read the text edition" : "View the original PDF"}</button>}
               {keyed.length > 0 && (
-                <details className="jump">
+                <details className="jump" name="paper-tools" onToggle={(event) => fitPaperMenu(event.currentTarget)}>
                   <summary>Linked passages</summary>
                   <ul>
                     {keyed.map((r) => (
@@ -381,7 +436,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                 </details>
               )}
               {contents.length > 0 && (
-                <details className="jump jump--contents">
+                <details className="jump jump--contents" name="paper-tools" onToggle={(event) => fitPaperMenu(event.currentTarget)}>
                   <summary>Contents</summary>
                   <ul>
                     {contents.filter((r) => r.level <= Math.min(...contents.map((x) => x.level)) + 1).map((r) => (

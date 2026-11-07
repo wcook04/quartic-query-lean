@@ -164,3 +164,82 @@ reading resources and the accepted PDFs were exported from the committed
 source. The hash-route false positive was also repaired in the audit owner;
 a separate browser fixture still reports a truly missing section fragment
 while accepting existing and percent-encoded anchors.
+
+## Menu and mobile interaction follow-up
+
+7 November 2026. The next visual pass applies the existing-project and web
+interface guidance to the current components, retaining the established
+palette, typefaces, reading widths and mathematical material. The source
+review uses the current [Vercel Web Interface Guidelines](https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md) and the actual local
+SimplifiedMap, PickMenu and native reader implementations, rather than a
+replacement frontend.
+
+The two paper menus now share a native disclosure group. Their dismissal
+adapts SimplifiedMap's capture-phase Escape handling and focus return. Pointer
+clicks outside the menu and keyboard focus leaving it also dismiss it; Escape
+no longer closes the proof behind an open menu. A real sequential pointer
+test caught an intermediate-width case missed by the earlier bounds-only
+check: a dropdown could cover the next row of toolbar controls. Anchoring it
+below the whole toolbar repairs that case. The second pointer run passes at
+all selected widths; native grouping prevents two overlapping menus.
+
+When the phone's proof view covers the paper, that paper and its tab strip
+are inert. Initial focus goes to the visible proof controls; the existing
+close operation returns focus to the selected passage. The visible site bar
+remains usable. Desktop paper and proof continue to work beside each other.
+The original delayed-focus cancellation and reading-position owners are
+retained. This pass does not redesign proof navigation or the graph camera.
+
+The browser theme-colour metadata now reads the actual current page token,
+on initialization and every theme change. The original theme owner remains
+authoritative. Wide equations use Proof Reader's thin native scroll treatment,
+and nested code, inspector and menu scrolling is contained within that pane.
+No paper source, expression, figure, claim binding or PDF byte is changed;
+the existing accepted print edition is reused.
+
+Browser validation covers widths 390, 768, 901, 1280 and 1440 in both themes:
+real menu switching after wrapping, Escape priority and focus return, outside
+clicks, Tab dismissal, covered-paper keyboard exclusion, return to the paper,
+initial and changed browser colour, no window overflow, and horizontal access
+to wide equations. The sequential menu interaction joins the existing
+reading-column contract in the site guide; no additional general writing rule
+is needed. Validation and rendered inspection remain distinct from proof or
+independent human review.
+
+The link review also reproduced an existing browser-behaviour defect:
+Cmd/Ctrl-clicking a companion link changed the current paper and opened no
+new tab. The manuscript view now gives its existing paper and fragment links
+actual reader URLs, using the shared router builder, and intercepts only an
+unmodified primary click. Normal passage excursions and Return remain in
+place. Modified clicks, middle clicks and copied links preserve their native
+browser behaviour; footnotes and backlinks have usable reader URLs too.
+Links made in an explicitly selected older edition preserve that edition.
+The source HTML, original citation pins and PDF links remain unchanged.
+
+The additional projection and joint-event menu entries now use their authored
+titles from the same edition's argument index. The narrower route list remains
+a compatibility source for earlier data. No title or mathematical explanation
+is invented in the frontend. The full binding audit still covers 63 selections
+and 36 prerequisites without a changed mathematical association.
+
+A final short-height check found that a 390-by-664 viewport could put the
+menu bottom at y=836 while the paper ended at y=664. The native disclosure now
+uses the actual available paper space, opens above when the space below is
+insufficient, and remeasures on resize. This extends the earlier width and
+mutual-dismissal tests to short screens and access to the final menu choice.
+The ordinary/native-link tests cover modified and middle clicks, separate
+footnote tabs, normal footnote/backlink scrolling, the ordinary excursion and
+Return, complete menu titles, and a fresh load of an explicitly older edition.
+A loaded reader deliberately retains one immutable edition; changing only its
+hash is not an edition reload.
+
+Rendered inspection of the height-bounded menu caught a second axis: CSS
+multi-column layout could create implicit columns sideways. The menu now uses
+the reader's existing two-column grid pattern, with one column on phones,
+so bounded height produces ordinary vertical scrolling. The short-screen
+probe also asserts no horizontal overflow, verifies the last link's full
+bounds and clicks that choice. Twelve width/height/theme combinations pass,
+including 568- and 664-pixel-high phone panes and resize with an open menu.
+The final Python suite passes 314 tests with 5 conditional skips; browser
+interaction checks, TypeScript, KaTeX and the 623-resource export are separate
+validation. All three accepted PDF files retain their existing hashes.
