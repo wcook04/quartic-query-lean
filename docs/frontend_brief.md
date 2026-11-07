@@ -44,7 +44,11 @@ omits the mathematics. Use each displayed edition's own contents.
 Full-bounds Fit must actually contain the entire graph, even below the scale
 at which labels are readable. Keep the normal reading scale for selected steps,
 expose zoom controls, and retain a manual camera through pane changes and
-resizing. Follow is an explicit way to resume tracking the paper.
+resizing. Follow is an explicit way to resume tracking after manual map movement.
+Passage clicks use one cycle: a different passage focuses its graph; repeated
+clicks on that passage advance Graph → Lean → Passage → Graph. Scrolling the
+paper resumes passage tracking after a click, retaining the last valid graph
+through unlinked prose.
 
 Use the [proof map contract](reading_api.md#open-the-lean-map-beside-the-paper)
 for the graph beside the manuscript. Before the first linked passage, show the

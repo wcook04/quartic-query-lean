@@ -53,6 +53,15 @@ export function neighbourhood(graph: ArgGraph, goal: string, focus: readonly str
     regionOf: new Map(members.map((id) => [id, goal])) };
 }
 
+export interface GraphFocus {
+  cards: readonly string[];
+  availableCards?: readonly string[];
+  passages: readonly string[];
+  paused: boolean;
+  whole: boolean;
+}
+export interface GraphFocusRequest { nonce: number; passage: string; cards: readonly string[] }
+
 interface Props {
   map: ProofMap;
   graph: ArgGraph;
@@ -65,9 +74,12 @@ interface Props {
   paperName: string;
   selectionKey?: string;
   onFollow(): void;
+  focusPassages?: readonly string[];
+  focusRequest?: GraphFocusRequest;
+  onFocusChange?(focus: GraphFocus): void;
 }
 
-export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, onSelect, selectedEdge, onEdge, progress, paperName: _paperName, selectionKey, onFollow }: Props) {
+export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, onSelect, selectedEdge, onEdge, progress, paperName: _paperName, selectionKey, onFollow, focusPassages = [], focusRequest, onFocusChange }: Props) {
   const tree = useRef<MapViewHandle>(null);
   const body = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
@@ -77,8 +89,12 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
   const reachable = useMemo(() => reach(graph, GOAL), [graph]);
   const currentMapped = useMemo(() => lit.filter((id) => id !== GOAL && reachable.has(id)), [lit, reachable]);
   const [scopeLit, setScopeLit] = useState<readonly string[]>(currentMapped);
+  const scopeLitRef = useRef(scopeLit);
+  scopeLitRef.current = scopeLit;
+  const [scopePassages, setScopePassages] = useState(focusPassages);
   const litIds = useMemo(() => (scopeLit.length ? new Set(scopeLit) : null), [scopeLit]);
   const litKey = currentMapped.join("|");
+  const passageKey = focusPassages.join("|");
   const litRef = useRef(currentMapped);
   litRef.current = currentMapped;
   // This paper's cards; the rest of the proof is drawn faded, as Proof Reader does.
@@ -115,7 +131,8 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
     if (pausedRef.current || whole || !litRef.current.length) return;
     overviewHeld.current = true;
     setScopeLit(litRef.current);
-  }, [litKey, whole]);
+    setScopePassages(focusPassages);
+  }, [litKey, passageKey, whole]);
 
   const setPause = useCallback((next: boolean) => {
     pausedRef.current = next;
@@ -132,11 +149,27 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
     setPause(false);
   }, [selectionKey, litKey, setPause]);
 
+  useEffect(() => {
+    if (!focusRequest) return;
+    const cards = focusRequest.cards.filter((id) => id !== GOAL && reachable.has(id));
+    if (!cards.length) return;
+    overviewHeld.current = true;
+    setScopeLit(cards);
+    setScopePassages([focusRequest.passage]);
+    setWhole(false);
+    setPause(false);
+  }, [focusRequest, reachable, setPause]);
+
+  useEffect(() => {
+    onFocusChange?.({ cards: scopeLit, availableCards: [...reachable], passages: scopePassages, paused, whole });
+  }, [scopeLit, scopePassages, paused, whole, reachable, onFocusChange]);
+
   // A declaration deliberately opened in Lean becomes the local centre too.
   useEffect(() => {
-    if (!selected || !reachable.has(selected) || selected === GOAL) return;
+    if (!selected || !reachable.has(selected) || selected === GOAL || scopeLitRef.current.includes(selected)) return;
     overviewHeld.current = true;
     setScopeLit([selected]);
+    setScopePassages([]);
     setWhole(false);
     setPause(true);
   }, [selected, reachable, setPause]);
@@ -181,11 +214,12 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
     overviewHeld.current = true;
     if (litRef.current.length) {
       setScopeLit(litRef.current);
+      setScopePassages(focusPassages);
       }
     setWhole(false);
     setPause(false);
     tree.current?.fitAll();
-  }, [setPause, onFollow]);
+  }, [setPause, onFollow, passageKey]);
   const toggleWhole = useCallback(() => {
     overviewHeld.current = true;
     if (whole) follow();
@@ -201,6 +235,7 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
     overviewHeld.current = true;
     setPause(true);
     setScopeLit([selected]);
+    setScopePassages([]);
     setWhole(false);
   }, [selected, reachable, follow, setPause]);
 
@@ -209,6 +244,7 @@ export const GraphPane = memo(function GraphPane({ map, graph, lit, selected, on
     overviewHeld.current = true;
     setPause(true);
     setScopeLit([id]);
+    setScopePassages([]);
     setWhole(false);
     onSelect(id);
   }, [onSelect, setPause]);

@@ -17,6 +17,12 @@ const PdfPaper = lazy(() => import("../paper/PdfPaper").then((m) => ({ default: 
 import { meaningful, type Row } from "../paper/selectRow";
 const ProofPane = lazy(() => import("../map/ProofPane").then((m) => ({ default: m.ProofPane })));
 import { Contents, sectionAt, type ContentsRow } from "../paper/Contents";
+import type { GraphFocus, GraphFocusRequest } from "../map/GraphPane";
+import { ReaderSplit } from "./ReaderSplit";
+
+type PassageMode = "graph" | "lean" | "passage";
+const nextPassageMode = (view: PassageMode | undefined): PassageMode => view === "graph" ? "lean" : view === "lean" ? "passage" : "graph";
+const sameCards = (a: readonly string[], b: readonly string[]) => a.length === b.length && a.every((id) => b.includes(id));
 
 function useWide(): boolean {
   const q = "(min-width: 901px)";
@@ -41,12 +47,21 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [showPdf, setShowPdf] = useState(false);
   const [rootDeclaration, setRootDeclaration] = useState<string | undefined>();
   const aside = useRef<HTMLElement>(null);
+  const panelMove = useRef(0);
   const wide = useWide();
   const [readingLine, setReadingLine] = useState<number | null>(null);
   const [readingPage, setReadingPage] = useState<number | null>(null);
   const [following, setFollowing] = useState(true);
   const [contents, setContents] = useState<ContentsRow[]>([]);
   const [lit, setLit] = useState<string[]>([]);
+  const [focusPassages, setFocusPassages] = useState<string[]>([]);
+  const [focusRequest, setFocusRequest] = useState<GraphFocusRequest>();
+  const [clickPin, setClickPin] = useState<string | null>(null);
+  const [clickError, setClickError] = useState<string | null>(null);
+  const graphFocus = useRef<GraphFocus>({ cards: [], passages: [], paused: false, whole: false });
+  const clickSequence = useRef(0);
+  const clickPending = useRef<{ key: string; count: number; start: PassageMode | undefined; focus: GraphFocus } | null>(null);
+  const passageCycle = useRef<{ key: string; view: PassageMode } | null>(null);
   const [names, setNames] = useState<{ reader: typeof reader; titles: DeclarationTitles } | null>(null);
   const [statementNames, setStatementNames] = useState<{ reader: typeof reader; index: StatementTitles } | null>(null);
   // Selections this reader has met in this edition and paper (this browser only).
@@ -62,7 +77,66 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const originalHtml = paper === "original" && !!original?.rendered && !showPdf;
   const lineSelection = rows.filter((r) => meaningful(r) && r.lines && readingLine != null && r.lines[0] <= readingLine && readingLine <= r.lines[1])
     .sort((a, b) => (a.topic ? 0 : 1) - (b.topic ? 0 : 1) || (a.lines![1] - a.lines![0]) - (b.lines![1] - b.lines![0]))[0]?.id;
-  const currentSelection = following && (!route.v || route.v === "graph") ? lineSelection ?? route.s : route.s ?? lineSelection;
+  const currentSelection = following ? lineSelection ?? route.s : route.s ?? lineSelection;
+
+  const onGraphFocus = useCallback((focus: GraphFocus) => {
+    graphFocus.current = focus;
+    if (focus.paused || focus.whole) passageCycle.current = null;
+  }, []);
+
+  // A paragraph click is held only until the next deliberate paper scroll.
+  // Scroll input is separate from line changes, including small wheel moves.
+  const resumePaperFollowing = useCallback(() => {
+    // A citation/footnote jump owns the paper immediately, even while the
+    // previous panel's delayed focus/selection placement is still pending.
+    window.clearTimeout(panelMove.current);
+    if (!clickPin && !clickPending.current) return;
+    clickSequence.current++;
+    clickPending.current = null;
+    passageCycle.current = null;
+    setClickPin(null);
+    setClickError(null);
+    setFollowing(true);
+    setFocusRequest(undefined);
+  }, [clickPin]);
+
+  async function selectPassage(id: string) {
+    const key = `${paper}:${id}`;
+    const previous = clickPending.current;
+    const pending = previous?.key === key
+      ? { ...previous, count: previous.count + 1 }
+      : { key, count: 1, start: passageCycle.current?.key === key ? passageCycle.current.view : undefined, focus: graphFocus.current };
+    clickPending.current = pending;
+    const sequence = ++clickSequence.current;
+    setFollowing(false);
+    setClickError(null);
+    try {
+      const focus = await reader.proofFocus({ paper, id, line: undefined, page: undefined });
+      if (sequence !== clickSequence.current || clickPending.current !== pending) return;
+      const cards: string[] = focus.cards ?? [];
+      const displayed = pending.focus;
+      const mapped = displayed.availableCards ? cards.filter((id) => displayed.availableCards!.includes(id)) : cards;
+      const alreadyFocused = !displayed.paused && !displayed.whole
+        && displayed.passages.includes(key) && sameCards(displayed.cards, mapped);
+      let view: PassageMode | undefined = pending.start ?? (alreadyFocused ? "graph" : undefined);
+      for (let n = 0; n < pending.count; n++) view = nextPassageMode(view);
+      const next = view!;
+      clickPending.current = null;
+      passageCycle.current = { key, view: next };
+      setClickPin(id);
+      setLit(cards);
+      setFocusPassages([key]);
+      setFocusRequest({ nonce: sequence, passage: key, cards });
+      // Clear a previous declaration/path: these views belong to this exact
+      // passage and its freshly resolved Lean, not the old URL's selection.
+      go({ ...base, s: id, v: next, d: next === "lean" ? mapped[0] ?? cards[0] : undefined });
+    } catch (error) {
+      if (sequence !== clickSequence.current) return;
+      clickPending.current = null;
+      setFollowing(true);
+      setClickError(error instanceof Error ? error.message : String(error));
+    }
+  }
 
   const query = useMemo(() => {
     const doc = (reader.documents as any)[paper];
@@ -76,17 +150,17 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   const nav: Nav = useMemo(() => ({
     paper,
-    openSelection: (p, id) => { setFollowing(false); const next: Route = { page: "read", paper: p, s: id, ed }; if (p === paper) go(next, !route.v); else excursion(next, face(paper).tab); },
-    openPassage: (p, anchor) => { setFollowing(false); const next: Route = { page: "read", paper: p, a: anchor, ed }; if (p === paper) go(next); else excursion(next, face(paper).tab); },
+    openSelection: (p, id) => { resumePaperFollowing(); setFollowing(false); const next: Route = { page: "read", paper: p, s: id, ed }; if (p === paper) go(next, !route.v); else excursion(next, face(paper).tab); },
+    openPassage: (p, anchor) => { resumePaperFollowing(); setFollowing(false); const next: Route = { page: "read", paper: p, a: anchor, ed }; if (p === paper) go(next); else excursion(next, face(paper).tab); },
     openStatement: (id) => go({ ...base, s: route.s, p: route.p, v: "statement", st: id }),
     openLean: (name) => go({ ...base, s: currentSelection, p: route.p, v: "lean", d: name }),
     openGraph: (name?: string) => go({ ...base, s: route.s, p: route.p, v: "graph", d: name ?? route.d }),
     openPath: (edge: string) => go({ ...base, s: route.s, p: route.p, v: "path", e: edge, d: edge.split("→")[0] }),
     openJourney: (id) => go({ ...base, s: route.s, p: route.p, v: "journey", j: id }),
     backToPassage: () => go({ ...base, s: currentSelection, p: route.p, v: "passage" }),
-    showInPaper: (id: string) => { setFollowing(false); go({ ...base, s: id, v: route.v, st: route.st, d: route.d, j: route.j, e: route.e, step: route.step }, true); },
+    showInPaper: (id: string) => { resumePaperFollowing(); setFollowing(false); go({ ...base, s: id, v: route.v, st: route.st, d: route.d, j: route.j, e: route.e, step: route.step }, true); },
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }), [paper, route.s, route.p, route.v, route.st, route.d, route.j, route.e, route.step, ed, currentSelection]);
+  }), [paper, route.s, route.p, route.v, route.st, route.d, route.j, route.e, route.step, ed, currentSelection, resumePaperFollowing]);
 
   // SK's passage lens makes the graph a compact default; the exact Lean is one tab away.
   const open = route.v !== "closed" && (wide || !!(route.s || route.p || route.v));
@@ -95,6 +169,20 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const mode: "graph" | "path" | "lean" | "evidence" =
     route.v === "graph" ? "graph" : route.v === "path" ? "path" : route.v === "lean" ? "lean" : route.v === "statement" || route.v === "journey" ? "evidence"
       : route.v === "passage" ? "evidence" : "graph";
+  useEffect(() => {
+    const cycle = passageCycle.current;
+    if (cycle?.key === `${paper}:${route.s}` && (route.v === "graph" || route.v === "lean" || route.v === "passage")) cycle.view = route.v;
+  }, [paper, route.s, route.v]);
+  useEffect(() => {
+    if (!clickPin || route.s === clickPin) return;
+    // Back/Forward or an independent navigation owns its saved selection.
+    clickSequence.current++;
+    clickPending.current = null;
+    passageCycle.current = null;
+    setClickPin(null);
+    setFocusRequest(undefined);
+    setFollowing(!route.s && !route.a);
+  }, [route.s, route.a, clickPin]);
   const activeLean = route.d ?? lit[0] ?? rootDeclaration;
   const [graphOpened, setGraphOpened] = useState(mode === "graph");
   useEffect(() => { if (mode === "graph") setGraphOpened(true); }, [mode]);
@@ -140,13 +228,17 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   // The cards lit in the graph: the selected passage's, else the reading line's.
   useEffect(() => {
+    if (clickPending.current) return;
     let live = true;
+    const sequence = clickSequence.current;
     const doc = (reader.documents as any)[paper];
     let q: any = null;
     const free = route.s && /^l(\d+)-\d+$/.exec(route.s);
-    if (!following && route.s && !free) q = { paper, id: route.s };
-    else if (mode === "graph" && readingLine && (paper !== "original" || originalHtml)) q = { paper, line: readingLine };
-    else if (mode === "graph" && readingPage && paper === "original") q = { paper, page: readingPage };
+    if (clickPin) q = { paper, id: clickPin };
+    else if (!following && route.s && !free) q = { paper, id: route.s };
+    else if (following && readingLine && paper !== "original") q = { paper, line: readingLine };
+    else if (following && originalHtml && lineSelection) q = { paper, id: lineSelection };
+    else if (following && readingPage && paper === "original" && !originalHtml) q = { paper, page: readingPage };
     else if (route.s && !free) q = { paper, id: route.s };
     else if (free) q = { paper, line: Number(free[1]) };
     else if (route.p) q = { paper, page: route.p };
@@ -154,9 +246,10 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     else if (readingLine) q = { paper, line: readingLine };
     if (!q) { setLit([]); return; }
     (reader as any).proofFocus(q).then((f: any) => {
-      if (!live) return;
+      if (!live || sequence !== clickSequence.current || clickPending.current) return;
       setLit(f.cards ?? []);
       const ids: string[] = (f.matches ?? []).map((m: any) => m.id);
+      setFocusPassages(ids.map((id) => `${paper}:${id}`));
       setVisited((old) => {
         const fresh = ids.filter((id) => !old.includes(id));
         if (!fresh.length) return old;
@@ -164,9 +257,9 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
         try { localStorage.setItem(visitKey, JSON.stringify(next)); } catch { /* storage unavailable */ }
         return next;
       });
-    }, () => live && setLit([]));
+    }, () => { if (live && sequence === clickSequence.current && !clickPending.current) setLit([]); });
     return () => { live = false; };
-  }, [reader, paper, route.s, route.p, readingLine, readingPage, mode, originalHtml, following]);
+  }, [reader, paper, route.s, route.p, readingLine, readingPage, mode, originalHtml, following, clickPin, lineSelection]);
 
   const close = useCallback(() => {
     // Closing keeps the selection: the paper stays marked where the reader was.
@@ -183,13 +276,18 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const panelKey = `${route.v}|${route.st}|${route.d}|${route.j}|${route.s}|${route.p}`;
   useEffect(() => {
     if (!open || !route.v || isRestoringReadingPlace()) return;
-    const t = window.setTimeout(() => {
+    panelMove.current = window.setTimeout(() => {
       if (isRestoringReadingPlace()) return;
       const h = aside.current?.querySelector<HTMLElement>("h2");
       if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
       document.querySelector<HTMLElement>(".paper .is-selected")?.scrollIntoView({ block: "nearest" });
     }, 120);
-    return () => clearTimeout(t);
+    // Reuse the manuscript navigation guard: after another deliberate input,
+    // delayed panel work must not pull the paper back or steal keyboard focus.
+    const stop = () => window.clearTimeout(panelMove.current);
+    const input = ["wheel", "touchstart", "pointerdown", "keydown"] as const;
+    input.forEach((type) => window.addEventListener(type, stop, { capture: true, passive: true }));
+    return () => { stop(); input.forEach((type) => window.removeEventListener(type, stop, true)); };
   }, [panelKey, open]);
 
   useEffect(() => {
@@ -226,7 +324,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   }, [reader, paper, edition.permalink, visited]);
 
   const here = sectionAt(contents, route.s && /^l(\d+)/.exec(route.s) ? Number(/^l(\d+)/.exec(route.s)![1]) : readingLine);
-  const goSection = (r: ContentsRow) => { setFollowing(true); go({ ...base, a: r.anchor, v: route.v }, true); };
+  const goSection = (r: ContentsRow) => { resumePaperFollowing(); setFollowing(true); go({ ...base, a: r.anchor, v: route.v }, true); };
 
   let panel = null;
   if (route.v === "statement" && route.st) panel = <StatementPanel edition={edition} id={route.st} />;
@@ -255,7 +353,10 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           {returnTo && <div className="papers__return"><button type="button" className="textbutton" onClick={returnTo.returnToOrigin}>Return to {returnTo.label}</button></div>}
         </nav>
 
-        <main id="main" className={`paper${contents.length ? " paper--contents" : ""}`} tabIndex={-1} aria-label={f.name}>
+        <main id="main" className={`paper${contents.length ? " paper--contents" : ""}`} tabIndex={-1} aria-label={f.name}
+          onWheelCapture={resumePaperFollowing} onTouchMoveCapture={resumePaperFollowing}
+          onKeyDownCapture={(event) => { if (["PageDown", "PageUp", "ArrowDown", "ArrowUp", "Home", "End", " "].includes(event.key) && !(event.target as HTMLElement).closest("input,textarea,select,button,a")) resumePaperFollowing(); }}
+          onPointerDownCapture={(event) => { const box = event.currentTarget.getBoundingClientRect(); if (event.clientX >= box.left + event.currentTarget.clientWidth) resumePaperFollowing(); }}>
           {contents.length > 0 && <Contents rows={contents} current={here} onGo={goSection} />}
           <header className="paper__head">
             <h1 className="paper__title">{f.name}</h1>
@@ -292,15 +393,15 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           {paper === "original" && !originalHtml ? (
             <Suspense fallback={<p className="pending" role="status">Loading the PDF viewer…</p>}>
               <PdfPaper edition={edition} selected={route.s} page={route.p}
-                onSelect={(id) => { setFollowing(false); go({ ...base, s: id }, !route.v || route.v === "closed"); }}
+                onSelect={selectPassage}
                 onPage={(n) => go({ ...base, p: n }, !route.v || route.v === "closed")}
                 onReadingPage={setReadingPage} />
             </Suspense>
           ) : (
             <ManuscriptPaper key={paper} edition={edition} paper={paper} selected={route.s} anchor={route.a} page={route.p} onRows={setRows}
               onReadingLine={setReadingLine} onContents={setContents} followed={followed.current}
-              onSelect={(id) => { setFollowing(false); go({ ...base, s: id }, !route.v || route.v === "closed"); }}
-              onLink={nav.openPassage} />
+              onSelect={selectPassage}
+              onLink={nav.openPassage} onNavigateWithin={resumePaperFollowing} />
           )}
         </main>
 
@@ -309,6 +410,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             <span>Open proof</span>
           </button>
         )}
+        {open && wide && <ReaderSplit />}
         {open && (
           <aside ref={aside} className={`inspector inspector--${mode}`} aria-label="The Lean proof and its evidence">
             <div className="inspector__modes" role="group" aria-label="What to show beside the paper">
@@ -331,23 +433,28 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               <div className="inspector__graph" hidden={mode !== "graph"}>
                 <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
                   <ProofPane edition={edition} lit={lit} selected={route.d ?? null} onSelect={nav.openLean} selectedEdge={route.e ?? null} onEdge={nav.openPath}
-                    progress={progress} paperName={face(paper).tab} selectionKey={following ? undefined : route.s} onFollow={() => setFollowing(true)} />
+                    progress={progress} paperName={face(paper).tab} selectionKey={!clickPin && !following ? route.s : undefined}
+                    focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onGraphFocus}
+                    onFollow={() => { resumePaperFollowing(); passageCycle.current = null; setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} />
                 </Suspense>
                 <p className="inspector__note">
                   The highlighted steps appear with their inputs and uses. Dotted links from the main result give context; other lines are recorded dependencies. Choose a card for its Lean, or a dependency for its helpers.
                 </p>
+                {clickPin && <p className="inspector__note">Click this paragraph again for Lean. Scrolling resumes following the paper.</p>}
               </div>
             )}
             {mode !== "graph" && (
               <div className="inspector__body">
                 {(mode === "lean" || mode === "evidence") && (!route.v || route.v === "passage") && (
                   <p className={`follow${following ? "" : " follow--pinned"}`} role="status">
-                    {following ? <>Following the paper as you read. <span className="quiet">Select a paragraph to keep it here.</span></>
+                    {clickPin ? <>Click this paragraph again for Graph. Scrolling resumes following the paper.</>
+                      : following ? <>Following the paper as you read.</>
                       : <>Pinned to this passage. <button type="button" className="textbutton" onClick={() => setFollowing(true)}>Follow the paper again</button></>}
                   </p>
                 )}
                 {mode === "lean" && !route.d && !lit.length && <p className="quiet inspector__context">The main result is shown here. No declaration is linked to the current paragraph.</p>}
-                {mode === "lean" && route.v === "lean" && <p className="follow follow--pinned">Keeping this declaration open. <button type="button" className="textbutton" onClick={() => { setFollowing(true); go({ ...base, s: lineSelection }); }}>Follow the paper again</button></p>}
+                {mode === "lean" && route.v === "lean" && <p className="follow follow--pinned">{clickPin ? <>Click this paragraph again for Passage. Scrolling resumes following the paper.</> : <>Keeping this declaration open. <button type="button" className="textbutton" onClick={() => { setFollowing(true); go({ ...base, s: lineSelection }); }}>Follow the paper again</button></>}</p>}
+                {clickError && <p className="failed" role="alert">This passage could not be opened: {clickError}</p>}
                 {panel ?? <p className="quiet">Scroll to a linked passage, or click one, to see its evidence.</p>}
               </div>
             )}

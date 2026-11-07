@@ -43,6 +43,11 @@ fit and selected-step controls. A manual
 camera survives switching views and resizing; Follow resumes movement with the
 paper. Dependencies and helper lists follow the source listing.
 
+Scrolling advances the graph at linked passages and leaves its last valid
+neighborhood in place through unlinked prose. Clicking a different passage
+focuses its graph; clicking the focused passage cycles Graph → Lean → Passage
+→ Graph. A passage click does not permanently stop scroll following.
+
 OpenAI's [pinned source and conversion checks](../docs/original_source/README.md)
 produce a native reading copy while retaining the unchanged PDF. The original
 keeps its authorship, numbering and section structure. The three accompanying
@@ -57,3 +62,8 @@ The reader exporter includes them in the immutable edition. The homepage uses
 a local copy of the published thumbnail; `src/family/` owns these shared video
 components and their maintained image assets. Generated `public/` and `dist/`
 contents remain untracked.
+
+The paper–proof separator adapts Proof Reader’s dock handle. Drag it, use the
+arrow keys, or double-click to reset; the chosen split is remembered. Wider
+reading columns use larger manuscript text, and contents move into their menu
+when the paper pane becomes narrow.

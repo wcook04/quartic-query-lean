@@ -621,3 +621,22 @@ html, body { overflow-x: clip; max-width: 100%; }
   .papers ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
   .papers a { font-size: .84rem; padding: 7px 8px; white-space: normal; }
 }
+
+/* The resizable split adapts the family's dock handle. Give wide displays to
+   the proof and larger manuscript type instead of an empty paper margin. */
+@media (min-width: 901px) {
+  .desk--open { grid-template-columns: minmax(420px, 1fr) 8px minmax(360px, min(var(--proof-width, 44%), calc(100% - 428px))); }
+  .reader-split { grid-column: 2; grid-row: 2; cursor: col-resize; touch-action: none; display: flex; align-items: center; justify-content: center; background: var(--paper); border-inline: 1px solid var(--rule-2); z-index: 3; }
+  .reader-split span { height: 48px; width: 2px; border-radius: 2px; background: var(--control); }
+  .reader-split:hover, .reader-split:focus-visible, .is-resizing .reader-split { background: var(--query-wash); outline: none; }
+  .reader-split:hover span, .reader-split:focus-visible span { background: var(--query); }
+  .desk--open > .inspector { grid-column: 3; grid-row: 2; }
+  .is-resizing { user-select: none; cursor: col-resize; }
+  .paper { container-type: inline-size; }
+  .manuscript { max-width: 72ch; font-size: clamp(1.1rem, calc(.85rem + .75cqi), 1.5rem); }
+  .paper__head { width: 100%; max-width: 72ch; }
+  .paper__title { font-size: clamp(2rem, calc(1.5rem + 1cqi), 2.7rem); }
+  .desk[data-narrow-paper] .paper--contents { display: block; }
+  .desk[data-narrow-paper] .contents { display: none; }
+  .desk[data-narrow-paper] .jump--contents { display: block; }
+}
