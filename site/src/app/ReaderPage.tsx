@@ -178,6 +178,15 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       let view: PassageMode | undefined = pending.start ?? (alreadyFocused ? "graph" : undefined);
       for (let n = 0; n < pending.count; n++) view = nextPassageMode(view);
       const next = view!;
+      // Some passages reach their Lean only through their reviewed statement
+      // (resolve().proof), with no graph card of their own. Lean must still
+      // open that declaration rather than fall back to the main result.
+      let lean = mapped[0] ?? cards[0];
+      if (next === "lean" && !lean) {
+        const resolved = await (reader as any).resolve({ paper, id }).catch(() => null);
+        if (sequence !== clickSequence.current || clickPending.current !== pending) return;
+        lean = resolved?.proof?.[0]?.name;
+      }
       clickPending.current = null;
       passageCycle.current = { key, view: next };
       setClickPin(id);
@@ -186,7 +195,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       setFocusRequest({ nonce: sequence, passage: key, cards });
       // Clear a previous declaration/path: these views belong to this exact
       // passage and its freshly resolved Lean, not the old URL's selection.
-      go({ ...base, s: id, v: next, d: next === "lean" ? mapped[0] ?? cards[0] : undefined });
+      go({ ...base, s: id, v: next, d: next === "lean" ? lean : undefined });
     } catch (error) {
       if (sequence !== clickSequence.current) return;
       clickPending.current = null;
@@ -244,7 +253,18 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     setFocusRequest(undefined);
     setFollowing(!route.s && !route.a);
   }, [route.s, route.a, clickPin]);
-  const activeLean = route.d ?? lit[0] ?? rootDeclaration;
+  // A passage whose Lean is reached through its reviewed statement has no
+  // graph card; the Lean tab still opens that declaration.
+  const [statementLean, setStatementLean] = useState<{ key: string; name?: string } | null>(null);
+  const leanKey = currentSelection && !/^l\d+-\d+$/.test(currentSelection) && !lit.length ? currentSelection : null;
+  useEffect(() => {
+    if (!leanKey) return;
+    let live = true;
+    (reader as any).resolve({ paper, id: leanKey }).then((r: any) => live && setStatementLean({ key: leanKey, name: r?.proof?.[0]?.name }), () => {});
+    return () => { live = false; };
+  }, [reader, paper, leanKey]);
+  const passageLean = leanKey && statementLean?.key === leanKey ? statementLean.name : undefined;
+  const activeLean = route.d ?? lit[0] ?? passageLean ?? rootDeclaration;
   const [graphOpened, setGraphOpened] = useState(mode === "graph");
   useEffect(() => { if (mode === "graph") setGraphOpened(true); }, [mode]);
 
@@ -513,7 +533,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                       : <>Pinned to this passage. <button type="button" className="textbutton" onClick={() => setFollowing(true)}>Follow the paper again</button></>}
                   </p>
                 )}
-                {mode === "lean" && !route.d && !lit.length && <p className="quiet inspector__context">The main result is shown here. No declaration is linked to the current paragraph.</p>}
+                {mode === "lean" && !route.d && !lit.length && !passageLean && <p className="quiet inspector__context">The main result is shown here. No declaration is linked to the current paragraph.</p>}
                 {mode === "lean" && route.v === "lean" && <p className="follow follow--pinned">{clickPin ? <>Click this paragraph again for Passage. Scrolling resumes following the paper.</> : <>Keeping this declaration open. <button type="button" className="textbutton" onClick={() => { setFollowing(true); go({ ...base, s: lineSelection }); }}>Follow the paper again</button></>}</p>}
                 {clickError && <p className="failed" role="alert">This passage could not be opened: {clickError}</p>}
                 {panel ?? <p className="quiet">Scroll to a linked passage, or click one, to see its evidence.</p>}
