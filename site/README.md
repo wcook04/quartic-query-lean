@@ -92,6 +92,9 @@ keyboard dismisses it too. Menus start below the entire toolbar, including
 when its controls wrap. On phones, the covered paper and paper tabs are inert
 while the proof is open; closing it returns focus to the selected passage.
 The theme owner also updates the browser colour from the current page token.
+The Lean and graph button at the end of the paper tabs opens and closes the
+proof pane. On phones the pane is a sheet over the lower paper, so the selected
+paragraph stays visible above it; Back to paper closes it.
 
 Manuscript links have actual reader URLs: copy-link, middle-click and
 Cmd/Ctrl-click open the intended paper or footnote separately. Ordinary clicks

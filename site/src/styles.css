@@ -752,7 +752,7 @@ html, body { overflow-x: clip; max-width: 100%; }
 @keyframes desk-sheet-in { from { transform: translateY(24px); opacity: 0.6; } }
 @media (max-width: 640px) {
   .paper { padding: 24px 16px 100px; --reading-size: 1.0625rem; }
-  .paper__title { font-size: 1.75rem; }
+  .paper__title { font-size: 1.5rem; line-height: 1.2; }
   .paper__byline { font-size: 0.95rem; margin-bottom: 16px; }
   .source-block { margin-left: -12px; padding-left: 9px; }
   .jump ul { grid-template-columns: minmax(0, 1fr); }
@@ -765,7 +765,7 @@ html, body { overflow-x: clip; max-width: 100%; }
 /* About and notice pages. */
 .about, .notice-page { max-width: 46rem; margin: 0 auto; padding: 56px 20px 96px; font-family: var(--serif); font-size: 1.1rem; line-height: 1.6; }
 .about h1, .notice-page h1 { font-weight: 400; font-size: clamp(1.9rem, calc(1.4rem + 1.4vw), 2.5rem); line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 16px; text-wrap: balance; }
-.about p, .notice-page p { margin: 0 0 16px; text-wrap: pretty; }
+.about p, .notice-page p { margin: 0 0 16px; max-width: 38rem; text-wrap: pretty; }
 .about__lede { color: var(--ink-2); }
 .evidence-kinds { list-style: none; margin: 28px 0 32px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .evidence-kind { padding: 18px 20px 6px; border: 1px solid var(--rule-2); border-radius: var(--radius-m); background: var(--sheet); font-size: 1rem; line-height: 1.55; }
