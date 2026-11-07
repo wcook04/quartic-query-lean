@@ -36,7 +36,7 @@ import { layoutBounds, layoutTree } from "./engine/layout";
 import { arrowHead, polygonPath, roundedPath, route, type Plan, type Pt, type Routed } from "./engine/router";
 import { ensureVisible, fitBounds, frameBox, revealBox, travelMs, zoomPath, type Bounds, type View, type Viewport } from "./engine/camera";
 import { CAMERA_MS, MOVE_MS, easeMove, lerp } from "./engine/motion";
-import { METRICS, METRICS_COMPACT, METRICS_DENSE, type EngineEdge, type Layout, type Rect, type Size } from "./engine/types";
+import { METRICS, METRICS_COMPACT, METRICS_DENSE, type EngineEdge, type Layout, type Metrics, type Rect, type Size } from "./engine/types";
 import { COMPACT_FLOOR, DENSE_H, DENSE_H_SECTION, DENSE_ROOT_H, DENSE_ROOT_W, DENSE_TILE, DENSE_W, LEAN_BREAK, MAX_K, REF_PX, STEPS_FLOOR, STEPS_K, TILE, fitPlate, fitTitle, floorK, repFor, titlePieces, type MapMode, type MeasuredTitle, type Rep, type TitleKind } from "./canvas/representation";
 import type { MapScene } from "./canvas/scene";
 import { useReducedMotion } from "./canvas/useReducedMotion";
@@ -146,8 +146,12 @@ export interface TreeProps {
   coverage?: ReadonlySet<string> | null;
   /** The dense layout's tile width, for a narrower canvas that should hold the whole argument. */
   tileWidth?: number;
-  /** The dense layout's tile height, for a tile that also holds a raw name. */
-  tileHeight?: number;
+  /** The dense layout's tile height, for a tile that also holds a raw name. Quartic: or each
+   *  record's own height, so a tile is as tall as its fitted title and no taller. */
+  tileHeight?: number | ((id: string) => number);
+  /** Quartic: the dense layout's spacing (rank gap, sibling gap, tracks), for a pane whose
+   *  lines must read at a glance. Pass a stable object. */
+  denseMetrics?: Metrics;
   /** The largest scale the overview fits to. */
   fitMax?: number;
   /** Draw a shared record once, with every use, instead of once under each use. */
@@ -305,7 +309,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
   const dense = !compact && mode === "overview";
   const denseRef = useRef(dense);
   denseRef.current = dense;
-  const metrics = compact ? METRICS_COMPACT : dense ? METRICS_DENSE : METRICS;
+  const metrics = compact ? METRICS_COMPACT : dense ? props.denseMetrics ?? METRICS_DENSE : METRICS;
   const onModeChangeRef = useRef(props.onModeChange);
   onModeChangeRef.current = props.onModeChange;
   const controlled = props.mode !== undefined;
@@ -438,7 +442,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       const id = recordOf(lid);
       const node = graph.nodes.get(id) ?? fullGraph.nodes.get(id)!;
       const isRoot = lid === goal;
-      if (dense) return isRoot ? props.rootTile ?? { w: DENSE_ROOT_W, h: DENSE_ROOT_H } : { w: props.tileWidth ?? DENSE_W, h: props.tileHeight ?? (lens ? DENSE_H_SECTION : DENSE_H) };
+      if (dense) return isRoot ? props.rootTile ?? { w: DENSE_ROOT_W, h: DENSE_ROOT_H } : { w: props.tileWidth ?? DENSE_W, h: (typeof props.tileHeight === "function" ? props.tileHeight(id) : props.tileHeight) ?? (lens ? DENSE_H_SECTION : DENSE_H) };
       const h = heights.get(lid);
       if (h === undefined) provisional = true;
       if (lid !== id) return { w: compact ? 184 : 176, h: h ?? (compact ? 54 : 96) };
@@ -463,7 +467,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
     const { layout, plan } = layoutTree({ root: goal, nodes: split.nodes, edges: split.edges, size, metrics, prev: prevLayout, pin, keepOrder: hold });
     return { layout, plan, skeleton: split.edges, shared: split.shared, implied: skel.implied, provisional, pin };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [graph, goal, visible, skel, heights, compact, metrics, rootW, dense, lens]);
+  }, [graph, goal, visible, skel, heights, compact, metrics, rootW, dense, lens, props.tileHeight]);
   const layout = built.layout;
   /** For each assumption, the drawn cards that carry it as a tag. */
   const tagHolders = useMemo(() => {
@@ -875,7 +879,15 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       set(els, `hit:${pe.key}`, hitPath);
       const badge = badgeEls.current.get(pe.key);
       if (badge) {
-        const at = midpoint(re.own.length > 1 ? re.own : re.points);
+        // Quartic: the badge sits mid-way along the edge's own run. A private edge whose own
+        // part is a short stub uses its whole route, so the badge lands in the open gap
+        // between the cards rather than on a card's border; graph.css fades a badge whose
+        // run is shorter on screen than the badge (--len).
+        const own = re.own.length > 1 ? re.own : re.points;
+        const alone = !pe.bus || [...b.plan.edges.values()].filter((o) => o.bus && o.from === pe.from).length < 2;
+        const run = alone && pathLength(own) < 36 ? re.points : own;
+        const at = midpoint(run);
+        badge.style.setProperty("--len", pathLength(run).toFixed(1));
         if (at) badge.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) scale(calc(1 / var(--k)))`;
         badge.style.opacity = isFresh && e < 1 ? String(Math.max(0, e)) : "";
       }
@@ -924,6 +936,12 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       el.setAttribute("d", roundedPath(pts, r));
       el.style.opacity = String(1 - gone);
     }
+  }
+
+  function pathLength(pts: Pt[]): number {
+    let total = 0;
+    for (let i = 1; i < pts.length; i++) total += Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y);
+    return total;
   }
 
   function midpoint(pts: Pt[]): Pt | null {

@@ -5,10 +5,7 @@
 .graph__canvas { position: relative; flex: 1; min-height: 0; overflow: hidden; }
 .graph__canvas[hidden] { display: none; }
 .graph__canvas .tree { background: var(--sheet); }
-.graph .card__src, .graph .card__inputs, .graph .src-sq { display: none; }
-.key-shape { display: inline-block; flex: none; width: 14px; height: 10px; margin-right: 6px; border: 1.5px solid var(--ink-3); background: var(--raised); vertical-align: -1px; }
-.key-shape--theorem { border-radius: 6px; }
-.key-shape--axiom { border: 2px solid var(--rel-assumes-lit); border-radius: 0; background: var(--lit-wash); transform: skewX(-14deg); }
+.graph .card__inputs { display: none; }
 .graph .tree .card[data-shape="definition"] { border-radius: 2px; }
 .graph .tree .card[data-shape="theorem"] { border-radius: 14px; }
 .graph .tree .card[data-shape="axiom"] { border: 2px solid var(--rel-assumes-lit); border-radius: 0; background: var(--lit-wash); }
@@ -75,6 +72,9 @@
 .edge-badge text { fill: var(--ink-2); font: 600 10.5px/1 var(--font-sans); font-variant-numeric: tabular-nums; }
 .graph .edge-badge.is-hover rect, .graph .edge-badge.is-selected rect { stroke: var(--rel-supports-lit); stroke-width: 2px; }
 .graph .edge-badge.is-selected text { fill: var(--ink); }
+/* A badge needs a visible run of line: on an arrow shorter on screen than the badge plus clearance
+   (--len is the arrow's own length in layout units, --k the camera scale), it fades out rather than sit on a card. */
+.graph .edge-badge > * { opacity: clamp(0, calc((var(--len, 1000) * var(--k, 1) - 30) / 6), 1); }
 .graph__caption { position: absolute; z-index: 5; left: 12px; right: 12px; bottom: 10px; margin: 0; padding: 6px 10px; font-size: var(--fs-sm); line-height: 1.35; color: var(--ink); background: color-mix(in oklab, var(--sheet) 94%, transparent); border: 1px solid var(--rule); border-radius: 6px; box-shadow: var(--shadow-panel); pointer-events: none; }
 .graph__caption[hidden] { display: none; }
 .gkey { --k: 1; flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; padding: 8px 14px; border-top: 1px solid var(--rule); font-size: var(--fs-xs); line-height: 1.4; color: var(--ink-2); }
@@ -105,7 +105,7 @@
 .edge-ev__hop strong { color: var(--ink); font-weight: 600; }
 .edge-ev__site { margin: 2px 0; }
 .edge-ev__where { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin: 2px 0; }
-.edge-ev .lean { margin: 4px 0; max-height: 220px; overflow: auto; font-size: 0.78rem; }
+.edge-ev .leancode__pre { max-height: 220px; overflow: auto; }
 .edge-ev__actions { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 8px 0 0; }
 
 /* ---- The list form ------------------------------------------------------------------------ */
@@ -127,4 +127,4 @@
 .glist__dir { color: var(--ink-3); }
 .glist__name { color: var(--ink); }
 .glist__how { color: var(--ink-3); font-size: var(--fs-xs); white-space: nowrap; }
-.graph--list .gkey__intro { display: none; }
+

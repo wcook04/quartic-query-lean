@@ -16,15 +16,39 @@ import { drawnHelpers, edgeSentence } from "./edgeMeaning";
 import { EdgeEvidence } from "./EdgeEvidence";
 import { GraphKey } from "./GraphKey";
 import { GraphList } from "./GraphList";
+import { REF_PX, titlePieces, wrapLines } from "./canvas/representation";
+import type { Metrics } from "./engine/types";
 import "./tokens.css";
 import "./graph.css";
 
 const INSETS: Insets = { top: 14, right: 14, bottom: 14, left: 14 };
 // Card titles here are short sentences (median about 60 characters, nine in
-// ten under 90). At one 12px size, a 204 x 96 tile holds five lines at k = 1
-// and four at k = 0.8, so typical titles show whole at the pane's usual scale.
+// ten under 90). One width per view; each tile is as tall as its own title.
 const TILE_W = 204;
-const TILE_H = 96;
+/** Tiles are sized for this camera scale: the pane's usual fit is about 0.85 to 1.15,
+ *  and a title sized here still fits whole down to about k = 0.72. */
+const DESIGN_K = 0.85;
+/** On screen at DESIGN_K: a modest vertical and side padding, one 12px title size. */
+const TILE_PAD_Y = 11;
+const TILE_PAD_X = 6;
+const TITLE_PX = 12;
+const TITLE_LINE = 1.22;
+const TITLE_MAX_LINES = 5;
+/** The pane's spacing: ranks far enough apart that every line has a readable run (about 48px on
+ *  screen at the usual fit) with room for its arrowhead and "+N" badge, and siblings far enough
+ *  apart for parallel lines. Proof Reader's dense metrics are tuned for a whole map on one screen. */
+const PANE_METRICS: Metrics = {
+  sepCard: 28,
+  sepDummy: 14,
+  gapMin: 56,
+  trackSp: 9,
+  padTop: 18,
+  padBottom: 12,
+  radius: 6,
+  arrow: 9,
+  inset: 14,
+  portSp: 12,
+};
 // One size for every card in a view: 12px at the usual scale, growing with
 // the camera up to 14px so a closer view is not a large card of small text.
 const TITLE_SIZES = (k: number) => [Math.min(14, Math.max(12, Math.round(12 * k * 2) / 2))];
@@ -93,6 +117,41 @@ interface Props {
   onFocusChange?(focus: GraphFocus): void;
 }
 
+/** Each card's tile height in world units: its title wrapped at TITLE_PX in the tile's width at
+ *  DESIGN_K, plus padding. Words are measured with a canvas, like the engine's own title fit. */
+function useTileHeights(graph: ArgGraph): (id: string) => number {
+  const [fonts, setFonts] = useState(0);
+  useEffect(() => {
+    let live = true;
+    void (document as Document & { fonts?: FontFaceSet }).fonts?.ready?.then(() => { if (live) setFonts((n) => n + 1); });
+    return () => { live = false; };
+  }, []);
+  return useMemo(() => {
+    const ctx = typeof document !== "undefined" ? document.createElement("canvas").getContext("2d") : null;
+    const family = typeof document !== "undefined" ? getComputedStyle(document.documentElement).getPropertyValue("--font-sans").trim() || "sans-serif" : "sans-serif";
+    const width = TILE_W * DESIGN_K - 2 - 2 * TILE_PAD_X;
+    const cache = new Map<string, number>();
+    const measure = (text: string) => {
+      if (!ctx) return text.length * REF_PX * 0.52;
+      ctx.font = `400 ${REF_PX}px ${family}`;
+      return ctx.measureText(text).width * 1.06;
+    };
+    const space = measure(" ");
+    return (id: string) => {
+      let h = cache.get(id);
+      if (h !== undefined) return h;
+      const label = graph.nodes.get(id)?.label ?? id;
+      const pieces = titlePieces(label, false).map((p, i) => ({ w: measure(p.text), gap: i > 0 && p.space ? space : 0, text: p.text }));
+      const wrapped = wrapLines({ pieces, ellipsis: measure("…") }, TITLE_PX, width);
+      const lines = Math.min(TITLE_MAX_LINES, Number.isFinite(wrapped) ? wrapped : 3);
+      h = Math.ceil((2 + 2 * TILE_PAD_Y + lines * TITLE_PX * TITLE_LINE) / DESIGN_K);
+      cache.set(id, h);
+      return h;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [graph, fonts]);
+}
+
 export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, selected, onSelect, selectedEdge, onEdge, progress: _progress, paperName: _paperName, selectionKey, onFollow, focusPassages = [], focusRequest, onFocusChange }: Props) {
   const tree = useRef<MapViewHandle>(null);
   const body = useRef<HTMLDivElement>(null);
@@ -114,13 +173,15 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   // Keep SK's actual branching neighbourhood, not a compressed ancestry path.
   const [whole, setWhole] = useState(false);
   const drawnGraph = useMemo(() => whole ? graph : neighbourhood(graph, GOAL, scopeLit), [graph, whole, scopeLit]);
+  const tileHeight = useTileHeights(graph);
   const types = useMemo(() => Object.entries(map.cards).filter(([, c]) => isType(c)), [map]);
   const caption = useRef<HTMLParagraphElement>(null);
   const [notes, setNotes] = useState<HTMLElement | null>(null);
   // The line whose evidence is open under the map; Escape or the close button returns to the line.
   const [inspect, setInspect] = useState<string | null>(null);
   const [form, setForm] = useState<"map" | "list" | null>(null);
-  const [narrow, setNarrow] = useState(false);
+  // Phones open on the list: start from the window width so the map is not mounted and then swapped.
+  const [narrow, setNarrow] = useState(() => typeof window !== "undefined" && window.innerWidth < LIST_BELOW);
   const section = useRef<HTMLElement>(null);
   useEffect(() => {
     const el = section.current;
@@ -130,6 +191,8 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
     return () => observer.disconnect();
   }, []);
   const shownView = form ?? (narrow ? "list" : "map");
+  // An open line belongs to the drawn graph it came from: a new scope or passage closes it.
+  useEffect(() => { setInspect(null); }, [whole, passageKey]);
 
   const inView = useCallback((ids: readonly string[]) => {
     const canvas = body.current?.getBoundingClientRect();
@@ -281,22 +344,37 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   const onUserMove = useCallback(() => { overviewHeld.current = false; setPause(true); }, [setPause]);
   const noTrace = useCallback(() => undefined, []);
   const lastHit = useRef<string | null>(null);
+  // The control that opened the evidence (a list row or a map line), for returning focus on close.
+  const opener = useRef<HTMLElement | SVGElement | null>(null);
+  const rememberOpener = () => {
+    const active = document.activeElement as HTMLElement | SVGElement | null;
+    opener.current = active && section.current?.contains(active) && !active.closest(".edge-ev") ? active : null;
+  };
   const inspectRef = useRef<ArgEdge | null>(null);
   const edgeSelect = useCallback((key: string | null) => {
     if (!key) { setInspect(null); return; }
     // The neighbourhood's goal attachments are not Lean dependencies; they open in place and say so.
-    if (drawnGraph.edges.some((edge) => edge.key === key)) { lastHit.current = key; setInspect(key); }
+    if (drawnGraph.edges.some((edge) => edge.key === key)) { rememberOpener(); lastHit.current = key; setInspect(key); }
   }, [drawnGraph]);
   const closeEvidence = useCallback(() => {
     const key = lastHit.current;
     setInspect(null);
     // Return keyboard focus to the line that opened the evidence, when it is still drawn.
+    // Prefer the remembered opener (a list row or the map line) while it is still shown;
+    // otherwise the drawn line with the same name; otherwise the toolbar.
     window.requestAnimationFrame(() => {
+      const shown = (el: Element | null | undefined): el is HTMLElement | SVGElement => !!el && el.isConnected && el.getClientRects().length > 0;
+      const prior = opener.current;
+      opener.current = null;
+      if (shown(prior)) { prior.focus({ preventScroll: true }); if (document.activeElement === prior) return; }
       const hits = body.current?.querySelectorAll<SVGPathElement>(".hit[role=button]");
       const label = key && drawnGraph.edges.find((e) => e.key === key);
-      if (!hits || !label) return;
-      const name = describe(label);
-      [...hits].find((h) => h.getAttribute("aria-label")?.startsWith(name))?.focus();
+      if (hits && label) {
+        const name = describe(label);
+        const hit = [...hits].find((h) => shown(h) && h.getAttribute("aria-label")?.startsWith(name));
+        if (hit) { hit.focus({ preventScroll: true }); return; }
+      }
+      section.current?.querySelector<HTMLElement>(".graph__bar button[aria-pressed=true]")?.focus({ preventScroll: true });
     });
   }, [drawnGraph]);
   const nameOf = useCallback((id: string) => graph.nodes.get(id)?.label ?? id, [graph]);
@@ -318,7 +396,8 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
       persist={false}
       mode="overview"
       tileWidth={TILE_W}
-      tileHeight={TILE_H}
+      tileHeight={tileHeight}
+      denseMetrics={PANE_METRICS}
       oneCardEach
       fitMax={1.15}
       rootTile={ROOT_TILE}
@@ -337,9 +416,19 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
       edgeBadge={whole ? undefined : badge}
       titleSizes={TITLE_SIZES}
     />
-  ), [drawnGraph, selected, litIds, select, noTrace, onUserMove, inspect, routeEdge, edgeSelect, notes, describe, badge, whole]);
+  ), [drawnGraph, selected, litIds, select, noTrace, onUserMove, inspect, routeEdge, edgeSelect, notes, describe, badge, whole, tileHeight]);
 
   const following = !paused;
+  // The Types popover also closes on a pointer press outside it.
+  const typesRef = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    const onDown = (event: PointerEvent) => {
+      const el = typesRef.current;
+      if (el?.open && !el.contains(event.target as Node)) el.open = false;
+    };
+    document.addEventListener("pointerdown", onDown);
+    return () => document.removeEventListener("pointerdown", onDown);
+  }, []);
   // Under the map: the canvas shrinks and the camera keeps the line's two cards in view.
   const evidence = inspected && (
     <EdgeEvidence reader={reader} graph={drawnGraph} edge={inspected} onClose={closeEvidence}
@@ -374,7 +463,14 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
           </div>
         )}
         {types.length > 0 && (
-          <details className="graph__types">
+          <details className="graph__types" ref={typesRef} onKeyDown={(event) => {
+            if (event.key !== "Escape" || !event.currentTarget.open) return;
+            // Escape belongs to the open popover, not the proof pane around it.
+            event.preventDefault();
+            event.stopPropagation();
+            event.currentTarget.open = false;
+            event.currentTarget.querySelector<HTMLElement>("summary")?.focus();
+          }}>
             <summary className="gbtn">Types <span className="graph__count">{types.length}</span></summary>
             <div className="graph__typespop" role="group" aria-label="Types the proof is written in">
               <p className="graph__typesnote">The structures the proof is written in. Choose one for its Lean.</p>
@@ -384,12 +480,15 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
             </div>
           </details>
         )}
-        <button type="button" className={`gstatus${following ? "" : " gstatus--pinned"}`} aria-pressed={following} onClick={follow}
+        {/* A stable accessible name ("Follow the paper") with aria-pressed for the state;
+            the visible words change, so the state is also announced politely. */}
+        <button type="button" className={`gstatus${following ? "" : " gstatus--pinned"}`} aria-pressed={following} aria-label="Follow the paper" onClick={follow}
           title={following ? "The graph moves to each linked passage as you read" : "Resume following the paper"}>
           <span className="gstatus__dot" aria-hidden="true" />
-          {following ? "Following the paper" : <>Pinned here · <span className="gstatus__act">Follow the paper</span></>}
+          <span aria-hidden="true">{following ? "Following the paper" : <>Pinned here · <span className="gstatus__act">Follow the paper</span></>}</span>
         </button>
       </div>
+      <span className="sr-only" role="status">{following ? "The graph follows the paper." : "The graph is pinned here."}</span>
       <div className="graph__canvas" ref={body} hidden={shownView !== "map"}>
         {view}
         <p ref={caption} className="graph__caption" hidden aria-live="polite" />
@@ -397,11 +496,11 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
       {shownView === "list" && (
         <div className="graph__listwrap">
           <GraphList graph={drawnGraph} lit={litIds} selected={selected} selectedEdge={inspect ?? routeEdge}
-            onSelect={(id) => select(id)} onEdge={(e) => { lastHit.current = e.key; setInspect(e.key); }} />
+            onSelect={(id) => select(id)} onEdge={(e) => { rememberOpener(); lastHit.current = e.key; setInspect(e.key); }} />
         </div>
       )}
       {evidence}
-      <GraphKey graph={drawnGraph} notesRef={setNotes} />
+      <GraphKey graph={drawnGraph} notesRef={setNotes} badges={!whole} list={shownView === "list"} />
     </section>
   );
 });

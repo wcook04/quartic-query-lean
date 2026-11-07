@@ -49,7 +49,7 @@ function Statement({ r }: { r: any }) {
 
       {lead ? (
         <section className="verdict" aria-label="What Lean proves">
-          <p className="verdict__src"><Who kind="review" /></p>
+          <p className="verdict__src"><Who kind="review" by={lead.reviewed_by} /></p>
           <p className="verdict__line">
             <RelationMark relation={lead.relation} /> <DeclButton name={lead.declaration} />
           </p>
@@ -175,7 +175,7 @@ function Example({ ex }: { ex: any }) {
   return (
     <div className="example">
       <p className="example__q">{ex.question}</p>
-      <p><Reviewer by="ai:" /> {ex.authored_answer}</p>
+      <p><Who kind="review" /> {ex.authored_answer}</p>
       <Axioms inspection={ex.inspection} />
       {ex.receipt_currentness === "stale" && <p className="ev ev--gap">Its recorded build receipt predates the current source. Lean’s type and axioms above are from the current inspection.</p>}
       <button type="button" className="disclose" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? "Hide" : "Show"} the Lean that checks this</button>

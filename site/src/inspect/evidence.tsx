@@ -19,15 +19,26 @@ export function relationSentence(relation: Relation, route?: string): string {
 
 /** Who produced a fact, in the four kinds the About page defines. */
 export type Source = "lean" | "review" | "check" | "editors";
-const WHO: Record<Source, string> = { lean: "Lean reports", review: "AI review", check: "Recorded check", editors: "Editors" };
+const WHO: Record<Source, string> = { lean: "Lean reports", review: "Review", check: "Recorded check", editors: "Editors" };
 const WHO_TITLE: Record<Source, string> = {
   lean: "Reported by Lean from the project's source in this edition",
-  review: "A review judgment, carried out with AI and bound to the current Lean source",
+  review: "A review judgment bound to the current Lean source",
   check: "A recorded Lean build or Comparator run",
   editors: "An editorial reading link or explanation; it helps reading and is not a proof",
 };
-export function Who({ kind, children }: { kind: Source; children?: string }) {
-  return <span className={`who who--${kind}`} title={WHO_TITLE[kind]}>{children ?? WHO[kind]}</span>;
+const AI_REVIEW = "AI review";
+const AI_REVIEW_TITLE = "A review judgment, carried out with AI and bound to the current Lean source";
+
+/** A review is labelled as carried out with AI only when every reviewer the edition
+ *  records for it has an `ai:` identifier; otherwise, or with none recorded, it is a review. */
+export function byAI(by?: string | readonly (string | null | undefined)[] | null): boolean {
+  const ids = (Array.isArray(by) ? by : [by]).filter((id): id is string => typeof id === "string" && id.length > 0);
+  return ids.length > 0 && ids.every((id) => id.startsWith("ai:"));
+}
+
+export function Who({ kind, by, children }: { kind: Source; by?: string | readonly (string | null | undefined)[] | null; children?: string }) {
+  const ai = kind === "review" && byAI(by);
+  return <span className={`who who--${kind}`} title={ai ? AI_REVIEW_TITLE : WHO_TITLE[kind]}>{children ?? (ai ? AI_REVIEW : WHO[kind])}</span>;
 }
 
 export function RelationMark({ relation }: { relation: Relation }) {
@@ -65,7 +76,7 @@ export function Checks({ tie }: { tie: any }) {
 
 export function Reviewer({ by }: { by?: string }) {
   if (!by) return null;
-  return by.startsWith("ai:") ? <Who kind="review" /> : <Who kind="review">Review</Who>;
+  return <Who kind="review" by={by} />;
 }
 
 export const COVERAGE_SENTENCE: Record<string, string> = {

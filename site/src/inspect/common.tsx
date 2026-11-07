@@ -79,7 +79,7 @@ function usePlaces(rows: Place[]) {
     const reading: any = await reader.resource("reading.json");
     const papers = [...new Set(rows.map((r) => r.paper))];
     const tables = Object.fromEntries(await Promise.all(papers.map(async (p) => [p, await reader.resource(`selection/${p}.json`).catch(() => [])])));
-    const out: Record<string, { id: string; where: string; wherePlain?: string; quote?: string }[]> = {};
+    const out: Record<string, FoundPlace[]> = {};
     for (const p of papers) {
       const contents: any[] = reading.papers[p]?.contents ?? reading.papers[p]?.outline ?? [];
       const found = rows.filter((r) => r.paper === p).map((r) => ({ r, row: (tables[p] as any[]).find((x) => x.id === r.id) ?? r }));
@@ -128,6 +128,20 @@ const ORDER = ["expert", "exposition", "reconstruction", "original", "verificati
 
 const MAIN = ["expert", "exposition", "reconstruction", "original"];
 
+interface FoundPlace { id: string; where: string; wherePlain?: string; quote?: string }
+
+/** One place in a paper, as a button. At module scope so its buttons keep their
+ *  identity (and keyboard focus) across renders of the list. */
+function PlaceButton({ pl, selected, onGo }: { pl: FoundPlace; selected?: { paper: string; id: string }; onGo(): void }) {
+  return (
+    <button type="button" className="strip__go" onClick={onGo}>
+      <span className="strip__where" aria-label={pl.wherePlain}><Title text={pl.where} /></span>
+      {selected && pl.id === selected.id && <span className="strip__sel">Selected passage</span>}
+      {pl.quote && <span className="strip__quote">“<Title text={pl.quote} />…”</span>}
+    </button>
+  );
+}
+
 /** Where the papers discuss this: one row per paper, always in the same order.
  *  The paper being read is marked; a place in it scrolls the paper without leaving the
  *  view. The selected passage itself is listed in its own paper. The verification
@@ -143,13 +157,6 @@ export function Elsewhere({ rows, here, current, selected }: { rows: Place[]; he
   if (places.state !== "ready") return <p className="quiet" role="status">Finding the passages…</p>;
   const supplement = places.value.verification?.[0];
   const go = (paper: string, id: string) => (paper === mine ? nav.showInPaper(id) : nav.openSelection(paper, id));
-  const Place = ({ paper, pl }: { paper: string; pl: { id: string; where: string; wherePlain?: string; quote?: string } }) => (
-    <button type="button" className="strip__go" onClick={() => go(paper, pl.id)}>
-      <span className="strip__where" aria-label={pl.wherePlain}><Title text={pl.where} /></span>
-      {selected && pl.id === selected.id && <span className="strip__sel">Selected passage</span>}
-      {pl.quote && <span className="strip__quote">“<Title text={pl.quote} />…”</span>}
-    </button>
-  );
   return (
     <>
       <div className="strip">
@@ -161,11 +168,11 @@ export function Elsewhere({ rows, here, current, selected }: { rows: Place[]; he
               <p className="strip__paper">{face(paper).tab}{isHere && <span className="strip__here">You are reading this</span>}</p>
               <div className="strip__places">
                 {list.length === 0 && <p className="strip__none">No passage linked yet</p>}
-                {list.slice(0, 3).map((pl) => <Place key={pl.id} paper={paper} pl={pl} />)}
+                {list.slice(0, 3).map((pl) => <PlaceButton key={pl.id} pl={pl} selected={selected} onGo={() => go(paper, pl.id)} />)}
                 {list.length > 3 && (
                   <details className="strip__extra">
                     <summary>{list.length - 3} more {list.length - 3 === 1 ? "passage" : "passages"}</summary>
-                    {list.slice(3).map((pl) => <Place key={pl.id} paper={paper} pl={pl} />)}
+                    {list.slice(3).map((pl) => <PlaceButton key={pl.id} pl={pl} selected={selected} onGo={() => go(paper, pl.id)} />)}
                   </details>
                 )}
               </div>
