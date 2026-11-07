@@ -683,7 +683,9 @@ html, body { overflow-x: clip; max-width: 100%; }
 .source-block.is-page-title { display: none; }
 .lean-tag--margin { position: absolute; right: calc(100% + 10px); top: 0.5em; cursor: pointer; user-select: none; -webkit-user-select: none; opacity: 0.8; transition: opacity var(--desk-quick) var(--desk-ease); }
 .source-block:hover > .lean-tag--margin { opacity: 1; }
-.source-block.is-selected > .lean-tag--margin { opacity: 1; background: var(--lean-ink); border-color: var(--lean-ink); color: var(--paper); }
+.source-block.is-selected > .lean-tag--margin { opacity: 1; border-color: var(--lean-ink); }
+/* One tag per run of linked paragraphs; the rule carries the rest. */
+.source-block.is-linked + .source-block.is-linked > .lean-tag--margin { display: none; }
 
 /* Loading, failure. */
 .paper-skeleton { display: grid; gap: 14px; padding-top: 6px; }
