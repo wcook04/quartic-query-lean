@@ -78,10 +78,11 @@ def video_entry(video, routes):
     previous = -1
     for chapter in video["chapters"]:
         second = chapter["start_seconds"]
-        # A chapter opens a reading route, a whole reading page, or (titled) only the video.
+        # A chapter opens a reading route, a titled whole reading page, or (titled) only the video.
         route, page = chapter.get("route"), chapter.get("page")
         target_ok = (route in routes if route is not None else
-                     page in CHAPTER_PAGES if page is not None else bool(chapter.get("title")))
+                     page in CHAPTER_PAGES and bool(chapter.get("title")) if page is not None
+                     else bool(chapter.get("title")))
         if type(second) is not int or second <= previous or not target_ok or (route and page):
             raise ValueError(f"invalid video chapter: {chapter}")
         previous = second
