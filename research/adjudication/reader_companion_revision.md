@@ -164,3 +164,44 @@ reading resources and the accepted PDFs were exported from the committed
 source. The hash-route false positive was also repaired in the audit owner;
 a separate browser fixture still reports a truly missing section fragment
 while accepting existing and percent-encoded anchors.
+
+## Menu and mobile interaction follow-up
+
+7 November 2026. The next visual pass applies the existing-project and web
+interface guidance to the current components, retaining the established
+palette, typefaces, reading widths and mathematical material. The source
+review uses the current Vercel Web Interface Guidelines and the actual local
+SimplifiedMap, PickMenu and native reader implementations, rather than a
+replacement frontend.
+
+The two paper menus now share a native disclosure group. Their dismissal
+adapts SimplifiedMap's capture-phase Escape handling and focus return. Pointer
+clicks outside the menu and keyboard focus leaving it also dismiss it; Escape
+no longer closes the proof behind an open menu. A real sequential pointer
+test caught an intermediate-width case missed by the earlier bounds-only
+check: a dropdown could cover the next row of toolbar controls. Anchoring it
+below the whole toolbar repairs that case. The second pointer run passes at
+all selected widths; native grouping prevents two overlapping menus.
+
+When the phone's proof view covers the paper, that paper and its tab strip
+are inert. Initial focus goes to the visible proof controls; the existing
+close operation returns focus to the selected passage. The visible site bar
+remains usable. Desktop paper and proof continue to work beside each other.
+The original delayed-focus cancellation and reading-position owners are
+retained. This pass does not redesign proof navigation or the graph camera.
+
+The browser theme-colour metadata now reads the actual current page token,
+on initialization and every theme change. The original theme owner remains
+authoritative. Wide equations use Proof Reader's thin native scroll treatment,
+and nested code, inspector and menu scrolling is contained within that pane.
+No paper source, expression, figure, claim binding or PDF byte is changed;
+the existing accepted print edition is reused.
+
+Browser validation covers widths 390, 768, 901, 1280 and 1440 in both themes:
+real menu switching after wrapping, Escape priority and focus return, outside
+clicks, Tab dismissal, covered-paper keyboard exclusion, return to the paper,
+initial and changed browser colour, no window overflow, and horizontal access
+to wide equations. The sequential menu interaction joins the existing
+reading-column contract in the site guide; no additional general writing rule
+is needed. Validation and rendered inspection remain distinct from proof or
+independent human review.

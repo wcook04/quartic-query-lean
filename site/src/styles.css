@@ -184,8 +184,9 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .paper__byline { color: var(--ink-2); margin: 0 0 10px; }
 .paper__tools { position: relative; display: flex; flex-wrap: wrap; gap: 18px; align-items: baseline; font-size: 0.92rem; margin: 0; }
 .jump summary { cursor: pointer; color: var(--query); }
-.jump ul { position: absolute; left: 0; right: 0; z-index: 4; background: var(--sheet); border: 1px solid var(--rule); margin: 6px 0 0; padding: 8px 16px; list-style: none; max-height: 50vh; overflow: auto; columns: 2; }
+.jump ul { position: absolute; top: 100%; left: 0; right: 0; z-index: 4; background: var(--sheet); border: 1px solid var(--rule); margin: 6px 0 0; padding: 8px 16px; list-style: none; max-height: 50vh; overflow: auto; columns: 2; }
 .jump li { break-inside: avoid; padding: 2px 0; }
+.jump ul { overscroll-behavior: contain; scrollbar-width: thin; }
 
 .manuscript { width: 100%; min-width: 0; max-width: 42rem; margin: 0 auto; font-family: var(--serif); font-size: 1.1rem; line-height: 1.62; }
 .manuscript h1, .manuscript h2, .manuscript h3 { font-weight: 600; line-height: 1.25; margin: 1.8em 0 0.5em; }
@@ -199,7 +200,8 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .manuscript figcaption { font-size: 0.9em; line-height: 1.5; color: var(--ink-2); margin-top: 6px; }
 .manuscript table { border-collapse: collapse; margin: 1em 0; font-size: 0.95rem; display: block; overflow-x: auto; max-width: 100%; }
 .manuscript th, .manuscript td { border-bottom: 1px solid var(--rule-2); padding: 4px 10px; }
-.manuscript .katex-display { overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+/* Adapt Proof Reader's math-display scroll treatment to the existing KaTeX pane. */
+.manuscript .katex-display { overflow-x: auto; overflow-y: hidden; padding: 4px 0; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--control) transparent; }
 .manuscript .katex-display > .katex { width: max-content; min-width: 100%; }
 .manuscript .katex-display > .katex > .katex-html { padding-right: 3em; }
 .manuscript .citation a, .manuscript .footnote-ref { text-decoration: none; }
@@ -291,6 +293,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .wrap { white-space: pre-wrap; overflow-wrap: anywhere; }
 
 .lean { font-family: var(--mono); font-size: 0.78rem; line-height: 1.5; background: var(--code); padding: 10px 0; margin: 8px 0; overflow-x: auto; max-height: 60vh; }
+.lean { overscroll-behavior: contain; scrollbar-width: thin; }
 .lean code { font-size: inherit; display: block; }
 .lean__line { display: grid; grid-template-columns: 3.4em 1fr; }
 .lean__line.is-marked { background: var(--query-wash); }
@@ -375,6 +378,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .desk--open { grid-template-columns: minmax(0, 1fr) clamp(440px, 38vw, 620px); }
 .inspector { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
 .inspector__body { overflow-y: auto; flex: 1; min-height: 0; }
+.inspector__body { overscroll-behavior: contain; }
 .inspector__modes { flex: none; display: flex; gap: 2px; padding: 6px 14px 0; border-bottom: 1px solid var(--rule-2); }
 .inspector__modes button { background: none; border: 0; border-bottom: 2px solid transparent; padding: 6px 10px 7px; cursor: pointer; color: var(--ink-2); font-size: 0.92rem; }
 .inspector__modes button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--query); }

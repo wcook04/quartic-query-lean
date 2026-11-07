@@ -73,3 +73,10 @@ manuscript type size, across the closed and resizable proof views. Captions
 and footnotes scale with that size. Linked-passage menus use the edition's
 authored route titles and stay within the reading column. The account cards
 emphasize the expert entrance, matching the first reading action.
+
+The two paper menus form one native disclosure group. Escape dismisses the
+menu before the proof pane; an outside pointer click or leaving the menu by
+keyboard dismisses it too. Menus start below the entire toolbar, including
+when its controls wrap. On phones, the covered paper and paper tabs are inert
+while the proof is open; closing it returns focus to the selected passage.
+The theme owner also updates the browser colour from the current page token.
