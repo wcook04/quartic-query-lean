@@ -189,7 +189,7 @@ export function LeanCode({ text, from = 1, links, self, onOpen, mark, spans, lab
         <span className="leancode__where">{caption}</span>
         <span className="leancode__tools">
           <button type="button" className="leancode__tool" aria-pressed={!wrap} onClick={() => setWrap(!wrap)} title={wrap ? "Keep each Lean line on one row and scroll sideways" : "Wrap long Lean lines under their indent"}>
-            {wrap ? "No wrap" : "Wrap"}
+            No wrap
           </button>
           <CopyButton text={source} what="source" />
           {url && <a className="leancode__tool" href={url} target="_blank" rel="noopener noreferrer">GitHub<span className="sr-only"> (opens in a new tab)</span></a>}
