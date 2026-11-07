@@ -1,0 +1,996 @@
+<div id="abstract" class="abstract">
+<h2 id="abstract-heading">Abstract</h2>
+<p>We construct total Boolean functions with a nearly quartic separation between bounded-error randomized and quantum query complexity. Writing these complexities as <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm R(f)\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm Q(f)\)</span>, the examples rule out every universal bound <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm R(f)=O((1+\mathrm Q(f))^\alpha)\)</span> with <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\alpha&lt;4\)</span>. Thus the known quartic upper bound has the optimal exponent, disproving the conjectured cubic bound. Both complexities count worst-case bit queries with error at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/3\)</span> on every input.</p>
+</div>
+<section id="sec:introduction" class="source-block" data-l0="1" data-l1="47">
+<h1>1 Introduction</h1>
+</section>
+<div class="source-block" data-l0="48" data-l1="59">
+<div id="original-def-Q">
+
+</div>
+<div id="original-def-query-oracle">
+
+</div>
+<div id="original-def-R">
+
+</div>
+<p>How much can a quantum algorithm reduce the number of input bits needed to compute a total Boolean function? Let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}f:\{0,1\}^n\to\{0,1\}\)</span>. We write <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm R(f)\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm Q(f)\)</span> for the minimum worst-case numbers of bit queries made by randomized and quantum algorithms that compute <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}f\)</span> with error at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/3\)</span> on every input. Quantum queries use the standard oracle <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O_x\lvert i,b,z\rangle=\lvert i,b\oplus x_i,z\rangle.\]</span> Computation between queries is unrestricted. In particular, all query bounds in this paper are worst-case bounds, including over internal randomness and measurement outcomes.</p>
+</div>
+<div class="source-block" data-l0="60" data-l1="73">
+<p>Polynomial relations between these two measures express a basic restriction on quantum speedups for total functions. To ask for the sharp power without imposing a particular logarithmic correction, define <span id="eq:alpha" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \alpha_{\mathrm{tot}}=
+ \inf\left\{\alpha\ge0:
+ \begin{array}{l}
+ \text{there exists }C_\alpha&lt;\infty\text{ such that, for every }n\ge1\text{ and}\\
+ f:\{0,1\}^n\to\{0,1\},\quad
+ \mathrm R(f)\le C_\alpha(1+\mathrm Q(f))^\alpha
+ \end{array}\right\}.
+\tag{1}\]</span></span> The additive <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1\)</span> includes constant functions. We prove the following.</p>
+</div>
+<div class="source-block" data-l0="74" data-l1="86">
+<div id="thm:main" class="theorem">
+<div class="source-block" data-l0="74" data-l1="86">
+<p><strong>Theorem 1.1</strong>.  <em>The optimal power is <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\alpha_{\mathrm{tot}}=4\)</span>. More precisely, <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm R(f)=O((1+\mathrm Q(f))^4)\)</span> for every total Boolean function. For each fixed integer <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\ge2\)</span>, there are positive constants <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}c_k,C_k,b_k\)</span> and total Boolean functions <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}F_{k,m}\)</span>, for all sufficiently large powers of four <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span>, such that <span id="eq:main-family" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \mathrm Q(F_{k,m})\le C_k\sqrt m\,(\log m)^{b_k},
+ \qquad
+ \mathrm R(F_{k,m})\ge c_k\frac{m^{2-1/k}}{(\log m)^2}.
+\tag{2}\]</span></span></em></p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="87" data-l1="90">
+<p>The universal upper bound is known. The contribution is the family in <a href="#eq:main-family">(2)</a>, which rules out every smaller power, including the conjectured cubic relation.</p>
+</div>
+<div class="source-block" data-l0="91" data-l1="92">
+<div id="original-page-2">
+
+</div>
+<h2 id="historical-context">1.1 Historical context</h2>
+</div>
+<div class="source-block" data-l0="93" data-l1="102">
+<p>Grover’s search algorithm <span class="citation">[<a href="#ref-Grover96">16</a>]</span> gives the basic quadratic speedup for the OR function, with a matching quantum lower bound <span class="citation">[<a href="#ref-BBBV97">10</a>]</span>. Beals, Buhrman, Cleve, Mosca, and de Wolf <span class="citation">[<a href="#ref-BBCMW01">8</a>]</span> proved the general polynomial relation <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm D(f)=O(\mathrm Q(f)^6)\)</span>, where <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm D(f)\)</span> is exact deterministic query complexity. Their result builds on the combinatorial and polynomial measures studied by Nisan <span class="citation">[<a href="#ref-Nisan91">20</a>]</span> and Nisan and Szegedy <span class="citation">[<a href="#ref-NisanSzegedy94">21</a>]</span>. Thus totality rules out the exponential query speedups possible for partial functions, but it leaves a substantial range of possible powers.</p>
+</div>
+<div class="source-block" data-l0="103" data-l1="115">
+<p>Pointer constructions introduced by Göös, Pitassi, and Watson <span class="citation">[<a href="#ref-GPW15">15</a>]</span> and developed by Ambainis, Balodis, Belovs, Lee, Santha, and Smotrovs <span class="citation">[<a href="#ref-ABBLSS17">4</a>]</span> gave a nearly quartic separation between deterministic and quantum queries. For bounded-error randomized queries, Aaronson, Ben-David, and Kothari <span class="citation">[<a href="#ref-ABK16">2</a>]</span> introduced the cheat-sheet framework and obtained a power-<span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}5/2\)</span> separation, up to logarithmic factors. This framework places certificates in an array whose correct address is determined by answers to partial-function instances. Improvements in those partial-function separations led to power <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}8/3-o(1)\)</span> by Tal <span class="citation">[<a href="#ref-Tal20">26</a>]</span>, and then <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}3-o(1)\)</span> by Bansal and Sinha <span class="citation">[<a href="#ref-BS21">6</a>]</span> and independently Sherstov, Storozhenko, and Wu <span class="citation">[<a href="#ref-SSW23">23</a>]</span>.</p>
+</div>
+<div class="source-block" data-l0="116" data-l1="123">
+<div id="original-cor-cubic-refuted">
+
+</div>
+<p>On the upper-bound side, Aaronson, Ben-David, Kothari, Rao, and Tal <span class="citation">[<a href="#ref-ABKRT21">3</a>]</span>, using Huang’s sensitivity theorem <span class="citation">[<a href="#ref-Huang19">17</a>]</span>, proved <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm D(f)=O(\mathrm Q(f)^4)\)</span>. They conjectured that randomized complexity satisfies the stronger relation <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm R(f)=O(\mathrm Q(f)^3)\)</span> <span class="citation">[<a href="#ref-ABKRT21">3</a>, Conjecture 2]</span>. Theorem <a href="#thm:main">1.1</a> disproves that conjecture and shows that the quartic upper bound already has the optimal power for bounded-error randomized complexity.</p>
+</div>
+<div class="source-block" data-l0="124" data-l1="136">
+<p>There is also a direct connection to algorithms that compare candidate witnesses. Quantum minimum finding <span class="citation">[<a href="#ref-DurrHoyer96">14</a>]</span>, sink finding <span class="citation">[<a href="#ref-SYZ04">25</a>]</span>, and king finding in tournaments <span class="citation">[<a href="#ref-MPS23">18</a>]</span> provide related search procedures. Recent constructions of Ben-David and Kothari <span class="citation">[<a href="#ref-BK26">9</a>]</span> and Ambainis, Iraids, and Kokainis <span class="citation">[<a href="#ref-AIK26">5</a>]</span> use comparisons of candidate witnesses to separate certificate complexity from randomized and quantum query complexity. Certificate complexity measures the worst-case size of a smallest partial input assignment that fixes the function value. Their nearly quartic separations between certificate and quantum complexity concern a different classical measure, but their comparison-based viewpoint is particularly relevant here.</p>
+</div>
+<section id="the-construction-and-its-two-analyses" class="source-block" data-l0="137" data-l1="138">
+<h2>1.2 The construction and its two analyses</h2>
+</section>
+<div class="source-block" data-l0="139" data-l1="146">
+<p>The input is organized into <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span> columns. Each column <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span> contains a string <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_i\)</span> of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span> bits and an array of certificate cells. The address of the relevant cell is the vector of answers to several disjoint instances of a partial function. Quantumly these answers are cheap to obtain on promised inputs; classically they are hard to guess. Each cell stores pointers to positions in all the other strings <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_j\)</span>, together with a circuit transcript certifying the address.</p>
+</div>
+<div class="source-block" data-l0="147" data-l1="152">
+<p>A column wins when its own string is all ones, its address is defined, and its certificate is correct and points to a zero in every other column. The total function asks whether a winner exists. There can be at most one. An incorrect address or transcript simply fails verification; the input to the total function carries no promise.</p>
+</div>
+<div class="source-block" data-l0="153" data-l1="163">
+<p>The direction of the pointers matters. A true winner can use its own certificate to disqualify every opponent. Conversely, no cell in any opponent can point to a zero in the winner’s all-one string. Thus a cheap quantum comparison favors the winner with high probability even if the opponent’s address instances violate their promises. Comparisons between two non-winners may have arbitrary probabilities. Section <a href="#sec:quantum">3</a> proves a tournament lemma that permits precisely this behavior. It produces a short list containing the winner in <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\sqrt m\)</span> times a polylogarithmic number of queries, after which quantum search checks the certificates.</p>
+</div>
+<div class="source-block" data-l0="164" data-l1="174">
+<div id="original-page-3">
+
+</div>
+<p>The classical proof starts with one independently hidden zero in every <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_i\)</span> and blank certificate cells. We choose a uniformly random column, erase its zero, and fill its correctly addressed cell. These two changes produce a winner. A randomized algorithm can distinguish the two inputs only by finding the erased zero or querying the filled cell. The first event is unlikely for a uniformly chosen column; the second requires either many address queries in that column or a correct guess of an entire vector of hard answers. An adaptive direct-product argument makes this last assertion precise without conditioning on the algorithm’s choice of which columns to investigate.</p>
+</div>
+<div class="source-block" data-l0="175" data-l1="185">
+<p>The tournament analysis is useful independently of this construction. It uses the actual probabilities of comparisons as multiplicative weights; fresh coherent workspaces and amplitude amplification sample those weights exactly. Only comparisons involving a genuine winner need to be reliable. This extends the candidate-comparison approach to the arbitrary behavior caused here by off-promise address inputs. The classical analysis combines the planted input with a standard per-instance-capped direct-product argument <span class="citation">[<a href="#ref-Drucker12">13</a>, <a href="#ref-Shaltiel03">22</a>]</span>; the separate cell arrays let this argument charge the cost of addressing many possible winners.</p>
+</div>
+<div class="source-block" data-l0="186" data-l1="192">
+<p>Section <a href="#sec:construction">2</a> defines the function and its certificates. Sections <a href="#sec:quantum">3</a> and <a href="#sec:classical">4</a> prove the two bounds in <a href="#eq:main-family">(2)</a>; Section <a href="#sec:exponent">5</a> derives the optimal power. Appendix <a href="#sec:upper">A</a> gives a self-contained proof of the known quartic upper bound. The only external lower-bound input is the Forrelation theorem stated in Section <a href="#sec:construction">2</a>.</p>
+</div>
+<section id="conventions" class="source-block" data-l0="193" data-l1="194">
+<h2>1.3 Conventions</h2>
+</section>
+<div class="source-block" data-l0="195" data-l1="203">
+<div id="original-def-transcript">
+
+</div>
+<div id="original-def-partial-query">
+
+</div>
+<div id="original-def-log-convention">
+
+</div>
+<p>We write <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}[m]=\{1,\ldots,m\}\)</span> and use logarithms to base two, except in expressions where changing the base only changes an absolute constant. Constants in bounds for <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}F_{k,m}\)</span> may depend on the fixed integer <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\)</span>. A partial Boolean function is specified on a subset of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\{0,1\}^N\)</span>; its algorithms must be correct on that subset. The quantum routines used here have a fixed query cap on every input, including inputs outside the promise. A circuit transcript lists proposed values of the non-input gates; the actual input bits are read directly when a gate check needs them.</p>
+</div>
+<section id="sec:construction" class="source-block" data-l0="204" data-l1="206">
+<h1>2 An addressed certificate with outward pointers</h1>
+</section>
+<div class="source-block" data-l0="207" data-l1="212">
+<p>We construct a total function whose accepting certificate belongs to one column. The certificate must certify the answers to several Forrelation instances and point to a zero in every other column. The latter requirement will let a genuine accepting column defeat any competitor, even when that competitor’s Forrelation instances violate their promise.</p>
+</div>
+<div class="source-block" data-l0="213" data-l1="216">
+<p>Throughout the construction, fix an integer <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\geq 2\)</span> and let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span> tend to infinity through powers of four. Constants in <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O_k(\cdot)\)</span> may depend on <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\)</span>, which remains fixed as <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span> grows. Write <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}[m]=\{1,\ldots,m\}\)</span>.</p>
+</div>
+<section id="the-partial-function-and-its-exact-circuit" class="source-block" data-l0="217" data-l1="218">
+<h2>2.1 The partial function and its exact circuit</h2>
+</section>
+<div class="source-block" data-l0="219" data-l1="241">
+<div id="original-page-4">
+
+</div>
+<div id="original-def-walsh-sign">
+
+</div>
+<p>We use the <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\)</span>-fold Forrelation problem introduced by Aaronson and Ambainis <span class="citation">[<a href="#ref-AA18">1</a>]</span>, with the thresholds analyzed by Bansal and Sinha <span class="citation">[<a href="#ref-BS21">6</a>]</span>. Let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}H\)</span> be the normalized Walsh–Hadamard matrix of order <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span>, and let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}u=m^{-1/2}(1,\ldots,1)^{\mathsf T}\)</span>. We identify a bit <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}a\)</span> with the sign <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(-1)^a\)</span>. For a sign vector <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}z\)</span>, write <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}D_z\)</span> for the diagonal matrix with diagonal <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}z\)</span>. Given <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\)</span> sign vectors <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}z_1,\ldots,z_k\in\{\pm1\}^m\)</span>, put <span id="eq:forrelation-form" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \Phi(z_1,\ldots,z_k)
+ =u^{\mathsf T}D_{z_1}H D_{z_2}H\cdots H D_{z_k}u,
+ \qquad \delta=2^{-5k}.
+\tag{3}\]</span></span> Define the partial Boolean function <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}P=P_{k,m}\)</span> on <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}km\)</span> bits by <span id="eq:forrelation-promise" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ P(z_1,\ldots,z_k)=
+ \begin{cases}
+  1,&amp;\Phi(z_1,\ldots,z_k)\geq\delta,\\
+  0,&amp;|\Phi(z_1,\ldots,z_k)|\leq\delta/2,
+ \end{cases}
+\tag{4}\]</span></span> and leave it undefined on all other inputs. The two displayed cases are disjoint. Query complexity for this partial function requires correctness only on its domain.</p>
+</div>
+<div class="source-block" data-l0="242" data-l1="268">
+<div id="original-lem-2.1.iii">
+
+</div>
+<div id="original-lem-2.1.ii">
+
+</div>
+<div id="original-lem-2.1.i">
+
+</div>
+<div id="lem:forrelation" class="lemma">
+<div class="source-block" data-l0="242" data-l1="268">
+<p><strong>Lemma 2.1</strong>.  <em>For each fixed integer <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\geq2\)</span>, the functions <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}P_{k,m}\)</span> have the following properties.</em></p>
+<ol type="i">
+<li><p><em>For all sufficiently large powers of four <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span>, <span id="eq:L-def" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+  \mathrm R(P_{k,m})&gt;L,
+  \qquad
+  L=\left\lfloor
+       \frac{m^{1-1/k}}{(\log_2 m)^2}
+     \right\rfloor.
+\tag{5}\]</span></span></em></p></li>
+<li><p><em>For every <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}0&lt;\eta&lt;1/2\)</span>, a quantum algorithm uses <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O_k(1+\log(1/\eta))\)</span> bit queries and returns <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}P_{k,m}\)</span> with error at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\eta\)</span> on every input in its domain. The algorithm can be implemented coherently, retaining its workspace. On every input, promised or not, it produces a bit when its output register is measured.</em></p></li>
+<li><p><em>There is a Boolean circuit <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}C=C_{k,m}\)</span> of fan-in at most two and size <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}S=S_{k,m}=O_k(m(\log m)^2)\)</span> with two output bits <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}d,b\)</span> such that <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}d=1\quad\Longleftrightarrow\quad P_{k,m}\text{ is defined},
+  \qquad d=1\quad\Longrightarrow\quad b=P_{k,m}.\]</span> The circuit computes these outputs exactly on every input.</em></p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="269" data-l1="323">
+<div class="proof">
+<div class="source-block" data-l0="269" data-l1="282">
+<div id="original-claim-bs-to-L">
+
+</div>
+<p><em>Proof.</em> Theorem 1.3 and Corollary 1.4 of Bansal and Sinha <span class="citation">[<a href="#ref-BS21">6</a>]</span> apply to exactly the normalized form and thresholds in <a href="#eq:forrelation-form">(3)</a>–<a href="#eq:forrelation-promise">(4)</a>. They give, for fixed <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\)</span> and error <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/3\)</span>, <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm R(P_{k,m})=
+ \Omega_k\!\left(
+   \left(\frac{m}{\log(km)}\right)^{1-1/k}
+ \right).\]</span> This exceeds the value of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}L\)</span> in <a href="#eq:L-def">(5)</a> for all sufficiently large <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span>.</p>
+</div>
+<div class="source-block" data-l0="283" data-l1="293">
+<div id="original-claim-proj-prob">
+
+</div>
+<p>For the quantum algorithm, prepare <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}u\)</span>, apply the unitary product in <a href="#eq:forrelation-form">(3)</a>, in its right-to-left order, and test the projection onto <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}u\)</span>. Each <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}D_{z_h}\)</span> uses one phase query, implemented by the standard bit oracle, while <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}H\)</span> and the projection require no queries. The projection succeeds with probability <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\Phi^2\)</span>. This probability is at least <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\delta^2\)</span> on a 1-input and at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\delta^2/4\)</span> on a 0-input. Independent repetitions and a threshold between these two numbers give error <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\eta\)</span> with <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O_k(1+\log(1/\eta))\)</span> repetitions. The measurement outcomes and the final threshold decision can instead be computed into registers and retained, giving the claimed coherent implementation.</p>
+</div>
+<div class="source-block" data-l0="294" data-l1="312">
+<div id="original-claim-circuit-size">
+
+</div>
+<div id="original-claim-N-phi">
+
+</div>
+<p>For the circuit, let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}W=\sqrt m\,H\)</span>, whose entries are <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\pm1\)</span>. The scalar <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}N=z_1^{\mathsf T}W D_{z_2}W\cdots W D_{z_k}(1,\ldots,1)^{\mathsf T}\]</span> is an integer, and <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\Phi=\frac{N}{M_{k,m}},
+ \qquad M_{k,m}=m(\sqrt m)^{k-1}.\]</span> The denominator is an integer because <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span> is a power of four. Compute <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}N\)</span> by <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k-1\)</span> unnormalized Walsh–Hadamard transforms, coordinatewise sign changes, and a final signed sum. Each transform uses <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O(m\log m)\)</span> additions and subtractions by the usual butterfly recursion. All intermediate integers have absolute value at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m^{O(k)}\)</span>, so <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O_k(\log m)\)</span> bits suffice. Binary additions, subtractions, sign changes, and comparisons have fan-in-two Boolean circuits of size linear in this bit length. Consequently the entire arithmetic circuit has Boolean size <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O_k(m(\log m)^2)\)</span>.</p>
+</div>
+<div class="source-block" data-l0="313" data-l1="323">
+<div id="original-claim-integer-tests">
+
+</div>
+<p>Finally, the two tests in <a href="#eq:forrelation-promise">(4)</a> are the exact integer comparisons <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2^{5k}N\geq M_{k,m},
+ \qquad 2^{5k+1}|N|\leq M_{k,m}.\]</span> Set <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}d\)</span> to the disjunction of these comparisons and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}b\)</span> to the first comparison. This adds only <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O_k(\log m)\)</span> gates and proves the last assertion. ◻</p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="324" data-l1="328">
+<div id="original-page-5">
+
+</div>
+<p>The exact circuit serves a different purpose from the quantum algorithm. The algorithm will propose an address. A transcript of the circuit will certify that this address consists of defined, correct answers, including on inputs where an arbitrary proposed address has no reason to be correct.</p>
+</div>
+<section id="the-total-function" class="source-block" data-l0="329" data-l1="330">
+<h2>2.2 The total function</h2>
+</section>
+<div class="source-block" data-l0="331" data-l1="350">
+<div id="original-def-eval-transcript">
+
+</div>
+<div id="original-def-column-layout">
+
+</div>
+<p>Set <span id="eq:r-def" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ r=\lceil20\log_2m\rceil,
+ \qquad \ell=\log_2m.
+\tag{6}\]</span></span> The input has <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span> columns. Column <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\in[m]\)</span> contains the following bits:</p>
+<ol type="i">
+<li><p>A string <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_i\in\{0,1\}^m\)</span>.</p></li>
+<li><p>Strings <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A_{i,1},\ldots,A_{i,r}\in\{0,1\}^{km}\)</span>, with no promise imposed on them.</p></li>
+<li><p>A cell <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}B_{i,s}\)</span> for each address <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}s\in\{0,1\}^r\)</span>. This cell contains a pointer <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p_{i,s,j}\in[m]\)</span> for each <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}j\ne i\)</span>, encoded by <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\ell\)</span> bits using a fixed bijection, and an alleged evaluation transcript of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}C_{k,m}\)</span> on each <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A_{i,h}\)</span>, <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}h\in[r]\)</span>.</p></li>
+</ol>
+<p>An evaluation transcript consists of one bit for every non-input gate of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}C_{k,m}\)</span>, including its output gates. Circuit inputs are the actual bits of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A_{i,h}\)</span>; they need not be copied into the transcript. We count these non-input gates in <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}S\)</span>.</p>
+</div>
+<div class="source-block" data-l0="351" data-l1="364">
+<div id="original-def-F">
+
+</div>
+<div id="original-def-winner">
+
+</div>
+<p>Call column <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span> a <em>winner</em> if <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_i=1^m\)</span>, every <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}P(A_{i,h})\)</span> is defined, and the cell at its true address <span id="eq:true-address" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ s_i=(P(A_{i,1}),\ldots,P(A_{i,r}))
+\tag{7}\]</span></span> contains correct evaluation transcripts and pointers satisfying <span id="eq:outward-pointers" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ X_j[p_{i,s_i,j}]=0\qquad\text{for every }j\ne i.
+\tag{8}\]</span></span> Define <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}F_{k,m}\)</span> to be 1 if a winner exists, and 0 otherwise. This is a total Boolean function: all the preceding conditions are predicates on the input bits, and no promise is made about the <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A\)</span>-strings, the pointers, or the transcripts.</p>
+</div>
+<div class="source-block" data-l0="365" data-l1="373">
+<div id="original-cor-unique-winner">
+
+</div>
+<p>The addressed transcripts have the certificate role used in cheat-sheet constructions <span class="citation">[<a href="#ref-ABK16">2</a>]</span>, while pointers between columns also occur in earlier query-complexity separations <span class="citation">[<a href="#ref-ABBLSS17">4</a>, <a href="#ref-GPW15">15</a>]</span>. Here the pointers have a specific outward orientation: an accepting column supplies a direct zero witness against every competitor. In particular, there can be at most one winner, since a winner’s pointer to another column certifies that the latter is not all ones. Figure <a href="#fig:outward">1</a> depicts this condition.</p>
+</div>
+<div class="source-block" data-l0="374" data-l1="400">
+<figure id="fig:outward">
+<img alt="Figure 1" data-resource="docs/original_source/outward-pointers.png">
+<figcaption>Figure 1: The relevant cell of a winning column points outward to a zero in every other column; two such pointers are shown. Only the indicated zeros are prescribed in the other columns. The cell’s address is computed from the partial-function answers and certified by stored circuit transcripts. The winner’s all-one string prevents every opponent from disqualifying it, even at an incorrectly decoded address.</figcaption>
+</figure>
+</div>
+<div class="source-block" data-l0="403" data-l1="406">
+<div id="original-claim-winner-fidelity">
+
+</div>
+<div id="original-def-win-at-address">
+
+</div>
+<p>We next make certificate verification precise. For a specified pair <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(i,s)\)</span>, say that <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span> wins <em>at address <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}s\)</span></em> if <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span> is a winner and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}s=s_i\)</span>.</p>
+</div>
+<div class="source-block" data-l0="407" data-l1="420">
+<div id="original-lem-2.2.ii">
+
+</div>
+<div id="original-lem-2.2.i">
+
+</div>
+<div id="original-def-K">
+
+</div>
+<div id="lem:local-tests" class="lemma">
+<div class="source-block" data-l0="407" data-l1="420">
+<p><strong>Lemma 2.2</strong>.  <em>For every input to <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}F_{k,m}\)</span> and every pair <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(i,s)\in[m]\times\{0,1\}^r\)</span>, the assertion that <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span> wins at address <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}s\)</span> is a conjunction of <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}K_{k,m}=m+(m-1)+r(S_{k,m}+2)
+        =O_k(m(\log m)^3)\]</span> Boolean tests. Each test can be evaluated exactly with <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O(\log m)\)</span> bit queries. The tests can also be evaluated coherently with the same query bound, with their indices supplied in superposition. Their number and indexing convention are the same for every <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(i,s)\)</span>.</em></p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="421" data-l1="446">
+<div class="proof">
+<div class="source-block" data-l0="421" data-l1="425">
+<p><em>Proof.</em> Use one test for each bit of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_i\)</span>, requiring it to be 1, and one test for each <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}j\ne i\)</span>, reading the pointer <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p_{i,s,j}\)</span> and requiring the indicated bit of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_j\)</span> to be 0. The latter uses <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\ell+1\)</span> queries.</p>
+</div>
+<div class="source-block" data-l0="426" data-l1="436">
+<p>For each of the <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}r\)</span> transcripts in <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}B_{i,s}\)</span>, use one test per gate, requiring its claimed value to be the prescribed Boolean function of its predecessors. A predecessor value is read from the transcript for a non-input gate and from <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A_{i,h}\)</span> for an input wire. Fan-in at most two therefore makes each such test use at most three queries. Add two output tests, requiring <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}d=1\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}b=s_h\)</span>. By induction in a topological order of the circuit, all gate tests pass if and only if the transcript is the true evaluation. The output tests then say exactly that <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}P(A_{i,h})\)</span> is defined and equals <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}s_h\)</span>. Together with the <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_i\)</span> and pointer tests, these are precisely the winner conditions at <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(i,s)\)</span>.</p>
+</div>
+<div class="source-block" data-l0="437" data-l1="446">
+<p>The wiring of the circuit and the locations of all bits are fixed and require no queries to compute. A test can load the required bits into ancillas, compute its result reversibly, and unload the bits by querying again. The bit oracle is its own inverse. A controlled use of that oracle, when needed, is likewise implemented by loading, controlled use of the loaded value, and unloading. Thus coherent evaluation, including an input-dependent pointer lookup, changes the query count by at most a constant factor. ◻</p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="447" data-l1="451">
+<div id="original-cor-local-dichotomy">
+
+</div>
+<p>Two consequences will be used repeatedly. A winning column has one address at which every test passes; a nonwinning column has a failing test at every address. Thus an address proposed on an unpromised input can always be checked against the total definition.</p>
+</div>
+<div class="source-block" data-l0="452" data-l1="453">
+<div id="original-page-7">
+
+</div>
+<h1 id="sec:quantum">3 Quantum search with probabilistic comparisons</h1>
+</div>
+<div class="source-block" data-l0="454" data-l1="465">
+<p>We first prove a general tournament statement. A comparison need not behave almost deterministically: its outcome probabilities may be arbitrary, provided one distinguished candidate beats each opponent with sufficiently high probability. This is the additional feature needed beyond comparison algorithms for a fixed tournament <span class="citation">[<a href="#ref-BK26">9</a>, <a href="#ref-MPS23">18</a>, <a href="#ref-SYZ04">25</a>]</span>. There is no promised gap between a nonwinner comparison probability and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/2\)</span>, so ordinary error reduction does not provide uniformly cheap bounded-error access to a fixed tournament. After proving the statement, we construct the comparisons for <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}F_{k,m}\)</span> and verify the candidates they produce.</p>
+</div>
+<section id="amplification-without-changing-the-sampled-distribution" class="source-block" data-l0="466" data-l1="467">
+<h2>3.1 Amplification without changing the sampled distribution</h2>
+</section>
+<div class="source-block" data-l0="468" data-l1="475">
+<p>The tournament will sample a candidate conditioned on defeating every previously selected candidate. Amplification must preserve that conditional distribution while increasing the probability of obtaining a sample. This is a direct consequence of the two-dimensional rotation underlying amplitude amplification <span class="citation">[<a href="#ref-BBHT98">11</a>, <a href="#ref-BHMT02">12</a>]</span>; we give the details because the distribution, as well as the success probability, is used in the tournament.</p>
+</div>
+<div class="source-block" data-l0="476" data-l1="490">
+<div id="lem:amplification" class="lemma">
+<div class="source-block" data-l0="476" data-l1="490">
+<p><strong>Lemma 3.1</strong> (Bounded amplification).  <em>Let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A\)</span> be a quantum state preparation with a designated success bit. Its success probability is <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p\)</span>, and, if <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p&gt;0\)</span>, its normalized successful state is <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\lvert g\rangle\)</span>. Let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}0&lt;\gamma\le1/2\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}0&lt;\eta&lt;1/2\)</span>. There is a procedure using <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O\bigl(\gamma^{-1/2}\log(1/\eta)\bigr)\]</span> calls to <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A^{-1}\)</span> that either reports failure or produces a successful outcome. Conditional on success, the output state is <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\lvert g\rangle\)</span> up to a global phase. If <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p\ge\gamma\)</span>, its failure probability is at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\eta\)</span>. If <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p=0\)</span>, it always reports failure. The call bound holds for every <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p\)</span> and on every branch.</em></p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="491" data-l1="535">
+<div class="proof">
+<div class="source-block" data-l0="491" data-l1="509">
+<div id="original-claim-grover-state">
+
+</div>
+<p><em>Proof.</em> For <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}0&lt;p&lt;1\)</span>, write <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A\lvert0\rangle
+   =\sin\theta\lvert g\rangle+\cos\theta\lvert b\rangle,
+ \qquad 0&lt;\theta&lt;\pi/2,\]</span> where the two normalized vectors lie in the successful and unsuccessful subspaces. Reflection about <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A\lvert0\rangle\)</span>, followed in the appropriate order by a phase flip of the success bit, gives after <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\ell\)</span> Grover iterations the state <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\sin((2\ell+1)\theta)\lvert g\rangle
+  +\cos((2\ell+1)\theta)\lvert b\rangle.\]</span> Thus measuring success leaves exactly the same normalized successful state, independently of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\ell\)</span>. Each reflection about the prepared state uses <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A\)</span>, a query-free reflection about <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\lvert0\rangle\)</span>, and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A^{-1}\)</span>.</p>
+</div>
+<div class="source-block" data-l0="510" data-l1="535">
+<div id="original-page-8">
+
+</div>
+<div id="original-claim-sin2theta">
+
+</div>
+<div id="original-def-grover-trial">
+
+</div>
+<p>Set <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}M=\lceil10/\sqrt\gamma\rceil\)</span>. A trial chooses, with equal probabilities, either <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\ell=0\)</span> or a uniform <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\ell\in\{0,\ldots,M-1\}\)</span>, then measures the success bit. If <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p\ge1/2\)</span>, the first choice alone gives success probability at least <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/4\)</span>. If <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\gamma\le p\le1/2\)</span>, then <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\sin(2\theta)=2\sqrt{p(1-p)}\ge\sqrt\gamma.\]</span> Summing a geometric progression bounds the averaged success probability in the second choice by <span id="eq:grover-average" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \frac1M\sum_{\ell=0}^{M-1}\sin^2((2\ell+1)\theta)
+ \ge \frac12-\frac{1}{2M\abs{\sin(2\theta)}}
+ \ge\frac{9}{20}.
+\tag{9}\]</span></span> Every trial therefore succeeds with probability at least <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}9/40\)</span> when <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p\ge\gamma\)</span>. Repeat a fixed <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\lceil\log(1/\eta)/\log(40/31)\rceil\)</span> number of trials with fresh registers, stopping at the first success. The probability that all fail is at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\eta\)</span>. Each trial uses <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O(M)\)</span> calls, whether it succeeds or fails. Every successful trial has the same state <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\lvert g\rangle\)</span>, so neither the random choice of length nor stopping at the first success changes that state. The cases <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p=0\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p=1\)</span> follow directly, with the successful component absent or equal to the entire prepared state. ◻</p>
+</div>
+</div>
+</div>
+<section id="the-tournament" class="source-block" data-l0="536" data-l1="537">
+<h2>3.2 The tournament</h2>
+</section>
+<div class="source-block" data-l0="538" data-l1="550">
+<div id="original-def-aij">
+
+</div>
+<p>Fix an input to the bit oracle. For candidates in <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}[m]\)</span>, suppose a coherent comparison produces one victorious candidate for each unordered pair. It retains all workspace, so it is a unitary state preparation that can be reversed. Let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}a_{ij}\)</span> be the probability that <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span> defeats <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}j\)</span> when the comparison result is measured. We always use the same circuit for the unordered pair, and set <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}a_{ii}=0\)</span>. Hence <span id="eq:complementarity" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ a_{ij}+a_{ji}=1\quad(i\ne j),\qquad a_{ii}=0.
+\tag{10}\]</span></span> The following result is pointwise in the fixed oracle input; its probabilities are over the algorithm’s internal randomness and measurements.</p>
+</div>
+<div class="source-block" data-l0="551" data-l1="574">
+<div id="original-def-T-eps">
+
+</div>
+<div id="prop:tournament" class="proposition">
+<div class="source-block" data-l0="551" data-l1="574">
+<p><strong>Proposition 3.2</strong> (A tournament for probabilistic comparisons).  <em>For <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\ge2\)</span>, put <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}T=\lceil\log(1000m)\rceil,
+ \qquad \epsilon=\frac{1}{1000T}.\]</span> Suppose a coherent comparison circuit, controlled by two candidate indices and reversible with all workspace retained, uses at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}c\ge1\)</span> bit queries. Let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}a_{ij}\)</span> be the probability that it reports <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span> defeating <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}j\)</span>, and assume <a href="#eq:complementarity">(10)</a>. There is a quantum algorithm making <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O\bigl(c\sqrt m\,T^2\log T\bigr)\]</span> queries on every branch and returning a list of at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}T\)</span> candidates with the following guarantee. If <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i_\ast\in[m]\)</span> satisfies <span id="eq:dominant" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ a_{i_\ast j}\ge1-\epsilon\qquad(j\ne i_\ast),
+\tag{11}\]</span></span> then the list contains <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i_\ast\)</span> with probability at least <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1-2m/2^T-T\epsilon\)</span>.</em></p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="575" data-l1="655">
+<div class="proof">
+<div class="source-block" data-l0="575" data-l1="586">
+<div id="original-def-ideal-process">
+
+</div>
+<p><em>Proof.</em> We analyze an ideal sampling process and then implement each of its steps quantumly. Start with <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}w_i=1\)</span> for all <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span>, and write <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}W=\sum_iw_i\)</span>. When <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}W&gt;0\)</span>, sample a pivot <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p\)</span> with probability <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}w_p/W\)</span>, append it to the list, and update <span id="eq:weights" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ w_i\longleftarrow w_i a_{ip}\qquad(i\in[m]).
+\tag{12}\]</span></span> When <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}W=0\)</span>, leave the list unchanged and keep all weights zero. The weights only define this ideal process; the algorithm will not compute them numerically.</p>
+</div>
+<div class="source-block" data-l0="587" data-l1="607">
+<div id="original-page-9">
+
+</div>
+<div id="original-claim-weight-lb">
+
+</div>
+<div id="original-claim-expected-WT">
+
+</div>
+<p>For <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}W&gt;0\)</span>, complementarity gives the exact drift identity <span id="eq:drift" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\begin{aligned}
+ \mathbb E[W_{\mathrm{new}}\mid w]
+ &amp;=\frac{1}{W}\sum_{p,i}w_pw_i a_{ip}\\
+ &amp;=\frac{W^2-\sum_iw_i^2}{2W}\le\frac W2.
+ 
+\end{aligned}\tag{13}\]</span></span> The same inequality holds when <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}W=0\)</span>, so after <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}T\)</span> steps <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathbb EW_T\le m/2^T\)</span>. If a candidate <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i_\ast\)</span> satisfying <a href="#eq:dominant">(11)</a> has never been selected, its final weight is at least <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(1-\epsilon)^T\ge1-T\epsilon&gt;\frac12.\]</span> In particular, the process cannot reach zero total weight before selecting it. Markov’s inequality implies <span id="eq:ideal-miss" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \Pr[i_\ast\text{ absent from the ideal list}]
+ \le\Pr[W_T\ge1/2]\le\frac{2m}{2^T}.
+\tag{14}\]</span></span></p>
+</div>
+<div class="source-block" data-l0="608" data-l1="629">
+<div id="original-claim-success-prob">
+
+</div>
+<div id="original-construct-sampler">
+
+</div>
+<p>Now fix an arbitrary list of previously selected pivots <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p_1,\ldots,p_t\)</span>, where <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}t&lt;T\)</span>. Prepare a uniform superposition of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\in[m]\)</span>, and, for each pivot, compare <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span> with that pivot in a fresh workspace. Conditional on <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span>, let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\lvert\phi(i,p_b)\rangle\)</span> denote the complete comparison state, including its result bit. Before computing a success bit, the joint state is <span id="eq:product-state" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \frac1{\sqrt m}\sum_{i=1}^m
+  \lvert i\rangle\bigotimes_{b=1}^t
+  \lvert\phi(i,p_b)\rangle.
+\tag{15}\]</span></span> Set the success bit precisely when every comparison says that <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span> defeats its pivot. All garbage is retained. By the tensor product in <a href="#eq:product-state">(15)</a>, the conditional success probability for index <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span> is <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\prod_{b=1}^t a_{i p_b}=w_i.\]</span> The empty product is one. Distinct index registers are orthogonal, so the total success probability is <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}W/m\)</span>, and the conditional distribution of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span> on success is exactly <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}w_i/W\)</span>.</p>
+</div>
+<div class="source-block" data-l0="630" data-l1="636">
+<p>Apply Lemma <a href="#lem:amplification">3.1</a> with <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\gamma=1/(2m)\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\eta=\epsilon\)</span>. A successful sample still has exactly this index distribution: amplification preserves the full successful state, not just its total probability. If sampling reports failure, stop and return the list already accumulated. Otherwise measure the index, append it, and continue, for at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}T\)</span> stages.</p>
+</div>
+<div class="source-block" data-l0="637" data-l1="647">
+<div id="original-claim-coupling">
+
+</div>
+<p>Until <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i_\ast\)</span> is first selected, its weight is at least <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/2\)</span>, so <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}W/m\ge1/(2m)\)</span>. At each such history the sampler has failure probability at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\epsilon\)</span> and, conditional on success, exactly the ideal pivot law. One can therefore couple that stage to an ideal pivot, with probability at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\epsilon\)</span> of terminating instead. The coupling is conditional on the entire previous pivot history; it does not require history-independent failure probabilities. Summing these failure probabilities over at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}T\)</span> stages and using <a href="#eq:ideal-miss">(14)</a> gives the stated guarantee. Once <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i_\ast\)</span> has entered the list, later termination cannot remove it.</p>
+</div>
+<div class="source-block" data-l0="648" data-l1="655">
+<div id="original-claim-tournament-cost">
+
+</div>
+<p>At stage <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}t\)</span>, the preparation and its inverse use <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O(c(t+1))\)</span> queries. Lemma <a href="#lem:amplification">3.1</a> uses <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O(\sqrt m\log(1/\epsilon))\)</span> such calls. Summing over <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}t&lt;T\)</span> gives <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O(c\sqrt m\,T^2\log T)\)</span> queries. The number of stages and all trial counts are fixed upper bounds, so this is a worst-case query bound even if there is no candidate satisfying <a href="#eq:dominant">(11)</a>. ◻</p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="656" data-l1="661">
+<p>The proof uses no order or transitivity among the candidates. Its shrinking quantity is the sum of fractional weights in <a href="#eq:weights">(12)</a>, and complementarity alone yields <a href="#eq:drift">(13)</a>. This is why unpromised address computations will be permitted in the application.</p>
+</div>
+<section id="comparing-columns-and-verifying-the-list" class="source-block" data-l0="662" data-l1="663">
+<h2>3.3 Comparing columns and verifying the list</h2>
+</section>
+<div class="source-block" data-l0="664" data-l1="677">
+<div id="original-page-10">
+
+</div>
+<div id="original-claim-decode-cost">
+
+</div>
+<div id="original-def-decode">
+
+</div>
+<p>We now fix an arbitrary input to <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}F_{k,m}\)</span>, including possibly undefined Forrelation instances and incorrect circuit transcripts. Keep <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}T\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\epsilon\)</span> as in Proposition <a href="#prop:tournament">3.2</a>. To decode column <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span>, run the quantum algorithm for each of its <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}r\)</span> partial-function instances, amplified to error at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\epsilon/r\)</span>. Repetition and a majority computation take <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O_k\bigl(r\log(r/\epsilon)\bigr)=(\log m)^{O_k(1)}\]</span> queries. If all these instances are defined, the resulting address is correct with probability at least <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1-\epsilon\)</span>. Otherwise the routine still returns some address. All repetitions and majority computations can be performed unitarily with their workspaces retained.</p>
+</div>
+<div class="source-block" data-l0="678" data-l1="686">
+<div id="original-def-comparison">
+
+</div>
+<p>For a pair of distinct columns, sort their indices and apply the following comparison in this fixed order. Decode the address of each column in a separate workspace. Read each column’s pointer toward the other at its decoded address, and inspect the bit of the other’s <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X\)</span> string to which it points. A column <em>disqualifies</em> its opponent if that bit is zero. If exactly one column disqualifies the other, declare it victorious; otherwise declare the smaller index victorious. For a self-comparison, return false without reading a pointer.</p>
+</div>
+<div class="source-block" data-l0="687" data-l1="695">
+<div id="original-claim-comparison-state">
+
+</div>
+<p>These operations prepare a comparison state with <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}c=(\log m)^{O_k(1)}\)</span> queries. The decoded addresses remain in their registers, and subsequent operations are controlled in the computational basis. Consequently its measurement probabilities agree with the description just given; different address outcomes are orthogonal and do not interfere. Reversing the complete preparation costs the same number of bit queries. Using the same sorted-pair circuit for either ordering ensures <a href="#eq:complementarity">(10)</a>.</p>
+</div>
+<div class="source-block" data-l0="696" data-l1="707">
+<div id="original-claim-winner-dominates">
+
+</div>
+<p>If <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i_\ast\)</span> is a winner, then <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_{i_\ast}\)</span> is all ones. No opponent, at any decoded address, can point to a zero there. When the address of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i_\ast\)</span> is correctly decoded, its own certificate points to a zero in every other column. Thus <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}a_{i_\ast j}\ge1-\epsilon\qquad(j\ne i_\ast),\]</span> regardless of whether the opponent’s address instances are defined. Proposition <a href="#prop:tournament">3.2</a> therefore returns a list containing the winner, when one exists, with probability at least <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1-2m/2^T-T\epsilon\)</span>.</p>
+</div>
+<div class="source-block" data-l0="708" data-l1="726">
+<div id="original-claim-verify">
+
+</div>
+<div id="original-def-verify">
+
+</div>
+<p>For each listed column, decode and measure its address afresh. At that fixed address, the winner conditions are the exact local tests of Lemma <a href="#lem:local-tests">2.2</a>. Let their number be <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}K=m(\log m)^{O_k(1)}\)</span>. A uniform test index and an exact failing-test flag give a preparation whose success probability is zero when all tests pass, and at least <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/K\)</span> otherwise. Lemma <a href="#lem:amplification">3.1</a>, with <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\gamma=1/K\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\eta=\epsilon\)</span>, searches for a failed test in <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O\bigl(\sqrt K\log(1/\epsilon)\log m\bigr)
+   =\sqrt m(\log m)^{O_k(1)}\]</span> queries. Here <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}K\ge m\ge4\)</span>. Reject this candidate if a failed test is found, and accept it otherwise. Exact testing cannot report a failure when all tests pass. If the column is not a winner, every address has a failed test, so it is accepted with probability at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\epsilon\)</span>. A true winner is accepted whenever decoding is correct: in that case there is no failed test for the search to report. Its rejection probability is therefore at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\epsilon\)</span>, solely from address decoding.</p>
+</div>
+<div class="source-block" data-l0="727" data-l1="741">
+<div id="original-claim-error">
+
+</div>
+<p>Output one if any listed candidate is accepted. On a zero-input, a union bound gives error at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}T\epsilon\)</span>. On a one-input, the miss probability and the winner’s verification error give total error at most <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\frac{2m}{2^T}+T\epsilon+\epsilon&lt;\frac13.\]</span> The comparisons, tournament, and at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}T\)</span> verifications prove</p>
+<div id="prop:quantum" class="proposition">
+<div class="source-block" data-l0="727" data-l1="741">
+<p><strong>Proposition 3.3</strong>.  <em>For every fixed <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\ge2\)</span>, the total functions of Section <a href="#sec:construction">2</a> satisfy <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm Q(F_{k,m})\le\sqrt m(\log m)^{O_k(1)}.\]</span></em></p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="742" data-l1="750">
+<div id="original-claim-coherent-access">
+
+</div>
+<p>All superposed array accesses used above are ordinary bit queries. The global bit index is computed reversibly from the column, cell, and wire indices. A pointer is read one bit at a time in <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}O(\log m)\)</span> queries, after which its target index is computed without queries. A controlled bit query can be implemented by loading the addressed input bit into an ancilla, using it under the required control, and unloading it with a second query. Thus neither coherent addressing nor retaining and reversing comparison garbage changes the query model.</p>
+</div>
+<div class="source-block" data-l0="751" data-l1="753">
+<div id="original-page-11">
+
+</div>
+<h1 id="sec:classical">4 The randomized lower bound</h1>
+</div>
+<div class="source-block" data-l0="754" data-l1="761">
+<p>We compare a distribution with one zero in every column to a coupled distribution in which one uniformly chosen column is made a winner. An algorithm can distinguish them only by finding the zero that was removed or by reaching the newly filled certificate cell. The first event requires searching many columns; the second requires either many Forrelation queries in the chosen column or a successful guess of its entire address.</p>
+</div>
+<section id="independent-answers-under-adaptive-queries" class="source-block" data-l0="762" data-l1="763">
+<h2>4.1 Independent answers under adaptive queries</h2>
+</section>
+<div class="source-block" data-l0="764" data-l1="770">
+<p>We first record the precise amplification fact needed for address guessing. We use the capped direct-product argument developed by Drucker <span class="citation">[<a href="#ref-Drucker12">13</a>, Section 1.3 and Lemmas 3.1–3.2]</span>, following earlier work of Shaltiel <span class="citation">[<a href="#ref-Shaltiel03">22</a>]</span>. Its query limit is imposed separately on each input, while queries to different inputs may be interleaved adaptively.</p>
+</div>
+<div class="source-block" data-l0="771" data-l1="787">
+<div id="lem:adaptive-product" class="lemma">
+<div class="source-block" data-l0="771" data-l1="787">
+<p><strong>Lemma 4.1</strong>.  <em>Let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}P\colon\mathcal D\to\{0,1\}\)</span>, where <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathcal D\subseteq\{0,1\}^n\)</span>, let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mu\)</span> be a distribution on <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathcal D\)</span>, and let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}L\)</span> be a nonnegative integer. Suppose every deterministic algorithm making at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}L\)</span> queries computes <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}P\)</span> under <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mu\)</span> with success probability at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\beta\)</span>. If <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}U_1,\ldots,U_r\)</span> are independent samples from <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mu\)</span>, every classical algorithm making at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}L\)</span> queries to each <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}U_h\)</span> has probability at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\beta^r\)</span> of outputting <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(P(U_1),\ldots,P(U_r)).\]</span> The algorithm may be randomized, choose its queries adaptively among the <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}r\)</span> inputs, and receive arbitrary additional information independent of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(U_1,\ldots,U_r)\)</span>.</em></p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="788" data-l1="833">
+<div class="proof">
+<div class="source-block" data-l0="788" data-l1="797">
+<div id="original-claim-product-law">
+
+</div>
+<p><em>Proof.</em> Fix the additional information and all internal random coins, leaving a deterministic algorithm. At any transcript <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\tau\)</span> of positive probability, the conditional law of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(U_1,\ldots,U_r)\)</span> is a product of their separate conditional laws. Indeed, the event of obtaining <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\tau\)</span> requires exactly the observed bit values in each input. Any tuple satisfying these requirements follows the same query schedule, since the next query is determined by the preceding answers. Thus this event is a Cartesian product of constraints on the individual inputs.</p>
+</div>
+<div class="source-block" data-l0="798" data-l1="820">
+<div id="original-claim-supermartingale">
+
+</div>
+<div id="original-def-value-V">
+
+</div>
+<p>For each <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}h\)</span>, let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}q_h\)</span> be the number of queries already made to <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}U_h\)</span>, and let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}V_h(\tau)\)</span> be the largest success probability for computing <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}P(U_h)\)</span> from its current conditional law using at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}L-q_h\)</span> further queries. This maximum is attained because the domain and the remaining query budget are finite. If the next query addresses <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}U_h\)</span>, optimality gives <span id="eq:bellman-query" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \mathbb E[V_h(\tau')\mid\tau]\leq V_h(\tau),
+\tag{16}\]</span></span> where <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\tau'\)</span> includes its answer: making that particular query and then using an optimal continuation is one allowed strategy in the definition of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}V_h(\tau)\)</span>. The conditional laws and budgets of the other inputs do not change. Hence <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathbb E\!\left[
+   \prod_{j=1}^r V_j(\tau')\,\middle|\,\tau
+ \right]
+ \leq \prod_{j=1}^r V_j(\tau).\]</span> The product is therefore a supermartingale over the successive queries. There are at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}rL\)</span> such queries; a run that stops earlier can be extended by steps leaving all values unchanged.</p>
+</div>
+<div class="source-block" data-l0="821" data-l1="833">
+<div id="original-page-12">
+
+</div>
+<div id="original-claim-final-bound">
+
+</div>
+<p>At the final transcript, the conditional probability that the algorithm’s chosen answer vector is correct is at most <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\prod_{h=1}^r
+   \max_{b\in\{0,1\}}\Pr(P(U_h)=b\mid\tau)
+ \leq \prod_{h=1}^r V_h(\tau).\]</span> The first inequality uses the product conditional law, and the second uses the option of making no further queries. Initially every <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}V_h\)</span> is at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\beta\)</span>. Taking expectations proves the bound <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\beta^r\)</span>. Averaging over the fixed information and coins proves the full statement. ◻</p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="834" data-l1="855">
+<div id="original-claim-address-guess">
+
+</div>
+<div id="original-claim-minimax-mu">
+
+</div>
+<p>Return to <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}P=P_{k,m}\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}L\)</span> from <a href="#eq:L-def">(5)</a>, with <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span> large enough that <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1\leq L&lt;\mathrm R(P)\)</span>. There are finitely many deterministic decision trees of depth at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}L\)</span> on this finite domain. A randomized algorithm of that query depth is a distribution on these trees. Finite minimax, in its query-complexity formulation <span class="citation">[<a href="#ref-Yao77">27</a>]</span>, applied to the payoff that the answer is correct, gives <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\begin{aligned}
+ &amp;\max_{\text{distributions on depth-$L$ trees}}
+       \min_{x\in\operatorname{dom}P}\Pr(\text{correct on }x)\\
+ &amp;\hspace{2em}=
+ \min_{\mu}\max_{\text{depth-$L$ trees }T}
+       \Pr_{x\sim\mu}(T(x)=P(x)).
+ \end{aligned}\]</span> The left-hand side is less than <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2/3\)</span>, since its maximum is attained and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}L&lt;\mathrm R(P)\)</span>. Consequently there is a distribution <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mu\)</span> on <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\operatorname{dom}P\)</span> for which every such deterministic tree has success probability at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2/3\)</span>. Lemma <a href="#lem:adaptive-product">4.1</a> therefore bounds the success probability of guessing <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}r\)</span> independent answers by <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(2/3)^r\)</span>.</p>
+</div>
+<section id="coupled-zero-and-one-inputs" class="source-block" data-l0="856" data-l1="857">
+<h2>4.2 Coupled zero and one inputs</h2>
+</section>
+<div class="source-block" data-l0="858" data-l1="868">
+<div id="original-prop-4.2-generic">
+
+</div>
+<div id="prop:classical" class="proposition">
+<div class="source-block" data-l0="858" data-l1="868">
+<p><strong>Proposition 4.2</strong>.  <em>For each fixed integer <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\geq2\)</span> and every sufficiently large power of four <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span>, the total function of Section <a href="#sec:construction">2</a> satisfies <span id="eq:classical-lower" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \mathrm R(F_{k,m})&gt;
+ G:=\left\lfloor\frac{mL}{100}\right\rfloor,
+ \qquad
+ L=\left\lfloor\frac{m^{1-1/k}}{(\log_2m)^2}\right\rfloor.
+\tag{17}\]</span></span></em></p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="869" data-l1="980">
+<div class="proof">
+<div class="source-block" data-l0="869" data-l1="876">
+<div id="original-claim-Y-values">
+
+</div>
+<div id="original-def-dummy">
+
+</div>
+<p><em>Proof.</em> Generate a <em>dummy input</em> <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}Y^{(0)}\)</span> as follows. Independently for each <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\in[m]\)</span>, choose <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}J_i\)</span> uniformly from <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}[m]\)</span> and put a single zero at position <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}J_i\)</span> in <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_i\)</span>, setting its other bits to 1. Draw all <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A_{i,h}\)</span> independently from <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mu\)</span>, independently also of the <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}J_i\)</span>. Set all cells <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}B_{i,s}\)</span> to one fixed blank bit pattern. Since each <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_i\)</span> has a zero, <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}F_{k,m}(Y^{(0)})=0\)</span>.</p>
+</div>
+<div class="source-block" data-l0="877" data-l1="883">
+<div id="original-def-planted">
+
+</div>
+<p>Choose <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}I\)</span> uniformly from <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}[m]\)</span>, independently of the entire dummy input. Form a <em>planted input</em> <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}Y^{(1)}\)</span> by setting <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_I=1^m\)</span> and filling its true-address cell <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}B_{I,s_I}\)</span> with the correct circuit transcripts and the pointers <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}p_{I,s_I,j}=J_j\)</span> for <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}j\ne I\)</span>. All <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A\)</span>-strings are in the domain of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}P\)</span>, so <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}s_I\)</span> is well defined. Column <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}I\)</span> is a winner, and therefore <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}F_{k,m}(Y^{(1)})=1\)</span>.</p>
+</div>
+<div class="source-block" data-l0="884" data-l1="896">
+<p>Fix a deterministic algorithm making at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}G\)</span> queries, and consider its run on <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}Y^{(0)}\)</span>. The coupled inputs can differ only at the bit <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X_I[J_I]\)</span> and inside the cell <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}B_{I,s_I}\)</span>. Until one of these locations is queried, the two executions have identical answers and hence identical subsequent queries. It follows that the difference between their output-1 probabilities is at most <span id="eq:coupling-events" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \Pr(\text{the dummy run queries }X_I[J_I])
+ +\Pr(\text{the dummy run queries any bit of }B_{I,s_I}).
+\tag{18}\]</span></span> Counting every visit to the indicated cell is an upper bound even if the queried bit happens to agree with its blank value.</p>
+</div>
+<div class="source-block" data-l0="897" data-l1="904">
+<div id="original-claim-uniform-zero">
+
+</div>
+<div id="original-def-Z">
+
+</div>
+<h4 id="finding-the-removed-zero.">Finding the removed zero.</h4>
+<p>Let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}Z\)</span> be the number of columns whose zero is discovered in the dummy run. Before the zero in a column is found, its location is uniform among the positions in that column not yet queried. This remains true conditional on the full adaptive transcript: the other <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}X\)</span>-strings and all <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A\)</span>-strings are independent of its zero location, and the blank cells supply no information about that location.</p>
+</div>
+<div class="source-block" data-l0="905" data-l1="919">
+<div id="original-page-13">
+
+</div>
+<div id="original-claim-EZ">
+
+</div>
+<p>Call a discovery early if fewer than <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m/2\)</span> distinct positions in its column were queried before it. Conditional on the preceding transcript, each query has probability at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2/m\)</span> of an early discovery. Thus the expected number of early discoveries is at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2G/m\)</span>. Each remaining discovery occurs in a column that receives at least <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m/2\)</span> queries, and there are at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2G/m\)</span> such columns. Hence <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathbb E Z\leq\frac{4G}{m}.\]</span> The dummy run is independent of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}I\)</span>, so <span id="eq:zero-hit" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \Pr(\text{the dummy run queries }X_I[J_I])
+ =\frac{\mathbb E Z}{m}\leq\frac{4G}{m^2}.
+\tag{19}\]</span></span></p>
+</div>
+<div class="source-block" data-l0="920" data-l1="930">
+<div id="original-def-heavy">
+
+</div>
+<h4 id="reaching-the-planted-cell.">Reaching the planted cell.</h4>
+<p>Call a column heavy if, over the entire dummy run, the algorithm makes more than <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}L\)</span> queries in total to its strings <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A_{i,1},\ldots,A_{i,r}\)</span>. There are at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}G/L\)</span> heavy columns. Independence of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}I\)</span> gives <span id="eq:heavy-probability" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \Pr(I\text{ is heavy})\leq\frac{G}{mL}.
+\tag{20}\]</span></span> For the other columns we use Lemma <a href="#lem:adaptive-product">4.1</a>. The following simulation bounds a joint event and does not condition the input distribution on a column being nonheavy.</p>
+</div>
+<div class="source-block" data-l0="931" data-l1="940">
+<div id="original-def-simulator">
+
+</div>
+<p>Fix <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\in[m]\)</span> and a time <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}t\in\{1,\ldots,G\}\)</span>. Give a simulator all the dummy input outside <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A_{i,1},\ldots,A_{i,r}\)</span> for free. This information is independent of those <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}r\)</span> strings. The simulator runs the deterministic algorithm up to its proposed <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}t\)</span>th query, but aborts before making an <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(L+1)\)</span>st query to these <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}r\)</span> strings in total. If it reaches time <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}t\)</span> and the proposed query is to a cell <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}B_{i,s}\)</span>, it outputs the address <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}s\)</span> as its guess for the vector of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}r\)</span> answers. Otherwise, including if the simulated run stops or aborts, it outputs any fixed vector.</p>
+</div>
+<div class="source-block" data-l0="941" data-l1="957">
+<p>The simulator makes at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}L\)</span> queries in total to the target strings, and in particular at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}L\)</span> to each one. By Lemma <a href="#lem:adaptive-product">4.1</a>, its probability of guessing <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}s_i\)</span> correctly is at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(2/3)^r\)</span>. Whenever the original dummy run queries <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}B_{i,s_i}\)</span> at time <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}t\)</span> and column <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}i\)</span> is nonheavy, this simulator has not aborted and outputs the correct address. Thus <span id="eq:capped-address" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \Pr\bigl(i\text{ is nonheavy and the $t$th query is in }B_{i,s_i}\bigr)
+ \leq (2/3)^r.
+\tag{21}\]</span></span> Union bounding over <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}t\)</span> and averaging over the independent uniform choice of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}I\)</span>, then adding <a href="#eq:heavy-probability">(20)</a>, yields <span id="eq:cell-hit" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \Pr(\text{the dummy run queries }B_{I,s_I})
+ \leq\frac{G}{mL}+G(2/3)^r.
+\tag{22}\]</span></span></p>
+</div>
+<div class="source-block" data-l0="958" data-l1="972">
+<div id="original-claim-numeric">
+
+</div>
+<div id="original-claim-tail">
+
+</div>
+<p>Equations <a href="#eq:coupling-events">(18)</a>, <a href="#eq:zero-hit">(19)</a>, and <a href="#eq:cell-hit">(22)</a> bound the difference of output probabilities by <span id="eq:classical-distinguishing" class="equation"><span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}
+
+ \frac{4G}{m^2}+\frac{G}{mL}+G(2/3)^r.
+\tag{23}\]</span></span> For all sufficiently large <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span>, we have <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1\leq L\leq m\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}G\leq mL/100\)</span>. The first two terms are therefore at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}4/100\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/100\)</span>, respectively. Moreover, <a href="#eq:r-def">(6)</a> gives <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}G(2/3)^r
+ \leq\frac1{100}m^{\,2-20\log_2(3/2)}=o(1).\]</span> In particular, <a href="#eq:classical-distinguishing">(23)</a> is strictly less than <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/3\)</span> for large <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span>.</p>
+</div>
+<div class="source-block" data-l0="973" data-l1="980">
+<p>The same bound holds for a randomized algorithm of worst-case query cost <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}G\)</span>, by fixing its coins and then averaging. Such an algorithm, if it had worst-case error at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/3\)</span>, would output 1 with probability at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/3\)</span> on <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}Y^{(0)}\)</span> and at least <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2/3\)</span> on <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}Y^{(1)}\)</span>. Their output-1 probabilities would differ by at least <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/3\)</span>, contradicting the preceding estimate. Hence <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm R(F_{k,m})&gt;G\)</span>. ◻</p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="981" data-l1="989">
+<div id="original-page-14">
+
+</div>
+<div id="original-cor-R-omega">
+
+</div>
+<p>For fixed <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\)</span>, Proposition <a href="#prop:classical">4.2</a> implies <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm R(F_{k,m})=
+ \Omega_k\!\left(\frac{m^{2-1/k}}{(\log m)^2}\right).\]</span> The heavy-column estimate pays for learning an address, while the independent-answer estimate makes guessing an unlearned address negligible even over all <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}G\)</span> adaptive queries.</p>
+</div>
+<section id="sec:exponent" class="source-block" data-l0="990" data-l1="991">
+<h1>5 The optimal power</h1>
+</section>
+<div class="source-block" data-l0="992" data-l1="994">
+<p>We combine the quantitative bounds before recalling the universal upper bound in the appendix.</p>
+</div>
+<div class="source-block" data-l0="995" data-l1="1024">
+<div class="proof">
+<div class="source-block" data-l0="995" data-l1="1008">
+<div id="original-claim-floor">
+
+</div>
+<p><em>Proof of Theorem <a href="#thm:main">1.1</a>.</em> For each fixed <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\ge2\)</span>, Proposition <a href="#prop:quantum">3.3</a> gives <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm Q(F_{k,m})\le C_k\sqrt m(\log m)^{b_k}\)</span> for suitable constants. Proposition <a href="#prop:classical">4.2</a> gives <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm R(F_{k,m})&gt;
+ \left\lfloor\frac m{100}
+  \left\lfloor\frac{m^{1-1/k}}{(\log m)^2}\right\rfloor
+ \right\rfloor
+ \ge c_k\frac{m^{2-1/k}}{(\log m)^2}\]</span> for sufficiently large <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span>, after decreasing <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}c_k&gt;0\)</span>. This proves <a href="#eq:main-family">(2)</a>.</p>
+</div>
+<div class="source-block" data-l0="1009" data-l1="1024">
+<div id="original-claim-no-smaller-exponent">
+
+</div>
+<div id="original-claim-exponent-ratio">
+
+</div>
+<p>Now fix <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}0\le\alpha&lt;4\)</span> and choose an integer <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\ge2\)</span> such that <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2-1/k&gt;\alpha/2\)</span>. The integer <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}k\)</span> remains fixed as <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}m\)</span> tends to infinity. The preceding bounds imply <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\frac{\mathrm R(F_{k,m})}{(1+\mathrm Q(F_{k,m}))^\alpha}
+ \ge c_{k,\alpha}
+ \frac{m^{2-1/k-\alpha/2}}
+ {(\log m)^{2+\alpha b_k}}
+ \longrightarrow\infty.\]</span> Hence no exponent smaller than four belongs to the set in <a href="#eq:alpha">(1)</a>. Conversely, Theorem <a href="#thm:quartic-upper">A.1</a> proves <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm R(f)\le\mathrm D(f)=O((1+\mathrm Q(f))^4)\)</span> for every total Boolean function. Therefore four does belong to that set, and its infimum is four. ◻</p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="1025" data-l1="1031">
+<p>Separate address arrays force a classical algorithm to invest in many columns, while quantum comparisons locate a candidate before its certificate is checked. Quantum search then supplies the quadratic saving in checking the local tests. The direct-product estimate prevents a classical algorithm from bypassing the addressing cost by guessing certificate locations.</p>
+</div>
+<section id="sec:upper" class="source-block" data-l0="1032" data-l1="1034">
+<h1>A The universal quartic bound</h1>
+</section>
+<div class="source-block" data-l0="1035" data-l1="1041">
+<p>For completeness, we prove the upper bound used in Theorem <a href="#thm:main">1.1</a>. The argument is the one of Aaronson, Ben-David, Kothari, Rao, and Tal <span class="citation">[<a href="#ref-ABKRT21">3</a>]</span>, combining Huang’s signed-cube method <span class="citation">[<a href="#ref-Huang19">17</a>]</span> with the adversary bound and the deterministic degree–block-sensitivity inequality. No part of the construction is used in this appendix.</p>
+</div>
+<div class="source-block" data-l0="1042" data-l1="1049">
+<div id="original-def-bs">
+
+</div>
+<div id="original-def-deg">
+
+</div>
+<div id="original-def-D">
+
+</div>
+<p>For a total Boolean function <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}f\)</span>, let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm D(f)\)</span> be its exact deterministic query complexity and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\deg(f)\)</span> its degree as a real multilinear polynomial. The degree is unchanged by replacing input or output bits by signs. A nonempty set <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}B\subseteq[n]\)</span> is a <em>sensitive block at <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}x\)</span></em> if flipping every bit in <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}B\)</span> changes <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}f(x)\)</span>. The block sensitivity <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\operatorname{bs}(f)\)</span> is the maximum, over <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}x\)</span>, of the number of pairwise disjoint sensitive blocks at <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}x\)</span>.</p>
+</div>
+<div class="source-block" data-l0="1050" data-l1="1056">
+<div id="thm:quartic-upper" class="theorem">
+<div class="source-block" data-l0="1050" data-l1="1056">
+<p><strong>Theorem A.1</strong> (<span class="citation">[<a href="#ref-ABKRT21">3</a>]</span>).  <em>Every total Boolean function satisfies <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm R(f)\le\mathrm D(f)=O((1+\mathrm Q(f))^4).\]</span></em></p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="1057" data-l1="1059">
+<div id="original-page-15">
+
+</div>
+<p>We establish the three ingredients separately. All matrix norms below are operator norms for the Euclidean norm.</p>
+</div>
+<div class="source-block" data-l0="1060" data-l1="1073">
+<div id="original-def-Gamma-i">
+
+</div>
+<div id="lem:adversary" class="lemma">
+<div class="source-block" data-l0="1060" data-l1="1073">
+<p><strong>Lemma A.2</strong> (Nonnegative spectral adversary bound).  <em>Let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}f\)</span> be a nonconstant total Boolean function. Let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\Gamma\)</span> be a nonzero real symmetric matrix, indexed by inputs, with nonnegative entries and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\Gamma_{xy}=0\)</span> whenever <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}f(x)=f(y)\)</span>. Let <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(\Gamma_i)_{xy}=\Gamma_{xy}\,\mathbf1_{\{x_i\ne y_i\}}.\]</span> Then, for an absolute constant <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}c&gt;0\)</span>, <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm Q(f)\ge c\frac{\norm{\Gamma}}{\max_i\norm{\Gamma_i}}.\]</span></em></p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="1074" data-l1="1128">
+<div class="proof">
+<div class="source-block" data-l0="1074" data-l1="1084">
+<p><em>Proof.</em> This is the spectral adversary argument of Barnum, Saks, and Szegedy <span class="citation">[<a href="#ref-BSS03">7</a>]</span>; see also Špalek and Szegedy <span class="citation">[<a href="#ref-SpalekSzegedy06">24</a>]</span>. Purify all randomness and defer measurements. A bounded-query algorithm can be represented with a fixed number of queries, with at most a constant-factor overhead: branches that have finished can perform ineffective queries, and controlled queries can be simulated with two bit queries. Let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\lvert\psi_x^t\rangle\)</span> be its normalized pure state on input <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}x\)</span> after <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}t\)</span> queries.</p>
+</div>
+<div class="source-block" data-l0="1085" data-l1="1094">
+<div id="original-def-adv-progress">
+
+</div>
+<div id="original-claim-perron">
+
+</div>
+<p>By the Perron–Frobenius theorem, <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\Gamma\)</span> has a nonnegative unit eigenvector <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}v\)</span> of eigenvalue <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\norm{\Gamma}\)</span>. Track <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}W_t=\sum_{x,y}v_xv_y\Gamma_{xy}
+            \langle\psi_x^t\mid\psi_y^t\rangle.\]</span> Initially the states are input-independent, so <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}W_0=v^\top\Gamma v=\norm{\Gamma}\)</span>. Input-independent unitaries preserve every overlap.</p>
+</div>
+<div class="source-block" data-l0="1095" data-l1="1114">
+<div id="original-claim-per-query">
+
+</div>
+<p>Immediately before a query, write the normalized state as <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\lvert\psi_x\rangle=\sum_i\lvert i\rangle\lvert\phi_{x,i}\rangle,
+ \qquad \sum_i\norm{\phi_{x,i}}^2=1.\]</span> The bit oracle acts identically on inputs <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}x,y\)</span> at that index unless <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}x_i\ne y_i\)</span>. When they differ, the overlap changes in magnitude by at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2\norm{\phi_{x,i}}\norm{\phi_{y,i}}\)</span>, since the difference between the relevant unitary and the identity has norm at most two. Put <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}u_i(x)=v_x\norm{\phi_{x,i}}\)</span>. Nonnegativity of the weights gives <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\begin{aligned}
+ \abs{W_{t+1}-W_t}
+ &amp;\le2\sum_i u_i^\top\Gamma_i u_i\\
+ &amp;\le2\max_i\norm{\Gamma_i}\sum_i\norm{u_i}^2
+  =2\max_i\norm{\Gamma_i}.
+\end{aligned}\]</span> The last equality follows from normalization of each query state and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\sum_xv_x^2=1\)</span>.</p>
+</div>
+<div class="source-block" data-l0="1115" data-l1="1128">
+<div id="original-claim-final-overlap">
+
+</div>
+<p>At the end, measure the output bit. For opposite-output inputs, one output-one probability is at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}1/3\)</span>, and the other is at least <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2/3\)</span>. Splitting the two states by that output and applying Cauchy–Schwarz bounds their overlap in absolute value by <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2\sqrt2/3\)</span>. Hence the final value satisfies <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\abs{W_{\mathrm{final}}}
+ \le\frac{2\sqrt2}{3}\sum_{x,y}v_xv_y\Gamma_{xy}
+ =\frac{2\sqrt2}{3}\norm{\Gamma}.\]</span> The required total change in <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}W\)</span> divided by the per-query bound proves the assertion. ◻</p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="1129" data-l1="1133">
+<div id="original-def-Sf">
+
+</div>
+<p>Let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}S_f\)</span> be the adjacency matrix of the <em>sensitivity graph</em>: its vertices are <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\{0,1\}^n\)</span>, and two vertices are adjacent if they differ in exactly one bit and have different function values. Write <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\lambda(f)=\norm{S_f}\)</span>.</p>
+</div>
+<div class="source-block" data-l0="1134" data-l1="1141">
+<div id="original-page-16">
+
+</div>
+<div id="original-lem-A.3.lambda">
+
+</div>
+<div id="original-lem-A.3.bs">
+
+</div>
+<div id="lem:bs-lambda" class="lemma">
+<div class="source-block" data-l0="1134" data-l1="1141">
+<p><strong>Lemma A.3</strong>.  <em>For every nonconstant total Boolean function, <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\operatorname{bs}(f)=O(\mathrm Q(f)^2),\qquad
+ \lambda(f)=O(\mathrm Q(f)).\]</span></em></p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="1142" data-l1="1157">
+<div class="proof">
+<div class="source-block" data-l0="1142" data-l1="1151">
+<p><em>Proof.</em> Choose an input <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}x\)</span> with <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}b=\operatorname{bs}(f)\)</span> disjoint sensitive blocks. Take <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\Gamma\)</span> to be the adjacency matrix of the star whose center is <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}x\)</span> and whose leaves are the <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}b\)</span> inputs obtained by flipping those blocks, with zero entries elsewhere. Its norm is <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\sqrt b\)</span>. Each coordinate belongs to at most one block, so <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\Gamma_i\)</span> has at most one undirected edge and norm at most one. Lemma <a href="#lem:adversary">A.2</a> gives <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm Q(f)=\Omega(\sqrt b)\)</span>. This recovers the usual block-sensitivity lower bound for quantum queries <span class="citation">[<a href="#ref-BBCMW01">8</a>]</span>.</p>
+</div>
+<div class="source-block" data-l0="1152" data-l1="1157">
+<p>For the second assertion, use <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\Gamma=S_f\)</span>. The edges in any one coordinate form a partial matching, whose adjacency matrix has norm at most one. Another application of Lemma <a href="#lem:adversary">A.2</a> gives <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm Q(f)=\Omega(\lambda(f))\)</span>, as in <span class="citation">[<a href="#ref-ABKRT21">3</a>]</span>. ◻</p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="1158" data-l1="1163">
+<div id="lem:degree-lambda" class="lemma">
+<div class="source-block" data-l0="1158" data-l1="1163">
+<p><strong>Lemma A.4</strong> (<span class="citation">[<a href="#ref-ABKRT21">3</a>]</span>, using <span class="citation">[<a href="#ref-Huang19">17</a>]</span>).  <em>Every nonconstant total Boolean function satisfies <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\deg(f)\le\lambda(f)^2\)</span>.</em></p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="1164" data-l1="1201">
+<div class="proof">
+<div class="source-block" data-l0="1164" data-l1="1178">
+<div id="original-claim-restrict-parity">
+
+</div>
+<p><em>Proof.</em> Write the function with sign inputs and sign outputs, and set <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}d=\deg(f)\ge1\)</span>. Choose a monomial supported on a set of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}d\)</span> variables with nonzero coefficient, and fix all other variables to any signs. Its coefficient survives: any different monomial that could contribute to that coefficient would strictly contain its support and have degree larger than <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}d\)</span>. The restricted sign function <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}g\)</span> on the <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}d\)</span>-cube therefore has nonzero correlation with parity. For some sign <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\sigma\in\{-1,1\}\)</span>, the set <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}U=\{x\in\{-1,1\}^d:g(x)=\sigma x_1\cdots x_d\}\]</span> has size greater than <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2^{d-1}\)</span>. Every cube edge with both endpoints in <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}U\)</span> changes <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}g\)</span>, since parity changes across each edge.</p>
+</div>
+<div class="source-block" data-l0="1179" data-l1="1201">
+<div id="original-claim-interlace">
+
+</div>
+<div id="original-claim-huang-spectrum">
+
+</div>
+<div id="original-def-huang">
+
+</div>
+<p>Define a signed adjacency matrix of the cube recursively by <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}H'_1=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix},
+ \qquad
+ H'_{j+1}=\begin{pmatrix}H'_j&amp;I\\I&amp;-H'_j\end{pmatrix}.\]</span> Its entrywise absolute value is the ordinary cube adjacency matrix. Induction gives <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}(H'_j)^2=jI\)</span>, and its trace is zero. Thus <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}H'_d\)</span> has eigenvalues <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\pm\sqrt d\)</span>, each with multiplicity <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2^{d-1}\)</span>. The <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\sqrt d\)</span>-eigenspace intersects the space of vectors supported on <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}U\)</span> nontrivially, because their dimensions sum to more than <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}2^d\)</span>. Choose a nonzero real vector <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}v\)</span> in this intersection, and put <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}u=\abs v\)</span> entrywise. If <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A_U\)</span> is the unsigned adjacency induced on <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}U\)</span>, then <span class="math display">\[\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}u^\top A_Uu\ge v^\top H'_dv=\sqrt d\,\norm v^2
+             =\sqrt d\,\norm u^2.\]</span> All edges of <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}A_U\)</span> are sensitivity edges of the restriction, and hence of the original function. Extending <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}u\)</span> by zero to the full input cube gives <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\lambda(f)\ge\sqrt d\)</span>, as required. ◻</p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="1202" data-l1="1206">
+<div id="lem:degree-bs" class="lemma">
+<div class="source-block" data-l0="1202" data-l1="1206">
+<p><strong>Lemma A.5</strong> (<span class="citation">[<a href="#ref-Midrijanis04">19</a>]</span>).  <em>Every total Boolean function satisfies <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm D(f)\le\operatorname{bs}(f)\deg(f)\)</span>.</em></p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="1207" data-l1="1227">
+<div class="proof">
+<div class="source-block" data-l0="1207" data-l1="1212">
+<p><em>Proof.</em> Consider the following deterministic algorithm. If the function restricted by the queries so far is nonconstant, select a monomial of maximum degree in that restricted polynomial and query all its variables. Continue until the restriction is constant.</p>
+</div>
+<div class="source-block" data-l0="1213" data-l1="1221">
+<div id="original-page-17">
+
+</div>
+<div id="original-claim-round-block">
+
+</div>
+<p>Fix the actual full input <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}x\)</span>. In a given round, let <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}S\)</span> be the selected monomial’s support. Fix all other still-unqueried variables to their values in <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}x\)</span>. The coefficient on <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}S\)</span> remains nonzero, since no monomial in the current restriction strictly contains <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}S\)</span>. The resulting function on <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}S\)</span> is nonconstant. Some assignment to <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}S\)</span> therefore differs in value from the actual assignment <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}x|_S\)</span>. The nonempty subset of coordinates on which these two assignments differ is a sensitive block at the original input <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}x\)</span>.</p>
+</div>
+<div class="source-block" data-l0="1222" data-l1="1227">
+<p>Different rounds query disjoint sets, so these sensitive blocks are disjoint. There are at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\operatorname{bs}(f)\)</span> rounds. Restrictions do not increase degree, and each round queries at most <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\deg(f)\)</span> variables. The stated deterministic bound follows. ◻</p>
+</div>
+</div>
+</div>
+<div class="source-block" data-l0="1228" data-l1="1235">
+<div class="proof">
+<div class="source-block" data-l0="1228" data-l1="1235">
+<p><em>Proof of Theorem <a href="#thm:quartic-upper">A.1</a>.</em> For nonconstant <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}f\)</span>, Lemmas <a href="#lem:bs-lambda">A.3</a> and <a href="#lem:degree-lambda">A.4</a> give both <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\operatorname{bs}(f)=O(\mathrm Q(f)^2)\)</span> and <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\deg(f)=O(\mathrm Q(f)^2)\)</span>. Lemma <a href="#lem:degree-bs">A.5</a> then gives <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm D(f)=O(\mathrm Q(f)^4)\)</span>. Since a deterministic algorithm is also randomized, <span class="math inline">\(\def\norm#1{\lVert#1\rVert}\def\abs#1{\lvert#1\rvert}\def\ip#1{\langle#1\rangle}\mathrm R(f)\le\mathrm D(f)\)</span>. Constant functions require no queries. ◻</p>
+</div>
+</div>
+</div>
+<h1 id="references">References</h1>
+<div id="ref-AA18" class="csl-entry" role="listitem">
+[1] Scott Aaronson and Andris Ambainis. Forrelation: A problem that optimally separates quantum from classical computing. SIAM Journal on Computing, 47(3):982–1038, 2018.
+</div>
+<div id="ref-ABK16" class="csl-entry" role="listitem">
+[2] Scott Aaronson, Shalev Ben-David, and Robin Kothari. Separations in query complexity using cheat sheets. In Proceedings of the 48th Annual ACM SIGACT Symposium on Theory of Computing, pages 863–876. ACM, 2016.
+</div>
+<div id="ref-ABKRT21" class="csl-entry" role="listitem">
+[3] Scott Aaronson, Shalev Ben-David, Robin Kothari, Shravas Rao, and Avishay Tal. Degree vs. approximate degree and quantum implications of Huang’s sensitivity theorem. In Proceedings of the 53rd Annual ACM SIGACT Symposium on Theory of Computing, pages 1330–1342. ACM, 2021.
+</div>
+<div id="ref-ABBLSS17" class="csl-entry" role="listitem">
+[4] Andris Ambainis, Kaspars Balodis, Aleksandrs Belovs, Troy Lee, Miklos Santha, and Juris Smotrovs. Separations in query complexity based on pointer functions. Journal of the ACM, 64(5):32:1–32:24, 2017.
+</div>
+<div id="ref-AIK26" class="csl-entry" role="listitem">
+[5] Andris Ambainis, Jānis Iraids, and Martins Kokainis. Near-optimal separations of certificate complexity from randomized and quantum query complexity, 2026. arXiv:2609.11664v2.
+</div>
+<div id="ref-BS21" class="csl-entry" role="listitem">
+[6] Nikhil Bansal and Makrand Sinha. k-Forrelation optimally separates quantum and classical query complexity. In Proceedings of the 53rd Annual ACM SIGACT Symposium on Theory of Computing, pages 1303–1316. ACM, 2021.
+</div>
+<div id="ref-BSS03" class="csl-entry" role="listitem">
+[7] Howard Barnum, Michael E. Saks, and Mario Szegedy. Quantum query complexity and semidefinite programming. In Proceedings of the 18th Annual IEEE Conference on Computational Complexity, pages 179–193. IEEE, 2003.
+</div>
+<div id="ref-BBCMW01" class="csl-entry" role="listitem">
+[8] Robert Beals, Harry Buhrman, Richard Cleve, Michele Mosca, and Ronald de Wolf. Quantum lower bounds by polynomials. Journal of the ACM, 48(4):778–797, 2001.
+</div>
+<div id="ref-BK26" class="csl-entry" role="listitem">
+[9] Shalev Ben-David and Robin Kothari. Randomized query complexity can beat certificate complexity, 2026. arXiv:2609.15063.
+</div>
+<div id="ref-BBBV97" class="csl-entry" role="listitem">
+[10] Charles H. Bennett, Ethan Bernstein, Gilles Brassard, and Umesh Vazirani. Strengths and weaknesses of quantum computing. SIAM Journal on Computing, 26(5):1510–1523, 1997.
+</div>
+<div id="ref-BBHT98" class="csl-entry" role="listitem">
+[11] Michel Boyer, Gilles Brassard, Peter Høyer, and Alain Tapp. Tight bounds on quantum searching. Fortschritte der Physik, 46(4–5):493–506, 1998.
+</div>
+<div id="ref-BHMT02" class="csl-entry" role="listitem">
+[12] Gilles Brassard, Peter Høyer, Michele Mosca, and Alain Tapp. Quantum amplitude amplification and estimation. In Samuel J. Lomonaco, Jr., editor, Quantum Computation and Quantum Information, volume 305 of Contemporary Mathematics, pages 53–74. American Mathematical Society, 2002.
+</div>
+<div id="ref-Drucker12" class="csl-entry" role="listitem">
+[13] Andrew Drucker. Improved direct product theorems for randomized query complexity. Computational Complexity, 21(2):197–244, 2012.
+</div>
+<div id="ref-DurrHoyer96" class="csl-entry" role="listitem">
+[14] Christoph Dürr and Peter Høyer. A quantum algorithm for finding the minimum, 1996. arXiv:quant-ph/9607014.
+</div>
+<div id="ref-GPW15" class="csl-entry" role="listitem">
+[15] Mika Göös, Toniann Pitassi, and Thomas Watson. Deterministic communication vs. partition number. In Proceedings of the 56th Annual IEEE Symposium on Foundations of Computer Science, pages 1077–1088. IEEE, 2015.
+</div>
+<div id="ref-Grover96" class="csl-entry" role="listitem">
+[16] Lov K. Grover. A fast quantum mechanical algorithm for database search. In Proceedings of the 28th Annual ACM Symposium on Theory of Computing, pages 212–219. ACM, 1996.
+</div>
+<div id="ref-Huang19" class="csl-entry" role="listitem">
+[17] Hao Huang. Induced subgraphs of hypercubes and a proof of the Sensitivity Conjecture. Annals of Mathematics, 190(3):949–955, 2019.
+</div>
+<div id="ref-MPS23" class="csl-entry" role="listitem">
+[18] Nikhil S. Mande, Manaswi Paraashar, and Nitin Saurabh. Randomized and quantum query complexities of finding a king in a tournament. In 43rd IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science, volume 284 of Leibniz International Proceedings in Informatics, pages 30:1–30:19. Schloss Dagstuhl–Leibniz-Zentrum für Informatik, 2023.
+</div>
+<div id="ref-Midrijanis04" class="csl-entry" role="listitem">
+[19] Gatis Midrijanis. Exact quantum query complexity for total Boolean functions, 2004. arXiv:quant-ph/0403168.
+</div>
+<div id="ref-Nisan91" class="csl-entry" role="listitem">
+[20] Noam Nisan. CREW PRAMs and decision trees. SIAM Journal on Computing, 20(6):999–1007, 1991.
+</div>
+<div id="ref-NisanSzegedy94" class="csl-entry" role="listitem">
+[21] Noam Nisan and Mario Szegedy. On the degree of Boolean functions as real polynomials. Computational Complexity, 4(4):301–313, 1994.
+</div>
+<div id="ref-Shaltiel03" class="csl-entry" role="listitem">
+[22] Ronen Shaltiel. Towards proving strong direct product theorems. Computational Complexity, 12(1–2):1–22, 2003.
+</div>
+<div id="ref-SSW23" class="csl-entry" role="listitem">
+[23] Alexander A. Sherstov, Andrey A. Storozhenko, and Pei Wu. An optimal separation of randomized and quantum query complexity. SIAM Journal on Computing, 52(2):525–567, 2023. Preliminary version in STOC 2021.
+</div>
+<div id="ref-SpalekSzegedy06" class="csl-entry" role="listitem">
+[24] Robert Špalek and Mario Szegedy. All quantum adversary methods are equivalent. Theory of Computing, 2(1):1–18, 2006.
+</div>
+<div id="ref-SYZ04" class="csl-entry" role="listitem">
+[25] Xiaoming Sun, Andrew C. Yao, and Shengyu Zhang. Graph properties and circular functions: How low can quantum query complexity go? In Proceedings of the 19th Annual IEEE Conference on Computational Complexity, pages 286–293. IEEE, 2004.
+</div>
+<div id="ref-Tal20" class="csl-entry" role="listitem">
+[26] Avishay Tal. Towards optimal separations between quantum and randomized query complexities. In Proceedings of the 61st Annual IEEE Symposium on Foundations of Computer Science, pages 228–239. IEEE, 2020.
+</div>
+<div id="ref-Yao77" class="csl-entry" role="listitem">
+[27] Andrew Chi-Chih Yao. Probabilistic computations: Toward a unified measure of complexity. In Proceedings of the 18th Annual Symposium on Foundations of Computer Science, pages 222–227. IEEE, 1977.
+</div>

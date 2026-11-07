@@ -1,0 +1,1230 @@
+{
+  "repository": "https://github.com/openai/math",
+  "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+  "directory": "preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/build",
+  "files": {
+    "figures/outward-pointers.tex": "de4014a83070e544863bd3c17c2b90ff0f4ed18ca89bf98c74de6df1ce16162b",
+    "main.tex": "b102ee7bbde3346e5c4ff9420fa9036163eb3867b5bdab96e2294ecf590d88d1",
+    "preamble.tex": "37dc64ad901e5964fcbc4106c28215c04f0d8c6df0350a2ad5e11f99a607ab6e",
+    "references.bib": "84f46f68be0fddc47aae030bac4f63b28f998f32580b39c807ad04eccbb66ca5",
+    "sections/01-introduction.tex": "4ba9142cad50abbf3c5fefa4cc3c80b11dd41535405188bd1dc7362e259e6ea9",
+    "sections/02-construction.tex": "8536b3eafbcca724b7d317396cc4e3f71c424586abf4af26904656cd743af473",
+    "sections/03-quantum.tex": "62a9becdd123095a81e165bfc28c9a6601468226b3e9f26b74bf1dc13aad46cd",
+    "sections/04-classical.tex": "3eb3463fe7750ddadc5c8904146f41c1bbcbcb48138e0a091b8ab621d68b1fd2",
+    "sections/05-exponent.tex": "18efa5e351b55ef23a9c460a2133fb6287c8bbcf0334a4ab9ea98df368a52143",
+    "sections/06-upper-bound.tex": "9953c9dd80d7fc40a3008e447cbe47af665af83df281f514a32d6a67e1529c7e",
+    "LICENSE.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "outward-pointers.png": "1538ef1d6d98488e4a47d138aa4029d7b66c30da349ee4ff03a350db2f55a2d1"
+  },
+  "pdf_sha256": "a99f1c38d086a33591b6204ae3957fe3f25c8f31d97c48087325a18fd66daf3e",
+  "destinations": {
+    "Doc-Start": 1,
+    "Item.1": 4,
+    "Item.2": 4,
+    "Item.3": 4,
+    "Item.4": 5,
+    "Item.5": 5,
+    "Item.6": 5,
+    "appendix.A": 14,
+    "cite.AA18": 17,
+    "cite.ABBLSS17": 17,
+    "cite.ABK16": 17,
+    "cite.ABKRT21": 17,
+    "cite.AIK26": 17,
+    "cite.BBBV97": 17,
+    "cite.BBCMW01": 17,
+    "cite.BBHT98": 17,
+    "cite.BHMT02": 18,
+    "cite.BK26": 17,
+    "cite.BS21": 17,
+    "cite.BSS03": 17,
+    "cite.Drucker12": 18,
+    "cite.DurrHoyer96": 18,
+    "cite.GPW15": 18,
+    "cite.Grover96": 18,
+    "cite.Huang19": 18,
+    "cite.MPS23": 18,
+    "cite.Midrijanis04": 18,
+    "cite.Nisan91": 18,
+    "cite.NisanSzegedy94": 18,
+    "cite.SSW23": 18,
+    "cite.SYZ04": 18,
+    "cite.Shaltiel03": 18,
+    "cite.SpalekSzegedy06": 18,
+    "cite.Tal20": 18,
+    "cite.Yao77": 19,
+    "equation.1": 1,
+    "equation.10": 8,
+    "equation.11": 8,
+    "equation.12": 8,
+    "equation.13": 8,
+    "equation.14": 9,
+    "equation.15": 9,
+    "equation.16": 11,
+    "equation.17": 12,
+    "equation.18": 12,
+    "equation.19": 13,
+    "equation.2": 1,
+    "equation.20": 13,
+    "equation.21": 13,
+    "equation.22": 13,
+    "equation.23": 13,
+    "equation.3": 3,
+    "equation.4": 3,
+    "equation.5": 4,
+    "equation.6": 5,
+    "equation.7": 5,
+    "equation.8": 5,
+    "equation.9": 7,
+    "figure.1": 6,
+    "page.1": 1,
+    "page.10": 10,
+    "page.11": 11,
+    "page.12": 12,
+    "page.13": 13,
+    "page.14": 14,
+    "page.15": 15,
+    "page.16": 16,
+    "page.17": 17,
+    "page.18": 18,
+    "page.19": 19,
+    "page.2": 2,
+    "page.3": 3,
+    "page.4": 4,
+    "page.5": 5,
+    "page.6": 6,
+    "page.7": 7,
+    "page.8": 8,
+    "page.9": 9,
+    "section*.1": 12,
+    "section*.2": 13,
+    "section*.3": 17,
+    "section.1": 1,
+    "section.2": 3,
+    "section.3": 7,
+    "section.4": 11,
+    "section.5": 14,
+    "subsection.1.1": 2,
+    "subsection.1.2": 2,
+    "subsection.1.3": 3,
+    "subsection.2.1": 3,
+    "subsection.2.2": 5,
+    "subsection.3.1": 7,
+    "subsection.3.2": 8,
+    "subsection.3.3": 9,
+    "subsection.4.1": 11,
+    "subsection.4.2": 12,
+    "theorem.1.1": 1,
+    "theorem.2.1": 4,
+    "theorem.2.2": 6,
+    "theorem.3.1": 7,
+    "theorem.3.2": 8,
+    "theorem.3.3": 10,
+    "theorem.4.1": 11,
+    "theorem.4.2": 12,
+    "theorem.A.1": 14,
+    "theorem.A.2": 15,
+    "theorem.A.3": 16,
+    "theorem.A.4": 16,
+    "theorem.A.5": 16
+  },
+  "references": [
+    {
+      "key": "AA18",
+      "number": 1,
+      "page": 17,
+      "text": "Scott Aaronson and Andris Ambainis. Forrelation: A problem that optimally separates quantum from classical computing. SIAM Journal on Computing, 47(3):982–1038, 2018."
+    },
+    {
+      "key": "ABK16",
+      "number": 2,
+      "page": 17,
+      "text": "Scott Aaronson, Shalev Ben-David, and Robin Kothari. Separations in query complexity using cheat sheets. In Proceedings of the 48th Annual ACM SIGACT Symposium on Theory of Computing, pages 863–876. ACM, 2016."
+    },
+    {
+      "key": "ABKRT21",
+      "number": 3,
+      "page": 17,
+      "text": "Scott Aaronson, Shalev Ben-David, Robin Kothari, Shravas Rao, and Avishay Tal. Degree vs. approximate degree and quantum implications of Huang’s sensitivity theorem. In Proceedings of the 53rd Annual ACM SIGACT Symposium on Theory of Computing, pages 1330–1342. ACM, 2021."
+    },
+    {
+      "key": "ABBLSS17",
+      "number": 4,
+      "page": 17,
+      "text": "Andris Ambainis, Kaspars Balodis, Aleksandrs Belovs, Troy Lee, Miklos Santha, and Juris Smotrovs. Separations in query complexity based on pointer functions. Journal of the ACM, 64(5):32:1–32:24, 2017."
+    },
+    {
+      "key": "AIK26",
+      "number": 5,
+      "page": 17,
+      "text": "Andris Ambainis, Jānis Iraids, and Martins Kokainis. Near-optimal separations of certificate complexity from randomized and quantum query complexity, 2026. arXiv:2609.11664v2."
+    },
+    {
+      "key": "BS21",
+      "number": 6,
+      "page": 17,
+      "text": "Nikhil Bansal and Makrand Sinha. k-Forrelation optimally separates quantum and classical query complexity. In Proceedings of the 53rd Annual ACM SIGACT Symposium on Theory of Computing, pages 1303–1316. ACM, 2021."
+    },
+    {
+      "key": "BSS03",
+      "number": 7,
+      "page": 17,
+      "text": "Howard Barnum, Michael E. Saks, and Mario Szegedy. Quantum query complexity and semidefinite programming. In Proceedings of the 18th Annual IEEE Conference on Computational Complexity, pages 179–193. IEEE, 2003."
+    },
+    {
+      "key": "BBCMW01",
+      "number": 8,
+      "page": 17,
+      "text": "Robert Beals, Harry Buhrman, Richard Cleve, Michele Mosca, and Ronald de Wolf. Quantum lower bounds by polynomials. Journal of the ACM, 48(4):778–797, 2001."
+    },
+    {
+      "key": "BK26",
+      "number": 9,
+      "page": 17,
+      "text": "Shalev Ben-David and Robin Kothari. Randomized query complexity can beat certificate complexity, 2026. arXiv:2609.15063."
+    },
+    {
+      "key": "BBBV97",
+      "number": 10,
+      "page": 17,
+      "text": "Charles H. Bennett, Ethan Bernstein, Gilles Brassard, and Umesh Vazirani. Strengths and weaknesses of quantum computing. SIAM Journal on Computing, 26(5):1510–1523, 1997."
+    },
+    {
+      "key": "BBHT98",
+      "number": 11,
+      "page": 17,
+      "text": "Michel Boyer, Gilles Brassard, Peter Høyer, and Alain Tapp. Tight bounds on quantum searching. Fortschritte der Physik, 46(4–5):493–506, 1998."
+    },
+    {
+      "key": "BHMT02",
+      "number": 12,
+      "page": 18,
+      "text": "Gilles Brassard, Peter Høyer, Michele Mosca, and Alain Tapp. Quantum amplitude amplification and estimation. In Samuel J. Lomonaco, Jr., editor, Quantum Computation and Quantum Information, volume 305 of Contemporary Mathematics, pages 53–74. American Mathematical Society, 2002."
+    },
+    {
+      "key": "Drucker12",
+      "number": 13,
+      "page": 18,
+      "text": "Andrew Drucker. Improved direct product theorems for randomized query complexity. Computational Complexity, 21(2):197–244, 2012."
+    },
+    {
+      "key": "DurrHoyer96",
+      "number": 14,
+      "page": 18,
+      "text": "Christoph Dürr and Peter Høyer. A quantum algorithm for finding the minimum, 1996. arXiv:quant-ph/9607014."
+    },
+    {
+      "key": "GPW15",
+      "number": 15,
+      "page": 18,
+      "text": "Mika Göös, Toniann Pitassi, and Thomas Watson. Deterministic communication vs. partition number. In Proceedings of the 56th Annual IEEE Symposium on Foundations of Computer Science, pages 1077–1088. IEEE, 2015."
+    },
+    {
+      "key": "Grover96",
+      "number": 16,
+      "page": 18,
+      "text": "Lov K. Grover. A fast quantum mechanical algorithm for database search. In Proceedings of the 28th Annual ACM Symposium on Theory of Computing, pages 212–219. ACM, 1996."
+    },
+    {
+      "key": "Huang19",
+      "number": 17,
+      "page": 18,
+      "text": "Hao Huang. Induced subgraphs of hypercubes and a proof of the Sensitivity Conjecture. Annals of Mathematics, 190(3):949–955, 2019."
+    },
+    {
+      "key": "MPS23",
+      "number": 18,
+      "page": 18,
+      "text": "Nikhil S. Mande, Manaswi Paraashar, and Nitin Saurabh. Randomized and quantum query complexities of finding a king in a tournament. In 43rd IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science, volume 284 of Leibniz International Proceedings in Informatics, pages 30:1–30:19. Schloss Dagstuhl–Leibniz-Zentrum für Informatik, 2023."
+    },
+    {
+      "key": "Midrijanis04",
+      "number": 19,
+      "page": 18,
+      "text": "Gatis Midrijanis. Exact quantum query complexity for total Boolean functions, 2004. arXiv:quant-ph/0403168."
+    },
+    {
+      "key": "Nisan91",
+      "number": 20,
+      "page": 18,
+      "text": "Noam Nisan. CREW PRAMs and decision trees. SIAM Journal on Computing, 20(6):999–1007, 1991."
+    },
+    {
+      "key": "NisanSzegedy94",
+      "number": 21,
+      "page": 18,
+      "text": "Noam Nisan and Mario Szegedy. On the degree of Boolean functions as real polynomials. Computational Complexity, 4(4):301–313, 1994."
+    },
+    {
+      "key": "Shaltiel03",
+      "number": 22,
+      "page": 18,
+      "text": "Ronen Shaltiel. Towards proving strong direct product theorems. Computational Complexity, 12(1–2):1–22, 2003."
+    },
+    {
+      "key": "SSW23",
+      "number": 23,
+      "page": 18,
+      "text": "Alexander A. Sherstov, Andrey A. Storozhenko, and Pei Wu. An optimal separation of randomized and quantum query complexity. SIAM Journal on Computing, 52(2):525–567, 2023. Preliminary version in STOC 2021."
+    },
+    {
+      "key": "SpalekSzegedy06",
+      "number": 24,
+      "page": 18,
+      "text": "Robert Špalek and Mario Szegedy. All quantum adversary methods are equivalent. Theory of Computing, 2(1):1–18, 2006."
+    },
+    {
+      "key": "SYZ04",
+      "number": 25,
+      "page": 18,
+      "text": "Xiaoming Sun, Andrew C. Yao, and Shengyu Zhang. Graph properties and circular functions: How low can quantum query complexity go? In Proceedings of the 19th Annual IEEE Conference on Computational Complexity, pages 286–293. IEEE, 2004."
+    },
+    {
+      "key": "Tal20",
+      "number": 26,
+      "page": 18,
+      "text": "Avishay Tal. Towards optimal separations between quantum and randomized query complexities. In Proceedings of the 61st Annual IEEE Symposium on Foundations of Computer Science, pages 228–239. IEEE, 2020."
+    },
+    {
+      "key": "Yao77",
+      "number": 27,
+      "page": 19,
+      "text": "Andrew Chi-Chih Yao. Probabilistic computations: Toward a unified measure of complexity. In Proceedings of the 18th Annual Symposium on Foundations of Computer Science, pages 222–227. IEEE, 1977."
+    }
+  ],
+  "figure": {
+    "path": "outward-pointers.png",
+    "pdf_page": 6,
+    "crop_points": [
+      80,
+      65,
+      535,
+      238
+    ],
+    "scale": 2
+  },
+  "adaptation": "The source files are unmodified. HTML conversion changes typesetting only; the illustration is cropped from the pinned PDF and bibliography text is extracted from it. No manual PDF review is asserted.",
+  "statement_locations": {
+    "def-log-convention": {
+      "lines": [
+        195,
+        203
+      ],
+      "pdf_layout_line": 118,
+      "matched_pdf_layout_line": 118,
+      "tex_sha256": "a5f4059b88978389107fcaa1a2c4907ed18eefee227a323404de5791f557b207"
+    },
+    "def-partial-query": {
+      "lines": [
+        195,
+        203
+      ],
+      "pdf_layout_line": 120,
+      "matched_pdf_layout_line": 120,
+      "tex_sha256": "a5f4059b88978389107fcaa1a2c4907ed18eefee227a323404de5791f557b207"
+    },
+    "def-R": {
+      "lines": [
+        48,
+        59
+      ],
+      "pdf_layout_line": 18,
+      "matched_pdf_layout_line": 18,
+      "tex_sha256": "37e40caedd000186c64dc9ae17850f3448ba6060d69a4f35ff570ed3488fc3bf"
+    },
+    "def-query-oracle": {
+      "lines": [
+        48,
+        59
+      ],
+      "pdf_layout_line": 22,
+      "matched_pdf_layout_line": 20,
+      "tex_sha256": "37e40caedd000186c64dc9ae17850f3448ba6060d69a4f35ff570ed3488fc3bf"
+    },
+    "def-Q": {
+      "lines": [
+        48,
+        59
+      ],
+      "pdf_layout_line": 20,
+      "matched_pdf_layout_line": 20,
+      "tex_sha256": "37e40caedd000186c64dc9ae17850f3448ba6060d69a4f35ff570ed3488fc3bf"
+    },
+    "cor-cubic-refuted": {
+      "lines": [
+        116,
+        123
+      ],
+      "pdf_layout_line": 66,
+      "matched_pdf_layout_line": 66,
+      "tex_sha256": "1dbf840a2549cea7b1cf0d9f04e7ad37e546d549f9db1153d49f94172f1a1418"
+    },
+    "def-walsh-sign": {
+      "lines": [
+        219,
+        241
+      ],
+      "pdf_layout_line": 136,
+      "matched_pdf_layout_line": 136,
+      "tex_sha256": "4e35d08003cfb3c156a69abe3674645388c5694ca3a4f80c5f09c54981f7c884"
+    },
+    "claim-bs-to-L": {
+      "lines": [
+        269,
+        282
+      ],
+      "pdf_layout_line": 173,
+      "matched_pdf_layout_line": 173,
+      "tex_sha256": "037eec561b959f632302d072be6edcd6307106ec35e7b762bdb8c8192b950229"
+    },
+    "lem-2.1.i": {
+      "lines": [
+        242,
+        268
+      ],
+      "pdf_layout_line": 152,
+      "matched_pdf_layout_line": 152,
+      "tex_sha256": "eeaf3627b3f05ebdc2d9d8b39ec832f01ceca036dd5bb752fb4e52c7ed9941b7"
+    },
+    "claim-proj-prob": {
+      "lines": [
+        283,
+        293
+      ],
+      "pdf_layout_line": 176,
+      "matched_pdf_layout_line": 176,
+      "tex_sha256": "283fc11c51f4ff4fbc62c5a7f7abba8d826a0f1477fbd37d00d7553340bd2aae"
+    },
+    "lem-2.1.ii": {
+      "lines": [
+        242,
+        268
+      ],
+      "pdf_layout_line": 158,
+      "matched_pdf_layout_line": 158,
+      "tex_sha256": "eeaf3627b3f05ebdc2d9d8b39ec832f01ceca036dd5bb752fb4e52c7ed9941b7"
+    },
+    "claim-N-phi": {
+      "lines": [
+        294,
+        312
+      ],
+      "pdf_layout_line": 183,
+      "matched_pdf_layout_line": 182,
+      "tex_sha256": "edc4cdded181bf14144b6a8d8e47facbfa2b1ce493add23f9807569088ad72c1"
+    },
+    "claim-integer-tests": {
+      "lines": [
+        313,
+        323
+      ],
+      "pdf_layout_line": 195,
+      "matched_pdf_layout_line": 194,
+      "tex_sha256": "9371ac601fb94ed4018b342ae3c18a4fa028ce1eb0f9cad43ce9f9c2f6266eed"
+    },
+    "claim-circuit-size": {
+      "lines": [
+        294,
+        312
+      ],
+      "pdf_layout_line": 190,
+      "matched_pdf_layout_line": 190,
+      "tex_sha256": "edc4cdded181bf14144b6a8d8e47facbfa2b1ce493add23f9807569088ad72c1"
+    },
+    "lem-2.1.iii": {
+      "lines": [
+        242,
+        268
+      ],
+      "pdf_layout_line": 162,
+      "matched_pdf_layout_line": 162,
+      "tex_sha256": "eeaf3627b3f05ebdc2d9d8b39ec832f01ceca036dd5bb752fb4e52c7ed9941b7"
+    },
+    "def-transcript": {
+      "lines": [
+        195,
+        203
+      ],
+      "pdf_layout_line": 122,
+      "matched_pdf_layout_line": 122,
+      "tex_sha256": "a5f4059b88978389107fcaa1a2c4907ed18eefee227a323404de5791f557b207"
+    },
+    "def-column-layout": {
+      "lines": [
+        331,
+        350
+      ],
+      "pdf_layout_line": 208,
+      "matched_pdf_layout_line": 208,
+      "tex_sha256": "fb6cbbb42290b24300f022b9121c76ba84e2b677e07cbdc33cd25145c76a69ec"
+    },
+    "def-eval-transcript": {
+      "lines": [
+        331,
+        350
+      ],
+      "pdf_layout_line": 218,
+      "matched_pdf_layout_line": 218,
+      "tex_sha256": "fb6cbbb42290b24300f022b9121c76ba84e2b677e07cbdc33cd25145c76a69ec"
+    },
+    "def-winner": {
+      "lines": [
+        351,
+        364
+      ],
+      "pdf_layout_line": 221,
+      "matched_pdf_layout_line": 221,
+      "tex_sha256": "b1950f02a5378cfb5fb0fab5e1dd29db6d3c4a83df75b156e83438245ca43535"
+    },
+    "def-F": {
+      "lines": [
+        351,
+        364
+      ],
+      "pdf_layout_line": 229,
+      "matched_pdf_layout_line": 229,
+      "tex_sha256": "b1950f02a5378cfb5fb0fab5e1dd29db6d3c4a83df75b156e83438245ca43535"
+    },
+    "cor-unique-winner": {
+      "lines": [
+        365,
+        373
+      ],
+      "pdf_layout_line": 235,
+      "matched_pdf_layout_line": 235,
+      "tex_sha256": "207a1aee8223e5d6088581e6e1ebd56efb19821297047d11a8d91ff879dbee88"
+    },
+    "def-win-at-address": {
+      "lines": [
+        403,
+        406
+      ],
+      "pdf_layout_line": 264,
+      "matched_pdf_layout_line": 264,
+      "tex_sha256": "08801becbaf3e87debead7cc24c38b847af0583ecc7ed3375cac7ac3cd6ce419"
+    },
+    "def-K": {
+      "lines": [
+        407,
+        420
+      ],
+      "pdf_layout_line": 269,
+      "matched_pdf_layout_line": 267,
+      "tex_sha256": "25c376f9129ed503d2a12e9e3502f74c45418e09dc7a9daf37e7032dc17f8699"
+    },
+    "lem-2.2.i": {
+      "lines": [
+        407,
+        420
+      ],
+      "pdf_layout_line": 266,
+      "matched_pdf_layout_line": 266,
+      "tex_sha256": "25c376f9129ed503d2a12e9e3502f74c45418e09dc7a9daf37e7032dc17f8699"
+    },
+    "lem-2.2.ii": {
+      "lines": [
+        407,
+        420
+      ],
+      "pdf_layout_line": 271,
+      "matched_pdf_layout_line": 271,
+      "tex_sha256": "25c376f9129ed503d2a12e9e3502f74c45418e09dc7a9daf37e7032dc17f8699"
+    },
+    "cor-local-dichotomy": {
+      "lines": [
+        447,
+        451
+      ],
+      "pdf_layout_line": 290,
+      "matched_pdf_layout_line": 290,
+      "tex_sha256": "17c41180f1d5531d437259e63ab13c91effebbc0777c7ff1194f060748db726b"
+    },
+    "def-grover-trial": {
+      "lines": [
+        510,
+        535
+      ],
+      "pdf_layout_line": 332,
+      "matched_pdf_layout_line": 332,
+      "tex_sha256": "f102850d22190f87feeb64c1625fa5f2cd15213178afd5b2dc2a4cba9356ace3"
+    },
+    "claim-grover-state": {
+      "lines": [
+        491,
+        509
+      ],
+      "pdf_layout_line": 328,
+      "matched_pdf_layout_line": 327,
+      "tex_sha256": "4d050eb6a61c76a3256bfe95770a3c7843ac5c85f29c17bb1cfba7ec3f2910b3"
+    },
+    "claim-sin2theta": {
+      "lines": [
+        510,
+        535
+      ],
+      "pdf_layout_line": 336,
+      "matched_pdf_layout_line": 334,
+      "tex_sha256": "f102850d22190f87feeb64c1625fa5f2cd15213178afd5b2dc2a4cba9356ace3"
+    },
+    "def-aij": {
+      "lines": [
+        538,
+        550
+      ],
+      "pdf_layout_line": 356,
+      "matched_pdf_layout_line": 356,
+      "tex_sha256": "8cba2d29a86b66ac808fbb6550fdd7ca1090011681c2b5aea441a1ccef6af06b"
+    },
+    "def-T-eps": {
+      "lines": [
+        551,
+        574
+      ],
+      "pdf_layout_line": 365,
+      "matched_pdf_layout_line": 363,
+      "tex_sha256": "b009c22b28f9af4f2b1eb283f17bf82ba0a24a6e11d34db07425b393ce577270"
+    },
+    "def-ideal-process": {
+      "lines": [
+        575,
+        586
+      ],
+      "pdf_layout_line": 381,
+      "matched_pdf_layout_line": 381,
+      "tex_sha256": "f886aa9ea75a99cbc148836c84305470b65dc11a8b25c62185b638b496c21664"
+    },
+    "claim-expected-WT": {
+      "lines": [
+        587,
+        607
+      ],
+      "pdf_layout_line": 397,
+      "matched_pdf_layout_line": 397,
+      "tex_sha256": "d4a5fdcee07c6d8f7b75c267705c7495e74e2d21d7ec4157544a192f7f671765"
+    },
+    "claim-weight-lb": {
+      "lines": [
+        587,
+        607
+      ],
+      "pdf_layout_line": 398,
+      "matched_pdf_layout_line": 398,
+      "tex_sha256": "d4a5fdcee07c6d8f7b75c267705c7495e74e2d21d7ec4157544a192f7f671765"
+    },
+    "construct-sampler": {
+      "lines": [
+        608,
+        629
+      ],
+      "pdf_layout_line": 409,
+      "matched_pdf_layout_line": 409,
+      "tex_sha256": "4ef9ab37ae94a69d6dbc7f487813c1e6727d6c3de467dcfa91eb6929f8771c06"
+    },
+    "claim-success-prob": {
+      "lines": [
+        608,
+        629
+      ],
+      "pdf_layout_line": 420,
+      "matched_pdf_layout_line": 420,
+      "tex_sha256": "4ef9ab37ae94a69d6dbc7f487813c1e6727d6c3de467dcfa91eb6929f8771c06"
+    },
+    "claim-coupling": {
+      "lines": [
+        637,
+        647
+      ],
+      "pdf_layout_line": 432,
+      "matched_pdf_layout_line": 432,
+      "tex_sha256": "953ff4c927fa7c8d0c2c413c8d72b2682341be4a2e08cc5583bd88ea58e5bfef"
+    },
+    "claim-tournament-cost": {
+      "lines": [
+        648,
+        655
+      ],
+      "pdf_layout_line": 440,
+      "matched_pdf_layout_line": 440,
+      "tex_sha256": "889f7d3770334ac01486dfcf0b9d0a218e06ebb2739375510410241b4a9ff600"
+    },
+    "def-decode": {
+      "lines": [
+        664,
+        677
+      ],
+      "pdf_layout_line": 452,
+      "matched_pdf_layout_line": 452,
+      "tex_sha256": "a513ce633477ee11933df2f56a7cd7794774a29fe193836bde00f48da494d5a3"
+    },
+    "claim-decode-cost": {
+      "lines": [
+        664,
+        677
+      ],
+      "pdf_layout_line": 456,
+      "matched_pdf_layout_line": 454,
+      "tex_sha256": "a513ce633477ee11933df2f56a7cd7794774a29fe193836bde00f48da494d5a3"
+    },
+    "def-comparison": {
+      "lines": [
+        678,
+        686
+      ],
+      "pdf_layout_line": 466,
+      "matched_pdf_layout_line": 466,
+      "tex_sha256": "fee89b17501a047d812269ac473b3b780878106644d10d98bc15c7b37062196e"
+    },
+    "claim-comparison-state": {
+      "lines": [
+        687,
+        695
+      ],
+      "pdf_layout_line": 472,
+      "matched_pdf_layout_line": 472,
+      "tex_sha256": "432a5d69da3adda2584f2bbf9529833ef05ec34fef328e76f95e975f7b93f61a"
+    },
+    "claim-winner-dominates": {
+      "lines": [
+        696,
+        707
+      ],
+      "pdf_layout_line": 477,
+      "matched_pdf_layout_line": 477,
+      "tex_sha256": "27e431ea5499da5a463035510259aa05114bf9af4a2fc00474f3813c3c0ceba2"
+    },
+    "def-verify": {
+      "lines": [
+        708,
+        726
+      ],
+      "pdf_layout_line": 483,
+      "matched_pdf_layout_line": 483,
+      "tex_sha256": "7f159531e0cb31e0cb2a3c0f4c05dfd4daaf977c13a50974a1f2264bd8e8da67"
+    },
+    "claim-verify": {
+      "lines": [
+        708,
+        726
+      ],
+      "pdf_layout_line": 490,
+      "matched_pdf_layout_line": 490,
+      "tex_sha256": "7f159531e0cb31e0cb2a3c0f4c05dfd4daaf977c13a50974a1f2264bd8e8da67"
+    },
+    "claim-error": {
+      "lines": [
+        727,
+        741
+      ],
+      "pdf_layout_line": 497,
+      "matched_pdf_layout_line": 496,
+      "tex_sha256": "5275121be6fa1f4f81aba54a2c7f149f06b8d17b2b5e0833611a4df3be494bc8"
+    },
+    "claim-coherent-access": {
+      "lines": [
+        742,
+        750
+      ],
+      "pdf_layout_line": 507,
+      "matched_pdf_layout_line": 507,
+      "tex_sha256": "d4564a7872359059db942dea1d81d3981b6e4219671edf3ceeaec3cf67a7aaa4"
+    },
+    "claim-product-law": {
+      "lines": [
+        788,
+        797
+      ],
+      "pdf_layout_line": 539,
+      "matched_pdf_layout_line": 539,
+      "tex_sha256": "a57b1a30ad250794f563d8d0b2822f322f0d07a21b9c82ea7800ec646e26d115"
+    },
+    "def-value-V": {
+      "lines": [
+        798,
+        820
+      ],
+      "pdf_layout_line": 544,
+      "matched_pdf_layout_line": 544,
+      "tex_sha256": "5b4e2ff5563b26fd2696979575a7ba10d2342b4e748f16b59f7eeb071ddf7643"
+    },
+    "claim-supermartingale": {
+      "lines": [
+        798,
+        820
+      ],
+      "pdf_layout_line": 554,
+      "matched_pdf_layout_line": 553,
+      "tex_sha256": "5b4e2ff5563b26fd2696979575a7ba10d2342b4e748f16b59f7eeb071ddf7643"
+    },
+    "claim-final-bound": {
+      "lines": [
+        821,
+        833
+      ],
+      "pdf_layout_line": 562,
+      "matched_pdf_layout_line": 562,
+      "tex_sha256": "96f0fc1322d9e699ca1c346f88e994b317845c05b9658e3838d534669d3a19da"
+    },
+    "claim-minimax-mu": {
+      "lines": [
+        834,
+        855
+      ],
+      "pdf_layout_line": 586,
+      "matched_pdf_layout_line": 586,
+      "tex_sha256": "f2adf9c39165824c36d651c15061794d631bfce480534ec32d102c1d0c9df5a0"
+    },
+    "def-dummy": {
+      "lines": [
+        869,
+        876
+      ],
+      "pdf_layout_line": 600,
+      "matched_pdf_layout_line": 600,
+      "tex_sha256": "773517c4413d84af59fdd5c16945743adf7fa3c41ea9058bc44aea3075c6dce6"
+    },
+    "def-planted": {
+      "lines": [
+        877,
+        883
+      ],
+      "pdf_layout_line": 604,
+      "matched_pdf_layout_line": 604,
+      "tex_sha256": "98131feb2a2606fea1189944c7f69dda755be36974dbd32ba800b8dc391aa2cd"
+    },
+    "claim-Y-values": {
+      "lines": [
+        869,
+        883
+      ],
+      "pdf_layout_line": 603,
+      "matched_pdf_layout_line": 603,
+      "tex_sha256": "57e3c3ac1af1bbf0d66446bd69d19f7ef0b3cf13944c2c0a146a35c2513bbf4e"
+    },
+    "def-Z": {
+      "lines": [
+        897,
+        904
+      ],
+      "pdf_layout_line": 618,
+      "matched_pdf_layout_line": 618,
+      "tex_sha256": "b5eb98d6d604b50950443b93f0c09f395b09595e12c8cf2e7f2e54628bcdb041"
+    },
+    "claim-uniform-zero": {
+      "lines": [
+        897,
+        904
+      ],
+      "pdf_layout_line": 619,
+      "matched_pdf_layout_line": 619,
+      "tex_sha256": "b5eb98d6d604b50950443b93f0c09f395b09595e12c8cf2e7f2e54628bcdb041"
+    },
+    "claim-EZ": {
+      "lines": [
+        905,
+        919
+      ],
+      "pdf_layout_line": 632,
+      "matched_pdf_layout_line": 630,
+      "tex_sha256": "ea4e318373baa580ae1db56d6571a3da1e957c229e94c4f854f8581623d1542e"
+    },
+    "def-heavy": {
+      "lines": [
+        920,
+        930
+      ],
+      "pdf_layout_line": 639,
+      "matched_pdf_layout_line": 639,
+      "tex_sha256": "7f0bdfdb2b47bd3284d111cee0cb5112620f59c4b289bc3a9ebac661ba1cc2e6"
+    },
+    "def-simulator": {
+      "lines": [
+        931,
+        940
+      ],
+      "pdf_layout_line": 647,
+      "matched_pdf_layout_line": 647,
+      "tex_sha256": "811789cb320f167a0021f23a9d67a0831a186ca8a0f598f3ddc80b297b03d4eb"
+    },
+    "claim-tail": {
+      "lines": [
+        958,
+        972
+      ],
+      "pdf_layout_line": 673,
+      "matched_pdf_layout_line": 671,
+      "tex_sha256": "765e195b05b7d704c0b24c61badf86a015f8f80e07531ef0a74c84079a93e395"
+    },
+    "claim-numeric": {
+      "lines": [
+        958,
+        972
+      ],
+      "pdf_layout_line": 670,
+      "matched_pdf_layout_line": 670,
+      "tex_sha256": "765e195b05b7d704c0b24c61badf86a015f8f80e07531ef0a74c84079a93e395"
+    },
+    "cor-R-omega": {
+      "lines": [
+        981,
+        989
+      ],
+      "pdf_layout_line": 682,
+      "matched_pdf_layout_line": 682,
+      "tex_sha256": "d56844276e1306659fb34c7b2769cc26bc7d9d9823b207281f6e162e361d2eed"
+    },
+    "claim-floor": {
+      "lines": [
+        995,
+        1008
+      ],
+      "pdf_layout_line": 698,
+      "matched_pdf_layout_line": 696,
+      "tex_sha256": "a171c7506107403da3987e29734f8bb44ce0fe65d6fdf924eed7d16d2ef909e9"
+    },
+    "claim-exponent-ratio": {
+      "lines": [
+        1009,
+        1024
+      ],
+      "pdf_layout_line": 706,
+      "matched_pdf_layout_line": 704,
+      "tex_sha256": "5c558ec50fc9b88b04c64d645fbbed6538d8f1b1a9fbd8df686dd9d3ee501f24"
+    },
+    "claim-no-smaller-exponent": {
+      "lines": [
+        1009,
+        1024
+      ],
+      "pdf_layout_line": 703,
+      "matched_pdf_layout_line": 703,
+      "tex_sha256": "5c558ec50fc9b88b04c64d645fbbed6538d8f1b1a9fbd8df686dd9d3ee501f24"
+    },
+    "def-D": {
+      "lines": [
+        1042,
+        1049
+      ],
+      "pdf_layout_line": 725,
+      "matched_pdf_layout_line": 725,
+      "tex_sha256": "c7d72ce4f6c632e28b1af89ad2b87614118edea7f9adf0675fc6d1839fb7af2b"
+    },
+    "def-deg": {
+      "lines": [
+        1042,
+        1049
+      ],
+      "pdf_layout_line": 725,
+      "matched_pdf_layout_line": 725,
+      "tex_sha256": "c7d72ce4f6c632e28b1af89ad2b87614118edea7f9adf0675fc6d1839fb7af2b"
+    },
+    "def-bs": {
+      "lines": [
+        1042,
+        1049
+      ],
+      "pdf_layout_line": 727,
+      "matched_pdf_layout_line": 727,
+      "tex_sha256": "c7d72ce4f6c632e28b1af89ad2b87614118edea7f9adf0675fc6d1839fb7af2b"
+    },
+    "def-Gamma-i": {
+      "lines": [
+        1060,
+        1073
+      ],
+      "pdf_layout_line": 743,
+      "matched_pdf_layout_line": 741,
+      "tex_sha256": "252cd30dfabf2a9f39334bc37c0a134f8ee5e43a497050ba7967e4b9cc748074"
+    },
+    "claim-perron": {
+      "lines": [
+        1085,
+        1094
+      ],
+      "pdf_layout_line": 755,
+      "matched_pdf_layout_line": 755,
+      "tex_sha256": "9b0d313df2ff077e3e42de638a6a06b78c5b619e6ea45feddcab4b59db1c3155"
+    },
+    "def-adv-progress": {
+      "lines": [
+        1085,
+        1094
+      ],
+      "pdf_layout_line": 757,
+      "matched_pdf_layout_line": 756,
+      "tex_sha256": "9b0d313df2ff077e3e42de638a6a06b78c5b619e6ea45feddcab4b59db1c3155"
+    },
+    "claim-per-query": {
+      "lines": [
+        1095,
+        1114
+      ],
+      "pdf_layout_line": 772,
+      "matched_pdf_layout_line": 770,
+      "tex_sha256": "13c569935bf067b1bd4c84196873485fdd6709ab7110b24db33573894e861342"
+    },
+    "claim-final-overlap": {
+      "lines": [
+        1115,
+        1128
+      ],
+      "pdf_layout_line": 786,
+      "matched_pdf_layout_line": 786,
+      "tex_sha256": "395513107b1d2da9d27647c5333a2e5605bb1cbcf71e34768cd395e584939153"
+    },
+    "def-Sf": {
+      "lines": [
+        1129,
+        1133
+      ],
+      "pdf_layout_line": 794,
+      "matched_pdf_layout_line": 794,
+      "tex_sha256": "1473c9f9c8f88019db6f22839ffd7bce318fbd1468714448ac6431f520145af2"
+    },
+    "lem-A.3.bs": {
+      "lines": [
+        1134,
+        1141
+      ],
+      "pdf_layout_line": 800,
+      "matched_pdf_layout_line": 798,
+      "tex_sha256": "f69764be3716e6c174e669bc8b33898d9eda9c48d87cc35b44f3692fae142609"
+    },
+    "lem-A.3.lambda": {
+      "lines": [
+        1134,
+        1141
+      ],
+      "pdf_layout_line": 800,
+      "matched_pdf_layout_line": 798,
+      "tex_sha256": "f69764be3716e6c174e669bc8b33898d9eda9c48d87cc35b44f3692fae142609"
+    },
+    "claim-restrict-parity": {
+      "lines": [
+        1164,
+        1178
+      ],
+      "pdf_layout_line": 818,
+      "matched_pdf_layout_line": 818,
+      "tex_sha256": "86eec37894f0fd1a69f238a12029b863840ed2a77c81e79bd9ae55515c4b1f2a"
+    },
+    "def-huang": {
+      "lines": [
+        1179,
+        1201
+      ],
+      "pdf_layout_line": 826,
+      "matched_pdf_layout_line": 824,
+      "tex_sha256": "6c87e77d04a8c34051ddb38736693d3649435970d8b827c2faaa55abea4dd0b8"
+    },
+    "claim-huang-spectrum": {
+      "lines": [
+        1179,
+        1201
+      ],
+      "pdf_layout_line": 831,
+      "matched_pdf_layout_line": 831,
+      "tex_sha256": "6c87e77d04a8c34051ddb38736693d3649435970d8b827c2faaa55abea4dd0b8"
+    },
+    "claim-interlace": {
+      "lines": [
+        1179,
+        1201
+      ],
+      "pdf_layout_line": 838,
+      "matched_pdf_layout_line": 836,
+      "tex_sha256": "6c87e77d04a8c34051ddb38736693d3649435970d8b827c2faaa55abea4dd0b8"
+    },
+    "claim-round-block": {
+      "lines": [
+        1213,
+        1221
+      ],
+      "pdf_layout_line": 852,
+      "matched_pdf_layout_line": 852,
+      "tex_sha256": "08a13fc3ac12ba81dbd5679aa7e24436cceb6d08eddc9e78735acd1e6682c590"
+    },
+    "claim-address-guess": {
+      "lines": [
+        834,
+        855
+      ],
+      "pdf_layout_line": 588,
+      "matched_pdf_layout_line": 588,
+      "tex_sha256": "f2adf9c39165824c36d651c15061794d631bfce480534ec32d102c1d0c9df5a0"
+    },
+    "prop-4.2-generic": {
+      "lines": [
+        858,
+        868
+      ],
+      "pdf_layout_line": 592,
+      "matched_pdf_layout_line": 592,
+      "tex_sha256": "032a9b22354fd9b0d74e92396c0022ef2726cf14e1c1289e3d4701b6c3f8aed5"
+    },
+    "claim-winner-fidelity": {
+      "lines": [
+        403,
+        406
+      ],
+      "pdf_layout_line": 264,
+      "matched_pdf_layout_line": 264,
+      "tex_sha256": "08801becbaf3e87debead7cc24c38b847af0583ecc7ed3375cac7ac3cd6ce419"
+    }
+  },
+  "expanded_tex_sha256": "1f80a7b845ebfbe51ed2a5f8185919f0ec3ecfda099c58e0eca0c45ad5f05501",
+  "pdf_layout_sha256": "8b3f43c78cce1d1f56b343d3fec1b72a9389b66d3ba0cad7c279886ac9f48d3a",
+  "page_locations": [
+    {
+      "page": 1,
+      "anchor": "abstract",
+      "lines": [
+        36,
+        45
+      ]
+    },
+    {
+      "page": 2,
+      "anchor": "original-page-2",
+      "lines": [
+        91,
+        92
+      ]
+    },
+    {
+      "page": 3,
+      "anchor": "original-page-3",
+      "lines": [
+        164,
+        174
+      ]
+    },
+    {
+      "page": 4,
+      "anchor": "original-page-4",
+      "lines": [
+        219,
+        241
+      ]
+    },
+    {
+      "page": 5,
+      "anchor": "original-page-5",
+      "lines": [
+        324,
+        328
+      ]
+    },
+    {
+      "page": 6,
+      "anchor": "fig:outward",
+      "lines": [
+        375,
+        402
+      ]
+    },
+    {
+      "page": 7,
+      "anchor": "original-page-7",
+      "lines": [
+        452,
+        453
+      ]
+    },
+    {
+      "page": 8,
+      "anchor": "original-page-8",
+      "lines": [
+        510,
+        535
+      ]
+    },
+    {
+      "page": 9,
+      "anchor": "original-page-9",
+      "lines": [
+        587,
+        607
+      ]
+    },
+    {
+      "page": 10,
+      "anchor": "original-page-10",
+      "lines": [
+        664,
+        677
+      ]
+    },
+    {
+      "page": 11,
+      "anchor": "original-page-11",
+      "lines": [
+        751,
+        753
+      ]
+    },
+    {
+      "page": 12,
+      "anchor": "original-page-12",
+      "lines": [
+        821,
+        833
+      ]
+    },
+    {
+      "page": 13,
+      "anchor": "original-page-13",
+      "lines": [
+        905,
+        919
+      ]
+    },
+    {
+      "page": 14,
+      "anchor": "original-page-14",
+      "lines": [
+        981,
+        989
+      ]
+    },
+    {
+      "page": 15,
+      "anchor": "original-page-15",
+      "lines": [
+        1057,
+        1059
+      ]
+    },
+    {
+      "page": 16,
+      "anchor": "original-page-16",
+      "lines": [
+        1134,
+        1141
+      ]
+    },
+    {
+      "page": 17,
+      "anchor": "original-page-17",
+      "lines": [
+        1213,
+        1221
+      ]
+    },
+    {
+      "page": 18,
+      "anchor": "ref-BHMT02",
+      "lines": [
+        1238,
+        1238
+      ]
+    },
+    {
+      "page": 19,
+      "anchor": "ref-Yao77",
+      "lines": [
+        1238,
+        1238
+      ]
+    }
+  ]
+}
