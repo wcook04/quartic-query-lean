@@ -30,7 +30,7 @@ what is already known. No person has reviewed it yet.
 
 ## Start reading
 
-- Watch [the video explanation](https://www.youtube.com/watch?v=3hZaKK0-leY) (27:13),
+- Watch [the video explanation](https://www.youtube.com/watch?v=CBHPBKcx2ck) (34:02),
   from light-wave interference to the fourth-power query bound.
 
 - Follow the [Lean source map](lean/README.md) from the shared definitions to
