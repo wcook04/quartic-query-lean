@@ -11,7 +11,8 @@ later change.
 | --- | --- |
 | [Expert companion](expert_companion.md) | The result and its decisive proof for readers of the cited query-complexity literature. |
 | [Exposition](exposition.md) | Start with a four-by-four table. Change one bit, compare two columns, and work out what a classical or quantum query can reveal. |
-| [Long reasoning record](reasoning_record.md) | Full mathematical arguments and formal-statement audit, with a [bibliography](reasoning_record.bib), [correspondence](reasoning_record_correspondence.json) and [version-bound review](reasoning_record_review.json). |
+| [Full proof reconstruction](reasoning_record.md) | Full mathematical arguments and formal-statement audit, with a [bibliography](reasoning_record.bib), [correspondence](reasoning_record_correspondence.json) and [version-bound review](reasoning_record_review.json). |
+| [OpenAI original source](original_source/README.md) | Unmodified pinned TeX, source-preserving HTML conversion inputs and checks; the published PDF remains the print authority. |
 | [Website reading API](reading_api.md) | The versioned data contract, [audience entrances and authored connections](reading_routes.json), [theorem applications](reading_applications.json), [declaration titles](reading_declaration_titles.json), [typeset ledger statements](reading_statement_presentations.json), formal source lookup and edition export. |
 | [Proof index](proof_index.md) | Mathematical descriptions and direct links to statements and substantive proofs; generated from the [authored introduction](proof_index_intro.md) and the existing source registry. |
 | [Verification details](verification_details.md) | Separate statement catalogue, historical checks and exact formal correspondence. |

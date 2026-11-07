@@ -3,7 +3,7 @@
 // How a record is drawn at a screen scale k (DESIGN.md, "Two scales, two
 // representations"). The camera never shrinks prose below reading size: past
 // a threshold a card turns into a tile that still shows its title, and the
-// camera stops at the scale where a tile can hold words at 11px on screen.
+// overview can also shrink the full layout into view; zoom in to read a card.
 
 export type Rep = "card" | "compact";
 
@@ -19,7 +19,7 @@ export const COMPACT_FLOOR = 0.75;
 /** The tile's title in world pixels in the dense layout, and the smallest size it may reach on screen. */
 export const DENSE_TEXT = 13;
 export const MIN_TEXT = 11;
-/** Below these scales a tile could not hold its words at MIN_TEXT, so the camera stops here. */
+/** The scale at which dense tiles retain reading-size titles. */
 export const DENSE_MIN_K = MIN_TEXT / DENSE_TEXT;
 export const STEPS_MIN_K = 0.5;
 export const COMPACT_MIN_K = 0.6;
@@ -34,7 +34,9 @@ export const DENSE_ROOT_W = 420;
 export const DENSE_ROOT_H = 64;
 
 export function floorK(dense: boolean, compact: boolean): number {
-  if (dense) return DENSE_MIN_K;
+  // Overview is a spatial overview as well as a reading view. Its camera must
+  // fit the complete layout even when the graph is much larger than the pane.
+  if (dense) return Number.EPSILON;
   return compact ? COMPACT_MIN_K : STEPS_MIN_K;
 }
 

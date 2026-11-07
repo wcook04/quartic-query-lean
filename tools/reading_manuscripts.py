@@ -64,7 +64,7 @@ def located_document(text, fmt):
 class Fragment(HTMLParser):
     """Keep semantic HTML. Resolve paper links and keep figures inert until verified."""
     tags = set("a article aside blockquote br caption cite code col colgroup dd del details div dl dt em figcaption figure h1 h2 h3 h4 h5 h6 hr i img li ol p pre section small span strong sub summary sup table tbody td th thead tr ul".split())
-    attrs = set("alt aria-label class colspan data-cites data-l0 data-l1 id role rowspan scope start title".split())
+    attrs = set("alt aria-label class colspan data-cites data-l0 data-l1 id role rowspan scope start title type".split())
 
     def __init__(self, paper, paths, assets, source_url):
         super().__init__()
@@ -185,3 +185,4 @@ def manuscript_resources(edition, papers, texts, repository):
         for target, anchor in sorted(fragment.destinations):
             if anchor not in fragments[target].ids:
                 raise ValueError(f"{key}: unresolved manuscript link to {target}#{anchor}")
+        papers[key]["anchors"] = sorted(fragment.ids)

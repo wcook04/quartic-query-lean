@@ -73,11 +73,48 @@ def original_paper(edition, statements, pdf=None):
     return doc, rows
 
 
+def inspect_reading_pdf(pdf, manifest, source_root):
+    """Reproduce PDF-derived references and figure pixels; retain explicit limits."""
+    import fitz
+    if digest(pdf.read_bytes()) != manifest["pdf_sha256"]:
+        raise ValueError("reading source belongs to a different original PDF")
+    layout = subprocess.check_output(["pdftotext", "-layout", str(pdf), "-"]).decode()
+    if digest(layout.encode()) != manifest["pdf_layout_sha256"]:
+        raise ValueError("PDF extraction differs from pinned layout")
+    bibliography = layout[layout.index("References\n"):]
+    references = {}
+    for match in re.finditer(r"(?m)^\s*\[(\d+)\]\s+([\s\S]*?)(?=^\s*\[\d+\]|\Z)", bibliography):
+        text = re.sub(r"(?m)^\s*\d+\s*\f?\s*$", "", match[2]).replace("\f", "")
+        text = re.sub(r"(\w)-\s*\n\s*(\w)", r"\1\2", text)
+        references[int(match[1])] = " ".join(text.split())
+    with fitz.open(pdf) as doc:
+        names = doc.resolve_names()
+        if {key: value["page"] + 1 for key, value in names.items()} != manifest["destinations"]:
+            raise ValueError("original named destinations changed")
+        ordered = sorted(((key[5:], value["page"] + 1, -value["to"][1]) for key, value in names.items()
+                          if key.startswith("cite.")), key=lambda row: (row[1], row[2]))
+        actual = [{"key": row[0], "number": i, "page": row[1], "text": references[i]}
+                  for i, row in enumerate(ordered, 1)]
+        if actual != manifest["references"]:
+            raise ValueError("original reference text or citation numbering changed")
+        figure = manifest["figure"]
+        pix = doc[figure["pdf_page"] - 1].get_pixmap(matrix=fitz.Matrix(figure["scale"], figure["scale"]),
+                                                   clip=fitz.Rect(figure["crop_points"]), alpha=False)
+        stored = fitz.Pixmap(str(source_root / figure["path"]))
+        if (pix.width, pix.height, pix.samples) != (stored.width, stored.height, stored.samples):
+            raise ValueError("original figure differs from the pinned PDF crop")
+    return {"references": len(actual), "figure_pixels": [pix.width, pix.height], "manual_pdf_review": False}
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Verify the recorded source PDF, page breaks and destinations")
     parser.add_argument("pdf", type=Path)
+    parser.add_argument("--reading-source", action="store_true", help="also reproduce the reading copy reference text, citation numbers and figure pixels")
     args = parser.parse_args()
     statements = {r["id"]: r for r in json.loads((ROOT / "corpus/statements.json").read_bytes())}
     if inspect(args.pdf, statements) != json.loads((ROOT / MAP).read_bytes()):
         parser.exit(1, "original preprint map differs\n")
+    if args.reading_source:
+        manifest = json.loads((ROOT / "docs/original_source/manifest.json").read_bytes())
+        print(inspect_reading_pdf(args.pdf, manifest, ROOT / "docs/original_source"))
     print("Original PDF and statement location map verified")

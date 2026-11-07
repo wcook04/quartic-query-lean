@@ -20,8 +20,8 @@ interface Entrance {
   first_selection?: string;
 }
 
-// The three ways in; the full reasoning record is offered quietly beneath them.
-const ORDER = ["exposition", "expert", "original"];
+// Four independently readable accounts, with the concise companion first.
+const ORDER = ["expert", "exposition", "reconstruction", "original"];
 
 export function Home({ edition }: { edition: Edition }) {
   const [entrances, setEntrances] = useState<Record<string, Entrance> | null>(null);
@@ -70,10 +70,8 @@ export function Home({ edition }: { edition: Edition }) {
             its proof, and a Lean proof you can open beside any of them.
           </p>
           <p className="hero__links">
-            <a className="button" href={href({ page: "read", paper: "exposition", s: entrances?.exposition?.first_selection })}>Start with the board</a>
-            {edition.reader.documents.original && <a className="button button--quiet" href={href({ page: "read", paper: "original", s: "original/thm-1.1", v: "statement", st: "thm-1.1" })}>
-              Check Theorem 1.1 against Lean
-            </a>}
+            <a className="button" href={href({ page: "read", paper: "expert" })}>Read the expert companion</a>
+            <a className="button button--quiet" href={href({ page: "read", paper: "exposition" })}>Start with a worked example</a>
           </p>
         </div>
         {board ? <Board data={board} /> : loadError ? <p role="alert">The reading guide could not be loaded.</p>
@@ -100,7 +98,8 @@ export function Home({ edition }: { edition: Edition }) {
       </section>
 
       <section className="ways" aria-labelledby="ways-h">
-        <h2 id="ways-h">Choose where to start</h2>
+        <h2 id="ways-h">Four ways into the same argument</h2>
+        <p>The expert companion carries the main argument. Follow a passage into a worked example, a complete derivation or OpenAI’s source, then return to where you were reading.</p>
         <ol className="ways__list">
           {ORDER.filter((paper) => paper in edition.reader.documents).map((paper) => {
             const e = entrances?.[paper];
@@ -119,9 +118,8 @@ export function Home({ edition }: { edition: Edition }) {
           })}
         </ol>
         <p className="ways__supplement">
-          To check every step, open the <a href={href({ page: "read", paper: "reconstruction" })}>full reasoning record</a>.{" "}
           The <a href={href({ page: "read", paper: SUPPLEMENT.id })}>verification details</a> hold the full statement
-          catalogue and checking history that go with it.
+          catalogue and checking history. They distinguish the scope of each formal statement from the written proof.
         </p>
       </section>
 

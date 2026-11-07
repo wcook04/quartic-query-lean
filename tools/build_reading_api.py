@@ -14,6 +14,7 @@ from zipfile import ZipFile, BadZipFile
 from build_comparator_map import PASSAGE, lean_blocks, record_passages
 from reading_evidence import evidence_resources
 from original_preprint import original_paper
+from original_manuscript import original_resources
 from reading_manuscripts import manuscript_resources
 from reading_titles import RESOURCE as TITLE_RESOURCE, SOURCE as TITLE_SOURCE, STATEMENT_RESOURCE, STATEMENT_SOURCE
 from reading_selection import audit_bindings, selection_resources
@@ -186,7 +187,7 @@ def print_downloads(edition, folder, accepted):
     revision = accepted["source_revision"]
     if not re.fullmatch(r"[a-f0-9]{40}", revision) or set(accepted["files"]) != set(PAPERS):
         raise ValueError("invalid print edition")
-    inputs = [*PAPERS.values(), "docs/*.bib", "docs/figures", "tools/render_papers.py",
+    inputs = [*PAPERS.values(), *(str(Path(p).with_suffix(".bib")) for p in PAPERS.values()), "docs/figures", "tools/render_papers.py",
               "tools/render_reasoning_record.py", SUPPLEMENT]
     diff = subprocess.run(["git", "diff", "--quiet", revision, "--", *inputs], cwd=edition.root)
     if diff.returncode:
@@ -314,11 +315,20 @@ def compile_edition(edition, pdf_directory=None, original_pdf=None, web_manuscri
     original, original_rows = original_paper(edition, statements, original_pdf)
     if entrances["original"]["first_selection"] not in {row["id"] for row in original_rows}:
         raise ValueError("unknown first selection for the OpenAI paper")
+    original_fragment = original_resources(edition, original, original_rows) if web_manuscripts else None
     coverage = selection_resources(edition, config, papers, texts, passages, compiled, statements,
                                    links, comparison, locate_quote, original, original_rows)
     if web_manuscripts:
         manuscript_resources(edition, papers, texts, REPOSITORY)
     papers["original"] = original
+    for row in config["routes"] + config["selections"]:
+        for detour in row.get("detours", []):
+            target = detour.get("paper")
+            anchor = detour.get("anchor")
+            if target not in papers or not detour.get("question") or not isinstance(anchor, str):
+                raise ValueError(f"{row['id']}: incomplete reading detour")
+            if web_manuscripts and anchor not in papers[target].get("anchors", []):
+                raise ValueError(f"{row['id']}: reading detour has no destination {target}#{anchor}")
     edition.add("reading.json", {"papers": papers, "entrances": entrances,
                "paper_ids": [*PAPERS, "original"], "supplement_ids": ["verification"],
                "proof_map": "selection/proof-map.json", "coverage": coverage, "board_example": "selection/board.json",
@@ -328,7 +338,7 @@ def compile_edition(edition, pdf_directory=None, original_pdf=None, web_manuscri
                "fidelity": {ident: f"fidelity/{ident}.json" for ident in statements},
                "routes": compiled, "video": video_entry(config["video"], routes)})
     edition.add("provenance.json", {
-        "papers": {"origin": "manuscript", "content": "Quartic manuscripts use exact Markdown from the edition. The original is OpenAI’s pinned PDF."},
+        "papers": {"origin": "manuscript", "content": "Quartic manuscripts use exact Markdown from the edition. The original is OpenAI’s pinned PDF, with a hash-bound HTML reading copy set from its unmodified TeX source when web manuscripts are enabled."},
         "routes": {"origin": "ai_authored_navigation", "source": ROUTES,
                    "content": "Paragraph and topic selections across accounts. Editorial reading suggestions."},
         "corpus/lean_dependencies.json": {"origin": "lean_environment",

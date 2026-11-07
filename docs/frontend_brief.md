@@ -1,6 +1,6 @@
 # Designing the Quartic reader
 
-Build the first usable interaction around a mathematician opening Theorem 1.1 in OpenAI’s paper and asking “Does Lean prove this whole statement?” Keep the theorem in view while they inspect the answer. Someone arriving fresh should also have a natural starting point: the four-by-four board in our general exposition, where they can see what a query reveals before meeting the formal definition.
+Build the reading visit around the expert companion, with its linked proof steps visible beside it. The worked exposition supplies examples, the full reconstruction supplies detailed proofs, and OpenAI's original retains its own wording and authorship. A reader should be able to consult a particular passage and return to the exact place they left. Ordinary paper tabs restore each document's own position; they do not choose a new matched passage. The four-by-four board remains an alternative starting point for learning the construction.
 
 ## Start with the two working readers
 
@@ -30,14 +30,30 @@ Keep uncertainty local to the control it affects. For unmapped prose, keep the p
 
 Use the [browser edition](reading_api.md#browser-edition) for the actual UI. Bundle `openEdition` with the app, load the prepared HTML with `manuscript()`, load its figure resources with `figure(paper, path)`, and persist the `position` that `resolve()` returns. The edition supplies the board scenarios, predictions and opening passage. Keep the known one-query decision, unknown-board certificates and enlarged-board pointer check distinct.
 
-## Wire the Graph / Lean pane
+## Wire the Graph / Lean / Passage pane
+
+Graph opens by default with the linked passage’s proof steps, their immediate dependencies and users. Adapt SK’s
+Lean-graph neighborhood to hide unrelated records and lay out the retained subgraph.
+Unlinked paragraphs keep the last valid subgraph; update on the next linked
+passage. Whole proof expands the full map. Lean is the second tab and shows the
+statement and proof before dependencies and users. Passage offers question-labelled
+detours and the scope of formal comparisons. Keep all four paper roles visible at equal weight.
+An empty link table means “No passage linked yet,” never a claim that a paper
+omits the mathematics. Use each displayed edition's own contents.
+
+Full-bounds Fit must actually contain the entire graph, even below the scale
+at which labels are readable. Keep the normal reading scale for selected steps,
+expose zoom controls, and retain a manual camera through pane changes and
+resizing. Follow is an explicit way to resume tracking the paper.
 
 Use the [proof map contract](reading_api.md#open-the-lean-map-beside-the-paper)
-for the graph beside the manuscript. Start at the root and its children using
-the supplied parents. Adapt [Proof Reader’s map pane](https://github.com/wcook04/proof-reader/blob/e2df8880a892cc13ece046709f649c1860487b00/web/src/proof/MapPane.tsx)
+for the graph beside the manuscript. Before the first linked passage, show the
+main result. Adapt [Proof Reader’s map pane](https://github.com/wcook04/proof-reader/blob/e2df8880a892cc13ece046709f649c1860487b00/web/src/proof/MapPane.tsx)
 and its [layout engine](https://github.com/wcook04/proof-reader/tree/e2df8880a892cc13ece046709f649c1860487b00/web/src/map/engine).
 Fetch `proofMap()` when the reader opens Graph. Use `proofFocus()` as the active
-paragraph or PDF page changes. Reveal focused cards and their parent chains;
+paragraph or PDF page changes. Fit the retained neighborhood using SK’s `neighbourhood` implementation.
+Keep the original edges between retained nodes; root attachments used for layout
+must be labelled as context and must not open as a direct Lean dependency;
 selecting a card opens `proofCardSource()` in Lean. Returning to Graph should
 restore the same card and paper position. For an arrow, pass its stored endpoints to
 [`proofPath()`](reading_api.md#inspect-the-helpers-behind-one-arrow).

@@ -2,6 +2,7 @@
 //   #/                                   the front page
 //   #/read/<paper>?s=<selection>&v=…     a paper, a selected passage and an open view
 import { useEffect, useState } from "react";
+import { excursionOrigin, navigateEntry, previousPaperPlace } from "./restore";
 
 export type View = "passage" | "statement" | "lean" | "journey" | "graph" | "path" | "closed";
 
@@ -56,8 +57,25 @@ export function href(route: Route): string {
 export function go(route: Route, replace = false) {
   const next = href(route);
   if (next === location.hash) return;
-  if (replace) history.replaceState(history.state, "", next);
-  else history.pushState(history.state, "", next);
+  navigateEntry(next, replace);
+  window.dispatchEvent(new HashChangeEvent("hashchange"));
+}
+
+/** Ordinary document tabs restore that paper's own last place in this edition. */
+export function switchPaper(target: string) {
+  const place = previousPaperPlace(target);
+  const current = parse(location.hash);
+  const next = place?.hash ?? href({ page: "read", paper: target, ed: current.ed });
+  if (next === location.hash) return;
+  navigateEntry(next, false, place, null);
+  window.dispatchEvent(new HashChangeEvent("hashchange"));
+}
+
+/** A deliberate explanation excursion keeps its exact origin for visible Return. */
+export function excursion(route: Route, originLabel = "the previous paper") {
+  const next = href(route);
+  if (next === location.hash) return;
+  navigateEntry(next, false, undefined, excursionOrigin(originLabel));
   window.dispatchEvent(new HashChangeEvent("hashchange"));
 }
 

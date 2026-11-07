@@ -665,8 +665,9 @@ export async function openReader(indexURL, options) {
     const papers = (await resource("reading.json")).papers;
     if (!Object.hasOwn(papers, paper) || !papers[paper].assets?.includes(path))
       throw new Error("Figure does not belong to this manuscript");
-    if (!path.endsWith(".svg")) throw new Error("Unrecognized figure format");
-    return new Blob([await readBytes(path)], {type: "image/svg+xml"});
+    const type = path.endsWith(".svg") ? "image/svg+xml" : paper === "original" && path.endsWith(".png") ? "image/png" : null;
+    if (!type) throw new Error("Unrecognized figure format");
+    return new Blob([await readBytes(path)], {type});
   }
   return {revision, permalink, documents, home, declarationTitles, declarationTitle, proofMap, proofFocus, paperCardProgress, proofWitness, proofPath, proofPathSource, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementTitles, statementReview};
 }

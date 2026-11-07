@@ -17,7 +17,7 @@ import shutil
 import subprocess
 import tempfile
 import xml.etree.ElementTree as ET
-from render_papers import HEADER, COLOURS, FIGURES, build_figures
+from render_papers import HEADER, COLOURS, FIGURES, build_figures, sibling_link_filter
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -205,13 +205,8 @@ end
 
 function Link(el)
   if not FORMAT:match("latex") then return nil end
-  -- Relative sibling Markdown links work on GitHub but not in a downloaded PDF.
-  local sibling = el.target:match("^(expert_companion%.md.*)$") or
-                  el.target:match("^(exposition%.md.*)$")
-  if sibling then
-    el.target = "https://github.com/wcook04/quartic-query-lean/blob/SIBLING_REVISION/docs/" .. sibling
-    return el
-  end
+  local sibling = sibling_link(el)
+  if sibling then return sibling end
   local replacement = directory_targets[el.target]
   if replacement then
     el.target = replacement
@@ -226,7 +221,7 @@ def navigation_filter(sibling_revision="main"):
     entries = ",\n".join(f"  [{json.dumps(link)}] = {json.dumps(link + name)}"
                          for link, name in sorted(DIRECTORY_TARGETS.items()))
     layout = NAVIGATION_LAYOUT.replace("DIRECTORY_TARGETS_TABLE", "{\n" + entries + "\n}")
-    return layout.replace("SIBLING_REVISION", sibling_revision)
+    return sibling_link_filter(sibling_revision) + "\n" + layout
 
 
 def write_filters(stage, sibling_revision="main"):

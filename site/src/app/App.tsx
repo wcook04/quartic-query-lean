@@ -61,7 +61,7 @@ export function App() {
       {!edition && !error && <p className="pending pending--page" role="status">Opening the reading edition…</p>}
       {edition && route.page === "home" && <Home edition={edition} />}
       {edition && route.page === "about" && <About />}
-      {edition && route.page === "read" && <ReaderPage edition={edition} route={route} />}
+      {edition && route.page === "read" && <ReaderPage key={`${edition.permalink}:${route.paper}`} edition={edition} route={route} />}
     </>
   );
 }
