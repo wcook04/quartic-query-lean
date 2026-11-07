@@ -4,7 +4,7 @@
 // views pushes history, so Back returns here.
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { Edition } from "../app/edition";
-import { sanitizeManuscript, typeset } from "../text/html";
+import { fitDisplayMath, sanitizeManuscript, typeset } from "../text/html";
 import { linesOf, meaningful, rowFor, type Row } from "./selectRow";
 import { fromOutline, type ContentsRow } from "./Contents";
 import { isRestoringReadingPlace } from "../app/restore";
@@ -40,6 +40,22 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
   const own = useRef<string | undefined>(undefined);
   const storeKey = `quartic:scroll:${edition.permalink}:${paper}`;
 
+  // Refit wide display equations whenever the reading column changes width (pane, splitter, window).
+  useEffect(() => {
+    const el = root.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    let width = 0, frame = 0;
+    const ro = new ResizeObserver(([entry]) => {
+      const w = Math.round(entry.contentRect.width);
+      if (w === width) return;
+      width = w;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => fitDisplayMath(el));
+    });
+    ro.observe(el);
+    return () => { ro.disconnect(); cancelAnimationFrame(frame); };
+  }, []);
+
   useEffect(() => {
     let live = true;
     const blobs: string[] = [];
@@ -57,6 +73,7 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
       if (html != null) {
         root.current.innerHTML = sanitizeManuscript(html);
         typeset(root.current);
+        fitDisplayMath(root.current);
         // A manuscript that opens with its own title repeats the page header.
         const first = root.current.querySelector<HTMLElement>("h1, h2");
         const norm = (t: string) => t.replace(/\s+/g, " ").trim().toLowerCase();

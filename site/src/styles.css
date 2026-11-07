@@ -187,6 +187,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .manuscript table { border-collapse: collapse; margin: 1em 0; font-size: 0.95rem; display: block; overflow-x: auto; max-width: 100%; }
 .manuscript th, .manuscript td { border-bottom: 1px solid var(--rule-2); padding: 4px 10px; }
 /* Adapt Proof Reader's math-display scroll treatment to the existing KaTeX pane. */
+.math-glue { white-space: nowrap; }
 .manuscript .katex-display { overflow-x: auto; overflow-y: hidden; padding: 4px 0; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--control) transparent; }
 .manuscript .katex-display > .katex { width: max-content; min-width: 100%; }
 .manuscript .katex-display > .katex > .katex-html { padding-right: 3em; }
