@@ -34,7 +34,7 @@ export function ReaderSplit() {
   return <div ref={handle} className="reader-split" role="separator" aria-orientation="vertical"
     aria-label="Resize paper and proof panes" aria-valuemin={25} aria-valuemax={68} aria-valuenow={Math.round(share * 100)}
     aria-valuetext={`${Math.round(share * 100)} percent for the proof`} tabIndex={0}
-    title="Drag to resize · Arrow keys to adjust · Double-click to reset"
+    title="Drag to resize. Arrow keys adjust it; double-click resets it."
     onDoubleClick={() => apply(DEFAULT)}
     onKeyDown={(e) => {
       if (!["ArrowLeft", "ArrowRight", "Home", "Enter"].includes(e.key)) return;

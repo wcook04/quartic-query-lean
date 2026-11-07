@@ -67,6 +67,9 @@ def locate_quote(text, quote, context):
             "quote": quote, "sha256": digest(text[start:end].encode())}
 
 
+CHAPTER_PAGES = {"verification"}
+
+
 def video_entry(video, routes):
     if video is None:
         return None
@@ -75,7 +78,12 @@ def video_entry(video, routes):
     previous = -1
     for chapter in video["chapters"]:
         second = chapter["start_seconds"]
-        if type(second) is not int or second <= previous or chapter["route"] not in routes:
+        # A chapter opens a reading route, a titled whole reading page, or (titled) only the video.
+        route, page = chapter.get("route"), chapter.get("page")
+        target_ok = (route in routes if route is not None else
+                     page in CHAPTER_PAGES and bool(chapter.get("title")) if page is not None
+                     else bool(chapter.get("title")))
+        if type(second) is not int or second <= previous or not target_ok or (route and page):
             raise ValueError(f"invalid video chapter: {chapter}")
         previous = second
     return video

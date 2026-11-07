@@ -1,15 +1,11 @@
 /* Graph pane styles from proof-reader web/src/app/app.css at e2df888, Copyright 2026 proof-reader contributors, Apache-2.0. */
 :root, :root[data-theme="dark"] { --highlight: #6a4a14; --highlight-soft: #3f2e15; --thread: #f3a43a; }
 :root[data-theme="light"] { --highlight: #ffdf8e; --highlight-soft: #fff0c7; --thread: #b4650a; }
-.graph { flex: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
-.graph__paused { flex: none; display: flex; align-items: center; gap: 10px; min-height: 28px; margin: 0; padding: 2px 16px; font-size: var(--fs-sm); color: var(--ink-2); background: var(--highlight-soft); }
-.graph__paused button { min-height: 24px; color: var(--lit); text-decoration: underline; text-underline-offset: 3px; }
+.graph { position: relative; flex: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
 .graph__canvas { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+.graph__canvas[hidden] { display: none; }
 .graph__canvas .tree { background: var(--sheet); }
-.graph .card__src, .graph .card__inputs, .graph .src-sq { display: none; }
-.key-shape { display: inline-block; flex: none; width: 14px; height: 10px; margin-right: 6px; border: 1.5px solid var(--ink-3); background: var(--raised); vertical-align: -1px; }
-.key-shape--theorem { border-radius: 6px; }
-.key-shape--axiom { border: 2px solid var(--rel-assumes-lit); border-radius: 0; background: var(--lit-wash); transform: skewX(-14deg); }
+.graph .card__inputs { display: none; }
 .graph .tree .card[data-shape="definition"] { border-radius: 2px; }
 .graph .tree .card[data-shape="theorem"] { border-radius: 14px; }
 .graph .tree .card[data-shape="axiom"] { border: 2px solid var(--rel-assumes-lit); border-radius: 0; background: var(--lit-wash); }
@@ -19,36 +15,116 @@
 .card__craw { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-mono); font-size: calc(10.5px / var(--k)); line-height: 1.2; color: var(--ink-2); }
 .graph .tree .card[data-lean="whole"] { background: var(--lean-fill); border-color: var(--lean-fill-line); }
 .graph .tree .card[data-lean="part"] { background: var(--lean-fill-part); border-color: color-mix(in oklab, var(--lean-fill-line) 55%, var(--card-border)); }
-.graph .tree .card[data-trail="ahead"][data-lean="whole"] { background: color-mix(in oklab, var(--lean-fill) 45%, var(--sheet)); border-color: color-mix(in oklab, var(--lean-fill-line) 50%, var(--sheet)); }
-.graph .tree .card[data-trail="ahead"][data-lean="part"] { background: color-mix(in oklab, var(--lean-fill-part) 45%, var(--sheet)); }
-.graph .tree .card[data-trail="ahead"]:not([data-shape="axiom"]) .card__ctitle { color: var(--ink-2); }
 .graph .tree .card[data-trail="here"]:not(.is-selected) { border-color: var(--lit-line); background: var(--lit-wash); box-shadow: 0 0 0 1.5px var(--lit-line); }
-.graph .link--lean_type_dependency { stroke: var(--rel-formalizes); stroke-dasharray: calc(5px / var(--k)) calc(3.5px / var(--k)); }
-.vocab { flex: none; display: flex; align-items: center; gap: 10px; height: 26px; padding: 0 12px 0 16px; border-bottom: 1px solid var(--rule); font-size: var(--fs-xs); color: var(--ink-3); }
-.vocab__list { flex: 1; min-width: 0; display: flex; gap: 12px; overflow-x: auto; scrollbar-width: none; }
-.vocab__list::-webkit-scrollbar { display: none; }
-.vocab__reached { flex: none; font-size: var(--fs-xs); color: var(--ink-2); font-variant-numeric: tabular-nums; }
-.vocab code { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--ink-3); }
-.vocab button { flex: none; min-height: 24px; white-space: nowrap; font-size: var(--fs-xs); color: var(--ink-2); border-bottom: 2px solid transparent; }
-.vocab button:hover { color: var(--ink); }
-.vocab button.is-lit { color: var(--lit); border-bottom-color: var(--thread); }
+/* A use only in the statement: the proof line's colour, dashed. */
+.graph .link--lean_type_dependency { stroke-dasharray: calc(6px / var(--k)) calc(4px / var(--k)); }
+.graph .link--lean_structural_dependency { stroke-dasharray: calc(1.5px / var(--k)) calc(3px / var(--k)) calc(6px / var(--k)) calc(3px / var(--k)); }
+/* Context attachments are layout only: a quiet dotted line, never a dependency's colour. */
+.graph .link[data-context] { stroke: var(--ink-3); stroke-width: calc(1.6px / var(--k)); stroke-linecap: round; stroke-dasharray: 0 calc(5px / var(--k)); opacity: .85; }
 /* Proof Reader resets buttons globally; scope the same reset to the graph (zero-specificity wrapper). */
 :where(.graph) button { background: transparent; border: 0; padding: 0; cursor: pointer; font: inherit; color: inherit; }
-.vocab button { padding: 0 2px; }
-.vocab__whole { flex: none; font-size: var(--fs-xs); color: var(--lit) !important; border: 1px solid var(--rule-strong) !important; border-radius: 4px; padding: 0 6px !important; }
-/* Readable cards: a calmer title, the short Lean name in its own quiet line. */
+/* Readable cards: one title size, a calmer line height, the short Lean name off the face. */
 .graph .tree .card .card__ctitle { line-height: 1.22; letter-spacing: 0.005em; }
-.graph .card__craw { color: var(--ink-3); margin-top: 3px; }
 /* The Lean name stays in the card's label for screen readers and hover, not on the face. */
 .graph .card__craw { display: none; }
-.graph .card__math { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+/* The engine's line count (--lines) bounds a typeset title too, so math titles are not cut early. */
+.graph .card__math { display: -webkit-box; -webkit-line-clamp: var(--lines, 4); -webkit-box-orient: vertical; overflow: hidden; }
 .graph .card__math .umath, .graph .card__math .katex { font-size: 1.02em; }
 .graph .card__math .umath { white-space: normal; overflow-wrap: anywhere; }
+/* The plate's label in sentence case, like every other label in the reader. */
+.graph .card__cmain { text-transform: none; letter-spacing: 0; font-weight: 600; }
 
-/* Adapted from lean-exposition site/src/map/map-page.css MapStrip / map-fit,
+/* ---- One toolbar: scope, form, zoom, types and the following state ----------------------
+   Adapted from lean-exposition site/src/map/map-page.css MapStrip / map-fit,
    Copyright 2026 lean-exposition contributors, Apache-2.0. */
-.graph__controls { flex: none; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; min-width: 0; min-height: 34px; padding: 4px 12px; border-bottom: 1px solid var(--rule); }
-.graph .map-fit { flex: none; display: inline-flex; align-items: center; gap: 6px; min-width: 28px; min-height: 28px; padding: 0 8px; border: 0; border-radius: 4px; background: none; color: var(--ink-2); font-size: var(--fs-sm); cursor: pointer; }
-.graph .map-fit:hover, .graph .map-fit[aria-pressed="true"] { color: var(--ink); background: color-mix(in oklab, var(--ink) 6%, transparent); }
-.graph .map-fit:focus-visible { outline: 2px solid var(--lit); outline-offset: 1px; }
-.graph .map-fit:disabled { opacity: .45; cursor: default; }
+.graph__bar { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; padding: 6px 12px; border-bottom: 1px solid var(--rule); }
+.graph__group { display: inline-flex; align-items: center; border: 1px solid var(--rule-strong); border-radius: 6px; overflow: hidden; }
+.graph__group--zoom { border-color: transparent; gap: 2px; overflow: visible; }
+.graph .gbtn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 32px; min-width: 32px; padding: 0 10px; border-radius: 0; font-size: var(--fs-sm); color: var(--ink-2); white-space: nowrap; }
+.graph .graph__group--zoom .gbtn { border-radius: 6px; }
+.graph .gbtn--icon { padding: 0; font-size: 1.1rem; }
+.graph .graph__group:not(.graph__group--zoom) .gbtn + .gbtn { border-left: 1px solid var(--rule-strong); }
+.graph .gbtn:hover { color: var(--ink); background: color-mix(in oklab, var(--ink) 6%, transparent); }
+.graph .gbtn[aria-pressed="true"] { color: var(--ink); background: color-mix(in oklab, var(--ink) 11%, transparent); font-weight: 600; }
+.graph .gbtn:disabled { opacity: .45; cursor: default; }
+.graph .gbtn:focus-visible, .graph .gstatus:focus-visible, .graph__types summary:focus-visible { outline: 2px solid var(--lit); outline-offset: 1px; }
+.graph__types { position: relative; }
+.graph__types summary { list-style: none; cursor: pointer; border: 1px solid var(--rule-strong); border-radius: 6px; }
+.graph__types summary::-webkit-details-marker { display: none; }
+.graph__types[open] summary { color: var(--ink); background: color-mix(in oklab, var(--ink) 8%, transparent); }
+.graph__count { font-variant-numeric: tabular-nums; color: var(--ink-3); }
+.graph__typespop { position: absolute; z-index: 20; top: calc(100% + 4px); right: 0; width: min(340px, 80vw); max-height: 50vh; overflow-y: auto; display: flex; flex-direction: column; gap: 2px; padding: 8px; background: var(--sheet); border: 1px solid var(--rule-strong); border-radius: 8px; box-shadow: var(--shadow-panel); }
+.graph__typesnote { margin: 0 4px 6px; font-size: var(--fs-xs); color: var(--ink-3); }
+.graph .graph__typespop button { text-align: left; padding: 6px 8px; border-radius: 4px; font-size: var(--fs-sm); line-height: 1.35; color: var(--ink-2); }
+.graph .graph__typespop button:hover { color: var(--ink); background: color-mix(in oklab, var(--ink) 6%, transparent); }
+.graph .graph__typespop button.is-lit { color: var(--lit); }
+.graph .gstatus { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; min-height: 32px; padding: 0 12px; border-radius: 999px; font-size: var(--fs-sm); color: var(--ink-2); white-space: nowrap; }
+.graph .gstatus:hover { color: var(--ink); }
+.graph .gstatus__dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--lean-fill-line); box-shadow: 0 0 0 3px color-mix(in oklab, var(--lean-fill-line) 25%, transparent); }
+.graph .gstatus--pinned { color: var(--ink); background: var(--highlight-soft); }
+.graph .gstatus--pinned .gstatus__dot { background: var(--thread); box-shadow: none; border-radius: 2px; }
+.graph .gstatus__act { color: var(--lit); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---- Lines: hidden-helper counts, caption, key ------------------------------------------- */
+.graph .edge-badges { pointer-events: none; }
+.graph .tree__links .edge-badge { pointer-events: all; cursor: pointer; }
+.edge-badge rect { fill: var(--sheet); stroke: var(--rel-supports); stroke-width: 1.2px; }
+.edge-badge text { fill: var(--ink-2); font: 600 10.5px/1 var(--font-sans); font-variant-numeric: tabular-nums; }
+.graph .edge-badge.is-hover rect, .graph .edge-badge.is-selected rect { stroke: var(--rel-supports-lit); stroke-width: 2px; }
+.graph .edge-badge.is-selected text { fill: var(--ink); }
+/* A badge needs a visible run of line: on an arrow shorter on screen than the badge plus clearance
+   (--len is the arrow's own length in layout units, --k the camera scale), it fades out rather than sit on a card. */
+.graph .edge-badge > * { opacity: clamp(0, calc((var(--len, 1000) * var(--k, 1) - 30) / 6), 1); }
+.graph__caption { position: absolute; z-index: 5; left: 12px; right: 12px; bottom: 10px; margin: 0; padding: 6px 10px; font-size: var(--fs-sm); line-height: 1.35; color: var(--ink); background: color-mix(in oklab, var(--sheet) 94%, transparent); border: 1px solid var(--rule); border-radius: 6px; box-shadow: var(--shadow-panel); pointer-events: none; }
+.graph__caption[hidden] { display: none; }
+.gkey { --k: 1; flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; padding: 8px 14px; border-top: 1px solid var(--rule); font-size: var(--fs-xs); line-height: 1.4; color: var(--ink-2); }
+.gkey__intro { flex-basis: 100%; margin: 0; color: var(--ink-3); }
+.gkey__list { display: contents; list-style: none; }
+.gkey__list li { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.gkey__sample { flex: none; overflow: visible; }
+.gkey__sample .link { stroke-width: 2px; }
+.gkey__notes:empty { display: none; }
+.gkey__notes .sim { position: static; }
+
+/* ---- The evidence for one line, under the map ---------------------------------------------- */
+.edge-ev { flex: none; max-height: 55%; overflow-y: auto; padding: 10px 14px 12px; border-top: 2px solid var(--rel-supports-lit); background: var(--sheet); font-size: var(--fs-sm); line-height: 1.45; }
+.edge-ev__head { display: flex; align-items: flex-start; gap: 10px; }
+.edge-ev__title { flex: 1; margin: 0; font: 500 var(--fs-sm)/1.4 var(--font-sans); color: var(--ink); outline: none; }
+.edge-ev__from, .edge-ev__to { font-family: var(--font-serif); font-size: 1.04em; }
+.edge-ev__verb { margin: 0 .4em; color: var(--ink-3); font-style: italic; }
+.graph .edge-ev__close { flex: none; width: 32px; height: 32px; border-radius: 6px; font-size: 1.25rem; color: var(--ink-2); }
+.graph .edge-ev__close:hover { color: var(--ink); background: color-mix(in oklab, var(--ink) 8%, transparent); }
+.edge-ev__note { margin: 6px 0; color: var(--ink-2); }
+.edge-ev__variant { margin-top: 8px; }
+.edge-ev__kind { display: flex; align-items: center; gap: 8px; margin: 0 0 4px; font-weight: 600; color: var(--ink); }
+.edge-ev__sample { flex: none; width: 22px; height: 0; border-top: 2px solid var(--rel-supports); }
+.edge-ev__sample--type, .edge-ev__sample--structural { border-top-style: dashed; }
+.edge-ev__hops { margin: 0; padding-left: 20px; }
+.edge-ev__hops > li { margin: 4px 0 8px; }
+.edge-ev__hop { margin: 0; color: var(--ink-2); }
+.edge-ev__hop strong { color: var(--ink); font-weight: 600; }
+.edge-ev__site { margin: 2px 0; }
+.edge-ev__where { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin: 2px 0; }
+.edge-ev .leancode__pre { max-height: 220px; overflow: auto; }
+.edge-ev__actions { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 8px 0 0; }
+
+/* ---- The list form ------------------------------------------------------------------------ */
+.graph__listwrap { flex: 1; min-height: 0; overflow-y: auto; background: var(--sheet); }
+.glist__cards { list-style: none; margin: 0; padding: 10px 12px 16px; display: flex; flex-direction: column; gap: 8px; }
+.glist__card { border: 1px solid var(--lean-fill-line); background: var(--lean-fill); border-radius: 10px; padding: 8px 10px; }
+.glist__card[data-shape="definition"] { border-radius: 3px; }
+.glist__card.is-here { border-color: var(--lit-line); background: var(--lit-wash); box-shadow: 0 0 0 1.5px var(--lit-line); }
+.glist__card.is-selected { outline: 2px solid var(--lit); }
+.graph .glist__title { display: block; width: 100%; text-align: left; font-family: var(--font-serif); font-size: 1rem; line-height: 1.35; color: var(--ink); }
+.glist__kind { display: block; font: 600 var(--fs-xs)/1.3 var(--font-sans); color: var(--ink-3); margin-bottom: 2px; }
+.glist__edges { list-style: none; margin: 6px 0 0; padding: 6px 0 0; border-top: 1px solid color-mix(in oklab, var(--lean-fill-line) 50%, transparent); }
+.graph .glist__edge { display: block; width: 100%; min-height: 32px; padding: 4px; text-align: left; font-size: var(--fs-sm); line-height: 1.35; color: var(--ink-2); border-radius: 4px; }
+.graph .glist__edge:hover, .graph .glist__edge.is-selected { background: color-mix(in oklab, var(--ink) 8%, transparent); color: var(--ink); }
+.glist__sample { display: inline-block; vertical-align: middle; margin-right: 6px; width: 18px; height: 0; border-top: 2px solid var(--rel-supports); }
+.glist__sample--statement, .glist__sample--structure { border-top-style: dashed; }
+.glist__sample--paper { border-top: 2px dashed var(--rel-formalizes); }
+.glist__sample--context { border-top: 2px dotted var(--ink-3); }
+.glist__dir { color: var(--ink-3); }
+.glist__name { color: var(--ink); }
+.glist__how { color: var(--ink-3); font-size: var(--fs-xs); white-space: nowrap; }
+

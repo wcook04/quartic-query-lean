@@ -4,11 +4,14 @@
 // views pushes history, so Back returns here.
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { Edition } from "../app/edition";
-import { sanitizeManuscript, typeset } from "../text/html";
+import { fitDisplayMath, sanitizeManuscript, typeset } from "../text/html";
 import { linesOf, meaningful, rowFor, type Row } from "./selectRow";
 import { fromOutline, type ContentsRow } from "./Contents";
 import { isRestoringReadingPlace } from "../app/restore";
 import { href } from "../app/router";
+import { face } from "../app/papers";
+
+const TAG_TITLE = "Linked to Lean: click the paragraph to follow its proof";
 
 interface Props {
   edition: Edition;
@@ -37,6 +40,22 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
   const own = useRef<string | undefined>(undefined);
   const storeKey = `quartic:scroll:${edition.permalink}:${paper}`;
 
+  // Refit wide display equations whenever the reading column changes width (pane, splitter, window).
+  useEffect(() => {
+    const el = root.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    let width = 0, frame = 0;
+    const ro = new ResizeObserver(([entry]) => {
+      const w = Math.round(entry.contentRect.width);
+      if (w === width) return;
+      width = w;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => fitDisplayMath(el));
+    });
+    ro.observe(el);
+    return () => { ro.disconnect(); cancelAnimationFrame(frame); };
+  }, []);
+
   useEffect(() => {
     let live = true;
     const blobs: string[] = [];
@@ -54,6 +73,11 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
       if (html != null) {
         root.current.innerHTML = sanitizeManuscript(html);
         typeset(root.current);
+        fitDisplayMath(root.current);
+        // A manuscript that opens with its own title repeats the page header.
+        const first = root.current.querySelector<HTMLElement>("h1, h2");
+        const norm = (t: string) => t.replace(/\s+/g, " ").trim().toLowerCase();
+        if (first && norm(first.textContent ?? "") === norm(face(paper).name)) first.closest<HTMLElement>(".source-block")?.classList.add("is-page-title");
         // Keep real reader destinations for copy-link, middle-click and
         // Cmd/Ctrl-click; plain clicks retain the reading-position excursion.
         const ed = edition.pinnedOlder ? edition.permalink : undefined;
@@ -106,7 +130,18 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
     const sel = linesOf(rows, selected);
     for (const block of el.querySelectorAll<HTMLElement>(".source-block[data-l0]")) {
       const a = Number(block.dataset.l0), b = Number(block.dataset.l1);
-      block.classList.toggle("is-linked", linked.some((r) => r.lines![0] <= b && a <= r.lines![1]));
+      const isLinked = linked.some((r) => r.lines![0] <= b && a <= r.lines![1]);
+      block.classList.toggle("is-linked", isLinked);
+      // The margin tag is a real element so it can carry its explanation.
+      const tag = block.querySelector<HTMLElement>(":scope > .lean-tag");
+      if (isLinked && !tag) {
+        const t = document.createElement("span");
+        t.className = "lean-tag lean-tag--margin";
+        t.textContent = "Lean";
+        t.title = TAG_TITLE;
+        t.setAttribute("aria-hidden", "true");
+        block.prepend(t);
+      } else if (!isLinked && tag) tag.remove();
       const on = !!sel && sel[0] <= b && a <= sel[1];
       block.classList.toggle("is-selected", on);
       if (on) { block.setAttribute("aria-current", "true"); block.tabIndex = -1; }
@@ -218,8 +253,18 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
 
   return (
     <>
-      {error && <div className="failed" role="alert"><p>This paper could not be opened: {error}</p></div>}
-      {!ready && !error && <p className="pending" role="status">Loading the paper…</p>}
+      {error && (
+        <div className="failed" role="alert">
+          <p><strong>This paper could not be opened.</strong> {error}</p>
+          <p><button type="button" className="tool" onClick={() => location.reload()}>Reload the page</button></p>
+        </div>
+      )}
+      {!ready && !error && (
+        <div className="paper-skeleton" role="status">
+          <span className="sr-only">Loading the paper…</span>
+          {[92, 100, 96, 88, 100, 64, 0, 100, 94, 98, 72].map((w, i) => <span key={i} className="paper-skeleton__line" style={{ width: `${w}%` }} aria-hidden="true" />)}
+        </div>
+      )}
       {ready && sourceView && <p className="quiet">Manuscript source from this edition. Select a passage to inspect its evidence.</p>}
       <div ref={root} className={`manuscript manuscript--${paper}`} onClick={onClick} hidden={!ready} />
     </>

@@ -63,6 +63,18 @@ a local copy of the published thumbnail; `src/family/` owns these shared video
 components and their maintained image assets. Generated `public/` and `dist/`
 contents remain untracked.
 
+Each chapter names a reading `route` (opening the reconstruction at that
+passage), a whole reading `page` such as `verification`, or only a `title` for
+a chapter with no paper counterpart. The homepage lists them as an index keyed
+by time beside the video, matching the chapters in the YouTube description.
+
+The homepage's “A passage beside its Lean” band shows real captures of this
+reader, `src/home/reader-passage-{dark,light}-{1440,2880}.webp`, adapted from
+the SK site's reader still. They show
+`#/read/expert?s=expert%2Fweight%2F0&v=graph` at 1440×790, captured with
+Playwright at device scale 2 with `localStorage["quartic-theme"]` set to each
+scheme. Recapture them when the reader's appearance changes.
+
 The paper–proof separator adapts Proof Reader’s dock handle. Drag it, use the
 arrow keys, or double-click to reset; the chosen split is remembered. Wider
 reading columns use larger manuscript text, and contents move into their menu
@@ -80,6 +92,9 @@ keyboard dismisses it too. Menus start below the entire toolbar, including
 when its controls wrap. On phones, the covered paper and paper tabs are inert
 while the proof is open; closing it returns focus to the selected passage.
 The theme owner also updates the browser colour from the current page token.
+The Lean and graph button at the end of the paper tabs opens and closes the
+proof pane. On phones the pane is a sheet over the lower paper, so the selected
+paragraph stays visible above it; Back to paper closes it.
 
 Manuscript links have actual reader URLs: copy-link, middle-click and
 Cmd/Ctrl-click open the intended paper or footnote separately. Ordinary clicks

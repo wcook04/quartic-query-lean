@@ -36,7 +36,7 @@ import { layoutBounds, layoutTree } from "./engine/layout";
 import { arrowHead, polygonPath, roundedPath, route, type Plan, type Pt, type Routed } from "./engine/router";
 import { ensureVisible, fitBounds, frameBox, revealBox, travelMs, zoomPath, type Bounds, type View, type Viewport } from "./engine/camera";
 import { CAMERA_MS, MOVE_MS, easeMove, lerp } from "./engine/motion";
-import { METRICS, METRICS_COMPACT, METRICS_DENSE, type EngineEdge, type Layout, type Rect, type Size } from "./engine/types";
+import { METRICS, METRICS_COMPACT, METRICS_DENSE, type EngineEdge, type Layout, type Metrics, type Rect, type Size } from "./engine/types";
 import { COMPACT_FLOOR, DENSE_H, DENSE_H_SECTION, DENSE_ROOT_H, DENSE_ROOT_W, DENSE_TILE, DENSE_W, LEAN_BREAK, MAX_K, REF_PX, STEPS_FLOOR, STEPS_K, TILE, fitPlate, fitTitle, floorK, repFor, titlePieces, type MapMode, type MeasuredTitle, type Rep, type TitleKind } from "./canvas/representation";
 import type { MapScene } from "./canvas/scene";
 import { useReducedMotion } from "./canvas/useReducedMotion";
@@ -146,8 +146,12 @@ export interface TreeProps {
   coverage?: ReadonlySet<string> | null;
   /** The dense layout's tile width, for a narrower canvas that should hold the whole argument. */
   tileWidth?: number;
-  /** The dense layout's tile height, for a tile that also holds a raw name. */
-  tileHeight?: number;
+  /** The dense layout's tile height, for a tile that also holds a raw name. Quartic: or each
+   *  record's own height, so a tile is as tall as its fitted title and no taller. */
+  tileHeight?: number | ((id: string) => number);
+  /** Quartic: the dense layout's spacing (rank gap, sibling gap, tracks), for a pane whose
+   *  lines must read at a glance. Pass a stable object. */
+  denseMetrics?: Metrics;
   /** The largest scale the overview fits to. */
   fitMax?: number;
   /** Draw a shared record once, with every use, instead of once under each use. */
@@ -164,6 +168,14 @@ export interface TreeProps {
   notesHost?: HTMLElement | null;
   /** A quiet line in a free corner of the canvas: the full title of a shortened tile, or the relation under the pointer. */
   captionRef?: RefObject<HTMLElement | null>;
+  /** Quartic: what a line means, for its caption and accessible name. */
+  describeEdge?(edge: ArgEdge): string;
+  /** Quartic: a short mark drawn on a line (the count of helper steps it hides), or null. */
+  edgeBadge?(edge: ArgEdge): string | null;
+  /** Quartic: one title size for every tile, so cards of one class read alike. */
+  titleSizes?: number[] | ((k: number) => number[]);
+  /** Quartic: the dense layout's plate size, for a plate whose title should wrap at reading size. */
+  rootTile?: Size;
 }
 
 const STORE = "lx-tree-expanded:";
@@ -297,7 +309,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
   const dense = !compact && mode === "overview";
   const denseRef = useRef(dense);
   denseRef.current = dense;
-  const metrics = compact ? METRICS_COMPACT : dense ? METRICS_DENSE : METRICS;
+  const metrics = compact ? METRICS_COMPACT : dense ? props.denseMetrics ?? METRICS_DENSE : METRICS;
   const onModeChangeRef = useRef(props.onModeChange);
   onModeChangeRef.current = props.onModeChange;
   const controlled = props.mode !== undefined;
@@ -430,7 +442,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       const id = recordOf(lid);
       const node = graph.nodes.get(id) ?? fullGraph.nodes.get(id)!;
       const isRoot = lid === goal;
-      if (dense) return isRoot ? { w: DENSE_ROOT_W, h: DENSE_ROOT_H } : { w: props.tileWidth ?? DENSE_W, h: props.tileHeight ?? (lens ? DENSE_H_SECTION : DENSE_H) };
+      if (dense) return isRoot ? props.rootTile ?? { w: DENSE_ROOT_W, h: DENSE_ROOT_H } : { w: props.tileWidth ?? DENSE_W, h: (typeof props.tileHeight === "function" ? props.tileHeight(id) : props.tileHeight) ?? (lens ? DENSE_H_SECTION : DENSE_H) };
       const h = heights.get(lid);
       if (h === undefined) provisional = true;
       if (lid !== id) return { w: compact ? 184 : 176, h: h ?? (compact ? 54 : 96) };
@@ -455,7 +467,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
     const { layout, plan } = layoutTree({ root: goal, nodes: split.nodes, edges: split.edges, size, metrics, prev: prevLayout, pin, keepOrder: hold });
     return { layout, plan, skeleton: split.edges, shared: split.shared, implied: skel.implied, provisional, pin };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [graph, goal, visible, skel, heights, compact, metrics, rootW, dense, lens]);
+  }, [graph, goal, visible, skel, heights, compact, metrics, rootW, dense, lens, props.tileHeight]);
   const layout = built.layout;
   /** For each assumption, the drawn cards that carry it as a tag. */
   const tagHolders = useMemo(() => {
@@ -514,6 +526,19 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
     }
     return fn;
   };
+  const badgeEls = useRef(new Map<string, SVGGElement>());
+  const badgeRefCache = useRef(new Map<string, (el: SVGGElement | null) => void>());
+  const badgeRef = (key: string) => {
+    let fn = badgeRefCache.current.get(key);
+    if (!fn) {
+      fn = (el: SVGGElement | null) => {
+        if (el) badgeEls.current.set(key, el);
+        else badgeEls.current.delete(key);
+      };
+      badgeRefCache.current.set(key, fn);
+    }
+    return fn;
+  };
   const refCache = useRef(new Map<string, (el: SVGPathElement | null) => void>());
   const pathRef = (key: string) => {
     let fn = refCache.current.get(key);
@@ -558,6 +583,8 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
    * flags are written only when they change.
    */
   const fitOf = useRef(new Map<string, string>());
+  const titleSizesRef = useRef(props.titleSizes);
+  titleSizesRef.current = props.titleSizes;
   const measured = useRef(new Map<string, { label: string; kind: TitleKind; title: HTMLElement; t: MeasuredTitle }>());
   const lastLineInputs = useRef<{ layout: Layout; k: number; rep: Rep; statementH: number; cards: number } | null>(null);
   /** Tiles whose title is shorter than the full one: pointing at one shows it in the caption. */
@@ -592,7 +619,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       }
       const section = el.hasAttribute("data-section") || el.hasAttribute("data-raw") ? 14 : 0;
       const plate = kind === "root" && !denseRef.current ? fitPlate(m.t, rect.w, rect.h, k, statementH.current) : null;
-      const fit = plate ?? fitTitle(m.t, rect.w, rect.h, k, kind, box, section);
+      const fit = plate ?? fitTitle(m.t, rect.w, rect.h, k, kind, box, section, kind === "card" ? (typeof titleSizesRef.current === "function" ? titleSizesRef.current(k) : titleSizesRef.current) : undefined);
       const statement = plate?.statement ?? false;
       if (fit.short || label !== el.dataset.full) shortened.current.add(lid);
       else shortened.current.delete(lid);
@@ -850,6 +877,20 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
         if (y1 - y0 < pad) hitPath += ` M${cx},${cy - pad} L${cx},${cy + pad}`;
       }
       set(els, `hit:${pe.key}`, hitPath);
+      const badge = badgeEls.current.get(pe.key);
+      if (badge) {
+        // Quartic: the badge sits mid-way along the edge's own run. A private edge whose own
+        // part is a short stub uses its whole route, so the badge lands in the open gap
+        // between the cards rather than on a card's border; graph.css fades a badge whose
+        // run is shorter on screen than the badge (--len).
+        const own = re.own.length > 1 ? re.own : re.points;
+        const alone = !pe.bus || [...b.plan.edges.values()].filter((o) => o.bus && o.from === pe.from).length < 2;
+        const run = alone && pathLength(own) < 36 ? re.points : own;
+        const at = midpoint(run);
+        badge.style.setProperty("--len", pathLength(run).toFixed(1));
+        if (at) badge.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) scale(calc(1 / var(--k)))`;
+        badge.style.opacity = isFresh && e < 1 ? String(Math.max(0, e)) : "";
+      }
       if (pe.arrow) {
         const head = pe.bus ? routed.buses.get(pe.from)?.head : routed.heads.get(pe.key);
         if (head) {
@@ -895,6 +936,26 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       el.setAttribute("d", roundedPath(pts, r));
       el.style.opacity = String(1 - gone);
     }
+  }
+
+  function pathLength(pts: Pt[]): number {
+    let total = 0;
+    for (let i = 1; i < pts.length; i++) total += Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y);
+    return total;
+  }
+
+  function midpoint(pts: Pt[]): Pt | null {
+    if (!pts.length) return null;
+    let total = 0;
+    for (let i = 1; i < pts.length; i++) total += Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y);
+    let left = total / 2;
+    for (let i = 1; i < pts.length; i++) {
+      const a = pts[i - 1], b = pts[i];
+      const len = Math.hypot(b.x - a.x, b.y - a.y);
+      if (len >= left && len > 0) return { x: a.x + ((b.x - a.x) * left) / len, y: a.y + ((b.y - a.y) * left) / len };
+      left -= len;
+    }
+    return pts[pts.length - 1];
   }
 
   function set(els: Map<string, SVGPathElement>, key: string, d: string, opacity?: number) {
@@ -2100,6 +2161,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       return;
     }
     const e = edgeByKey.get(edgeKeyOf(key));
+    if (e && props.describeEdge) { showCaption(props.describeEdge(e)); return; }
     // A line that closes up a lens is no recorded relation, so there is nothing to name.
     showCaption(e?.semanticClass === "neighbourhood_context" ? (e as ArgEdge & { note?: string }).note ?? "Context only" : e ? relationPhrase(e.kind, nameOf(e.from), nameOf(e.to)) : "");
   };
@@ -2423,12 +2485,14 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
                   className="hit"
                   role="button"
                   tabIndex={0}
-                  aria-label={lensEdges.get(edgeKeyOf(pe.key))?.semanticClass === "neighbourhood_context" ? `Context only: ${nameOf(recordOf(pe.to))}; its users are outside this neighbourhood` : lensEdges.get(edgeKeyOf(pe.key))?.through?.length ? `Show hidden steps between ${nameOf(recordOf(pe.from))} and ${nameOf(recordOf(pe.to))}` : `Inspect dependency from ${nameOf(recordOf(pe.from))} to ${nameOf(recordOf(pe.to))}`}
+                  aria-label={props.describeEdge && edgeByKey.get(edgeKeyOf(pe.key)) ? `${props.describeEdge(edgeByKey.get(edgeKeyOf(pe.key))!)}${lensEdges.get(edgeKeyOf(pe.key))?.semanticClass === "neighbourhood_context" ? " Activate to open it." : " Activate for the Lean evidence."}` : lensEdges.get(edgeKeyOf(pe.key))?.semanticClass === "neighbourhood_context" ? `Context only: ${nameOf(recordOf(pe.to))}; its users are outside this neighbourhood` : lensEdges.get(edgeKeyOf(pe.key))?.through?.length ? `Show hidden steps between ${nameOf(recordOf(pe.from))} and ${nameOf(recordOf(pe.to))}` : `Inspect dependency from ${nameOf(recordOf(pe.from))} to ${nameOf(recordOf(pe.to))}`}
                   onKeyDown={(event) => {
                     if (event.key === "Enter" || event.key === " ") { event.preventDefault(); event.stopPropagation(); activateEdge(pe.key, pe.from); }
                   }}
                   onPointerEnter={() => enterEdge(pe.key)}
                   onPointerLeave={leaveEdge}
+                  onFocus={() => enterEdge(pe.key)}
+                  onBlur={leaveEdge}
                   onClick={(event) => {
                     event.stopPropagation();
                     showCaption("");
@@ -2452,6 +2516,24 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
               />
             ))}
           </g>
+          {props.edgeBadge && (
+            <g className="edge-badges" aria-hidden="true">
+              {[...built.plan.edges.values()].map((pe) => {
+                const edge = edgeByKey.get(edgeKeyOf(pe.key));
+                const text = edge ? props.edgeBadge!(edge) : null;
+                if (!text) return null;
+                const w = 10 + text.length * 6.6;
+                return (
+                  <g key={pe.key} ref={badgeRef(pe.key)} className={`edge-badge${selectedEdge === edgeKeyOf(pe.key) ? " is-selected" : ""}${hoverEdge === pe.key ? " is-hover" : ""}`}
+                    onPointerEnter={() => enterEdge(pe.key)} onPointerLeave={leaveEdge}
+                    onClick={(event) => { event.stopPropagation(); showCaption(""); activateEdge(pe.key, pe.from); }}>
+                    <rect x={-w / 2} y={-8} width={w} height={16} rx={8} />
+                    <text x={0} y={0.5} dominantBaseline="middle" textAnchor="middle">{text}</text>
+                  </g>
+                );
+              })}
+            </g>
+          )}
         </svg>
         {cardIds.map((lid) => {
           const id = recordOf(lid);

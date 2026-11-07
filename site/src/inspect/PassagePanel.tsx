@@ -2,8 +2,8 @@
 import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
 import { inlineTex } from "../text/html";
-import { COVERAGE_SENTENCE, RelationMark } from "./evidence";
-import { DeclButton, Elsewhere, Loaded, StatementLabel } from "./common";
+import { COVERAGE_SENTENCE, RelationMark, Who } from "./evidence";
+import { DeclButton, Elsewhere, journeyName, Loaded, StatementLabel } from "./common";
 import { useStatementNames } from "./Names";
 import { Title } from "../text/title";
 import { useNav } from "./Nav";
@@ -63,29 +63,29 @@ function Passage({ r }: { r: any }) {
       )}
 
       {topics.map((t) => t.note && (
-        <p key={t.id} className="note"><span className="ev__who">Editors’ note</span> <span dangerouslySetInnerHTML={{ __html: inlineTex(t.note) }} /></p>
+        <p key={t.id} className="note"><Who kind="editors">Editors’ note</Who> <span dangerouslySetInnerHTML={{ __html: inlineTex(t.note) }} /></p>
       ))}
 
-      <section className="where-else" aria-label="The same mathematics in the other papers">
-        <h3>Follow this step</h3>
+      <section className="block where-else" aria-labelledby="ps-follow">
+        <h3 id="ps-follow" className="block__h">Follow this step <Who kind="editors" /></h3>
         {topics.some((t) => t.detours?.length) && <ul className="plain passage-detours">
           {topics.flatMap((t) => t.detours ?? []).filter((d: any, i: number, all: any[]) => all.findIndex((x: any) => x.paper === d.paper && x.anchor === d.anchor) === i).map((d: any) => (
             <li key={`${d.paper}/${d.anchor}`}><button type="button" className="textbutton" onClick={() => nav.openPassage(d.paper, d.anchor)}>{d.question}</button></li>
           ))}
         </ul>}
-        <Elsewhere rows={elsewhere} here={nav.paper} />
+        <Elsewhere rows={elsewhere} here={nav.paper} selected={r.position?.id ? { paper: r.paper, id: r.position.id } : undefined} />
       </section>
 
       {statements.length > 0 && (
-        <section aria-label="What Lean proves">
-          <h3>What Lean proves</h3>
+        <section className="block" aria-labelledby="ps-proves">
+          <h3 id="ps-proves" className="block__h">What Lean proves <Who kind="review" by={statements.map((s) => bestTie(s)?.reviewed_by)} /></h3>
           <ul className="claims">
             {statements.map((s) => {
               const tie = bestTie(s);
               return (
                 <li key={s.id} className="claim">
                   <p className="claim__head">
-                    <strong><StatementLabel id={s.id} presentation={s.presentation} /></strong> {tie ? <RelationMark relation={tie.relation} /> : <span className="rel rel--unassessed">Not assessed</span>}
+                    <span className="claim__name"><StatementLabel id={s.id} presentation={s.presentation} /></span> {tie ? <RelationMark relation={tie.relation} /> : <span className="rel rel--unassessed">Not assessed</span>}
                   </p>
                   <p className="claim__text">{s.presentation
                     ? <span aria-label={s.presentation.body_plain}><Title text={s.presentation.body} /></span>
@@ -93,8 +93,8 @@ function Passage({ r }: { r: any }) {
                   {s.presentation && <details className="more more--inline"><summary>Original ledger wording</summary><p>{s.statement}</p></details>}
                   {tie?.relation === "partial" && tie.note && <p className="cmp__note">{tie.note}</p>}
                   <p className="claim__foot">
-                    {tie && <DeclButton name={tie.declaration} />}
-                    <button type="button" className="textbutton" onClick={() => nav.openStatement(s.id)}>Compare</button>
+                    {tie && <span className="claim__decl"><span className="claim__k">Lean</span> <DeclButton name={tie.declaration} /></span>}
+                    <button type="button" className="button button--small" onClick={() => nav.openStatement(s.id)}>Compare in full</button>
                   </p>
                 </li>
               );
@@ -104,11 +104,11 @@ function Passage({ r }: { r: any }) {
       )}
 
       {r.journeys?.length > 0 && (
-        <section>
-          <h3>Why it works, step by step</h3>
-          <ul className="plain">
+        <section className="block" aria-labelledby="ps-why">
+          <h3 id="ps-why" className="block__h">Why it works, step by step <Who kind="editors" /></h3>
+          <ul className="plain journeys">
             {r.journeys.map((j: string) => (
-              <li key={j}><button type="button" className="button button--small" onClick={() => nav.openJourney(j)}>Walk through “{j.replace(/-/g, " ")}”</button></li>
+              <li key={j}><button type="button" className="journey-link" onClick={() => nav.openJourney(j)}><span className="journey-link__k">Walkthrough</span> {journeyName(j)}</button></li>
             ))}
           </ul>
         </section>
@@ -116,13 +116,13 @@ function Passage({ r }: { r: any }) {
 
 
       {roots.length > 0 && (
-        <section>
-          <h3>Lean to start from</h3>
-          {[["Reviewed against this passage", roots.filter((p) => p.basis.some((b: any) => b.basis === "statement_tie"))],
+        <section className="block" aria-labelledby="ps-roots">
+          <h3 id="ps-roots" className="block__h">Lean to start from</h3>
+          {[["Reviewed against this passage’s statement", roots.filter((p) => p.basis.some((b: any) => b.basis === "statement_tie"))],
             ["Linked by the editors", roots.filter((p) => !p.basis.some((b: any) => b.basis === "statement_tie"))]]
             .filter(([, list]) => (list as any[]).length).map(([label, list]) => (
             <div key={label as string} className="rootgroup">
-              <p className="rootgroup__label">{label as string}</p>
+              <p className="rootgroup__label"><Who kind={label === "Linked by the editors" ? "editors" : "review"}>{label as string}</Who></p>
               <ul className="roots">
                 {(list as any[]).map((p) => {
                   const rel = p.basis.find((b: any) => b.basis === "statement_tie")?.relation;
@@ -134,8 +134,8 @@ function Passage({ r }: { r: any }) {
         </section>
       )}
       {r.comparisons?.length > 0 && (
-        <section>
-          <h3>Recorded Comparator checks</h3>
+        <section className="block" aria-labelledby="ps-checks">
+          <h3 id="ps-checks" className="block__h">Recorded Comparator checks <Who kind="check" /></h3>
           <ul className="plain">
             {r.comparisons.map((c: any) => (
               <li key={c.path}>

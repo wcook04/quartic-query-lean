@@ -7,10 +7,16 @@ import { inlineTex } from "../text/html";
 import { Exponent } from "./Exponent";
 import { Architecture } from "./Architecture";
 import type { BoardData } from "./Board";
-import { FilmSlot, type Chapter } from "../family/FilmSlot";
+import { FilmChapters, FilmSlot, type Chapter } from "../family/FilmSlot";
 import { SisterSites } from "../family/SisterSites";
-import type { FamilyFilm } from "../family/family";
+import { isReleased, type FamilyFilm } from "../family/family";
 import videoThumbnail from "../family/quartic-video-thumbnail.webp";
+import stillDark1440 from "./reader-passage-dark-1440.webp";
+import stillDark2880 from "./reader-passage-dark-2880.webp";
+import stillLight1440 from "./reader-passage-light-1440.webp";
+import stillLight2880 from "./reader-passage-light-2880.webp";
+
+const STILLS = { dark: { 1440: stillDark1440, 2880: stillDark2880 }, light: { 1440: stillLight1440, 2880: stillLight2880 } } as const;
 
 interface Entrance {
   audience: string;
@@ -40,7 +46,9 @@ export function Home({ edition }: { edition: Edition }) {
         film: heldFilm(reading.video),
         chapters: (reading.video.chapters ?? []).map((c: any) => {
           const r = routes.find((x) => x.id === c.route);
-          return { ...c, title: c.title ?? r?.title, href: r?.reconstruction ? href({ page: "read", paper: "reconstruction", s: `passage/${r.reconstruction}` }) : undefined };
+          const to = c.page ? href({ page: "read", paper: c.page })
+            : r?.reconstruction ? href({ page: "read", paper: "reconstruction", s: `passage/${r.reconstruction}` }) : undefined;
+          return { ...c, title: c.title ?? r?.title, href: to };
         }),
       });
     }, () => {});
@@ -69,6 +77,10 @@ export function Home({ edition }: { edition: Edition }) {
             power of its quantum query cost. Four is the best possible exponent. Read their paper, three accounts of
             its proof, and a Lean proof you can open beside any of them.
           </p>
+          <p className="hero__note">
+            The theorem and its proof are OpenAI’s. The three accounts, the Lean and the links between them were
+            prepared with AI. <a href={href({ page: "about" })}>How to read the evidence</a>
+          </p>
           <p className="hero__links">
             <a className="button" href={href({ page: "read", paper: "expert" })}>Read the expert companion</a>
             <a className="button button--quiet" href={href({ page: "read", paper: "exposition" })}>Start with a worked example</a>
@@ -78,6 +90,8 @@ export function Home({ edition }: { edition: Edition }) {
           : !entrances && <div className="board board--pending" role="status">Loading the table…</div>}
       </section>
 
+      <ReaderStill />
+
       {family && (
         <section className="math-bands">
           {family.scaling && <Exponent examples={family.scaling.examples} parameters={family.scaling.parameters} />}
@@ -86,14 +100,15 @@ export function Home({ edition }: { edition: Edition }) {
       )}
 
       <section className="film" aria-labelledby="film-h">
-        <FilmSlot film={video.film} chapters={video.chapters} />
+        <FilmSlot film={video.film} />
         <div>
           <h2 id="film-h">Watch it first</h2>
           <p>
             The video follows the general exposition: the table, comparing columns through pointers, the hidden
-            address a classical algorithm must name, and the exponent. Each chapter opens the papers at the same
-            question.
+            address a classical algorithm must name, and the exponent. The construction begins at 7:16; the opening
+            chapters introduce queries with a single photon. Each chapter title opens the papers at the same question.
           </p>
+          {video.chapters.length > 0 && isReleased(video.film) && <FilmChapters film={video.film} chapters={video.chapters} />}
         </div>
       </section>
 
@@ -106,12 +121,12 @@ export function Home({ edition }: { edition: Edition }) {
             const p = PAPERS.find((x) => x.id === paper)!;
             return (
               <li key={paper} className={`way way--${paper}`}>
-                <p className="way__tab">{p.tab}</p>
+                <p className="way__tab">{p.tab}{paper === "expert" && <span className="way__badge">Start here</span>}</p>
                 <h3 className="way__q">{e ? e.question : " "}</h3>
                 <p className="way__who">{e?.audience}</p>
                 {e && <p className="way__preview" dangerouslySetInnerHTML={{ __html: inlineTex(e.preview) }} />}
                 <p className="way__go">
-                  <a href={href({ page: "read", paper, s: e?.first_selection })} aria-label={`Start reading ${p.name}`}>{paper === "original" ? "Open the paper" : "Start reading"}</a>
+                  <a href={href({ page: "read", paper, s: e?.first_selection })} >{paper === "original" ? "Read OpenAI’s paper" : `Read the ${p.tab.charAt(0).toLowerCase()}${p.tab.slice(1)}`}</a>
                 </p>
               </li>
             );
@@ -148,4 +163,38 @@ function heldFilm(v: any): FamilyFilm {
     youtube: v?.youtube_id ? `https://www.youtube.com/watch?v=${v.youtube_id}` : null,
     duration_seconds: v?.duration_seconds ?? null,
   };
+}
+
+const STILL_PASSAGE = "expert/weight/0";
+const STILL_ALT = "The expert companion open at the passage on tournament weight, which is highlighted. Beside it, the graph of the Lean proof highlights the two steps that passage relies on, under the main result.";
+
+/** A real capture of the reader, in each scheme; the hidden scheme's image is never fetched (`loading="lazy"`). Adapted from lean-exposition's FrontPage ReaderStill. */
+function ReaderStill() {
+  const open = href({ page: "read", paper: "expert", s: STILL_PASSAGE, v: "graph" });
+  return (
+    <section className="readerstill" aria-labelledby="readerstill-h">
+      <div className="readerstill__prose">
+        <h2 id="readerstill-h">A passage beside its Lean</h2>
+        <p>
+          In the picture, a reader has clicked a paragraph of the expert companion. The graph of the Lean proof
+          beside it now highlights the steps that paragraph relies on, with their inputs and uses.
+        </p>
+        <p>
+          Click the same paragraph again for those steps’ Lean, and once more for the same argument in the other
+          papers. With nothing clicked, the graph follows the paragraph you are reading. A margin mark shows which
+          paragraphs are linked; not all of them are yet.
+        </p>
+        <p><a href={open}>Open this paragraph</a></p>
+      </div>
+      <figure className="readerstill__fig">
+        <a href={open} className="readerstill__link" aria-label="Open this paragraph of the expert companion with its Lean graph">
+          {(["light", "dark"] as const).map((scheme) => (
+            <img key={scheme} className={`readerstill__img readerstill__img--${scheme}`}
+              src={STILLS[scheme][1440]} srcSet={`${STILLS[scheme][1440]} 1440w, ${STILLS[scheme][2880]} 2880w`}
+              sizes="(min-width: 1000px) 62vw, 100vw" alt={STILL_ALT} width={1440} height={790} loading="lazy" decoding="async" />
+          ))}
+        </a>
+      </figure>
+    </section>
+  );
 }

@@ -16,9 +16,11 @@ import { ManuscriptPaper } from "../paper/ManuscriptPaper";
 const PdfPaper = lazy(() => import("../paper/PdfPaper").then((m) => ({ default: m.PdfPaper })));
 import { meaningful, type Row } from "../paper/selectRow";
 const ProofPane = lazy(() => import("../map/ProofPane").then((m) => ({ default: m.ProofPane })));
-import { Contents, sectionAt, type ContentsRow } from "../paper/Contents";
+import { Contents, NumberedTitle, sectionAt, type ContentsRow } from "../paper/Contents";
+import { BackIcon, Chevron, CloseIcon, PaneIcon } from "./icons";
 import type { GraphFocus, GraphFocusRequest } from "../map/GraphPane";
 import { ReaderSplit } from "./ReaderSplit";
+import { Title } from "../text/title";
 
 type PassageMode = "graph" | "lean" | "passage";
 const nextPassageMode = (view: PassageMode | undefined): PassageMode => view === "graph" ? "lean" : view === "lean" ? "passage" : "graph";
@@ -177,6 +179,15 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       let view: PassageMode | undefined = pending.start ?? (alreadyFocused ? "graph" : undefined);
       for (let n = 0; n < pending.count; n++) view = nextPassageMode(view);
       const next = view!;
+      // Some passages reach their Lean only through their reviewed statement
+      // (resolve().proof), with no graph card of their own. Lean must still
+      // open that declaration rather than fall back to the main result.
+      let lean = mapped[0] ?? cards[0];
+      if (next === "lean" && !lean) {
+        const resolved = await (reader as any).resolve({ paper, id }).catch(() => null);
+        if (sequence !== clickSequence.current || clickPending.current !== pending) return;
+        lean = resolved?.proof?.[0]?.name;
+      }
       clickPending.current = null;
       passageCycle.current = { key, view: next };
       setClickPin(id);
@@ -185,7 +196,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       setFocusRequest({ nonce: sequence, passage: key, cards });
       // Clear a previous declaration/path: these views belong to this exact
       // passage and its freshly resolved Lean, not the old URL's selection.
-      go({ ...base, s: id, v: next, d: next === "lean" ? mapped[0] ?? cards[0] : undefined });
+      go({ ...base, s: id, v: next, d: next === "lean" ? lean : undefined });
     } catch (error) {
       if (sequence !== clickSequence.current) return;
       clickPending.current = null;
@@ -243,7 +254,18 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     setFocusRequest(undefined);
     setFollowing(!route.s && !route.a);
   }, [route.s, route.a, clickPin]);
-  const activeLean = route.d ?? lit[0] ?? rootDeclaration;
+  // A passage whose Lean is reached through its reviewed statement has no
+  // graph card; the Lean tab still opens that declaration.
+  const [statementLean, setStatementLean] = useState<{ key: string; name?: string } | null>(null);
+  const leanKey = currentSelection && !/^l\d+-\d+$/.test(currentSelection) && !lit.length ? currentSelection : null;
+  useEffect(() => {
+    if (!leanKey) return;
+    let live = true;
+    (reader as any).resolve({ paper, id: leanKey }).then((r: any) => live && setStatementLean({ key: leanKey, name: r?.proof?.[0]?.name }), () => {});
+    return () => { live = false; };
+  }, [reader, paper, leanKey]);
+  const passageLean = leanKey && statementLean?.key === leanKey ? statementLean.name : undefined;
+  const activeLean = route.d ?? lit[0] ?? passageLean ?? rootDeclaration;
   const [graphOpened, setGraphOpened] = useState(mode === "graph");
   useEffect(() => { if (mode === "graph") setGraphOpened(true); }, [mode]);
 
@@ -366,9 +388,20 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const availablePapers = PAPERS.filter(p => Object.hasOwn(reader.documents, p.id));
   if (!Object.hasOwn(reader.documents, paper))
     return (
-      <main id="main" className="notice-page">
-        <h1>“{paper.slice(0, 40)}” is unavailable in this edition.</h1>
-        <p>Available papers include {availablePapers.map((p, i) => <span key={p.id}>{i ? ", " : ""}<a href={href({ page: "read", paper: p.id, ed })}>{p.tab}</a></span>)}.</p>
+      <main id="main" className="notice-page" tabIndex={-1}>
+        <h1>This edition has no paper called “{paper.slice(0, 40)}”</h1>
+        <p>The link may name a paper from another edition, or its address may have been shortened. Choose one of the papers this edition holds.</p>
+        <ul className="notice-papers">
+          {availablePapers.map((p) => (
+            <li key={p.id}>
+              <a href={href({ page: "read", paper: p.id, ed })}>
+                <span className="notice-papers__tab">{p.tab}</span>
+                <span className="notice-papers__name">{p.name}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p><a href={href({ page: "home" })}>Go to the front page</a></p>
       </main>
     );
 
@@ -401,16 +434,23 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     <NavContext.Provider value={nav}>
       <div className={`desk${open ? " desk--open" : ""}`}>
         <nav className="papers" aria-label="Papers" inert={open && !wide}>
-          <ul>
-            {availablePapers.map((p) => (
-              <li key={p.id}>
-                <a href={href({ page: "read", paper: p.id, ed })} aria-current={p.id === paper ? "page" : undefined} onClick={(e) => p.id !== paper && switchTo(p.id, e)}>
-                  {p.tab}
-                </a>
-              </li>
-            ))}
-          </ul>
-          {returnTo && <div className="papers__return"><button type="button" className="textbutton" onClick={returnTo.returnToOrigin}>Return to {returnTo.label}</button></div>}
+          <div className="papers__bar">
+            <ul>
+              {availablePapers.map((p) => (
+                <li key={p.id}>
+                  <a href={href({ page: "read", paper: p.id, ed })} aria-current={p.id === paper ? "page" : undefined} onClick={(e) => p.id !== paper && switchTo(p.id, e)}>
+                    {p.tab}
+                  </a>
+                </li>
+              ))}
+              {paper === SUPPLEMENT.id && <li><a href={href({ page: "read", paper, ed })} aria-current="page">{SUPPLEMENT.tab}</a></li>}
+            </ul>
+            <button type="button" className="papers__pane" aria-pressed={open} onClick={() => (open ? close() : nav.openGraph())}
+              title={open ? "Hide the graph, Lean and passages beside the paper" : "Show the graph, Lean and passages beside the paper"}>
+              <PaneIcon /><span>Lean and graph</span>
+            </button>
+          </div>
+          {returnTo && <div className="papers__return"><button type="button" className="textbutton" onClick={returnTo.returnToOrigin}><BackIcon /> Return to {returnTo.label}</button></div>}
         </nav>
 
         <main id="main" className={`paper${contents.length ? " paper--contents" : ""}`} tabIndex={-1} aria-label={f.name} inert={open && !wide}
@@ -420,34 +460,39 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           {contents.length > 0 && <Contents rows={contents} current={here} onGo={goSection} />}
           <header className="paper__head">
             <h1 className="paper__title">{f.name}</h1>
+            {f.by && <p className="paper__by">{f.by}</p>}
             <p className="paper__byline">{f.byline}</p>
             <div className="paper__tools" ref={paperTools}>
-              {(paper !== "original" || originalHtml) && <span className="legend"><span className="legend__bar" aria-hidden="true" />Select a marked paragraph to follow its proof and related explanations</span>}
-              {download && <DownloadLink edition={edition} resource={download.resource} label="Download the PDF" name={`${paper}.pdf`} />}
-              {paper === "original" && original?.rendered && <button type="button" className="textbutton" onClick={() => { setShowPdf(!showPdf); setContents([]); }}>{showPdf ? "Read the text edition" : "View the original PDF"}</button>}
               {keyed.length > 0 && (
                 <details className="jump" name="paper-tools" onToggle={(event) => fitPaperMenu(event.currentTarget)}>
-                  <summary>Linked passages</summary>
+                  <summary>Linked passages <span className="jump__count">{keyed.length}</span><Chevron /></summary>
                   <ul>
                     {keyed.map((r) => (
-                      <li key={r.id}><a href={href({ page: "read", paper, s: r.id, ed })} onClick={(e) => { (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}>{topicTitles[r.topic!] ?? r.topic!.replace(/-/g, " ")}</a></li>
+                      <li key={r.id}><a href={href({ page: "read", paper, s: r.id, ed })} aria-current={r.id === route.s ? "true" : undefined} onClick={(e) => { (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}><Title text={topicTitles[r.topic!] ?? r.topic!.replace(/-/g, " ")} /></a></li>
                     ))}
                   </ul>
                 </details>
               )}
               {contents.length > 0 && (
                 <details className="jump jump--contents" name="paper-tools" onToggle={(event) => fitPaperMenu(event.currentTarget)}>
-                  <summary>Contents</summary>
+                  <summary>Contents<Chevron /></summary>
                   <ul>
                     {contents.filter((r) => r.level <= Math.min(...contents.map((x) => x.level)) + 1).map((r) => (
-                      <li key={r.line}><a href={r.anchor ? `#${r.anchor}` : undefined} onClick={(e) => { e.preventDefault(); goSection(r); (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}>{r.title}</a></li>
+                      <li key={r.line} className={r.level > Math.min(...contents.map((x) => x.level)) ? "jump__sub" : undefined}><a href={r.anchor ? `#${r.anchor}` : undefined} aria-current={here === r ? "location" : undefined} onClick={(e) => { e.preventDefault(); goSection(r); (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}><NumberedTitle text={r.title} /></a></li>
                     ))}
                   </ul>
                 </details>
               )}
-              {paper === "reconstruction" && <a href={href({ page: "read", paper: SUPPLEMENT.id, ed })}>Verification details</a>}
-              {!wide && <button type="button" className="textbutton" onClick={() => nav.openGraph()}>Open the proof for this passage</button>}
+              {paper === "original" && original?.rendered && <button type="button" className="tool" onClick={() => { setShowPdf(!showPdf); setContents([]); }}>{showPdf ? "Read the text edition" : "View the original PDF"}</button>}
+              {download && <DownloadLink edition={edition} resource={download.resource} label="Download the PDF" name={`${paper}.pdf`} />}
+              {paper === "reconstruction" && <a className="tool" href={href({ page: "read", paper: SUPPLEMENT.id, ed })}>Verification details</a>}
             </div>
+            {(paper !== "original" || originalHtml) && (
+              <p className="legend"><span className="lean-tag" aria-hidden="true">Lean</span>
+                {wide ? "Marked paragraphs are linked to Lean. Click one to follow its proof; click it again for its Lean, then for other explanations."
+                  : "Marked paragraphs are linked to Lean. Tap one to see its proof."}
+              </p>
+            )}
             {originalHtml && <p className="paper__edition">Reading edition rendered from OpenAI’s source. The original wording, numbering and authorship are retained; our passage links are an editorial layer.</p>}
           </header>
           {paper === "original" && !originalHtml ? (
@@ -465,11 +510,6 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           )}
         </main>
 
-        {!open && wide && (
-          <button type="button" className="reopen" onClick={() => nav.openGraph()}>
-            <span>Open proof</span>
-          </button>
-        )}
         {open && wide && <ReaderSplit />}
         {open && (
           <aside ref={aside} className={`inspector inspector--${mode}`} aria-label="The Lean proof and its evidence">
@@ -477,18 +517,39 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               <button type="button" aria-pressed={mode === "graph" || mode === "path"} onClick={() => nav.openGraph()}>Graph</button>
               <button type="button" aria-pressed={mode === "lean"} disabled={!activeLean} onClick={() => activeLean && nav.openLean(activeLean)}>Lean</button>
               <button type="button" aria-pressed={mode === "evidence"} disabled={!currentSelection && !route.p} onClick={nav.backToPassage}>Passage</button>
-              <button type="button" className="inspector__close" onClick={close} aria-label="Close the proof pane">
-                <span className="wide-only">Close</span><span className="narrow-only">Paper</span>
+              <button type="button" className="inspector__close" onClick={close} aria-label={wide ? "Close the Lean pane" : undefined} title={wide ? "Close (Esc)" : undefined}>
+                {wide ? <CloseIcon /> : <><BackIcon /><span>Back to paper</span></>}
               </button>
             </div>
-            <div className="inspector__bar">
-              {route.v && route.v !== "graph" && route.v !== "path" && (route.s || route.p) && !(route.v === "statement" && route.s === `original/${route.st}`) && (
-                <button type="button" className="textbutton" onClick={nav.backToPassage}>
-                  Return to {route.s?.startsWith("original/") ? <StatementLabel id={route.s.slice(9)} /> : "the passage"}
-                </button>
-              )}
-              {route.v && <button type="button" className="textbutton" onClick={() => history.back()}>Back</button>}
-            </div>
+            {mode !== "graph" && (() => {
+              // One compact bar: what the pane is doing, then at most three actions.
+              const returnable = route.v && route.v !== "graph" && route.v !== "path" && (route.s || route.p) && !(route.v === "statement" && route.s === `original/${route.st}`);
+              const nextWord = route.v === "lean" ? "other explanations" : route.v === "passage" ? "the graph" : "its Lean";
+              const leanFallback = mode === "lean" && !route.d && !lit.length && !passageLean;
+              const pinnedLean = mode === "lean" && route.v === "lean";
+              const passageView = (mode === "lean" || mode === "evidence") && (!route.v || route.v === "passage");
+              const status = clickPin ? <>Click the paragraph again for {nextWord}.</>
+                : leanFallback ? <>No Lean is linked to this paragraph; showing the main result.</>
+                : pinnedLean ? <>Keeping this declaration open.</>
+                : passageView ? (following ? <>Following the paper as you read.</> : <>Pinned to this passage.</>)
+                : null;
+              const refollow = !clickPin && (pinnedLean ? () => { setFollowing(true); go({ ...base, s: lineSelection }); } : passageView && !following ? () => setFollowing(true) : null);
+              if (!status && !returnable && !route.v) return null;
+              return (
+                <div className="inspector__bar">
+                  {status && <p className="inspector__status" role="status">{status}</p>}
+                  <span className="inspector__actions">
+                    {refollow && <button type="button" className="textbutton" onClick={refollow}>Follow the paper</button>}
+                    {returnable && (
+                      <button type="button" className="textbutton" onClick={nav.backToPassage}>
+                        Return to {route.s?.startsWith("original/") ? <StatementLabel id={route.s.slice(9)} /> : "the passage"}
+                      </button>
+                    )}
+                    {route.v && <button type="button" className="textbutton" onClick={() => history.back()}>Back</button>}
+                  </span>
+                </div>
+              );
+            })()}
             {(graphOpened || mode === "graph") && (
               <div className="inspector__graph" hidden={mode !== "graph"}>
                 <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
@@ -497,23 +558,13 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                     focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onGraphFocus}
                     onFollow={() => { resumePaperFollowing(); passageCycle.current = null; setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} />
                 </Suspense>
-                <p className="inspector__note">
-                  The highlighted steps appear with their inputs and uses. Dotted links from the main result give context; other lines are recorded dependencies. Choose a card for its Lean, or a dependency for its helpers.
+                <p className="inspector__note" role="status">
+                  {clickPin ? "Click the paragraph again for its Lean; scrolling the paper resumes following." : "Choose a card for its Lean, or a line for where it is used."}
                 </p>
-                {clickPin && <p className="inspector__note">Click this paragraph again for Lean. Scrolling resumes following the paper.</p>}
               </div>
             )}
             {mode !== "graph" && (
               <div className="inspector__body">
-                {(mode === "lean" || mode === "evidence") && (!route.v || route.v === "passage") && (
-                  <p className={`follow${following ? "" : " follow--pinned"}`} role="status">
-                    {clickPin ? <>Click this paragraph again for Graph. Scrolling resumes following the paper.</>
-                      : following ? <>Following the paper as you read.</>
-                      : <>Pinned to this passage. <button type="button" className="textbutton" onClick={() => setFollowing(true)}>Follow the paper again</button></>}
-                  </p>
-                )}
-                {mode === "lean" && !route.d && !lit.length && <p className="quiet inspector__context">The main result is shown here. No declaration is linked to the current paragraph.</p>}
-                {mode === "lean" && route.v === "lean" && <p className="follow follow--pinned">{clickPin ? <>Click this paragraph again for Passage. Scrolling resumes following the paper.</> : <>Keeping this declaration open. <button type="button" className="textbutton" onClick={() => { setFollowing(true); go({ ...base, s: lineSelection }); }}>Follow the paper again</button></>}</p>}
                 {clickError && <p className="failed" role="alert">This passage could not be opened: {clickError}</p>}
                 {panel ?? <p className="quiet">Scroll to a linked passage, or click one, to see its evidence.</p>}
               </div>
@@ -542,7 +593,7 @@ function DownloadLink({ edition, resource, label, name }: { edition: Edition; re
     } catch { setState("failed"); }
   }
   return (
-    <button type="button" className="textbutton" onClick={get} disabled={state === "busy"}>
+    <button type="button" className="tool" onClick={get} disabled={state === "busy"}>
       {state === "failed" ? "The PDF is not in this edition" : state === "busy" ? "Preparing the PDF…" : label}
     </button>
   );
