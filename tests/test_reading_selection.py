@@ -331,6 +331,9 @@ const map = await trusted.proofMap();
 assert.equal(count, requestsBeforeMap + 1);
 const focus = await trusted.proofFocus({paper:"original",id:"original/thm-1.1"});
 assert(focus.cards.includes(map.root));
+// The complete theorem leads; conditional helpers with the same conclusion follow it.
+assert.equal(focus.cards[0], map.root);
+assert.equal((await trusted.proofFocus({paper:"expert",id:"expert/headline/0"})).cards[0], map.root);
 assert.deepEqual((await trusted.proofFocus({paper:"original",page:19})).cards, []);
 const boardFocus = await trusted.proofFocus({paper:"exposition",id:front.entrances.exposition.first_selection});
 assert.deepEqual(boardFocus.cards, []);

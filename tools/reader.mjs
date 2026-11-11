@@ -215,7 +215,16 @@ export async function openReader(indexURL, options) {
       const shortest = Math.min(...matches.map(width));
       matches = matches.filter(row => width(row) === shortest);
     } else throw new Error("Select one passage ID, manuscript line or original PDF page");
-    const cards = [...new Set(matches.flatMap(row => Object.keys(row.bindings)))];
+    // Lead with the declaration whose reviewed relation to the passage's statement is closest
+    // (exact, then stronger), so the first Lean a reader opens is the complete result and a
+    // conditional helper with the same conclusion follows it. Ties keep the recorded order.
+    const closeness = {exact: 0, stronger: 1};
+    const rank = name => Math.min(...matches.flatMap(row => (row.bindings[name] ?? []).map(basis =>
+      basis.startsWith("statement:")
+        ? closeness[map.cards[name]?.statements?.[basis.slice("statement:".length)]?.relation] ?? 3
+        : 2)), 3);
+    const names = [...new Set(matches.flatMap(row => Object.keys(row.bindings)))];
+    const cards = names.map((name, i) => [rank(name), i, name]).sort((x, y) => x[0] - y[0] || x[1] - y[1]).map(x => x[2]);
     return {currentness: map.currentness, matches, cards};
   }
 
