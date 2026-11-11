@@ -30,6 +30,9 @@ what is already known. No person has reviewed it yet.
 
 ## Start reading
 
+- [Introduction to the projects](https://www.youtube.com/watch?v=Yk_kUQUCylc) explains the wider project.
+- Watch the [Quartic Reader short](https://www.youtube.com/watch?v=g4WfSFmd9Ts) or the [full comparison of the three maths readers](https://www.youtube.com/watch?v=i5GdVgC-cw0).
+- Watch the [short explanation of the quantum query bound](https://www.youtube.com/watch?v=vt5Cq5HTfLA).
 - Watch [the video explanation](https://www.youtube.com/watch?v=CBHPBKcx2ck) (34:02),
   from light-wave interference to the fourth-power query bound.
 
