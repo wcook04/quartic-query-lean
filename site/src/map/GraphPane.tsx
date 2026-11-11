@@ -159,6 +159,8 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   const pausedRef = useRef(false);
   // Fit follows viewport changes until the reader chooses their own camera.
   const overviewHeld = useRef(true);
+  // The held framing is the explicit Fit (whole displayed graph) rather than the passage's steps.
+  const fitHeld = useRef(false);
   const reachable = useMemo(() => reach(graph, GOAL), [graph]);
   const currentMapped = useMemo(() => lit.filter((id) => id !== GOAL && reachable.has(id)), [lit, reachable]);
   const [scopeLit, setScopeLit] = useState<readonly string[]>(currentMapped);
@@ -265,14 +267,25 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
     setPause(true);
   }, [selected, reachable, setPause]);
 
+  // A passage's neighbourhood is framed whole only at a scale where every title
+  // is still whole; else at that scale around its own steps (and the main result).
+  // Whole proof and the Fit button frame the entire displayed graph at any scale.
+  const wholeRef = useRef(whole);
+  wholeRef.current = whole;
+  const frameHeld = useCallback((animate: boolean) => {
+    if (wholeRef.current || fitHeld.current || !scopeLitRef.current.length) tree.current?.fitAll(animate);
+    else tree.current?.frameFocus(scopeLitRef.current, DESIGN_K, animate);
+  }, []);
+
   // The filtered layout has its own bounds. Frame after React commits that
   // layout, and cancel if a manual move takes ownership before the next paint.
   useEffect(() => {
+    fitHeld.current = false;
     const frame = window.requestAnimationFrame(() => {
-      if (overviewHeld.current) tree.current?.fitAll(false);
+      if (overviewHeld.current) frameHeld(false);
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [drawnGraph]);
+  }, [drawnGraph, frameHeld]);
 
   // Adapted from Proof Reader's MapPane observer. It stays stable as the
   // passage changes, and never replaces a manually chosen pan or zoom.
@@ -289,17 +302,18 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
       timer = window.setTimeout(() => {
         const open = inspectRef.current;
         if (open) tree.current?.panTo([open.from, open.to], { centre: true });
-        else if (overviewHeld.current) tree.current?.fitAll(false);
+        else if (overviewHeld.current) frameHeld(false);
         else if (!pausedRef.current && litRef.current.length && !inView(litRef.current)) tree.current?.panTo(litRef.current);
       }, 140);
     });
     observer.observe(el);
     return () => { observer.disconnect(); window.clearTimeout(timer); };
-  }, [inView]);
+  }, [inView, frameHeld]);
 
   const fit = useCallback(() => {
     setPause(true);
     overviewHeld.current = true;
+    fitHeld.current = true;
     tree.current?.fitAll();
   }, [setPause]);
   const follow = useCallback(() => {
@@ -311,8 +325,9 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
       }
     setWhole(false);
     setPause(false);
-    tree.current?.fitAll();
-  }, [setPause, onFollow, passageKey]);
+    fitHeld.current = false;
+    frameHeld(true);
+  }, [setPause, onFollow, passageKey, frameHeld]);
   const toggleWhole = useCallback(() => {
     overviewHeld.current = true;
     if (whole) follow();
@@ -439,7 +454,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
       {/* The question the tab answers, beside whether it follows the paper. */}
       <div className="graph__head">
         {/* A heading by role, not an h2: the reader moves focus to a panel's h2, and the graph keeps focus where it was. */}
-        <p className="graph__title" role="heading" aria-level={2}>{whole ? "The whole Lean proof" : "What this paragraph relies on"}</p>
+        <p className="graph__title" role="heading" aria-level={2}>{whole ? "The whole Lean proof" : scopeLit.length ? "What this paragraph relies on" : "The main result"}</p>
         {/* A stable accessible name ("Follow the paper") with aria-pressed for the state;
             the visible words change, so the state is also announced politely. */}
         <button type="button" className={`gstatus${following ? "" : " gstatus--pinned"}`} aria-pressed={following} aria-label="Follow the paper" onClick={follow}

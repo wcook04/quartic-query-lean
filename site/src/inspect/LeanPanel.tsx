@@ -1,5 +1,5 @@
-// One Lean declaration, answering "the Lean for this step": its name and source, one
-// line saying how it matches the paper, then what it uses and what uses it. Edges are
+// One Lean declaration, answering "the Lean for this step": its name, one line saying
+// how it matches the paper, its source, then what it uses and what uses it. Edges are
 // Lean's; matches are reviews; paper links are editorial. Rarer facts (axioms, every
 // paper passage citing it) are folded at the end.
 import { useEffect, useMemo, useState } from "react";
@@ -100,16 +100,8 @@ function Declaration({ d, linked, cards, modules, forStep }: { d: any; linked: S
         </p>
       </header>
 
-      {src.text ? (
-        <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean}
-          label={`Lean source of ${d.name}`} url={src.url} foldOver={14} foldWord={isTheorem ? "proof" : "definition body"}
-          caption={<><span className="leancode__file">{file || "Lean source"}</span>{range && <span>{range}</span>}</>} />
-      ) : (
-        <p className="panel-empty">No source text is recorded for this declaration.</p>
-      )}
-
       {ties.size > 0 && (
-        <section className="block match" aria-labelledby="ln-tie">
+        <section className="block match match--lead" aria-labelledby="ln-tie">
           <h3 id="ln-tie" className="sr-only">How it matches the paper</h3>
           {reviewed.map(([st, t]) => (
             <div key={st} className="match__item">
@@ -129,6 +121,14 @@ function Declaration({ d, linked, cards, modules, forStep }: { d: any; linked: S
             {linkedOnly.length > 0 && <>{reviewed.length ? "Other statement links" : "Linked"} by the editors.</>}
           </SourceLine>
         </section>
+      )}
+
+      {src.text ? (
+        <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean}
+          label={`Lean source of ${d.name}`} url={src.url} foldOver={14} foldWord={isTheorem ? "proof" : "definition body"}
+          caption={<><span className="leancode__file">{file || "Lean source"}</span>{range && <span>{range}</span>}</>} />
+      ) : (
+        <p className="panel-empty">No source text is recorded for this declaration.</p>
       )}
 
       <section className="block" aria-labelledby="ln-uses">

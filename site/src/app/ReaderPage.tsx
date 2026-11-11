@@ -372,7 +372,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   }, [panelKey, open]);
 
   useEffect(() => {
-    const on = (e: KeyboardEvent) => { if (e.key === "Escape" && open && !e.defaultPrevented) { e.preventDefault(); close(); } };
+    const on = (e: KeyboardEvent) => { if (e.key === "Escape" && open && !e.defaultPrevented && !document.querySelector(":popover-open")) { e.preventDefault(); close(); } };
     window.addEventListener("keydown", on);
     return () => window.removeEventListener("keydown", on);
   }, [open, close]);
@@ -445,7 +445,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               {paper === SUPPLEMENT.id && <li><a href={href({ page: "read", paper, ed })} aria-current="page">{SUPPLEMENT.tab}</a></li>}
             </ul>
             <button type="button" className="papers__pane" aria-pressed={open} onClick={() => (open ? close() : nav.openGraph())}
-              title={open ? "Hide the graph, Lean and passages beside the paper" : "Show the graph, Lean and passages beside the paper"}>
+              title={open ? "Hide the pane with the graph, Lean and passages" : "Open the pane with the graph, Lean and passages"}>
               <PaneIcon /><span>Lean and graph</span>
             </button>
           </div>
@@ -485,6 +485,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               {paper === "original" && original?.rendered && <button type="button" className="tool" onClick={() => { setShowPdf(!showPdf); setContents([]); }}>{showPdf ? "Read the text edition" : "View the original PDF"}</button>}
               {download && <DownloadLink edition={edition} resource={download.resource} label="Download the PDF" name={`${paper}.pdf`} />}
               {paper === "reconstruction" && <a className="tool" href={href({ page: "read", paper: SUPPLEMENT.id, ed })}>Verification details</a>}
+              {paper === "original" && <a className="tool" href={href({ page: "results" })}>All results with their Lean statements</a>}
             </div>
             {(paper !== "original" || originalHtml) && (
               <p className="legend"><span className="lean-tag" aria-hidden="true">Lean</span>
@@ -512,7 +513,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
         {open && wide && <ReaderSplit />}
         {open && (
           <aside ref={aside} className={`inspector inspector--${mode}`} aria-label="The Lean proof and its evidence">
-            <div className="inspector__modes" role="group" aria-label="What to show beside the paper">
+            <div className="inspector__modes" role="group" aria-label="What the pane contains">
               <button type="button" aria-pressed={mode === "graph" || mode === "path"} onClick={() => nav.openGraph()}>Graph</button>
               <button type="button" aria-pressed={mode === "lean"} disabled={!activeLean} onClick={() => activeLean && nav.openLean(activeLean)}>Lean</button>
               <button type="button" aria-pressed={mode === "evidence"} disabled={!currentSelection && !route.p} onClick={nav.backToPassage} title="This step in each paper, and what the Lean proves">Passage</button>

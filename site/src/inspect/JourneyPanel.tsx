@@ -67,7 +67,7 @@ function Journey({ j, step }: { j: any; step?: string }) {
         <p className="panel__lede" dangerouslySetInnerHTML={{ __html: inlineTex(j.scope) }} />
         <SourceLine kind="editors">The editors wrote the explanations, to help reading; not a proof. Lean reports the source lines and what they use.</SourceLine>
         <details className="fold journey__key">
-          <summary>What the words beside each use mean</summary>
+          <summary>What the words next to each use mean</summary>
           <ul className="plain marklist">
             <li><span className="usemark usemark--exact">exact line</span> Lean matched the use to the highlighted text.</li>
             <li><span className="usemark">elsewhere in it</span> Lean matched a use elsewhere in this declaration.</li>

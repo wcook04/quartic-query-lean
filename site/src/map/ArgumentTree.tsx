@@ -37,7 +37,7 @@ import { arrowHead, polygonPath, roundedPath, route, type Plan, type Pt, type Ro
 import { ensureVisible, fitBounds, frameBox, revealBox, travelMs, zoomPath, type Bounds, type View, type Viewport } from "./engine/camera";
 import { CAMERA_MS, MOVE_MS, easeMove, lerp } from "./engine/motion";
 import { METRICS, METRICS_COMPACT, METRICS_DENSE, type EngineEdge, type Layout, type Metrics, type Rect, type Size } from "./engine/types";
-import { COMPACT_FLOOR, DENSE_H, DENSE_H_SECTION, DENSE_ROOT_H, DENSE_ROOT_W, DENSE_TILE, DENSE_W, LEAN_BREAK, MAX_K, REF_PX, STEPS_FLOOR, STEPS_K, TILE, fitPlate, fitTitle, floorK, repFor, titlePieces, type MapMode, type MeasuredTitle, type Rep, type TitleKind } from "./canvas/representation";
+import { COMPACT_FLOOR, STEPS_MIN_K, DENSE_H, DENSE_H_SECTION, DENSE_ROOT_H, DENSE_ROOT_W, DENSE_TILE, DENSE_W, LEAN_BREAK, MAX_K, REF_PX, STEPS_FLOOR, STEPS_K, TILE, fitPlate, fitTitle, floorK, shortTitle as cutTitle, repFor, titlePieces, type MapMode, type MeasuredTitle, type Rep, type TitleKind } from "./canvas/representation";
 import type { MapScene } from "./canvas/scene";
 import { useReducedMotion } from "./canvas/useReducedMotion";
 import { SIDES, beyond, chipAt, chipText, freeSpot, panToward, sameBeyond, screenRects, type Beyond, type Side } from "./canvas/chips";
@@ -64,6 +64,12 @@ export interface Insets {
 
 export interface MapViewHandle {
   fitAll(animate?: boolean): void;
+  /**
+   * Frame a focus (a passage's steps): the whole layout as fitAll does when every title is
+   * still whole at that scale; else, at the smallest scale (at most `maxReadK`) that keeps every
+   * title whole, the focus with the goal when both fit, or the focus alone.
+   */
+  frameFocus(ids: readonly string[], maxReadK: number, animate?: boolean): void;
   fitNodes(ids: Iterable<string>, animate?: boolean): void;
   zoomBy(factor: number): void;
   focusNode(id: string): void;
@@ -585,42 +591,75 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
   const fitOf = useRef(new Map<string, string>());
   const titleSizesRef = useRef(props.titleSizes);
   titleSizesRef.current = props.titleSizes;
-  const measured = useRef(new Map<string, { label: string; kind: TitleKind; title: HTMLElement; t: MeasuredTitle }>());
+  const measured = useRef(new Map<string, { label: string; kind: TitleKind; title: HTMLElement; t: MeasuredTitle; provisional?: boolean }>());
+  /** Titles with typeset formulas, measured as laid out, by label: tiles are remounted often. */
+  const mathMeasured = useRef(new Map<string, MeasuredTitle & { math: boolean }>());
+  /** A title was measured before its formula was laid out: the next fit must not be skipped. */
+  const pendingMeasure = useRef(false);
   const lastLineInputs = useRef<{ layout: Layout; k: number; rep: Rep; statementH: number; cards: number } | null>(null);
   /** Tiles whose title is shorter than the full one: pointing at one shows it in the caption. */
   const shortened = useRef(new Set<string>());
   /** The plate's first sentence: its height on screen at STATEMENT_W wide, 0 until measured. */
   const statementH = useRef(0);
+  /** One tile's title fit at scale k (the fit applyLines draws), measuring the title once. */
+  const cardTitleFit = useCallback((lid: string, el: HTMLElement, rect: { w: number; h: number }, k: number) => {
+    let m = measured.current.get(lid);
+    const title = m?.title ?? el.querySelector<HTMLElement>(".card__ctitle");
+    if (!title) return null;
+    const kind: TitleKind = lid === goalRef.current ? "root" : title.classList.contains("lean") ? "lean" : "card";
+    // KaTeX includes both visual and accessibility text; measure the edition's
+    // canonical plain title rather than that duplicated DOM text.
+    const label = el.dataset.full ?? title.textContent ?? "";
+    if (!m || m.label !== label || m.kind !== kind || m.provisional) {
+      const t = measureTitle(title, label, kind);
+      // A formula is measured as laid out; a remounted tile not yet laid out reuses the last
+      // such measurement of its title, else the plain label until it is laid out.
+      const math = kind === "card" && !!title.querySelector(".katex");
+      if (math && t.math) mathMeasured.current.set(label, t);
+      const known = math && !t.math ? mathMeasured.current.get(label) : undefined;
+      m = { label, kind, title, t: known ?? t, provisional: math && !t.math && !known };
+      measured.current.set(lid, m);
+      if (m.provisional) pendingMeasure.current = true;
+    }
+    const box = denseRef.current ? DENSE_TILE : TILE;
+    const section = el.hasAttribute("data-section") || el.hasAttribute("data-raw") ? 14 : 0;
+    const plate = kind === "root" && !denseRef.current ? fitPlate(m.t, rect.w, rect.h, k, statementH.current) : null;
+    const fit = plate ?? fitTitle(m.t, rect.w, rect.h, k, kind, box, section, kind === "card" ? (typeof titleSizesRef.current === "function" ? titleSizesRef.current(k) : titleSizesRef.current) : undefined);
+    const formula = fit.kept === undefined ? -1 : m.t.pieces.findIndex((p, i) => i < fit.kept! && p.text === undefined);
+    if (formula > 0) fit.short = cutTitle(m.t, formula);
+    return { m, title, label, fit, statement: plate?.statement ?? false };
+  }, []);
+  /**
+   * The smallest scale in [lo, hi] at which every drawn tile's title is whole, by the same fit
+   * applyLines draws; `hi` when some title is cut even there.
+   */
+  const readableK = useCallback((l: Layout, lo: number, hi: number): number => {
+    const tiles = [...cardEls.current].flatMap(([lid, el]) => {
+      const rect = l.boxes.get(lid);
+      return rect ? [{ lid, el, rect }] : [];
+    });
+    const whole = (k: number) => tiles.every(({ lid, el, rect }) => cardTitleFit(lid, el, rect, k)?.fit.fits !== false);
+    for (let k = lo; k < hi; k = Math.round((k + 0.01) * 100) / 100) if (whole(k)) return k;
+    return hi;
+  }, [cardTitleFit]);
   const applyLines = useCallback(() => {
     const k = viewRef.current.k;
     const rep = repRef.current;
     const layout = builtRef.current.layout;
-    const box = denseRef.current ? DENSE_TILE : TILE;
     const prev = lastLineInputs.current;
     // A representation render, the camera frame and the statement observer can
     // all request the same fit. Their arithmetic and DOM reads are shared until
     // an actual fitting input changes.
-    if (prev?.layout === layout && prev.k === k && prev.rep === rep && prev.statementH === statementH.current && prev.cards === cardVersion.current) return;
+    if (!pendingMeasure.current && prev?.layout === layout && prev.k === k && prev.rep === rep && prev.statementH === statementH.current && prev.cards === cardVersion.current) return;
+    pendingMeasure.current = false;
     lastLineInputs.current = { layout, k, rep, statementH: statementH.current, cards: cardVersion.current };
     const boxes = layout.boxes;
     for (const [lid, el] of cardEls.current) {
       const rect = boxes.get(lid) ?? shown.current.get(lid)?.rect;
       if (!rect) continue;
-      let m = measured.current.get(lid);
-      const title = m?.title ?? el.querySelector<HTMLElement>(".card__ctitle");
-      if (!title) continue;
-      const kind: TitleKind = lid === goalRef.current ? "root" : title.classList.contains("lean") ? "lean" : "card";
-      // KaTeX includes both visual and accessibility text; measure the edition's
-      // canonical plain title rather than that duplicated DOM text.
-      const label = el.dataset.full ?? title.textContent ?? "";
-      if (!m || m.label !== label || m.kind !== kind) {
-        m = { label, kind, title, t: measureTitle(title, label, kind) };
-        measured.current.set(lid, m);
-      }
-      const section = el.hasAttribute("data-section") || el.hasAttribute("data-raw") ? 14 : 0;
-      const plate = kind === "root" && !denseRef.current ? fitPlate(m.t, rect.w, rect.h, k, statementH.current) : null;
-      const fit = plate ?? fitTitle(m.t, rect.w, rect.h, k, kind, box, section, kind === "card" ? (typeof titleSizesRef.current === "function" ? titleSizesRef.current(k) : titleSizesRef.current) : undefined);
-      const statement = plate?.statement ?? false;
+      const card = cardTitleFit(lid, el, rect, k);
+      if (!card) continue;
+      const { m, title, label, fit, statement } = card;
       if (fit.short || label !== el.dataset.full) shortened.current.add(lid);
       else shortened.current.delete(lid);
       const key = `${fit.size}|${fit.lines}|${statement}|${fit.short ?? ""}`;
@@ -633,7 +672,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       if (fit.short) title.dataset.short = fit.short;
       else delete title.dataset.short;
     }
-  }, []);
+  }, [cardTitleFit]);
   // The plate's sentence keeps one size on screen, so its height on screen changes only with its
   // text (it arrives once the papers load) and its fonts; each change refits the plate.
   const statementObserver = useRef<ResizeObserver | null>(null);
@@ -1608,6 +1647,27 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
         const anchor = (selected && pick(l, selected)) || goal;
         moveCamera(frameBox(box, viewport(), { min: k, max: k, anchor: boxOf(l, anchor, 24), top: true }), animate);
       },
+      frameFocus: (ids, maxReadK, animate = true) => {
+        const l = builtRef.current.layout;
+        const full = overviewView(l);
+        // The reading scale: the smallest at which every drawn title is still whole.
+        const readK = readableK(l, Math.min(maxReadK, STEPS_MIN_K), maxReadK);
+        const lit = boundsOf(l, ids, 24);
+        if (full.k >= readK - 1e-3 || !lit) {
+          moveCamera(full, animate);
+          return;
+        }
+        // The whole neighbourhood would need a scale at which titles are cut: keep the
+        // reading scale and centre what the reader came for; the rest is a drag away.
+        const vp = viewport();
+        const availW = vp.width - vp.insets.left - vp.insets.right;
+        const availH = vp.height - vp.insets.top - vp.insets.bottom;
+        const fits = (b: Bounds) => (b.x1 - b.x0) * readK <= availW + 0.5 && (b.y1 - b.y0) * readK <= availH + 0.5;
+        const both = boundsOf(l, [...ids, goal], 24);
+        const b = both && fits(both) ? both : lit;
+        const first = ids.find((id) => hasRec(l, id));
+        moveCamera(frameBox(b, vp, { min: readK, max: readK, anchor: first ? boxOf(l, first, 24) : null, top: !fits(b) }), animate);
+      },
       fitNodes: (ids, animate = true) => {
         const list = [...ids];
         const fn = (l: Layout) => {
@@ -1724,7 +1784,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       },
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [boundsOf, moveCamera, goalReach, goal, graph, within, derived, echo, expanded, startView, compact, mode, selected, getScene, doRevealIds, doFocusIds, revealFn, controlled, requestMode, overviewView, floor, allOpen, tagHolders, built],
+    [boundsOf, moveCamera, goalReach, goal, graph, within, derived, echo, expanded, startView, compact, mode, selected, getScene, doRevealIds, doFocusIds, revealFn, controlled, requestMode, overviewView, readableK, floor, allOpen, tagHolders, built],
   );
 
   // ---- Camera input -----------------------------------------------------------------
@@ -2855,7 +2915,7 @@ function measureContext(): CanvasRenderingContext2D | null {
 }
 
 /** A tile title's break pieces, measured at REF_PX in the title's own font, with a small allowance for the browser's rounding. */
-function measureTitle(el: HTMLElement, label: string, kind: TitleKind): MeasuredTitle {
+function measureTitle(el: HTMLElement, label: string, kind: TitleKind): MeasuredTitle & { math: boolean } {
   const ctx = measureContext();
   const cs = getComputedStyle(el);
   const lean = kind === "lean";
@@ -2866,10 +2926,50 @@ function measureTitle(el: HTMLElement, label: string, kind: TitleKind): Measured
     return ctx.measureText(text).width * allow;
   };
   const space = width(" ");
+  const math = kind === "card" ? mathPieces(el, width, space, allow) : null;
   return {
-    pieces: titlePieces(label, lean, kind === "root").map((p, i) => ({ w: width(p.text), gap: i > 0 && p.space ? space : 0, text: p.text })),
+    math: !!math,
+    pieces: math ?? titlePieces(label, lean, kind === "root").map((p, i) => ({ w: width(p.text), gap: i > 0 && p.space ? space : 0, text: p.text })),
     ellipsis: width("…"),
   };
+}
+
+/**
+ * A title with typeset mathematics, measured as drawn: its words by the canvas, and each
+ * KaTeX run between permitted breaks (a `.base`) by its laid-out width, scaled to REF_PX.
+ * The plain label's Unicode stand-in for the formula is narrower than KaTeX, so measuring
+ * it would size the tile for fewer lines than the drawn title needs. Null when not laid out.
+ */
+function mathPieces(el: HTMLElement, width: (text: string) => number, space: number, allow: number): MeasuredTitle["pieces"] | null {
+  const host = el.querySelector<HTMLElement>(".card__math");
+  if (!host?.querySelector(".katex")) return null;
+  const px = parseFloat(getComputedStyle(el).fontSize);
+  if (!(px > 0)) return null;
+  const out: MeasuredTitle["pieces"] = [];
+  let gap = false;
+  const words = (text: string) => {
+    const parts = text.split(/(\s+)/);
+    for (const part of parts) {
+      if (!part) continue;
+      if (/^\s+$/.test(part)) { gap = true; continue; }
+      out.push({ w: width(part), gap: out.length && gap ? space : 0, text: part });
+      gap = false;
+    }
+  };
+  for (const node of host.childNodes) {
+    if (node.nodeType === Node.TEXT_NODE) { words(node.textContent ?? ""); continue; }
+    if (!(node instanceof HTMLElement)) continue;
+    if (!node.classList.contains("katex")) { words(node.textContent ?? ""); continue; }
+    const bases = [...node.querySelectorAll<HTMLElement>(".katex-html > .base, .katex-html > .katex-base")];
+    for (const [i, base] of bases.entries()) {
+      const w = base.offsetWidth;
+      if (!(w > 0)) return null;
+      // No text: a cut title stops before the formula rather than quoting KaTeX's glyphs.
+      out.push({ w: (w / px) * REF_PX * allow, gap: i === 0 && out.length && gap ? space : 0 });
+    }
+    gap = false;
+  }
+  return out.length ? out : null;
 }
 
 /** The plate's title breaks between words only: a hyphenated word ("zero-temperature") stays on one line. */

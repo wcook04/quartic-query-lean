@@ -15,6 +15,8 @@ export interface FamilyFilm {
   youtube: string | null;
   duration_seconds: number | null;
   still: string | null;
+  /** A 640px copy of the still, for small frames. */
+  still_small?: string | null;
 }
 export interface Family {
   owner: { name: string; home: string; lede: string; contact: FamilyLink[] };

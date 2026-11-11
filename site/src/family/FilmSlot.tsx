@@ -7,7 +7,8 @@ import { clockTime, FILM_SERIES, isReleased, spokenTime, type FamilyFilm } from 
 
 export interface Chapter { start_seconds: number; route?: string; page?: string; title?: string; href?: string }
 
-export function FilmSlot({ film, chapters = [], size = "large" }: { film: FamilyFilm; chapters?: Chapter[]; size?: "small" | "large" }) {
+/** `kind` names the film's place beside another ("Short video", "Full video"); with a length it is the line over the title. */
+export function FilmSlot({ film, chapters = [], size = "large", kind }: { film: FamilyFilm; chapters?: Chapter[]; size?: "small" | "large" | "inline"; kind?: string }) {
   const classes = ["film-slot", `film-slot--${size}`, !isReleased(film) && "film-slot--pending"].filter(Boolean).join(" ");
   if (!isReleased(film)) {
     return (
@@ -29,15 +30,17 @@ export function FilmSlot({ film, chapters = [], size = "large" }: { film: Family
   return (
     <figure className={classes}>
       <a className="film-slot__frame" href={film.youtube} target="_blank" rel="noopener noreferrer" aria-hidden="true" tabIndex={-1}>
-        {film.still && <img src={film.still} alt="" width={1280} height={720} loading="lazy" decoding="async" />}
+        {film.still && <img src={film.still} srcSet={film.still_small ? `${film.still_small} 640w, ${film.still} 1280w` : undefined}
+          sizes={size === "large" ? "(min-width: 1000px) 660px, 100vw" : "(min-width: 700px) 280px, 100vw"} alt="" width={1280} height={720} loading="lazy" decoding="async" />}
         <span className="film-slot__play" />
         {seconds ? <span className="film-slot__time">{clockTime(seconds)}</span> : null}
       </a>
       <figcaption className="film-slot__caption">
+        {kind && <p className="film-slot__kind" aria-hidden="true">{kind}{seconds ? <>, <span className="film-slot__len">{clockTime(seconds)}</span></> : null}</p>}
         <p className="film-slot__title">
           <a href={film.youtube} target="_blank" rel="noopener noreferrer">
             {film.title}
-            <span className="sr-only">, video on YouTube{seconds ? `, ${spokenTime(seconds)}` : ""}</span>
+            <span className="sr-only">, {kind ? kind.toLowerCase() : "video"} on YouTube{seconds ? `, ${spokenTime(seconds)}` : ""}</span>
           </a>
         </p>
         <p className="film-slot__text">{film.description}</p>

@@ -1,0 +1,82 @@
+/* OpenAI's results beside Lean: one row per indexed statement, the label its
+   comparison panel shows, and the Lean declaration it was compared with. */
+.results { max-width: 1180px; margin: 0 auto; padding: 48px 20px 80px; scroll-margin-top: calc(var(--head) + 16px); }
+.results:focus { outline: none; }
+.results__title { font-family: var(--serif); font-weight: 400; font-size: 2.2rem; line-height: 1.12; letter-spacing: -0.01em; margin: 0 0 16px; text-wrap: balance; }
+.results__lede { font-family: var(--serif); font-size: 1.1rem; line-height: 1.55; color: var(--ink-2); max-width: 44rem; margin: 0 0 28px; text-wrap: pretty; }
+.results__lede a { font-family: var(--sans); font-weight: 600; font-size: 0.95rem; white-space: nowrap; }
+.results__lede a::after { content: " →"; }
+.results .pending { padding: 24px 0; }
+
+/* The proportion of each label. */
+.proportion { max-width: 34rem; margin: 0 0 28px; }
+.proportion__bar { display: flex; gap: 2px; height: 10px; }
+.proportion__seg { flex-basis: 0; min-width: 2px; border-radius: 2px; }
+.proportion__seg--exact { background: var(--exact); }
+.proportion__seg--stronger { background: var(--stronger); }
+.proportion__seg--partial { background: var(--partial); }
+.proportion__legend { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.proportion__legend li { display: inline-flex; align-items: baseline; gap: 6px; }
+.proportion__n { font-size: 0.9rem; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+
+/* Filters. */
+.results__filters { display: grid; gap: 10px; margin: 0 0 20px; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.filter { display: inline-flex; align-items: center; gap: 8px; min-height: 34px; padding: 0 12px; border: 1px solid var(--rule); border-radius: 6px; background: transparent; color: var(--ink-2); font: 500 0.9rem/1.2 var(--sans); cursor: pointer; }
+.filter:hover { border-color: var(--control); color: var(--ink); }
+.filter[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.filter:disabled { cursor: default; opacity: 0.45; }
+.filter__n { font-variant-numeric: tabular-nums; opacity: 0.8; }
+
+/* The list. Each row is one link; fixed columns align the rows. */
+.resultlist { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule-2); }
+.resultlist > li { border-bottom: 1px solid var(--rule-2); }
+.resultrow {
+  display: grid; grid-template-columns: 8.5rem minmax(0, 1fr) 3.6rem 9.5rem minmax(0, 15rem);
+  grid-template-areas: "kind title page rel decl";
+  column-gap: 18px; row-gap: 2px; align-items: baseline; padding: 11px 8px; color: var(--ink); text-decoration: none;
+}
+.resultrow__where { display: contents; }
+.resultrow__kind { grid-area: kind; }
+.resultrow__page { grid-area: page; }
+.resultrow__title { grid-area: title; }
+.resultrow__rel { grid-area: rel; }
+.resultrow__decl { grid-area: decl; }
+.resultrow:hover { background: color-mix(in srgb, var(--ink) 5%, transparent); }
+.resultrow:focus-visible { outline: 2px solid var(--query); outline-offset: -2px; }
+.resultrow__kind, .resultrow__page { font-size: 0.86rem; color: var(--ink-3); }
+.resultrow__page { font-variant-numeric: tabular-nums; }
+.resultrow__title { font-family: var(--serif); font-size: 1.05rem; line-height: 1.4; min-width: 0; overflow-wrap: break-word; }
+.resultrow:hover .resultrow__title { color: var(--query); }
+.resultrow__decl { font-family: var(--mono); font-size: 0.76rem; color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+
+/* Compact rows for the homepage band: where it is, then the title over its declaration, then the label. */
+.resultrow--compact { grid-template-columns: 7.5rem minmax(0, 1fr) 9rem; grid-template-areas: "where title rel" "where decl ."; padding: 10px 8px; }
+.resultrow--compact .resultrow__where { grid-area: where; display: flex; flex-direction: column; align-self: start; padding-top: 0.2em; line-height: 1.45; }
+
+@media (max-width: 1000px) {
+  .resultrow { grid-template-columns: 8rem minmax(0, 1fr) 3.4rem 9rem; grid-template-areas: "kind title page rel" ". decl decl decl"; }
+  .resultrow--compact { grid-template-columns: 7.5rem minmax(0, 1fr) 9rem; grid-template-areas: "where title rel" "where decl ."; }
+}
+
+/* Phones: kind and page, then the title, then the label and declaration. */
+@media (max-width: 700px) {
+  .results { padding: 32px 16px 60px; }
+  .results__title { font-size: 1.8rem; }
+  .resultrow, .resultrow--compact { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "where where" "title title" "rel decl"; column-gap: 14px; row-gap: 3px; padding: 11px 4px; }
+  .resultrow .resultrow__where { grid-area: where; display: flex; flex-direction: row; justify-content: space-between; gap: 12px; padding: 0; }
+}
+
+/* The homepage band. */
+.resultsband { border-top: 1px solid var(--rule); padding: 48px 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.resultsband h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; margin: 0 0 12px; }
+.resultsband__prose > p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.55; color: var(--ink-2); margin: 0 0 20px; max-width: 30rem; text-wrap: pretty; }
+.resultsband__prose .proportion { max-width: 30rem; margin-bottom: 22px; }
+.resultsband__prose > p.resultsband__more { margin: 0; }
+.resultsband__more a { font-family: var(--sans); font-weight: 600; font-size: 0.95rem; }
+.resultsband__more a::after { content: " →"; }
+@media (min-width: 1001px) {
+  .resultsband { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: start; }
+  .resultsband--pending { min-height: 420px; }
+}
+@media (max-width: 1000px) { .resultsband--pending { min-height: 200px; } }

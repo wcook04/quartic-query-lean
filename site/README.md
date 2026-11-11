@@ -20,6 +20,8 @@ edition manifest. Figures and PDFs are displayed from verified Blob URLs.
 | --- | --- |
 | `src/app` | Edition loading, hash routes, the reading desk, paper switcher and history-entry scroll/focus restoration |
 | `src/home` | The three board scenes, the exponent control and the proof outline |
+| `src/results` | The index of OpenAI's statements with their Lean labels, as a page and a homepage band |
+| `src/family` | The header lockup, theme switch, the two videos and the footer shared with Will Cook's other sites |
 | `src/paper` | The four papers as edition HTML, their own contents, and the original PDF pane (pdf.js) |
 | `src/inspect` | Passage, statement comparison, Lean declaration and journey panels |
 | `src/lean`, `src/text` | Lean listings and KaTeX typesetting |
@@ -35,7 +37,7 @@ a matched passage keeps a visible return to the origin, including its scroll,
 selection and open proof view. Restoration adapts Lean Exposition's history and
 late-content handling and stops immediately when the reader takes control.
 
-On desktop Graph opens beside the paper. SK’s Lean-graph neighborhood isolates the
+On desktop Graph opens to the right of the paper. SK’s Lean-graph neighborhood isolates the
 linked passage’s steps and lays out that subgraph; unlinked paragraphs keep the
 last valid view. Whole proof expands the full graph, and the local view retains the real branching dependencies. Lean is the second tab; Passage offers alternative
 explanations and statement comparisons. The graph has explicit zoom, full-bounds
@@ -53,22 +55,44 @@ produce a native reading copy while retaining the unchanged PDF. The original
 keeps its authorship, numbering and section structure. The three accompanying
 PDFs are admitted only with their exact source revision and accepted hashes.
 
-## Published video
+## Published videos
 
-[Watch the explanation on YouTube](https://www.youtube.com/watch?v=CBHPBKcx2ck) (34:02).
-The title, link and paper-linked chapters are in [`docs/reading_routes.json`](../docs/reading_routes.json).
-The reader exporter includes them in the immutable edition. The homepage uses
-[`src/family/quartic-video-thumbnail.webp`](src/family/quartic-video-thumbnail.webp),
-a local copy of the published thumbnail; `src/family/` owns these shared video
-components and their maintained image assets. Generated `public/` and `dist/`
-contents remain untracked.
+[The short video](https://www.youtube.com/watch?v=vt5Cq5HTfLA) (1:50) and
+[the full video](https://www.youtube.com/watch?v=CBHPBKcx2ck) (34:02) are on YouTube.
+The short video's title, address and length come from
+[`src/family/family.json`](src/family/family.json), an unchanged copy of the
+family registry. The full video's title, link and paper-linked chapters are in
+[`docs/reading_routes.json`](../docs/reading_routes.json), and the reader exporter
+includes them in the immutable edition. [`src/family/films.ts`](src/family/films.ts)
+names both films and their stills: `quartic-short-thumbnail*.webp` and
+`quartic-video-thumbnail*.webp` are local copies of the published thumbnails at
+1280 and 640 pixels. `src/family/` owns these shared video components and their
+maintained image assets. Generated `public/` and `dist/` contents remain untracked.
+
+The homepage shows the short video three ways: a one-line link under the hero's
+reading actions, the lead picture of the "Two videos" band, and the first row of
+the header's Videos menu. The full video is the smaller picture in that band,
+over its chapters, and the menu's second row. The Videos menu
+([`src/family/VideoMenu.tsx`](src/family/VideoMenu.tsx)) is a native popover in
+the site header, so both videos are one click from the reading desk without
+taking room from the paper.
+
+## Results and their Lean statements
+
+`#/results` ([`src/results/`](src/results/)) lists every statement of OpenAI's
+paper that the edition indexes, in the paper's order, with the label its leading
+comparison carries (exact match, stronger in Lean or partial match), the page and
+the compared Lean declaration. A row opens OpenAI's paper at that statement with
+the comparison open in the pane. The homepage band shows the same counts and the
+theorems, propositions and lemmas. The page reads `corpus/statements.json` and
+`selection/original.json` from the edition and adds no judgment of its own.
 
 Each chapter names a reading `route` (opening the reconstruction at that
 passage), a whole reading `page` such as `verification`, or only a `title` for
 a chapter with no paper counterpart. The homepage lists them as an index keyed
-by time beside the video, matching the chapters in the YouTube description.
+by time next to the video, matching the chapters in the YouTube description.
 
-The homepage's “A passage beside its Lean” band shows real captures of this
+The homepage's “A paragraph and the Lean linked to it” band shows real captures of this
 reader, `src/home/reader-passage-{dark,light}-{1440,2880}.webp`, adapted from
 the SK site's reader still. They show
 `#/read/expert?s=expert%2Fweight%2F0&v=graph` at 1440×790, captured with
