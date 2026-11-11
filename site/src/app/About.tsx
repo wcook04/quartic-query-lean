@@ -6,7 +6,7 @@ export function About() {
   return (
     <main id="main" className="about" tabIndex={-1}>
       <h1>How to read the evidence</h1>
-      <p className="about__lede">Four kinds of information appear beside the papers. Each section of the reader says in a short grey line which kind it shows.</p>
+      <p className="about__lede">Four kinds of information appear in the pane next to the papers. Each section of the reader says in a short grey line which kind it shows.</p>
       <ul className="evidence-kinds">
         <li className="evidence-kind">
           <h2>What Lean reports</h2>

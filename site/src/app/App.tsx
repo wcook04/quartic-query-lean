@@ -5,8 +5,10 @@ import { Home } from "../home/Home";
 import { ReaderPage } from "./ReaderPage";
 import { face, PAPERS, SUPPLEMENT } from "./papers";
 import { About } from "./About";
+import { ResultsPage } from "../results/Results";
 import { FAMILY } from "../family/family";
 import { useScheme } from "../family/theme";
+import { VideoMenu } from "../family/VideoMenu";
 import plectis from "../family/plectis.svg?url";
 import { MoonIcon, SunIcon } from "./icons";
 
@@ -22,7 +24,7 @@ export function App() {
   }, [requested]);
 
   useEffect(() => {
-    const titles: Record<string, string> = { home: "Quartic reader", about: "How to read the evidence · Quartic reader" };
+    const titles: Record<string, string> = { home: "Quartic reader", about: "How to read the evidence · Quartic reader", results: "OpenAI’s results and their Lean statements · Quartic reader" };
     const known = route.paper != null && (PAPERS.some((p) => p.id === route.paper) || route.paper === SUPPLEMENT.id);
     document.title = route.page === "read" ? `${known ? face(route.paper!).tab : "Paper unavailable"} · Quartic reader` : titles[route.page] ?? titles.home;
   }, [route.page, route.paper]);
@@ -41,7 +43,9 @@ export function App() {
           </a>
         </span>
         <span className="site__tools">
+          <a className="site__about site__results" href={href({ page: "results" })} aria-current={route.page === "results" ? "page" : undefined}>Results and Lean statements</a>
           <a className="site__about" href={href({ page: "about" })} aria-current={route.page === "about" ? "page" : undefined}>How to read the evidence</a>
+          <VideoMenu />
           <button type="button" className="scheme" onClick={() => setScheme(scheme === "dark" ? "light" : "dark")}
             aria-label={scheme === "dark" ? "Switch to day colours" : "Switch to night colours"} title={scheme === "dark" ? "Day colours" : "Night colours"}>
             {scheme === "dark" ? <SunIcon /> : <MoonIcon />}
@@ -70,6 +74,7 @@ export function App() {
       {!edition && !error && <p className="pending pending--page" role="status"><span className="pending__bar" aria-hidden="true" />Opening the reading edition…</p>}
       {edition && route.page === "home" && <Home edition={edition} />}
       {edition && route.page === "about" && <About />}
+      {edition && route.page === "results" && <ResultsPage edition={edition} />}
       {edition && route.page === "read" && <ReaderPage key={`${edition.permalink}:${route.paper}`} edition={edition} route={route} />}
     </>
   );

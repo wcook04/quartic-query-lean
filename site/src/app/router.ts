@@ -1,5 +1,6 @@
 // Addresses are hashes, so a static host under any subpath serves every link.
 //   #/                                   the front page
+//   #/results                            every indexed statement of OpenAI's paper beside its Lean label
 //   #/read/<paper>?s=<selection>&v=…     a paper, a selected passage and an open view
 import { useEffect, useState } from "react";
 import { excursionOrigin, navigateEntry, previousPaperPlace } from "./restore";
@@ -7,7 +8,7 @@ import { excursionOrigin, navigateEntry, previousPaperPlace } from "./restore";
 export type View = "passage" | "statement" | "lean" | "journey" | "graph" | "path" | "closed";
 
 export interface Route {
-  page: "home" | "read" | "about";
+  page: "home" | "read" | "about" | "results";
   paper?: string;
   /** A selection ID from selection/<paper>.json, or l<start>-<end> for free lines. */
   s?: string;
@@ -32,6 +33,7 @@ export function parse(hash: string): Route {
   const parts = path.split("/").filter(Boolean);
   const q = new URLSearchParams(query);
   if (parts[0] === "about") return { page: "about" };
+  if (parts[0] === "results") return { page: "results" };
   if (parts[0] !== "read" || !parts[1]) return { page: "home" };
   const p = q.get("p");
   return {
@@ -45,6 +47,7 @@ export function parse(hash: string): Route {
 export function href(route: Route): string {
   if (route.page === "home") return "#/";
   if (route.page === "about") return "#/about";
+  if (route.page === "results") return "#/results";
   const q = new URLSearchParams();
   for (const key of ["s", "p", "a", "v", "st", "d", "j", "step", "e", "ed"] as const) {
     const value = route[key];

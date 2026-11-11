@@ -47,7 +47,7 @@ function Path({ p, from, to, kind, reader }: { p: any; from: string; to: string;
         <h2 id="pt-h" className="panel__title">How one step reaches another</h2>
         <p className="panel__where">The graph draws one arrow; Lean records the chain of declarations behind it, each using the next.</p>
         <details className="fold">
-          <summary>What the words beside each use mean</summary>
+          <summary>What the words next to each use mean</summary>
           <ul className="plain marklist">
             <li><span className="usemark usemark--exact">named here</span> Lean resolves the name on the highlighted text.</li>
             <li><span className="usemark usemark--exact">compiled from this line</span> The line produces the use.</li>

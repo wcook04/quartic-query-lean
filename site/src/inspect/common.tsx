@@ -21,7 +21,7 @@ export function Loaded<T>({ value, children, what }: { value: Async<T>; children
       <div className="panel-state panel-state--failed" role="alert">
         <p className="panel-state__title">The {what} could not be loaded.</p>
         <p className="panel-state__detail"><code>{value.error.message}</code></p>
-        <p>The paper stays open beside this pane. Reload to try again, or go back to the passage.</p>
+        <p>The paper is still open. Reload to try again, or go back to the passage.</p>
         <button type="button" className="button button--small" onClick={() => location.reload()}>Reload this page</button>
       </div>
     );
