@@ -61,7 +61,10 @@ Amber marks the paragraph being read and nothing else: a card the paragraph
 relies on has an amber fill and border, and a line between two such cards is
 amber. The selected card, whose Lean is open in the Lean tab, has an outline in
 the text ink, and the route from it to the main result is a thicker ink line.
-The key under the map lists each card and line state that is on screen. The
+The key under the map lists each card and line state that is on screen. A click
+on a card selects it and opens a summary under the map with its label against the
+paper and its Lean statement; a second click, or the summary's button, opens the
+Lean tab. The
 pane names the selected paragraph above its three tabs.
 
 Figures in the papers are drawn as dark ink on white. `styles.css` blends them

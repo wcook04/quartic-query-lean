@@ -41,10 +41,10 @@ export function GraphKey({ graph, notesRef, badges = true, list = false, passage
   const routeLine = !list && route && !!selected && routed(graph, selected);
   return (
     <div className="gkey">
-      <p className="gkey__intro">{list ? "Choose a row for its Lean, or a line for where it is used." : "Arrows point to the result that uses each step. Choose a card for its Lean, or a line for where it is used."}</p>
+      <p className="gkey__intro">{list ? "A click on a row selects it; a click on a line opens where it is used." : "Arrows point to the result that uses each step. A click on a card selects it; a click on a line opens where it is used."}</p>
       <ul className="gkey__list" aria-label={list ? "Line styles in the rows" : "Line styles"}>
         {here && <li><span className="gkey__card gkey__card--here" aria-hidden="true" />used by this paragraph</li>}
-        {selected && <li><span className="gkey__card gkey__card--selected" aria-hidden="true" />selected card, open in the Lean tab</li>}
+        {selected && <li><span className="gkey__card gkey__card--selected" aria-hidden="true" />selected card</li>}
         {others && <li><span className="gkey__card" aria-hidden="true" />other Lean theorems and definitions</li>}
         {hereLine && (
           <li>
