@@ -3,6 +3,7 @@
 // Styles absent from the displayed graph are left out of the key.
 import type { ArgGraph } from "../model/graph";
 import { STYLE_WORDS, drawnHelpers, lineStyle, type LineStyle } from "./edgeMeaning";
+import { GOAL } from "./fromProofMap";
 
 const ORDER: LineStyle[] = ["proof", "statement", "structure", "paper", "context"];
 const CLASS: Record<LineStyle, string> = {
@@ -13,15 +14,50 @@ const CLASS: Record<LineStyle, string> = {
   context: "link link--formalizes",
 };
 
+/** Whether the main result reaches `id` by drawn lines: the route the map draws in ink. */
+function routed(graph: ArgGraph, id: string): boolean {
+  const seen = new Set([GOAL]);
+  const queue = [GOAL];
+  while (queue.length) {
+    const at = queue.shift()!;
+    if (at === id) return true;
+    for (const e of graph.out.get(at) ?? []) if (!seen.has(e.to)) { seen.add(e.to); queue.push(e.to); }
+  }
+  return false;
+}
+
 /** `badges`: the map draws "+N" helper badges (not in Whole proof). `list`: the list form
- *  is shown, which draws no arrows; its rows carry the same line samples and name helpers in words. */
-export function GraphKey({ graph, notesRef, badges = true, list = false }: { graph: ArgGraph; notesRef(el: HTMLElement | null): void; badges?: boolean; list?: boolean }) {
+ *  is shown, which draws no arrows; its rows carry the same line samples and name helpers in words.
+ *  `passage`: the paragraph's own steps (amber); `selected`: the drawn selected card (ink outline);
+ *  `route`: whether the map draws the selected card's route to the main result. Each card and
+ *  line state is listed only when the displayed graph contains it. */
+export function GraphKey({ graph, notesRef, badges = true, list = false, passage = null, selected = null, route = true }: { graph: ArgGraph; notesRef(el: HTMLElement | null): void; badges?: boolean; list?: boolean; passage?: ReadonlySet<string> | null; selected?: string | null; route?: boolean }) {
   const present = new Set(graph.edges.map(lineStyle));
   const helpers = badges && !list && graph.edges.some((e) => (drawnHelpers(e) ?? 0) > 0);
+  const cards = [...graph.nodes.keys()].filter((id) => id !== GOAL);
+  const here = cards.some((id) => passage?.has(id));
+  const others = cards.some((id) => !passage?.has(id) && id !== selected);
+  const hereLine = !list && !!passage && graph.edges.some((e) => passage.has(e.from) && passage.has(e.to));
+  const routeLine = !list && route && !!selected && routed(graph, selected);
   return (
     <div className="gkey">
       <p className="gkey__intro">{list ? "Choose a row for its Lean, or a line for where it is used." : "Arrows point to the result that uses each step. Choose a card for its Lean, or a line for where it is used."}</p>
       <ul className="gkey__list" aria-label={list ? "Line styles in the rows" : "Line styles"}>
+        {here && <li><span className="gkey__card gkey__card--here" aria-hidden="true" />used by this paragraph</li>}
+        {selected && <li><span className="gkey__card gkey__card--selected" aria-hidden="true" />selected card, open in the Lean tab</li>}
+        {others && <li><span className="gkey__card" aria-hidden="true" />other Lean theorems and definitions</li>}
+        {hereLine && (
+          <li>
+            <svg className="gkey__sample" viewBox="0 0 28 8" width="28" height="8" aria-hidden="true"><path className="link link--supports link--lit" d="M1 4H27" /></svg>
+            between this paragraph’s steps
+          </li>
+        )}
+        {routeLine && (
+          <li>
+            <svg className="gkey__sample" viewBox="0 0 28 8" width="28" height="8" aria-hidden="true"><path className="link link--supports link--route" d="M1 4H27" /></svg>
+            from the selected card to the main result
+          </li>
+        )}
         {ORDER.filter((s) => s === "proof" || present.has(s)).map((s) => (
           <li key={s}>
             <svg className="gkey__sample" viewBox="0 0 28 8" width="28" height="8" aria-hidden="true">

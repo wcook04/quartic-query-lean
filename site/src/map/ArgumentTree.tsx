@@ -902,6 +902,8 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       set(els, `litcase:${pe.key}`, d);
       set(els, `plit:${pe.key}`, d);
       set(els, `plitcase:${pe.key}`, d);
+      set(els, `rt:${pe.key}`, d);
+      set(els, `rtcase:${pe.key}`, d);
       set(els, `mask:${pe.key}`, d);
       set(els, `sel:${pe.key}`, d);
       let hitPath = roundedPath(re.own, r);
@@ -937,6 +939,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
           set(els, `ahead:${pe.key}`, hd, isFresh ? e : 1);
           set(els, `lithead:${pe.key}`, hd);
           set(els, `plithead:${pe.key}`, hd);
+          set(els, `rthead:${pe.key}`, hd);
           set(els, `selhead:${pe.key}`, hd);
           set(els, `ovhead:${pe.key}`, hd);
         }
@@ -2301,7 +2304,9 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
   const selectionRoute = useMemo(() => {
     const ids = new Set<string>();
     const keys = new Set<string>();
-    if (!selected || traced || edgeObj) return { ids, keys };
+    /** The lines of the route up to the goal alone, drawn in ink. */
+    const up = new Set<string>();
+    if (!selected || traced || edgeObj) return { ids, keys, up };
     const mine = lidsOf(layout, selected);
     const start = walkLid.current && mine.includes(walkLid.current) ? [walkLid.current] : mine;
     for (const e of built.skeleton)
@@ -2323,15 +2328,17 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
     for (let e = via.get(goal); e; e = via.get(e.to)) {
       ids.add(e.from);
       keys.add(e.key);
+      up.add(e.key);
     }
-    return { ids, keys };
+    return { ids, keys, up };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected, traced, edgeObj, layout, built, goal]);
 
-  /** Lines between two records of the passage being read, and the selection's own. */
+  /** Lines between two records of the passage being read (amber). A line that is also on the
+   *  selection's route up to the goal is drawn once, in the route's ink. */
   const passageKeys = useMemo(() => {
-    const keys = new Set(selectionRoute.keys);
-    if (litIds) for (const e of built.skeleton) if (litIds.has(recordOf(e.from)) && litIds.has(recordOf(e.to))) keys.add(e.key);
+    const keys = new Set<string>();
+    if (litIds) for (const e of built.skeleton) if (litIds.has(recordOf(e.from)) && litIds.has(recordOf(e.to)) && !selectionRoute.up.has(e.key)) keys.add(e.key);
     return keys;
   }, [litIds, built, selectionRoute]);
 
@@ -2527,6 +2534,16 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
                 <g key={k}>
                   <path ref={pathRef(`plitcase:${k}`)} className="casing casing--lit" />
                   <path ref={pathRef(`plit:${k}`)} className={`link link--${kindOf(k)} link--lit`} />
+                </g>
+              ))}
+          </g>
+          <g className="links-route">
+            {[...selectionRoute.up]
+              .filter((k) => built.plan.edges.has(k))
+              .map((k) => (
+                <g key={k}>
+                  <path ref={pathRef(`rtcase:${k}`)} className="casing casing--route" />
+                  <path ref={pathRef(`rt:${k}`)} className={`link link--${kindOf(k)} link--route`} />
                 </g>
               ))}
           </g>
@@ -2779,7 +2796,14 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
                 <path key={k} ref={pathRef(`plithead:${k}`)} className={`head head--${kindOf(k)} head--lit`} />
               ))}
           </g>
-          {edgeObj && built.plan.edges.get(edgeObj.key)?.arrow && <path ref={pathRef(`selhead:${edgeObj.key}`)} className={`head head--${edgeObj.kind} head--lit`} />}
+          <g className="heads-route">
+            {[...selectionRoute.up]
+              .filter((k) => built.plan.edges.get(k)?.arrow)
+              .map((k) => (
+                <path key={k} ref={pathRef(`rthead:${k}`)} className={`head head--${kindOf(k)} head--route`} />
+              ))}
+          </g>
+          {edgeObj && built.plan.edges.get(edgeObj.key)?.arrow && <path ref={pathRef(`selhead:${edgeObj.key}`)} className={`head head--${edgeObj.kind} head--route`} />}
         </svg>
       </div>
 

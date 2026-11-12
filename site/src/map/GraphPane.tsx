@@ -167,7 +167,12 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   const scopeLitRef = useRef(scopeLit);
   scopeLitRef.current = scopeLit;
   const [scopePassages, setScopePassages] = useState(focusPassages);
-  const litIds = useMemo(() => (scopeLit.length ? new Set(scopeLit) : null), [scopeLit]);
+  // Amber marks only the paragraph's own steps: the cards its passage is linked to, kept
+  // through unlinked prose. The drawn neighbourhood (scopeLit) may instead follow a selected card.
+  const [passageCards, setPassageCards] = useState<readonly string[]>(currentMapped);
+  const litIds = useMemo(() => (passageCards.length ? new Set(passageCards) : null), [passageCards]);
+  // Whether the drawn neighbourhood is that of a selected card rather than of the paragraph.
+  const [cardScope, setCardScope] = useState(false);
   const litKey = currentMapped.join("|");
   const passageKey = focusPassages.join("|");
   const litRef = useRef(currentMapped);
@@ -221,8 +226,13 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   });
 
   useEffect(() => {
+    if (litRef.current.length) setPassageCards(litRef.current);
+  }, [litKey]);
+
+  useEffect(() => {
     if (pausedRef.current || whole || !litRef.current.length) return;
     overviewHeld.current = true;
+    setCardScope(false);
     setScopeLit(litRef.current);
     setScopePassages(focusPassages);
   }, [litKey, passageKey, whole]);
@@ -237,6 +247,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   useEffect(() => {
     if (!selectionKey || !litRef.current.length) return;
     overviewHeld.current = true;
+    setCardScope(false);
     setScopeLit(litRef.current);
     setWhole(false);
     setPause(false);
@@ -247,6 +258,8 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
     const cards = focusRequest.cards.filter((id) => id !== GOAL && reachable.has(id));
     if (!cards.length) return;
     overviewHeld.current = true;
+    setCardScope(false);
+    setPassageCards(cards);
     setScopeLit(cards);
     setScopePassages([focusRequest.passage]);
     setWhole(false);
@@ -261,6 +274,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   useEffect(() => {
     if (!selected || !reachable.has(selected) || selected === GOAL || scopeLitRef.current.includes(selected)) return;
     overviewHeld.current = true;
+    setCardScope(true);
     setScopeLit([selected]);
     setScopePassages([]);
     setWhole(false);
@@ -320,6 +334,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
     onFollow();
     overviewHeld.current = true;
     if (litRef.current.length) {
+      setCardScope(false);
       setScopeLit(litRef.current);
       setScopePassages(focusPassages);
       }
@@ -342,6 +357,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
     if (!selected || !reachable.has(selected)) { follow(); return; }
     overviewHeld.current = true;
     setPause(true);
+    setCardScope(true);
     setScopeLit([selected]);
     setScopePassages([]);
     setWhole(false);
@@ -351,6 +367,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
     if (!id || id === GOAL) return;
     overviewHeld.current = true;
     setPause(true);
+    setCardScope(true);
     setScopeLit([id]);
     setScopePassages([]);
     setWhole(false);
@@ -454,7 +471,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
       {/* The question the tab answers, beside whether it follows the paper. */}
       <div className="graph__head">
         {/* A heading by role, not an h2: the reader moves focus to a panel's h2, and the graph keeps focus where it was. */}
-        <p className="graph__title" role="heading" aria-level={2}>{whole ? "The whole Lean proof" : scopeLit.length ? "What this paragraph relies on" : "The main result"}</p>
+        <p className="graph__title" role="heading" aria-level={2}>{whole ? "The whole Lean proof" : cardScope && scopeLit.length ? "The selected card, what it uses and what uses it" : scopeLit.length ? "What this paragraph relies on" : "The main result"}</p>
         {/* A stable accessible name ("Follow the paper") with aria-pressed for the state;
             the visible words change, so the state is also announced politely. */}
         <button type="button" className={`gstatus${following ? "" : " gstatus--pinned"}`} aria-pressed={following} aria-label="Follow the paper" onClick={follow}
@@ -520,7 +537,8 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
         </div>
       )}
       {evidence}
-      <GraphKey graph={drawnGraph} notesRef={setNotes} badges={!whole} list={shownView === "list"} />
+      <GraphKey graph={drawnGraph} notesRef={setNotes} badges={!whole} list={shownView === "list"} passage={litIds}
+        selected={selected && selected !== GOAL && drawnGraph.nodes.has(selected) ? selected : null} route={!(inspect ?? routeEdge)} />
     </section>
   );
 });

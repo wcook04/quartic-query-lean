@@ -55,6 +55,19 @@ produce a native reading copy while retaining the unchanged PDF. The original
 keeps its authorship, numbering and section structure. The three accompanying
 PDFs are admitted only with their exact source revision and accepted hashes.
 
+## Colours in the graph, and figures
+
+Amber marks the paragraph being read and nothing else: a card the paragraph
+relies on has an amber fill and border, and a line between two such cards is
+amber. The selected card, whose Lean is open in the Lean tab, has an outline in
+the text ink, and the route from it to the main result is a thicker ink line.
+The key under the map lists each card and line state that is on screen. The
+pane names the selected paragraph above its three tabs.
+
+Figures in the papers are drawn as dark ink on white. `styles.css` blends them
+into the page: by day white multiplies into the paper, and at night lightness is
+inverted with the hues kept.
+
 ## Published videos
 
 [The short video](https://www.youtube.com/watch?v=vt5Cq5HTfLA) (1:50) and
