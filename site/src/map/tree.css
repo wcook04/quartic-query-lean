@@ -290,8 +290,9 @@
 }
 
 .card:has(.card__open:focus-visible) {
-  outline: 2px solid var(--lit);
-  outline-offset: 2px;
+  /* The site's focus colour, dashed and tight, so it never reads as the selection's solid ink outline. */
+  outline: 2px dashed var(--lit);
+  outline-offset: 1px;
 }
 
 .card__title {
@@ -413,20 +414,42 @@
   box-shadow: var(--card-shadow-lift);
 }
 
+/* Amber means only the paragraph being read (.is-passage). The selected card, open in the
+   Lean tab, is set off in the text's ink, and its route up to the goal is an ink line. */
 .card.is-selected {
-  outline: 2px solid var(--lit);
-  outline-offset: 2px;
-  box-shadow: var(--card-shadow-lift), 0 0 32px -6px var(--lit-glow);
+  /* Screen pixels at any camera scale, so the selection is still found in the whole proof. */
+  outline: calc(2px / var(--k, 1)) solid var(--ink);
+  outline-offset: calc(3px / var(--k, 1));
+  box-shadow: var(--card-shadow-lift);
 }
 
-/* The selection's direct inputs and one route up to the goal. */
-.card.is-route {
-  border-color: var(--lit-line);
-}
+/* The selection's direct inputs and one route up to the goal stay unfaded, in their resting colours. */
 
-.card.is-lit,
-.card.is-edge-end {
+.card.is-lit {
   border-color: color-mix(in oklab, var(--lit-line) 55%, var(--card-border));
+}
+
+.card.is-edge-end {
+  border-color: color-mix(in oklab, var(--ink) 55%, var(--card-border));
+}
+
+.link.link--route {
+  stroke: var(--ink);
+  stroke-width: calc(2.75px / var(--k));
+  filter: none;
+}
+.casing--route {
+  stroke-width: calc(5.75px / var(--k));
+}
+.head.head--route {
+  fill: var(--ink);
+}
+/* A selected line is a selection too: ink, not amber. */
+.links-sel .link.link--lit {
+  stroke: var(--ink);
+}
+:root .links-sel .link.link--lit {
+  filter: none;
 }
 
 .card.is-preview,
@@ -1255,7 +1278,7 @@
 }
 
 .card.is-passage.is-selected {
-  box-shadow: 0 0 0 1px var(--lit-line), var(--card-shadow-lift), 0 0 32px -6px var(--lit-glow);
+  box-shadow: 0 0 0 1px var(--lit-line), var(--card-shadow-lift);
 }
 
 .tag.is-passage {

@@ -513,6 +513,18 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
         {open && wide && <ReaderSplit />}
         {open && (
           <aside ref={aside} className={`inspector inspector--${mode}`} aria-label="The Lean proof and its evidence">
+            {(() => {
+              // What the pane is about, said once above its three tabs: the linked paragraph
+              // that was clicked or is being read, by its title in the edition.
+              const row = rows.find((r) => r.id === currentSelection && r.topic);
+              const title = row ? topicTitles[row.topic!] : undefined;
+              return (
+                <p className="inspector__about">
+                  {title ? <><span className="inspector__about-k">{clickPin || !following || route.s === currentSelection ? "Selected paragraph" : "Paragraph being read"}</span> <Title text={title} /></>
+                    : <span className="inspector__about-k">No linked paragraph at this place in the paper</span>}
+                </p>
+              );
+            })()}
             <div className="inspector__modes" role="group" aria-label="What the pane contains">
               <button type="button" aria-pressed={mode === "graph" || mode === "path"} onClick={() => nav.openGraph()}>Graph</button>
               <button type="button" aria-pressed={mode === "lean"} disabled={!activeLean} onClick={() => activeLean && nav.openLean(activeLean)}>Lean</button>
@@ -531,7 +543,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               const status = clickPin ? <>Click the paragraph again for {nextWord}.</>
                 : leanFallback ? <>No Lean is linked to this paragraph; showing the main result.</>
                 : pinnedLean ? <>Pinned to this declaration.</>
-                : passageView ? (following ? <>Following the paper as you read.</> : <>Pinned to this passage.</>)
+                : passageView ? (following ? <>Following the paper.</> : <>Pinned to this passage.</>)
                 : null;
               const refollow = !clickPin && (pinnedLean ? () => { setFollowing(true); go({ ...base, s: lineSelection }); } : passageView && !following ? () => setFollowing(true) : null);
               if (!status && !refollow && !route.v) return null;

@@ -91,7 +91,7 @@ function Declaration({ d, linked, cards, modules, forStep }: { d: any; linked: S
   return (
     <article className="panel panel--lean" aria-labelledby="ln-h">
       <header className="panel__head decl-head">
-        <p className="panel__kind">{forStep ? <>The Lean for this step <span className="panel__kindsep">·</span> {kindWord.toLowerCase()}</> : `${kindWord} in Lean`}</p>
+        <p className="panel__kind">{forStep ? <>The Lean for this step, a {kindWord.toLowerCase()}</> : `${kindWord} in Lean`}</p>
         <h2 id="ln-h" className="panel__title decl-head__title"><DeclTitle name={d.name} /></h2>
         <p className="decl-head__raw">
           <code>{d.name}</code>
