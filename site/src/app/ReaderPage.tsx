@@ -280,7 +280,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     return () => { live = false; };
   }, [reader, needsTitles]);
 
-  const needsStatementTitles = paper === "original" || needsTitles;
+  // The graph's card summary names paper statements too, so the titles load with every paper.
+  const needsStatementTitles = true;
   useEffect(() => {
     if (!needsStatementTitles) return;
     let live = true;
@@ -560,7 +561,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             {(graphOpened || mode === "graph") && (
               <div className="inspector__graph" hidden={mode !== "graph"}>
                 <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
-                  <ProofPane edition={edition} lit={lit} selected={route.d ?? null} onSelect={nav.openLean} selectedEdge={route.e ?? null} onEdge={nav.openPath}
+                  <ProofPane edition={edition} lit={lit} selected={route.d ?? null} onSelect={(name: string) => nav.openGraph(name)} onOpenLean={nav.openLean}
+                    onClear={() => go({ ...base, s: route.s, p: route.p, v: "graph" })} selectedEdge={route.e ?? null} onEdge={nav.openPath}
                     progress={progress} paperName={face(paper).tab} selectionKey={!clickPin && !following ? route.s : undefined}
                     focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onGraphFocus}
                     onFollow={() => { resumePaperFollowing(); passageCycle.current = null; setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} />

@@ -16,6 +16,7 @@ import { drawnHelpers, edgeSentence } from "./edgeMeaning";
 import { EdgeEvidence } from "./EdgeEvidence";
 import { GraphKey } from "./GraphKey";
 import { GraphList } from "./GraphList";
+import { CardSummary } from "./CardSummary";
 import { REF_PX, titlePieces, wrapLines } from "./canvas/representation";
 import type { Metrics } from "./engine/types";
 import "./tokens.css";
@@ -59,10 +60,12 @@ const LIST_BELOW = 440;
 /** SK's actual Lean neighbourhood, adapted to Quartic's ArgGraph.
  * Context edges attach retained roots to the paper claim for layout only;
  * their keys and semanticClass keep them separate from recorded dependencies. */
-export function neighbourhood(graph: ArgGraph, goal: string, focus: readonly string[]): ArgGraph {
+export function neighbourhood(graph: ArgGraph, goal: string, focus: readonly string[], also: readonly string[] = []): ArgGraph {
   const inGraph = focus.filter((id) => graph.nodes.has(id));
   const centre = inGraph.length ? inGraph : [goal];
-  const keep = new Set([goal, ...centre]);
+  // `also`: cards drawn with the neighbourhood (a paragraph's own steps beside a selected card's
+  // neighbourhood), with the lines between kept cards; their own neighbours are not added.
+  const keep = new Set([goal, ...centre, ...also.filter((id) => graph.nodes.has(id))]);
   for (const id of centre) {
     for (const e of graph.out.get(id) ?? []) keep.add(e.to);
     for (const e of graph.in.get(id) ?? []) keep.add(e.from);
@@ -105,7 +108,12 @@ interface Props {
   graph: ArgGraph;
   lit: readonly string[];
   selected: string | null;
+  /** Select a card in the graph (its summary opens under the map). */
   onSelect(name: string): void;
+  /** Open a declaration in the Lean tab. */
+  onOpenLean(name: string): void;
+  /** Clear the selected card. */
+  onClear?: () => void;
   selectedEdge: string | null;
   onEdge(key: string): void;
   progress: { total: number; visited: { count: number; cards: string[] }; cards: string[] } | null;
@@ -152,7 +160,7 @@ function useTileHeights(graph: ArgGraph): (id: string) => number {
   }, [graph, fonts]);
 }
 
-export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, selected, onSelect, selectedEdge, onEdge, progress: _progress, paperName: _paperName, selectionKey, onFollow, focusPassages = [], focusRequest, onFocusChange }: Props) {
+export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, selected, onSelect, onOpenLean, onClear, selectedEdge, onEdge, progress: _progress, paperName: _paperName, selectionKey, onFollow, focusPassages = [], focusRequest, onFocusChange }: Props) {
   const tree = useRef<MapViewHandle>(null);
   const body = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
@@ -179,7 +187,9 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   litRef.current = currentMapped;
   // Keep SK's actual branching neighbourhood, not a compressed ancestry path.
   const [whole, setWhole] = useState(false);
-  const drawnGraph = useMemo(() => whole ? graph : neighbourhood(graph, GOAL, scopeLit), [graph, whole, scopeLit]);
+  // A selected card's neighbourhood keeps the paragraph's own steps drawn, so no amber card leaves the map.
+  const drawnGraph = useMemo(() => whole ? graph : neighbourhood(graph, GOAL, scopeLit, cardScope ? passageCards.filter((id) => reachable.has(id)) : []),
+    [graph, whole, scopeLit, cardScope, passageCards, reachable]);
   const tileHeight = useTileHeights(graph);
   const types = useMemo(() => Object.entries(map.cards).filter(([, c]) => isType(c)), [map]);
   const caption = useRef<HTMLParagraphElement>(null);
@@ -270,6 +280,17 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
     onFocusChange?.({ cards: scopeLit, availableCards: [...reachable], passages: scopePassages, paused, whole });
   }, [scopeLit, scopePassages, paused, whole, reachable, onFocusChange]);
 
+  // A cleared selection returns the drawn neighbourhood to the paragraph's own steps.
+  const priorSelected = useRef(selected);
+  useEffect(() => {
+    const had = priorSelected.current;
+    priorSelected.current = selected;
+    if (!had || selected || !cardScope || !passageCards.length) return;
+    overviewHeld.current = true;
+    setCardScope(false);
+    setScopeLit(passageCards);
+  }, [selected, cardScope, passageCards]);
+
   // A declaration deliberately opened in Lean becomes the local centre too.
   useEffect(() => {
     if (!selected || !reachable.has(selected) || selected === GOAL || scopeLitRef.current.includes(selected)) return;
@@ -316,6 +337,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
       timer = window.setTimeout(() => {
         const open = inspectRef.current;
         if (open) tree.current?.panTo([open.from, open.to], { centre: true });
+        else if (summaryRef.current && !overviewHeld.current) tree.current?.panTo([summaryRef.current]);
         else if (overviewHeld.current) frameHeld(false);
         else if (!pausedRef.current && litRef.current.length && !inView(litRef.current)) tree.current?.panTo(litRef.current);
       }, 140);
@@ -365,6 +387,8 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
 
   const select = useCallback((id: string | null) => {
     if (!id || id === GOAL) return;
+    // A second click on the selected card opens it in the Lean tab.
+    if (id === selected) { onOpenLean(id); return; }
     overviewHeld.current = true;
     setPause(true);
     setCardScope(true);
@@ -372,7 +396,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
     setScopePassages([]);
     setWhole(false);
     onSelect(id);
-  }, [onSelect, setPause]);
+  }, [onSelect, onOpenLean, selected, setPause]);
   const onUserMove = useCallback(() => { overviewHeld.current = false; setPause(true); }, [setPause]);
   const noTrace = useCallback(() => undefined, []);
   const lastHit = useRef<string | null>(null);
@@ -383,6 +407,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
     opener.current = active && section.current?.contains(active) && !active.closest(".edge-ev") ? active : null;
   };
   const inspectRef = useRef<ArgEdge | null>(null);
+  const summaryRef = useRef<string | null>(null);
   const edgeSelect = useCallback((key: string | null) => {
     if (!key) { setInspect(null); return; }
     // The neighbourhood's goal attachments are not Lean dependencies; they open in place and say so.
@@ -461,10 +486,31 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
     document.addEventListener("pointerdown", onDown);
     return () => document.removeEventListener("pointerdown", onDown);
   }, []);
+  // The selected card's summary, under the map when no line's evidence is open.
+  const summarised = !inspected && selected && selected !== GOAL && drawnGraph.nodes.has(selected) ? selected : null;
+  summaryRef.current = summarised;
+  const clearCard = useCallback(() => {
+    const id = selected;
+    // Return keyboard focus to the card (or its row) before the selection goes.
+    const row = section.current?.querySelector<HTMLElement>(".glist__title[aria-pressed=true]");
+    if (row && row.getClientRects().length) row.focus({ preventScroll: true });
+    else if (id) {
+      // A tile's open button is not laid out at reading scales, so the tile itself takes focus.
+      const card = body.current?.querySelector<HTMLElement>(`.card[data-record="${CSS.escape(id)}"]`);
+      const open = card?.querySelector<HTMLElement>(".card__open");
+      if (open?.getClientRects().length) open.focus({ preventScroll: true });
+      else if (card) { card.tabIndex = -1; card.focus({ preventScroll: true }); }
+    }
+    onClear?.();
+  }, [selected, onClear]);
+  const summary = summarised && (
+    <CardSummary reader={reader} name={summarised} title={drawnGraph.nodes.get(summarised)?.math ?? drawnGraph.nodes.get(summarised)?.label ?? summarised}
+      kind={map.cards[summarised]?.kind ?? null} onClose={clearCard} onOpenLean={onOpenLean} />
+  );
   // Under the map: the canvas shrinks and the camera keeps the line's two cards in view.
   const evidence = inspected && (
     <EdgeEvidence reader={reader} graph={drawnGraph} edge={inspected} onClose={closeEvidence}
-      onOpenChain={(key) => { setInspect(null); onEdge(key); }} onOpenLean={(name) => { setInspect(null); select(name); }} />
+      onOpenChain={(key) => { setInspect(null); onEdge(key); }} onOpenLean={(name) => { setInspect(null); onOpenLean(name); }} />
   );
   return (
     <section ref={section} className={`graph${shownView === "list" ? " graph--list" : ""}`} aria-label="Graph of the Lean proof of Theorem 1.1">
@@ -519,7 +565,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
             <div className="graph__typespop" role="group" aria-label="Types the proof is written in">
               <p className="graph__typesnote">The structures the proof is written in. Choose one for its Lean.</p>
               {types.map(([name, c]) => (
-                <button key={name} type="button" className={lit.includes(name) ? "is-lit" : ""} onClick={(event) => { (event.currentTarget.closest("details") as HTMLDetailsElement).open = false; onSelect(name); }} title={name} aria-label={c.title_plain || "Title unavailable"}><Title text={c.title || "Title unavailable"} /></button>
+                <button key={name} type="button" className={lit.includes(name) ? "is-lit" : ""} onClick={(event) => { (event.currentTarget.closest("details") as HTMLDetailsElement).open = false; onOpenLean(name); }} title={name} aria-label={c.title_plain || "Title unavailable"}><Title text={c.title || "Title unavailable"} /></button>
               ))}
             </div>
           </details>
@@ -537,6 +583,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
         </div>
       )}
       {evidence}
+      {summary}
       <GraphKey graph={drawnGraph} notesRef={setNotes} badges={!whole} list={shownView === "list"} passage={litIds}
         selected={selected && selected !== GOAL && drawnGraph.nodes.has(selected) ? selected : null} route={!(inspect ?? routeEdge)} />
     </section>
