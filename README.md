@@ -148,6 +148,23 @@ types and bodies of all constants the theorem reaches, in every namespace, and
 displays the project projection, keeping one witness path for each edge that
 passes through hidden constants.
 
+## Credits
+
+Two amplitude amplification files adapt code from Troy Lee's
+[quantum query complexity library](https://github.com/troyjlee/quantum-query-complexity)
+(Apache-2.0), which this project does not import.
+[Amplification/Geometry.lean](lean/QuarticQuery/Amplification/Geometry.lean)
+follows its `Quantum/Amplitude/Geometry.lean`, keeping the successful and
+unsuccessful components of the state unnormalised through the recurrence, and
+[Amplification/Average.lean](lean/QuarticQuery/Amplification/Average.lean)
+follows the telescoping sum in its `Quantum/Amplitude/TrigSum.lean`.
+
+Theorem A.1 uses [complexitylib](https://github.com/cslib-community/complexitylib)
+(Apache-2.0, copyright Samuel Schlesinger), pinned in `lean/lakefile.toml`.
+[Paper/AppendixAHuang.lean](lean/QuarticQuery/Paper/AppendixAHuang.lean) and
+[Paper/AppendixAHuangMatrix.lean](lean/QuarticQuery/Paper/AppendixAHuangMatrix.lean)
+adapt arguments from it.
+
 Licensed under [Apache-2.0](LICENSE).
 
 The [round-ten expert revision](research/adjudication/round10_revision.md) acts on
