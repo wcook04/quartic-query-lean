@@ -73,8 +73,8 @@ inverted with the hues kept.
 
 ## Published videos
 
-[The short video](https://www.youtube.com/watch?v=vt5Cq5HTfLA) (1:50) and
-[the full video](https://www.youtube.com/watch?v=CBHPBKcx2ck) (34:02) are on YouTube.
+[The short video](https://www.youtube.com/watch?v=swDOmHq8NrY) (1:50) and
+[the full video](https://www.youtube.com/watch?v=u6iRqc1ToZ0) (34:02) are on YouTube.
 The short video's title, address and length come from
 [`src/family/family.json`](src/family/family.json), an unchanged copy of the
 family registry. The full video's title, link and paper-linked chapters are in
