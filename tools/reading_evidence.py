@@ -8,6 +8,88 @@ from reading_titles import statement_presentations
 from record_reading_dependencies import statement_targets
 
 
+APPLIED = re.compile(r":= by\s*\n(?:\s*--[^\n]*\n)*\s*exact\s+([^\s()]+)[^\n]*\s*(?:\n--[^\n]*\s*)*$")
+
+
+def comparator_evidence(edition, comparison, checks, source):
+    """Index, for each Lean declaration, the passing Comparator runs that checked it directly.
+
+    A declaration is checked directly when a positive configuration names it, or when the
+    paired solution proves a configured challenge theorem by one `exact` application of it.
+    Only the latest receipt is used, and only when it passed for the current sources and
+    lists the configured name. Nothing here interprets a statement.
+    """
+    declared = set(edition.json("corpus/lean_dependencies.json")["declared"])
+    stated = comparison["declarations"]
+    controls = {}
+    for path, check in checks.items():
+        latest = check["latest_receipt"]
+        if check["role"] == "negative_control" and latest and latest["currentness"] == "current" \
+                and latest.get("negative_control") == "rejected_as_expected":
+            controls.setdefault(check["challenge"], []).append(
+                {"configuration": path, "solution": check["solution"], "receipt": latest["receipt"],
+                 "theorem_names": check["theorem_names"]})
+
+    def resolve(reference, namespace, opened):
+        parts = namespace.split(".") if namespace else []
+        scopes = [".".join(parts[:n]) for n in range(len(parts), 0, -1)] + [""]
+        prefixes = scopes + [f"{scope}.{name}" if scope else name for name in opened for scope in scopes]
+        found = {f"{prefix}.{reference}" if prefix else reference for prefix in prefixes} & declared
+        return found.pop() if len(found) == 1 else None
+
+    runs, by_declaration = {}, {}
+    for path, check in sorted(checks.items()):
+        latest = check["latest_receipt"]
+        if check["role"] != "positive" or not latest or latest["status"] != "passed" \
+                or latest["currentness"] != "current" \
+                or latest["declaration_scope"] != "configured_theorem_names_only":
+            continue
+        receipt = edition.json(latest["receipt"])
+        if receipt["status"] != "passed" or receipt["exit_code"] != 0:
+            raise ValueError(f"{path}: latest receipt summary disagrees with the receipt")
+        solved = source(check["solution"])
+        opened = [name for line in re.findall(r"^open (?!scoped\b)([^\n]+)$", edition.read(check["solution"]).decode(), re.M)
+                  for name in line.split() if re.fullmatch(r"[\w.]+", name)]
+        targets = []
+        for target in check["theorem_names"]:
+            if target not in receipt["declarations"]:
+                raise ValueError(f"{path}: receipt does not list {target}")
+            place = stated[target]["defined_in"]
+            if place["path"] != check["challenge"]:
+                raise ValueError(f"{path}: {target} is not stated in the configured challenge")
+            entry = {"run": path, "target": target, "challenge_lines": [place["line_start"], place["line_end"]]}
+            block = solved.get(target)
+            subject, link = (target if target in declared else None), "configured_name"
+            if block:
+                entry["solution_lines"] = [block["line_start"], block["line_end"]]
+                applied = APPLIED.search(block["text"])
+                if applied:
+                    name = resolve(applied.group(1), block["namespace"], opened)
+                    if name:
+                        subject, link = name, "solution_applies"
+            entry["link"] = link
+            targets.append(target)
+            if subject:
+                by_declaration.setdefault(subject, []).append(entry)
+            if subject != target:
+                by_declaration.setdefault(target, []).append({**entry, "link": "configured_name"})
+        runs[path] = {
+            "name": receipt["name"], "challenge": check["challenge"], "solution": check["solution"],
+            "receipt": latest["receipt"], "ran_at": receipt["ran_at"], "toolchain": receipt["toolchain"],
+            "sandboxed": receipt["sandboxed"], "paranoid": receipt["paranoid"],
+            "permitted_axioms": check["permitted_axioms"], "theorem_names": targets,
+            "rejected_controls": [c for c in controls.get(check["challenge"], [])
+                                  if set(c["theorem_names"]) & set(targets)]}
+    edition.add("comparator-evidence.json", {
+        "schema": "quartic-comparator-evidence-v1",
+        "boundary": ("Each entry joins a Lean declaration to a positive Comparator configuration whose latest "
+                     "receipt passed for the current sources. solution_applies: the paired solution proves the "
+                     "challenge theorem by one exact application of the declaration. configured_name: the "
+                     "configuration names the declaration itself. Comparator compares the solution with the "
+                     "challenge statement; whether that statement matches the paper is reviewed separately."),
+        "runs": runs, "declarations": {name: by_declaration[name] for name in sorted(by_declaration)}})
+
+
 def evidence_resources(edition, statements, passages_by_statement, comparison, probes, answers_snapshot):
     """Give each statement its own retrievable account of the evidence and its scope."""
     authored = edition.json("corpus/ties.json")
@@ -119,6 +201,7 @@ def evidence_resources(edition, statements, passages_by_statement, comparison, p
             "receipt_currentness": freshness if historical else observed["status"]})
 
     edition.add("checks.json", checks)
+    comparator_evidence(edition, comparison, checks, source)
     intake = {r["id"]: r for r in edition.json("research/intake/statement_ledger.json")}
     findings = {}
     decisions = edition.json("research/adjudication/adjudication.json")

@@ -401,6 +401,12 @@ scope. The separate evidence graph describes the informal statement ledger.
    shared-bad-specification fixture records acceptance of an impossible
    premise on both sides. The receipt describes that outcome. Keep it separate
    from positive comparisons and from a counterexample to a mathematical claim.
+   `comparator-evidence.json` indexes the same records by Lean declaration:
+   for each declaration that a positive configuration names, or that the
+   paired solution applies in one `exact` step to prove a configured challenge
+   theorem, it gives the challenge lines, the solution lines, the receipt and
+   any rejected controls. Only a latest receipt that passed for the current
+   sources is indexed. The website's Lean pane opens this record in place.
 4. `axiom-audits.json` gives the transitive axioms that Lean reported for the
    inspected declaration. Each observation carries its freshness. Earlier
    round-three observations retain their historical scope. An absent observation
