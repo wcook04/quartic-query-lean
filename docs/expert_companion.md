@@ -154,7 +154,11 @@ For any integer $1\le L\le m$ with $L<R(P)$, choose $\mu$ by minimax so that eve
 
 ### 4.2 Searching for the erased zero
 
-Let $Z$ count the columns $i$ in which the tree queries the unique zero of $X_i$ on the dummy input. By independence, the probability that $I$ is among these columns is $\mathbb E Z/m$. Before the first query to a column's zero, its row is uniform among the unqueried rows even conditional on the transcript. Until the tree has queried half the rows of that column, the probability of finding the zero on its next row query there is at most $2/m$. The expected number of zeros found this way is at most $2G/m$. In each other column where the tree finds a zero it uses at least $m/2$ queries, so there are at most $2G/m$ further zeros. Hence
+Let $Z$ count the columns $i$ in which the tree queries the unique zero of $X_i$ on the dummy input. By independence, the probability that $I$ is among these columns is $\mathbb E Z/m$.
+
+Before the first query to a column's zero, its row is uniform among the unqueried rows even conditional on the transcript. Until the tree has queried half the rows of that column, the probability of finding the zero on its next row query there is at most $2/m$. The expected number of zeros found this way is at most $2G/m$. In each other column where the tree finds a zero it uses at least $m/2$ queries, so there are at most $2G/m$ further zeros.
+
+With at most $G$ queries in the dummy run, the erased-zero probability is therefore
 $$
  \Pr[\text{query }X_I[J_I]]\le\frac{4G}{m^2}.
 \tag{8}

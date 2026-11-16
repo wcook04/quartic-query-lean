@@ -89,7 +89,7 @@ Adding the four probabilities in the last column gives $7/16$, the probability o
 
 For $m$ columns, write $w_i$ for the weight of column $i$ and $W=w_1+\cdots+w_m$ for the sum of all column weights. Before we choose any pivot, each weight is one. The probability of drawing $i$ and accepting is $w_i/m$. The probability of accepting any draw is $W/m$. Thus when $W>0$ an accepted draw yields pivot $i$ with probability $w_i/W$. Consider the procedure that always draws the next pivot with these probabilities, stopping if $W=0$. When we append pivot $p$, retaining a drawn column number requires one more comparison to return that number. Let $a_{ip}$ be the probability of retaining $i$ on comparing it with $p$, with $a_{pp}=0$ because we discard the pivot itself. The new weight of column $i$ is $w_i a_{ip}$.
 
-Fix the list so far. What is the expected total weight after choosing one more pivot? If the next pivot is $2$, an event of probability $w_2/W$, the new weight of column $3$ is $w_3a_{32}$. If the next pivot is $3$, an event of probability $w_3/W$, the new weight of column $2$ is $w_2a_{23}$. Multiplying each new weight by the probability of that pivot and adding gives
+Fix the list so far. What is the expected total weight after choosing one more pivot when $W>0$? If the next pivot is $2$, an event of probability $w_2/W$, the new weight of column $3$ is $w_3a_{32}$. If the next pivot is $3$, an event of probability $w_3/W$, the new weight of column $2$ is $w_2a_{23}$. Multiplying each new weight by the probability of that pivot and adding gives
 $$
 \frac{w_2}{W}\,w_3a_{32}+\frac{w_3}{W}\,w_2a_{23}
 =\frac{w_2w_3}{W}.
@@ -97,10 +97,13 @@ $$
 The two probabilities $a_{32}$ and $a_{23}$ sum to one because the comparison always returns one of the two column numbers. Adding the corresponding products for all pairs, counting each pair once, gives
 $$
 \text{expected total weight after the next pivot}
+=\sum_p\frac{w_p}{W}\sum_i w_i a_{ip}
 =\frac{\sum_{i<p}w_iw_p}{W}
-=\frac{W^2-\sum_iw_i^2}{2W}\le\frac W2 .
+=\frac{W^2-\sum_iw_i^2}{2W}.
 $$
 The square of $w_1+\cdots+w_m$ counts every product of distinct weights twice and each square once. With four initial weights of one, the expected total is $(16-4)/8=3/2$, as for the fixed comparisons in Section 2 [@AIK2026v3, §§4 and 6.1].
+
+When $W>0$, the sum of squares is nonnegative, so the expected total weight after the next pivot is at most $W/2$.
 
 The expected total weight starts at $m$ and falls by at least half at each step. After $T$ pivots it is at most $m/2^T$, counting the total as zero if the procedure stopped earlier. Now suppose there is a winning column. Section 4 gives a comparison that returns its number with probability at least $1-\varepsilon$ against each other column. For any list of at most $T$ other pivots, the probability of even one incorrect comparison with the winning column is at most $T\varepsilon$. So while its number is missing from the list, the winning column has weight at least $1-T\varepsilon$.
 
