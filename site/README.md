@@ -23,7 +23,7 @@ edition manifest. Figures and PDFs are displayed from verified Blob URLs.
 | `src/results` | The index of OpenAI's statements with their Lean labels, as a page and a homepage band |
 | `src/family` | The header lockup, theme switch, the two videos and the footer shared with Will Cook's other sites |
 | `src/paper` | The four papers as edition HTML, their own contents, and the original PDF pane (pdf.js) |
-| `src/inspect` | Passage, statement comparison, Lean declaration and journey panels |
+| `src/inspect` | Passage, statement comparison, Lean declaration and journey panels, and the Comparator evidence that opens under a directly checked declaration |
 | `src/lean`, `src/text` | Lean listings and KaTeX typesetting |
 
 Adapted code carries its upstream notice: KaTeX handling from

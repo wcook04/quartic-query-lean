@@ -23,6 +23,32 @@ class ReadingEditionTest(unittest.TestCase):
     def resource(self, path):
         return json.loads(self.edition.resources[path])
 
+    def test_comparator_evidence_names_the_declaration_each_run_checked(self):
+        evidence = self.resource("comparator-evidence.json")
+        checks = self.resource("checks.json")
+        weight = evidence["declarations"]["QuarticQuery.Tournament.expected_weight_le_half"]
+        self.assertEqual([(e["target"], e["link"]) for e in weight],
+                         [("QuarticQuery.Checked.expected_weight_le_half", "solution_applies")])
+        self.assertNotIn("QuarticQuery.Lvalue", evidence["declarations"])
+        configured = set()
+        for path, run in evidence["runs"].items():
+            self.assertEqual(checks[path]["role"], "positive")
+            self.assertEqual(checks[path]["latest_receipt"]["status"], "passed")
+            self.assertEqual(checks[path]["latest_receipt"]["currentness"], "current")
+            configured.update(run["theorem_names"])
+        for name, entries in evidence["declarations"].items():
+            for entry in entries:
+                run = evidence["runs"][entry["run"]]
+                self.assertIn(entry["target"], run["theorem_names"])
+                first, last = entry["challenge_lines"]
+                stated = "\n".join(self.edition.resources[run["challenge"]].decode().split("\n")[first - 1:last])
+                self.assertRegex(stated, r"theorem\s+" + entry["target"].split(".")[-1] + r"\b")
+                if entry["link"] == "solution_applies":
+                    first, last = entry["solution_lines"]
+                    proof = "\n".join(self.edition.resources[run["solution"]].decode().split("\n")[first - 1:last])
+                    self.assertRegex(proof, r"exact\s+(\w+\.)*" + name.split(".")[-1] + r"\b")
+        self.assertEqual({e["target"] for entries in evidence["declarations"].values() for e in entries}, configured)
+
     def test_follow_a_route_in_both_directions(self):
         routes = api.unique(self.reading["routes"], "id")
         route = routes["erased-zero"]

@@ -9,6 +9,7 @@ import { LeanCode, nameLinks } from "../lean/LeanCode";
 import { Axioms, axiomSummary, RelationMark, reviewWords, SourceLine } from "./evidence";
 import { DeclTitle, Elsewhere, journeyName, Loaded, StatementLabel } from "./common";
 import { useNav } from "./Nav";
+import { ComparatorEvidence } from "./ComparatorEvidence";
 import type { ClaimMatch } from "../paper/selectRow";
 
 const KIND_WORD: Record<string, string> = { value: "proof or body", type: "statement", structural: "structure" };
@@ -47,10 +48,10 @@ export function LeanPanel({ edition, name, forStep = false, claimMatch }: { edit
     const by = reviews.map(([, c]) => c?.reviewed_by);
     return { d: { ...d, kind, notes, by }, linked: new Set(Object.keys(reverse)), cards, modules: graph.modules };
   }, [edition, name]);
-  return <Loaded value={data} what="Lean declaration">{({ d, linked, cards, modules }) => <Declaration d={d} linked={linked} cards={cards} modules={modules} forStep={forStep} claimMatch={claimMatch?.name === name ? claimMatch : undefined} />}</Loaded>;
+  return <Loaded value={data} what="Lean declaration">{({ d, linked, cards, modules }) => <Declaration edition={edition} d={d} linked={linked} cards={cards} modules={modules} forStep={forStep} claimMatch={claimMatch?.name === name ? claimMatch : undefined} />}</Loaded>;
 }
 
-function Declaration({ d, linked, cards, modules, forStep, claimMatch }: { d: any; linked: Set<string>; cards: Set<string>; modules: Record<string, string>; forStep: boolean; claimMatch?: ClaimMatch }) {
+function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch }: { edition: Edition; d: any; linked: Set<string>; cards: Set<string>; modules: Record<string, string>; forStep: boolean; claimMatch?: ClaimMatch }) {
   const nav = useNav();
   const src = d.source ?? {};
   const uses = useMemo(() => edges(src, "uses"), [src]);
@@ -129,6 +130,8 @@ function Declaration({ d, linked, cards, modules, forStep, claimMatch }: { d: an
           </SourceLine>
         </section>
       )}
+
+      <ComparatorEvidence edition={edition} declaration={d.name} />
 
       {src.text ? (
         <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean}

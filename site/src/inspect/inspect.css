@@ -222,3 +222,20 @@
 .panel .srcline--plain { cursor: default; }
 .panel .fold + .fold { margin-top: 6px; }
 .panel .block .fold { margin-top: 8px; }
+
+/* The recorded Comparator check opens in place, between the paper match and the Lean source. */
+.comparator-evidence { margin: 0 0 14px; padding: 7px 11px; border: 1px solid var(--rule-2); border-radius: 6px; }
+.comparator-evidence__label { font-weight: 600; color: var(--ink); }
+.comparator-evidence__state { float: right; font-size: 0.82rem; font-weight: 600; color: var(--query); }
+.comparator-evidence__run { min-width: 0; }
+.comparator-evidence__run + .comparator-evidence__run { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule-2); }
+.comparator-evidence__facts { display: grid; gap: 3px; margin: 0 0 8px; font-size: 0.875rem; }
+.comparator-evidence__facts div { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 10px; }
+.comparator-evidence__facts dt { color: var(--ink-3); }
+.comparator-evidence__facts dd { margin: 0; color: var(--ink-2); }
+.comparator-evidence__facts strong { color: var(--query); }
+.comparator-evidence__facts code { font-size: 0.8rem; }
+.comparator-evidence .leancode { margin-top: 10px; }
+.comparator-evidence__links { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 8px 0 4px; font-size: 0.875rem; }
+.comparator-evidence__controls { color: var(--ink-2); }
+@media (max-width: 480px) { .comparator-evidence__facts div { grid-template-columns: 1fr; gap: 0; } }
