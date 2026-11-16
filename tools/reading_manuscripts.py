@@ -162,6 +162,17 @@ def manuscript_resources(edition, papers, texts, repository):
     for key, text in texts.items():
         paper = papers[key]
         tree = located_document(text, READER if key in ("reconstruction", "verification") else "markdown")
+        # The reader attaches one exact-claim margin link at a source block's
+        # start. Reject a selection that would silently have no visible link.
+        starts = {int(dict(block["c"][0][2])["data-l0"]) for block in tree["blocks"]
+                  if "source-block" in block["c"][0][1]}
+        used = set()
+        for row in json.loads(edition.resources[f"selection/{key}.json"]):
+            if row.get("claim_match"):
+                start = row["lines"][0]
+                if start not in starts or start in used:
+                    raise ValueError(f"{row['id']}: exact Lean link needs its own rendered source block")
+                used.add(start)
         bib = paper["bibliography"]
         with tempfile.TemporaryDirectory() as scratch:
             cmd = ["pandoc", "--sandbox", "--from=json", "--to=html5", "--mathjax", "--wrap=none"]
