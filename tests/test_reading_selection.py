@@ -556,6 +556,20 @@ for (const [topic, sid, declarations] of scopedReconstruction) {
   const full = await resolve("reconstruction", "reconstruction/" + topic);
   assert(full.statements.some(s => s.id === sid));
 }
+const appendixClauses = {
+  "appendix-sensitive-blocks": "appendixA_blockSensitivity_eq",
+  "appendix-sensitivity-graph": "appendixA_spectralSensitivity_eq",
+  "appendix-coordinate-mask": "appendixAGammaCoord_apply",
+  "appendix-query-progress": "appendixAProgress_query_quadratic",
+  "appendix-final-progress": "appendixA_unit_states_final_overlap",
+  "appendix-signed-cube": "huangMatrix",
+  "appendix-signed-cube-spectrum": "huangEnd_eigenspaces_half",
+};
+for (const [topic, suffix] of Object.entries(appendixClauses)) {
+  const local = await resolve("reconstruction", "reconstruction/" + topic + "/0");
+  assert.deepEqual(local.claimMatches.map(({name, relation}) => [name, relation]), [["QuarticQuery.Paper." + suffix, "exact"]]);
+  assert.deepEqual(local.statements, []);
+}
 const originalDrift = await resolve("original", "original/eq-13");
 assert.equal(originalDrift.claimMatches.length, 0);
 for (const name of [identityName, boundName]) {
