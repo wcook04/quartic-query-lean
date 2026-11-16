@@ -537,6 +537,25 @@ for (const paper of ["expert", "exposition", "reconstruction"]) {
     assert.deepEqual(focus.cards, [name]);
   }
 }
+const scopedReconstruction = [
+  ["continuation-values", "eq-16", ["classical_eq_16_transcript", "classicalTranscriptValue_unchanged"]],
+  ["integer-tests", "claim-integer-tests", ["construction_integer_tests", "construction_forr_output_bits"]],
+  ["test-count", "def-K", ["construction_K_count", "construction_K_bound"]],
+];
+for (const [topic, sid, declarations] of scopedReconstruction) {
+  for (const [index, suffix] of declarations.entries()) {
+    const name = "QuarticQuery.Paper." + suffix;
+    const id = "reconstruction/" + topic + "/" + index;
+    const local = await resolve("reconstruction", id);
+    assert.deepEqual(local.claimMatches.map(c => [c.name, c.relation, c.combined_statements]), [[name, "exact", [sid]]]);
+    assert.deepEqual(local.proof.map(p => p.name), [name]);
+    assert.deepEqual(local.statements, []);
+    const reverse = await reader.fromDeclaration(name);
+    assert(reverse.treatments.some(t => t.selection === id && t.basis === "manuscript_claim"));
+  }
+  const full = await resolve("reconstruction", "reconstruction/" + topic);
+  assert(full.statements.some(s => s.id === sid));
+}
 const originalDrift = await resolve("original", "original/eq-13");
 assert.equal(originalDrift.claimMatches.length, 0);
 for (const name of [identityName, boundName]) {

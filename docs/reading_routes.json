@@ -846,6 +846,90 @@
       "passage": "forr_tree_stopping",
       "kind": "argument",
       "note": "Stopping before the coefficient bound fails preserves the martingale calculation. Compare the capped simulator’s treatment of lightness as an analogy."
+    },
+    {
+      "id": "continuation-values",
+      "kind": "argument",
+      "title": "What one query changes",
+      "passage": "CL-conditional-values",
+      "statements": [
+        "eq-16"
+      ],
+      "claim_treatments": {
+        "reconstruction": [
+          {
+            "quote": "For a positive-probability history with a query left",
+            "title": "Expected continuation value cannot increase",
+            "reviewed_by": "ai:reader-claim-review",
+            "declaration": "QuarticQuery.Paper.classical_eq_16_transcript"
+          },
+          {
+            "quote": "Consequently, for $j\\neq h$ the continuation value satisfies",
+            "title": "Other continuation values stay the same",
+            "reviewed_by": "ai:reader-claim-review",
+            "declaration": "QuarticQuery.Paper.classicalTranscriptValue_unchanged"
+          }
+        ]
+      },
+      "bound_at": {
+        "reconstruction": "f25c7c10aee7d978f5de579f1fa014e1c65243e3"
+      }
+    },
+    {
+      "id": "integer-tests",
+      "kind": "argument",
+      "title": "The two exact integer tests",
+      "passage": "forr_integer",
+      "statements": [
+        "claim-integer-tests"
+      ],
+      "claim_treatments": {
+        "reconstruction": [
+          {
+            "quote": "Multiplying through by the positive denominators, we obtain the two exact tests",
+            "title": "Integer forms of both promise tests",
+            "reviewed_by": "ai:reader-claim-review",
+            "declaration": "QuarticQuery.Paper.construction_integer_tests"
+          },
+          {
+            "quote": "In a gate-consistent transcript of the exact circuit, the Boolean outputs are",
+            "title": "Domain and value bits of the exact circuit",
+            "reviewed_by": "ai:reader-claim-review",
+            "declaration": "QuarticQuery.Paper.construction_forr_output_bits"
+          }
+        ]
+      },
+      "bound_at": {
+        "reconstruction": "f25c7c10aee7d978f5de579f1fa014e1c65243e3"
+      }
+    },
+    {
+      "id": "test-count",
+      "kind": "argument",
+      "title": "Counting the verification tests",
+      "passage": "AC-tests",
+      "statements": [
+        "def-K"
+      ],
+      "claim_treatments": {
+        "reconstruction": [
+          {
+            "quote": "K=|E|=m+(m-1)+r(S+2).",
+            "title": "Exact number of verification tests",
+            "reviewed_by": "ai:reader-claim-review",
+            "declaration": "QuarticQuery.Paper.construction_K_count"
+          },
+          {
+            "quote": "For $S\\le A m\\ell^2$, substituting $r=20\\ell$ gives",
+            "title": "Verification test count with a circuit size bound",
+            "reviewed_by": "ai:reader-claim-review",
+            "declaration": "QuarticQuery.Paper.construction_K_bound"
+          }
+        ]
+      },
+      "bound_at": {
+        "reconstruction": "f25c7c10aee7d978f5de579f1fa014e1c65243e3"
+      }
     }
   ],
   "argument_links": [
