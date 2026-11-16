@@ -2361,9 +2361,11 @@ conditional probability, we choose a tree attaining $V_h(\tau b)$, where
 $\tau b$ appends this query and answer. The single-input strategy that
 queries $a$ first and then runs the chosen tree uses at most
 $L-q_h(\tau)$ queries, and its conditional success is the average of those
-new optimal values. Optimality in (B.2) therefore gives
+new optimal values.
 
 <!-- claim:eq-16 -->
+
+For a positive-probability history with a query left for input $h$, optimality in (B.2) gives
 \[
  \sum_{b:\,\Pr(U_h(a)=b\mid H_\tau)>0}
    \Pr(U_h(a)=b\mid H_\tau)\,V_h(\tau b)
@@ -2378,10 +2380,11 @@ If the coordinate was queried earlier, only its already-known answer is
 possible; then the budget decreases while the posterior stays the same,
 which again cannot increase the optimum.
 
-For $j\neq h$, the local constraints, posterior and remaining budget stay
-the same, so $V_j(\tau b)=V_j(\tau)$ on every positive-probability child.
-Here we use the transcript product law (B.1): learning a bit of $U_h$
-leaves the conditional law of every other input unchanged.
+For $j\neq h$, the local constraints and remaining budget stay the same.
+The transcript product law (B.1) shows that learning a bit of $U_h$
+also leaves the posterior of input $j$ unchanged.
+
+Consequently, for $j\neq h$ the continuation value satisfies $V_j(\tau b)=V_j(\tau)$ on every positive-probability child.
 <!-- /passage:CL-conditional-values -->
 
 <a id="CL-supermartingale"></a>
@@ -4035,17 +4038,16 @@ $$
 
 Each term in $N$ is a sign. The formula identifies the integer being computed, but evaluating its $m^k$ summands one at a time would be wasteful, so we instead set $v_{k-1}=z_{k-1}$ and, for $r=k-2,\ldots,0$, $v_r=D_{z_r}Wv_{r+1}$. Then $N=\sum_a v_0(a)$, since expanding this recurrence recovers the same path sum. The earlier norm bound gives the sharper final estimate $|N|\le M$.
 
-Multiplying through by the positive denominators, we obtain the two exact tests
-
 <!-- claim:claim-integer-tests -->
+
+Multiplying through by the positive denominators, we obtain the two exact tests
 $$
 \Phi\ge\delta\quad\Longleftrightarrow\quad2^{5k}N\ge M,
 \qquad
 |\Phi|\le\delta/2\quad\Longleftrightarrow\quad2^{5k+1}|N|\le M.
 $$
 
-Let $p_1$ and $p_0$ be the truth values of these two comparisons, respectively. The required Boolean outputs are
-
+Let $p_1$ and $p_0$ be the truth values of these two comparisons, respectively. In a gate-consistent transcript of the exact circuit, the Boolean outputs are
 $$
 d=p_1\lor p_0,\qquad b=p_1.
 $$
