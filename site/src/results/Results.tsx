@@ -186,7 +186,7 @@ function ResultsBody({ results }: { results: Results }) {
       <p className="results__lede">
         The {rows.length} statements of OpenAI’s paper that this project indexed, in the paper’s order. On each row is the
         Lean statement compared with it and the label from an AI review: an exact match, stronger in Lean, or a
-        partial match. No expert has reviewed these labels yet.{" "}
+        partial match. Each label applies to the whole paper statement on that row.{" "}
         <a href={href({ page: "about" })}>How to read the evidence</a>
       </p>
       <Proportion counts={counts} />

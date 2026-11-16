@@ -266,7 +266,7 @@ function HeadlinePair({ edition }: { edition: Edition }) {
         </article>
         <p className="pair__label">
           <RelationMark relation={lead.relation} />
-          <span className="pair__by">Label from an AI review. No expert has reviewed it yet.</span>
+          <span className="pair__by">AI-assisted comparison of these two statements.</span>
         </p>
         <article className="pair__side pair__side--lean">
           <p className="pair__who">The Quartic project’s Lean</p>
