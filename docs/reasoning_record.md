@@ -2070,13 +2070,20 @@ Let \(f:\{0,1\}^n\to\{0,1\}\) be total. Its unique real multilinear representati
 \]
 At a cube point all interpolation terms other than the one indexed by that point are zero. For uniqueness, let $p$ be the difference of two multilinear representations, so $p$ vanishes on the cube. Write $p=p_0+x_np_1$, where $p_0,p_1$ are multilinear polynomials in the other $n-1$ variables. Evaluation at \(x_n=0\) and then \(x_n=1\), followed by induction, gives \(p_0=p_1=0\). We write \(\deg(f)\) for its largest nonzero monomial size and assign degree zero to both constant functions. Invertible affine changes between bits and signs preserve this degree: each direction does not increase degree. Replacing a nonconstant output by its sign \(1-2f\) also preserves degree, since it rescales every nonconstant coefficient by \(-2\).
 
-For \(B\subseteq[n]\), let \(x^B\) be obtained from \(x\) by flipping exactly the coordinates in \(B\). A sensitive block at \(x\) is a nonempty \(B\) with \(f(x^B)\ne f(x)\). Define \(\operatorname{bs}(f,x)\) as the largest number of pairwise disjoint sensitive blocks at \(x\), and \(\operatorname{bs}(f)=\max_x\operatorname{bs}(f,x)\).
+For \(B\subseteq[n]\), let \(x^B\) be obtained from \(x\) by flipping exactly the coordinates in \(B\). A sensitive block at \(x\) is a nonempty \(B\) with \(f(x^B)\ne f(x)\).
 
-The sensitivity graph has the cube inputs as vertices and an edge between two inputs exactly when they differ in one coordinate and have different function values. Let \(S_f\) be its real adjacency matrix and put
+Define \(\operatorname{bs}(f,x)\) as the largest number of pairwise disjoint sensitive blocks at \(x\), and \(\operatorname{bs}(f)=\max_x\operatorname{bs}(f,x)\).
+
+The sensitivity graph has the cube inputs as vertices and an edge between two inputs exactly when they differ in one coordinate and have different function values. Let \(S_f\) be its real adjacency matrix.
+
+The spectral sensitivity is
 \[
  \lambda(f)=\|S_f\|.
 \]
-Every matrix norm below is the operator norm for the Euclidean norm; there is no normalization by the number of vertices. These quantities will enter through
+
+Every matrix norm below is the operator norm for the Euclidean norm.
+
+These quantities will enter through
 \[
  \operatorname{bs}(f)\le 35^2Q(f)^2,
  \qquad \lambda(f)\le35Q(f),
@@ -2096,10 +2103,10 @@ The two adversary estimates in (A.2) use different matrices: the product $\opera
 <!-- passage:R3-A-ADVERSARY -->
 Let \(\Gamma\) be a nonzero real symmetric matrix indexed by cube inputs, with nonnegative entries and \(\Gamma_{xy}=0\) whenever \(f(x)=f(y)\). For a coordinate \(i\), define
 \[
- (\Gamma_i)_{xy}=\Gamma_{xy}\mathbf1_{\{x_i\ne y_i\}},
- \qquad M=\max_i\|\Gamma_i\|.
+ (\Gamma_i)_{xy}=\Gamma_{xy}\mathbf1_{\{x_i\ne y_i\}}.
 \]
-Then
+
+Set \(M=\max_i\|\Gamma_i\|\). Then
 \[
  Q(f)\ge
  \frac{1-2\sqrt2/3}{2}\frac{\|\Gamma\|}{M}
@@ -2138,7 +2145,13 @@ The $(x,y)$ and $(y,x)$ summands are conjugates, so $W_t$ is real. Initially all
  =2M.
 \tag{A.4}
 \]
-The last equality uses \(\sum_xv_x^2=1\). In the equivalent controlled-phase oracle used by the Lean source, only the active control subspace contributes, so the same calculation uses \(\sum_i\|u_i\|^2\le1\), which is sufficient.
+The last equality uses \(\sum_xv_x^2=1\).
+
+For the equivalent controlled-phase oracle, let \(u_i(x)\) use only the active control component of \(\phi_{x,i}\). The change in progress still satisfies \(|W_{t+1}-W_t|\le2\sum_i u_i^{\mathsf T}\Gamma_i u_i\).
+
+In that form only the active components contribute to \(\sum_i\|u_i\|^2\), which is at most one.
+
+The per-query change is therefore at most \(2M\) for any nonnegative \(M\) bounding every \(\|\Gamma_i\|\).
 
 For the final overlap, let \(\Pi\) be the output-one projector and suppose \(f(x)=0,f(y)=1\). Put \(a=\|\Pi\psi_x\|^2\le1/3\) and \(b=\|\Pi\psi_y\|^2\ge2/3\). Orthogonal decomposition and Cauchy–Schwarz imply
 \[
@@ -2146,8 +2159,13 @@ For the final overlap, let \(\Pi\) be the output-one projector and suppose \(f(x
  \le\sqrt{ab}+\sqrt{(1-a)(1-b)}
  \le\frac{2\sqrt2}{3}.
 \]
-For the last inequality, write \(a=\sin^2u,b=\sin^2v\) with \(u,v\in[0,\pi/2]\). The expression is $\cos(v-u)$. Here $u\le\arcsin\sqrt{1/3}$ and $v\ge\arcsin\sqrt{2/3}$, so $v-u$ is nonnegative; cosine decreases on $[0,\pi/2]$. Its largest possible value therefore occurs at the smallest gap, namely $a=1/3,b=2/3$. Summing this inequality against the weights gives
-\( |W_q|\le(2\sqrt2/3)\|\Gamma\|\).
+For the last inequality, write \(a=\sin^2u,b=\sin^2v\) with \(u,v\in[0,\pi/2]\). The expression is $\cos(v-u)$. Here $u\le\arcsin\sqrt{1/3}$ and $v\ge\arcsin\sqrt{2/3}$, so $v-u$ is nonnegative; cosine decreases on $[0,\pi/2]$. Its largest possible value therefore occurs at the smallest gap, namely $a=1/3,b=2/3$.
+
+Summing the overlap bound against the weights gives
+\[
+ |W_q|\le(2\sqrt2/3)\|\Gamma\|.
+\]
+
 Telescoping (A.4), and then using the reverse triangle inequality, yields
 \[
  (1-2\sqrt2/3)\|\Gamma\|
@@ -2232,7 +2250,20 @@ Define the signed cube adjacency by
  H'_{j+1}=\begin{pmatrix}H'_j&I\\I&-H'_j\end{pmatrix}.
 \tag{A.9}
 \]
-It is real symmetric and its entrywise absolute value is ordinary cube adjacency. Block multiplication gives \((H'_j)^2=jI\), since the off-diagonal blocks cancel, and \(\operatorname{tr}H'_j=0\). For \(j\ge1\), its only eigenvalues are the distinct numbers \(\sqrt j\) and \(-\sqrt j\). Their multiplicities sum to \(2^j\), and trace zero makes them equal, hence each is \(2^{j-1}\). This is [Huang's signed-matrix calculation, Annals edition, Lemma 2.2, printed p. 952][Huang2019]. The condition \(j\ge1\) belongs to the multiplicity statement: with the convenient extension \(H'_0=(0)\), there is only the eigenvalue zero on a one-dimensional space.
+
+The entrywise absolute value of \(H'_j\) is the ordinary cube adjacency matrix.
+
+The signed matrix is symmetric.
+
+Block multiplication gives \((H'_j)^2=jI\), since the off-diagonal blocks cancel.
+
+The trace \(\operatorname{tr}H'_j\) is zero, since the two diagonal blocks are negatives of each other.
+
+For \(j\ge1\), the only possible eigenvalues are the distinct numbers \(\sqrt j\) and \(-\sqrt j\), by the square identity and symmetry.
+
+The two eigenvalues each have multiplicity \(2^{j-1}\).
+
+The multiplicities sum to \(2^j\), and trace zero makes them equal. This is [Huang's signed-matrix calculation, Annals edition, Lemma 2.2, printed p. 952][Huang2019]. The condition \(j\ge1\) belongs to the multiplicity statement: with the convenient extension \(H'_0=(0)\), there is only the eigenvalue zero on a one-dimensional space.
 
 The positive eigenspace of \(H'_d\) has dimension \(2^{d-1}\), while the subspace of vectors supported on \(U\) has dimension \(|U|>2^{d-1}\). Their dimensions sum to more than \(2^d\), so their intersection contains a nonzero real vector \(v\). Put \(u=|v|\) coordinatewise. If \(A_U\) denotes the unsigned cube adjacency induced on \(U\), extended by zero, then
 \[
@@ -2261,7 +2292,11 @@ The function $f$ is fixed when the decision tree is designed. Its truth table, p
 
 Fix one full input \(x\), and consider a round on its execution path. Let \(S\) be the support selected in the current restriction. Fix all other still-free variables to their values in \(x\). As in A.4, the coefficient on \(S\) remains nonzero because a maximum-degree support has no nonzero strict superset. The resulting function of \(S\) is nonconstant and therefore takes a value opposite to its value at \(x|_S\). The coordinates where such an assignment differs from \(x|_S\) form a nonempty block \(B\subseteq S\).
 
-All coordinates outside \(B\) have their values from the same original input \(x\), including the earlier query answers. Hence \(f(x^B)\ne f(x)\). Different rounds select disjoint supports, so their resulting blocks are pairwise disjoint sensitive blocks at that original \(x\). The number of rounds on this path is at most \(\operatorname{bs}(f,x)\). Restriction does not increase degree, and each round queries at most \(\deg(f)\) coordinates. Its total query count is at most \(\operatorname{bs}(f,x)\deg(f)\le\operatorname{bs}(f)\deg(f)\), proving (A.11). Constants stop immediately.
+All coordinates outside \(B\) have their values from the same original input \(x\), including the earlier query answers. Hence \(f(x^B)\ne f(x)\).
+
+Different rounds select disjoint supports, so the blocks contained in those supports are pairwise disjoint.
+
+The number of rounds on this path is at most \(\operatorname{bs}(f,x)\). Restriction does not increase degree, and each round queries at most \(\deg(f)\) coordinates. Its total query count is at most \(\operatorname{bs}(f,x)\deg(f)\le\operatorname{bs}(f)\deg(f)\), proving (A.11). Constants stop immediately.
 
 Midrijānis proves the maximal-monomial property in [Lemma 3 and the product estimate inside the proof of Theorem 4, arXiv:quant-ph/0403168v2, printed pp. 3–4][Midrijanis2004]. Theorem 4's stated conclusion is the further cubic bound in degree. Its algorithm applies the maximal-monomial lemma only to nonconstant restrictions, as above; the empty monomial of a constant function would not supply a sensitive block.
 <!-- /passage:R3-A-MIDRIJANIS -->
