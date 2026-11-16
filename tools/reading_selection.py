@@ -256,8 +256,12 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
                         raise ValueError(f"{ident}/{paper}: {name} needs a current partial tie to the combined statement")
                     fields["claim_match"] = {"name": name, "title": claim["title"], "relation": "exact",
                                              "reviewed_by": claim["reviewed_by"]}
-                    if any(row.get("topic") == ident and row["lines"][1] >= loc["lines"][0] for row in selections[paper]):
-                        raise ValueError(f"{ident}/{paper}: each claim needs its own paragraph, in manuscript order")
+                    # The first selector owns the existing route ID. A newly linked claim can
+                    # precede it in the paper without changing where that URL opens.
+                    lo, hi = loc["lines"]
+                    if any(row.get("topic") == ident and row["lines"][0] <= hi and lo <= row["lines"][1]
+                           for row in selections[paper]):
+                        raise ValueError(f"{ident}/{paper}: each claim needs its own paragraph")
                 add(paper, f"{paper}/{ident}/{i}", loc, topic=ident, treatment=treatment, **fields)
 
     for ident, passage in passages.items():

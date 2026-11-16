@@ -520,20 +520,22 @@ assert(drift.source.value.includes("QuarticQuery.Tournament.expected_weight_eq")
 assert(drift.source.type.includes("QuarticQuery.Tournament.IsComparison"));
 assert(drift.source.text.includes("quantumDrift"));
 assert(drift.basis.some(b => b.statement === "eq-13" && b.relation === "stronger"));
-assert.equal(weight.topics.find(t => t.id === "weight").treatments.length, 4);
+assert.equal(weight.topics.find(t => t.id === "weight").treatments.length, 5);
 const identityName = "QuarticQuery.Tournament.expected_weight_eq";
 const boundName = "QuarticQuery.Tournament.expected_weight_le_half";
-const identity = await resolve("expert", "expert/weight/0");
-const bound = await resolve("expert", "expert/weight/1");
-assert(identity.lines[1] < bound.lines[0]);
-assert(identity.text.includes("=\\frac{W^2-") && !identity.text.includes("\\le\\frac"));
-assert(bound.text.includes("\\le\\frac W2"));
-for (const [passage, name] of [[identity, identityName], [bound, boundName]]) {
-  assert.deepEqual(passage.claimMatches.map(({name, relation}) => [name, relation]), [[name, "exact"]]);
-  assert.deepEqual(passage.proof.map(p => p.name), [name]);
-  assert.deepEqual(passage.statements, []);
-  const focus = await reader.proofFocus({paper: "expert", id: passage.position.id});
-  assert.deepEqual(focus.cards, [name]);
+for (const paper of ["expert", "exposition"]) {
+  const identity = await resolve(paper, paper + "/weight/0");
+  const bound = await resolve(paper, paper + "/weight/1");
+  assert(identity.lines[1] < bound.lines[0]);
+  assert(identity.text.includes("=\\frac{W^2-") && !identity.text.includes("\\le\\frac"));
+  assert(bound.text.includes(paper === "expert" ? "\\le\\frac W2" : "at most $W/2$"));
+  for (const [passage, name] of [[identity, identityName], [bound, boundName]]) {
+    assert.deepEqual(passage.claimMatches.map(({name, relation}) => [name, relation]), [[name, "exact"]]);
+    assert.deepEqual(passage.proof.map(p => p.name), [name]);
+    assert.deepEqual(passage.statements, []);
+    const focus = await reader.proofFocus({paper, id: passage.position.id});
+    assert.deepEqual(focus.cards, [name]);
+  }
 }
 const originalDrift = await resolve("original", "original/eq-13");
 assert.equal(originalDrift.claimMatches.length, 0);
@@ -634,8 +636,26 @@ const reverse = await reader.fromDeclaration("QuarticQuery.theorem_1_1_unconditi
 assert(reverse.treatments.some(t => t.selection === "expert/headline/0"));
 const blind = await reader.fromDeclaration("Round3.SharedBadSpec.vacuous_claim");
 assert(blind.comparisons.some(c => c.role === "negative_control" && c.outcome === "accepted_shared_bad_spec_blind_spot"));
-const eq = await resolve("expert", "expert/erased-zero/0");
-assert(eq.statements.find(s => s.id === "eq-19").lean.some(t => t.relation === "stronger"));
+const erasedIdentity = "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div";
+const erasedBound = "QuarticQuery.Paper.eq_19";
+for (const paper of ["expert", "exposition"]) {
+  // Keep the original route ID of the worked bound, which follows the identity in the paper.
+  const identity = await resolve(paper, paper + "/erased-zero/" + (paper === "expert" ? 0 : 1));
+  const bound = await resolve(paper, paper + "/erased-zero/" + (paper === "expert" ? 1 : 0));
+  assert(identity.lines[1] < bound.lines[0]);
+  assert(identity.text.includes("\\mathbb E") && !identity.text.includes("4G"));
+  assert(bound.text.includes("4G"));
+  for (const [passage, name] of [[identity, erasedIdentity], [bound, erasedBound]]) {
+    assert.deepEqual(passage.claimMatches.map(({name, relation}) => [name, relation]), [[name, "exact"]]);
+    assert.deepEqual(passage.proof.map(p => p.name), [name]);
+  }
+}
+const wholeErased = await resolve("original", "original/eq-19");
+assert.equal(wholeErased.claimMatches.length, 0);
+assert(wholeErased.statements[0].lean.some(t => t.relation === "stronger"));
+for (const name of [erasedIdentity, erasedBound]) {
+  assert(wholeErased.statements[0].lean.some(t => t.declaration === name && t.relation === "partial"));
+}
 const exact = await resolve("exposition", "exposition/weight/0");
 const loc = {paper: "exposition", line: exact.lines[0], documentSha256: exact.document.sha256};
 assert((await reader.resolve(loc)).topics.some(t => t.id === "weight"));

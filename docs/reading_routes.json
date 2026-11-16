@@ -100,10 +100,24 @@
             "reviewed_by": "ai:expert-claim-review",
             "declaration": "QuarticQuery.Tournament.expected_weight_le_half"
           }
+        ],
+        "exposition": [
+          {
+            "quote": "Fix the list so far. What is the expected",
+            "title": "Expected weight identity",
+            "reviewed_by": "ai:reader-claim-review",
+            "declaration": "QuarticQuery.Tournament.expected_weight_eq"
+          },
+          {
+            "quote": "When $W>0$, the sum of squares is nonnegative",
+            "title": "Expected weight at most half",
+            "reviewed_by": "ai:reader-claim-review",
+            "declaration": "QuarticQuery.Tournament.expected_weight_le_half"
+          }
         ]
       },
       "bound_at": {
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "exposition": "1bf0a59e61ddcc4a6614691d69a202ebb56c41e2",
         "expert": "9fc4e70a2281cda3fec8cb86e1b5d669d7797b87"
       },
       "context_passages": {
@@ -208,9 +222,39 @@
         "eq-19"
       ],
       "note": "The erased-zero identity, the printed coefficient four, and the sharper coefficient two are distinct targets. The reviewed whole statement uses an alternative derivation.",
+      "claim_treatments": {
+        "expert": [
+          {
+            "quote": "Let $Z$ count the columns $i$ in which the",
+            "title": "Erased-zero probability identity",
+            "reviewed_by": "ai:reader-claim-review",
+            "declaration": "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div"
+          },
+          {
+            "quote": "With at most $G$ queries in the dummy run, the erased-zero probability is therefore",
+            "title": "Erased-zero probability at most 4G/m²",
+            "reviewed_by": "ai:reader-claim-review",
+            "declaration": "QuarticQuery.Paper.eq_19"
+          }
+        ],
+        "exposition": [
+          {
+            "quote": "Before any query has found the zero in a",
+            "title": "Erased-zero probability at most 4G/m²",
+            "reviewed_by": "ai:reader-claim-review",
+            "declaration": "QuarticQuery.Paper.eq_19"
+          },
+          {
+            "quote": "**Reading the erased zero.** In our four-column example",
+            "title": "Erased-zero probability identity",
+            "reviewed_by": "ai:reader-claim-review",
+            "declaration": "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div"
+          }
+        ]
+      },
       "bound_at": {
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
-        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+        "expert": "1bf0a59e61ddcc4a6614691d69a202ebb56c41e2"
       }
     },
     {
