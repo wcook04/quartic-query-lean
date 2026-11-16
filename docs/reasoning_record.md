@@ -558,17 +558,17 @@ w_i(L)=\prod_{b=1}^{h}a_{ip_b},\qquad w_i([])=1.
 <!-- passage:upper-weight-drift -->
 
 We condition on any current weights with $W>0$. For pivot $p$ the new total weight is $\sum_iw_ia_{ip}$, and averaging over its probability $w_p/W$ gives the first expression in equation (5.4). We write its numerator as the sum over ordered pairs $(i,p)$. The diagonal terms vanish because $a_{ii}=0$, and pairing the term for $(i,p)$ with the term for $(p,i)$, for each unordered pair with $i\ne p$, gives $w_iw_p(a_{ip}+a_{pi})=w_iw_p$. Since the sum of the $w_iw_p$ over unordered pairs is half of $W^2-\sum_iw_i^2$, we obtain
-
 <!-- claim:eq-13 -->
 $$
 \mathbb E[W_{\rm new}\mid w]
  =\frac1W\sum_{p,i}w_pw_i a_{ip}
- =\frac{W^2-\sum_iw_i^2}{2W}
- \leq\frac W2.
+ =\frac{W^2-\sum_iw_i^2}{2W}.
 \tag{5.4}
 $$
 
-At $W=0$ both the current and the next total weight are zero, so the last inequality still holds, and taking expectations over histories gives $\mathbb E W_{h+1}\leq\tfrac12\mathbb E W_h$. Starting from $W_0=m$ and applying this inequality $T$ times, we obtain:
+When $W>0$, equation (5.4) gives $\mathbb E[W_{\rm new}\mid w]\leq W/2$ because the sum of squares is nonnegative.
+
+At $W=0$ both the current and the next total weight are zero, so the same bound still holds, and taking expectations over histories gives $\mathbb E W_{h+1}\leq\tfrac12\mathbb E W_h$. Starting from $W_0=m$ and applying this inequality $T$ times, we obtain:
 
 <!-- claim:claim-expected-WT -->
 $$
@@ -934,7 +934,11 @@ Let \(Z\) count the columns whose unique zero is queried during the complete dum
 Z=\sum_{i=1}^{m}
 \mathbf1\{T\text{ on }Y^{(0)}\text{ queries }X_i[J_i]\}.
 \]
-Repeated queries to a discovered zero still contribute only one to \(Z\). Once all the dummy data are fixed, \(Z\) is fixed, and exactly \(Z\) of the \(m\) possible choices of \(I\) select a discovered zero. Averaging over \(I\) and then over the dummy data, we obtain the identity
+Repeated queries to a discovered zero still contribute only one to \(Z\).
+
+<!-- claim:eq-19 -->
+
+Once all the dummy data are fixed, \(Z\) is fixed, and exactly \(Z\) of the \(m\) possible choices of \(I\) select a discovered zero. Averaging over \(I\) and then over the dummy data, we obtain the identity
 \[
 \Pr[T\text{ on }Y^{(0)}\text{ queries }X_I[J_I]]
 =\frac{\mathbb EZ}{m}.
@@ -963,7 +967,9 @@ Scanning one column without repetition until its zero is found attains the first
 <!-- /passage:CL-zero-optional -->
 
 
-In particular the erased-zero probability is at most $2G/m^2$. The original early/late argument gives $4G/m^2$, also sufficient. [Appendix B.2](#CL-early-late) proves that estimate and the independent charging argument for the factor two.
+In particular the erased-zero probability is at most $2G/m^2$.
+
+For any $m=2^\ell$, the original early/late argument gives the bound $4G/m^2$ on the erased-zero probability for a tree of depth at most $G$, under the same independent sampling of the address inputs, zero rows and erased column. [Appendix B.2](#CL-early-late) proves the bound and the charging argument for the factor two.
 
 ### 6.4. A capped simulator for the planted cell
 
