@@ -117,7 +117,9 @@ def audit_bindings(edition, manuscript_root, documents, config, locate_quote):
                                "reason": str(error)})
         anchor = row.get("reconstruction") or row.get("passage")
         selectors = [(k, {"quote": q}) for k, quotes in row.get("quotes", {}).items() for q in quotes]
-        selectors.extend((k, {"quote": row[k]}) for k in ("expert", "exposition") if k in row)
+        claims = row.get("claim_treatments", {})
+        selectors.extend((k, {"quote": row[k]}) for k in ("expert", "exposition") if k in row and k not in claims)
+        selectors.extend((k, {"quote": claim["quote"]}) for k, rows in claims.items() for claim in rows)
         if anchor in passages:
             selectors.append((passages[anchor]["document"], {"passage": anchor}))
         elif anchor is not None:
@@ -231,13 +233,32 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
         quotes = plan.get("quotes", {})
         if ident in plans:
             quotes = {k: [plan[k]] for k in ("expert", "exposition")}
+        claim_treatments = plan.get("claim_treatments", {})
         for paper, selectors in quotes.items():
-            for i, quote in enumerate(selectors):
+            treatment = {"expert": "specialist_discussion", "exposition": "general_exposition"}[paper]
+            if plan.get("kind") == "illustrates" and paper == "exposition":
+                treatment = "illustration"
+            claims = claim_treatments.get(paper, [])
+            if claims and claims[0]["quote"] != selectors[0]:
+                raise ValueError(f"{ident}/{paper}: first claim must retain the route's primary selector")
+            for i, quote in enumerate([claim["quote"] for claim in claims] if claims else selectors):
                 loc = binding.check(plan, paper, quote=quote)
-                treatment = {"expert": "specialist_discussion", "exposition": "general_exposition"}[paper]
-                if plan.get("kind") == "illustrates" and paper == "exposition":
-                    treatment = "illustration"
-                add(paper, f"{paper}/{ident}/{i}", loc, topic=ident, treatment=treatment)
+                fields = {}
+                if claims:
+                    claim = claims[i]
+                    name = claim["declaration"]
+                    module = recorded_names.get(name, {}).get("module")
+                    path = "lean/" + module.replace(".", "/") + ".lean" if module else None
+                    ties = [tie for sid in ids for tie in statements[sid]["lean"]
+                            if tie["declaration"] == name and tie["file"] == path
+                            and tie["review_evidence"] == "current" and tie["relation"] == "partial"]
+                    if not ties:
+                        raise ValueError(f"{ident}/{paper}: {name} needs a current partial tie to the combined statement")
+                    fields["claim_match"] = {"name": name, "title": claim["title"], "relation": "exact",
+                                             "reviewed_by": claim["reviewed_by"]}
+                    if any(row.get("topic") == ident and row["lines"][1] >= loc["lines"][0] for row in selections[paper]):
+                        raise ValueError(f"{ident}/{paper}: each claim needs its own paragraph, in manuscript order")
+                add(paper, f"{paper}/{ident}/{i}", loc, topic=ident, treatment=treatment, **fields)
 
     for ident, passage in passages.items():
         add(passage["document"], "passage/" + ident, passage, passage=ident,
@@ -301,6 +322,10 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
             if topic_id := row.get("topic"):
                 topic_ids.add(topic_id)
             topic = topics.get(row.get("topic"), {})
+            if claim := row.get("claim_match"):
+                index(claim["name"], paper, row["id"], "manuscript_claim",
+                      relation=claim["relation"], title=claim["title"])
+                continue
             ids = set(row.get("statements", [])) | set(topic.get("statements", []))
             covered.update(ids)
             for sid in sorted(ids):

@@ -134,7 +134,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const originalHtml = paper === "original" && !!original?.rendered && !showPdf;
   const lineSelection = rows.filter((r) => meaningful(r) && r.lines && readingLine != null && r.lines[0] <= readingLine && readingLine <= r.lines[1])
     .sort((a, b) => (a.topic ? 0 : 1) - (b.topic ? 0 : 1) || (a.lines![1] - a.lines![0]) - (b.lines![1] - b.lines![0]))[0]?.id;
-  const currentSelection = following ? lineSelection ?? route.s : route.s ?? lineSelection;
+  const pinnedClaim = route.d ? rows.find((r) => r.id === route.s && r.claim_match?.name === route.d) : undefined;
+  const currentSelection = pinnedClaim?.id ?? (following ? lineSelection ?? route.s : route.s ?? lineSelection);
 
   const onGraphFocus = useCallback((focus: GraphFocus) => {
     graphFocus.current = focus;
@@ -223,10 +224,13 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     openGraph: (name?: string) => go({ ...base, s: route.s, p: route.p, v: "graph", d: name ?? route.d }),
     openPath: (edge: string) => go({ ...base, s: route.s, p: route.p, v: "path", e: edge, d: edge.split("→")[0] }),
     openJourney: (id) => go({ ...base, s: route.s, p: route.p, v: "journey", j: id }),
-    backToPassage: () => go({ ...base, s: currentSelection, p: route.p, v: "passage" }),
+    backToPassage: () => {
+      if (pinnedClaim) setFollowing(false);
+      go({ ...base, s: currentSelection, p: route.p, v: "passage" });
+    },
     showInPaper: (id: string) => { resumePaperFollowing(); setFollowing(false); go({ ...base, s: id, v: route.v, st: route.st, d: route.d, j: route.j, e: route.e, step: route.step }, true); },
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }), [paper, route.s, route.p, route.v, route.st, route.d, route.j, route.e, route.step, ed, currentSelection, resumePaperFollowing]);
+  }), [paper, route.s, route.p, route.v, route.st, route.d, route.j, route.e, route.step, ed, currentSelection, pinnedClaim, resumePaperFollowing]);
 
   // SK's passage lens makes the graph a compact default; the exact Lean is one tab away.
   const open = route.v !== "closed" && (wide || !!(route.s || route.p || route.v));
@@ -265,6 +269,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   }, [reader, paper, leanKey]);
   const passageLean = leanKey && statementLean?.key === leanKey ? statementLean.name : undefined;
   const activeLean = route.d ?? lit[0] ?? passageLean ?? rootDeclaration;
+  const claimMatch = rows.find((r) => r.id === currentSelection)?.claim_match;
   const [graphOpened, setGraphOpened] = useState(mode === "graph");
   useEffect(() => { if (mode === "graph") setGraphOpened(true); }, [mode]);
 
@@ -317,6 +322,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     let q: any = null;
     const free = route.s && /^l(\d+)-\d+$/.exec(route.s);
     if (clickPin) q = { paper, id: clickPin };
+    else if (pinnedClaim) q = { paper, id: pinnedClaim.id };
     else if (!following && route.s && !free) q = { paper, id: route.s };
     else if (following && readingLine && paper !== "original") q = { paper, line: readingLine };
     else if (following && originalHtml && lineSelection) q = { paper, id: lineSelection };
@@ -341,7 +347,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       });
     }, () => { if (live && sequence === clickSequence.current && !clickPending.current) setLit([]); });
     return () => { live = false; };
-  }, [reader, paper, route.s, route.p, readingLine, readingPage, mode, originalHtml, following, clickPin, lineSelection]);
+  }, [reader, paper, route.s, route.p, readingLine, readingPage, mode, originalHtml, following, clickPin, pinnedClaim, lineSelection]);
 
   const close = useCallback(() => {
     // Closing keeps the selection: the paper stays marked where the reader was.
@@ -421,7 +427,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   let panel = null;
   if (route.v === "statement" && route.st) panel = <StatementPanel edition={edition} id={route.st} />;
-  else if (mode === "lean" && activeLean) panel = <LeanPanel key={activeLean} edition={edition} name={activeLean} forStep={lit.includes(activeLean) || activeLean === passageLean} />;
+  else if (mode === "lean" && activeLean) panel = <LeanPanel key={activeLean} edition={edition} name={activeLean} forStep={lit.includes(activeLean) || activeLean === passageLean} claimMatch={claimMatch} />;
   else if (route.v === "path" && route.e) panel = <PathPanel edition={edition} edge={route.e} />;
   else if (mode === "graph") panel = null;
   else if (route.v === "journey" && route.j) panel = <JourneyPanel edition={edition} id={route.j} step={route.step} />;
@@ -468,7 +474,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                   <summary>Linked passages <span className="jump__count">{keyed.length}</span><Chevron /></summary>
                   <ul>
                     {keyed.map((r) => (
-                      <li key={r.id}><a href={href({ page: "read", paper, s: r.id, ed })} aria-current={r.id === route.s ? "true" : undefined} onClick={(e) => { (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}><Title text={topicTitles[r.topic!] ?? r.topic!.replace(/-/g, " ")} /></a></li>
+                      <li key={r.id}><a href={href({ page: "read", paper, s: r.id, ed })} aria-current={r.id === route.s ? "true" : undefined} onClick={(e) => { (e.currentTarget.closest("details") as HTMLDetailsElement).open = false; }}><Title text={r.claim_match?.title ?? topicTitles[r.topic!] ?? r.topic!.replace(/-/g, " ")} /></a></li>
                     ))}
                   </ul>
                 </details>
@@ -518,7 +524,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               // What the pane is about, said once above its three tabs: the linked paragraph
               // that was clicked or is being read, by its title in the edition.
               const row = rows.find((r) => r.id === currentSelection && r.topic);
-              const title = row ? topicTitles[row.topic!] : undefined;
+              const title = row?.claim_match?.title ?? (row ? topicTitles[row.topic!] : undefined);
               return (
                 <p className="inspector__about">
                   {title ? <><span className="inspector__about-k">{clickPin || !following || route.s === currentSelection ? "Selected paragraph" : "Paragraph being read"}</span> <Title text={title} /></>
@@ -564,7 +570,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                   <ProofPane edition={edition} lit={lit} selected={route.d ?? null} onSelect={(name: string) => nav.openGraph(name)} onOpenLean={nav.openLean}
                     onClear={() => go({ ...base, s: route.s, p: route.p, v: "graph" })} selectedEdge={route.e ?? null} onEdge={nav.openPath}
                     progress={progress} paperName={face(paper).tab} selectionKey={!clickPin && !following ? route.s : undefined}
-                    focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onGraphFocus}
+                    claimMatch={claimMatch} focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onGraphFocus}
                     onFollow={() => { resumePaperFollowing(); passageCycle.current = null; setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} />
                 </Suspense>
                 <p className="inspector__note" role="status" hidden={!clickPin}>

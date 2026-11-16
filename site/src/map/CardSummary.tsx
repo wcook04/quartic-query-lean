@@ -3,6 +3,7 @@
 // match to a paper statement (derived as the Lean tab derives it, LeanPanel.tsx),
 // and the Lean statement with its proof folded (as the homepage's HeadlinePair).
 import { useEffect, useRef } from "react";
+import type { ClaimMatch } from "../paper/selectRow";
 import { useAsync } from "../app/useAsync";
 import { LeanCode } from "../lean/LeanCode";
 import { Title } from "../text/title";
@@ -19,6 +20,7 @@ interface Props {
   title: string;
   /** The proof map's kind for the declaration, when recorded. */
   kind?: string | null;
+  claimMatch?: ClaimMatch;
   onClose(): void;
   onOpenLean(name: string): void;
 }
@@ -30,7 +32,7 @@ function kindWords(kind: string | null | undefined, text: string): string {
   return "Lean definition";
 }
 
-export function CardSummary({ reader, name, title, kind, onClose, onOpenLean }: Props) {
+export function CardSummary({ reader, name, title, kind, claimMatch, onClose, onOpenLean }: Props) {
   const head = useRef<HTMLHeadingElement>(null);
   useEffect(() => { head.current?.focus({ preventScroll: true }); }, [name]);
   const data = useAsync<any>(() => reader.fromDeclaration(name), [reader, name]);
@@ -57,7 +59,8 @@ export function CardSummary({ reader, name, title, kind, onClose, onOpenLean }: 
       <p className="card-sum__kind">{words} <code className="card-sum__name">{name}</code></p>
       {data.state === "loading" && <p className="edge-ev__note" role="status">Loading the card…</p>}
       {data.state === "failed" && <p className="edge-ev__note" role="alert">This card’s Lean could not be loaded.</p>}
-      {d && reviewed.map(([st, t]) => (
+      {claimMatch && <p className="card-sum__match"><span className="card-sum__k">{claimMatch.title}</span> <RelationMark relation={claimMatch.relation} /></p>}
+      {!claimMatch && d && reviewed.map(([st, t]) => (
         <p key={st} className="card-sum__match"><span className="card-sum__k">Matches the paper</span> <RelationMark relation={t.relation as any} /> <span className="card-sum__vs">against</span> <span className="card-sum__st"><StatementLabel id={st} /></span></p>
       ))}
       {d && src.text && (

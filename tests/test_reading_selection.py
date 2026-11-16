@@ -520,7 +520,26 @@ assert(drift.source.value.includes("QuarticQuery.Tournament.expected_weight_eq")
 assert(drift.source.type.includes("QuarticQuery.Tournament.IsComparison"));
 assert(drift.source.text.includes("quantumDrift"));
 assert(drift.basis.some(b => b.statement === "eq-13" && b.relation === "stronger"));
-assert(weight.topics.find(t => t.id === "weight").treatments.length === 3);
+assert.equal(weight.topics.find(t => t.id === "weight").treatments.length, 4);
+const identityName = "QuarticQuery.Tournament.expected_weight_eq";
+const boundName = "QuarticQuery.Tournament.expected_weight_le_half";
+const identity = await resolve("expert", "expert/weight/0");
+const bound = await resolve("expert", "expert/weight/1");
+assert(identity.lines[1] < bound.lines[0]);
+assert(identity.text.includes("=\\frac{W^2-") && !identity.text.includes("\\le\\frac"));
+assert(bound.text.includes("\\le\\frac W2"));
+for (const [passage, name] of [[identity, identityName], [bound, boundName]]) {
+  assert.deepEqual(passage.claimMatches.map(({name, relation}) => [name, relation]), [[name, "exact"]]);
+  assert.deepEqual(passage.proof.map(p => p.name), [name]);
+  assert.deepEqual(passage.statements, []);
+  const focus = await reader.proofFocus({paper: "expert", id: passage.position.id});
+  assert.deepEqual(focus.cards, [name]);
+}
+const originalDrift = await resolve("original", "original/eq-13");
+assert.equal(originalDrift.claimMatches.length, 0);
+for (const name of [identityName, boundName]) {
+  assert(originalDrift.statements[0].lean.some(t => t.declaration === name && t.relation === "partial"));
+}
 const limited = await reader.resolve({paper:"expert",id:"expert/weight/0"}, {depth:1,limit:1,budget:1});
 assert(limited.proof.some(n => n.uses.limitReached || n.uses.depthLimited || n.uses.budgetLimited));
 const incoming = await reader.expand("QuarticQuery.Tournament.expected_weight_eq");

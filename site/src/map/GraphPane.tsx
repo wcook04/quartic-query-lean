@@ -1,3 +1,4 @@
+import type { ClaimMatch } from "../paper/selectRow";
 // Adapted from proof-reader's MapPane.tsx at e2df888, Copyright 2026
 // proof-reader contributors, Apache-2.0. Local branching uses the actual
 // lean-exposition site/src/model/leanGraph.ts neighbourhood implementation
@@ -120,6 +121,7 @@ interface Props {
   paperName: string;
   selectionKey?: string;
   onFollow(): void;
+  claimMatch?: ClaimMatch;
   focusPassages?: readonly string[];
   focusRequest?: GraphFocusRequest;
   onFocusChange?(focus: GraphFocus): void;
@@ -160,7 +162,7 @@ function useTileHeights(graph: ArgGraph): (id: string) => number {
   }, [graph, fonts]);
 }
 
-export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, selected, onSelect, onOpenLean, onClear, selectedEdge, onEdge, progress: _progress, paperName: _paperName, selectionKey, onFollow, focusPassages = [], focusRequest, onFocusChange }: Props) {
+export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, selected, onSelect, onOpenLean, onClear, selectedEdge, onEdge, progress: _progress, paperName: _paperName, selectionKey, onFollow, claimMatch, focusPassages = [], focusRequest, onFocusChange }: Props) {
   const tree = useRef<MapViewHandle>(null);
   const body = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
@@ -505,7 +507,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   }, [selected, onClear]);
   const summary = summarised && (
     <CardSummary reader={reader} name={summarised} title={drawnGraph.nodes.get(summarised)?.math ?? drawnGraph.nodes.get(summarised)?.label ?? summarised}
-      kind={map.cards[summarised]?.kind ?? null} onClose={clearCard} onOpenLean={onOpenLean} />
+      kind={map.cards[summarised]?.kind ?? null} claimMatch={claimMatch?.name === summarised ? claimMatch : undefined} onClose={clearCard} onOpenLean={onOpenLean} />
   );
   // Under the map: the canvas shrinks and the camera keeps the line's two cards in view.
   const evidence = inspected && (

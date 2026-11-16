@@ -9,6 +9,7 @@ import { LeanCode, nameLinks } from "../lean/LeanCode";
 import { Axioms, axiomSummary, RelationMark, reviewWords, SourceLine } from "./evidence";
 import { DeclTitle, Elsewhere, journeyName, Loaded, StatementLabel } from "./common";
 import { useNav } from "./Nav";
+import type { ClaimMatch } from "../paper/selectRow";
 
 const KIND_WORD: Record<string, string> = { value: "proof or body", type: "statement", structural: "structure" };
 
@@ -23,7 +24,7 @@ function edges(node: any, side: "uses" | "used_by"): Edge[] {
   return out;
 }
 
-export function LeanPanel({ edition, name, forStep = false }: { edition: Edition; name: string; forStep?: boolean }) {
+export function LeanPanel({ edition, name, forStep = false, claimMatch }: { edition: Edition; name: string; forStep?: boolean; claimMatch?: ClaimMatch }) {
   const data = useAsync(async () => {
     const [d, reverse, map, graph] = await Promise.all([edition.reader.fromDeclaration(name), edition.reader.resource("selection/reverse.json"),
       edition.reader.proofMap().catch(() => null), edition.reader.resource("selection/index.json")]);
@@ -46,10 +47,10 @@ export function LeanPanel({ edition, name, forStep = false }: { edition: Edition
     const by = reviews.map(([, c]) => c?.reviewed_by);
     return { d: { ...d, kind, notes, by }, linked: new Set(Object.keys(reverse)), cards, modules: graph.modules };
   }, [edition, name]);
-  return <Loaded value={data} what="Lean declaration">{({ d, linked, cards, modules }) => <Declaration d={d} linked={linked} cards={cards} modules={modules} forStep={forStep} />}</Loaded>;
+  return <Loaded value={data} what="Lean declaration">{({ d, linked, cards, modules }) => <Declaration d={d} linked={linked} cards={cards} modules={modules} forStep={forStep} claimMatch={claimMatch?.name === name ? claimMatch : undefined} />}</Loaded>;
 }
 
-function Declaration({ d, linked, cards, modules, forStep }: { d: any; linked: Set<string>; cards: Set<string>; modules: Record<string, string>; forStep: boolean }) {
+function Declaration({ d, linked, cards, modules, forStep, claimMatch }: { d: any; linked: Set<string>; cards: Set<string>; modules: Record<string, string>; forStep: boolean; claimMatch?: ClaimMatch }) {
   const nav = useNav();
   const src = d.source ?? {};
   const uses = useMemo(() => edges(src, "uses"), [src]);
@@ -100,7 +101,13 @@ function Declaration({ d, linked, cards, modules, forStep }: { d: any; linked: S
         </p>
       </header>
 
-      {ties.size > 0 && (
+      {claimMatch && (
+        <section className="block match match--lead" aria-label="Match to the selected claim">
+          <p className="match__line"><span className="match__k">{claimMatch.title}</span> <RelationMark relation={claimMatch.relation} /></p>
+          <SourceLine kind="review" by={claimMatch.reviewed_by}>Compared by {reviewWords(claimMatch.reviewed_by)} against the selected claim.</SourceLine>
+        </section>
+      )}
+      {!claimMatch && ties.size > 0 && (
         <section className="block match match--lead" aria-labelledby="ln-tie">
           <h3 id="ln-tie" className="sr-only">How it matches the paper</h3>
           {reviewed.map(([st, t]) => (

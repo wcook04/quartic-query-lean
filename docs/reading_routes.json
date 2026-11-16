@@ -86,9 +86,25 @@
         "eq-13"
       ],
       "note": "Complementarity pairs the two orientations of each match. Sampling a pivot with these weights is a separate implementation step.",
+      "claim_treatments": {
+        "expert": [
+          {
+            "quote": "Initially all weights are one. After drawing $j$, replace",
+            "title": "Expected weight identity",
+            "reviewed_by": "ai:expert-claim-review",
+            "declaration": "QuarticQuery.Tournament.expected_weight_eq"
+          },
+          {
+            "quote": "the nonnegative sum of squares in (5) gives the bound",
+            "title": "Expected weight at most half",
+            "reviewed_by": "ai:expert-claim-review",
+            "declaration": "QuarticQuery.Tournament.expected_weight_le_half"
+          }
+        ]
+      },
       "bound_at": {
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
-        "expert": "e1be67db3a5c898a25cc2ac3eb0578e3f9d01cec"
+        "expert": "9fc4e70a2281cda3fec8cb86e1b5d669d7797b87"
       },
       "context_passages": {
         "upper-comparison-model": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",

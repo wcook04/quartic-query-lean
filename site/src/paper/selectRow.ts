@@ -1,3 +1,10 @@
+export interface ClaimMatch {
+  name: string;
+  title: string;
+  relation: "exact";
+  reviewed_by: string;
+}
+
 export interface Row {
   id: string;
   lines?: [number, number];
@@ -5,6 +12,7 @@ export interface Row {
   treatment?: string;
   statements?: string[];
   label?: string;
+  claim_match?: ClaimMatch;
   location?: { page: number; destination?: string; url?: string };
 }
 

@@ -8,7 +8,7 @@ import { fitDisplayMath, sanitizeManuscript, typeset } from "../text/html";
 import { linesOf, meaningful, rowFor, type Row } from "./selectRow";
 import { fromOutline, type ContentsRow } from "./Contents";
 import { isRestoringReadingPlace } from "../app/restore";
-import { href } from "../app/router";
+import { go, href } from "../app/router";
 import { face } from "../app/papers";
 
 const TAG_TITLE = "Linked to Lean: click the paragraph to follow its proof";
@@ -133,21 +133,32 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
       const isLinked = linked.some((r) => r.lines![0] <= b && a <= r.lines![1]);
       block.classList.toggle("is-linked", isLinked);
       // The margin tag is a real element so it can carry its explanation.
-      const tag = block.querySelector<HTMLElement>(":scope > .lean-tag");
-      if (isLinked && !tag) {
+      const tag = block.querySelector<HTMLElement>(":scope > .lean-tag--margin");
+      const claim = rows.find((row) => row.claim_match && row.lines?.[0] === a);
+      if (claim?.claim_match && !block.querySelector(":scope > .lean-claim-link")) {
+        const link = document.createElement("a");
+        link.className = "lean-tag lean-claim-link";
+        link.textContent = "Open exact Lean match";
+        link.setAttribute("aria-label", `Open exact Lean match for: ${claim.claim_match.title}`);
+        link.dataset.leanSelection = claim.id;
+        link.href = href({ page: "read", paper, s: claim.id, v: "lean", d: claim.claim_match.name,
+          ed: edition.pinnedOlder ? edition.permalink : undefined });
+        block.append(link);
+      }
+      if (isLinked && !claim && !tag) {
         const t = document.createElement("span");
         t.className = "lean-tag lean-tag--margin";
         t.textContent = "Lean";
         t.title = TAG_TITLE;
         t.setAttribute("aria-hidden", "true");
         block.prepend(t);
-      } else if (!isLinked && tag) tag.remove();
+      } else if ((!isLinked || claim) && tag) tag.remove();
       const on = !!sel && sel[0] <= b && a <= sel[1];
       block.classList.toggle("is-selected", on);
       if (on) { block.setAttribute("aria-current", "true"); block.tabIndex = -1; }
       else { block.removeAttribute("aria-current"); block.removeAttribute("tabindex"); }
     }
-  }, [ready, rows, selected]);
+  }, [edition, paper, ready, rows, selected]);
 
   // Navigation (not the reader's own click) brings its target into view, and
   // again once figures have loaded and changed the layout above it.
@@ -231,6 +242,14 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
     const target = e.target as HTMLElement;
     const a = target.closest("a");
     if (a) {
+      const claim = a.dataset.leanSelection && rows?.find((row) => row.id === a.dataset.leanSelection);
+      if (claim && claim.claim_match) {
+        e.preventDefault();
+        onNavigateWithin?.();
+        go({ page: "read", paper, s: claim.id, v: "lean", d: claim.claim_match.name,
+          ed: edition.pinnedOlder ? edition.permalink : undefined });
+        return;
+      }
       const toPaper = a.getAttribute("data-paper");
       if (toPaper) { e.preventDefault(); onLink(toPaper, a.getAttribute("data-fragment") ?? undefined); return; }
       const fragment = a.getAttribute("data-local-fragment");

@@ -577,6 +577,7 @@ export async function openReader(indexURL, options) {
       matches = rows.filter(r => (r.lines[0] <= line && endLine <= r.lines[1]) ||
           ((r.label || r.referenced_passage) && line <= r.lines[0] && r.lines[1] <= endLine));
     }
+    const claimMatches = matches.flatMap(r => r.claim_match ? [r.claim_match] : []);
     const markedClaim = matches.some(r => r.claim);
     const topics = [...new Set(matches.map(r => r.topic).filter(Boolean))];
     const statements = new Set(), targets = new Set(), roots = new Map();
@@ -591,10 +592,14 @@ export async function openReader(indexURL, options) {
     }
     for (const id of topics) {
       const topic = argumentsData.topics[id];
+      if (matches.some(row => row.topic === id && row.claim_match)) continue;
       for (const sid of topic.statements) statements.add(sid);
       for (const label of topic.labels) targets.add(label);
       for (const name of topic.constituents) root(name, {basis: "editorial_constituent", topic: id});
     }
+    for (const claim of claimMatches)
+      if (Object.hasOwn(selection.modules, claim.name))
+        root(claim.name, {basis: "manuscript_claim", relation: claim.relation});
     const records = await Promise.all([...statements].map(s => resource(`fidelity/${s}.json`)));
     for (const row of records) {
       for (const tie of row.lean) {
@@ -648,7 +653,7 @@ export async function openReader(indexURL, options) {
       topics: topics.map(id => ({...argumentsData.topics[id], treatments: argumentsData.treatments[id]})),
       journeys: [...new Set(topics.flatMap(id => applications.by_topic[id] || []))],
       editorialLinks: argumentsData.links.filter(e => topics.includes(e.source) || topics.includes(e.target)),
-      statements: records, cited, proof, graph: selection.graph, citedLeanRevision: selection.registry_revision};
+      statements: records, claimMatches, cited, proof, graph: selection.graph, citedLeanRevision: selection.registry_revision};
   }
   async function restore(position, bounds) {
     if (position?.edition !== permalink || !position.documentSha256)

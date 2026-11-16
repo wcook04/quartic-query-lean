@@ -7,6 +7,7 @@ import { inlineTex } from "../text/html";
 import { byAI, COVERAGE_SENTENCE, RelationMark, SourceLine } from "./evidence";
 import { DeclButton, Elsewhere, journeyName, Loaded, StatementLabel } from "./common";
 import { useNav } from "./Nav";
+import type { ClaimMatch } from "../paper/selectRow";
 
 export function PassagePanel({ edition, query }: { edition: Edition; query: any }) {
   const key = JSON.stringify(query);
@@ -23,6 +24,7 @@ function Passage({ r }: { r: any }) {
   const heading = r.context?.headings?.at(-1)?.title;
   const statements: any[] = r.statements ?? [];
   const topics: any[] = r.topics ?? [];
+  const claims: ClaimMatch[] = r.claimMatches ?? [];
   const elsewhere = [
     ...(r.relatedSelections ?? []).flatMap((x: any) => x.selections),
     ...topics.flatMap((t: any) => t.treatments ?? []),
@@ -48,9 +50,9 @@ function Passage({ r }: { r: any }) {
     return { s, rows };
   });
   const tiedRoots = roots.filter((p) => !shown.has(p.name) && p.basis.some((b: any) => b.basis === "statement_tie"));
-  const editorial = roots.filter((p) => !shown.has(p.name) && !p.basis.some((b: any) => b.basis === "statement_tie"));
-  const by = statements.flatMap((s) => reviewedTies(s).map((t: any) => t.reviewed_by));
-  const anyReviewed = groups.some((g) => g.rows.some((x) => x.relation)) || tiedRoots.length > 0;
+  const editorial = roots.filter((p) => !shown.has(p.name) && !p.basis.some((b: any) => b.basis === "statement_tie" || b.basis === "manuscript_claim"));
+  const by = [...claims.map((claim) => claim.reviewed_by), ...statements.flatMap((s) => reviewedTies(s).map((t: any) => t.reviewed_by))];
+  const anyReviewed = groups.some((g) => g.rows.some((x) => x.relation)) || tiedRoots.length > 0 || claims.length > 0;
   const noLean = r.coverage !== "associated_targets" ? COVERAGE_SENTENCE[r.coverage] ?? COVERAGE_SENTENCE.documented_passage : null;
   const notes = topics.filter((t) => t.note);
 
@@ -58,7 +60,7 @@ function Passage({ r }: { r: any }) {
     <article className="panel panel--passage" aria-labelledby="ps-h">
       <header className="panel__head">
         <h2 id="ps-h" className="panel__title">
-          {ownStatement ? <StatementLabel id={ownStatement} /> : topics[0]?.title ?? (r.page ? `Page ${r.page}` : heading ?? "Selected passage")}
+          {ownStatement ? <StatementLabel id={ownStatement} /> : claims[0]?.title ?? topics[0]?.title ?? (r.page ? `Page ${r.page}` : heading ?? "Selected passage")}
         </h2>
         {r.paper === "original"
           ? <p className="panel__where">{r.position?.id ? `Page ${r.page} of OpenAI’s paper; a margin mark shows where it begins, when the PDF records the spot.` : r.matches?.length ? `${r.matches.length} indexed statements on page ${r.page}.` : `No statement is indexed on page ${r.page}. The page reads as normal.`}</p>
@@ -97,9 +99,10 @@ function Passage({ r }: { r: any }) {
         <SourceLine kind="editors">Passages linked by the editors, to help reading; not a proof.</SourceLine>
       </section>
 
-      {(groups.length > 0 || tiedRoots.length > 0 || editorial.length > 0) && (
+      {(groups.length > 0 || tiedRoots.length > 0 || editorial.length > 0 || claims.length > 0) && (
         <section className="block" aria-labelledby="ps-proves">
           <h3 id="ps-proves" className="block__h">What the Lean proves</h3>
+          {claims.length > 0 && <Rows rows={claims} />}
           {groups.map(({ s, rows }) => (
             <div key={s.id} className="proves">
               <p className="proves__against">
@@ -121,14 +124,15 @@ function Passage({ r }: { r: any }) {
             </div>
           )}
           <SourceLine kind={anyReviewed ? "review" : "editors"} by={by}>
-            {anyReviewed && <>Matches judged by {byAI(by) ? "AI review" : "review"} against the paper’s statement, bound to the current Lean source.</>}
+            {claims.length > 0 && <>Compared by {byAI(by) ? "AI review" : "review"} against the selected claim.</>}
+            {anyReviewed && claims.length === 0 && <>Matches judged by {byAI(by) ? "AI review" : "review"} against the paper’s statement, bound to the current Lean source.</>}
             {anyReviewed && editorial.length > 0 && " "}
             {editorial.length > 0 && <>{anyReviewed ? "Unmarked rows are" : "These declarations are"} linked by the editors.</>}
           </SourceLine>
         </section>
       )}
 
-      {groups.length === 0 && tiedRoots.length === 0 && editorial.length === 0 && noLean && (r.paper !== "original" || r.position?.id) && (
+      {!anyReviewed && groups.length === 0 && editorial.length === 0 && noLean && (r.paper !== "original" || r.position?.id) && (
         <section className="block" aria-labelledby="ps-proves">
           <h3 id="ps-proves" className="block__h">What the Lean proves</h3>
           <p className="quiet">{noLean}</p>
