@@ -388,7 +388,6 @@ E=[m]\;\sqcup\;[m-1]\;\sqcup\;
 $$
 
 The labels $d,b$ in the last summand denote the two output *tests*, which come in addition to the consistency tests at the corresponding output gates. Consequently
-
 $$
 K=|E|=m+(m-1)+r(S+2).
 \tag{4.9}
