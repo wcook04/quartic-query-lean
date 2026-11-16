@@ -579,6 +579,9 @@ export async function openReader(indexURL, options) {
     }
     const claimMatches = matches.flatMap(r => r.claim_match ? [r.claim_match] : []);
     const markedClaim = matches.some(r => r.claim);
+    // An exact paragraph can sit inside a broader reconstruction claim.
+    // Its whole-statement comparison is still available from the wider range.
+    const scopedClaim = claimMatches.some(claim => claim.combined_statements?.length);
     const topics = [...new Set(matches.map(r => r.topic).filter(Boolean))];
     const statements = new Set(), targets = new Set(), roots = new Map();
     function root(name, basis) {
@@ -586,14 +589,15 @@ export async function openReader(indexURL, options) {
       roots.get(name).push(basis);
     }
     for (const row of matches) {
-      if (!markedClaim || !row.id.startsWith("passage/"))
+      if (!scopedClaim && (!markedClaim || !row.id.startsWith("passage/")))
         for (const sid of row.statements || []) statements.add(sid);
       if (row.label) targets.add(row.label);
     }
     for (const id of topics) {
       const topic = argumentsData.topics[id];
       if (matches.some(row => row.topic === id && row.claim_match)) continue;
-      for (const sid of topic.statements) statements.add(sid);
+      if (!scopedClaim)
+        for (const sid of topic.statements) statements.add(sid);
       for (const label of topic.labels) targets.add(label);
       for (const name of topic.constituents) root(name, {basis: "editorial_constituent", topic: id});
     }

@@ -520,15 +520,15 @@ assert(drift.source.value.includes("QuarticQuery.Tournament.expected_weight_eq")
 assert(drift.source.type.includes("QuarticQuery.Tournament.IsComparison"));
 assert(drift.source.text.includes("quantumDrift"));
 assert(drift.basis.some(b => b.statement === "eq-13" && b.relation === "stronger"));
-assert.equal(weight.topics.find(t => t.id === "weight").treatments.length, 5);
+assert.equal(weight.topics.find(t => t.id === "weight").treatments.length, 7);
 const identityName = "QuarticQuery.Tournament.expected_weight_eq";
 const boundName = "QuarticQuery.Tournament.expected_weight_le_half";
-for (const paper of ["expert", "exposition"]) {
+for (const paper of ["expert", "exposition", "reconstruction"]) {
   const identity = await resolve(paper, paper + "/weight/0");
   const bound = await resolve(paper, paper + "/weight/1");
   assert(identity.lines[1] < bound.lines[0]);
   assert(identity.text.includes("=\\frac{W^2-") && !identity.text.includes("\\le\\frac"));
-  assert(bound.text.includes(paper === "expert" ? "\\le\\frac W2" : "at most $W/2$"));
+  assert(bound.text.includes({expert: "\\le\\frac W2", exposition: "at most $W/2$", reconstruction: "\\leq W/2"}[paper]));
   for (const [passage, name] of [[identity, identityName], [bound, boundName]]) {
     assert.deepEqual(passage.claimMatches.map(({name, relation}) => [name, relation]), [[name, "exact"]]);
     assert.deepEqual(passage.proof.map(p => p.name), [name]);
@@ -638,10 +638,10 @@ const blind = await reader.fromDeclaration("Round3.SharedBadSpec.vacuous_claim")
 assert(blind.comparisons.some(c => c.role === "negative_control" && c.outcome === "accepted_shared_bad_spec_blind_spot"));
 const erasedIdentity = "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div";
 const erasedBound = "QuarticQuery.Paper.eq_19";
-for (const paper of ["expert", "exposition"]) {
+for (const paper of ["expert", "exposition", "reconstruction"]) {
   // Keep the original route ID of the worked bound, which follows the identity in the paper.
-  const identity = await resolve(paper, paper + "/erased-zero/" + (paper === "expert" ? 0 : 1));
-  const bound = await resolve(paper, paper + "/erased-zero/" + (paper === "expert" ? 1 : 0));
+  const identity = await resolve(paper, paper + "/erased-zero/" + (paper === "exposition" ? 1 : 0));
+  const bound = await resolve(paper, paper + "/erased-zero/" + (paper === "exposition" ? 0 : 1));
   assert(identity.lines[1] < bound.lines[0]);
   assert(identity.text.includes("\\mathbb E") && !identity.text.includes("4G"));
   assert(bound.text.includes("4G"));

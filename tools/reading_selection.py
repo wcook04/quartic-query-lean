@@ -234,8 +234,11 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
         if ident in plans:
             quotes = {k: [plan[k]] for k in ("expert", "exposition")}
         claim_treatments = plan.get("claim_treatments", {})
+        if claims := claim_treatments.get("reconstruction"):
+            quotes = {**quotes, "reconstruction": [claim["quote"] for claim in claims]}
         for paper, selectors in quotes.items():
-            treatment = {"expert": "specialist_discussion", "exposition": "general_exposition"}[paper]
+            treatment = {"expert": "specialist_discussion", "exposition": "general_exposition",
+                         "reconstruction": "proof_reconstruction"}[paper]
             if plan.get("kind") == "illustrates" and paper == "exposition":
                 treatment = "illustration"
             claims = claim_treatments.get(paper, [])
@@ -249,18 +252,21 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
                     name = claim["declaration"]
                     module = recorded_names.get(name, {}).get("module")
                     path = "lean/" + module.replace(".", "/") + ".lean" if module else None
-                    ties = [tie for sid in ids for tie in statements[sid]["lean"]
-                            if tie["declaration"] == name and tie["file"] == path
-                            and tie["review_evidence"] == "current" and tie["relation"] == "partial"]
-                    if not ties:
+                    matching_statements = [sid for sid in ids if any(
+                        tie["declaration"] == name and tie["file"] == path
+                        and tie["review_evidence"] == "current" and tie["relation"] == "partial"
+                        for tie in statements[sid]["lean"])]
+                    if not matching_statements:
                         raise ValueError(f"{ident}/{paper}: {name} needs a current partial tie to the combined statement")
                     fields["claim_match"] = {"name": name, "title": claim["title"], "relation": "exact",
                                              "reviewed_by": claim["reviewed_by"]}
+                    if paper == "reconstruction":
+                        fields["claim_match"]["combined_statements"] = matching_statements
                     # The first selector owns the existing route ID. A newly linked claim can
                     # precede it in the paper without changing where that URL opens.
                     lo, hi = loc["lines"]
-                    if any(row.get("topic") == ident and row["lines"][0] <= hi and lo <= row["lines"][1]
-                           for row in selections[paper]):
+                    if any(row.get("topic") == ident and row.get("claim_match")
+                           and row["lines"][0] <= hi and lo <= row["lines"][1] for row in selections[paper]):
                         raise ValueError(f"{ident}/{paper}: each claim needs its own paragraph")
                 add(paper, f"{paper}/{ident}/{i}", loc, topic=ident, treatment=treatment, **fields)
 
