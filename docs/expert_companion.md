@@ -87,15 +87,19 @@ $$
 $$
 \Needspace{14\baselineskip}
 
-Initially all weights are one. After drawing $j$, replace each $w_i$ by $w_i a_{ij}$, so the new weight of $j$ is zero. Suppose the probability of drawing $j$ is $q_j$. The contribution of an unordered pair $i,j$ to the expected remaining weight is $w_i q_j a_{ij}+w_j q_i a_{ji}$. For uniform sampling the two coefficients can differ. By (4), independence from an arbitrary comparison bias requires $w_i q_j=w_j q_i$. Drawing $j$ with probability $w_j/W$ gives equality for every pair.^[In the [worked exposition, §3.1](exposition.md#weighted-sampling-example), weights $(1,0,1/2,1/4)$ give pivot probabilities $(4/7,0,2/7,1/7)$.] Hence, while $W>0$,
+Initially all weights are one. After drawing $j$, replace each $w_i$ by $w_i a_{ij}$, so the new weight of $j$ is zero. Suppose the probability of drawing $j$ is $q_j$. The contribution of an unordered pair $i,j$ to the expected remaining weight is $w_i q_j a_{ij}+w_j q_i a_{ji}$. For uniform sampling the two coefficients can differ. By (4), independence from an arbitrary comparison bias requires $w_i q_j=w_j q_i$. Drawing $j$ with probability $w_j/W$ gives equality for every pair.^[In the [worked exposition, §3.1](exposition.md#weighted-sampling-example), weights $(1,0,1/2,1/4)$ give pivot probabilities $(4/7,0,2/7,1/7)$.] The expected remaining weight is therefore the sum on the left below. For $W>0$, pairing the two orientations of each comparison gives
 $$
- \mathbb E[W_{\rm new}\mid w]
- =\frac1W\sum_{i,j}w_i w_j a_{ij}
- =\frac{W^2-\sum_i w_i^2}{2W}
- \le\frac W2.
+ \sum_j\frac{w_j}{W}\sum_i w_i a_{ij}
+ =\frac{W^2-\sum_i w_i^2}{2W}.
 \tag{5}
 $$
-Equivalently, in two independent draws from the weights, the ordered pairs $(i,j)$ and $(j,i)$ have equal probability. For $i\ne j$ the two selection probabilities sum to one, and for $i=j$ the contribution is zero.
+
+For $W>0$, the nonnegative sum of squares in (5) gives the bound
+$$
+ \mathbb E[W_{\rm new}\mid w]\le\frac W2.
+$$
+
+The pairing in (5) also follows by considering two independent draws from the weights. The ordered pairs $(i,j)$ and $(j,i)$ have equal probability. For $i\ne j$ the two selection probabilities sum to one, and for $i=j$ the contribution is zero.
 
 Stop if $W=0$ and keep it zero thereafter. After $T$ steps the expected weight is at most $m2^{-T}$. If the dominant column is still unselected, its weight is at least $(1-\varepsilon)^T\ge1-T\varepsilon$. With $T=\lceil\log_2(1000m)\rceil$ and $\varepsilon=1/(1000T)$ this lower bound exceeds $1/2$. By Markov's inequality the probability that the column is absent from the list is therefore at most $2m2^{-T}$.
 
