@@ -22,6 +22,12 @@ async function loadIndex(edition: Edition): Promise<Index | null> {
   try { return await edition.reader.resource(RESOURCE); } catch { return null; }
 }
 
+/** The declarations with a recorded passing run, for panels that state the result in a sentence. */
+export function useComparatorDeclarations(edition: Edition): Record<string, Entry[]> {
+  const index = useAsync(() => loadIndex(edition), [edition]);
+  return index.state === "ready" && index.value ? index.value.declarations : {};
+}
+
 export function ComparatorEvidence({ edition, declaration }: { edition: Edition; declaration: string }) {
   const index = useAsync(() => loadIndex(edition), [edition]);
   if (index.state !== "ready" || !index.value) return null;

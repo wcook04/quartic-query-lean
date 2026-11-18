@@ -3,9 +3,15 @@
 A Lean formalisation of the nearly quartic separation between randomized and
 quantum query complexity in
 [OpenAI's preprint](https://github.com/openai/math/blob/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf).
-The preprint and its mathematics are OpenAI's.
+The preprint and its mathematics are OpenAI's. The Lean development, the three
+accounts of the proof and the reader website were written with AI systems under
+Will Cook's direction.
 
-Lean checks Theorem 1.1 of the preprint with no hypothesis:
+Lean checks the whole of Theorem 1.1 of the preprint with no hypothesis, as
+[`theorem_1_1_unconditional`](lean/QuarticQuery/Results/Unconditional.lean):
+the optimal exponent, the universal quartic bound, and for each fixed `k ≥ 2`
+a family of total functions with the two bounds of equation (2). Its first
+conclusion is also stated alone:
 
 ```lean
 theorem alphaTot_eq_four_unconditional : alphaTot = 4

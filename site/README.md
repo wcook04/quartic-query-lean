@@ -103,6 +103,15 @@ the comparison open in the pane. The homepage band shows the same counts and the
 theorems, propositions and lemmas. The page reads `corpus/statements.json` and
 `selection/original.json` from the edition and adds no judgment of its own.
 
+A partial match is a theorem Lean accepts in full that covers less than the
+paper's statement. In the comparison, Lean and passage panels its mark says
+which kind: "Proves part of the statement" when the theorem has no remaining
+hypothesis and states fewer conclusions, "Proved with an extra hypothesis" when
+the review records an open assumption. The results index and its filter keep the
+one category, "Partial match". The words are chosen in
+[`relationWord`](src/inspect/evidence.tsx) from the comparison's
+`open_assumptions`.
+
 Each chapter names a reading `route` (opening the reconstruction at that
 passage), a whole reading `page` such as `verification`, or only a `title` for
 a chapter with no paper counterpart. The homepage lists them as an index keyed
