@@ -10,6 +10,7 @@ import { DeclButton, DeclTitle, Elsewhere, Loaded, StatementLabel } from "./comm
 import { useStatementNames } from "./Names";
 import { Title } from "../text/title";
 import { useNav } from "./Nav";
+import { useComparatorDeclarations } from "./ComparatorEvidence";
 
 export function StatementPanel({ edition, id }: { edition: Edition; id: string }) {
   const review = useAsync(() => edition.reader.statementReview(id), [edition, id]);
@@ -24,13 +25,15 @@ export function StatementPanel({ edition, id }: { edition: Edition; id: string }
             <a href={t.sourceURL} title={t.declaration}><DeclTitle name={t.declaration} /></a> ({t.relation})
           </li>)}</ul>
         </article>
-      ) : <Statement r={r} />}
+      ) : <Statement r={r} edition={edition} />}
     </Loaded>
   );
 }
 
-function Statement({ r }: { r: any }) {
+function Statement({ r, edition }: { r: any; edition: Edition }) {
   const nav = useNav();
+  const passed = useComparatorDeclarations(edition);
+  const applied = (c: any) => (Object.hasOwn(passed, c.declaration) ? passed[c.declaration][0]?.link : undefined);
   const statementNames = useStatementNames();
   const archived = statementNames.status === "unavailable_in_edition" || statementNames.status === "archived_partial";
   const comparisons: any[] = r.comparisons;
@@ -38,7 +41,7 @@ function Statement({ r }: { r: any }) {
   const page = r.paper?.selection?.location?.page;
   const by = comparisons.map((c) => c.reviewed_by);
   // Lean's axioms and the recorded checks, said once when every compared theorem shares them.
-  const key = (c: any) => JSON.stringify([c.inspection?.status, c.inspection?.axioms, c.build_evidence, c.comparison_evidence]);
+  const key = (c: any) => JSON.stringify([c.inspection?.status, c.inspection?.axioms, c.build_evidence, c.comparison_evidence, applied(c)]);
   const shared = comparisons.length > 1 && comparisons.every((c) => key(c) === key(comparisons[0]));
   const typed = comparisons.filter((c) => c.inspection?.status === "current" && c.inspection.type);
   return (
@@ -65,7 +68,7 @@ function Statement({ r }: { r: any }) {
                 return (
                   <li key={c.declaration + c.file} className="proves__row">
                     <span className="proves__decl"><DeclButton name={c.declaration} /></span>
-                    <RelationMark relation={c.relation} />
+                    <RelationMark relation={c.relation} openAssumptions={assumptions} />
                     {i === 0 && <span className="proves__verdict">{relationSentence(c.relation, c.route)}</span>}
                     {c.note && <span className="proves__note">{c.note}</span>}
                     {assumptions.length > 0 && <span className="proves__note proves__note--gap">Still assumes {assumptions.map((a, i) => <span key={a}>{i ? ", " : ""}<code>{a}</code></span>)} as a hypothesis.</span>}
@@ -105,16 +108,16 @@ function Statement({ r }: { r: any }) {
             <>
               <p className="quiet">The same for all {comparisons.length} theorems above:</p>
               <Axioms inspection={comparisons[0].inspection} />
-              <Checks tie={comparisons[0]} />
+              <Checks tie={comparisons[0]} passed={applied(comparisons[0])} />
             </>
           ) : comparisons.length === 1 && (
-            <><Axioms inspection={lead.inspection} /><Checks tie={lead} /></>
+            <><Axioms inspection={lead.inspection} /><Checks tie={lead} passed={applied(lead)} /></>
           )}
           {comparisons.length > 1 && !shared && comparisons.map((c) => (
             <details key={c.declaration + c.file} className="fold">
               <summary>Axioms and checks for <DeclTitle name={c.declaration} /></summary>
               <Axioms inspection={c.inspection} />
-              <Checks tie={c} />
+              <Checks tie={c} passed={applied(c)} />
             </details>
           ))}
           {typed.length > 0 && (

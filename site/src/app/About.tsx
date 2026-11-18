@@ -16,7 +16,7 @@ export function About() {
         <li className="evidence-kind">
           <h2>Review judgments</h2>
           <p className="evidence-kind__marks" aria-hidden="true"><RelationMark relation="exact" /> <RelationMark relation="stronger" /> <RelationMark relation="partial" /></p>
-          <p>Whether a Lean theorem states a paper statement <em>exactly</em>, <em>more strongly</em> or only <em>in part</em>. Reviews compare the project’s maintained wording of each statement, which can differ from the published sentence; the PDF has the published words. Reviews were carried out with AI and are bound to the current Lean source.</p>
+          <p>Whether a Lean theorem states a paper statement <em>exactly</em>, <em>more strongly</em> or only <em>in part</em>. A partial match is still a theorem Lean accepts in full: it either proves fewer of the statement’s conclusions or proves them under an extra hypothesis, and the comparison says which. Reviews compare the project’s maintained wording of each statement, which can differ from the published sentence; the PDF has the published words. Reviews were carried out with AI and are bound to the current Lean source.</p>
         </li>
         <li className="evidence-kind">
           <h2>Recorded checks</h2>

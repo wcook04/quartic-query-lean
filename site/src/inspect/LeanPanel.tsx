@@ -45,8 +45,9 @@ export function LeanPanel({ edition, name, forStep = false, claimMatch }: { edit
       return [id, review?.comparisons?.find((c: any) => c.declaration === name)] as const;
     }));
     const notes = Object.fromEntries(reviews.map(([id, c]) => [id, c?.note]));
+    const gaps = Object.fromEntries(reviews.map(([id, c]) => [id, c ? c.open_assumptions ?? [] : undefined]));
     const by = reviews.map(([, c]) => c?.reviewed_by);
-    return { d: { ...d, kind, notes, by }, linked: new Set(Object.keys(reverse)), cards, modules: graph.modules };
+    return { d: { ...d, kind, notes, gaps, by }, linked: new Set(Object.keys(reverse)), cards, modules: graph.modules };
   }, [edition, name]);
   return <Loaded value={data} what="Lean declaration">{({ d, linked, cards, modules }) => <Declaration edition={edition} d={d} linked={linked} cards={cards} modules={modules} forStep={forStep} claimMatch={claimMatch?.name === name ? claimMatch : undefined} />}</Loaded>;
 }
@@ -113,7 +114,7 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch }
           <h3 id="ln-tie" className="sr-only">How it matches the paper</h3>
           {reviewed.map(([st, t]) => (
             <div key={st} className="match__item">
-              <p className="match__line"><span className="match__k">Matches the paper</span> <RelationMark relation={t.relation} /> <span className="match__vs">against</span> {statementButton(st)}</p>
+              <p className="match__line"><span className="match__k">Matches the paper</span> <RelationMark relation={t.relation} openAssumptions={d.gaps[st]} /> <span className="match__vs">against</span> {statementButton(st)}</p>
               {t.relation === "partial" && <p className="match__note">{d.notes[st] ?? "This declaration covers only part of the statement. Open the comparison for the reviewed scope."}</p>}
             </div>
           ))}

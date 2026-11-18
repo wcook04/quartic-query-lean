@@ -7,13 +7,22 @@ export const RELATION_WORD: Record<string, string> = {
   exact: "Exact match", stronger: "Stronger in Lean", partial: "Partial match", unassessed: "Not assessed",
 };
 
+/** The words on a match mark. A partial match is a finished Lean proof that covers less than
+ *  the paper's statement. When the review records the theorem's remaining hypotheses, the mark
+ *  says which kind of partial match it is: fewer conclusions, or an extra hypothesis. */
+export function relationWord(relation: Relation, openAssumptions?: readonly string[] | null): string {
+  if (relation === "partial" && openAssumptions)
+    return openAssumptions.length > 0 ? "Proved with an extra hypothesis" : "Proves part of the statement";
+  return RELATION_WORD[relation] ?? relation;
+}
+
 /** One sentence: what the review concluded about the maintained statement. */
 export function relationSentence(relation: Relation, route?: string): string {
   const how = route === "alternative" ? " Its proof takes a different route from the paper’s." : route === "same" ? " Its proof follows the paper’s argument." : "";
   switch (relation) {
     case "exact": return `A review bound to the current source judged this Lean theorem to state exactly the maintained formulation.${how}`;
     case "stronger": return `A review bound to the current source judged this Lean theorem to imply the maintained formulation.${how}`;
-    case "partial": return `A review bound to the current source judged this Lean theorem to cover only part of the maintained formulation; its note says which part.${how}`;
+    case "partial": return `A review bound to the current source judged this Lean theorem to cover only part of the maintained formulation; its note says which part. Lean accepts the theorem’s proof in full.${how}`;
     default: return "No current review compares a Lean declaration with this statement.";
   }
 }
@@ -50,8 +59,8 @@ const SOURCE_WORDS: Record<Source, (ai: boolean) => string> = {
 };
 export const reviewWords = (by?: string | readonly (string | null | undefined)[] | null) => (byAI(by) ? "AI review" : "review");
 
-export function RelationMark({ relation }: { relation: Relation }) {
-  return <span className={`rel rel--${relation}`}>{RELATION_WORD[relation] ?? relation}</span>;
+export function RelationMark({ relation, openAssumptions }: { relation: Relation; openAssumptions?: readonly string[] | null }) {
+  return <span className={`rel rel--${relation}`}>{relationWord(relation, openAssumptions)}</span>;
 }
 
 const STANDARD = new Set(["propext", "Classical.choice", "Quot.sound"]);
@@ -87,12 +96,18 @@ export function axiomSummary(audit?: any): string {
   return extra.length ? `Axioms: also ${extra.join(", ")}` : "Axioms: only the standard three";
 }
 
-export function Checks({ tie }: { tie: any }) {
+/** `passed` says how the edition's Comparator record links a passing run to this declaration:
+ *  the run's solution proves its challenge by applying the declaration, or the run names the
+ *  declaration itself. The Lean pane shows that run in full. */
+export function Checks({ tie, passed }: { tie: any; passed?: "solution_applies" | "configured_name" }) {
   const build = tie.build_evidence === "current" ? "Lean built this declaration at the edition’s source." : "No current build record for this declaration.";
+  const where = " Open the theorem for the run, its date and its receipt.";
   const compared =
-    tie.comparison_evidence === "current"
-      ? "A recorded Comparator run checked this declaration against a separately written specification."
-      : "No Comparator check targets this declaration directly.";
+    passed === "solution_applies"
+      ? "Comparator passed a separately compiled challenge statement whose solution applies this theorem." + where
+      : passed === "configured_name" || tie.comparison_evidence === "current"
+        ? "Comparator passed this theorem’s proof against a separately compiled challenge statement." + where
+        : "No recorded Comparator run covers this declaration.";
   return <p className="ev">{build} {compared}</p>;
 }
 
