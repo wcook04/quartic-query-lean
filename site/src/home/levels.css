@@ -1,0 +1,128 @@
+/* One argument at each level: the rail of levels beside the main theorem's argument.
+   Adapted from lean-exposition site/src/home/front.css ("One argument at four levels"),
+   Apache-2.0. The band is wider than the home column on a large window, and its type
+   grows with the window. */
+
+.levels {
+  --levels-w: min(calc(100vw - 40px), 1760px);
+  width: var(--levels-w);
+  margin-inline: calc((100% - var(--levels-w)) / 2);
+  border-top: 1px solid var(--rule);
+  padding: 48px 0 52px;
+  font-size: clamp(1rem, calc(0.625rem + 0.42vw), 1.18rem);
+}
+.levels--pending { min-height: 640px; }
+/* The heading and introduction stay on the home page's text column; the levels and the
+   drawing run wider, like a wide figure in an article. */
+.levels > h2, .levels > .levels__text { margin-left: calc((var(--levels-w) - min(100vw - 40px, 1140px)) / 2); }
+.levels h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6em; margin-top: 0; margin-bottom: 14px; }
+.levels__text { font-family: var(--serif); font-size: 1.05em; line-height: 1.55; color: var(--ink-2); max-width: 46em; margin-top: 0; margin-bottom: 0; text-wrap: pretty; }
+
+.levels__body { display: grid; gap: 28px; margin-top: 28px; }
+
+/* The levels sit in a row above the drawing, so the drawing has the band's full width. */
+.levels__rail {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.levels__row {
+  display: grid;
+  grid-template-columns: 4em minmax(0, 1fr);
+  gap: 16px;
+  padding: 13px 12px 13px 12px;
+  border-radius: 8px;
+  cursor: default;
+  transition: background-color 140ms ease-out;
+}
+.levels__row.is-chosen { background: var(--sheet); box-shadow: inset 0 3px 0 var(--query); }
+
+.levels__sheet {
+  width: 4em;
+  aspect-ratio: 8.5 / 11;
+  overflow: hidden;
+  background: #fffdf7;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--rule);
+}
+.levels__sheet img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+/* The Lean level's thumbnail: the main theorem's declaration line, set like a tiny page. */
+.levels__sheet--lean { background: var(--code); }
+.levels__code {
+  display: block;
+  padding: 6px 5px;
+  font-family: var(--mono);
+  font-size: 5px;
+  line-height: 1.5;
+  color: var(--exact);
+  word-break: break-all;
+}
+
+.levels__name { margin: 0; font-family: var(--serif); font-size: 1.15em; font-weight: 400; line-height: 1.2; color: var(--ink); }
+.levels__who { margin: 3px 0 0; font-size: 0.86em; line-height: 1.4; color: var(--ink-2); text-wrap: pretty; }
+.levels__count { margin: 7px 0 0; font-size: 0.86em; line-height: 1.4; font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.levels__count strong { color: var(--ink); font-weight: 600; font-size: 1.12em; }
+/* The share of the main theorem's Lean steps a level is linked to. */
+.levels__meter { display: block; height: 4px; margin: 0 0 5px; border-radius: 2px; background: var(--rule-2); overflow: hidden; }
+.levels__meter > span { display: block; height: 100%; background: var(--exact); }
+.levels__links { margin: 6px 0 0; font-size: 0.86em; }
+.levels__links a { color: var(--query); }
+
+.levels__figure { min-width: 0; margin: 0; }
+.levels__cap { min-height: 1.45em; margin-bottom: 14px; font-size: 0.92em; color: var(--ink-2); }
+.levels__cap strong { color: var(--ink); font-weight: 600; }
+/* When the window is too narrow for readable titles, the drawing scrolls sideways. */
+.levels__scroll { overflow-x: auto; overscroll-behavior-x: contain; }
+.levels__stage { position: relative; width: 100%; }
+.levels__world { position: absolute; top: 0; left: 0; transform-origin: 0 0; }
+.levels__lines { position: absolute; inset: 0; overflow: visible; }
+.levels__lines g { opacity: 0; transition: opacity 220ms ease-out; }
+.levels__lines g.is-shown { opacity: 1; transition-delay: 160ms; }
+.levels__lines path { fill: none; stroke: var(--control); stroke-width: 1.25; }
+
+a.levels__tile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--sheet);
+  font-size: 13px;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  color: var(--ink);
+  overflow: hidden;
+  transition: transform 360ms cubic-bezier(0.45, 0, 0.2, 1), opacity 220ms ease-out, border-color 140ms ease-out;
+}
+a.levels__tile:hover, a.levels__tile:focus-visible { border-color: var(--query-line); }
+a.levels__tile--root { border-color: var(--ink); background: var(--ink); color: var(--paper); font-family: var(--serif); font-size: 14.5px; }
+.levels__tilekind { display: block; font-family: var(--sans); font-size: 11px; letter-spacing: 0.02em; opacity: 0.8; }
+a.levels__tile.is-gone { opacity: 0; pointer-events: none; }
+a.levels__tile .katex { font-size: 1.02em; }
+
+.levels__source { margin: 18px 0 0; max-width: 52em; font-size: 0.86em; line-height: 1.5; color: var(--ink-2); }
+
+@media (prefers-reduced-motion: reduce) {
+  a.levels__tile, .levels__lines g, .levels__lines g.is-shown { transition: none; }
+}
+@media (max-width: 1000px) {
+  .levels__rail { grid-template-columns: repeat(auto-fill, minmax(17em, 1fr)); }
+}
+@media (max-width: 640px) {
+  .levels { --levels-w: calc(100vw - 32px); }
+  .levels > h2, .levels > .levels__text { margin-left: 0; }
+  .levels__rail { grid-template-columns: minmax(0, 1fr); }
+  .levels__row { padding-inline: 8px; }
+  /* A phone cannot show the drawing at a readable size; the levels and their links remain. */
+  .levels__figure, .levels__withdrawing { display: none; }
+}
