@@ -34,12 +34,13 @@ export function App() {
       <a className="skip" href="#main" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>Skip to the reading</a>
       <header className="site">
         <span className="fam-lockup">
-          <a className="fam-lockup__home" href={FAMILY.owner.home} rel="author" title="All of Will Cook’s websites and videos">
-            <img src={plectis} alt="Will Cook: all websites and videos" width={26} height={26} />
+          <a className="fam-lockup__home" href={FAMILY.owner.home} rel="author" title="All of Will Cook’s projects and videos">
+            <img src={plectis} alt="" width={26} height={26} />
+            <span className="fam-lockup__owner" translate="no">Will Cook</span>
           </a>
           <span className="fam-lockup__rule" aria-hidden="true" />
           <a className="fam-lockup__site" href={href({ page: "home" })} aria-current={route.page === "home" ? "page" : undefined}>
-            <span className="fam-lockup__name">Quartic Reader</span>
+            <span className="fam-lockup__name" translate="no">Quartic Reader</span>
           </a>
         </span>
         <span className="site__tools">
