@@ -6,6 +6,7 @@ import { Board } from "./Board";
 import { inlineTex } from "../text/html";
 import { Exponent } from "./Exponent";
 import { Architecture } from "./Architecture";
+import { LevelsBand } from "./LevelsBand";
 import type { BoardData } from "./Board";
 import { FilmChapters, FilmSlot, type Chapter } from "../family/FilmSlot";
 import { SisterSites } from "../family/SisterSites";
@@ -109,6 +110,8 @@ export function Home({ edition }: { edition: Edition }) {
         {board ? <Board data={board} /> : loadError ? <p role="alert">The reading guide could not be loaded.</p>
           : !entrances && <div className="board board--pending" role="status">Loading the table…</div>}
       </section>
+
+      <LevelsBand edition={edition} />
 
       <HeadlinePair edition={edition} />
 

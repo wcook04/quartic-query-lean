@@ -19,7 +19,7 @@ edition manifest. Figures and PDFs are displayed from verified Blob URLs.
 | Directory | Owns |
 | --- | --- |
 | `src/app` | Edition loading, hash routes, the reading desk, paper switcher and history-entry scroll/focus restoration |
-| `src/home` | The three board scenes, the exponent control and the proof outline |
+| `src/home` | The three board scenes, the levels band, the exponent control and the proof outline |
 | `src/results` | The index of OpenAI's statements with their Lean labels, as a page and a homepage band |
 | `src/family` | The header lockup, theme switch, the two videos and the footer shared with Will Cook's other sites |
 | `src/paper` | The four papers as edition HTML, their own contents, and the original PDF pane (pdf.js) |
@@ -92,6 +92,31 @@ over its chapters, and the menu's second row. The Videos menu
 ([`src/family/VideoMenu.tsx`](src/family/VideoMenu.tsx)) is a native popover in
 the site header, so both videos are one click from the reading desk without
 taking room from the paper.
+
+## One argument at five levels
+
+The homepage band under the opening screen ([`src/home/LevelsBand.tsx`](src/home/LevelsBand.tsx),
+adapted from lean-exposition's `LevelsBand.tsx`) lists five levels: the Lean proof,
+OpenAI's paper, the full proof reconstruction, the expert companion and the worked
+exposition. Every number in it is counted from the edition's `selection/proof-map.json`
+when the page loads: the steps are the declarations the main theorem reaches in that map
+(the graph the reader's Graph pane draws), a level's count is its `paper_cards` within
+them, its passage count is its rows in `papers`, and the source-file count is the distinct
+`source` files of those steps.
+
+The drawing uses the map engine in `src/map/engine`, read from left to right. It keeps
+OpenAI's Theorem 1.1 and the steps the expert companion or the worked exposition is
+linked to, and joins two drawn steps when the left one uses the right one in Lean,
+directly or through steps not drawn (lean-exposition's `contract`). Choosing a level
+keeps the drawn steps that level is linked to, and a card opens that paper at its first
+passage linked to the step, with the step's Lean. On phones the drawing is hidden and the
+levels and links remain.
+
+The thumbnails `src/home/levels/{expert,exposition,reconstruction,original}.webp` are
+captures of this reader at `#/read/<paper>` in the light scheme: a 1000×1300 window,
+the site bar, paper tabs, toolbar and byline hidden, the page at `zoom: 0.5`, cropped
+from the paper title to an 8.5:11 page over the manuscript column, and resized to
+240×310. Recapture them when a paper's opening changes.
 
 ## Results and their Lean statements
 
