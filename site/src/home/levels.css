@@ -115,7 +115,7 @@ a.levels__tile .katex { font-size: 1.02em; }
 @media (prefers-reduced-motion: reduce) {
   a.levels__tile, .levels__lines g, .levels__lines g.is-shown { transition: none; }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1280px) {
   .levels__rail { grid-template-columns: repeat(auto-fill, minmax(17em, 1fr)); }
 }
 @media (max-width: 640px) {
