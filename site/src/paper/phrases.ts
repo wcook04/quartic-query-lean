@@ -106,7 +106,7 @@ export function phraseHtml(id: string): string | null {
     // A quoted display keeps its equation number as text after it, never drawn over the formula.
     const copy = s.cloneNode(true) as HTMLElement;
     for (const display of copy.querySelectorAll<HTMLElement>(".katex-display")) {
-      const tags = [...display.querySelectorAll<HTMLElement>(".katex-html .tag")];
+      const tags = [...display.querySelectorAll<HTMLElement>(".katex-html .katex-tag, .katex-html .tag")];
       const numbers = tags.map((t) => (t.textContent ?? "").trim()).filter(Boolean);
       tags.forEach((t) => t.remove());
       const wrap = document.createElement("span");
