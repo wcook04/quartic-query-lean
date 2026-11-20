@@ -11,9 +11,9 @@
  "inputs": {
   "corpus/lean_dependencies.json": "03156dffb7a0e112c987dae7bfb36ff65d8511c541ad67939a1f4065783b424b",
   "corpus/statements.json": "1a1bfce5c5c522d8055a40b555307f4e44e3cd6190c728bc74dd580afce71847",
-  "docs/reasoning_record.md": "0c0074d1a5637f1daf596c550e1c6484272b0c2110110df8ce32fdf5775e794d",
-  "docs/reasoning_record_correspondence.json": "7d51ad721dcb52058beb22c158ec597c7753ec750d40d434c40fa22d9f36db5f",
-  "docs/verification_details.md": "9bceda2127a17a6fcd35525cdf09144ca4e9689b1dd5a92dbf55c9cc7da299d4",
+  "docs/reasoning_record.md": "0b05687d43c79e455f57ac1df464bd8528e31f7f81adf669bd816c40146903fb",
+  "docs/reasoning_record_correspondence.json": "611c4ecec0a8bfaefa88c0f465f5a0aa23d70a8921f377a6e9f86a62a1ba59d2",
+  "docs/verification_details.md": "833c6f2f3c0a4efc2111ec23a2032699bd8f2e18afa9b1538927858ebc219ace",
   "lean/QuarticCorpus/Construction/Challenge.lean": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
   "lean/QuarticCorpus/Construction/Solution.lean": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
   "lean/QuarticCorpus/Construction/comparator.json": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
@@ -86,10 +86,10 @@
  },
  "record": {
   "path": "docs/reasoning_record.md",
-  "sha256": "0c0074d1a5637f1daf596c550e1c6484272b0c2110110df8ce32fdf5775e794d",
+  "sha256": "0b05687d43c79e455f57ac1df464bd8528e31f7f81adf669bd816c40146903fb",
   "sources": {
-   "docs/reasoning_record.md": "0c0074d1a5637f1daf596c550e1c6484272b0c2110110df8ce32fdf5775e794d",
-   "docs/verification_details.md": "9bceda2127a17a6fcd35525cdf09144ca4e9689b1dd5a92dbf55c9cc7da299d4"
+   "docs/reasoning_record.md": "0b05687d43c79e455f57ac1df464bd8528e31f7f81adf669bd816c40146903fb",
+   "docs/verification_details.md": "833c6f2f3c0a4efc2111ec23a2032699bd8f2e18afa9b1538927858ebc219ace"
   },
   "passages_verified": 305,
   "passages_in_correspondence": 305,
@@ -7186,7 +7186,7 @@
      "anchor": "R3-01-ADAPTIVE",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
+     "passage_sha256": "56b1cb9fd5e37581a2e3d7967a4519c52110af0f33c69dba9f5c2ed2c76df9b6",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3896,
@@ -7213,7 +7213,7 @@
      "anchor": "R3-01-ADAPTIVE",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
+     "passage_sha256": "56b1cb9fd5e37581a2e3d7967a4519c52110af0f33c69dba9f5c2ed2c76df9b6",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3896,
@@ -7240,7 +7240,7 @@
      "anchor": "R3-01-ADAPTIVE",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
+     "passage_sha256": "56b1cb9fd5e37581a2e3d7967a4519c52110af0f33c69dba9f5c2ed2c76df9b6",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3896,
@@ -7295,7 +7295,7 @@
      "join": "lean_link_mention",
      "label": "def-bansal-sinha",
      "passage_claims": [],
-     "passage_sha256": "bcbe62542e6a3012617acf7b1c7387a92aece5aeeee9c3e1f8fbc38862077ed4",
+     "passage_sha256": "fb9c63f69fd51979f418e0ee646de7c0fe5222b58b760b34806d184a49721c92",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1856,
@@ -7403,7 +7403,7 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
+     "passage_sha256": "8bc273506339491ae4c8a61ec21038021fc2b131d22a7fe1b84c85b5772b0005",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3812,
@@ -7496,7 +7496,7 @@
      "join": "statement_claim",
      "statement_id": "def-D",
      "via": "solution_proof_reference",
-     "passage_sha256": "e5dcb22579bdcf51cd5b9db57d76205d4b89acc55084417131f8eee78281630f",
+     "passage_sha256": "a6ecf2a681bc791c470674ffcb62ed2f0a8dec50c3fa628a33604898ce1158e6",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1265,
@@ -7576,7 +7576,7 @@
      "join": "statement_claim",
      "statement_id": "def-Q",
      "via": "solution_proof_reference",
-     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
+     "passage_sha256": "56b1cb9fd5e37581a2e3d7967a4519c52110af0f33c69dba9f5c2ed2c76df9b6",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3896,
@@ -7588,7 +7588,7 @@
      "join": "statement_claim",
      "statement_id": "def-Q",
      "via": "solution_proof_reference",
-     "passage_sha256": "fc4e25cf8faec9c72037d720a5d6d15100a892f14f1f6da07a8105030cd5d69f",
+     "passage_sha256": "92f891a5d387eac0d55e7f5e951062bdc88c0d25ad0a7f1a726485fd279a693e",
      "path": "docs/verification_details.md",
      "passage_lines": [
       73,
@@ -7613,12 +7613,12 @@
     "anchor": "R3-01-ADAPTIVE",
     "join": "statement_claim",
     "statement_id": "def-Q",
-    "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
+    "passage_sha256": "56b1cb9fd5e37581a2e3d7967a4519c52110af0f33c69dba9f5c2ed2c76df9b6",
     "path": "docs/reasoning_record.md",
     "line_start": 3921,
     "line_end": 3943,
-    "excerpt_sha256": "f98070a70034ce11ef8f9549845f911510c11ff337bbce6e6e69e3e138f1a87c",
-    "excerpt": "On a nonempty coordinate set, a budget $q$ is admissible when one normalized starting state and one program of cap at most $q$ achieve the required success on every promised input. To include the empty coordinate set, where a constant answer needs no query register, we also allow the constant case explicitly. The resulting condition, the [quantum budget condition](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/proof_index.md#def-QLe), is\n\n\\[\n\\begin{split}\n&\\bigl[\\exists b\\in\\{0,1\\}\\ \\forall x\\in\\mathcal D,\\ f(x)=b\\bigr]\\\\\n&\\quad\\lor\\\n\\bigl[\\exists w,\\psi_0,A:\\ \\|\\psi_0\\|=1,\\\n  \\operatorname{cap}(A)\\leq q,\\\n  \\forall x\\in\\mathcal D,\\ M_A(x,\\psi_0,f(x))\\geq2/3\\bigr].\n\\end{split}\n\\]\n\nEvery existential choice in the second clause precedes the input quantifier. The first clause permits a constant answer with no query register. It is redundant when a nonempty query register is available, but necessary for this representation when $I=\\varnothing$: there is then one possible input and no unit vector in the zero-dimensional indexed query space. Every partial Boolean function on that singleton input set is constant on its promise, including an empty promise. The clause therefore supplies exactly the expected zero-query behavior.\n\nDefine $Q(f)=\\min\\{q\\in\\mathbb N:q\\text{ is admissible for }f\\}$. To see that this minimum exists, simulate a deterministic tree. On a nonempty coordinate set, prepare the basis state for its next query with answer bit zero, query once, measure the answer bit, and follow the corresponding child. Each child has its own input-independent basis permutation preparing its next coordinate. The classical history is already encoded by the program branch. Induction on the tree gives the same output and no larger cap. Constant trees, including those on empty coordinates, use the first clause. Hence\n\n\\[\nQ(f)\\leq D(f)\\leq |I|,\n\\qquad\nQ(f)\\leq q\\iff q\\text{ is admissible for }f.\n\\]\n\nAs in the classical case, nonemptiness and monotonicity of admissible budgets justify the source's natural-number infimum."
+    "excerpt_sha256": "4642c273b57c25c8bb87279f71d7e80602914e17b047d59e71f9fb168aae3195",
+    "excerpt": "On a nonempty coordinate set, a budget $q$ is admissible when one normalized starting state and one program of cap at most $q$ achieve the required success on every promised input. To include the empty coordinate set, where a constant answer needs no query register, we also allow the constant case explicitly. The resulting condition, the [quantum budget condition](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/proof_index.md#def-QLe), is\n\n\\[\n\\begin{split}\n&\\bigl[\\exists b\\in\\{0,1\\}\\ \\forall x\\in\\mathcal D,\\ f(x)=b\\bigr]\\\\\n&\\quad\\lor\\\n\\bigl[\\exists w,\\psi_0,A:\\ \\|\\psi_0\\|=1,\\\n  \\operatorname{cap}(A)\\leq q,\\\n  \\forall x\\in\\mathcal D,\\ M_A(x,\\psi_0,f(x))\\geq2/3\\bigr].\n\\end{split}\n\\]\n\nEvery existential choice in the second clause precedes the input quantifier. The first clause permits a constant answer with no query register. It is redundant when a nonempty query register is available, but necessary for this representation when $I=\\varnothing$: there is then one possible input and no unit vector in the zero-dimensional indexed query space. Every partial Boolean function on that singleton input set is constant on its promise, including an empty promise. The clause therefore supplies exactly the expected zero-query behavior.\n\nDefine $Q(f)=\\min\\{q\\in\\mathbb N:q\\text{ is admissible for }f\\}$. To see that this minimum exists, simulate a deterministic tree. On a nonempty coordinate set, prepare the basis state for its next query with answer bit zero, query once, measure the answer bit, and follow the corresponding child. Each child has its own input-independent basis permutation preparing its next coordinate. The classical history is already encoded by the program branch. Induction on the tree gives the same output and no larger cap. Constant trees, including those on empty coordinates, use the first clause. Hence\n\n\\[\nQ(f)\\leq D(f)\\leq |I|,\n\\qquad\nQ(f)\\leq q\\iff q\\text{ is admissible for }f.\n\\]\n\nAs in the classical case, nonemptiness and monotonicity of admissible budgets justify the source's natural-number infimum."
    },
    "gap": null
   },
@@ -7651,7 +7651,7 @@
      "join": "statement_claim",
      "statement_id": "def-Q",
      "via": "solution_proof_reference",
-     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
+     "passage_sha256": "56b1cb9fd5e37581a2e3d7967a4519c52110af0f33c69dba9f5c2ed2c76df9b6",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3896,
@@ -7663,7 +7663,7 @@
      "join": "statement_claim",
      "statement_id": "def-Q",
      "via": "solution_proof_reference",
-     "passage_sha256": "fc4e25cf8faec9c72037d720a5d6d15100a892f14f1f6da07a8105030cd5d69f",
+     "passage_sha256": "92f891a5d387eac0d55e7f5e951062bdc88c0d25ad0a7f1a726485fd279a693e",
      "path": "docs/verification_details.md",
      "passage_lines": [
       73,
@@ -7675,12 +7675,12 @@
     "anchor": "R3-01-ADAPTIVE",
     "join": "statement_claim",
     "statement_id": "def-Q",
-    "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
+    "passage_sha256": "56b1cb9fd5e37581a2e3d7967a4519c52110af0f33c69dba9f5c2ed2c76df9b6",
     "path": "docs/reasoning_record.md",
     "line_start": 3921,
     "line_end": 3943,
-    "excerpt_sha256": "f98070a70034ce11ef8f9549845f911510c11ff337bbce6e6e69e3e138f1a87c",
-    "excerpt": "On a nonempty coordinate set, a budget $q$ is admissible when one normalized starting state and one program of cap at most $q$ achieve the required success on every promised input. To include the empty coordinate set, where a constant answer needs no query register, we also allow the constant case explicitly. The resulting condition, the [quantum budget condition](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/proof_index.md#def-QLe), is\n\n\\[\n\\begin{split}\n&\\bigl[\\exists b\\in\\{0,1\\}\\ \\forall x\\in\\mathcal D,\\ f(x)=b\\bigr]\\\\\n&\\quad\\lor\\\n\\bigl[\\exists w,\\psi_0,A:\\ \\|\\psi_0\\|=1,\\\n  \\operatorname{cap}(A)\\leq q,\\\n  \\forall x\\in\\mathcal D,\\ M_A(x,\\psi_0,f(x))\\geq2/3\\bigr].\n\\end{split}\n\\]\n\nEvery existential choice in the second clause precedes the input quantifier. The first clause permits a constant answer with no query register. It is redundant when a nonempty query register is available, but necessary for this representation when $I=\\varnothing$: there is then one possible input and no unit vector in the zero-dimensional indexed query space. Every partial Boolean function on that singleton input set is constant on its promise, including an empty promise. The clause therefore supplies exactly the expected zero-query behavior.\n\nDefine $Q(f)=\\min\\{q\\in\\mathbb N:q\\text{ is admissible for }f\\}$. To see that this minimum exists, simulate a deterministic tree. On a nonempty coordinate set, prepare the basis state for its next query with answer bit zero, query once, measure the answer bit, and follow the corresponding child. Each child has its own input-independent basis permutation preparing its next coordinate. The classical history is already encoded by the program branch. Induction on the tree gives the same output and no larger cap. Constant trees, including those on empty coordinates, use the first clause. Hence\n\n\\[\nQ(f)\\leq D(f)\\leq |I|,\n\\qquad\nQ(f)\\leq q\\iff q\\text{ is admissible for }f.\n\\]\n\nAs in the classical case, nonemptiness and monotonicity of admissible budgets justify the source's natural-number infimum."
+    "excerpt_sha256": "4642c273b57c25c8bb87279f71d7e80602914e17b047d59e71f9fb168aae3195",
+    "excerpt": "On a nonempty coordinate set, a budget $q$ is admissible when one normalized starting state and one program of cap at most $q$ achieve the required success on every promised input. To include the empty coordinate set, where a constant answer needs no query register, we also allow the constant case explicitly. The resulting condition, the [quantum budget condition](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/proof_index.md#def-QLe), is\n\n\\[\n\\begin{split}\n&\\bigl[\\exists b\\in\\{0,1\\}\\ \\forall x\\in\\mathcal D,\\ f(x)=b\\bigr]\\\\\n&\\quad\\lor\\\n\\bigl[\\exists w,\\psi_0,A:\\ \\|\\psi_0\\|=1,\\\n  \\operatorname{cap}(A)\\leq q,\\\n  \\forall x\\in\\mathcal D,\\ M_A(x,\\psi_0,f(x))\\geq2/3\\bigr].\n\\end{split}\n\\]\n\nEvery existential choice in the second clause precedes the input quantifier. The first clause permits a constant answer with no query register. It is redundant when a nonempty query register is available, but necessary for this representation when $I=\\varnothing$: there is then one possible input and no unit vector in the zero-dimensional indexed query space. Every partial Boolean function on that singleton input set is constant on its promise, including an empty promise. The clause therefore supplies exactly the expected zero-query behavior.\n\nDefine $Q(f)=\\min\\{q\\in\\mathbb N:q\\text{ is admissible for }f\\}$. To see that this minimum exists, simulate a deterministic tree. On a nonempty coordinate set, prepare the basis state for its next query with answer bit zero, query once, measure the answer bit, and follow the corresponding child. Each child has its own input-independent basis permutation preparing its next coordinate. The classical history is already encoded by the program branch. Induction on the tree gives the same output and no larger cap. Constant trees, including those on empty coordinates, use the first clause. Hence\n\n\\[\nQ(f)\\leq D(f)\\leq |I|,\n\\qquad\nQ(f)\\leq q\\iff q\\text{ is admissible for }f.\n\\]\n\nAs in the classical case, nonemptiness and monotonicity of admissible budgets justify the source's natural-number infimum."
    },
    "gap": null
   },
@@ -7742,7 +7742,7 @@
      "join": "statement_claim",
      "statement_id": "def-R",
      "via": "solution_proof_reference",
-     "passage_sha256": "6f262d7463f2f91876fe1cfe17c8b39b801840e68c7f7d70633cdc5221d0444f",
+     "passage_sha256": "92c0aec59407734e1aaa5a96f3c8801eee20016563ad7fec4a15cc7674924f66",
      "path": "docs/verification_details.md",
      "passage_lines": [
       49,
@@ -7817,7 +7817,7 @@
      "join": "statement_claim",
      "statement_id": "def-R",
      "via": "solution_proof_reference",
-     "passage_sha256": "6f262d7463f2f91876fe1cfe17c8b39b801840e68c7f7d70633cdc5221d0444f",
+     "passage_sha256": "92c0aec59407734e1aaa5a96f3c8801eee20016563ad7fec4a15cc7674924f66",
      "path": "docs/verification_details.md",
      "passage_lines": [
       49,
@@ -7879,7 +7879,7 @@
      "join": "statement_claim",
      "statement_id": "prop-4.2-generic",
      "via": "solution_proof_reference",
-     "passage_sha256": "7c423110be5f1a5ff9ddbc424d696489fc0ad18816c5407d18369aacb0198f03",
+     "passage_sha256": "d83cdd6a18a86a3a6b1d2ff6cbbd68c6eaa2f8f925cde1e3e262a0722b46e31f",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1207,
@@ -7941,7 +7941,7 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "b656cbd1f6fddd66093f64b1e554445edf3d2b35ef0d3c6174e7f4ad5e0857f5",
+     "passage_sha256": "0fe0736c787609678fb89dcd7558bbdd19cd3827d41ad8ce9f3502adc624a3d2",
      "path": "docs/verification_details.md",
      "passage_lines": [
       109,
@@ -8003,7 +8003,7 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "b656cbd1f6fddd66093f64b1e554445edf3d2b35ef0d3c6174e7f4ad5e0857f5",
+     "passage_sha256": "0fe0736c787609678fb89dcd7558bbdd19cd3827d41ad8ce9f3502adc624a3d2",
      "path": "docs/verification_details.md",
      "passage_lines": [
       109,
@@ -8065,7 +8065,7 @@
      "join": "statement_claim",
      "statement_id": "cor-cubic-refuted",
      "via": "solution_proof_reference",
-     "passage_sha256": "f518578f8d45114e81ff8a4df962230da292713a9a19e42258c51488997ccfdf",
+     "passage_sha256": "99d6c1b511d893734ac6de6c83a852debb9f6c319caf91196656445481984eb3",
      "path": "docs/verification_details.md",
      "passage_lines": [
       121,
@@ -8127,7 +8127,7 @@
      "join": "statement_claim",
      "statement_id": "cor-cubic-refuted",
      "via": "solution_proof_reference",
-     "passage_sha256": "f518578f8d45114e81ff8a4df962230da292713a9a19e42258c51488997ccfdf",
+     "passage_sha256": "99d6c1b511d893734ac6de6c83a852debb9f6c319caf91196656445481984eb3",
      "path": "docs/verification_details.md",
      "passage_lines": [
       121,
@@ -8177,7 +8177,7 @@
      "join": "statement_claim",
      "statement_id": "def-transcript",
      "via": "solution_proof_reference",
-     "passage_sha256": "a8c82347cf7641983eb2dcd4e00f172e246d286538b1883c35e6e06ce9f867b6",
+     "passage_sha256": "44b7fd35967dac3f26e5f1d17bb6c77c70008348542c5a94770f4f6c8298080a",
      "path": "docs/verification_details.md",
      "passage_lines": [
       299,
@@ -8202,12 +8202,12 @@
     "anchor": "CAT-def-transcript",
     "join": "statement_claim",
     "statement_id": "def-transcript",
-    "passage_sha256": "a8c82347cf7641983eb2dcd4e00f172e246d286538b1883c35e6e06ce9f867b6",
+    "passage_sha256": "44b7fd35967dac3f26e5f1d17bb6c77c70008348542c5a94770f4f6c8298080a",
     "path": "docs/verification_details.md",
     "line_start": 302,
     "line_end": 304,
-    "excerpt_sha256": "8db866ab1dfaa5c99484c770428398b59f22ccd81f914b4b42b39bbd792e2e46",
-    "excerpt": "> For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input.\n\n**Argument:** [§4.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#CL-transcripts)."
+    "excerpt_sha256": "4cea4aefcd7138fea1b8e19e4b03c316c3da60776d15c5a9c34707f38b4935df",
+    "excerpt": "> For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input.\n\n**Argument:** [§4.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/reasoning_record.md#CL-transcripts)."
    },
    "gap": null
   },
@@ -8286,7 +8286,7 @@
      "join": "statement_claim",
      "statement_id": "eq-2",
      "via": "solution_proof_reference",
-     "passage_sha256": "be6c6a3f0fca263bd3d5475d4f87327619b4b521ecac2a4ec446720a08aca92c",
+     "passage_sha256": "104ebcdfa8334a8921cddb082c7729354d9b579aa4a7c43cb0576d97bf0c7f61",
      "path": "docs/verification_details.md",
      "passage_lines": [
       97,
@@ -8348,7 +8348,7 @@
      "join": "statement_claim",
      "statement_id": "lem-2.1.i",
      "via": "solution_proof_reference",
-     "passage_sha256": "67f52d46d90472ff76d4b4f82a420b369d6fa58953d456c2aae3aee1cbd9b982",
+     "passage_sha256": "a7c64a68be7ea314d88dddf745a31e8a32332219499055b48f7646216637bd5a",
      "path": "docs/verification_details.md",
      "passage_lines": [
       199,
@@ -8360,7 +8360,7 @@
      "join": "lean_link_mention",
      "label": "thm-forrelation",
      "passage_claims": [],
-     "passage_sha256": "bcbe62542e6a3012617acf7b1c7387a92aece5aeeee9c3e1f8fbc38862077ed4",
+     "passage_sha256": "fb9c63f69fd51979f418e0ee646de7c0fe5222b58b760b34806d184a49721c92",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1856,
@@ -8422,7 +8422,7 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "b656cbd1f6fddd66093f64b1e554445edf3d2b35ef0d3c6174e7f4ad5e0857f5",
+     "passage_sha256": "0fe0736c787609678fb89dcd7558bbdd19cd3827d41ad8ce9f3502adc624a3d2",
      "path": "docs/verification_details.md",
      "passage_lines": [
       109,
@@ -8484,7 +8484,7 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "b656cbd1f6fddd66093f64b1e554445edf3d2b35ef0d3c6174e7f4ad5e0857f5",
+     "passage_sha256": "0fe0736c787609678fb89dcd7558bbdd19cd3827d41ad8ce9f3502adc624a3d2",
      "path": "docs/verification_details.md",
      "passage_lines": [
       109,
@@ -8534,7 +8534,7 @@
      "join": "statement_claim",
      "statement_id": "thm-A.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "e0d117eb9226b92ec073846a25688c05bc37003a34f11a5f020e2aadad943440",
+     "passage_sha256": "8f972bc385311e67e3326fcdbce8bea5f6ef5ff7e7dcfd55edb7613822308c64",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1505,
@@ -8546,12 +8546,12 @@
     "anchor": "CAT-thm-A.1",
     "join": "statement_claim",
     "statement_id": "thm-A.1",
-    "passage_sha256": "e0d117eb9226b92ec073846a25688c05bc37003a34f11a5f020e2aadad943440",
+    "passage_sha256": "8f972bc385311e67e3326fcdbce8bea5f6ef5ff7e7dcfd55edb7613822308c64",
     "path": "docs/verification_details.md",
     "line_start": 1508,
     "line_end": 1510,
-    "excerpt_sha256": "a7db135fb8f0929d99ef9b1c3af6499b69a2877863bd80a06fe9177b91bd5ac7",
-    "excerpt": "> Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.\n\n**Argument:** [Appendix A](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#ROOT-APPENDIX-INTRO), [§A.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#ROOT-QUARTIC-UPPER)."
+    "excerpt_sha256": "0e8b91b6655449045d21043bcc3e08029b787941b6222860af612beb25cc3d5a",
+    "excerpt": "> Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.\n\n**Argument:** [Appendix A](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/reasoning_record.md#ROOT-APPENDIX-INTRO), [§A.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/reasoning_record.md#ROOT-QUARTIC-UPPER)."
    },
    "gap": null
   },
@@ -8596,7 +8596,7 @@
      "join": "statement_claim",
      "statement_id": "claim-winner-dominates",
      "via": "solution_proof_reference",
-     "passage_sha256": "39a8540deef2ed1c59ac12484b81ec14440583859ac1d7de6915a16af9eac75f",
+     "passage_sha256": "79a39b05dd2a865ed6d058e8ffef90f22d086053c989793bfb3ce6d4a9b9b5ed",
      "path": "docs/verification_details.md",
      "passage_lines": [
       803,
@@ -8671,7 +8671,7 @@
      "join": "statement_claim",
      "statement_id": "claim-winner-dominates",
      "via": "solution_proof_reference",
-     "passage_sha256": "39a8540deef2ed1c59ac12484b81ec14440583859ac1d7de6915a16af9eac75f",
+     "passage_sha256": "79a39b05dd2a865ed6d058e8ffef90f22d086053c989793bfb3ce6d4a9b9b5ed",
      "path": "docs/verification_details.md",
      "passage_lines": [
       803,
@@ -8743,7 +8743,7 @@
      "join": "statement_claim",
      "statement_id": "def-F",
      "via": "solution_proof_reference",
-     "passage_sha256": "9cab2b53e4178b27cfa4039e1e5a216d20aa5f6b960f6c8e28d83cff69ae306b",
+     "passage_sha256": "bc4ef32fa3da369c1ba77f0c3939faecdde3cdb3c12f7389063262c0fac06bcf",
      "path": "docs/verification_details.md",
      "passage_lines": [
       383,
@@ -8755,7 +8755,7 @@
      "join": "statement_claim",
      "statement_id": "cor-unique-winner",
      "via": "solution_proof_reference",
-     "passage_sha256": "b0d67e397e02c37e3fd6c88c6a0e8aa9a117374e557f96e47f6e612778f94b42",
+     "passage_sha256": "7c07d995716d414aeb4c41aef38cc24cc14f0028501e2e49df31d739fa6c2d34",
      "path": "docs/verification_details.md",
      "passage_lines": [
       395,
@@ -8780,12 +8780,12 @@
     "anchor": "CAT-def-F",
     "join": "statement_claim",
     "statement_id": "def-F",
-    "passage_sha256": "9cab2b53e4178b27cfa4039e1e5a216d20aa5f6b960f6c8e28d83cff69ae306b",
+    "passage_sha256": "bc4ef32fa3da369c1ba77f0c3939faecdde3cdb3c12f7389063262c0fac06bcf",
     "path": "docs/verification_details.md",
     "line_start": 386,
     "line_end": 388,
-    "excerpt_sha256": "c759abaa33af29327c414621211a05b9c1b9761b5ff3309cf270634d1697f808",
-    "excerpt": "> F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.\n\n**Argument:** [§4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#CL-construction-context), [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#CL-address-winner)."
+    "excerpt_sha256": "5b05d788b9f088b133617d8793b3865ff8879066a059ac08ae80a33a07558c72",
+    "excerpt": "> F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.\n\n**Argument:** [§4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/reasoning_record.md#CL-construction-context), [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/reasoning_record.md#CL-address-winner)."
    },
    "gap": null
   },
@@ -8905,7 +8905,7 @@
      "anchor": "R3-01-ADAPTIVE",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
+     "passage_sha256": "56b1cb9fd5e37581a2e3d7967a4519c52110af0f33c69dba9f5c2ed2c76df9b6",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3896,
@@ -9018,7 +9018,7 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
+     "passage_sha256": "8bc273506339491ae4c8a61ec21038021fc2b131d22a7fe1b84c85b5772b0005",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3812,
@@ -9191,7 +9191,7 @@
      "join": "statement_claim",
      "statement_id": "eq-19",
      "via": "statement_tie",
-     "passage_sha256": "8c76332717a87917844111345d94c8646f7de82616fdd3cdfe9cda475bb20699",
+     "passage_sha256": "8385e53839384fbbd9d9b3def540140e8003600e8c920833ed845e115ecca01e",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1075,
@@ -9414,7 +9414,7 @@
      "join": "statement_claim",
      "statement_id": "lem-2.2.i",
      "via": "statement_tie",
-     "passage_sha256": "36f4bf6b663725387ab2fe69be4a0dfb0e473aa328bc7f308e8cab290dcc76d7",
+     "passage_sha256": "0252386f897b689a0417f7b0819e0f3dc15f13ab3203cd8bbbcc0cb00384d1f2",
      "path": "docs/verification_details.md",
      "passage_lines": [
       431,
@@ -9426,7 +9426,7 @@
      "join": "statement_claim",
      "statement_id": "lem-2.2.ii",
      "via": "statement_tie",
-     "passage_sha256": "4a6a2bc3a790dd98776983568c507eb1de90ed9f51fce9886f50d500f67d9659",
+     "passage_sha256": "a302cc309698b365a29896ba7efa66ed9fc4b1e9afce0b85528d5e0aaee0e650",
      "path": "docs/verification_details.md",
      "passage_lines": [
       443,
@@ -9438,7 +9438,7 @@
      "join": "statement_claim",
      "statement_id": "lem-2.2",
      "via": "statement_tie",
-     "passage_sha256": "459deded5bd28193a372e14e8070506accd4b6e43b0c9fb6c51c519145d44f73",
+     "passage_sha256": "1994f2413b7375c31d155e88d3c72276838e109c9effba1126fdb894e36a2bd5",
      "path": "docs/verification_details.md",
      "passage_lines": [
       455,
@@ -9462,12 +9462,12 @@
     "anchor": "CAT-lem-2.2.i",
     "join": "statement_claim",
     "statement_id": "lem-2.2.i",
-    "passage_sha256": "36f4bf6b663725387ab2fe69be4a0dfb0e473aa328bc7f308e8cab290dcc76d7",
+    "passage_sha256": "0252386f897b689a0417f7b0819e0f3dc15f13ab3203cd8bbbcc0cb00384d1f2",
     "path": "docs/verification_details.md",
     "line_start": 434,
     "line_end": 436,
-    "excerpt_sha256": "b43fc72b98e95c4bf32cfadf7660e67fcb07af9aec29f7a760e3f885f120b144",
-    "excerpt": "> For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.\n\n**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#CL-local-tests), [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#CL-local-equivalence), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#upper-verifier)."
+    "excerpt_sha256": "2de8d6ba845a1513282fa26d2a9393fcd477f4b4f064d723a715a4a67227d68f",
+    "excerpt": "> For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.\n\n**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/reasoning_record.md#CL-local-tests), [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/reasoning_record.md#CL-local-equivalence), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/reasoning_record.md#upper-verifier)."
    },
    "gap": null
   },
@@ -9508,7 +9508,7 @@
      "join": "statement_claim",
      "statement_id": "eq-19",
      "via": "statement_tie",
-     "passage_sha256": "8c76332717a87917844111345d94c8646f7de82616fdd3cdfe9cda475bb20699",
+     "passage_sha256": "8385e53839384fbbd9d9b3def540140e8003600e8c920833ed845e115ecca01e",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1075,
@@ -9581,7 +9581,7 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
+     "passage_sha256": "8bc273506339491ae4c8a61ec21038021fc2b131d22a7fe1b84c85b5772b0005",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3812,
@@ -9656,7 +9656,7 @@
      "anchor": "R3-01-ADAPTIVE",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
+     "passage_sha256": "56b1cb9fd5e37581a2e3d7967a4519c52110af0f33c69dba9f5c2ed2c76df9b6",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3896,
@@ -9715,7 +9715,7 @@
      "anchor": "R3-01-ADAPTIVE",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
+     "passage_sha256": "56b1cb9fd5e37581a2e3d7967a4519c52110af0f33c69dba9f5c2ed2c76df9b6",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3896,
@@ -9737,7 +9737,7 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
+     "passage_sha256": "8bc273506339491ae4c8a61ec21038021fc2b131d22a7fe1b84c85b5772b0005",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3812,
@@ -9973,7 +9973,7 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
+     "passage_sha256": "8bc273506339491ae4c8a61ec21038021fc2b131d22a7fe1b84c85b5772b0005",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3812,
@@ -10128,7 +10128,7 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
+     "passage_sha256": "8bc273506339491ae4c8a61ec21038021fc2b131d22a7fe1b84c85b5772b0005",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3812,
@@ -10243,7 +10243,7 @@
      "passage_claims": [
       "r3-q-physical-state-bridge"
      ],
-     "passage_sha256": "7ae412bb86870d28e5b0850cb64f0f819315e214183317dde8b4d9819218d048",
+     "passage_sha256": "513ef345369f8d239ff32a692a3bff4f8670e80b979cb673473c2d3607a9990b",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1918,
@@ -10254,7 +10254,7 @@
    "primary_gloss": {
     "anchor": "upper-missing-physical-state",
     "join": "lean_link_mention",
-    "passage_sha256": "7ae412bb86870d28e5b0850cb64f0f819315e214183317dde8b4d9819218d048",
+    "passage_sha256": "513ef345369f8d239ff32a692a3bff4f8670e80b979cb673473c2d3607a9990b",
     "path": "docs/verification_details.md",
     "line_start": 1944,
     "line_end": 1944,
@@ -10458,7 +10458,7 @@
      "join": "lean_link_mention",
      "label": "cmp-direct-product",
      "passage_claims": [],
-     "passage_sha256": "c6191485a7bcfe65c31886ba2d254dabe2a705156d0a9bfea66c6e5ce0fa4976",
+     "passage_sha256": "bb6a0e23ff283ffa17d643efc1cf592905322460fe6ae133d133d0d50ad4edd1",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1950,
@@ -10469,7 +10469,7 @@
    "primary_gloss": {
     "anchor": "CL-direct-product-formal",
     "join": "lean_link_mention",
-    "passage_sha256": "c6191485a7bcfe65c31886ba2d254dabe2a705156d0a9bfea66c6e5ce0fa4976",
+    "passage_sha256": "bb6a0e23ff283ffa17d643efc1cf592905322460fe6ae133d133d0d50ad4edd1",
     "path": "docs/verification_details.md",
     "line_start": 1962,
     "line_end": 1972,
@@ -10632,7 +10632,7 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
+     "passage_sha256": "8bc273506339491ae4c8a61ec21038021fc2b131d22a7fe1b84c85b5772b0005",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3812,
@@ -10779,7 +10779,7 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
+     "passage_sha256": "8bc273506339491ae4c8a61ec21038021fc2b131d22a7fe1b84c85b5772b0005",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
       3812,

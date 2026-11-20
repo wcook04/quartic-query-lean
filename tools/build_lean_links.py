@@ -570,8 +570,9 @@ INDEX = "docs/proof_index.md"
 
 
 def pin_index_links(text):
-    """Point theorem-index links at the release instead of the moving main branch."""
-    return text.replace(f"{REPOSITORY}/blob/main/{INDEX}", f"{REPOSITORY}/blob/{RELEASE}/{INDEX}")
+    """Point theorem-index and supplement links at this release, from main or an older tag."""
+    return re.sub(re.escape(REPOSITORY) + r"/blob/(?:main|v[0-9]+(?:\.[0-9]+)*)/(" + re.escape(INDEX) + "|"
+                  + re.escape(SUPPLEMENT) + r")", lambda m: f"{REPOSITORY}/blob/{RELEASE}/{m.group(1)}", text)
 
 
 def check_release(outputs, final=False):
