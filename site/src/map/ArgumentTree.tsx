@@ -36,6 +36,8 @@ import { layoutBounds, layoutTree } from "./engine/layout";
 import { arrowHead, polygonPath, roundedPath, route, type Plan, type Pt, type Routed } from "./engine/router";
 import { ensureVisible, fitBounds, frameBox, revealBox, travelMs, zoomPath, type Bounds, type View, type Viewport } from "./engine/camera";
 import { CAMERA_MS, MOVE_MS, easeMove, lerp } from "./engine/motion";
+/** Quartic: a brief camera move when the graph's subject changes. */
+const FIT_MS = 250;
 import { METRICS, METRICS_COMPACT, METRICS_DENSE, type EngineEdge, type Layout, type Metrics, type Rect, type Size } from "./engine/types";
 import { COMPACT_FLOOR, STEPS_MIN_K, DENSE_H, DENSE_H_SECTION, DENSE_ROOT_H, DENSE_ROOT_W, DENSE_TILE, DENSE_W, LEAN_BREAK, MAX_K, REF_PX, STEPS_FLOOR, STEPS_K, TILE, fitPlate, fitTitle, floorK, shortTitle as cutTitle, repFor, titlePieces, type MapMode, type MeasuredTitle, type Rep, type TitleKind } from "./canvas/representation";
 import type { MapScene } from "./canvas/scene";
@@ -70,7 +72,7 @@ export interface MapViewHandle {
    * title whole, the focus with the goal when both fit, or the focus alone.
    */
   frameFocus(ids: readonly string[], maxReadK: number, animate?: boolean): void;
-  fitNodes(ids: Iterable<string>, animate?: boolean): void;
+  fitNodes(ids: Iterable<string>, animate?: boolean, minK?: number): void;
   zoomBy(factor: number): void;
   focusNode(id: string): void;
   expandAll(): void;
@@ -132,6 +134,8 @@ export interface TreeProps {
   rootContent?: ReactNode;
   /** The theorem's first sentence, shown under the plate's title in compact form when the tile has room. */
   rootExcerpt?: ReactNode;
+  /** Quartic: the small word over the root tile; "Main result" unless a view roots elsewhere. */
+  rootWord?: string;
   onSelect(id: string | null): void;
   onTrace(id: string): void;
   onHover?(id: string | null): void;
@@ -1657,7 +1661,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
         const readK = readableK(l, Math.min(maxReadK, STEPS_MIN_K), maxReadK);
         const lit = boundsOf(l, ids, 24);
         if (full.k >= readK - 1e-3 || !lit) {
-          moveCamera(full, animate);
+          moveCamera(full, animate, FIT_MS);
           return;
         }
         // The whole neighbourhood would need a scale at which titles are cut: keep the
@@ -1669,17 +1673,17 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
         const both = boundsOf(l, [...ids, goal], 24);
         const b = both && fits(both) ? both : lit;
         const first = ids.find((id) => hasRec(l, id));
-        moveCamera(frameBox(b, vp, { min: readK, max: readK, anchor: first ? boxOf(l, first, 24) : null, top: !fits(b) }), animate);
+        moveCamera(frameBox(b, vp, { min: readK, max: readK, anchor: first ? boxOf(l, first, 24) : null, top: !fits(b) }), animate, FIT_MS);
       },
-      fitNodes: (ids, animate = true) => {
+      fitNodes: (ids, animate = true, minK) => {
         const list = [...ids];
         const fn = (l: Layout) => {
           const b = boundsOf(l, list, compact ? 24 : 40);
-          return b ? fitBounds(b, viewport(), { max: 1, min: compact ? COMPACT_FLOOR : floor }) : null;
+          return b ? fitBounds(b, viewport(), { max: 1, min: minK ?? (compact ? COMPACT_FLOOR : floor) }) : null;
         };
         if (list.every((id) => hasRec(builtRef.current.layout, id))) {
           const v = fn(builtRef.current.layout);
-          if (v) moveCamera(v, animate);
+          if (v) moveCamera(v, animate, FIT_MS);
         } else pendingCamera.current = fn;
       },
       zoomBy: (factor) => {
@@ -2743,7 +2747,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
                 )}
               </div>
               <div className="card__compact" aria-hidden="true">
-                {isRoot && <span className="card__cmain">Main result</span>}
+                {isRoot && <span className="card__cmain">{props.rootWord ?? "Main result"}</span>}
                 <span className={`card__ctitle${tileLean ? " lean" : ""}`}>{tileLean ? <LeanName name={tile} camel /> : isRoot ? <WholeWords text={tile} /> : node.math ? <span className="card__math" dangerouslySetInnerHTML={{ __html: titleHtml(node.math) }} /> : tile}</span>
                 {section && <span className="card__csec">{section}</span>}
                 {node.rawName && <code className="card__craw">{node.rawName}</code>}

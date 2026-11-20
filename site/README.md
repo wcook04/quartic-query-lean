@@ -66,12 +66,26 @@ neighbouring phrases differ. The hues keep clear of amber, the cyan, violet and 
 statement matches, mauve and red; every two topics of a paper differ by CIEDE2000 ΔE ≥ 15 over the page in both themes (`tests/test_topic_colours.py`). Hovering a phrase names its topic and declarations and
 lights their cards; hovering a card lights its phrase. Clicking a phrase selects its
 paragraph and declaration and keeps the open tab: the Lean tab shows the declaration with the
-tied lines lit, the Graph tab a strip naming it, the Passage tab every phrase card of the
-paragraph. A card gives the paper's own title, the quoted words, what the Lean row does with
+tied lines lit; the Graph tab splits ([`src/inspect/PhraseSplit.tsx`](src/inspect/PhraseSplit.tsx)):
+the graph stays above, framed on the declaration's card and its drawn neighbours; when the map
+does not draw it, the top half draws the declaration with the project declarations it uses and
+those that use it ([`src/map/LocalGraph.tsx`](src/map/LocalGraph.tsx), at most eight each,
+most specific first), with a button back to the passage map. Below a draggable divider the
+phrase's card and Lean, with the tied lines lit, scroll on their own, one tab per declaration
+when the phrase has several. The close button or Escape restores the whole graph; on a phone the graph folds to one line above the card. The
+Passage tab puts the clicked phrase's card first, then the paragraph's other phrases. A card gives the paper's own title, the quoted words, what the Lean row does with
 them, the comparison with these words in plain words ("Lean states less: …", marked
 AI-assessed) and the reading note (marked AI-drafted), typeset with KaTeX. The comparison
 with OpenAI's statement keeps its exact, stronger and partial marks under "Matches OpenAI's
-statement". The contents rail and the Topic colours menu give the key.
+statement". The contents rail and the Topic colours menu give the key; every listed section
+and subsection in the rail carries the colour dashes of the topics whose tied phrases it
+contains, its subsections' included.
+
+Whenever the graph's subject changes (a passage followed, a card or phrase chosen) the camera
+moves for 250 ms (none under reduced motion) to frame the selected card with its drawn
+neighbours, or the passage's graph, at a readable scale; when that cannot fit, the selected
+card or the passage's own steps stay centred. A manual pan or zoom holds until the next
+subject change; a resize or a dragged divider frames the subject again.
 
 ## Colours in the graph, and figures
 

@@ -35,7 +35,7 @@ export function Contents({ rows, current, onGo, phrases }: { rows: ContentsRow[]
               className={current === r ? "is-here" : ""}
               onClick={(e) => { e.preventDefault(); onGo(r); }}>
               <NumberedTitle text={r.title} />
-              {r.level === top && (() => {
+              {(() => {
                 const here = topicsIn(r);
                 return here.length > 0 && (
                   <span className="topic-bars" title={`Phrases tied to Lean on: ${here.map((t) => t.name).join(", ")}`}>
