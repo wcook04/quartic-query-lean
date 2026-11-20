@@ -136,6 +136,15 @@ the recorded graph, such as a semantic example in `lean/QuarticCorpus/`, is loca
 file and that file joins the edition. The returns and their review are preserved in
 [research/returns/phrase_links](../research/returns/phrase_links/README.md).
 
+### Short card titles
+
+A graph card whose declaration title is a statement sentence of more than fourteen words also
+carries `short_title` and `short_title_plain` in `selection/proof-map.json`. They come from
+[reading_card_titles.json](reading_card_titles.json), bound to the Lean source snapshot, or else
+from the first paper whose phrase layer titles the declaration. The map draws the short title;
+the sentence stays the declaration title and is the card's detail. The export fails when a long
+card has no short title.
+
 ## Open the Lean map beside the paper
 
 The map is an optional, immutable edition resource at `selection/proof-map.json`

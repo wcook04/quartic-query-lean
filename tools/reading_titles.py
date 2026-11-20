@@ -7,6 +7,10 @@ SOURCE = "docs/reading_declaration_titles.json"
 RESOURCE = "selection/declaration-titles.json"
 STATEMENT_SOURCE = "docs/reading_statement_presentations.json"
 STATEMENT_RESOURCE = "selection/statement-titles.json"
+CARD_SOURCE = "docs/reading_card_titles.json"
+PHRASE_SOURCES = ("docs/reading_phrases/expert.json", "docs/reading_phrases/exposition.json",
+                  "docs/reading_phrases/reconstruction.json")
+CARD_TITLE_WORDS = 14
 
 
 def unique_keys(pairs):
@@ -92,3 +96,33 @@ def statement_presentations(edition, statements):
     edition.add(STATEMENT_RESOURCE, {"schema": "quartic-statement-titles-v1", "revision": edition.commit,
                                      "titles": titles})
     return presentations
+
+
+def card_short_titles(edition, snapshot, names, titles):
+    """A short title for each graph card whose declaration title is a long statement sentence.
+
+    The source is the authored card titles, else the first paper whose phrase layer titles the
+    declaration. The full sentence stays the declaration title, shown as the card's detail."""
+    authored = json.loads(edition.read(CARD_SOURCE), object_pairs_hook=unique_keys)
+    if authored["source_snapshot_sha256"] != snapshot:
+        raise ValueError(f"{CARD_SOURCE}: review card titles against the new Lean source snapshot")
+    phrase_titles = {}
+    for path in PHRASE_SOURCES:
+        for name, value in json.loads(edition.read(path))["titles"].items():
+            phrase_titles.setdefault(name, value)
+    short = {}
+    for name in names:
+        record = titles.get(name)
+        if not record or len(record["title_plain"].split()) <= CARD_TITLE_WORDS:
+            continue
+        value = authored["titles"].get(name, phrase_titles.get(name))
+        if value is None:
+            raise ValueError(f"{CARD_SOURCE}: graph card {name} needs a short title of at most {CARD_TITLE_WORDS} words")
+        rec = title_record(name, value)
+        if len(rec["title_plain"].split()) > CARD_TITLE_WORDS:
+            raise ValueError(f"{CARD_SOURCE}: short title of {name} has more than {CARD_TITLE_WORDS} words")
+        short[name] = {"short_title": rec["title"], "short_title_plain": rec["title_plain"]}
+    unused = set(authored["titles"]) - short.keys()
+    if unused:
+        raise ValueError(f"{CARD_SOURCE}: titles for declarations that are not long graph cards: {sorted(unused)}")
+    return short
