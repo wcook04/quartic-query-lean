@@ -6,7 +6,7 @@ name: Lean build and Comparator receipts
 on:
   workflow_dispatch:
   pull_request:
-    paths: ["lean/**", "tools/record_evidence.py", "tools/run_comparator.py", ".github/workflows/lean-evidence.yml"]
+    paths: ["lean/**", "tools/record_evidence.py", "tools/run_comparator.py", "tools/rerun_recorded_receipts.py", ".github/workflows/lean-evidence.yml"]
 permissions:
   contents: read
 jobs:
@@ -44,7 +44,8 @@ jobs:
           export LAKE="$(command -v lake)"
           for step in "record_reading_dependencies.py" "record_reading_dependencies.py --statements" \
                       "record_reading_dependencies.py --applications" "record_proof_sites.py" \
-                      "record_parameter_origins.py" "record_kernel_paths.py" "record_retained_lines.py"; do
+                      "record_parameter_origins.py" "record_kernel_paths.py --max-rss-mib 12000" \
+                      "record_retained_lines.py --max-rss-mib 12000"; do
             echo "== $step"
             python3 tools/$step 2>&1 | tee -a "$RUNNER_TEMP/native_captures.log" || echo "FAILED: $step" | tee -a "$RUNNER_TEMP/native_captures.log"
           done
@@ -59,6 +60,9 @@ jobs:
       - name: Comparator on every bundle and negative fixture, sandboxed
         run: |
           LAKE="$(command -v lake)" QUARTIC_COMPARATOR_SANDBOX=1 python3 tools/run_comparator.py 2>&1 | tee "$RUNNER_TEMP/comparator.log"
+      - name: Rerun the recorded round-three and round-four builds and Comparator runs, sandboxed
+        run: |
+          LAKE="$(command -v lake)" QUARTIC_COMPARATOR_SANDBOX=1 python3 tools/rerun_recorded_receipts.py 2>&1 | tee "$RUNNER_TEMP/rerun_recorded.log"
       - name: Comparator on the headline bundle, sandboxed and --paranoid
         run: |
           LAKE="$(command -v lake)" QUARTIC_COMPARATOR_SANDBOX=1 python3 tools/run_comparator.py --paranoid --only Unconditional 2>&1 | tee "$RUNNER_TEMP/comparator_paranoid.log"
