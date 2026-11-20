@@ -21,7 +21,8 @@ import type { GraphFocus, GraphFocusRequest } from "../map/GraphPane";
 import { ReaderSplit } from "./ReaderSplit";
 import { Title } from "../text/title";
 import { PhraseContext, phraseLayer, topicTone, type PhraseLayer } from "../paper/phrases";
-import { PhraseList, PhraseStrip } from "../inspect/PhraseCards";
+import { PhraseList } from "../inspect/PhraseCards";
+import { PhraseDivider, PhraseSplit, useGraphTarget } from "../inspect/PhraseSplit";
 
 type PassageMode = "graph" | "lean" | "passage";
 
@@ -215,6 +216,12 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     }
   }
 
+  // On the Graph tab a chosen phrase splits the pane: graph above, its card and Lean below.
+  const splitPhrase = !["path", "lean", "statement", "journey", "passage"].includes(route.v ?? "") && !!route.ph && !!phrases?.byId.get(route.ph)?.lean.length;
+  const closePhrase = useCallback(() => go({ ...base, s: route.s, p: route.p, v: "graph", d: route.d }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [paper, ed, route.s, route.p, route.d]);
+  const graphTarget = useGraphTarget(edition, splitPhrase ? route.d : undefined);
   // A phrase click changes the paragraph and declaration shown; the tab stays the reader's choice.
   function selectPhrase(id: string, selection: string) {
     const phrase = phrases?.byId.get(id);
@@ -626,18 +633,35 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               );
             })()}
             {(graphOpened || mode === "graph") && (
-              <div className="inspector__graph" hidden={mode !== "graph"}>
+              <div className={`inspector__graph${splitPhrase ? " has-phrase" : ""}`} hidden={mode !== "graph"}>
+                <div className="inspector__map">
+                {splitPhrase && graphTarget && graphTarget.relation !== "self" && (
+                  <p className="inspector__phrase-note" role="status">
+                    {graphTarget.relation === "user" ? <>This declaration is not drawn in the graph; it is centred on the nearest drawn card that uses it.</>
+                      : graphTarget.relation === "used" ? <>This declaration is not drawn in the graph and no drawn card uses it; it is centred on the nearest drawn card it uses.</>
+                      : <>This declaration is not drawn in the graph and is not connected to it; the graph shows this paragraph.</>}
+                  </p>
+                )}
                 <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
-                  <ProofPane edition={edition} lit={lit} selected={route.d ?? null} onSelect={(name: string) => nav.openGraph(name)} onOpenLean={nav.openLean}
+                  <ProofPane edition={edition} lit={lit} selected={splitPhrase ? graphTarget?.drawn ?? null : route.d ?? null} onSelect={(name: string) => nav.openGraph(name)} onOpenLean={nav.openLean}
                     onClear={() => go({ ...base, s: route.s, p: route.p, v: "graph" })} selectedEdge={route.e ?? null} onEdge={nav.openPath}
-                    progress={progress} paperName={face(paper).tab} selectionKey={!clickPin && !following ? route.s : undefined}
+                    progress={progress} paperName={face(paper).tab} selectionKey={!clickPin && !following && !splitPhrase ? route.s : undefined}
                     claimMatch={claimMatch} focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onGraphFocus}
                     onFollow={() => { resumePaperFollowing(); setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} />
                 </Suspense>
-                {route.ph && phrases && <PhraseStrip id={route.ph} />}
                 <p className="inspector__note" role="status" hidden={!clickPin}>
                   {clickPin ? "Held on the clicked paragraph; scrolling the paper resumes following." : ""}
                 </p>
+                </div>
+                {splitPhrase && (
+                  <p className="phrase-graph-strip">
+                    <span>The graph is folded while this phrase is open.</span>
+                    <button type="button" className="textbutton" onClick={closePhrase}>Show the graph</button>
+                  </p>
+                )}
+                {splitPhrase && <PhraseDivider />}
+                {splitPhrase && <PhraseSplit edition={edition} id={route.ph!} name={route.d} onClose={closePhrase}
+                  onPick={(name) => go({ ...base, s: route.s, p: route.p, v: "graph", d: name, ph: route.ph }, true)} />}
               </div>
             )}
             {mode !== "graph" && (

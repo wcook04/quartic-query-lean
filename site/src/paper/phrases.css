@@ -122,15 +122,28 @@
 .phrase-card__fid-text, .phrase-card__note > p:last-child { font-size: calc(var(--pane) * 1.0); }
 .phrase-card__act, .phrase-list--lean .fold summary { font-size: calc(var(--pane) * 0.92); }
 
-/* The chosen phrase under the graph. */
-.phrase-strip { --pane: clamp(1rem, 0.62rem + 0.42vw, 1.2rem); margin: 0; padding: 10px 16px 12px; border-top: 1px solid var(--rule-2); border-left: 3px solid var(--tone); background: var(--raised); }
-.phrase-strip.is-lit { background: color-mix(in oklab, var(--tone) 8%, var(--raised)); }
-.phrase-strip p { margin: 0; }
-.phrase-strip__k { display: flex; align-items: center; gap: 8px; font-size: calc(var(--pane) * 0.8); font-weight: 600; color: var(--ink-2); }
-.phrase-strip__title { margin: 3px 0 4px !important; font: calc(var(--pane) * 1.08)/1.3 var(--serif); color: var(--ink); }
-.phrase-strip__more { font: calc(var(--pane) * 0.8) var(--sans); color: var(--ink-3); }
-.phrase-strip__act { font-size: calc(var(--pane) * 0.88); }
-.phrase-strip__hint { color: var(--ink-3); }
+/* A chosen phrase splits the Graph tab: the graph above, the phrase's card and Lean below. */
+.inspector__map { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+.inspector__graph.has-phrase .inspector__map { flex: 0 0 var(--phrase-split, 50%); }
+.inspector__phrase-note { margin: 0; padding: 6px 16px; border-bottom: 1px solid var(--rule-2); background: var(--raised); color: var(--ink-2); font-size: 0.88rem; }
+.phrase-divider { flex: none; height: 12px; display: flex; align-items: center; justify-content: center; cursor: row-resize; touch-action: none; background: var(--paper); border-block: 1px solid var(--rule-2); }
+.phrase-divider span { width: 36px; height: 4px; border-block: 1px solid var(--control); }
+.phrase-divider:hover, .phrase-divider:focus-visible, .inspector__graph.is-resizing .phrase-divider { background: var(--query-wash); outline: none; }
+.phrase-divider:hover span, .phrase-divider:focus-visible span, .inspector__graph.is-resizing .phrase-divider span { border-color: var(--query); }
+.inspector__graph.is-resizing { user-select: none; }
+.phrase-split { --pane: clamp(1rem, 0.62rem + 0.42vw, 1.2rem); flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; background: var(--sheet); }
+.phrase-split__bar { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px 6px 22px; }
+.phrase-split__k { margin: 0; min-width: 0; font-size: calc(var(--pane) * 0.85); font-weight: 600; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.phrase-split__close { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--rule); border-radius: 6px; background: var(--sheet); color: var(--ink-2); cursor: pointer; }
+.phrase-split__close:hover { color: var(--ink); border-color: var(--control); }
+.phrase-split__tabs { flex: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0 22px 8px; }
+.phrase-split__tabs button { padding: 4px 10px; border: 1px solid var(--rule); border-radius: 999px; background: none; color: var(--ink-2); font-size: calc(var(--pane) * 0.82); cursor: pointer; text-align: left; }
+.phrase-split__tabs button[aria-selected="true"] { color: var(--ink); border-color: var(--query-line); background: var(--select-wash); }
+.phrase-split__body { flex: 1 1 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 6px 22px 48px; }
+@media (max-width: 900px) {
+  .phrase-split__bar { padding-left: 16px; }
+  .phrase-split__tabs, .phrase-split__body { padding-inline: 16px; }
+}
 
 /* A quoted display: the formula scrolls sideways if it is wider than the card, and its
    equation number follows it as text. */
@@ -138,3 +151,16 @@
 .phrase-quote__display .katex-display { flex: 1 1 auto; min-width: 0; margin: 0.3em 0; overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
 .phrase-quote__display .katex-display > .katex { padding-right: 0 !important; }
 .phrase-quote__tag { flex: none; color: var(--ink-2); font-family: var(--serif); }
+/* The phrase half already shows the declaration, so the graph's own card summary is not repeated. */
+.inspector__graph.has-phrase .inspector__map { overflow: hidden; }
+.inspector__graph.has-phrase .inspector__map .card-sum { display: none; }
+.phrase-split .leancode__pre { max-height: min(22em, 60vh); overflow: auto; }
+/* In the phrase half the bar and tabs already name the declaration: the panel keeps its Lean name only. */
+.phrase-split .decl-head .panel__kind, .phrase-split .decl-head__title { display: none; }
+.phrase-split .decl-head { margin-bottom: 6px; }
+/* On a phone the bottom sheet is too short for two halves: the graph folds to one line above the card. */
+.phrase-graph-strip { display: none; }
+@media (max-width: 900px) {
+  .inspector__graph.has-phrase .inspector__map, .inspector__graph.has-phrase .phrase-divider { display: none; }
+  .phrase-graph-strip { flex: none; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0; padding: 8px 16px; border-bottom: 1px solid var(--rule-2); background: var(--raised); color: var(--ink-2); font-size: 0.9rem; }
+}

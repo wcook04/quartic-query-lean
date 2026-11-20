@@ -61,14 +61,22 @@ function usePhraseMark(name: string, phrase?: string): [number, number] | null {
   const lines = (phrase && layer?.byId.get(phrase)?.lean.find((r) => r.name === name)?.lines) || null;
   useEffect(() => {
     if (!lines) return;
-    // Bring the lit lines into view only when they lie below the visible part of the pane,
-    // so the phrase card above the listing stays in sight for a short declaration.
+    // Bring the lit lines into view by scrolling only their own container, never the page.
+    // In the graph's phrase half the listing scrolls by itself, so the card stays above it.
+    // In the Lean tab the pane scrolls, and only when the lines lie below its visible part.
     const t = window.setTimeout(() => {
-      const line = document.querySelector<HTMLElement>(".panel--lean .leancode__line.is-marked");
-      const pane = line?.closest<HTMLElement>(".inspector__body");
+      const line = document.querySelector<HTMLElement>(".phrase-split .leancode__line.is-marked, .panel--lean .leancode__line.is-marked");
+      if (!line) return;
+      const listing = line.closest<HTMLElement>(".phrase-split .leancode__pre");
+      if (listing) {
+        listing.scrollTop += line.getBoundingClientRect().top - listing.getBoundingClientRect().top - listing.clientHeight / 4;
+        return;
+      }
+      const pane = line.closest<HTMLElement>(".inspector__body");
       // On a phone the sheet is short: the card comes first and the lit lines follow it.
-      if (window.innerWidth < 901) return;
-      if (line && pane && line.getBoundingClientRect().bottom > pane.getBoundingClientRect().bottom) line.scrollIntoView({ block: "center" });
+      if (!pane || window.innerWidth < 901) return;
+      const box = pane.getBoundingClientRect(), at = line.getBoundingClientRect();
+      if (at.bottom > box.bottom) pane.scrollTop += at.top - box.top - pane.clientHeight / 2;
     }, 160);
     return () => clearTimeout(t);
   }, [lines?.[0], lines?.[1]]);

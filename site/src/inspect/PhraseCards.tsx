@@ -55,13 +55,16 @@ export function PhraseCard({ phrase, row, picked = false, openLean = true, showT
 
 /** Every phrase tied in the given source lines, each with its Lean rows. */
 export function PhraseList({ lines, picked }: { lines: [number, number] | null; picked?: string }) {
+  lines = lines ?? [0, -1];
   const layer = usePhrases();
   useLayoutEffect(() => {
     if (!picked) return;
     document.querySelector<HTMLElement>(`.phrase-list [data-phrase-card="${CSS.escape(picked)}"]`)?.scrollIntoView({ block: "nearest" });
   }, [picked]);
-  if (!layer || !lines) return null;
-  const inside = layer.phrases.filter((p) => p.lines[0] <= lines[1] && lines[0] <= p.lines[1]);
+  if (!layer || (!lines && !picked)) return null;
+  // The clicked phrase comes first, then the paragraph's other phrases in reading order.
+  const inside = layer.phrases.filter((p) => p.id === picked || (p.lines[0] <= lines[1] && lines[0] <= p.lines[1]))
+    .sort((a, b) => Number(b.id === picked) - Number(a.id === picked) || a.order - b.order);
   if (!inside.length) return null;
   const tied = inside.filter((p) => p.lean.length);
   const untied = inside.length - tied.length;
@@ -72,25 +75,6 @@ export function PhraseList({ lines, picked }: { lines: [number, number] | null; 
       {tied.map((p) => p.lean.map((row) => <PhraseCard key={`${p.id}:${row.name}`} phrase={p} row={row} picked={p.id === picked} />))}
       {untied > 0 && <p className="phrase-list__lede">{untied === 1 ? "One further phrase explains" : `${untied} further phrases explain`} the argument without a Lean declaration of its own.</p>}
     </section>
-  );
-}
-
-/** The chosen phrase under the graph: what it is tied to, and a way to its Lean. */
-export function PhraseStrip({ id }: { id: string }) {
-  const layer = usePhrases();
-  const nav = useNav();
-  const phrase = layer?.byId.get(id);
-  if (!layer || !phrase || !phrase.lean.length) return null;
-  const row = phrase.lean[0];
-  const topic = layer.topics[layer.topicIndex.get(phrase.topic) ?? 0];
-  const title = layer.titles[row.name];
-  return (
-    <div className="phrase-strip" data-tone={phrase.tone} data-phrase-card={phrase.id} data-lean-name={row.name}
-      onMouseEnter={() => lightPhrases(layer, null, [phrase.id])} onMouseLeave={() => lightPhrases(layer, null)}>
-      <p className="phrase-strip__k"><span className="topic-swatch" data-tone={topicTone(layer, phrase.topic)} aria-hidden="true" />Chosen phrase · {topic.name}</p>
-      <p className="phrase-strip__title">{title ? <Title text={title.title} /> : row.name}{phrase.lean.length > 1 && <span className="phrase-strip__more"> and {phrase.lean.length - 1} more</span>}</p>
-      <p className="phrase-strip__act"><button type="button" className="textbutton" onClick={() => nav.openLean(row.name, phrase.id)}>Open it in the Lean tab</button> <span className="phrase-strip__hint">for the reading note and the comparison with these words</span></p>
-    </div>
   );
 }
 
