@@ -2,7 +2,7 @@
  "schema": "quartic-reading-phrases-v1",
  "paper": "expert",
  "manuscript": "docs/expert_companion.md",
- "manuscript_sha256": "dbd3a8c83e7961b61f07810557f715f09476160319fca085dcbb636c1d9548b1",
+ "manuscript_sha256": "896ac27aae3e65cefb9d220219b1d6b8ce2fc0925e317d76f297fb392d71eb9c",
  "lean_source_snapshot_sha256": "7aa24d249eb93e620d8f425c7bb4282c3233c011c3e881b87f10ee31d4ad585d",
  "reviewed_lean_revision": "f192def14f95a3aff7da5866f35be7b565595e1d",
  "return": "research/returns/phrase_links/members/08_quartic_expert",
@@ -492,6 +492,16 @@
     "The factor (2/3)ʳ is at most m⁻¹⁰"
    ],
    "reason": "Mathematics written in plain ASCII is set as inline TeX with a Unicode reading."
+  },
+  {
+   "tie": "p2-sign-coordinate",
+   "declaration": "QuarticQuery.bitSign",
+   "returned_quote": "we read bit $a$ of block $j$ as the sign $z_j(a)=(-1)^{a}$",
+   "quote": "if $x_j(a)$ is the bit at coordinate $a$ of block $j$, we read it as the sign $z_j(a)=(-1)^{x_j(a)}$",
+   "returned_fidelity": "different",
+   "fidelity": "same",
+   "returned_fidelity_note": "Lean applies `bitSign` to the stored `Bool` `z (j,a)`; the printed exponent $a$ denotes the coordinate in $z_j(a)$, so the displayed formula omits the input value.",
+   "reason": "Paper corrected on 20 November 2026 (Will Cook): the tie follows the new words and its comparison is re-read against them."
   }
  ],
  "topics": [
@@ -1696,8 +1706,8 @@
   },
   {
    "id": "p2-sign-coordinate",
-   "from": "we read bit $a$ of block $j$ as the sign $z_j(a)=(-1)^{a}$",
-   "to": "we read bit $a$ of block $j$ as the sign $z_j(a)=(-1)^{a}$",
+   "from": "if $x_j(a)$ is the bit at coordinate $a$ of block $j$, we read it as the sign $z_j(a)=(-1)^{x_j(a)}$",
+   "to": "if $x_j(a)$ is the bit at coordinate $a$ of block $j$, we read it as the sign $z_j(a)=(-1)^{x_j(a)}$",
    "role": "definition",
    "topic": "forrelation",
    "status": "new",
@@ -1711,8 +1721,7 @@
       164
      ],
      "relation": "defines",
-     "fidelity": "different",
-     "fidelity_note": "Lean applies `bitSign` to the stored `Bool` `z (j,a)`; the printed exponent $a$ denotes the coordinate in $z_j(a)$, so the displayed formula omits the input value."
+     "fidelity": "same"
     }
    ],
    "after": "## 2. Preliminaries"

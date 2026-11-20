@@ -2,7 +2,7 @@
  "schema": "quartic-reading-phrases-v1",
  "paper": "exposition",
  "manuscript": "docs/exposition.md",
- "manuscript_sha256": "2709923a1d0c9780747c4c4ffe40afce5e5ae423c5dda0d2137e5f89b1dd34ee",
+ "manuscript_sha256": "fa4db2fefa289305e27d69048efd563f9fb3303dbf6597eb318d63cdcce0714b",
  "lean_source_snapshot_sha256": "7aa24d249eb93e620d8f425c7bb4282c3233c011c3e881b87f10ee31d4ad585d",
  "reviewed_lean_revision": "f192def14f95a3aff7da5866f35be7b565595e1d",
  "return": "research/returns/phrase_links/members/09_quartic_exposition",
@@ -343,6 +343,39 @@
     "The erased zero is found with probability at most 4G/m²"
    ],
    "reason": "Mathematics written in plain ASCII is set as inline TeX with a Unicode reading."
+  },
+  {
+   "tie": "exp-4-caption-direction",
+   "declaration": "QuarticQuery.Amplification.Preparation.iterate_eq",
+   "returned_quote": "Only the length of the component along $g$ changes, so the accepted columns keep their relative amplitudes.",
+   "quote": "The component along $g$ changes only by a common scalar factor, so the accepted columns keep their relative amplitudes.",
+   "returned_fidelity": "different",
+   "fidelity": "stronger",
+   "returned_fidelity_note": "Both coefficients change: $\\sin((2u+1)\\theta)$ multiplies $g$ and $\\cos((2u+1)\\theta)$ multiplies $b$. What is preserved is the direction of the accepted component, not the length of the rejected component.",
+   "fidelity_note": "Lean gives the iterate explicitly, $\\sin((2u+1)\\theta)$ times $g$ plus $\\cos((2u+1)\\theta)$ times $b$; the words state only that the component along $g$ is rescaled by a common factor.",
+   "reason": "Paper corrected on 20 November 2026 (Will Cook): the tie follows the new words and its comparison is re-read against them."
+  },
+  {
+   "tie": "exp-5-smallest-probability-wording",
+   "declaration": "QuarticQuery.Forrelation.successProb_of_true",
+   "returned_quote": "a one-input may give $00$ with probability as small as $\\Phi^2=2^{-20}$",
+   "quote": "the promise guarantees that a one-input gives $00$ with probability at least $\\delta^2=2^{-20}$",
+   "returned_fidelity": "weaker",
+   "fidelity": "stronger",
+   "returned_fidelity_note": "Lean proves `successProb ≥ delta²` for a promised one-input, not existence of an input attaining equality. In the eight-bit case $\\Phi = N/8$, so $\\Phi = 2^{-10}$ cannot occur.",
+   "fidelity_note": "Lean proves $\\delta^2\\le$ `successProb z` for every promised one-input with any number $k\\ge1$ of blocks; the words state the case of two blocks, where $\\delta^2=2^{-20}$.",
+   "reason": "Paper corrected on 20 November 2026 (Will Cook): the tie follows the new words and its comparison is re-read against them."
+  },
+  {
+   "tie": "app-a2-good-direction",
+   "declaration": "QuarticQuery.Amplification.Preparation.iterate_eq",
+   "returned_quote": "Only the coefficient of $g$ changes; given a successful measurement, the probabilities of the column numbers are still the squared coordinates in the direction $g$, summed over the other registers.",
+   "quote": "The component along $g$ changes only by a common scalar factor; given a successful measurement, the probabilities of the column numbers are still the squared coordinates in the direction $g$, summed over the other registers.",
+   "returned_fidelity": "different",
+   "fidelity": "stronger",
+   "returned_fidelity_note": "The source changes both coefficients, $\\sin((2u+1)\\theta)$ for $g$ and $\\cos((2u+1)\\theta)$ for $b$. The correct invariant is that the accepted component changes only by a scalar.",
+   "fidelity_note": "Lean gives the iterate explicitly, $\\sin((2u+1)\\theta)$ times $g$ plus $\\cos((2u+1)\\theta)$ times $b$; the words state only that the component along $g$ is rescaled by a common factor.",
+   "reason": "Paper corrected on 20 November 2026 (Will Cook): the tie follows the new words and its comparison is re-read against them."
   }
  ],
  "topics": [
@@ -2660,8 +2693,8 @@
   },
   {
    "id": "exp-4-caption-direction",
-   "from": "Only the length of the component along $g$ changes, so the accepted columns keep their relative amplitudes.",
-   "to": "Only the length of the component along $g$ changes, so the accepted columns keep their relative amplitudes.",
+   "from": "The component along $g$ changes only by a common scalar factor, so the accepted columns keep their relative amplitudes.",
+   "to": "The component along $g$ changes only by a common scalar factor, so the accepted columns keep their relative amplitudes.",
    "after": "# 4. A tournament with probabilistic comparisons",
    "role": "explanation",
    "topic": "amplification",
@@ -2676,8 +2709,8 @@
       346
      ],
      "relation": "states",
-     "fidelity": "different",
-     "fidelity_note": "Both coefficients change: $\\sin((2u+1)\\theta)$ multiplies $g$ and $\\cos((2u+1)\\theta)$ multiplies $b$. What is preserved is the direction of the accepted component, not the length of the rejected component."
+     "fidelity": "stronger",
+     "fidelity_note": "Lean gives the iterate explicitly, $\\sin((2u+1)\\theta)$ times $g$ plus $\\cos((2u+1)\\theta)$ times $b$; the words state only that the component along $g$ is rescaled by a common factor."
     }
    ]
   },
@@ -3344,8 +3377,8 @@
   },
   {
    "id": "exp-5-smallest-probability-wording",
-   "from": "a one-input may give $00$ with probability as small as $\\Phi^2=2^{-20}$",
-   "to": "a one-input may give $00$ with probability as small as $\\Phi^2=2^{-20}$",
+   "from": "the promise guarantees that a one-input gives $00$ with probability at least $\\delta^2=2^{-20}$",
+   "to": "the promise guarantees that a one-input gives $00$ with probability at least $\\delta^2=2^{-20}$",
    "after": "# 5. Computing an address",
    "role": "statement",
    "topic": "forrelation-addresses",
@@ -3357,8 +3390,8 @@
      "name": "QuarticQuery.Forrelation.successProb_of_true",
      "file": "lean/QuarticQuery/Forrelation/Repetition.lean",
      "relation": "states",
-     "fidelity": "weaker",
-     "fidelity_note": "Lean proves `successProb ≥ delta²` for a promised one-input, not existence of an input attaining equality. In the eight-bit case $\\Phi = N/8$, so $\\Phi = 2^{-10}$ cannot occur."
+     "fidelity": "stronger",
+     "fidelity_note": "Lean proves $\\delta^2\\le$ `successProb z` for every promised one-input with any number $k\\ge1$ of blocks; the words state the case of two blocks, where $\\delta^2=2^{-20}$."
     }
    ]
   },
@@ -6404,8 +6437,8 @@
   },
   {
    "id": "app-a2-good-direction",
-   "from": "Only the coefficient of $g$ changes; given a successful measurement, the probabilities of the column numbers are still the squared coordinates in the direction $g$, summed over the other registers.",
-   "to": "Only the coefficient of $g$ changes; given a successful measurement, the probabilities of the column numbers are still the squared coordinates in the direction $g$, summed over the other registers.",
+   "from": "The component along $g$ changes only by a common scalar factor; given a successful measurement, the probabilities of the column numbers are still the squared coordinates in the direction $g$, summed over the other registers.",
+   "to": "The component along $g$ changes only by a common scalar factor; given a successful measurement, the probabilities of the column numbers are still the squared coordinates in the direction $g$, summed over the other registers.",
    "after": "## A.2 The amplification rotation and a finite schedule",
    "role": "explanation",
    "topic": "amplification",
@@ -6420,8 +6453,8 @@
       346
      ],
      "relation": "states",
-     "fidelity": "different",
-     "fidelity_note": "The source changes both coefficients, $\\sin((2u+1)\\theta)$ for $g$ and $\\cos((2u+1)\\theta)$ for $b$. The correct invariant is that the accepted component changes only by a scalar."
+     "fidelity": "stronger",
+     "fidelity_note": "Lean gives the iterate explicitly, $\\sin((2u+1)\\theta)$ times $g$ plus $\\cos((2u+1)\\theta)$ times $b$; the words state only that the component along $g$ is rescaled by a common factor."
     },
     {
      "name": "QuarticQuery.Amplification.Preparation.good_iterate",

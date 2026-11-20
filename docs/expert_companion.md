@@ -64,7 +64,7 @@ We require a partial function $P$ with a low-query quantum algorithm on its prom
 | An exact circuit of size $\widetilde O_k(m)$ for the domain bit and the value | cheap checking of a proposed address, including promise membership |
 | $R(P)>L$ with $L$ close to $m^{1-1/k}$ | an address that is hard to compute classically |
 
-The Walsh–Hadamard form of $k$-fold Forrelation, introduced by Aaronson and Ambainis [@AA2018], supplies all three. An input is $k$ blocks of $m$ bits; we read bit $a$ of block $j$ as the sign $z_j(a)=(-1)^{a}$, so a sign query is a bit query. Let $H$ be the normalized Walsh–Hadamard matrix of order $m$, $u=m^{-1/2}(1,\ldots,1)^{\mathsf T}$ and $D_z$ the diagonal matrix of a sign vector, and put
+The Walsh–Hadamard form of $k$-fold Forrelation, introduced by Aaronson and Ambainis [@AA2018], supplies all three. An input is $k$ blocks of $m$ bits; if $x_j(a)$ is the bit at coordinate $a$ of block $j$, we read it as the sign $z_j(a)=(-1)^{x_j(a)}$, so a sign query is a bit query. Let $H$ be the normalized Walsh–Hadamard matrix of order $m$, $u=m^{-1/2}(1,\ldots,1)^{\mathsf T}$ and $D_z$ the diagonal matrix of a sign vector, and put
 $$
  \Phi=u^{\mathsf T}D_{z_1}H D_{z_2}H\cdots H D_{z_k}u,\qquad \delta=2^{-5k}.
 $$

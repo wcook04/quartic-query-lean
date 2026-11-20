@@ -245,7 +245,7 @@ When $W>0$, the sum of squares is nonnegative, so the expected total weight afte
 
 **Claim 2. An unlisted winner keeps most of its weight.** If column $i^\star$ wins, each comparison with it returns $i^\star$ with probability at least $1-\varepsilon$. While $i^\star$ is not yet on a list of at most $T$ pivots, its weight is therefore at least $(1-\varepsilon)^T\ge1-T\varepsilon$.
 
-**Claim 3. After $T$ steps the winner is on the list with high probability.** Take $T=\lceil\log_2(1000m)\rceil$ and $\varepsilon=1/(1000T)$. The expected total weight after $T$ steps is at most $1/1000$, while an unlisted winning column would have weight greater than $1/2$. If the winner were missing with probability $d$, its weight alone would contribute at least $d/2$ to the expectation, so $d\le1/500$. These constants are chosen for simplicity: any $T=\log_2m+O(1)$ with $\varepsilon<1/(2T)$ gives a small constant error by the same argument. Other columns on the list may be losers, and we will check each listed column separately.
+**Claim 3. After $T$ steps the winner is on the list with high probability.** Take $T=\lceil\log_2(1000m)\rceil$ and $\varepsilon=1/(1000T)$. The expected total weight after $T$ steps is at most $1/1000$, while an unlisted winning column would have weight greater than $1/2$. If the winner were missing with probability $d$, its weight alone would contribute at least $d/2$ to the expectation, so $d\le1/500$. These constants are chosen for simplicity: taking $T=\log_2m+c$ with a sufficiently large constant $c$ and $\varepsilon<1/(2T)$ gives a small constant error by the same argument. Other columns on the list may be losers, and we will check each listed column separately.
 
 Claim 2 does a second job. While the winner is unlisted, $W>1/2$, so a draw is accepted with probability $W/m>1/(2m)$. The next section uses exactly this lower bound to keep the cost of sampling down. After the winner is listed, later behaviour of the sampler cannot remove it from the list.
 
@@ -266,7 +266,7 @@ Measuring now gives column $1$ with certainty. To implement the second reflectio
 
 For arbitrary weights, split the prepared vector into two orthogonal parts: one holds all amplitudes whose flag is one, the other all amplitudes whose flag is zero. Their squared lengths are the acceptance probability $q$ and the rejection probability $1-q$. When $0<q<1$, divide each part by its length to get unit vectors $g$ for acceptance and $b$ for rejection, so that the prepared state is $\sqrt q\,g+\sqrt{1-q}\,b$. Both operations act within the plane of $g$ and $b$ (Figure 3). After either operation, all amplitudes with flag one are still proportional to their original amplitudes, with one common multiplier. So conditional on measuring flag one, column $i$ still has probability $w_i/W$, which is the law (4.1). The algorithm stores the measured column number and prepares fresh registers at the next stage.
 
-![The two reflections in the plane of the acceptance direction $g$ and the rejection direction $b$. The prepared state makes angle $\theta$ with $b$, where $\sin\theta=\sqrt q$. Reversing the sign of the accepted part sends it to angle $-\theta$; reflecting about the prepared state then sends it to $3\theta$. Only the length of the component along $g$ changes, so the accepted columns keep their relative amplitudes.](figures/exposition/fig6_rotation.svg){width=62%}
+![The two reflections in the plane of the acceptance direction $g$ and the rejection direction $b$. The prepared state makes angle $\theta$ with $b$, where $\sin\theta=\sqrt q$. Reversing the sign of the accepted part sends it to angle $-\theta$; reflecting about the prepared state then sends it to $3\theta$. The component along $g$ changes only by a common scalar factor, so the accepted columns keep their relative amplitudes.](figures/exposition/fig6_rotation.svg){width=62%}
 
 []{#pivot-schedule}Each pair of reflections adds $2\theta$ to the angle, so after $u$ pairs the probability of measuring flag one is $\sin^2((2u+1)\theta)$. For small $q$, $\theta$ is approximately $\sqrt q$ radians, and the number of pairs needed to approach angle $\pi/2$ is of order $1/\sqrt q$. More pairs can overshoot: in the four-column example $\theta=\pi/6$, the first pair gives probability one, and the second gives $\sin^2(5\pi/6)=1/4$. When $q=0$ the flag is always zero, and when $q=1$ the prepared state already has flag one.
 
@@ -340,7 +340,7 @@ For $a^0$ the measured position can never be $00$. For $a^-$ the amplitude for $
 
 ## 5.3 The real decoding problem
 
-The examples have $\Phi=\pm1$, so a single trial is decisive. The promise only guarantees $\Phi\ge\delta$ on a one-input, so for two blocks a one-input may give $00$ with probability as small as $\Phi^2=2^{-20}$, while a zero-input gives it with probability at most $\delta^2/4=2^{-22}$. The decoder therefore repeats the trial independently and returns one when the fraction of trials giving $00$ is at least $\delta^2/2$. With
+The extreme examples have $\Phi=\pm1$, so a single trial is decisive. The promise only guarantees $\Phi\ge\delta$ on a one-input, so for two blocks the promise guarantees that a one-input gives $00$ with probability at least $\delta^2=2^{-20}$, while a zero-input gives it with probability at most $\delta^2/4=2^{-22}$. The decoder therefore repeats the trial independently and returns one when the fraction of trials giving $00$ is at least $\delta^2/2$. With
 $$
 \rho=\left\lceil16\cdot2^{10k}\ln(1/\eta)\right\rceil
 $$
@@ -563,7 +563,7 @@ and their product is the rotation
 $$
 R_{A0}S=\begin{pmatrix}\cos2\theta&\sin2\theta\\-\sin2\theta&\cos2\theta\end{pmatrix},
 $$
-which sends $(\sin\theta,\cos\theta)$ to $(\sin3\theta,\cos3\theta)$. This is the rotation formula of Section 4.3. Only the coefficient of $g$ changes; given a successful measurement, the probabilities of the column numbers are still the squared coordinates in the direction $g$, summed over the other registers.
+which sends $(\sin\theta,\cos\theta)$ to $(\sin3\theta,\cos3\theta)$. This is the rotation formula of Section 4.3. The component along $g$ changes only by a common scalar factor; given a successful measurement, the probabilities of the column numbers are still the squared coordinates in the direction $g$, summed over the other registers.
 
 We need a bound on the number of queries even when $q$ is arbitrarily small, and a bound on failure when $q$ is at least a known threshold $\gamma$. Set $M=\lceil10/\sqrt\gamma\rceil$ and $N=\lceil\ln(1/\eta)/\ln(40/31)\rceil$. In each fresh trial use zero iterations with probability $1/2$, and otherwise choose $u$ uniformly from $0,\ldots,M-1$. Stop at the first acceptance, or after $N$ failures. Each trial uses at most $2M+1$ calls to $A$ or $A^{-1}$, so $N(2M+1)$ is a cap on every input.
 
