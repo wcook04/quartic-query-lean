@@ -329,7 +329,7 @@
         "src-direct-product-caps"
       ],
       "bound_at": {
-        "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
+        "expert": "cfee12d7808c651e19bd3f0c768d46a27f214eea",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
       },
       "detours": [
@@ -839,7 +839,10 @@
           "paper": "reconstruction",
           "anchor": "upper-returned-register"
         }
-      ]
+      ],
+      "bound_at": {
+        "verification": "cfee12d7808c651e19bd3f0c768d46a27f214eea"
+      }
     },
     {
       "id": "stopped-process",
