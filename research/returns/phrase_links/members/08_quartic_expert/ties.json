@@ -1,0 +1,5412 @@
+{
+ "schema": "phrase-ties/1",
+ "paper": "expert",
+ "ties": [
+  {
+   "id": "a-family",
+   "from": "for every fixed integer $k\\ge2$ there are total Boolean functions $F_{k,m}$ with $Q(F_{k,m})=\\widetilde O_k(\\sqrt m)$ and $R(F_{k,m})=\\widetilde\\Omega_k(m^{2-1/k})$",
+   "to": "for every fixed integer $k\\ge2$ there are total Boolean functions $F_{k,m}$ with $Q(F_{k,m})=\\widetilde O_k(\\sqrt m)$ and $R(F_{k,m})=\\widetilde\\Omega_k(m^{2-1/k})$",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_family_named",
+     "file": "QuarticQuery/Paper/ConstructionFamily.lean",
+     "lines": [
+      30,
+      40
+     ],
+     "relation": "contains",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean gives the same family with explicit logarithmic losses, b=6 and c=1/400, and a specified realizing circuit; the abstract suppresses these details."
+    }
+   ]
+  },
+  {
+   "id": "a-critical-exponent",
+   "from": "the critical exponent of randomized relative to quantum query complexity is four",
+   "to": "the critical exponent of randomized relative to quantum query complexity is four",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.alphaTot_eq_four_unconditional",
+     "file": "QuarticQuery/Results/Unconditional.lean",
+     "lines": [
+      18,
+      18
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "a-cubic-refutation",
+   "from": "it refutes their conjecture that $R(f)=O(Q(f)^3)$ for all total functions",
+   "to": "it refutes their conjecture that $R(f)=O(Q(f)^3)$ for all total functions",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.cubic_bound_fails_unconditional",
+     "file": "QuarticQuery/Results/Unconditional.lean",
+     "lines": [
+      42,
+      44
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "i-total-function",
+   "from": "a function $f\\colon\\{0,1\\}^N\\to\\{0,1\\}$",
+   "to": "a function $f\\colon\\{0,1\\}^N\\to\\{0,1\\}$",
+   "role": "definition",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.TotalBool",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      27,
+      27
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "i-r",
+   "from": "$R(f)$",
+   "to": "$R(f)$",
+   "role": "definition",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.R",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      84,
+      85
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "i-q",
+   "from": "$Q(f)$",
+   "to": "$Q(f)$",
+   "role": "definition",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Q",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      150,
+      151
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "i-critical-definition",
+   "from": "the *critical exponent* of $R$ relative to $Q$ is the infimum of the exponents $r$ such that $R(f)=O(Q(f)^r)$ holds for all total $f$",
+   "to": "the *critical exponent* of $R$ relative to $Q$ is the infimum of the exponents $r$ such that $R(f)=O(Q(f)^r)$ holds for all total $f$",
+   "role": "definition",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.alphaTot",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      329,
+      329
+     ],
+     "relation": "defines",
+     "fidelity": "same",
+     "link_note": "Lean makes the universal constant explicit and uses the equivalent shifted convention explained in the note."
+    }
+   ]
+  },
+  {
+   "id": "i-known-quartic-bound",
+   "from": "$D(f)=O(Q(f)^4)$",
+   "to": "$D(f)=O(Q(f)^4)$",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.D_le_Q_pow_four",
+     "file": "QuarticQuery/Appendix/TheoremA1.lean",
+     "lines": [
+      52,
+      53
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean supplies the explicit universal coefficient 20736 rather than only asserting existence of a big-O constant."
+    }
+   ]
+  },
+  {
+   "id": "thm1-universal-upper",
+   "from": "For every total Boolean function $f$, $R(f)=O((1+Q(f))^4)$",
+   "to": "For every total Boolean function $f$, $R(f)=O((1+Q(f))^4)$",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.universalPower_four",
+     "file": "QuarticQuery/Appendix/TheoremA1.lean",
+     "lines": [
+      70,
+      70
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "thm1-quantifier-order",
+   "from": "For each fixed integer $k\\ge2$ there are positive constants $c_k$, $C_k$ and $b_k$ and total Boolean functions $F_{k,m}$, defined for powers of four $m$, such that for all sufficiently large $m$, with $\\ell=\\log_2m$",
+   "to": "For each fixed integer $k\\ge2$ there are positive constants $c_k$, $C_k$ and $b_k$ and total Boolean functions $F_{k,m}$, defined for powers of four $m$, such that for all sufficiently large $m$, with $\\ell=\\log_2m$",
+   "role": "explanation",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_equation_two",
+     "file": "QuarticQuery/Paper/ConstructionFamily.lean",
+     "lines": [
+      58,
+      67
+     ],
+     "relation": "contains",
+     "fidelity": "same",
+     "link_note": "The constants and threshold are chosen after k, before the size parameter t."
+    }
+   ]
+  },
+  {
+   "id": "thm1-both-bounds",
+   "from": "$$\n Q(F_{k,m})\\le C_k\\sqrt m\\,\\ell^{b_k},\n \\qquad R(F_{k,m})\\ge c_k\\,\\frac{m^{2-1/k}}{\\ell^2}.\n\\tag{1}\n$$",
+   "to": "$$\n Q(F_{k,m})\\le C_k\\sqrt m\\,\\ell^{b_k},\n \\qquad R(F_{k,m})\\ge c_k\\,\\frac{m^{2-1/k}}{\\ell^2}.\n\\tag{1}\n$$",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_equation_two",
+     "file": "QuarticQuery/Paper/ConstructionFamily.lean",
+     "lines": [
+      58,
+      67
+     ],
+     "relation": "contains",
+     "fidelity": "same",
+     "link_note": "Both inequalities concern the same Cir and the same total function."
+    }
+   ]
+  },
+  {
+   "id": "thm1-exponent",
+   "from": "Consequently the critical exponent of $R$ relative to $Q$ is four.",
+   "to": "Consequently the critical exponent of $R$ relative to $Q$ is four.",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.alphaTot_eq_four_unconditional",
+     "file": "QuarticQuery/Results/Unconditional.lean",
+     "lines": [
+      18,
+      18
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "i-same-function",
+   "from": "the family $F_{k,m}$, which satisfies both bounds in (1) for the same function",
+   "to": "the family $F_{k,m}$, which satisfies both bounds in (1) for the same function",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_family_named",
+     "file": "QuarticQuery/Paper/ConstructionFamily.lean",
+     "lines": [
+      30,
+      40
+     ],
+     "relation": "contains",
+     "fidelity": "same",
+     "link_note": "The same forrCircuit appears in both complexity expressions."
+    }
+   ]
+  },
+  {
+   "id": "i-logarithmic-exponent",
+   "from": "The proof gives $b_k=6$",
+   "to": "The proof gives $b_k=6$",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_family_named",
+     "file": "QuarticQuery/Paper/ConstructionFamily.lean",
+     "lines": [
+      30,
+      40
+     ],
+     "relation": "contains",
+     "fidelity": "same",
+     "link_note": "The quantum bound has an explicit sixth power of log₂ m."
+    }
+   ]
+  },
+  {
+   "id": "i-finite-lower",
+   "from": "the finite form $R(F_{k,m})>\\lfloor mL/100\\rfloor$",
+   "to": "the finite form $R(F_{k,m})>\\lfloor mL/100\\rfloor$",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.prop_4_2",
+     "file": "QuarticQuery/Paper/Section4.lean",
+     "lines": [
+      20,
+      22
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean proves this for every circuit realizing P; the prose discusses the specified circuit family."
+    }
+   ]
+  },
+  {
+   "id": "i-cutoff",
+   "from": "$L=\\lfloor m^{1-1/k}/\\ell^2\\rfloor$",
+   "to": "$L=\\lfloor m^{1-1/k}/\\ell^2\\rfloor$",
+   "role": "definition",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Lvalue",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      309,
+      311
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "i-explicit-lower-constant",
+   "from": "Section 6 derives $c_k=1/400$",
+   "to": "Section 6 derives $c_k=1/400$",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_family_named",
+     "file": "QuarticQuery/Paper/ConstructionFamily.lean",
+     "lines": [
+      30,
+      40
+     ],
+     "relation": "contains",
+     "fidelity": "same",
+     "link_note": "The lower-bound conjunct uses the exact constant 1/400."
+    }
+   ]
+  },
+  {
+   "id": "i-finite-headline",
+   "from": "The Lean theorem for Theorem 1 states this finite form, with both bounds beyond a threshold",
+   "to": "The Lean theorem for Theorem 1 states this finite form, with both bounds beyond a threshold",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.theorem_1_1_unconditional",
+     "file": "QuarticQuery/Results/Unconditional.lean",
+     "lines": [
+      23,
+      29
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "i-exponent-three",
+   "from": "$k=3$ gives power $10/3$",
+   "to": "$k=3$ gives power $10/3$",
+   "role": "derivation",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.familyExponent_three",
+     "file": "QuarticQuery/Results/Exponent.lean",
+     "lines": [
+      134,
+      134
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "i-cubic",
+   "from": "refutes the cubic conjecture",
+   "to": "refutes the cubic conjecture",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.cubic_bound_fails_unconditional",
+     "file": "QuarticQuery/Results/Unconditional.lean",
+     "lines": [
+      42,
+      44
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "i-exponents-approach-four",
+   "from": "larger fixed $k$ approach four",
+   "to": "larger fixed $k$ approach four",
+   "role": "derivation",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.familyExponent_tendsto",
+     "file": "QuarticQuery/Results/Exponent.lean",
+     "lines": [
+      142,
+      142
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "p3-overview-layout",
+   "from": "Column $i$ holds an $m$-bit string $X_i$, a few address inputs, and an array of cells.",
+   "to": "Column $i$ holds an $m$-bit string $X_i$, a few address inputs, and an array of cells.",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Give the first appearance of the input a concrete coordinate-level explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.BitLoc",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      245,
+      253
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "### 1.1 Overview of techniques"
+  },
+  {
+   "id": "p3-overview-wins",
+   "from": "its string is all ones, and its cell at the address computed from its address inputs contains a correct certificate pointing to a zero in every other string.",
+   "to": "its string is all ones, and its cell at the address computed from its address inputs contains a correct certificate pointing to a zero in every other string.",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Attach the complete winner predicate to the explanatory clause, with definedness made explicit in the note.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.constructionWinner",
+     "file": "QuarticQuery/Paper/ConstructionDefinitions.lean",
+     "lines": [
+      131,
+      137
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "### 1.1 Overview of techniques"
+  },
+  {
+   "id": "p3-overview-unique",
+   "from": "At most one column can win.",
+   "to": "At most one column can win.",
+   "role": "statement",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Separate the uniqueness result from the surrounding construction history.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_unique_winner",
+     "file": "QuarticQuery/Paper/ConstructionDefinitions.lean",
+     "lines": [
+      185,
+      187
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean proves uniqueness for arbitrary partial functions, circuits and address lengths, not only the Forrelation family."
+    }
+   ],
+   "after": "### 1.1 Overview of techniques"
+  },
+  {
+   "id": "q4-preview-verify",
+   "from": "Checking that a given column wins costs about $\\sqrt m$ quantum queries, by Grover search over its roughly $m$ local tests.",
+   "to": "Checking that a given column wins costs about $\\sqrt m$ quantum queries, by Grover search over its roughly $m$ local tests.",
+   "role": "explanation",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Explain which procedure is being costed; logarithmic factors and fresh address decoding remain explicit in the cards.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumVerify",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      498,
+      507
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The type supplies a bounded verifier with its two correctness guarantees, but not the square-root asymptotic estimate or the local-test count asserted in the sentence."
+    },
+    {
+     "name": "QuarticQuery.Paper.quantumVerify_search_query_bound",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      433,
+      436
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The type bounds fixed-address failed-test search under K ≥ 2 and 0 < ε < 1/2. It does not include fresh address decoding, complete winner verification or the substitution K = O_k(m ell^3)."
+    }
+   ]
+  },
+  {
+   "id": "q4-preview-candidates",
+   "from": "The new construction instead lists a few candidates with cheap comparisons and verifies only those",
+   "to": "The new construction instead lists a few candidates with cheap comparisons and verifies only those",
+   "role": "explanation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumTournament",
+     "file": "QuarticQuery/Paper/QuantumTournamentFacts.lean",
+     "lines": [
+      287,
+      303
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The type supplies the bounded candidate list and its cost for an abstract comparison circuit. It does not verify those candidates or substitute this construction’s comparison budget."
+    },
+    {
+     "name": "QuarticQuery.Paper.quantumVerify_list",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      528,
+      531
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The type bounds verification of a supplied list by its length times the single-candidate budget. It does not generate the list or supply its comparison procedure."
+    }
+   ]
+  },
+  {
+   "id": "q4-preview-additive",
+   "from": "the two costs add to $\\widetilde O_k(\\sqrt m)$.",
+   "to": "the two costs add to $\\widetilde O_k(\\sqrt m)$.",
+   "role": "explanation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Upper.budget_le",
+     "file": "QuarticQuery/Upper/Bound.lean",
+     "lines": [
+      87,
+      90
+     ],
+     "relation": "contains",
+     "fidelity": "same",
+     "link_note": "The defined budget is the sum of tournament and list-verification costs."
+    }
+   ]
+  },
+  {
+   "id": "i-improved-family-power",
+   "from": "$4-2/k$",
+   "to": "$4-2/k$",
+   "role": "definition",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.familyExponent",
+     "file": "QuarticQuery/Results/Exponent.lean",
+     "lines": [
+      131,
+      131
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "p3-overview-outward",
+   "from": "The winner's certificate stores, for every other column, the row of a zero in that column's string.",
+   "to": "The winner's certificate stores, for every other column, the row of a zero in that column's string.",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Identify the certificate condition before the comparison algorithm uses it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.constructionOutwardPointers",
+     "file": "QuarticQuery/Paper/ConstructionDefinitions.lean",
+     "lines": [
+      117,
+      120
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "### 1.1 Overview of techniques"
+  },
+  {
+   "id": "p3-overview-two-pointers",
+   "from": "A comparison between two columns reads one pointer in each direction.",
+   "to": "A comparison between two columns reads one pointer in each direction.",
+   "role": "derivation",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Open the proof construction that performs the two directed pointer tests.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Upper.core_samples",
+     "file": "QuarticQuery/Upper/Columns.lean",
+     "lines": [
+      146,
+      152
+     ],
+     "relation": "proof",
+     "fidelity": "same"
+    }
+   ],
+   "after": "### 1.1 Overview of techniques"
+  },
+  {
+   "id": "p3-overview-zero",
+   "from": "If the winner's address is decoded correctly, its pointer finds a zero in the rival",
+   "to": "If the winner's address is decoded correctly, its pointer finds a zero in the rival",
+   "role": "statement",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Separate the outward zero witness from the independent incoming-pointer argument.",
+   "lean": [
+    {
+     "name": "QuarticQuery.winner_finds_zero",
+     "file": "QuarticQuery/Construction/Winner.lean",
+     "lines": [
+      69,
+      70
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "The deterministic pointer conclusion holds for every addressed construction, not only the Forrelation family."
+    }
+   ],
+   "after": "### 1.1 Overview of techniques"
+  },
+  {
+   "id": "p3-overview-no-incoming",
+   "from": "no rival pointer can find a zero in the winner's all-one string.",
+   "to": "no rival pointer can find a zero in the winner's all-one string.",
+   "role": "statement",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Expose why the rival needs no promise at all.",
+   "lean": [
+    {
+     "name": "QuarticQuery.winner_no_incoming_zero",
+     "file": "QuarticQuery/Construction/Winner.lean",
+     "lines": [
+      62,
+      64
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean quantifies over every rival and every address in an arbitrary addressed construction."
+    }
+   ],
+   "after": "### 1.1 Overview of techniques"
+  },
+  {
+   "id": "p3-overview-dominance",
+   "from": "So the winner is selected with high probability even when the rival's address inputs violate their promise.",
+   "to": "So the winner is selected with high probability even when the rival's address inputs violate their promise.",
+   "role": "statement",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Replace an unspecified high-probability claim by the quantified decoder guarantee in the note.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumWinner_dominates",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      296,
+      302
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ],
+   "after": "### 1.1 Overview of techniques"
+  },
+  {
+   "id": "q4-preview-weight",
+   "from": "OpenAI's tournament instead samples pivots with weights equal to the probability of beating all earlier pivots",
+   "to": "OpenAI's tournament instead samples pivots with weights equal to the probability of beating all earlier pivots",
+   "role": "explanation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.weight",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      35,
+      37
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The definition gives the product update of candidate weights. It does not itself define the distribution used to sample pivots or prove the independent-comparison probability interpretation."
+    },
+    {
+     "name": "QuarticQuery.Tournament.expectFrom",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      42,
+      47
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The definition supplies sampling with ratios w_i/W and stopping at W = 0. The equality of each weight to the probability of winning fresh independent comparisons is not part of its type."
+    }
+   ]
+  },
+  {
+   "id": "c5-overview-difference",
+   "from": "The hard distributions differ only in one hidden zero and one cell",
+   "to": "The hard distributions differ only in one hidden zero and one cell",
+   "role": "explanation",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.eq_of_dummy_ne_planted",
+     "file": "QuarticQuery/LowerBound/Planted/Inputs.lean",
+     "lines": [
+      70,
+      74
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-overview-column",
+   "from": "a uniformly random column",
+   "to": "a uniformly random column",
+   "role": "definition",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.coupledAvg",
+     "file": "QuarticQuery/LowerBound/Planted/Main.lean",
+     "lines": [
+      27,
+      29
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-overview-prediction",
+   "from": "The last event is a correct prediction of $r$ independent hard values, because the index of a cell query already names its address",
+   "to": "The last event is a correct prediction of $r$ independent hard values, because the index of a cell query already names its address",
+   "role": "explanation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.avg_reachedCellAt_le",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      316,
+      333
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "The proof turns a light true-cell query into the correct vector before reading the queried cell."
+    }
+   ]
+  },
+  {
+   "id": "c5-overview-product",
+   "from": "a direct-product theorem with per-input caps bounds it",
+   "to": "a direct-product theorem with per-input caps bounds it",
+   "role": "explanation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.address_guess_average",
+     "file": "QuarticQuery/LowerBound/Minimax.lean",
+     "lines": [
+      188,
+      193
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-overview-no-conditioning",
+   "from": "a capped simulation avoids conditioning on which columns the tree investigates",
+   "to": "a capped simulation avoids conditioning on which columns the tree investigates",
+   "role": "explanation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.avg_reachedCellAt_le",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      295,
+      310
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "Lightness remains inside the event; the target inputs retain their original product law."
+    }
+   ]
+  },
+  {
+   "id": "p2-worst-case",
+   "from": "an algorithm with query cap $q$ makes at most $q$ queries on every input and every branch of its randomness or measurements",
+   "to": "an algorithm with query cap $q$ makes at most $q$ queries on every input and every branch of its randomness or measurements",
+   "role": "definition",
+   "topic": "query",
+   "status": "new",
+   "reason": "Show both cost definitions without presenting either model alone as the whole convention.",
+   "lean": [
+    {
+     "name": "QuarticQuery.RandomizedProgram.depth",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      66,
+      67
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "This declaration defines the randomized cap only; the same phrase also mentions measurement branches, covered by the accompanying quantum declaration."
+    },
+    {
+     "name": "QuarticQuery.AdaptiveProgram.queryCap",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      122,
+      127
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "This declaration defines the quantum cap only; the same phrase also mentions randomized algorithms, covered by the accompanying randomized declaration."
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-free-computation",
+   "from": "computation between queries is free",
+   "to": "computation between queries is free",
+   "role": "explanation",
+   "topic": "query",
+   "status": "new",
+   "reason": "The unitary clause adds no oracle cost; the note identifies the model being displayed.",
+   "lean": [
+    {
+     "name": "QuarticQuery.AdaptiveProgram.queryCap",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      125,
+      125
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The displayed definition makes quantum unitary steps free; it does not separately state the classical decision-tree convention."
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-promise-error",
+   "from": "the error bound only on the promise",
+   "to": "the error bound only on the promise",
+   "role": "explanation",
+   "topic": "query",
+   "status": "new",
+   "reason": "Expose the exact domain-restricted correctness convention at arbitrary error.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_correct_on_domain_iff",
+     "file": "QuarticQuery/Paper/ConstructionModels.lean",
+     "lines": [
+      106,
+      110
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-R-third",
+   "from": "$R=R_{1/3}$",
+   "to": "$R=R_{1/3}$",
+   "role": "definition",
+   "topic": "query",
+   "status": "new",
+   "reason": "Tie the error-one-third specialization; do not claim a general R-epsilon definition.",
+   "lean": [
+    {
+     "name": "QuarticQuery.R",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      84,
+      85
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-Q-third",
+   "from": "$Q=Q_{1/3}$",
+   "to": "$Q=Q_{1/3}$",
+   "role": "definition",
+   "topic": "query",
+   "status": "new",
+   "reason": "Tie the error-one-third specialization; do not claim a general Q-epsilon definition.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Q",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      150,
+      151
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-oracle",
+   "from": "a standard bit oracle",
+   "to": "a standard bit oracle",
+   "role": "definition",
+   "topic": "query",
+   "status": "new",
+   "reason": "Give the oracle action rather than an opaque query-model title.",
+   "lean": [
+    {
+     "name": "QuarticQuery.bitOracle",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      102,
+      107
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-pointer-bits",
+   "from": "reads a pointer of $\\ell$ bits one bit at a time",
+   "to": "reads a pointer of $\\ell$ bits one bit at a time",
+   "role": "explanation",
+   "topic": "construction",
+   "status": "new",
+   "reason": "The pointer branch reads a word and then the target bit, showing what one query buys.",
+   "lean": [
+    {
+     "name": "QuarticQuery.localTestTree",
+     "file": "QuarticQuery/Construction/LocalTests.lean",
+     "lines": [
+      177,
+      179
+     ],
+     "relation": "proof",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-three-properties",
+   "from": "a partial function $P$ with a low-query quantum algorithm on its promise, a nearly linear exact circuit for checking its domain and value, and high randomized query complexity.",
+   "to": "a partial function $P$ with a low-query quantum algorithm on its promise, a nearly linear exact circuit for checking its domain and value, and high randomized query complexity.",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "One complete theorem supplies all three properties of the same partial function.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_lemma_2_1_complete",
+     "file": "QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+     "lines": [
+      66,
+      90
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-table-decoder",
+   "from": "Cheap quantum decoding on the promise",
+   "to": "Cheap quantum decoding on the promise",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Make the decoder property in the table independently inspectable.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+     "file": "QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+     "lines": [
+      25,
+      44
+     ],
+     "relation": "contains",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean supplies the decoder already for k ≥ 1, while this paper fixes k ≥ 2."
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-table-circuit",
+   "from": "An exact circuit of size $\\widetilde O_k(m)$ for the domain bit and the value",
+   "to": "An exact circuit of size $\\widetilde O_k(m)$ for the domain bit and the value",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Use the exact domain-and-value circuit endpoint, not a circuit-size helper alone.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_lemma_2_1_iii",
+     "file": "QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+     "lines": [
+      111,
+      115
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean gives the explicit O_k(m(log₂m)²) size and also covers k = 1."
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-table-hardness",
+   "from": "$R(P)>L$ with $L$ close to $m^{1-1/k}$",
+   "to": "$R(P)>L$ with $L$ close to $m^{1-1/k}$",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Replace the informal closeness wording in the note by the actual floor and logarithmic denominator.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_lemma_2_1_i",
+     "file": "QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+     "lines": [
+      93,
+      94
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-input-blocks",
+   "from": "An input is $k$ blocks of $m$ bits",
+   "to": "An input is $k$ blocks of $m$ bits",
+   "role": "definition",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Explain the two indices before the first matrix expression.",
+   "lean": [
+    {
+     "name": "QuarticQuery.ForrelationCoord",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      161,
+      161
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-sign-coordinate",
+   "from": "we read bit $a$ of block $j$ as the sign $z_j(a)=(-1)^{a}$",
+   "to": "we read bit $a$ of block $j$ as the sign $z_j(a)=(-1)^{a}$",
+   "role": "definition",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Expose the input-value/coordinate ambiguity rather than silently treating the displayed formula as correct.",
+   "lean": [
+    {
+     "name": "QuarticQuery.bitSign",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      164,
+      164
+     ],
+     "relation": "defines",
+     "fidelity": "different",
+     "fidelity_note": "Lean applies bitSign to the stored Bool z (j,a); the printed exponent a denotes the coordinate in z_j(a), so the displayed formula omits the input value."
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-sign-query",
+   "from": "a sign query is a bit query",
+   "to": "a sign query is a bit query",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Connect sign access to the actual one-query phase-kickback identity.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_bitOracle_phase_kickback",
+     "file": "QuarticQuery/Paper/ConstructionPhase.lean",
+     "lines": [
+      26,
+      32
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-H",
+   "from": "Let $H$ be the normalized Walsh–Hadamard matrix of order $m$",
+   "to": "Let $H$ be the normalized Walsh–Hadamard matrix of order $m$",
+   "role": "definition",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Point the matrix definition at its own normalization clause.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_walsh_definitions",
+     "file": "QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+     "lines": [
+      34,
+      35
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-u",
+   "from": "$u=m^{-1/2}(1,\\ldots,1)^{\\mathsf T}$",
+   "to": "$u=m^{-1/2}(1,\\ldots,1)^{\\mathsf T}$",
+   "role": "definition",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Separate the uniform vector from the matrix and input-sign diagonals.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_walsh_definitions",
+     "file": "QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+     "lines": [
+      36,
+      36
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-D",
+   "from": "$D_z$ the diagonal matrix of a sign vector",
+   "to": "$D_z$ the diagonal matrix of a sign vector",
+   "role": "definition",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Highlight the diagonal definition, where the stored input bit supplies the sign.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_walsh_definitions",
+     "file": "QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+     "lines": [
+      37,
+      37
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-Phi-delta",
+   "from": "$$\n \\Phi=u^{\\mathsf T}D_{z_1}H D_{z_2}H\\cdots H D_{z_k}u,\\qquad \\delta=2^{-5k}.\n$$",
+   "to": "$$\n \\Phi=u^{\\mathsf T}D_{z_1}H D_{z_2}H\\cdots H D_{z_k}u,\\qquad \\delta=2^{-5k}.\n$$",
+   "role": "definition",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Tie the complete display, including the threshold, without cutting either formula.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_equation_3",
+     "file": "QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+     "lines": [
+      50,
+      54
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "The matrix-product identity is proved under 1 ≤ k, including the paper's k ≥ 2 range."
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-promise",
+   "from": "Set $P=1$ when $\\Phi\\ge\\delta$, $P=0$ when $|\\Phi|\\le\\delta/2$, and leave $P$ undefined elsewhere.",
+   "to": "Set $P=1$ when $\\Phi\\ge\\delta$, $P=0$ when $|\\Phi|\\le\\delta/2$, and leave $P$ undefined elsewhere.",
+   "role": "definition",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Show all three cases together so that off-promise behaviour cannot be mistaken for output zero.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_equation_4",
+     "file": "QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+     "lines": [
+      59,
+      66
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-projection",
+   "from": "Applying the unitary product to $u$ and projecting onto $u$ succeeds with probability $\\Phi^2$",
+   "to": "Applying the unitary product to $u$ and projecting onto $u$ succeeds with probability $\\Phi^2$",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Highlight the exact probability law separately from its use in amplification.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_projection_test",
+     "file": "QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+     "lines": [
+      26,
+      28
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-gap",
+   "from": "for fixed $k$ the two promised cases have a constant gap",
+   "to": "for fixed $k$ the two promised cases have a constant gap",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "The note supplies δ² versus δ²/4, making the fixed-k dependence visible.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_projection_test",
+     "file": "QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+     "lines": [
+      29,
+      30
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-retained-decoder",
+   "from": "repetition with all trial registers retained gives the decoder",
+   "to": "repetition with all trial registers retained gives the decoder",
+   "role": "explanation",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Use the complete retained physical witness, not the older measured/reset helper.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+     "file": "QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+     "lines": [
+      25,
+      44
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-negative-promise",
+   "from": "an input with $\\Phi\\le-\\delta$ lies outside the promise",
+   "to": "an input with $\\Phi\\le-\\delta$ lies outside the promise",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Identify the promise asymmetry that necessitates exact certificate checking.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Forrelation.P_eq_none_iff",
+     "file": "QuarticQuery/Forrelation/Promise.lean",
+     "lines": [
+      87,
+      88
+     ],
+     "relation": "contains",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean characterizes every undefined input; the paper uses the large-negative-value case of that characterization."
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-numerator",
+   "from": "the signed numerator of $\\Phi$",
+   "to": "the signed numerator of $\\Phi$",
+   "role": "definition",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Give the exact integer object separately from the circuit implementation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.forrelationNumerator",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      172,
+      177
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-transforms",
+   "from": "$k-1$ unnormalized fast Walsh–Hadamard transforms",
+   "to": "$k-1$ unnormalized fast Walsh–Hadamard transforms",
+   "role": "explanation",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Expose the recursive transform construction and distinguish it from its representation invariant.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Forrelation.layers",
+     "file": "QuarticQuery/Forrelation/Circuit.lean",
+     "lines": [
+      92,
+      99
+     ],
+     "relation": "proof",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-integer-width",
+   "from": "on integers of $O_k(\\ell)$ bits",
+   "to": "on integers of $O_k(\\ell)$ bits",
+   "role": "explanation",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Keep the circuit representation limitation beside the width claim.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_circuit_width",
+     "file": "QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+     "lines": [
+      85,
+      86
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "Lean proves logarithmic width for the modular circuit registers; this theorem does not identify every stored intermediate with an overflow-free signed integer."
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-integer-tests",
+   "from": "test the two defining inequalities after clearing denominators",
+   "to": "test the two defining inequalities after clearing denominators",
+   "role": "derivation",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Open the exact integer inequalities, not only a size bound.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_integer_tests",
+     "file": "QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+     "lines": [
+      168,
+      178
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-denominator",
+   "from": "The denominator is $m(\\sqrt m)^{k-1}$, which is an integer when $m$ is a power of four",
+   "to": "The denominator is $m(\\sqrt m)^{k-1}$, which is an integer when $m$ is a power of four",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Explain the power-of-four restriction through the actual integer denominator.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_denominator",
+     "file": "QuarticQuery/Paper/ConstructionForrelationDefinitions.lean",
+     "lines": [
+      99,
+      102
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-L-bound",
+   "from": "$$\n L:=\\left\\lfloor m^{1-1/k}/\\ell^2\\right\\rfloor < R(P).\n\\tag{3}\n$$",
+   "to": "$$\n L:=\\left\\lfloor m^{1-1/k}/\\ell^2\\right\\rfloor < R(P).\n\\tag{3}\n$$",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Attach the full displayed lower bound to its unconditional fixed-k endpoint.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_lemma_2_1_i",
+     "file": "QuarticQuery/Paper/ConstructionForrelationQuantum.lean",
+     "lines": [
+      93,
+      94
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-lemma-decoder",
+   "from": "For every $0<\\eta<1/2$ a reversible quantum algorithm with $O_k(1+\\log(1/\\eta))$ queries on every input computes $P$ with error at most $\\eta$ on its domain.",
+   "to": "For every $0<\\eta<1/2$ a reversible quantum algorithm with $O_k(1+\\log(1/\\eta))$ queries on every input computes $P$ with error at most $\\eta$ on its domain.",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Make the all-input cap and promised-input accuracy inspectable together.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+     "file": "QuarticQuery/Paper/ConstructionForrelationComplete.lean",
+     "lines": [
+      25,
+      44
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean proves this for all k ≥ 1 and every t, while the lemma is stated for fixed k ≥ 2 and sufficiently large powers of four."
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p2-lemma-circuit",
+   "from": "There is an exact fan-in-two circuit with $S=O_k(m\\ell^2)$ gates whose two outputs are the domain bit of $P$ and, on the domain, its value.",
+   "to": "There is an exact fan-in-two circuit with $S=O_k(m\\ell^2)$ gates whose two outputs are the domain bit of $P$ and, on the domain, its value.",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Separate the exact circuit from the probabilistic decoder in the same printed lemma.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_lemma_2_1_iii",
+     "file": "QuarticQuery/Paper/ConstructionForrelationCircuit.lean",
+     "lines": [
+      111,
+      115
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean covers k ≥ 1 and every t ≥ 1, so the circuit statement holds for all m = 4^t ≥ 4 rather than only eventually."
+    }
+   ],
+   "after": "## 2. Preliminaries"
+  },
+  {
+   "id": "p3-parameters",
+   "from": "$r=20\\ell$",
+   "to": "$r=20\\ell$",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "The family definition records r = 40t and ell = 2t together.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Fkm",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      294,
+      296
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-untrusted-input",
+   "from": "every bit is part of the input, so a cell is an arbitrary bit string and no part of the input is trusted.",
+   "to": "every bit is part of the input, so a cell is an arbitrary bit string and no part of the input is trusted.",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Explain that certificates are input data, not prevalidated mathematical objects.",
+   "lean": [
+    {
+     "name": "QuarticQuery.BitLoc",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      245,
+      253
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-X",
+   "from": "The *string* $X_i\\in\\{0,1\\}^m$.",
+   "to": "The *string* $X_i\\in\\{0,1\\}^m$.",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Identify the column-string accessor at its first formal definition.",
+   "lean": [
+    {
+     "name": "QuarticQuery.readX",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      255,
+      255
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-all-ones",
+   "from": "An all-one string protects a genuine winner: no pointer can find a zero in it.",
+   "to": "An all-one string protects a genuine winner: no pointer can find a zero in it.",
+   "role": "statement",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Tie the reason the all-one requirement matters, not only its notation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.winner_no_incoming_zero",
+     "file": "QuarticQuery/Construction/Winner.lean",
+     "lines": [
+      62,
+      64
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean covers all rivals and addresses in every addressed construction, independently of Forrelation."
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-A",
+   "from": "The *address inputs* $A_{i,1},\\ldots,A_{i,r}$, each an input to $P$.",
+   "to": "The *address inputs* $A_{i,1},\\ldots,A_{i,r}$, each an input to $P$.",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Distinguish an address input from the resulting address bit.",
+   "lean": [
+    {
+     "name": "QuarticQuery.readA",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      257,
+      258
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-true-address",
+   "from": "When their values are all defined they form the *true address* $s_i=(P(A_{i,1}),\\ldots,P(A_{i,r}))$.",
+   "to": "When their values are all defined they form the *true address* $s_i=(P(A_{i,1}),\\ldots,P(A_{i,r}))$.",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Keep the promise hypothesis with the address definition.",
+   "lean": [
+    {
+     "name": "QuarticQuery.trueAddress",
+     "file": "QuarticQuery/Construction/LocalTests.lean",
+     "lines": [
+      307,
+      309
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-cells",
+   "from": "The *cells* $B_{i,s}$, one for each $s\\in\\{0,1\\}^r$",
+   "to": "The *cells* $B_{i,s}$, one for each $s\\in\\{0,1\\}^r$",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Explain how pointer and transcript coordinates form one cell at each address.",
+   "lean": [
+    {
+     "name": "QuarticQuery.BitLoc",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      245,
+      253
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-pointer",
+   "from": "one $\\ell$-bit row pointer $p_{i,s,j}$ for each column $j\\ne i$",
+   "to": "one $\\ell$-bit row pointer $p_{i,s,j}$ for each column $j\\ne i$",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Show the explicit exclusion of a self-pointer.",
+   "lean": [
+    {
+     "name": "QuarticQuery.readPointerBit",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      260,
+      262
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-transcript",
+   "from": "for each $h\\le r$ a proposed *transcript*: one bit per non-input gate of the circuit of Lemma 2 evaluated on $A_{i,h}$.",
+   "to": "for each $h\\le r$ a proposed *transcript*: one bit per non-input gate of the circuit of Lemma 2 evaluated on $A_{i,h}$.",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "State what is stored, including the distinction between input wires and stored gates.",
+   "lean": [
+    {
+     "name": "QuarticQuery.readTranscript",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      264,
+      267
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-pointer-valid",
+   "from": "Since $m=2^\\ell$, every pointer word names a row.",
+   "to": "Since $m=2^\\ell$, every pointer word names a row.",
+   "role": "statement",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Make validity of arbitrary pointer words explicit.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_pointer_encoding",
+     "file": "QuarticQuery/Paper/ConstructionDefinitions.lean",
+     "lines": [
+      80,
+      82
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean also proves that every row has exactly one encoding, for every natural ell."
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-wins-summary",
+   "from": "Column $i$ **wins** if $X_i=1^m$, all its address inputs belong to the domain of $P$, and its cell at the true address is correct.",
+   "to": "Column $i$ **wins** if $X_i=1^m$, all its address inputs belong to the domain of $P$, and its cell at the true address is correct.",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Replace the old certificate paragraph selection by the complete formal winner predicate.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.constructionWinner",
+     "file": "QuarticQuery/Paper/ConstructionDefinitions.lean",
+     "lines": [
+      131,
+      137
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-wins-all-one",
+   "from": "$X_i=1^m$ (the string is all ones).",
+   "to": "$X_i=1^m$ (the string is all ones).",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Light only the all-one conjunct of the winner definition.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.constructionWinner",
+     "file": "QuarticQuery/Paper/ConstructionDefinitions.lean",
+     "lines": [
+      133,
+      133
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-wins-promise",
+   "from": "Each $A_{i,h}$ lies in the domain of $P$ (the true address $s_i$ is defined).",
+   "to": "Each $A_{i,h}$ lies in the domain of $P$ (the true address $s_i$ is defined).",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Light the promise witness that makes the true address meaningful.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.constructionWinner",
+     "file": "QuarticQuery/Paper/ConstructionDefinitions.lean",
+     "lines": [
+      134,
+      134
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-wins-transcript",
+   "from": "Each transcript in $B_{i,s_i}$ equals the true evaluation of the circuit on $A_{i,h}$ (the cell certifies the address).",
+   "to": "Each transcript in $B_{i,s_i}$ equals the true evaluation of the circuit on $A_{i,h}$ (the cell certifies the address).",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Light equality with true evaluation rather than a generic consistency title.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.constructionWinner",
+     "file": "QuarticQuery/Paper/ConstructionDefinitions.lean",
+     "lines": [
+      135,
+      136
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-wins-outward",
+   "from": "$X_j[p_{i,s_i,j}]=0$ for every $j\\ne i$ (the cell points to a zero in every other string).",
+   "to": "$X_j[p_{i,s_i,j}]=0$ for every $j\\ne i$ (the cell points to a zero in every other string).",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Give the fourth condition its own destination and explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.constructionOutwardPointers",
+     "file": "QuarticQuery/Paper/ConstructionDefinitions.lean",
+     "lines": [
+      117,
+      120
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-F",
+   "from": "We set $F_{k,m}=1$ if some column wins and $F_{k,m}=0$ otherwise",
+   "to": "We set $F_{k,m}=1$ if some column wins and $F_{k,m}=0$ otherwise",
+   "role": "definition",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Tie the Boolean definition, separately from the uniqueness theorem.",
+   "lean": [
+    {
+     "name": "QuarticQuery.addressedF",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      287,
+      289
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-total",
+   "from": "this defines $F_{k,m}$ on every input, including inputs whose address inputs violate the promise.",
+   "to": "this defines $F_{k,m}$ on every input, including inputs whose address inputs violate the promise.",
+   "role": "explanation",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Explain totality where the paper contrasts it with the partial address function.",
+   "lean": [
+    {
+     "name": "QuarticQuery.addressedF",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      287,
+      289
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-unique",
+   "from": "Two distinct columns cannot both win, since the pointer from one would have to name a zero in the other's all-one string.",
+   "to": "Two distinct columns cannot both win, since the pointer from one would have to name a zero in the other's all-one string.",
+   "role": "statement",
+   "topic": "construction",
+   "status": "new",
+   "reason": "Separate the formal uniqueness claim and preserve its short mathematical reason.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_unique_winner",
+     "file": "QuarticQuery/Paper/ConstructionDefinitions.lean",
+     "lines": [
+      185,
+      187
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "The theorem holds for arbitrary f, C, ell and r; no circuit-realization hypothesis is needed."
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-test-X",
+   "from": "We check that $X_i[a]=1$ for every row $a$",
+   "to": "We check that $X_i[a]=1$ for every row $a$",
+   "role": "definition",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Highlight the string-test branch.",
+   "lean": [
+    {
+     "name": "QuarticQuery.localTest",
+     "file": "QuarticQuery/Construction/LocalTests.lean",
+     "lines": [
+      145,
+      145
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-test-pointer",
+   "from": "that $X_j[p_{i,s,j}]=0$ for every $j\\ne i$",
+   "to": "that $X_j[p_{i,s,j}]=0$ for every $j\\ne i$",
+   "role": "definition",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Highlight the pointer-test branch without selecting unrelated gate tests.",
+   "lean": [
+    {
+     "name": "QuarticQuery.localTest",
+     "file": "QuarticQuery/Construction/LocalTests.lean",
+     "lines": [
+      146,
+      148
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-test-gate",
+   "from": "that each gate bit agrees with the gate applied to its inputs",
+   "to": "that each gate bit agrees with the gate applied to its inputs",
+   "role": "definition",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Highlight the gate equation and its actual predecessors.",
+   "lean": [
+    {
+     "name": "QuarticQuery.localTest",
+     "file": "QuarticQuery/Construction/LocalTests.lean",
+     "lines": [
+      149,
+      153
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-test-outputs",
+   "from": "that the two output bits equal $(1,s_h)$",
+   "to": "that the two output bits equal $(1,s_h)$",
+   "role": "definition",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Show the two distinct domain and value output tests.",
+   "lean": [
+    {
+     "name": "QuarticQuery.localTest",
+     "file": "QuarticQuery/Construction/LocalTests.lean",
+     "lines": [
+      154,
+      155
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-transcript-induction",
+   "from": "By induction in circuit order, a transcript consistent at every gate equals the true evaluation.",
+   "to": "By induction in circuit order, a transcript consistent at every gate equals the true evaluation.",
+   "role": "statement",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Link the consistency-to-evaluation inference that makes the certificate meaningful.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_transcript_correct",
+     "file": "QuarticQuery/Paper/ConstructionDefinitions.lean",
+     "lines": [
+      48,
+      51
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean also states existence and uniqueness of the consistent transcript for every circuit and input."
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-failed-gate",
+   "from": "a false transcript disagrees at some gate",
+   "to": "a false transcript disagrees at some gate",
+   "role": "derivation",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Keep the failure conclusion separate from the promise-output argument.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_transcript_correct",
+     "file": "QuarticQuery/Paper/ConstructionDefinitions.lean",
+     "lines": [
+      48,
+      51
+     ],
+     "relation": "contains",
+     "fidelity": "stronger",
+     "fidelity_note": "The theorem gives an equivalence with the true evaluation and uniqueness; this phrase uses its contrapositive."
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-failed-output",
+   "from": "a true transcript for an off-promise input or a wrong address bit disagrees at an output.",
+   "to": "a true transcript for an off-promise input or a wrong address bit disagrees at an output.",
+   "role": "derivation",
+   "topic": "verification",
+   "status": "new",
+   "reason": "The circuit contract relates the true output bits to domain membership and the defined value.",
+   "lean": [
+    {
+     "name": "QuarticQuery.CircuitRealises",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      228,
+      232
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-nonwinner-every-address",
+   "from": "for a column that does not win, some test fails at *every* address.",
+   "to": "for a column that does not win, some test fails at *every* address.",
+   "role": "statement",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Preserve the quantifier over every address, which is needed for verification after arbitrary decoding.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_local_dichotomy",
+     "file": "QuarticQuery/Paper/ConstructionTests.lean",
+     "lines": [
+      110,
+      118
+     ],
+     "relation": "contains",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean proves both winner and nonwinner directions for every partial function and every realizing circuit."
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-K",
+   "from": "$$\n K=m+(m-1)+r(S+2)\n\\tag{2}\n$$",
+   "to": "$$\n K=m+(m-1)+r(S+2)\n\\tag{2}\n$$",
+   "role": "statement",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Tie the whole display to the actual finite test-index count.",
+   "lean": [
+    {
+     "name": "QuarticQuery.card_testIndex",
+     "file": "QuarticQuery/Construction/LocalTests.lean",
+     "lines": [
+      132,
+      133
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "The exact count is proved for arbitrary ell, r and S; the paper substitutes m = 2^ell and r = 20ell."
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-K-growth",
+   "from": "$K=O_k(m\\ell^3)$",
+   "to": "$K=O_k(m\\ell^3)$",
+   "role": "statement",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Use the family-level bound whose constant is fixed before the input scale.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_K_family",
+     "file": "QuarticQuery/Paper/ConstructionTests.lean",
+     "lines": [
+      168,
+      172
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "The theorem covers k ≥ 1 and every t ≥ 1 with one B chosen before t."
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-gate-cost",
+   "from": "Checking a gate costs at most three queries",
+   "to": "Checking a gate costs at most three queries",
+   "role": "derivation",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Show the three actual reads rather than a maximum over all test types.",
+   "lean": [
+    {
+     "name": "QuarticQuery.localTestTree",
+     "file": "QuarticQuery/Construction/LocalTests.lean",
+     "lines": [
+      180,
+      185
+     ],
+     "relation": "proof",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-pointer-cost",
+   "from": "following a pointer costs $\\ell+1$",
+   "to": "following a pointer costs $\\ell+1$",
+   "role": "derivation",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Show the ell pointer-bit reads followed by one adaptive target-bit read.",
+   "lean": [
+    {
+     "name": "QuarticQuery.localTestTree",
+     "file": "QuarticQuery/Construction/LocalTests.lean",
+     "lines": [
+      177,
+      179
+     ],
+     "relation": "proof",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-interface-comparison",
+   "from": "a winner beats every rival with high probability",
+   "to": "a winner beats every rival with high probability",
+   "role": "statement",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Make the table guarantee lead to a precise probability and its decoder assumptions.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumWinner_dominates",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      296,
+      302
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "p3-interface-verification",
+   "from": "every column that does not win fails some exact test at every address",
+   "to": "every column that does not win fails some exact test at every address",
+   "role": "statement",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Let the summary table reopen the same all-address soundness guarantee.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_local_dichotomy",
+     "file": "QuarticQuery/Paper/ConstructionTests.lean",
+     "lines": [
+      110,
+      118
+     ],
+     "relation": "contains",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean proves the generic two-sided dichotomy for any partial function and realizing circuit."
+    }
+   ],
+   "after": "## 3. The function"
+  },
+  {
+   "id": "q4-decode-two",
+   "from": "For $i\\ne j$, decode addresses $s$ for $i$ and $t$ for $j$, each in its own workspace.",
+   "to": "For $i\\ne j$, decode addresses $s$ for $i$ and $t$ for $j$, each in its own workspace.",
+   "role": "explanation",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumDecode",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      33,
+      35
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem supplies a coherent decoder for any one column i. Two independent address registers require composing two such decoders; their joint preparation is not the conclusion of this one declaration."
+    }
+   ]
+  },
+  {
+   "id": "q4-pointer-tests",
+   "from": "Read $X_j[p_{i,s,j}]$ and $X_i[p_{j,t,i}]$.",
+   "to": "Read $X_j[p_{i,s,j}]$ and $X_i[p_{j,t,i}]$.",
+   "role": "explanation",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumComparison_disqualification",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      173,
+      176
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-comparison-rule",
+   "from": "If exactly one of these bits is zero, select the column whose pointer found that zero; otherwise select the smaller index.",
+   "to": "If exactly one of these bits is zero, select the column whose pointer found that zero; otherwise select the smaller index.",
+   "role": "statement",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumComparison_rule",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      167,
+      168
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-self-comparison",
+   "from": "A self-comparison selects neither column and reads no pointer.",
+   "to": "A self-comparison selects neither column and reads no pointer.",
+   "role": "statement",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumComparison_self_zero_reads",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      211,
+      212
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-winning-comparison",
+   "from": "If the algorithm decodes its address correctly, it reads a zero in $X_j$ and a one in $X_{i^\\star}=1^m$, so it selects $i^\\star$ whatever address it decodes for $j$, and even when no address of $j$ is defined.",
+   "to": "If the algorithm decodes its address correctly, it reads a zero in $X_j$ and a one in $X_{i^\\star}=1^m$, so it selects $i^\\star$ whatever address it decodes for $j$, and even when no address of $j$ is defined.",
+   "role": "derivation",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Upper.cmpProb_winner",
+     "file": "QuarticQuery/Upper/Columns.lean",
+     "lines": [
+      227,
+      235
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "The proof’s two disqualification facts express the deterministic guarantee at the winner’s true address."
+    }
+   ]
+  },
+  {
+   "id": "q4-error-allocation",
+   "from": "Write $\\varepsilon$ for the allowed error in decoding a whole address on promised inputs, and use error $\\varepsilon/r$ for each of its $r$ bits.",
+   "to": "Write $\\varepsilon$ for the allowed error in decoding a whole address on promised inputs, and use error $\\varepsilon/r$ for each of its $r$ bits.",
+   "role": "explanation",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumDecode_correct",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      54,
+      59
+     ],
+     "relation": "contains",
+     "fidelity": "same",
+     "link_note": "The repetition and promise hypotheses give the complete-address error guarantee."
+    }
+   ]
+  },
+  {
+   "id": "q4-single-experiment",
+   "from": "We order each unordered pair canonically and run a single comparison experiment, with both decoded addresses retained; asking whether $i$ beat $j$ or $j$ beat $i$ reads the same measured outcome.",
+   "to": "We order each unordered pair canonically and run a single comparison experiment, with both decoded addresses retained; asking whether $i$ beat $j$ or $j$ beat $i$ reads the same measured outcome.",
+   "role": "explanation",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumComparison_unordered_state",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      230,
+      237
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-aij-definition",
+   "from": "Writing $a_{ij}$ for the probability that this experiment selects $i$, and $a_{ii}=0$ for the self-comparison",
+   "to": "Writing $a_{ij}$ for the probability that this experiment selects $i$, and $a_{ii}=0$ for the self-comparison",
+   "role": "definition",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Upper.cmpProb",
+     "file": "QuarticQuery/Upper/Columns.lean",
+     "lines": [
+      174,
+      177
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-complementary-display",
+   "from": "$$\n a_{ij}+a_{ji}=1\\quad(i\\ne j),\\qquad a_{ii}=0.\n\\tag{4}\n$$",
+   "to": "$$\n a_{ij}+a_{ji}=1\\quad(i\\ne j),\\qquad a_{ii}=0.\n\\tag{4}\n$$",
+   "role": "statement",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Upper.cmpProb_isComparison",
+     "file": "QuarticQuery/Upper/Columns.lean",
+     "lines": [
+      195,
+      196
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-dominant-term",
+   "from": "*dominant*",
+   "to": "*dominant*",
+   "role": "definition",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.Dominant",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      220,
+      221
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-dominance",
+   "from": "$a_{i^\\star j}\\ge1-\\varepsilon$ for every $j\\ne i^\\star$.",
+   "to": "$a_{i^\\star j}\\ge1-\\varepsilon$ for every $j\\ne i^\\star$.",
+   "role": "statement",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumWinner_dominates",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      296,
+      302
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-comparison-cost",
+   "from": "One comparison, or its inverse, uses $c=O_k(r\\log(r/\\varepsilon)+\\ell)$ queries.",
+   "to": "One comparison, or its inverse, uses $c=O_k(r\\log(r/\\varepsilon)+\\ell)$ queries.",
+   "role": "statement",
+   "topic": "comparison",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumComparison_query_bound",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      267,
+      272
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem gives the explicit physical budget for the implemented comparison. It does not by itself state that the inverse circuit has the same budget."
+    },
+    {
+     "name": "QuarticQuery.Paper.quantumComparison_state",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      218,
+      223
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem supplies forward and inverse circuits with equal logical read counts. It does not itself give the logarithmic estimate or convert those reads to physical bit queries."
+    }
+   ]
+  },
+  {
+   "id": "q4-proposition-3",
+   "from": "*Let $T=\\lceil\\log(1000m)\\rceil$ and $\\varepsilon=1/(1000T)$. Suppose a reversible comparison circuit, controlled by two candidate indices, uses at most $c$ queries and satisfies (4). There is a quantum algorithm making $O(c\\sqrt m\\,T^2\\log T)$ queries on every branch and returning a list of at most $T$ candidates such that, if $a_{i^\\star j}\\ge1-\\varepsilon$ for all $j\\ne i^\\star$, the list contains $i^\\star$ with probability at least $1-2m2^{-T}-T\\varepsilon$.*",
+   "to": "*Let $T=\\lceil\\log(1000m)\\rceil$ and $\\varepsilon=1/(1000T)$. Suppose a reversible comparison circuit, controlled by two candidate indices, uses at most $c$ queries and satisfies (4). There is a quantum algorithm making $O(c\\sqrt m\\,T^2\\log T)$ queries on every branch and returning a list of at most $T$ candidates such that, if $a_{i^\\star j}\\ge1-\\varepsilon$ for all $j\\ne i^\\star$, the list contains $i^\\star$ with probability at least $1-2m2^{-T}-T\\varepsilon$.*",
+   "role": "statement",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Use the current list-valued physical theorem, not the historical continuation-only implementation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumTournament",
+     "file": "QuarticQuery/Paper/QuantumTournamentFacts.lean",
+     "lines": [
+      287,
+      303
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-pivots-list",
+   "from": "The algorithm samples a sequence of indices, called *pivots*, and returns them as its list.",
+   "to": "The algorithm samples a sequence of indices, called *pivots*, and returns them as its list.",
+   "role": "explanation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumListLaw",
+     "file": "QuarticQuery/Paper/QuantumTournament.lean",
+     "lines": [
+      75,
+      79
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-probability-weight",
+   "from": "With probabilistic comparisons we weight each candidate by the probability of being selected over every previous pivot in fresh, independent comparisons.",
+   "to": "With probabilistic comparisons we weight each candidate by the probability of being selected over every previous pivot in fresh, independent comparisons.",
+   "role": "explanation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumWeight_product",
+     "file": "QuarticQuery/Paper/QuantumTournamentFacts.lean",
+     "lines": [
+      88,
+      89
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem identifies recursive weights with a product of comparison entries. It does not identify that product with a probability of independent quantum outcomes."
+    },
+    {
+     "name": "QuarticQuery.Paper.tensor_success_mass",
+     "file": "QuarticQuery/Paper/QuantumTensor.lean",
+     "lines": [
+      164,
+      167
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem factors success mass for independent register vectors. It does not identify those individual masses with the a_ij entries or define the candidate weights."
+    }
+   ]
+  },
+  {
+   "id": "q4-weights-display",
+   "from": "$$\n w_i=\\prod_{h=1}^n a_{i\\rho_h},\\qquad W=\\sum_i w_i.\n$$",
+   "to": "$$\n w_i=\\prod_{h=1}^n a_{i\\rho_h},\\qquad W=\\sum_i w_i.\n$$",
+   "role": "definition",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.weight",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      35,
+      37
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "This definition supplies only w_i, including its product update. It does not define the displayed total W; that is the separate total declaration."
+    },
+    {
+     "name": "QuarticQuery.Tournament.total",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      32,
+      32
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "This definition supplies only W = sum_i w_i. It does not define the individual product weights displayed in the same formula."
+    }
+   ]
+  },
+  {
+   "id": "q4-initial-weight",
+   "from": "Initially all weights are one.",
+   "to": "Initially all weights are one.",
+   "role": "definition",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.weight",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      35,
+      36
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-weight-update",
+   "from": "After drawing $j$, replace each $w_i$ by $w_i a_{ij}$",
+   "to": "After drawing $j$, replace each $w_i$ by $w_i a_{ij}$",
+   "role": "definition",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.weight",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      35,
+      37
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-pivot-zero",
+   "from": "the new weight of $j$ is zero.",
+   "to": "the new weight of $j$ is zero.",
+   "role": "derivation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.weight",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      35,
+      37
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The recursive definition supplies the multiplication update. The conclusion that the new pivot’s weight is zero additionally needs the self_zero field of IsComparison."
+    },
+    {
+     "name": "QuarticQuery.Tournament.IsComparison",
+     "file": "QuarticQuery/Statement.lean",
+     "lines": [
+      302,
+      304
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "link_note": "The zero diagonal is an assumption of the generic comparison table.",
+     "fidelity_note": "The structure supplies the zero-diagonal assumption and complementarity. It does not define or carry out the weight update; multiplying by a_jj = 0 uses the separate weight definition."
+    }
+   ]
+  },
+  {
+   "id": "q4-weighted-draw",
+   "from": "Drawing $j$ with probability $w_j/W$",
+   "to": "Drawing $j$ with probability $w_j/W$",
+   "role": "definition",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Name the implemented weighted choice without assigning the preceding arbitrary-q derivation to its definition.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.expectFrom",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      42,
+      47
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-drift-display",
+   "from": "$$\n \\sum_j\\frac{w_j}{W}\\sum_i w_i a_{ij}\n =\\frac{W^2-\\sum_i w_i^2}{2W}.\n\\tag{5}\n$$",
+   "to": "$$\n \\sum_j\\frac{w_j}{W}\\sum_i w_i a_{ij}\n =\\frac{W^2-\\sum_i w_i^2}{2W}.\n\\tag{5}\n$$",
+   "role": "statement",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.expected_weight_eq",
+     "file": "QuarticQuery/Tournament/Drift.lean",
+     "lines": [
+      55,
+      57
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "The Lean identity permits arbitrary real weights and comparison entries; only complementarity, a zero diagonal and W > 0 are required."
+    }
+   ]
+  },
+  {
+   "id": "q4-half-drift",
+   "from": "For $W>0$, the nonnegative sum of squares in (5) gives the bound $\\mathbb E[W_{\\rm new}\\mid w]\\le W/2$.",
+   "to": "For $W>0$, the nonnegative sum of squares in (5) gives the bound $\\mathbb E[W_{\\rm new}\\mid w]\\le W/2$.",
+   "role": "derivation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.expected_weight_le_half",
+     "file": "QuarticQuery/Tournament/Drift.lean",
+     "lines": [
+      71,
+      73
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean proves the algebraic inequality for arbitrary real weights and comparison entries with IsComparison and W > 0; the probability interpretation additionally uses nonnegative weights."
+    }
+   ]
+  },
+  {
+   "id": "q4-pair-cancellation",
+   "from": "the ordered pairs $(i,j)$ and $(j,i)$ have equal probability, their selection probabilities sum to one when $i\\ne j$, and the diagonal contributes nothing.",
+   "to": "the ordered pairs $(i,j)$ and $(j,i)$ have equal probability, their selection probabilities sum to one when $i\\ne j$, and the diagonal contributes nothing.",
+   "role": "derivation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.two_mul_weighted_sum",
+     "file": "QuarticQuery/Tournament/Drift.lean",
+     "lines": [
+      28,
+      40
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "The proof pairs the ordered terms and cancels the diagonal."
+    }
+   ]
+  },
+  {
+   "id": "q4-stop-zero",
+   "from": "In the ideal process we stop if $W=0$.",
+   "to": "In the ideal process we stop if $W=0$.",
+   "role": "definition",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.expectFrom",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      42,
+      47
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-expected-final-weight",
+   "from": "After $T$ steps the expected total weight is at most $m2^{-T}$.",
+   "to": "After $T$ steps the expected total weight is at most $m2^{-T}$.",
+   "role": "statement",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.expected_final_weight",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      212,
+      214
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-surviving-winner",
+   "from": "If the winner is still unlisted, its weight is at least $(1-\\varepsilon)^T\\ge1-T\\varepsilon>1/2$.",
+   "to": "If the winner is still unlisted, its weight is at least $(1-\\varepsilon)^T\\ge1-T\\varepsilon>1/2$.",
+   "role": "statement",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.dominant_weight_lb",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      239,
+      242
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-ideal-miss",
+   "from": "by Markov's inequality, the probability that the winner remains unlisted is at most $2m2^{-T}$.",
+   "to": "by Markov's inequality, the probability that the winner remains unlisted is at most $2m2^{-T}$.",
+   "role": "derivation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.ideal_miss_le",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      263,
+      267
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-positive-total",
+   "from": "while the winner is unlisted the total weight exceeds $1/2$",
+   "to": "while the winner is unlisted the total weight exceeds $1/2$",
+   "role": "statement",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.half_lt_total",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      254,
+      257
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-prepare-comparisons",
+   "from": "To draw its next pivot, it prepares a uniform superposition of indices $i$ and compares $i$ with every listed pivot in fresh workspaces, coherently controlled by $i$.",
+   "to": "To draw its next pivot, it prepares a uniform superposition of indices $i$ and compares $i$ with every listed pivot in fresh workspaces, coherently controlled by $i$.",
+   "role": "explanation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.equation_15",
+     "file": "QuarticQuery/Paper/QuantumTensor.lean",
+     "lines": [
+      120,
+      131
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-tensor-display",
+   "from": "$$\n \\frac1{\\sqrt m}\\sum_i |i\\rangle\\bigotimes_{b=1}^n |\\phi(i,\\rho_b)\\rangle.\n$$",
+   "to": "$$\n \\frac1{\\sqrt m}\\sum_i |i\\rangle\\bigotimes_{b=1}^n |\\phi(i,\\rho_b)\\rangle.\n$$",
+   "role": "statement",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.equation_15",
+     "file": "QuarticQuery/Paper/QuantumTensor.lean",
+     "lines": [
+      120,
+      131
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-success-flag",
+   "from": "Set a flag if every comparison selects $i$.",
+   "to": "Set a flag if every comparison selects $i$.",
+   "role": "definition",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.tensorGood",
+     "file": "QuarticQuery/Paper/QuantumTensor.lean",
+     "lines": [
+      156,
+      159
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-independent-registers",
+   "from": "For a fixed $i$ the comparison states form a tensor product, so the joint success probability is the product $w_i$",
+   "to": "For a fixed $i$ the comparison states form a tensor product, so the joint success probability is the product $w_i$",
+   "role": "derivation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.tensor_success_mass",
+     "file": "QuarticQuery/Paper/QuantumTensor.lean",
+     "lines": [
+      164,
+      167
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-orthogonal-labels",
+   "from": "and states with distinct labels are orthogonal.",
+   "to": "and states with distinct labels are orthogonal.",
+   "role": "derivation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Upper.lawOf_sigma",
+     "file": "QuarticQuery/Upper/Sampler.lean",
+     "lines": [
+      58,
+      60
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem states additivity of measured masses over distinct labelled blocks, the probability consequence of orthogonality. It does not state an inner-product equality between distinct label vectors."
+    }
+   ]
+  },
+  {
+   "id": "q4-success-law-display",
+   "from": "$$\n \\Pr[i\\text{ and flag}]=\\frac{w_i}{m},\\qquad\n \\Pr[\\text{flag}]=\\frac Wm,\\qquad\n \\Pr[i\\mid\\text{flag}]=\\frac{w_i}{W}.\n\\tag{6}\n$$",
+   "to": "$$\n \\Pr[i\\text{ and flag}]=\\frac{w_i}{m},\\qquad\n \\Pr[\\text{flag}]=\\frac Wm,\\qquad\n \\Pr[i\\mid\\text{flag}]=\\frac{w_i}{W}.\n\\tag{6}\n$$",
+   "role": "statement",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumStage_success",
+     "file": "QuarticQuery/Paper/QuantumTournamentFacts.lean",
+     "lines": [
+      158,
+      167
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-ideal-label-law",
+   "from": "The flagged branch therefore samples the next pivot from the ideal law, without the algorithm knowing any $a_{ij}$.",
+   "to": "The flagged branch therefore samples the next pivot from the ideal law, without the algorithm knowing any $a_{ij}$.",
+   "role": "derivation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.equation_15_conditional_index",
+     "file": "QuarticQuery/Paper/QuantumTensor.lean",
+     "lines": [
+      272,
+      282
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "link_note": "The exact conditional law follows from the prepared state, without estimated comparison probabilities.",
+     "fidelity_note": "The theorem gives the exact conditional product-weight law under hv and hW > 0. It does not by itself exhibit the query circuit or express the absence of stored numerical a_ij values."
+    }
+   ]
+  },
+  {
+   "id": "q4-amplifier-input",
+   "from": "Let $A$ prepare a state with a success flag, with success probability $p$.",
+   "to": "Let $A$ prepare a state with a success flag, with success probability $p$.",
+   "role": "definition",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Amplification.Preparation",
+     "file": "QuarticQuery/Amplification/Geometry.lean",
+     "lines": [
+      33,
+      39
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-amplifier-cap",
+   "from": "For $0<\\gamma\\le1/2$ and $0<\\eta<1/2$ there is a procedure making $O(\\gamma^{-1/2}\\log(1/\\eta))$ calls to $A$ and $A^{-1}$ on every branch, for every $p$, that either reports failure or produces a successful outcome.",
+   "to": "For $0<\\gamma\\le1/2$ and $0<\\eta<1/2$ there is a procedure making $O(\\gamma^{-1/2}\\log(1/\\eta))$ calls to $A$ and $A^{-1}$ on every branch, for every $p$, that either reports failure or produces a successful outcome.",
+   "role": "statement",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Amplification.bounded_amplification",
+     "file": "QuarticQuery/Amplification/Bounded.lean",
+     "lines": [
+      242,
+      257
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "link_note": "The abstract procedure has a uniform all-branch call cap; its physical label implementation is a separate theorem.",
+     "fidelity_note": "The all-branch call bound and successful-state assertions are stated for the abstract Proc model, not an AdaptiveProgram on the bit oracle. The separate physical label-law theorem supplies the implemented sampler contract."
+    }
+   ]
+  },
+  {
+   "id": "q4-amplifier-label",
+   "from": "Conditional on success, the measured label has the same distribution as in the successful part of $A$'s state.",
+   "to": "Conditional on success, the measured label has the same distribution as in the successful part of $A$'s state.",
+   "role": "statement",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantum_amplified_conditional",
+     "file": "QuarticQuery/Paper/QuantumAmplification.lean",
+     "lines": [
+      216,
+      223
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    },
+    {
+     "name": "QuarticQuery.Paper.quantum_amplified_label_law",
+     "file": "QuarticQuery/Paper/QuantumAmplification.lean",
+     "lines": [
+      202,
+      210
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "link_note": "Supplies the physical program realizing the preserved label law.",
+     "fidelity_note": "The type supplies a physical program with output law ampLaw, but does not itself display the conditional-law equality. That equality also needs the positive-success hypotheses stated in quantum_amplified_conditional."
+    }
+   ]
+  },
+  {
+   "id": "q4-amplifier-cases",
+   "from": "If $p\\ge\\gamma$ it fails with probability at most $\\eta$, and if $p=0$ it always fails.",
+   "to": "If $p\\ge\\gamma$ it fails with probability at most $\\eta$, and if $p=0$ it always fails.",
+   "role": "statement",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantum_amplify_samples",
+     "file": "QuarticQuery/Paper/QuantumAmplification.lean",
+     "lines": [
+      355,
+      361
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-grover-plane",
+   "from": "The label law is preserved because each Grover iteration rotates within the plane spanned by the successful and unsuccessful components of $A$'s state, and so leaves the direction of the successful component unchanged.",
+   "to": "The label law is preserved because each Grover iteration rotates within the plane spanned by the successful and unsuccessful components of $A$'s state, and so leaves the direction of the successful component unchanged.",
+   "role": "explanation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantum_grover_state",
+     "file": "QuarticQuery/Paper/QuantumAmplification.lean",
+     "lines": [
+      38,
+      50
+     ],
+     "relation": "states",
+     "fidelity": "weaker",
+     "fidelity_note": "The displayed geometric theorem requires h0 : 0 < A.prob and h1 : A.prob < 1; its direction conclusion also requires a nonzero successful component. The normalized successful vectors agree up to global phase (PhaseEq). At p = 0 there is no conditional successful direction; at p = 1 the two-dimensional formulation degenerates."
+    }
+   ]
+  },
+  {
+   "id": "q4-amplifier-parameters",
+   "from": "We apply Lemma 4 with $\\gamma=1/(2m)$ and $\\eta=\\varepsilon$.",
+   "to": "We apply Lemma 4 with $\\gamma=1/(2m)$ and $\\eta=\\varepsilon$.",
+   "role": "derivation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumTournament_list",
+     "file": "QuarticQuery/Paper/QuantumTournament.lean",
+     "lines": [
+      307,
+      314
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "The stage sampler is amplified with exactly this reciprocal threshold and the tournament’s epsilon."
+    }
+   ]
+  },
+  {
+   "id": "q4-sampling-guarantee",
+   "from": "Before the winner is listed the flag probability $W/m$ exceeds $1/(2m)$",
+   "to": "Before the winner is listed the flag probability $W/m$ exceeds $1/(2m)$",
+   "role": "derivation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Tournament.half_lt_total",
+     "file": "QuarticQuery/Tournament/Ideal.lean",
+     "lines": [
+      254,
+      257
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem supplies W > 1/2 while the dominant candidate is absent. It does not identify the preparation’s flag probability as W/m; division by positive m uses that separate law."
+    },
+    {
+     "name": "QuarticQuery.Paper.quantumStage_success",
+     "file": "QuarticQuery/Paper/QuantumTournamentFacts.lean",
+     "lines": [
+      158,
+      167
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem identifies the flag probability as W/m when W > 0. It does not supply W > 1/2 while the dominant candidate is absent."
+    }
+   ]
+  },
+  {
+   "id": "q4-amplified-stage",
+   "from": "each stage fails with probability at most $\\varepsilon$ and otherwise appends a pivot drawn exactly from the ideal law.",
+   "to": "each stage fails with probability at most $\\varepsilon$ and otherwise appends a pivot drawn exactly from the ideal law.",
+   "role": "derivation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantum_amplify_samples",
+     "file": "QuarticQuery/Paper/QuantumAmplification.lean",
+     "lines": [
+      355,
+      361
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem supplies the coherent amplifier’s failure guarantee and proportional successful-label law once its threshold hypothesis holds. It does not identify those label weights with the ideal pivot weights or append the label to a list."
+    },
+    {
+     "name": "QuarticQuery.Paper.quantumStage_success",
+     "file": "QuarticQuery/Paper/QuantumTournamentFacts.lean",
+     "lines": [
+      158,
+      167
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem supplies the unamplified stage’s joint, total and conditional probabilities. It does not bound amplified failure or update the returned list."
+    },
+    {
+     "name": "QuarticQuery.Paper.quantumListLaw",
+     "file": "QuarticQuery/Paper/QuantumTournament.lean",
+     "lines": [
+      75,
+      79
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The definition supplies stopping on failure and prepending a successful pivot according to weight divided by total weight. It does not bound the failure function g L by epsilon or provide the coherent implementation."
+    }
+   ]
+  },
+  {
+   "id": "q4-physical-stopping",
+   "from": "We stop on failure or after $T$ stages.",
+   "to": "We stop on failure or after $T$ stages.",
+   "role": "explanation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumListLaw",
+     "file": "QuarticQuery/Paper/QuantumTournament.lean",
+     "lines": [
+      75,
+      79
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-past-selection",
+   "from": "Once the winner is listed, later stopping cannot remove it, so the behaviour of the sampler afterwards is irrelevant.",
+   "to": "Once the winner is listed, later stopping cannot remove it, so the behaviour of the sampler afterwards is irrelevant.",
+   "role": "derivation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumList_coupling",
+     "file": "QuarticQuery/Paper/QuantumTournament.lean",
+     "lines": [
+      192,
+      196
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "The induction’s already-listed branch needs no small-failure assumption."
+    }
+   ]
+  },
+  {
+   "id": "q4-coupling-display",
+   "from": "$$\n \\Pr[i^\\star\\text{ absent from the list}]\\le 2m2^{-T}+T\\varepsilon.\n\\tag{7}\n$$",
+   "to": "$$\n \\Pr[i^\\star\\text{ absent from the list}]\\le 2m2^{-T}+T\\varepsilon.\n\\tag{7}\n$$",
+   "role": "statement",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumTournament_list",
+     "file": "QuarticQuery/Paper/QuantumTournament.lean",
+     "lines": [
+      270,
+      282
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-tournament-cost",
+   "from": "Each stage rebuilds at most $T$ comparisons per call to the preparation, so the $T$ stages cost $O(c\\sqrt m\\,T^2\\log T)$ queries on every input.",
+   "to": "Each stage rebuilds at most $T$ comparisons per call to the preparation, so the $T$ stages cost $O(c\\sqrt m\\,T^2\\log T)$ queries on every input.",
+   "role": "derivation",
+   "topic": "tournament",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumTournament_cost",
+     "file": "QuarticQuery/Paper/QuantumTournamentFacts.lean",
+     "lines": [
+      238,
+      241
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-fresh-address",
+   "from": "For each listed column, decode a fresh address with error at most $\\varepsilon$ on promised inputs and measure it.",
+   "to": "For each listed column, decode a fresh address with error at most $\\varepsilon$ on promised inputs and measure it.",
+   "role": "explanation",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumVerify_runs",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      355,
+      358
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem implements fresh decoding followed by fixed-address verification with an all-input cap. It assumes component verifier programs and does not state the decoder’s promised-input error bound."
+    },
+    {
+     "name": "QuarticQuery.Paper.quantumDecode_correct",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      54,
+      59
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem bounds the promised-input address error under hs and hn. It does not state that verification uses a fresh measured address or provide the subsequent verifier program."
+    }
+   ]
+  },
+  {
+   "id": "q4-uniform-test-dichotomy",
+   "from": "At this fixed address $s$, a uniformly chosen test of the $K$ tests in (2) fails with probability zero if all tests pass and at least $1/K$ otherwise.",
+   "to": "At this fixed address $s$, a uniformly chosen test of the $K$ tests in (2) fails with probability zero if all tests pass and at least $1/K$ otherwise.",
+   "role": "statement",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Upper.testLaw_pass",
+     "file": "QuarticQuery/Upper/Verify.lean",
+     "lines": [
+      62,
+      64
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "This theorem supplies only the all-tests-pass case: successful failed-test mass is zero. The positive lower bound when a test fails is a separate theorem."
+    },
+    {
+     "name": "QuarticQuery.Upper.testLaw_fail",
+     "file": "QuarticQuery/Upper/Verify.lean",
+     "lines": [
+      68,
+      70
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "This theorem supplies only the case with a failed test e0: failed-test mass is at least 1/K. The zero-mass case when all tests pass is a separate theorem."
+    }
+   ]
+  },
+  {
+   "id": "q4-verification-search-cost",
+   "from": "Lemma 4 with $\\gamma=1/K$ and $\\eta=\\varepsilon$ searches for a failed test with $O(\\ell\\sqrt K\\log(1/\\varepsilon))$ queries.",
+   "to": "Lemma 4 with $\\gamma=1/K$ and $\\eta=\\varepsilon$ searches for a failed test with $O(\\ell\\sqrt K\\log(1/\\varepsilon))$ queries.",
+   "role": "statement",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumVerify_search_query_bound",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      433,
+      436
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-accept-search-failure",
+   "from": "Accept the column if no failed test is found.",
+   "to": "Accept the column if no failed test is found.",
+   "role": "explanation",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumVerify_fixedAddress",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      344,
+      350
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-one-sided-testing",
+   "from": "The search is one-sided: exact testing cannot report a failure when all tests pass",
+   "to": "The search is one-sided: exact testing cannot report a failure when all tests pass",
+   "role": "statement",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumVerify_fixedAddress",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      344,
+      350
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-winner-sure-at-address",
+   "from": "so a winner whose address was decoded correctly is always accepted.",
+   "to": "so a winner whose address was decoded correctly is always accepted.",
+   "role": "derivation",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumVerify_winner",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      417,
+      419
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "The proof first establishes f c s x = 1 at the winning address."
+    }
+   ]
+  },
+  {
+   "id": "q4-nonwinner-error",
+   "from": "A column that does not win has a failed test at every address, and is accepted with probability at most $\\varepsilon$.",
+   "to": "A column that does not win has a failed test at every address, and is accepted with probability at most $\\varepsilon$.",
+   "role": "statement",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumVerify_nonwinner",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      392,
+      398
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-one-input-error",
+   "from": "On a one-input the algorithm accepts unless the winner is missing from the list or its address is decoded wrongly, so it errs with probability at most (7) plus $\\varepsilon$.",
+   "to": "On a one-input the algorithm accepts unless the winner is missing from the list or its address is decoded wrongly, so it errs with probability at most (7) plus $\\varepsilon$.",
+   "role": "statement",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumError_bound",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      539,
+      549
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-zero-input-error",
+   "from": "each listed column is accepted with probability at most $\\varepsilon$, so the error is at most $T\\varepsilon$.",
+   "to": "each listed column is accepted with probability at most $\\varepsilon$, so the error is at most $T\\varepsilon$.",
+   "role": "statement",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumError_bound",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      539,
+      549
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-below-third",
+   "from": "Both errors are below $1/3$.",
+   "to": "Both errors are below $1/3$.",
+   "role": "derivation",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.quantumError_numeric",
+     "file": "QuarticQuery/Paper/QuantumComparison.lean",
+     "lines": [
+      588,
+      590
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "q4-final-query-budget",
+   "from": "Both are at most $C_k\\sqrt m\\,\\ell^6$, the bound in (1) with a generous $b_k=6$.",
+   "to": "Both are at most $C_k\\sqrt m\\,\\ell^6$, the bound in (1) with a generous $b_k=6$.",
+   "role": "derivation",
+   "topic": "verification",
+   "status": "new",
+   "reason": "Give this claim its own exact phrase and the declaration that states or supplies it.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Upper.budget_le",
+     "file": "QuarticQuery/Upper/Bound.lean",
+     "lines": [
+      87,
+      90
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-budget",
+   "from": "$G=\\lfloor mL/100\\rfloor$",
+   "to": "$G=\\lfloor mL/100\\rfloor$",
+   "role": "definition",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_eq_17_floor",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      921,
+      924
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-gap-overview",
+   "from": "$$\n \\underbrace{\\frac{4G}{m^2}}_{\\text{find the erased zero}}\n +\\underbrace{\\frac{G}{mL}}_{\\text{invest heavily in the planted column}}\n +\\underbrace{G\\beta^r}_{\\text{query its cell while light}},\n$$",
+   "to": "$$\n \\underbrace{\\frac{4G}{m^2}}_{\\text{find the erased zero}}\n +\\underbrace{\\frac{G}{mL}}_{\\text{invest heavily in the planted column}}\n +\\underbrace{G\\beta^r}_{\\text{query its cell while light}},\n$$",
+   "role": "explanation",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.eq_23",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      436,
+      445
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-dummy-object",
+   "from": "the **dummy input** $Y^{(0)}$",
+   "to": "the **dummy input** $Y^{(0)}$",
+   "role": "definition",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.dummy",
+     "file": "QuarticQuery/LowerBound/Planted/Inputs.lean",
+     "lines": [
+      50,
+      54
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-dummy-zero-rows",
+   "from": "choose the row $J_i$ of the sole zero in $X_i$ independently and uniformly in each column",
+   "to": "choose the row $J_i$ of the sole zero in $X_i$ independently and uniformly in each column",
+   "role": "definition",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.dummyAvg",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      29,
+      31
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-address-law",
+   "from": "Draw the address inputs independently of one another and of the zero positions, using a common law $\\mu$ on the promise of $P$ chosen below.",
+   "to": "Draw the address inputs independently of one another and of the zero positions, using a common law $\\mu$ on the promise of $P$ chosen below.",
+   "role": "definition",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.dummyAvg",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      29,
+      31
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-blank-cells",
+   "from": "Set every cell bit to zero.",
+   "to": "Set every cell bit to zero.",
+   "role": "definition",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.dummy",
+     "file": "QuarticQuery/LowerBound/Planted/Inputs.lean",
+     "lines": [
+      50,
+      54
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-dummy-loses",
+   "from": "Every column loses.",
+   "to": "Every column loses.",
+   "role": "statement",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.addressedF_dummy",
+     "file": "QuarticQuery/LowerBound/Planted/Inputs.lean",
+     "lines": [
+      97,
+      98
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-independent-I",
+   "from": "Choose $I$ uniformly and independently of the entire dummy input.",
+   "to": "Choose $I$ uniformly and independently of the entire dummy input.",
+   "role": "definition",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.coupledAvg",
+     "file": "QuarticQuery/LowerBound/Planted/Main.lean",
+     "lines": [
+      27,
+      29
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-planted-object",
+   "from": "the **planted input** $Y^{(1)}$",
+   "to": "the **planted input** $Y^{(1)}$",
+   "role": "definition",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.planted",
+     "file": "QuarticQuery/LowerBound/Planted/Inputs.lean",
+     "lines": [
+      58,
+      67
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-plant-writing",
+   "from": "set $X_I[J_I]=1$, and in $B_{I,s_I}$ write the gate bits of all $r$ correct circuit evaluations and the row numbers $J_j$ for $j\\ne I$.",
+   "to": "set $X_I[J_I]=1$, and in $B_{I,s_I}$ write the gate bits of all $r$ correct circuit evaluations and the row numbers $J_j$ for $j\\ne I$.",
+   "role": "definition",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.planted",
+     "file": "QuarticQuery/LowerBound/Planted/Inputs.lean",
+     "lines": [
+      58,
+      67
+     ],
+     "relation": "defines",
+     "fidelity": "same",
+     "link_note": "The paper chooses correct circuit transcripts for the parameter tr; validity is used by the following theorem."
+    }
+   ]
+  },
+  {
+   "id": "c5-planted-winner",
+   "from": "Column $I$ wins.",
+   "to": "Column $I$ wins.",
+   "role": "statement",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.addressedF_planted",
+     "file": "QuarticQuery/LowerBound/Planted/Inputs.lean",
+     "lines": [
+      110,
+      111
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "The local fact hw proves that the designated column I wins at its true address."
+    }
+   ]
+  },
+  {
+   "id": "c5-independence",
+   "from": "the entire dummy input, hence the tree's entire run on it, is independent of $I$",
+   "to": "the entire dummy input, hence the tree's entire run on it, is independent of $I$",
+   "role": "explanation",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.coupledAvg",
+     "file": "QuarticQuery/LowerBound/Planted/Main.lean",
+     "lines": [
+      27,
+      29
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-coupling-gap",
+   "from": "the acceptance gap is at most the sum of the probabilities that the tree queries these locations on the dummy input",
+   "to": "the acceptance gap is at most the sum of the probabilities that the tree queries these locations on the dummy input",
+   "role": "statement",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.eq_18",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      168,
+      174
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-zero-count",
+   "from": "Let $Z$ count the columns $i$ in which the tree queries the unique zero of $X_i$ on the dummy input.",
+   "to": "Let $Z$ count the columns $i$ in which the tree queries the unique zero of $X_i$ on the dummy input.",
+   "role": "definition",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.discoveredZeros",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      182,
+      185
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-erased-identity",
+   "from": "By independence of $I$, the probability that $I$ is among these columns is $\\mathbb E Z/m$.",
+   "to": "By independence of $I$, the probability that $I$ is among these columns is $\\mathbb E Z/m$.",
+   "role": "statement",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      206,
+      209
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-unseen-zero",
+   "from": "Before the first query to a column's zero, its row is uniform among the unqueried rows of that column, even conditional on the transcript.",
+   "to": "Before the first query to a column's zero, its row is uniform among the unqueried rows of that column, even conditional on the transcript.",
+   "role": "statement",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.uniform_zero_given_transcript",
+     "file": "QuarticQuery/Paper/ClassicalUniformZero.lean",
+     "lines": [
+      252,
+      257
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-erased-bound",
+   "from": "$$\n \\Pr[\\text{query }X_I[J_I]]\\le\\frac{4G}{m^2}.\n\\tag{8}\n$$",
+   "to": "$$\n \\Pr[\\text{query }X_I[J_I]]\\le\\frac{4G}{m^2}.\n\\tag{8}\n$$",
+   "role": "statement",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.eq_19",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      250,
+      254
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-index-names-address",
+   "from": "The index of any query to a bit of $B_{i,s}$ includes $s$",
+   "to": "The index of any query to a bit of $B_{i,s}$ includes $s$",
+   "role": "explanation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.cellOf",
+     "file": "QuarticQuery/LowerBound/Planted/Inputs.lean",
+     "lines": [
+      32,
+      36
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-address-values",
+   "from": "If $s=s_i$, the query has already named all $r$ values $P(A_{i,1}),\\ldots,P(A_{i,r})$.",
+   "to": "If $s=s_i$, the query has already named all $r$ values $P(A_{i,1}),\\ldots,P(A_{i,r})$.",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.f_eq_trueAddr",
+     "file": "QuarticQuery/LowerBound/Planted/Inputs.lean",
+     "lines": [
+      26,
+      27
+     ],
+     "relation": "proof",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-single-input-hardness",
+   "from": "every deterministic algorithm making at most $L$ queries computes $P$ under $\\mu$ with probability at most $\\beta$",
+   "to": "every deterministic algorithm making at most $L$ queries computes $P$ under $\\mu$ with probability at most $\\beta$",
+   "role": "explanation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_direct_product",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      882,
+      883
+     ],
+     "relation": "part",
+     "fidelity": "same",
+     "link_note": "The hypothesis hard supplies this assumption; the theorem does not derive it."
+    }
+   ]
+  },
+  {
+   "id": "c5-product-lemma",
+   "from": "If $U_1,\\ldots,U_r$ are independent samples from $\\mu$, every algorithm making at most $L$ queries to each $U_h$ outputs $(P(U_1),\\ldots,P(U_r))$ with probability at most $\\beta^r$.",
+   "to": "If $U_1,\\ldots,U_r$ are independent samples from $\\mu$, every algorithm making at most $L$ queries to each $U_h$ outputs $(P(U_1),\\ldots,P(U_r))$ with probability at most $\\beta^r$.",
+   "role": "statement",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_direct_product_average",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      902,
+      910
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-coins-and-information",
+   "from": "The algorithm may be randomized, interleave its queries adaptively among the $r$ inputs, and receive additional information independent of $(U_1,\\ldots,U_r)$.",
+   "to": "The algorithm may be randomized, interleave its queries adaptively among the $r$ inputs, and receive additional information independent of $(U_1,\\ldots,U_r)$.",
+   "role": "statement",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_direct_product_average",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      902,
+      910
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-fix-coins",
+   "from": "Fix the coins and the additional information, leaving a deterministic algorithm.",
+   "to": "Fix the coins and the additional information, leaving a deterministic algorithm.",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_direct_product_average",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      910,
+      914
+     ],
+     "relation": "proof",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-schedule",
+   "from": "A transcript of positive probability fixes the answers to the queried bits of each input, and every tuple consistent with these answers follows the same query schedule.",
+   "to": "A transcript of positive probability fixes the answers to the queried bits of each input, and every tuple consistent with these answers follows the same query schedule.",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_prefix_iff",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      218,
+      222
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-rectangle",
+   "from": "the event of obtaining a transcript is a product of constraints on the separate inputs",
+   "to": "the event of obtaining a transcript is a product of constraints on the separate inputs",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_prefix_iff",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      218,
+      222
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-posterior-product",
+   "from": "the conditional law of $(U_1,\\ldots,U_r)$ given it is again a product",
+   "to": "the conditional law of $(U_1,\\ldots,U_r)$ given it is again a product",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_transcript_product_law",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      275,
+      286
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-value",
+   "from": "For each $h$ let $V_h$ be the largest probability of computing $P(U_h)$ from its current conditional law with its remaining queries.",
+   "to": "For each $h$ let $V_h$ be the largest probability of computing $P(U_h)$ from its current conditional law with its remaining queries.",
+   "role": "definition",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classicalTranscriptValue",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      387,
+      390
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-value-drift",
+   "from": "A query to $U_h$ cannot increase $V_h$ in expectation, since making that query and continuing optimally was already available",
+   "to": "A query to $U_h$ cannot increase $V_h$ in expectation, since making that query and continuing optimally was already available",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_eq_16_transcript",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      439,
+      449
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-other-values",
+   "from": "it leaves the other factors unchanged",
+   "to": "it leaves the other factors unchanged",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classicalTranscriptValue_unchanged",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      457,
+      461
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-supermartingale",
+   "from": "So $\\prod_h V_h$ is a supermartingale.",
+   "to": "So $\\prod_h V_h$ is a supermartingale.",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_transcript_conditional_expectation",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      615,
+      628
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-terminal-success",
+   "from": "At the end the probability of a correct answer vector is at most $\\prod_h V_h$",
+   "to": "At the end the probability of a correct answer vector is at most $\\prod_h V_h$",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_final_bound",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      733,
+      743
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-initial-product",
+   "from": "initially $\\prod_h V_h\\le\\beta^r$",
+   "to": "initially $\\prod_h V_h\\le\\beta^r$",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_direct_product",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      894,
+      899
+     ],
+     "relation": "proof",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-allowed-conditioning",
+   "from": "the transcript constrains each input separately",
+   "to": "the transcript constrains each input separately",
+   "role": "explanation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_prefix_iff",
+     "file": "QuarticQuery/Paper/ClassicalDirectProduct.lean",
+     "lines": [
+      218,
+      222
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-finite-trees",
+   "from": "there are finitely many trees of depth at most $L$",
+   "to": "there are finitely many trees of depth at most $L$",
+   "role": "statement",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.finite_depth_le",
+     "file": "QuarticQuery/LowerBound/Minimax.lean",
+     "lines": [
+      88,
+      88
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-minimax-law",
+   "from": "finite minimax [@Yao1977] gives a distribution $\\mu$ on the domain of $P$ under which every such tree has success at most $\\beta=2/3$.",
+   "to": "finite minimax [@Yao1977] gives a distribution $\\mu$ on the domain of $P$ under which every such tree has success at most $\\beta=2/3$.",
+   "role": "statement",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.exists_hard_distribution",
+     "file": "QuarticQuery/LowerBound/Minimax.lean",
+     "lines": [
+      138,
+      140
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-heavy-definition",
+   "from": "Call a column *heavy* if the tree makes more than $L$ queries to its address inputs on the full dummy run, counting repetitions, and *light* otherwise.",
+   "to": "Call a column *heavy* if the tree makes more than $L$ queries to its address inputs on the full dummy run, counting repetitions, and *light* otherwise.",
+   "role": "definition",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.HeavyColumn",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      262,
+      264
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-heavy-count",
+   "from": "There are at most $G/L$ heavy columns on any run",
+   "to": "There are at most $G/L$ heavy columns on any run",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.avg_heavy_le",
+     "file": "QuarticQuery/LowerBound/Planted/Heavy.lean",
+     "lines": [
+      47,
+      59
+     ],
+     "relation": "proof",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-heavy-probability",
+   "from": "$$\n \\Pr[I\\text{ heavy}]\\le\\frac{G}{mL}.\n$$",
+   "to": "$$\n \\Pr[I\\text{ heavy}]\\le\\frac{G}{mL}.\n$$",
+   "role": "statement",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.avg_heavy_le",
+     "file": "QuarticQuery/LowerBound/Planted/Heavy.lean",
+     "lines": [
+      42,
+      44
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-light-implies-prediction",
+   "from": "$$\n \\{i\\text{ light and the query at time }\\tau\\text{ is in }B_{i,s_i}\\}\n \\subseteq\\{\\text{a capped predictor outputs }s_i\\}.\n$$",
+   "to": "$$\n \\{i\\text{ light and the query at time }\\tau\\text{ is in }B_{i,s_i}\\}\n \\subseteq\\{\\text{a capped predictor outputs }s_i\\}.\n$$",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.avg_reachedCellAt_le",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      316,
+      333
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "The proof builds the simulator equality under the full-run lightness hypothesis before taking expectations."
+    }
+   ]
+  },
+  {
+   "id": "c5-target-inputs",
+   "from": "The predictor uses its $r$ unknown inputs as $A_{i,1},\\ldots,A_{i,r}$.",
+   "to": "The predictor uses its $r$ unknown inputs as $A_{i,1},\\ldots,A_{i,r}$.",
+   "role": "definition",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.addressSimulator",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      274,
+      277
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-simulate-target-reads",
+   "from": "simulates the tree's queries before time $\\tau$, querying the unknown inputs only for requested bits of $A_{i,h}$",
+   "to": "simulates the tree's queries before time $\\tau$, querying the unknown inputs only for requested bits of $A_{i,h}$",
+   "role": "definition",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.simTree",
+     "file": "QuarticQuery/LowerBound/Planted/Simulator.lean",
+     "lines": [
+      32,
+      45
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-stop-at-cap",
+   "from": "It stops before the $(L+1)$-st such query in total.",
+   "to": "It stops before the $(L+1)$-st such query in total.",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.addressSimulator_depth_le",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      281,
+      283
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-output-before-answer",
+   "from": "If the index the tree would query at time $\\tau$ is a bit of some $B_{i,s}$, it outputs $s$ without reading that bit; on any other index, early termination of the tree, or a simulation stopped by the cap, it outputs a fixed string.",
+   "to": "If the index the tree would query at time $\\tau$ is a bit of some $B_{i,s}$, it outputs $s$ without reading that bit; on any other index, early termination of the tree, or a simulation stopped by the cap, it outputs a fixed string.",
+   "role": "definition",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.addressSimulator",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      274,
+      277
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-separate-clocks",
+   "from": "The tree's query time and the predictor's count of target queries are separate clocks",
+   "to": "The tree's query time and the predictor's count of target queries are separate clocks",
+   "role": "explanation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.simTree",
+     "file": "QuarticQuery/LowerBound/Planted/Simulator.lean",
+     "lines": [
+      32,
+      45
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-total-implies-separate",
+   "from": "The total cap gives the predictor at most $L$ queries to *each* target input on every branch",
+   "to": "The total cap gives the predictor at most $L$ queries to *each* target input on every branch",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.OutTree.capped_of_depth_le",
+     "file": "QuarticQuery/LowerBound/DirectProduct.lean",
+     "lines": [
+      196,
+      197
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-separate-caps-used",
+   "from": "Lemma 5 allows $L$ queries to each input separately",
+   "to": "Lemma 5 allows $L$ queries to each input separately",
+   "role": "explanation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.OutTree.capped",
+     "file": "QuarticQuery/LowerBound/DirectProduct.lean",
+     "lines": [
+      171,
+      176
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-predictor-bound",
+   "from": "the predictor succeeds with probability at most $\\beta^r$ under $\\mu^{\\otimes r}$",
+   "to": "the predictor succeeds with probability at most $\\beta^r$ under $\\mu^{\\otimes r}$",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.address_guess_average",
+     "file": "QuarticQuery/LowerBound/Minimax.lean",
+     "lines": [
+      188,
+      193
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-light-hit-simulates",
+   "from": "If $i$ is light at the end of the run, the simulation uses at most $L$ target queries through time $\\tau$, so a query to $B_{i,s_i}$ at that time makes the predictor output $s_i$.",
+   "to": "If $i$ is light at the end of the run, the simulation uses at most $L$ target queries through time $\\tau$, so a query to $B_{i,s_i}$ at that time makes the predictor output $s_i$.",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.avg_reachedCellAt_le",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      316,
+      333
+     ],
+     "relation": "proof",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-joint-event-chain",
+   "from": "$$\n \\Pr[i\\text{ light and query }\\tau\\text{ is in }B_{i,s_i}]\n \\ \\le\\ \\Pr[\\text{predictor outputs }s_i]\\ \\le\\ \\beta^r.\n\\tag{9}\n$$",
+   "to": "$$\n \\Pr[i\\text{ light and query }\\tau\\text{ is in }B_{i,s_i}]\n \\ \\le\\ \\Pr[\\text{predictor outputs }s_i]\\ \\le\\ \\beta^r.\n\\tag{9}\n$$",
+   "role": "statement",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.avg_reachedCellAt_le",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      305,
+      333
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The highlighted proof establishes the first inequality, joint light-hit probability at most simulator success, for each fixed outside choice A,J. This excerpt does not state the final beta^r bound under the full dummy law.",
+     "link_note": "Pointwise simulation gives the first inequality before averaging the independent outside data."
+    },
+    {
+     "name": "QuarticQuery.Paper.eq_21",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      342,
+      348
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "This theorem gives the first-to-last inequality with beta=2/3 under the full dummy law. It omits the middle quantity, the predictor's success probability.",
+     "link_note": "The combined joint-event bound after averaging outside data and applying the capped direct-product estimate."
+    }
+   ]
+  },
+  {
+   "id": "c5-query-times",
+   "from": "For each column there are at most $G$ query times.",
+   "to": "For each column there are at most $G$ query times.",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.QueryTree.length_path_le",
+     "file": "QuarticQuery/LowerBound/Planted/Coupling.lean",
+     "lines": [
+      34,
+      34
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-cell-visit-bound",
+   "from": "$$\n \\Pr[\\text{query }B_{I,s_I}]\n \\le \\frac G{mL}+\\frac1m\\sum_{i=1}^m G\\beta^r\n = \\frac G{mL}+G\\beta^r .\n\\tag{10}\n$$",
+   "to": "$$\n \\Pr[\\text{query }B_{I,s_I}]\n \\le \\frac G{mL}+\\frac1m\\sum_{i=1}^m G\\beta^r\n = \\frac G{mL}+G\\beta^r .\n\\tag{10}\n$$",
+   "role": "statement",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.eq_22",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      408,
+      414
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-numerical-gap",
+   "from": "$$\n \\frac{4G}{m^2}+\\frac G{mL}+G(2/3)^r <\\frac13.\n\\tag{11}\n$$",
+   "to": "$$\n \\frac{4G}{m^2}+\\frac G{mL}+G(2/3)^r <\\frac13.\n\\tag{11}\n$$",
+   "role": "statement",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.discrepancy_lt_third",
+     "file": "QuarticQuery/Results/Exponent.lean",
+     "lines": [
+      471,
+      474
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-budget-square",
+   "from": "$G\\le mL/100\\le m^2/100$",
+   "to": "$G\\le mL/100\\le m^2/100$",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_Gvalue_le_square",
+     "file": "QuarticQuery/Paper/ClassicalAsymptotics.lean",
+     "lines": [
+      125,
+      135
+     ],
+     "relation": "proof",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-first-two-terms",
+   "from": "the first two terms are at most $1/25$ and $1/100$",
+   "to": "the first two terms are at most $1/25$ and $1/100$",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.classical_numeric_components",
+     "file": "QuarticQuery/Paper/ClassicalAsymptotics.lean",
+     "lines": [
+      154,
+      158
+     ],
+     "relation": "contains",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-guess-tail",
+   "from": "$r=20\\ell$ gives $G(2/3)^r\\le Gm^{-10}$",
+   "to": "$r=20\\ell$ gives $G(2/3)^r\\le Gm^{-10}$",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.twoThirds_pow_le",
+     "file": "QuarticQuery/Results/Exponent.lean",
+     "lines": [
+      429,
+      430
+     ],
+     "relation": "proof",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean bounds the factor (2/3)^(40t) itself by m^(-10) for every natural t. Multiplication by the nonnegative G gives the printed bound at m=4^t, r=40t=20 ell."
+    }
+   ]
+  },
+  {
+   "id": "c5-average-coins",
+   "from": "Averaging over coins gives (11) for randomized trees",
+   "to": "Averaging over coins gives (11) for randomized trees",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.eq_23_randomized",
+     "file": "QuarticQuery/Paper/ClassicalPlanted.lean",
+     "lines": [
+      465,
+      474
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-required-gap",
+   "from": "an algorithm with error at most $1/3$ on both supports would need a gap of at least $1/3$",
+   "to": "an algorithm with error at most $1/3$ on both supports would need a gap of at least $1/3$",
+   "role": "derivation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.addressedF_not_RLe",
+     "file": "QuarticQuery/LowerBound/Planted/Main.lean",
+     "lines": [
+      164,
+      175
+     ],
+     "relation": "proof",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "c5-finite-lower-bound",
+   "from": "$R(F_{k,m})>\\lfloor mL/100\\rfloor$",
+   "to": "$R(F_{k,m})>\\lfloor mL/100\\rfloor$",
+   "role": "statement",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Replace a broad reading destination with the exact mathematical clause and its source statement.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Gvalue_lt_R_Fkm",
+     "file": "QuarticQuery/LowerBound/Planted/Main.lean",
+     "lines": [
+      203,
+      206
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ],
+   "after": " error at most $1/3$ on both supports would need a gap of at least $1/3$. Hence "
+  },
+  {
+   "id": "e-first-floor",
+   "from": "the floor in (3) gives $L\\ge m^{1-1/k}/(2\\ell^2)$",
+   "to": "the floor in (3) gives $L\\ge m^{1-1/k}/(2\\ell^2)$",
+   "role": "derivation",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Gvalue_ge",
+     "file": "QuarticQuery/Results/Exponent.lean",
+     "lines": [
+      379,
+      384
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "The local assertion hLge removes the first floor under k≥2 and t≥8."
+    }
+   ]
+  },
+  {
+   "id": "e-second-floor",
+   "from": "$\\lfloor mL/100\\rfloor\\ge mL/200$",
+   "to": "$\\lfloor mL/100\\rfloor\\ge mL/200$",
+   "role": "derivation",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Gvalue_ge",
+     "file": "QuarticQuery/Results/Exponent.lean",
+     "lines": [
+      385,
+      390
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "The proof bounds p=mL by 200 times G once p≥200."
+    }
+   ]
+  },
+  {
+   "id": "e-real-lower-bound",
+   "from": "$R(F_{k,m})\\ge m^{2-1/k}/(400\\ell^2)$",
+   "to": "$R(F_{k,m})\\ge m^{2-1/k}/(400\\ell^2)$",
+   "role": "derivation",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.rpow_le_of_Gvalue_lt",
+     "file": "QuarticQuery/Results/Exponent.lean",
+     "lines": [
+      409,
+      411
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "e-choose-k",
+   "from": "fix $0\\le\\alpha<4$, choose $k\\ge2$ with $k>2/(4-\\alpha)$, and hold $k$ fixed as $m$ grows through powers of four",
+   "to": "fix $0\\le\\alpha<4$, choose $k\\ge2$ with $k>2/(4-\\alpha)$, and hold $k$ fixed as $m$ grows through powers of four",
+   "role": "derivation",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.exists_nat_exponent",
+     "file": "QuarticQuery/Results/Exponent.lean",
+     "lines": [
+      160,
+      161
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean assumes only α<4, so it also covers negative α; its conclusion uses the equivalent inequality α/2<2−1/k."
+    }
+   ]
+  },
+  {
+   "id": "e-ratio-display",
+   "from": "$$\n \\frac{R(F_{k,m})}{(1+Q(F_{k,m}))^\\alpha}\n \\ \\ge\\ \\frac{1}{400(1+C_k)^\\alpha}\\,\n \\frac{m^{2-1/k-\\alpha/2}}{(\\log_2 m)^{2+6\\alpha}}\n \\ \\longrightarrow\\ \\infty.\n$$",
+   "to": "$$\n \\frac{R(F_{k,m})}{(1+Q(F_{k,m}))^\\alpha}\n \\ \\ge\\ \\frac{1}{400(1+C_k)^\\alpha}\\,\n \\frac{m^{2-1/k-\\alpha/2}}{(\\log_2 m)^{2+6\\alpha}}\n \\ \\longrightarrow\\ \\infty.\n$$",
+   "role": "derivation",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.eventually_gt_rpow",
+     "file": "QuarticQuery/Results/Exponent.lean",
+     "lines": [
+      118,
+      123
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "The theorem states eventual R_t>D(1+Q_t)^α for any supplied positive D under the family bounds. It does not state the full displayed pointwise quotient inequality with coefficient 1/[400(1+C_k)^α].",
+     "link_note": "Supplies eventual domination; the exact displayed coefficient is an arithmetic calculation in the text."
+    }
+   ]
+  },
+  {
+   "id": "e-no-smaller-power",
+   "from": "Thus for each exponent below four some fixed $k$ gives a counterexample",
+   "to": "Thus for each exponent below four some fixed $k$ gives a counterexample",
+   "role": "derivation",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.no_universal_power",
+     "file": "QuarticQuery/Results/Headline.lean",
+     "lines": [
+      27,
+      28
+     ],
+     "relation": "states",
+     "fidelity": "same",
+     "link_note": "Apply with the chosen fixed k and the two previously proved family bounds."
+    }
+   ]
+  },
+  {
+   "id": "e-k-three-range",
+   "from": "$k=3$ excludes every $\\alpha<10/3$",
+   "to": "$k=3$ excludes every $\\alpha<10/3$",
+   "role": "derivation",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.no_universal_power",
+     "file": "QuarticQuery/Results/Headline.lean",
+     "lines": [
+      27,
+      28
+     ],
+     "relation": "states",
+     "fidelity": "same",
+     "link_note": "Specialize k=3; hs then reads α/2<5/3."
+    }
+   ]
+  },
+  {
+   "id": "f-fixed-forrelation",
+   "from": "the Lean development prove (3) for each fixed $k$, with error $1/3$ and an unspecified threshold in $m$",
+   "to": "the Lean development prove (3) for each fixed $k$, with error $1/3$ and an unspecified threshold in $m$",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+     "file": "QuarticQuery/ForrelationLower/Main.lean",
+     "lines": [
+      525,
+      525
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "f-gaussian-transform",
+   "from": "pairing Gaussian vectors with their Walsh transforms",
+   "to": "pairing Gaussian vectors with their Walsh transforms",
+   "role": "explanation",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.ForrelationLower.Vc",
+     "file": "QuarticQuery/ForrelationLower/Walk.lean",
+     "lines": [
+      37,
+      37
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "Vc defines V=HU for an arbitrary finite matrix and coordinate vector. Gaussian sampling and specialization to the Walsh matrix are supplied by the surrounding construction, not this definition."
+    }
+   ]
+  },
+  {
+   "id": "f-first-block",
+   "from": "interpolates in the bias of the first block only",
+   "to": "interpolates in the bias of the first block only",
+   "role": "explanation",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.ForrelationLower.Sf",
+     "file": "QuarticQuery/ForrelationLower/Walk.lean",
+     "lines": [
+      48,
+      48
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "f-integration-by-parts",
+   "from": "repeated Gaussian integration by parts",
+   "to": "repeated Gaussian integration by parts",
+   "role": "explanation",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.ForrelationLower.integral_walk",
+     "file": "QuarticQuery/ForrelationLower/Walk.lean",
+     "lines": [
+      364,
+      367
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "The recursive equality moves the derivative through e remaining blocks."
+    }
+   ]
+  },
+  {
+   "id": "f-bounded-transform",
+   "from": "a bounded algebraic transform",
+   "to": "a bounded algebraic transform",
+   "role": "definition",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.ForrelationLower.phiS",
+     "file": "QuarticQuery/ForrelationLower/Stein.lean",
+     "lines": [
+      26,
+      26
+     ],
+     "relation": "defines",
+     "fidelity": "same"
+    },
+    {
+     "name": "QuarticQuery.ForrelationLower.abs_phiS_le",
+     "file": "QuarticQuery/ForrelationLower/Stein.lean",
+     "lines": [
+      98,
+      98
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "f-mean-separation",
+   "from": "The mean of $\\Phi$ separates the two laws",
+   "to": "The mean of $\\Phi$ separates the two laws",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.ForrelationLower.mass_ge",
+     "file": "QuarticQuery/ForrelationLower/Promise.lean",
+     "lines": [
+      499,
+      502
+     ],
+     "relation": "states",
+     "fidelity": "stronger",
+     "fidelity_note": "Lean gives the explicit positive mean gap (1/18)^(k−1), while the prose asserts separation without a constant."
+    }
+   ]
+  },
+  {
+   "id": "f-tree-advantage",
+   "from": "bounds the change in any shallow adaptive tree",
+   "to": "bounds the change in any shallow adaptive tree",
+   "role": "explanation",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.ForrelationLower.advantage_le_sharp",
+     "file": "QuarticQuery/ForrelationLower/Cascade.lean",
+     "lines": [
+      384,
+      391
+     ],
+     "relation": "states",
+     "fidelity": "same",
+     "link_note": "The shallow-tree condition is hT; the note exposes the analytic parameter assumptions."
+    }
+   ]
+  },
+  {
+   "id": "f-uniform-forrelation",
+   "from": "$R(P_{k,4^t})>\\frac{2}{18225}\\,m^{1-1/k}/(k^2\\ln(4km))$ whenever $15k+2\\le2t$",
+   "to": "$R(P_{k,4^t})>\\frac{2}{18225}\\,m^{1-1/k}/(k^2\\ln(4km))$ whenever $15k+2\\le2t$",
+   "role": "statement",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.forrelation_lower_uniform_sharp",
+     "file": "QuarticQuery/ForrelationLower/Uniform.lean",
+     "lines": [
+      527,
+      532
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "f-growing-family-written-only",
+   "from": "the [full reconstruction](reasoning_record.md#ROOT-GROWING-K) obtains a single family with $R\\ge Q^{4-\\varepsilon(\\ell)}$ and $\\varepsilon(\\ell)=O(1/\\sqrt\\ell)$",
+   "to": "the [full reconstruction](reasoning_record.md#ROOT-GROWING-K) obtains a single family with $R\\ge Q^{4-\\varepsilon(\\ell)}$ and $\\varepsilon(\\ell)=O(1/\\sqrt\\ell)$",
+   "role": "explanation",
+   "topic": "query",
+   "status": "new",
+   "reason": "Retain a visible explanation-only selection for the explicitly written-only combination; do not attach the uniform input theorem to the final growing-family claim.",
+   "lean": []
+  },
+  {
+   "id": "f-erased-zero-improvement",
+   "from": "Lean proves the sharper erased-zero bound $2G/m^2$",
+   "to": "Lean proves the sharper erased-zero bound $2G/m^2$",
+   "role": "statement",
+   "topic": "planted",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.avg_foundZero_I_le",
+     "file": "QuarticQuery/LowerBound/Planted/ZeroSearch.lean",
+     "lines": [
+      226,
+      228
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "f-subdistribution-proof",
+   "from": "proves Lemma 5 by an induction over sub-distributions",
+   "to": "proves Lemma 5 by an induction over sub-distributions",
+   "role": "explanation",
+   "topic": "prediction",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.guessSuccess_le_prod",
+     "file": "QuarticQuery/LowerBound/DirectProduct.lean",
+     "lines": [
+      258,
+      260
+     ],
+     "relation": "proof",
+     "fidelity": "same",
+     "link_note": "This is the alternate product-weight induction, not the conditional transcript proof printed in Section 5."
+    }
+   ]
+  },
+  {
+   "id": "f-three-quartic-routes",
+   "from": "states the universal quartic bound along three routes with different constants",
+   "to": "states the universal quartic bound along three routes with different constants",
+   "role": "statement",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.D_le_Q_pow_four",
+     "file": "QuarticQuery/Appendix/TheoremA1.lean",
+     "lines": [
+      52,
+      53
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "This declaration gives the imported route with coefficient 20736; it does not state the other two proof routes.",
+     "link_note": "Imported complexitylib route: 20736."
+    },
+    {
+     "name": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four",
+     "file": "QuarticQuery/Paper/AppendixA.lean",
+     "lines": [
+      61,
+      62
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "This declaration gives the reconstructed appendix route with coefficient 1500625; it does not state the other two proof routes.",
+     "link_note": "Reconstructed appendix route: 1500625."
+    },
+    {
+     "name": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four_hybrid",
+     "file": "QuarticQuery/Paper/AppendixA.lean",
+     "lines": [
+      105,
+      106
+     ],
+     "relation": "part",
+     "fidelity": "weaker",
+     "fidelity_note": "This declaration gives the hybrid route with coefficient 19600; it does not state the other two proof routes.",
+     "link_note": "Hybrid route: 19600."
+    }
+   ]
+  },
+  {
+   "id": "v-headline",
+   "from": "The theorem `theorem_1_1_unconditional` states Theorem 1 with no hypotheses, with both bounds of (1) beyond a threshold and the randomized bound in the finite form $R>\\lfloor mL/100\\rfloor$",
+   "to": "The theorem `theorem_1_1_unconditional` states Theorem 1 with no hypotheses, with both bounds of (1) beyond a threshold and the randomized bound in the finite form $R>\\lfloor mL/100\\rfloor$",
+   "role": "mention",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.theorem_1_1_unconditional",
+     "file": "QuarticQuery/Results/Unconditional.lean",
+     "lines": [
+      23,
+      29
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "v-named-family",
+   "from": "A separate theorem, `construction_family_named`, states (1) with $b_k=6$ and $c_k=1/400$ beyond a threshold",
+   "to": "A separate theorem, `construction_family_named`, states (1) with $b_k=6$ and $c_k=1/400$ beyond a threshold",
+   "role": "mention",
+   "topic": "query",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.Paper.construction_family_named",
+     "file": "QuarticQuery/Paper/ConstructionFamily.lean",
+     "lines": [
+      30,
+      40
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "v-fixed-forrelation",
+   "from": "The fixed-$k$ bound (3) is `ForrelationLower.bansalSinhaLower`",
+   "to": "The fixed-$k$ bound (3) is `ForrelationLower.bansalSinhaLower`",
+   "role": "mention",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+     "file": "QuarticQuery/ForrelationLower/Main.lean",
+     "lines": [
+      525,
+      525
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  },
+  {
+   "id": "v-uniform-forrelation",
+   "from": "the uniform bound of Section 7 is `forrelation_lower_uniform_sharp`",
+   "to": "the uniform bound of Section 7 is `forrelation_lower_uniform_sharp`",
+   "role": "mention",
+   "topic": "forrelation",
+   "status": "new",
+   "reason": "Add an exact phrase anchor with a source-read mathematical explanation.",
+   "lean": [
+    {
+     "name": "QuarticQuery.forrelation_lower_uniform_sharp",
+     "file": "QuarticQuery/ForrelationLower/Uniform.lean",
+     "lines": [
+      527,
+      532
+     ],
+     "relation": "states",
+     "fidelity": "same"
+    }
+   ]
+  }
+ ],
+ "removed": []
+}

@@ -100,6 +100,42 @@ prose or a pair for a caption with inline `$…$` TeX and its readable plain ren
 the declaration set and the prose around every formula. The site build renders every expression
 with the reader’s pinned KaTeX.
 
+## Phrase ties, topics and reading notes
+
+Each of the three Quartic papers has a phrase layer in `docs/reading_phrases/<paper>.json`.
+A phrase tie quotes the exact words of the paper that a Lean declaration states, from a
+`from` quote to a `to` quote inside one paragraph or display (an `after` quote settles a
+repeated opening). Each tie has a role, one of eight or nine topics of that paper, and Lean
+rows. A row names the declaration, its file, the lines that state the phrase when only part
+of a long declaration does, and how the declaration relates to the words: it `states` them,
+`defines` the object named, states one `part`, gives a `proof` step, or `contains` the claim
+among others. Its `fidelity` compares the Lean with these words: `same`, `stronger`
+(Lean states more), `weaker` (Lean states less) or `different`, with a `fidelity_note`
+unless the same. This comparison is separate from the exact, stronger and partial
+relations that the reviewed statement ties record against OpenAI's ledger statements.
+Every tied declaration has a title in the paper's own words and a reading note of 40 to 100
+words; both are AI-drafted.
+
+```js
+const layer = await reader.phrases("expert")
+const phrase = layer.phrases.find(p => p.id === "a-family")
+const row = phrase.lean[0]          // name, file, lines, relation, fidelity, fidelity_note
+layer.titles[row.name].title        // inline $…$ TeX, with title_plain
+layer.notes[row.name]               // TeX between $ signs; backticks are Lean code
+const source = await reader.phraseSource("expert", row.name) // the declaration's bytes
+```
+
+`make reading-web` marks each phrase in the manuscript HTML as
+`<span class="phrase" data-phrase="<id>" data-tone="<n>">`. Tones `2t` and `2t+1` are two
+shades of topic `t`, alternating in reading order. A phrase in a table is marked cell by
+cell. The export fails when a source's `manuscript_sha256` or `lean_source_snapshot_sha256`
+no longer matches, when a quote is missing from its paragraph, occurs there twice, cuts a
+formula or overlaps another phrase, when a marker would change the Pandoc parse or cross an
+element, and when a tied declaration lacks a title, a note or a topic. A declaration outside
+the recorded graph, such as a semantic example in `lean/QuarticCorpus/`, is located in its
+file and that file joins the edition. The returns and their review are preserved in
+[research/returns/phrase_links](../research/returns/phrase_links/README.md).
+
 ## Open the Lean map beside the paper
 
 The map is an optional, immutable edition resource at `selection/proof-map.json`

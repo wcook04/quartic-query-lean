@@ -108,6 +108,12 @@ criticism that must be checked against the actual source. The
 [revision account](../adjudication/paper_purpose_revision.md) separates the
 adjudicated changes from the reviewers' proposed edits and scores.
 
+## Phrase ties, 20 November 2026
+
+The three accepted [phrase-tie returns](phrase_links/README.md) tie Lean declarations to the
+exact phrases of the expert companion, the exposition and the reconstruction, with topics,
+titles, reading notes and a fidelity judgement per Lean row.
+
 ## Companion polish, 7 November 2026
 
 The supplied [expert assessment](reader_companion_expert_20261107.md) and

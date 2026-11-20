@@ -1,0 +1,49 @@
+{
+  "topics": [
+    {
+      "id": "query-costs",
+      "name": "Quantum and classical queries",
+      "description": "What a query costs, how the two algorithm models work, and what their complexity measures require."
+    },
+    {
+      "id": "board-and-certificates",
+      "name": "The board and its certificates",
+      "description": "How column strings, address inputs, pointers and proposed gate outputs define one total Boolean function."
+    },
+    {
+      "id": "comparisons",
+      "name": "Comparing two columns",
+      "description": "How following two pointers gives a comparison and why a winning column wins with high probability."
+    },
+    {
+      "id": "tournament",
+      "name": "Finding a winning column",
+      "description": "How comparison weights and successive pivots produce a short list containing the winner."
+    },
+    {
+      "id": "amplification",
+      "name": "Amplifying success",
+      "description": "How reflections increase acceptance while preserving the conditional distribution and bounding every run."
+    },
+    {
+      "id": "forrelation-addresses",
+      "name": "Forrelation addresses",
+      "description": "How the quantum decoder estimates promised address digits and how many queries it uses."
+    },
+    {
+      "id": "exact-checking",
+      "name": "Checking a proposed winner",
+      "description": "How exact local tests detect invalid transcripts, wrong addresses and failed pointers."
+    },
+    {
+      "id": "classical-lower-bound",
+      "name": "The classical lower bound",
+      "description": "Why the planted change is hard to find and why limited queries cannot recover an entire address."
+    },
+    {
+      "id": "quartic-exponent",
+      "name": "The exponent four",
+      "description": "How the two bounds on the same family exclude every universal power below four."
+    }
+  ]
+}

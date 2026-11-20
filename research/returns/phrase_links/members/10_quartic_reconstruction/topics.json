@@ -1,0 +1,44 @@
+{
+  "topics": [
+    {
+      "id": "query-models",
+      "name": "Query models and promises",
+      "description": "What an input query reveals, which inputs require correctness, and how the maximum query budget is counted."
+    },
+    {
+      "id": "walsh-promise",
+      "name": "The Forrelation address bit",
+      "description": "The Walsh correlation, its one-sided promise, the quantum decoder and the exact certificate circuit."
+    },
+    {
+      "id": "addressed-certificates",
+      "name": "Columns and addressed certificates",
+      "description": "The board layout, the unique winning pair and the local checks that certify it."
+    },
+    {
+      "id": "quantum-search",
+      "name": "Quantum comparisons and verification",
+      "description": "How complementary comparisons yield a short candidate list and how each candidate is verified."
+    },
+    {
+      "id": "classical-lower-bound",
+      "name": "The classical planting argument",
+      "description": "Couple a zero input with a planted one and bound how a classical algorithm can discover the change."
+    },
+    {
+      "id": "separate-cap-direct-product",
+      "name": "Prediction with a separate cap",
+      "description": "Why predicting independent answers has a product bound when every input has its own query cap."
+    },
+    {
+      "id": "quartic-exponent",
+      "name": "The optimal exponent",
+      "description": "Combine the bounds for one fixed-parameter family with the universal upper bound and distinguish the growing-parameter consequence."
+    },
+    {
+      "id": "forrelation-hardness",
+      "name": "The Forrelation lower bound",
+      "description": "The Gaussian interpolation, derivative estimates and decision-tree bounds that make an address bit classically hard."
+    }
+  ]
+}

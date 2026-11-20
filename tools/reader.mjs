@@ -497,6 +497,27 @@ export async function openReader(indexURL, options) {
     return {revision, status: "current", titles: index.titles};
   }
 
+  // Phrase ties: the exact words of a Quartic paper that each tied Lean declaration states.
+  async function phrases(paper) {
+    const listing = (await resource("reading.json")).phrases ?? {};
+    if (!Object.hasOwn(listing, paper)) return {revision, status: "unavailable_in_edition", paper, topics: [], phrases: [], titles: {}, notes: {}};
+    const data = await revisionResource(listing[paper]);
+    if (data.schema !== "quartic-reading-phrases-v1" || data.paper !== paper || !Array.isArray(data.phrases))
+      throw new Error("Invalid phrase resource");
+    return {...data, status: "current"};
+  }
+
+  // The source of a declaration tied to a phrase, including declarations outside the recorded graph.
+  async function phraseSource(paper, name) {
+    const data = await phrases(paper);
+    const row = data.phrases.flatMap(p => p.lean).find(r => r.name === name);
+    if (!row) throw new Error("Not a phrase declaration: " + name);
+    const [first, last] = row.declaration_lines;
+    const text = (await resource(row.file)).split("\n").slice(first - 1, last).join("\n");
+    return {name, source: row.file, lines: row.declaration_lines, text,
+            url: `${manifest.repository}/blob/${revision}/${row.file}#L${first}-L${last}`};
+  }
+
   async function statementReview(id) {
     const reading = await resource("reading.json");
     if (!Object.hasOwn(reading.fidelity, id)) throw new Error("Unknown statement: " + id);
@@ -687,5 +708,5 @@ export async function openReader(indexURL, options) {
     if (!type) throw new Error("Unrecognized figure format");
     return new Blob([await readBytes(path)], {type});
   }
-  return {revision, permalink, documents, home, declarationTitles, declarationTitle, proofMap, proofFocus, paperCardProgress, proofWitness, proofPath, proofPathSource, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementTitles, statementReview};
+  return {revision, permalink, documents, home, declarationTitles, declarationTitle, proofMap, proofFocus, paperCardProgress, proofWitness, proofPath, proofPathSource, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementTitles, statementReview, phrases, phraseSource};
 }
