@@ -15,9 +15,9 @@
       ],
       "note": "The Lean theorem states both bounds from a threshold on m, as Theorem 1 does. Its proof uses the Lean development's own proof of the Forrelation lower bound, a different route from Bansal and Sinha's. The explicit constants b=6 and 1/400 come from this reconstruction and are stated by a separate Lean theorem. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers.",
       "bound_at": {
-        "exposition": "685f757ec50918fd659b926a44f2ba988e11359d",
+        "exposition": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
-        "expert": "70580ee73a01da95fd32c42680a93dc15fbd3c09"
+        "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d"
       },
       "context_passages": {
         "ROOT-FAMILY-ASSEMBLY": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
@@ -283,7 +283,7 @@
       },
       "bound_at": {
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
-        "expert": "1bf0a59e61ddcc4a6614691d69a202ebb56c41e2",
+        "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
         "reconstruction": "cff428ed354e4f93d63efd6adeba0b8d67d4ef99"
       }
     },
@@ -329,7 +329,7 @@
         "src-direct-product-caps"
       ],
       "bound_at": {
-        "expert": "9ba8156d4836bb7ad309599ae8c1f8ad35c48882",
+        "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
       },
       "detours": [
@@ -357,7 +357,7 @@
       ],
       "note": "The quantum readout observes the squared amplitude. A certificate must separately establish the signed one-sided promise. The Lean development proves the hardness bound (3) by a different route from Bansal and Sinha's.",
       "bound_at": {
-        "expert": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       },
@@ -389,7 +389,7 @@
         "src-no-smaller-exponent"
       ],
       "bound_at": {
-        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
+        "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
         "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
         "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       },
@@ -651,7 +651,7 @@
         "eq-4"
       ],
       "bound_at": {
-        "expert": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
       },
       "context_passages": {
