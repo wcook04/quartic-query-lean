@@ -66,11 +66,18 @@ neighbouring phrases differ. The hues keep clear of amber, the cyan, violet and 
 statement matches, mauve and red; every two topics of a paper differ by CIEDE2000 ΔE ≥ 15 over the page in both themes (`tests/test_topic_colours.py`). Hovering a phrase names its topic and declarations and
 lights their cards; hovering a card lights its phrase. Clicking a phrase selects its
 paragraph and declaration and keeps the open tab: the Lean tab shows the declaration with the
-tied lines lit; the Graph tab splits ([`src/inspect/PhraseSplit.tsx`](src/inspect/PhraseSplit.tsx)):
+tied lines lit; on a wide screen the Graph tab is always split ([`src/inspect/PhraseSplit.tsx`](src/inspect/PhraseSplit.tsx)).
+Below the graph, in order: the chosen phrase; else a clicked card's declaration; else, while
+following the paper, the Lean linked to the paragraph being read, one tab per declaration; else
+"No Lean is linked to this paragraph" with the paragraph itself. Closing the phrase or card, or
+Escape, returns the bottom part to following the paper. A phrase acts wherever it sits, the
+abstract, captions, tables and lists included. With a phrase chosen
 the graph stays above, framed on the declaration's card and its drawn neighbours; when the map
-does not draw it, the top half draws the declaration with the project declarations it uses and
+does not draw it, the top half shows the declaration with the project declarations it uses and
 those that use it ([`src/map/LocalGraph.tsx`](src/map/LocalGraph.tsx), at most eight each,
-most specific first), with a button back to the passage map. Below a draggable divider the
+most specific first) as cards in the graph's colours that wrap into rows, every title whole,
+with a button back to the passage map. Graph tiles are sized from their typeset titles, and a
+card whose declaration title is a long statement draws its short title. Below a draggable divider the
 phrase's card and Lean, with the tied lines lit, scroll on their own, one tab per declaration
 when the phrase has several. The close button or Escape restores the whole graph; on a phone the graph folds to one line above the card. The
 Passage tab puts the clicked phrase's card first, then the paragraph's other phrases. A card gives the paper's own title, the quoted words, what the Lean row does with

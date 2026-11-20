@@ -1,19 +1,15 @@
 // A declaration that the passage's argument map does not draw, with its Lean neighbours:
 // the project declarations it uses and those that use it, from the edition's recorded
 // dependency graph (the same records as the Lean panel's "Uses" and "Used by"). Drawn by
-// the reader's map engine with the Graph tab's tiles, spacing and styling.
-import { useEffect, useMemo, useRef, useState } from "react";
+// the Graph tab's card colours as a flowing layout: the declarations that use it above, the
+// declaration, then those it uses, each set wrapping into rows so every title is whole.
+import { useEffect, useState } from "react";
 import type { Edition } from "../app/edition";
-import type { ArgEdge, ArgGraph, ArgNode, LinkKind, Origin } from "../model/graph";
-import { ArgumentTree, type MapViewHandle } from "./ArgumentTree";
-import { INSETS, PANE_METRICS, TILE_W, TITLE_SIZES, useTileHeights } from "./GraphPane";
+import { Title } from "../text/title";
 import "./tokens.css";
 import "./graph.css";
 
-const ROOT = "local:neighbourhood";
 const CAP = 8;
-const LEAN: Origin = { family: "lean", label: "Lean", slot: 3, place: null, locator: null, url: null };
-const EDGE_KIND: Record<string, LinkKind> = { value: "supports", type: "lean_type_dependency", structural: "lean_structural_dependency" };
 
 interface Neighbour { name: string; kind: string; users: number }
 interface Local { name: string; uses: Neighbour[]; users: Neighbour[]; moreUses: number; moreUsers: number; kinds: Record<string, string> }
@@ -47,44 +43,27 @@ async function neighbours(reader: any, name: string): Promise<Local> {
   return { name, uses: uses.slice(0, CAP), users: users.slice(0, CAP), moreUses: Math.max(0, uses.length - CAP), moreUsers: Math.max(0, users.length - CAP), kinds };
 }
 
-function localGraph(local: Local, title: (n: string) => { title: string; title_plain: string } | undefined): ArgGraph {
-  const nodes = new Map<string, ArgNode>();
-  const blank = { papers: {}, region: ROOT, passedExtraction: true };
-  nodes.set(ROOT, { ...blank, id: ROOT, ref: ROOT, kind: "goal", kindLabel: "Lean neighbourhood",
-    label: local.users.length ? "Declarations that use it, and what it uses" : "What this declaration uses", status: "external", origin: LEAN });
-  const card = (n: string) => {
-    const kind = local.kinds[n] ?? "def";
-    const t = title(n);
-    const theorem = kind === "theorem" || kind === "lemma";
-    nodes.set(n, { ...blank, id: n, ref: n, kind: "declaration", kindLabel: theorem ? "Theorem" : "Definition",
-      label: t?.title_plain ?? n.split(".").pop()!, math: t?.title, declaration: n,
-      shape: theorem ? "theorem" : "definition", leanFill: "whole", status: "kernel_checked", origin: LEAN });
-  };
-  [local.name, ...local.users.map((u) => u.name), ...local.uses.map((u) => u.name)].forEach(card);
-  const edges: ArgEdge[] = [];
-  const add = (from: string, to: string, kind: LinkKind, semanticClass: string = kind) =>
-    edges.push({ key: `${from}→${to}→${kind}`, from, to, kind, linkIds: [`${from}→${to}`], scoped: false, semanticClass });
-  if (local.users.length) for (const u of local.users) { add(ROOT, u.name, "formalizes", "neighbourhood_context"); add(u.name, local.name, EDGE_KIND[u.kind]); }
-  else add(ROOT, local.name, "formalizes", "neighbourhood_context");
-  for (const u of local.uses) add(local.name, u.name, EDGE_KIND[u.kind]);
-  const out = new Map<string, ArgEdge[]>(), into = new Map<string, ArgEdge[]>();
-  for (const id of nodes.keys()) { out.set(id, []); into.set(id, []); }
-  for (const e of edges) { out.get(e.from)!.push(e); into.get(e.to)!.push(e); }
-  const members = [...nodes.keys()];
-  return {
-    origins: [{ family: "lean", label: "Lean", slot: 3, count: nodes.size - 1 }], cites: [], nodes, order: members, edges, out, in: into,
-    regions: [{ id: ROOT, title: "Lean neighbourhood", goal: ROOT, members }], regionOf: new Map(members.map((id) => [id, ROOT])),
-    goals: [ROOT], cyclic: new Set(), boundaries: new Map(),
-  };
+type Titles = Record<string, { title: string; title_plain: string }>;
+
+/** One declaration as a card in the graph's colours, its whole title wrapped as needed. */
+function Card({ name, kind, title, selected = false, onOpen }: { name: string; kind?: string; title?: { title: string; title_plain: string }; selected?: boolean; onOpen?(): void }) {
+  const theorem = kind === "theorem" || kind === "lemma";
+  const body = (
+    <>
+      <span className="lg-card__kind">{theorem ? "Theorem" : kind === "structure" || kind === "inductive" || kind === "class" ? "Type" : "Definition"}</span>
+      <span className="lg-card__title">{title ? <Title text={title.title} /> : <code>{name}</code>}</span>
+    </>
+  );
+  return onOpen
+    ? <button type="button" className={`lg-card${theorem ? " is-theorem" : ""}`} data-record={name} title={`${name} — open it in the Lean tab`} onClick={onOpen}>{body}</button>
+    : <div className={`lg-card${theorem ? " is-theorem" : ""}${selected ? " is-selected" : ""}`} data-record={name} title={name}>{body}</div>;
 }
 
 export function LocalGraph({ edition, name, titles, onOpenLean, onBack }: { edition: Edition; name: string;
-  titles: Record<string, { title: string; title_plain: string }>; onOpenLean(name: string): void; onBack(): void }) {
+  titles: Titles; onOpenLean(name: string): void; onBack(): void }) {
   const [local, setLocal] = useState<Local | null>(null);
   const [failed, setFailed] = useState(false);
-  const [index, setIndex] = useState<Record<string, { title: string; title_plain: string }>>({});
-  const tree = useRef<MapViewHandle>(null);
-  const body = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState<Titles>({});
   useEffect(() => {
     let live = true;
     setLocal(null); setFailed(false);
@@ -92,34 +71,34 @@ export function LocalGraph({ edition, name, titles, onOpenLean, onBack }: { edit
     (edition.reader as any).declarationTitles().then((r: any) => live && setIndex(r.titles ?? {}), () => {});
     return () => { live = false; };
   }, [edition, name]);
-  const graph = useMemo(() => local && localGraph(local, (n) => titles[n] ?? index[n]), [local, titles, index]);
-  const tileHeight = useTileHeights(graph ?? { nodes: new Map() } as ArgGraph);
-  // Frame the whole neighbourhood once laid out, and again when the half changes size.
-  useEffect(() => {
-    const el = body.current;
-    if (!el || !graph) return;
-    let timer = window.setTimeout(() => tree.current?.fitAll(false), 120);
-    const observer = new ResizeObserver(() => { window.clearTimeout(timer); timer = window.setTimeout(() => tree.current?.fitAll(false), 120); });
-    observer.observe(el);
-    return () => { observer.disconnect(); window.clearTimeout(timer); };
-  }, [graph]);
-  const more = local && [local.moreUsers ? `${local.moreUsers} more ${local.moreUsers === 1 ? "declaration uses" : "declarations use"} it` : "",
-    local.moreUses ? `it uses ${local.moreUses} more` : ""].filter(Boolean).join("; ");
+  const title = (n: string) => titles[n] ?? index[n];
+  const band = (label: string, rows: Neighbour[], more: number) => rows.length > 0 && (
+    <div className="lg-band">
+      <p className="lg-band__k">{label} <span>{rows.length + more}</span></p>
+      <ul className="lg-grid">
+        {rows.map((r) => <li key={r.name}><Card name={r.name} kind={local!.kinds[r.name]} title={title(r.name)} onOpen={() => onOpenLean(r.name)} /></li>)}
+      </ul>
+      {more > 0 && <p className="lg-band__more">and {more} more, listed in the Lean tab; the most specific are shown first.</p>}
+    </div>
+  );
   return (
     <section className="graph local-graph" aria-label="This declaration and its Lean neighbours">
       <div className="local-graph__head">
         <p className="local-graph__title" role="heading" aria-level={2}>This declaration and its Lean neighbours <span>(not in the passage’s argument map)</span></p>
         <button type="button" className="gbtn" onClick={onBack}>Show the passage map</button>
       </div>
-      <div className="graph__canvas local-graph__canvas" ref={body}>
+      <div className="local-graph__body">
         {failed ? <p className="pending">The Lean neighbours could not be loaded.</p>
-          : !graph ? <p className="pending" role="status">Reading the Lean neighbours…</p>
-          : <ArgumentTree ref={tree} graph={graph} goal={ROOT} insets={INSETS} persist={false} mode="overview" tileWidth={TILE_W}
-              tileHeight={tileHeight} denseMetrics={PANE_METRICS} oneCardEach fitMax={1.15} rootTile={{ w: 320, h: 64 }} rootWord="Lean neighbourhood" selected={name}
-              frameSelection={false} litIds={null} rootExcerpt={null}
-              onSelect={(id) => { if (id && id !== ROOT && id !== name) onOpenLean(id); }} onTrace={() => {}} titleSizes={TITLE_SIZES} />}
+          : !local ? <p className="pending" role="status">Reading the Lean neighbours…</p>
+          : <>
+              {band("Used by", local.users, local.moreUsers)}
+              {local.users.length > 0 && <p className="lg-link" aria-hidden="true">uses ↓</p>}
+              <div className="lg-focus"><Card name={name} kind={local.kinds[name]} title={title(name)} selected /></div>
+              {local.uses.length > 0 && <p className="lg-link" aria-hidden="true">uses ↓</p>}
+              {band("Uses", local.uses, local.moreUses)}
+              {!local.users.length && !local.uses.length && <p className="lg-band__more">No other declaration of this project uses it or is used by it.</p>}
+            </>}
       </div>
-      {more && <p className="local-graph__more">Most specific shown first; {more}. The Lean tab lists them all.</p>}
     </section>
   );
 }

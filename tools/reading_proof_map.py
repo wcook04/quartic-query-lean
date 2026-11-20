@@ -280,6 +280,9 @@ def proof_map(edition, graph, nodes, by_name, selections, statements, titles):
         if not info["lines"]:
             raise ValueError(f"proof map: provide a source range for {name}")
         cards[name] = {**info, "statements": ties}
+    from reading_titles import card_short_titles
+    for name, record in card_short_titles(edition, graph["source_snapshot_sha256"], cards, titles).items():
+        cards[name].update(record)
     edges, paths = map_edges(nodes, cards)
     hidden = {target for _, _, target in paths} - cards.keys()
     helper_resource = "selection/proof-helpers.json"

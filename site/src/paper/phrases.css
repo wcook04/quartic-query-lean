@@ -161,7 +161,7 @@
 /* On a phone the bottom sheet is too short for two halves: the graph folds to one line above the card. */
 .phrase-graph-strip { display: none; }
 @media (max-width: 900px) {
-  .inspector__graph.has-phrase .inspector__map, .inspector__graph.has-phrase .phrase-divider { display: none; }
+  .inspector__graph.has-pick .inspector__map, .inspector__graph.has-pick .phrase-divider { display: none; }
   .phrase-graph-strip { flex: none; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0; padding: 8px 16px; border-bottom: 1px solid var(--rule-2); background: var(--raised); color: var(--ink-2); font-size: 0.9rem; }
 }
 /* The map body under the split's note; and the local Lean neighbourhood of an undrawn declaration. */
@@ -174,3 +174,39 @@
 .local-graph__title span { font-weight: 400; color: var(--ink-2); }
 .local-graph__canvas { flex: 1; min-height: 0; position: relative; }
 .local-graph__more { flex: none; margin: 0; padding: 6px 16px; border-top: 1px solid var(--rule-2); color: var(--ink-2); font-size: 0.86rem; }
+/* The bottom part when the paragraph being read has no Lean: one line, then the paragraph. */
+.lean-split__none { padding: 6px 0 12px; }
+.lean-split__state { margin: 0 0 12px; font-weight: 600; color: var(--ink); }
+.lean-split__passage { padding: 12px 14px; border: 1px solid var(--rule-2); border-left: 3px solid var(--rule); border-radius: 0 8px 8px 0; background: var(--raised); }
+.lean-split__title { margin: 0 0 6px; font-size: 0.9rem; font-weight: 600; color: var(--ink-2); }
+.lean-split__text { max-width: none; font-size: 1rem; display: -webkit-box; -webkit-line-clamp: 8; -webkit-box-orient: vertical; overflow: hidden; }
+.lean-split__text .phrase { cursor: inherit; }
+/* Wide screens keep the split on the Graph tab; phones fold the graph only for a chosen phrase or card. */
+@media (max-width: 900px) {
+  .inspector__graph.has-phrase:not(.has-pick) .phrase-divider, .inspector__graph.has-phrase:not(.has-pick) .phrase-split { display: none; }
+  .inspector__graph.has-phrase:not(.has-pick) .inspector__map { display: flex; flex: 1 1 auto; }
+}
+/* A declaration's Lean neighbours: bands of cards that wrap into rows, each title whole. */
+.local-graph__body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 14px 16px 18px; container-type: inline-size; }
+.lg-band__k { margin: 0 0 8px; font-size: 0.82rem; font-weight: 600; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.04em; }
+.lg-band__k span { margin-left: 4px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.lg-band__more { margin: 8px 0 0; font-size: 0.86rem; color: var(--ink-2); }
+.lg-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); gap: 10px; }
+.lg-grid li { display: flex; min-width: 0; }
+.lg-link { margin: 8px 0; text-align: center; color: var(--ink-3); font-size: 0.82rem; letter-spacing: 0.04em; }
+.lg-focus { display: flex; justify-content: center; }
+.lg-focus .lg-card { max-width: min(100%, 34rem); }
+.lg-card { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 9px 12px 10px; border: 1px solid var(--card-border, var(--rule)); border-radius: 6px;
+  background: var(--lean-fill, var(--raised)); color: var(--ink); font: 400 0.95rem/1.32 var(--sans); text-align: left; overflow-wrap: anywhere; }
+.lg-card.is-theorem { border-left-width: 3px; }
+button.lg-card { cursor: pointer; transition: border-color 120ms, box-shadow 120ms; }
+button.lg-card:hover, button.lg-card:focus-visible { border-color: var(--ink-2); box-shadow: 0 0 0 1px var(--ink-2); }
+.lg-card.is-selected { border: 2px solid var(--ink); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ink) 18%, transparent); font-size: 1.05rem; }
+.lg-card__kind { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-2); }
+.lg-card__title { white-space: normal; }
+.lg-card__title code { font-size: 0.85em; }
+/* A clicked card or the followed paragraph's Lean keeps its declaration title in the bottom part. */
+.lean-split .decl-head .decl-head__title { display: block; font-size: 1.2rem; }
+/* In the split the graph keeps its line key on one row; the sentence above it and the notes go. */
+.inspector__graph.has-phrase .gkey__intro, .inspector__graph.has-phrase .gkey__notes { display: none; }
+.inspector__graph.has-phrase .lean-split__text { -webkit-line-clamp: 4; }
