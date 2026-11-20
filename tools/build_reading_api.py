@@ -16,6 +16,7 @@ from reading_evidence import evidence_resources
 from original_preprint import original_paper
 from original_manuscript import original_resources
 from reading_manuscripts import manuscript_resources
+from reading_phrases import phrase_resources
 from reading_titles import RESOURCE as TITLE_RESOURCE, SOURCE as TITLE_SOURCE, STATEMENT_RESOURCE, STATEMENT_SOURCE
 from reading_selection import audit_bindings, selection_resources
 from build_lean_links import RECORD_LINK, REPOSITORY, USE, statement_end
@@ -326,8 +327,9 @@ def compile_edition(edition, pdf_directory=None, original_pdf=None, web_manuscri
     original_fragment = original_resources(edition, original, original_rows) if web_manuscripts else None
     coverage = selection_resources(edition, config, papers, texts, passages, compiled, statements,
                                    links, comparison, locate_quote, original, original_rows)
+    phrase_ranges, phrase_listing = phrase_resources(edition, texts, documents)
     if web_manuscripts:
-        manuscript_resources(edition, papers, texts, REPOSITORY)
+        manuscript_resources(edition, papers, texts, REPOSITORY, phrase_ranges)
     papers["original"] = original
     for row in config["routes"] + config["selections"]:
         for detour in row.get("detours", []):
@@ -341,7 +343,7 @@ def compile_edition(edition, pdf_directory=None, original_pdf=None, web_manuscri
                "paper_ids": [*PAPERS, "original"], "supplement_ids": ["verification"],
                "proof_map": "selection/proof-map.json", "coverage": coverage, "board_example": "selection/board.json",
                "applications": "selection/applications.json", "declaration_titles": TITLE_RESOURCE,
-               "statement_titles": STATEMENT_RESOURCE,
+               "statement_titles": STATEMENT_RESOURCE, "phrases": phrase_listing,
                "downloads": print_downloads(edition, pdf_directory, config["print_edition"]),
                "fidelity": {ident: f"fidelity/{ident}.json" for ident in statements},
                "routes": compiled, "video": video_entry(config["video"], routes)})

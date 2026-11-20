@@ -20,6 +20,8 @@ import { BackIcon, Chevron, CloseIcon, PaneIcon } from "./icons";
 import type { GraphFocus, GraphFocusRequest } from "../map/GraphPane";
 import { ReaderSplit } from "./ReaderSplit";
 import { Title } from "../text/title";
+import { PhraseContext, phraseLayer, topicTone, type PhraseLayer } from "../paper/phrases";
+import { PhraseList, PhraseStrip } from "../inspect/PhraseCards";
 
 type PassageMode = "graph" | "lean" | "passage";
 
@@ -76,6 +78,14 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const clickSequence = useRef(0);
   const clickPending = useRef<{ key: string; focus: GraphFocus } | null>(null);
   const [names, setNames] = useState<{ reader: typeof reader; titles: DeclarationTitles } | null>(null);
+  const [phrases, setPhrases] = useState<PhraseLayer | null>(null);
+  useEffect(() => {
+    let live = true;
+    setPhrases(null);
+    if (paper === "original" || paper === SUPPLEMENT.id) return;
+    (reader as any).phrases?.(paper).then((data: any) => live && setPhrases(phraseLayer(data)), () => live && setPhrases(null));
+    return () => { live = false; };
+  }, [reader, paper]);
   const [statementNames, setStatementNames] = useState<{ reader: typeof reader; index: StatementTitles } | null>(null);
   // Selections this reader has met in this edition and paper (this browser only).
   const visitKey = `quartic:visited:${edition.permalink}:${paper}`;
@@ -205,6 +215,19 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     }
   }
 
+  // A phrase click changes the paragraph and declaration shown; the tab stays the reader's choice.
+  function selectPhrase(id: string, selection: string) {
+    const phrase = phrases?.byId.get(id);
+    if (!phrase) return;
+    const next = openTab();
+    clickSequence.current++;
+    clickPending.current = null;
+    setFollowing(false);
+    setClickError(null);
+    if (!/^l\d+-\d+$/.test(selection)) setClickPin(selection);
+    go({ ...base, s: selection, v: next, d: next === "passage" ? undefined : phrase.lean[0]?.name, ph: id });
+  }
+
   const query = useMemo(() => {
     const doc = (reader.documents as any)[paper];
     if (currentSelection) {
@@ -220,7 +243,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     openSelection: (p, id) => { resumePaperFollowing(); setFollowing(false); const next: Route = { page: "read", paper: p, s: id, ed }; if (p === paper) go(next, !route.v); else excursion(next, face(paper).tab); },
     openPassage: (p, anchor) => { resumePaperFollowing(); setFollowing(false); const next: Route = { page: "read", paper: p, a: anchor, ed }; if (p === paper) go(next); else excursion(next, face(paper).tab); },
     openStatement: (id) => go({ ...base, s: route.s, p: route.p, v: "statement", st: id }),
-    openLean: (name) => go({ ...base, s: currentSelection, p: route.p, v: "lean", d: name }),
+    openLean: (name, phrase) => go({ ...base, s: currentSelection, p: route.p, v: "lean", d: name, ph: phrase }),
     // The Lean tab follows the paper unless a declaration was chosen in the graph.
     openLeanTab: () => go({ ...base, s: currentSelection, p: route.p, v: "lean", d: route.v === "graph" ? route.d : undefined }),
     openGraph: (name?: string) => go({ ...base, s: route.s, p: route.p, v: "graph", d: name ?? route.d }),
@@ -441,7 +464,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       </>}
     </article>
   );
-  else if (mode === "lean" && activeLean) panel = <LeanPanel key={activeLean} edition={edition} name={activeLean} forStep={lit.includes(activeLean) || activeLean === passageLean} claimMatch={claimMatch} />;
+  else if (mode === "lean" && activeLean) panel = <LeanPanel key={activeLean} edition={edition} name={activeLean} forStep={lit.includes(activeLean) || activeLean === passageLean} claimMatch={claimMatch} phrase={route.d === activeLean ? route.ph : undefined} />;
   else if (route.v === "path" && route.e) panel = <PathPanel edition={edition} edge={route.e} />;
   else if (mode === "graph") panel = null;
   else if (route.v === "journey" && route.j) panel = <JourneyPanel edition={edition} id={route.j} step={route.step} />;
@@ -452,7 +475,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     <NamesContext.Provider value={names?.reader === reader ? names.titles : {}}>
     <StatementNamesContext.Provider value={statementNames?.reader === reader ? statementNames.index : { status: "loading", titles: {} }}>
     <NavContext.Provider value={nav}>
-      <div className={`desk${open ? " desk--open" : ""}`}>
+    <PhraseContext.Provider value={phrases}>
+      <div className={`desk${open ? " desk--open" : ""}`} data-topic-count={phrases?.topics.length}>
         <nav className="papers" aria-label="Papers" inert={open && !wide}>
           <div className="papers__bar">
             <ul>
@@ -477,7 +501,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           onWheelCapture={resumePaperFollowing} onTouchMoveCapture={resumePaperFollowing}
           onKeyDownCapture={(event) => { if (["PageDown", "PageUp", "ArrowDown", "ArrowUp", "Home", "End", " "].includes(event.key) && !(event.target as HTMLElement).closest("input,textarea,select,button,a")) resumePaperFollowing(); }}
           onPointerDownCapture={(event) => { const box = event.currentTarget.getBoundingClientRect(); if (event.clientX >= box.left + event.currentTarget.clientWidth) resumePaperFollowing(); }}>
-          {contents.length > 0 && <Contents rows={contents} current={here} onGo={goSection} />}
+          {contents.length > 0 && <Contents rows={contents} current={here} onGo={goSection} phrases={phrases} />}
           <header className="paper__head">
             <h1 className="paper__title">{f.name}</h1>
             {f.by && <p className="paper__by">{f.by}</p>}
@@ -503,6 +527,12 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                   </ul>
                 </details>
               )}
+              {phrases && (
+                <details className="jump jump--topics" name="paper-tools" onToggle={(event) => fitPaperMenu(event.currentTarget)}>
+                  <summary>Topic colours<Chevron /></summary>
+                  <TopicKeyList layer={phrases} />
+                </details>
+              )}
               {paper === "original" && original?.rendered && <button type="button" className="tool" onClick={() => { setShowPdf(!showPdf); setContents([]); }}>{showPdf ? "Read the text edition" : "View the original PDF"}</button>}
               {download && <DownloadLink edition={edition} resource={download.resource} label="Download the PDF" name={`${paper}.pdf`} />}
               {paper === "reconstruction" && <a className="tool" href={href({ page: "read", paper: SUPPLEMENT.id, ed })}>Verification details</a>}
@@ -512,6 +542,12 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               <p className="legend"><span className="lean-tag" aria-hidden="true">Lean</span>
                 {wide ? "Marked paragraphs are linked to Lean. Click one to show it in the open tab: graph, Lean or passage."
                   : "Marked paragraphs are linked to Lean. Tap one to see it in the open tab."}
+              </p>
+            )}
+            {phrases && (
+              <p className="legend legend--phrases"><span className="phrase-sample" data-tone="0" aria-hidden="true">phrase</span>
+                {wide ? "An underlined phrase states a Lean declaration; its colour names the topic (see Topic colours). Point at it for its topic and declaration; click it to show that declaration in the open tab."
+                  : "An underlined phrase states a Lean declaration; its colour names the topic. Tap it to show that declaration."}
               </p>
             )}
             {originalHtml && <p className="paper__edition">Reading edition rendered from OpenAI’s source. The original wording, numbering and authorship are retained; our passage links are an editorial layer.</p>}
@@ -526,7 +562,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           ) : (
             <ManuscriptPaper key={paper} edition={edition} paper={paper} selected={route.s} anchor={route.a} page={route.p} onRows={setRows}
               onReadingLine={setReadingLine} onContents={setContents} followed={followed.current}
-              onSelect={selectPassage}
+              onSelect={selectPassage} phrases={phrases} pickedPhrase={route.ph} onPhrase={selectPhrase}
               onLink={nav.openPassage} onNavigateWithin={resumePaperFollowing} />
           )}
         </main>
@@ -539,6 +575,16 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               // that was clicked or is being read, by its title in the edition.
               const row = rows.find((r) => r.id === currentSelection && r.topic);
               const title = row?.claim_match?.title ?? (row ? topicTitles[row.topic!] : undefined);
+              const chosen = route.ph && phrases?.byId.get(route.ph);
+              if (chosen && route.s === currentSelection) {
+                const name = chosen.lean.find((r) => r.name === route.d)?.name ?? chosen.lean[0]?.name;
+                const label = name ? phrases!.titles[name]?.title : undefined;
+                return (
+                  <p className="inspector__about">
+                    <span className="inspector__about-k">Selected phrase</span> {label ? <Title text={label} /> : null}
+                  </p>
+                );
+              }
               return (
                 <p className="inspector__about">
                   {title ? <><span className="inspector__about-k">{clickPin || !following || route.s === currentSelection ? "Selected paragraph" : "Paragraph being read"}</span> <Title text={title} /></>
@@ -588,6 +634,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                     claimMatch={claimMatch} focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onGraphFocus}
                     onFollow={() => { resumePaperFollowing(); setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} />
                 </Suspense>
+                {route.ph && phrases && <PhraseStrip id={route.ph} />}
                 <p className="inspector__note" role="status" hidden={!clickPin}>
                   {clickPin ? "Held on the clicked paragraph; scrolling the paper resumes following." : ""}
                 </p>
@@ -596,16 +643,42 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             {mode !== "graph" && (
               <div className="inspector__body">
                 {clickError && <p className="failed" role="alert">This passage could not be opened: {clickError}</p>}
+                {route.v === "passage" && phrases && <PhraseList lines={selectionLines(rows, currentSelection)} picked={route.ph} />}
                 {panel ?? <p className="quiet">Scroll to a linked passage, or click one, to see its evidence.</p>}
               </div>
             )}
           </aside>
         )}
       </div>
+    </PhraseContext.Provider>
     </NavContext.Provider>
     </StatementNamesContext.Provider>
     </NamesContext.Provider>
     </ReaderContext.Provider>
+  );
+}
+
+/** The source lines of a selection: its row's, or those named by a free l<start>-<end> ID. */
+function selectionLines(rows: Row[], id: string | undefined): [number, number] | null {
+  if (!id) return null;
+  const free = /^l(\d+)-(\d+)$/.exec(id);
+  if (free) return [Number(free[1]), Number(free[2])];
+  const lines = rows.find((r) => r.id === id)?.lines;
+  return lines ? [lines[0], lines[1]] : null;
+}
+
+/** The topic key: one colour per topic, each with its name and what it covers. */
+export function TopicKeyList({ layer }: { layer: PhraseLayer }) {
+  return (
+    <ul className="topic-key">
+      {layer.topics.map((t) => (
+        <li key={t.id} title={t.description}>
+          <span className="topic-swatch" data-tone={topicTone(layer, t.id)} aria-hidden="true" />
+          <span className="topic-key__name">{t.name}</span>
+          <span className="topic-key__n">{layer.phrases.filter((p) => p.topic === t.id).length} phrases</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 

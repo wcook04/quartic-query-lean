@@ -55,6 +55,24 @@ produce a native reading copy while retaining the unchanged PDF. The original
 keeps its authorship, numbering and section structure. The three accompanying
 PDFs are admitted only with their exact source revision and accepted hashes.
 
+## Phrases, topics and reading notes
+
+The expert companion, the exposition and the reconstruction carry the edition's
+[phrase ties](../docs/reading_api.md#phrase-ties-topics-and-reading-notes), adapted from
+Proof Reader's Physlib Gauge theory map ([`src/paper/phrases.ts`](src/paper/phrases.ts),
+[`src/inspect/PhraseCards.tsx`](src/inspect/PhraseCards.tsx)). Each phrase that states a Lean
+declaration is underlined in its topic's colour; two shades per topic alternate so
+neighbouring phrases differ. The hues keep clear of amber, the cyan, violet and grey of the
+statement matches, mauve and red; every two topics of a paper differ by CIEDE2000 ΔE ≥ 15 over the page in both themes (`tests/test_topic_colours.py`). Hovering a phrase names its topic and declarations and
+lights their cards; hovering a card lights its phrase. Clicking a phrase selects its
+paragraph and declaration and keeps the open tab: the Lean tab shows the declaration with the
+tied lines lit, the Graph tab a strip naming it, the Passage tab every phrase card of the
+paragraph. A card gives the paper's own title, the quoted words, what the Lean row does with
+them, the comparison with these words in plain words ("Lean states less: …", marked
+AI-assessed) and the reading note (marked AI-drafted), typeset with KaTeX. The comparison
+with OpenAI's statement keeps its exact, stronger and partial marks under "Matches OpenAI's
+statement". The contents rail and the Topic colours menu give the key.
+
 ## Colours in the graph, and figures
 
 Amber marks the paragraph being read and nothing else: a card the paragraph

@@ -10,6 +10,8 @@ import { fromOutline, type ContentsRow } from "./Contents";
 import { isRestoringReadingPlace } from "../app/restore";
 import { go, href } from "../app/router";
 import { face } from "../app/papers";
+import { lightPhrases, type PhraseLayer } from "./phrases";
+import "./phrases.css";
 
 const TAG_TITLE = "Linked to Lean: click the paragraph to follow its proof";
 
@@ -28,9 +30,14 @@ interface Props {
   onContents?(rows: ContentsRow[]): void;
   /** A selection made by following the reading line: highlight it, never scroll to it. */
   followed?: string;
+  /** Phrase ties of this paper; their spans are already in the edition's HTML. */
+  phrases?: PhraseLayer | null;
+  pickedPhrase?: string;
+  /** A click on a phrase: the phrase and the selection of its paragraph. */
+  onPhrase?(id: string, selection: string): void;
 }
 
-export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSelect, onLink, onRows, onReadingLine, onContents, followed, onNavigateWithin }: Props) {
+export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSelect, onLink, onRows, onReadingLine, onContents, followed, onNavigateWithin, phrases, pickedPhrase, onPhrase }: Props) {
   const root = useRef<HTMLDivElement>(null);
   const [rows, setRows] = useState<Row[] | null>(null);
   const [sourceView, setSourceView] = useState(false);
@@ -160,6 +167,35 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
     }
   }, [edition, paper, ready, rows, selected]);
 
+  // Each phrase says on hover what it is: its topic and the declarations it states.
+  useLayoutEffect(() => {
+    const el = root.current;
+    if (!el || !ready || !phrases) return;
+    for (const span of el.querySelectorAll<HTMLElement>(".phrase[data-phrase]")) {
+      const phrase = phrases.byId.get(span.dataset.phrase!);
+      if (!phrase) continue;
+      const topic = phrases.topics[phrases.topicIndex.get(phrase.topic) ?? 0];
+      const names = phrase.lean.map((row) => phrases.titles[row.name]?.title_plain ?? row.name);
+      span.title = `Topic: ${topic.name}. ` + (names.length
+        ? `Tied to Lean: ${names.join("; ")}. Click to show it in the open tab.`
+        : "An explanation with no Lean declaration of its own.");
+      span.classList.toggle("is-untied", !names.length);
+    }
+  }, [ready, phrases]);
+  useLayoutEffect(() => {
+    const el = root.current;
+    if (!el || !ready) return;
+    for (const span of el.querySelectorAll<HTMLElement>(".phrase.is-picked")) span.classList.remove("is-picked");
+    if (pickedPhrase) for (const span of el.querySelectorAll<HTMLElement>(`.phrase[data-phrase="${CSS.escape(pickedPhrase)}"]`)) span.classList.add("is-picked");
+  }, [ready, pickedPhrase]);
+
+  function onPointer(e: React.MouseEvent) {
+    if (!phrases) return;
+    const span = (e.target as HTMLElement).closest<HTMLElement>(".phrase[data-phrase]");
+    const phrase = span ? phrases.byId.get(span.dataset.phrase!) : undefined;
+    lightPhrases(phrases, phrase ? phrase.lean.map((row) => row.name) : null, phrase ? [phrase.id] : []);
+  }
+
   // Navigation (not the reader's own click) brings its target into view, and
   // again once figures have loaded and changed the layout above it.
   useLayoutEffect(() => {
@@ -264,6 +300,12 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
     const block = target.closest<HTMLElement>(".source-block[data-l0]");
     if (!block || !rows) return;
     const id = rowFor(rows, Number(block.dataset.l0), Number(block.dataset.l1));
+    const phrase = target.closest<HTMLElement>(".phrase[data-phrase]:not(.is-untied)");
+    if (phrase && onPhrase) {
+      own.current = id;
+      onPhrase(phrase.dataset.phrase!, id);
+      return;
+    }
     // Plain prose has nothing to show: a click there leaves the panel on the last linked passage.
     if (/^l\d+-\d+$/.test(id)) return;
     own.current = id;
@@ -285,7 +327,8 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
         </div>
       )}
       {ready && sourceView && <p className="quiet">Manuscript source from this edition. Select a passage to inspect its evidence.</p>}
-      <div ref={root} className={`manuscript manuscript--${paper}`} onClick={onClick} hidden={!ready} />
+      <div ref={root} className={`manuscript manuscript--${paper}${phrases ? " has-phrases" : ""}`} onClick={onClick} hidden={!ready}
+        onMouseOver={onPointer} onMouseLeave={() => phrases && lightPhrases(phrases, null)} />
     </>
   );
 }

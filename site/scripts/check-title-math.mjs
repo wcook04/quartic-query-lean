@@ -86,9 +86,41 @@ try {
   errors.push(error.message);
 }
 
+// Phrase ties: each paper's titles, and every $…$ span in its reading notes and comparison notes.
+let phraseCount = 0;
+function checkProse(where, text) {
+  if (typeof text !== "string") return;
+  if (text.replace(/\$([^$]+)\$/g, "").includes("$")) errors.push(`${where}: use complete, nonempty inline $…$ math spans`);
+  for (const [index, span] of [...text.matchAll(/\$([^$]+)\$/g)].entries()) {
+    formulaCount++;
+    try {
+      katex.renderToString(span[1], { displayMode: false, throwOnError: true, trust: false, strict: "ignore", output: "htmlAndMathml" });
+    } catch (error) {
+      errors.push(`${where}: formula ${index + 1} (${span[1]}): ${error.message}`);
+    }
+  }
+}
+if (!args.length) {
+  for (const paper of ["expert", "exposition", "reconstruction"]) {
+    const path = fileURLToPath(new URL(`../../docs/reading_phrases/${paper}.json`, import.meta.url));
+    try {
+      const data = JSON.parse(readFileSync(path, "utf8"));
+      for (const [name, value] of Object.entries(data.titles)) checkTitle(`${paper} title of ${name}`, value);
+      for (const [name, note] of Object.entries(data.notes)) checkProse(`${paper} note of ${name}`, note);
+      for (const tie of data.ties) for (const row of tie.lean) {
+        checkProse(`${paper} ${tie.id} fidelity note`, row.fidelity_note);
+        checkProse(`${paper} ${tie.id} link note`, row.link_note);
+      }
+      phraseCount += data.ties.length;
+    } catch (error) {
+      errors.push(`${path}: ${error.message}`);
+    }
+  }
+}
+
 if (errors.length) {
   console.error(`Reader math validation failed (${errors.length} errors):\n${errors.map(error => `- ${error}`).join("\n")}`);
   process.exitCode = 1;
 } else {
-  console.log(`Validated ${titleCount} declaration titles, ${statementCount} statement presentations and ${formulaCount} inline formulas with KaTeX ${katex.version}.`);
+  console.log(`Validated ${titleCount} declaration titles, ${statementCount} statement presentations, ${phraseCount} phrase ties and ${formulaCount} inline formulas with KaTeX ${katex.version}.`);
 }

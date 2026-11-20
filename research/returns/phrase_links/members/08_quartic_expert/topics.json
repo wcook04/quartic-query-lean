@@ -1,0 +1,44 @@
+{
+  "topics": [
+    {
+      "id": "query",
+      "name": "Query complexity and the quartic exponent",
+      "description": "The query model, the two complexity bounds and the order in which their parameters are chosen."
+    },
+    {
+      "id": "forrelation",
+      "name": "Forrelation and address decoding",
+      "description": "The partial function that makes addresses cheap to decode quantumly and expensive to predict classically."
+    },
+    {
+      "id": "construction",
+      "name": "Columns and certificates",
+      "description": "The input bits, the winning conditions and the local tests of a proposed certificate."
+    },
+    {
+      "id": "comparison",
+      "name": "Pairwise comparisons",
+      "description": "How two columns are compared when only a genuine winner has a reliable address."
+    },
+    {
+      "id": "tournament",
+      "name": "Weighted tournament and amplification",
+      "description": "How weighted sampling finds a short candidate list despite arbitrary comparisons between losers."
+    },
+    {
+      "id": "verification",
+      "name": "Verifying a candidate",
+      "description": "How exact local tests turn the candidate list into a bounded-error algorithm on every input."
+    },
+    {
+      "id": "planted",
+      "name": "The planted input and erased zero",
+      "description": "The two coupled input distributions and the cost of finding their changed zero."
+    },
+    {
+      "id": "prediction",
+      "name": "Predicting the hidden address",
+      "description": "The independent hard values, separate query caps and capped simulation behind the classical lower bound."
+    }
+  ]
+}
