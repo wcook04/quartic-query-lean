@@ -5,7 +5,8 @@ export interface Nav {
   openSelection(paper: string, id: string): void;
   openPassage(paper: string, anchor?: string): void;
   openStatement(id: string): void;
-  openLean(name: string): void;
+  /** Open a declaration in the Lean tab; with a phrase, its tied lines are lit. */
+  openLean(name: string, phrase?: string): void;
   /** Open the Lean tab; it follows the paper unless a declaration is chosen. */
   openLeanTab?(): void;
   openGraph(name?: string): void;

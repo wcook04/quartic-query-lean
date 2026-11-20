@@ -1,6 +1,7 @@
 // The paper's sections, following the reading line. Rows come from the
 // edition's manuscript `contents` (older editions: its outline).
 import { Title } from "../text/title";
+import { topicTone, type PhraseLayer } from "./phrases";
 
 export interface ContentsRow { title: string; level: number; line: number; end_line: number; anchor?: string; listed?: boolean }
 
@@ -18,8 +19,12 @@ export function sectionAt(rows: ContentsRow[], line: number | null): ContentsRow
   return best;
 }
 
-export function Contents({ rows, current, onGo }: { rows: ContentsRow[]; current: ContentsRow | null; onGo(row: ContentsRow): void }) {
+export function Contents({ rows, current, onGo, phrases }: { rows: ContentsRow[]; current: ContentsRow | null; onGo(row: ContentsRow): void; phrases?: PhraseLayer | null }) {
   const top = Math.min(...rows.map((r) => r.level));
+  // The topics whose phrases fall in each section, in topic order.
+  const topicsIn = (r: ContentsRow) => phrases
+    ? phrases.topics.filter((t) => phrases.phrases.some((p) => p.topic === t.id && p.lean.length && r.line <= p.lines[0] && p.lines[0] <= r.end_line))
+    : [];
   return (
     <nav className="contents" aria-label="Contents">
       <p className="contents__title">Contents</p>
@@ -30,10 +35,31 @@ export function Contents({ rows, current, onGo }: { rows: ContentsRow[]; current
               className={current === r ? "is-here" : ""}
               onClick={(e) => { e.preventDefault(); onGo(r); }}>
               <NumberedTitle text={r.title} />
+              {r.level === top && (() => {
+                const here = topicsIn(r);
+                return here.length > 0 && (
+                  <span className="topic-bars" title={`Phrases tied to Lean on: ${here.map((t) => t.name).join(", ")}`}>
+                    {here.map((t) => <span key={t.id} data-tone={topicTone(phrases!, t.id)} />)}
+                  </span>
+                );
+              })()}
             </a>
           </li>
         ))}
       </ol>
+      {phrases && (
+        <div className="contents__key">
+          <p className="contents__title">Topic colours</p>
+          <ul className="topic-key">
+            {phrases.topics.map((t) => (
+              <li key={t.id} title={t.description}>
+                <span className="topic-swatch" data-tone={topicTone(phrases, t.id)} aria-hidden="true" />
+                <span className="topic-key__name">{t.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }

@@ -26,6 +26,8 @@ export interface Route {
   step?: string;
   /** The edition a shared link was made in. */
   ed?: string;
+  /** A phrase tie in the paper, from selection/phrases/<paper>.json. */
+  ph?: string;
 }
 
 export function parse(hash: string): Route {
@@ -40,7 +42,7 @@ export function parse(hash: string): Route {
     page: "read", paper: decodeURIComponent(parts[1]),
     s: q.get("s") ?? undefined, p: p ? Number(p) : undefined,
     v: (q.get("v") as View) ?? undefined, st: q.get("st") ?? undefined,
-    d: q.get("d") ?? undefined, j: q.get("j") ?? undefined, step: q.get("step") ?? undefined, e: q.get("e") ?? undefined, a: q.get("a") ?? undefined, ed: q.get("ed") ?? undefined,
+    d: q.get("d") ?? undefined, j: q.get("j") ?? undefined, step: q.get("step") ?? undefined, e: q.get("e") ?? undefined, a: q.get("a") ?? undefined, ed: q.get("ed") ?? undefined, ph: q.get("ph") ?? undefined,
   };
 }
 
@@ -49,7 +51,7 @@ export function href(route: Route): string {
   if (route.page === "about") return "#/about";
   if (route.page === "results") return "#/results";
   const q = new URLSearchParams();
-  for (const key of ["s", "p", "a", "v", "st", "d", "j", "step", "e", "ed"] as const) {
+  for (const key of ["s", "p", "a", "v", "st", "d", "ph", "j", "step", "e", "ed"] as const) {
     const value = route[key];
     if (value != null && value !== "") q.set(key, String(value));
   }
