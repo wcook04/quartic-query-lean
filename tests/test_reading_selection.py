@@ -528,7 +528,7 @@ for (const paper of ["expert", "exposition", "reconstruction"]) {
   const bound = await resolve(paper, paper + "/weight/1");
   assert(identity.lines[1] < bound.lines[0]);
   assert(identity.text.includes("=\\frac{W^2-") && !identity.text.includes("\\le\\frac"));
-  assert(bound.text.includes({expert: "\\le\\frac W2", exposition: "at most $W/2$", reconstruction: "\\leq W/2"}[paper]));
+  assert(bound.text.includes({expert: "\\le W/2", exposition: "at most $W/2$", reconstruction: "\\leq W/2"}[paper]));
   for (const [passage, name] of [[identity, identityName], [bound, boundName]]) {
     assert.deepEqual(passage.claimMatches.map(({name, relation}) => [name, relation]), [[name, "exact"]]);
     assert.deepEqual(passage.proof.map(p => p.name), [name]);
