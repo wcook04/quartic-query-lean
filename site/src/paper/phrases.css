@@ -164,3 +164,13 @@
   .inspector__graph.has-phrase .inspector__map, .inspector__graph.has-phrase .phrase-divider { display: none; }
   .phrase-graph-strip { flex: none; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0; padding: 8px 16px; border-bottom: 1px solid var(--rule-2); background: var(--raised); color: var(--ink-2); font-size: 0.9rem; }
 }
+/* The map body under the split's note; and the local Lean neighbourhood of an undrawn declaration. */
+.inspector__mapbody { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+.inspector__mapbody[hidden] { display: none; }
+.inspector__mapbody .graph { flex: 1; min-height: 0; }
+.local-graph { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.local-graph__head { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px 8px; border-bottom: 1px solid var(--rule-2); }
+.local-graph__title { margin: 0; font-weight: 600; color: var(--ink); font-size: 0.98rem; }
+.local-graph__title span { font-weight: 400; color: var(--ink-2); }
+.local-graph__canvas { flex: 1; min-height: 0; position: relative; }
+.local-graph__more { flex: none; margin: 0; padding: 6px 16px; border-top: 1px solid var(--rule-2); color: var(--ink-2); font-size: 0.86rem; }

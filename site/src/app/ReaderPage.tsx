@@ -23,6 +23,7 @@ import { Title } from "../text/title";
 import { PhraseContext, phraseLayer, topicTone, type PhraseLayer } from "../paper/phrases";
 import { PhraseList } from "../inspect/PhraseCards";
 import { PhraseDivider, PhraseSplit, useGraphTarget } from "../inspect/PhraseSplit";
+const LocalGraph = lazy(() => import("../map/LocalGraph").then((m) => ({ default: m.LocalGraph })));
 
 type PassageMode = "graph" | "lean" | "passage";
 
@@ -222,6 +223,9 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [paper, ed, route.s, route.p, route.d]);
   const graphTarget = useGraphTarget(edition, splitPhrase ? route.d : undefined);
+  // An undrawn declaration shows its own Lean neighbours above, until the reader asks for the passage map.
+  const [passageMapFor, setPassageMapFor] = useState<string | null>(null);
+  const localView = splitPhrase && !!graphTarget && graphTarget.relation !== "self" && passageMapFor !== `${route.ph}|${route.d}`;
   // A phrase click changes the paragraph and declaration shown; the tab stays the reader's choice.
   function selectPhrase(id: string, selection: string) {
     const phrase = phrases?.byId.get(id);
@@ -635,23 +639,32 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             {(graphOpened || mode === "graph") && (
               <div className={`inspector__graph${splitPhrase ? " has-phrase" : ""}`} hidden={mode !== "graph"}>
                 <div className="inspector__map">
-                {splitPhrase && graphTarget && graphTarget.relation !== "self" && (
+                {localView && route.d && (
+                  <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
+                    <LocalGraph edition={edition} name={route.d} titles={phrases?.titles ?? {}} onOpenLean={(name) => nav.openLean(name)}
+                      onBack={() => setPassageMapFor(`${route.ph}|${route.d}`)} />
+                  </Suspense>
+                )}
+                {splitPhrase && !localView && graphTarget && graphTarget.relation !== "self" && (
                   <p className="inspector__phrase-note" role="status">
-                    {graphTarget.relation === "user" ? <>This declaration is not drawn in the graph; it is centred on the nearest drawn card that uses it.</>
-                      : graphTarget.relation === "used" ? <>This declaration is not drawn in the graph and no drawn card uses it; it is centred on the nearest drawn card it uses.</>
-                      : <>This declaration is not drawn in the graph and is not connected to it; the graph shows this paragraph.</>}
+                    {graphTarget.relation === "user" ? <>This declaration is not drawn in the passage map; it is centred on the nearest drawn card that uses it.</>
+                      : graphTarget.relation === "used" ? <>This declaration is not drawn in the passage map and no drawn card uses it; it is centred on the nearest drawn card it uses.</>
+                      : <>This declaration is not drawn in the passage map and is not connected to it.</>}
+                    {" "}<button type="button" className="textbutton" onClick={() => setPassageMapFor(null)}>Show its Lean neighbours</button>
                   </p>
                 )}
+                <div className="inspector__mapbody" hidden={localView}>
                 <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
                   <ProofPane edition={edition} lit={lit} selected={splitPhrase ? graphTarget?.drawn ?? null : route.d ?? null} onSelect={(name: string) => nav.openGraph(name)} onOpenLean={nav.openLean}
                     onClear={() => go({ ...base, s: route.s, p: route.p, v: "graph" })} selectedEdge={route.e ?? null} onEdge={nav.openPath}
                     progress={progress} paperName={face(paper).tab} selectionKey={!clickPin && !following && !splitPhrase ? route.s : undefined}
                     claimMatch={claimMatch} focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onGraphFocus}
-                    onFollow={() => { resumePaperFollowing(); setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} />
+                    onFollow={() => { resumePaperFollowing(); setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} fitSelection={splitPhrase} />
                 </Suspense>
                 <p className="inspector__note" role="status" hidden={!clickPin}>
                   {clickPin ? "Held on the clicked paragraph; scrolling the paper resumes following." : ""}
                 </p>
+                </div>
                 </div>
                 {splitPhrase && (
                   <p className="phrase-graph-strip">

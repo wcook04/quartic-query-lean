@@ -10,7 +10,7 @@ import { Title } from "../text/title";
 import { CloseIcon } from "../app/icons";
 
 const KEY = "quartic:phrase-split:v1";
-const DEFAULT = 0.5;
+const DEFAULT = 0.56;
 
 /** The draggable divider between the graph (above) and the phrase (below). */
 export function PhraseDivider() {

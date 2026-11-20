@@ -23,10 +23,10 @@ import type { Metrics } from "./engine/types";
 import "./tokens.css";
 import "./graph.css";
 
-const INSETS: Insets = { top: 14, right: 14, bottom: 14, left: 14 };
+export const INSETS: Insets = { top: 14, right: 14, bottom: 14, left: 14 };
 // Card titles here are short sentences (median about 60 characters, nine in
 // ten under 90). One width per view; each tile is as tall as its own title.
-const TILE_W = 204;
+export const TILE_W = 204;
 /** Tiles are sized for this camera scale: the pane's usual fit is about 0.85 to 1.15,
  *  and a title sized here still fits whole down to about k = 0.72. */
 const DESIGN_K = 0.85;
@@ -39,7 +39,7 @@ const TITLE_MAX_LINES = 5;
 /** The pane's spacing: ranks far enough apart that every line has a readable run (about 48px on
  *  screen at the usual fit) with room for its arrowhead and "+N" badge, and siblings far enough
  *  apart for parallel lines. Proof Reader's dense metrics are tuned for a whole map on one screen. */
-const PANE_METRICS: Metrics = {
+export const PANE_METRICS: Metrics = {
   sepCard: 28,
   sepDummy: 14,
   gapMin: 56,
@@ -53,8 +53,8 @@ const PANE_METRICS: Metrics = {
 };
 // One size for every card in a view: 12px at the usual scale, growing with
 // the camera up to 14px so a closer view is not a large card of small text.
-const TITLE_SIZES = (k: number) => [Math.min(14, Math.max(12, Math.round(12 * k * 2) / 2))];
-const ROOT_TILE = { w: 440, h: 84 };
+export const TITLE_SIZES = (k: number) => [Math.min(14, Math.max(12, Math.round(12 * k * 2) / 2))];
+export const ROOT_TILE = { w: 440, h: 84 };
 /** Below this pane width the map's tiles cannot hold readable titles; the list reads instead. */
 const LIST_BELOW = 440;
 
@@ -125,11 +125,13 @@ interface Props {
   focusPassages?: readonly string[];
   focusRequest?: GraphFocusRequest;
   onFocusChange?(focus: GraphFocus): void;
+  /** Frame the selected card and its drawn neighbours whole, as Fit does, with margins (a phrase split). */
+  fitSelection?: boolean;
 }
 
 /** Each card's tile height in world units: its title wrapped at TITLE_PX in the tile's width at
  *  DESIGN_K, plus padding. Words are measured with a canvas, like the engine's own title fit. */
-function useTileHeights(graph: ArgGraph): (id: string) => number {
+export function useTileHeights(graph: ArgGraph): (id: string) => number {
   const [fonts, setFonts] = useState(0);
   useEffect(() => {
     let live = true;
@@ -162,7 +164,7 @@ function useTileHeights(graph: ArgGraph): (id: string) => number {
   }, [graph, fonts]);
 }
 
-export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, selected, onSelect, onOpenLean, onClear, selectedEdge, onEdge, progress: _progress, paperName: _paperName, selectionKey, onFollow, claimMatch, focusPassages = [], focusRequest, onFocusChange }: Props) {
+export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, selected, onSelect, onOpenLean, onClear, selectedEdge, onEdge, progress: _progress, paperName: _paperName, selectionKey, onFollow, claimMatch, focusPassages = [], focusRequest, onFocusChange, fitSelection = false }: Props) {
   const tree = useRef<MapViewHandle>(null);
   const body = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
@@ -225,6 +227,8 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
       });
     });
   }, []);
+  const inViewRef = useRef(inView);
+  inViewRef.current = inView;
 
   // Light the passage's cards on the tiles directly, so scrolling stays smooth.
   useEffect(() => {
@@ -309,17 +313,43 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   // Whole proof and the Fit button frame the entire displayed graph at any scale.
   const wholeRef = useRef(whole);
   wholeRef.current = whole;
+  // With a phrase split open, the selected card and its drawn neighbours are framed whole.
+  const fitSelectionRef = useRef<string[] | null>(null);
+  // A selected card's subject is the card and its drawn neighbours (any selected card, not only in a split).
+  const subject = cardScope && scopeLit.length === 1 && drawnGraph.nodes.has(scopeLit[0]) ? scopeLit[0]
+    : fitSelection && selected && drawnGraph.nodes.has(selected) ? selected : null;
+  fitSelectionRef.current = subject && subject !== GOAL
+    ? [subject, ...(drawnGraph.out.get(subject) ?? []).map((e) => e.to), ...(drawnGraph.in.get(subject) ?? []).map((e) => e.from)]
+    : null;
   const frameHeld = useCallback((animate: boolean) => {
+    if (fitSelectionRef.current && !fitHeld.current) {
+      const [card] = fitSelectionRef.current;
+      // At the readable scale; below it titles are cut, so the selected card is centred instead.
+      tree.current?.fitNodes(fitSelectionRef.current, animate);
+      // When the neighbours cannot all fit at a readable scale, keep the selected card itself centred.
+      window.setTimeout(() => { if (fitSelectionRef.current?.[0] === card && !inViewRef.current([card])) tree.current?.panTo([card], { centre: true }); }, animate ? 650 : 60);
+      return;
+    }
     if (wholeRef.current || fitHeld.current || !scopeLitRef.current.length) tree.current?.fitAll(animate);
     else tree.current?.frameFocus(scopeLitRef.current, DESIGN_K, animate);
   }, []);
+
+  // Opening a phrase split (or choosing another of its declarations) frames that card again.
+  useEffect(() => {
+    if (!fitSelection || !selected) return;
+    overviewHeld.current = true;
+    fitHeld.current = false;
+    const t = window.setTimeout(() => frameHeld(true), 260);
+    return () => window.clearTimeout(t);
+  }, [fitSelection, selected, frameHeld]);
 
   // The filtered layout has its own bounds. Frame after React commits that
   // layout, and cancel if a manual move takes ownership before the next paint.
   useEffect(() => {
     fitHeld.current = false;
+    // A new subject (a passage followed, a card or phrase chosen) moves the camera briefly.
     const frame = window.requestAnimationFrame(() => {
-      if (overviewHeld.current) frameHeld(false);
+      if (overviewHeld.current) frameHeld(true);
     });
     return () => window.cancelAnimationFrame(frame);
   }, [drawnGraph, frameHeld]);
