@@ -20,6 +20,7 @@ import { GraphList } from "./GraphList";
 import { CardSummary } from "./CardSummary";
 import { REF_PX, titlePieces, wrapLines } from "./canvas/representation";
 import type { Metrics } from "./engine/types";
+import { titleHtml } from "../text/title";
 import "./tokens.css";
 import "./graph.css";
 
@@ -35,7 +36,7 @@ const TILE_PAD_Y = 11;
 const TILE_PAD_X = 6;
 const TITLE_PX = 12;
 const TITLE_LINE = 1.22;
-const TITLE_MAX_LINES = 5;
+const TITLE_MAX_LINES = 8;
 /** The pane's spacing: ranks far enough apart that every line has a readable run (about 48px on
  *  screen at the usual fit) with room for its arrowhead and "+N" badge, and siblings far enough
  *  apart for parallel lines. Proof Reader's dense metrics are tuned for a whole map on one screen. */
@@ -149,13 +150,31 @@ export function useTileHeights(graph: ArgGraph): (id: string) => number {
       return ctx.measureText(text).width * 1.06;
     };
     const space = measure(" ");
+    // A title with mathematics is measured as KaTeX lays it out, so the tile holds the typeset
+    // title whole; the plain-text estimate alone left typeset titles too tall for their tiles.
+    // One line of slack covers the engine fitting a formula at a size between the probe's.
+    const probe = typeof document !== "undefined" ? (document.getElementById("tile-title-probe") ?? document.createElement("div")) : null;
+    if (probe) {
+      probe.id = "tile-title-probe";
+      probe.setAttribute("aria-hidden", "true");
+      probe.style.cssText = `position:absolute;left:-10000px;top:0;visibility:hidden;width:${width}px;` +
+        `font:400 ${TITLE_PX}px/${TITLE_LINE} ${family};overflow-wrap:normal;word-break:normal;hyphens:manual;text-wrap:balance`;
+      document.body.append(probe);
+    }
+    const typesetLines = (math: string) => {
+      if (!probe) return 0;
+      probe.innerHTML = titleHtml(math);
+      return Math.round(probe.offsetHeight / (TITLE_PX * TITLE_LINE));
+    };
     return (id: string) => {
       let h = cache.get(id);
       if (h !== undefined) return h;
-      const label = graph.nodes.get(id)?.label ?? id;
+      const node = graph.nodes.get(id);
+      const label = node?.label ?? id;
       const pieces = titlePieces(label, false).map((p, i) => ({ w: measure(p.text), gap: i > 0 && p.space ? space : 0, text: p.text }));
       const wrapped = wrapLines({ pieces, ellipsis: measure("…") }, TITLE_PX, width);
-      const lines = Math.min(TITLE_MAX_LINES, Number.isFinite(wrapped) ? wrapped : 3);
+      const plain = Number.isFinite(wrapped) ? wrapped : 3;
+      const lines = Math.min(TITLE_MAX_LINES, Math.max(plain, node?.math && node.math !== label ? typesetLines(node.math) + 1 : 0));
       h = Math.ceil((2 + 2 * TILE_PAD_Y + lines * TITLE_PX * TITLE_LINE) / DESIGN_K);
       cache.set(id, h);
       return h;
@@ -324,12 +343,16 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   const frameHeld = useCallback((animate: boolean) => {
     if (fitSelectionRef.current && !fitHeld.current) {
       const [card] = fitSelectionRef.current;
-      // At the readable scale; below it titles are cut, so the selected card is centred instead.
-      tree.current?.fitNodes(fitSelectionRef.current, animate);
+      // The whole drawn neighbourhood when it fits at the reading scale, else the card and its
+      // neighbours at that scale; titles are never cut to fit.
+      tree.current?.frameFocus(fitSelectionRef.current, DESIGN_K, animate);
       // When the neighbours cannot all fit at a readable scale, keep the selected card itself centred.
       window.setTimeout(() => { if (fitSelectionRef.current?.[0] === card && !inViewRef.current([card])) tree.current?.panTo([card], { centre: true }); }, animate ? 650 : 60);
       return;
     }
+    // With no passage steps (a paragraph without Lean) frame the main result and its first
+    // steps at the reading scale rather than shrinking the whole map until titles are cut.
+    if (!wholeRef.current && !fitHeld.current && !scopeLitRef.current.length) { tree.current?.frameFocus([GOAL], DESIGN_K, animate); return; }
     if (wholeRef.current || fitHeld.current || !scopeLitRef.current.length) tree.current?.fitAll(animate);
     else tree.current?.frameFocus(scopeLitRef.current, DESIGN_K, animate);
   }, []);

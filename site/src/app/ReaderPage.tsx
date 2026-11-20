@@ -22,7 +22,7 @@ import { ReaderSplit } from "./ReaderSplit";
 import { Title } from "../text/title";
 import { PhraseContext, phraseLayer, topicTone, type PhraseLayer } from "../paper/phrases";
 import { PhraseList } from "../inspect/PhraseCards";
-import { PhraseDivider, PhraseSplit, useGraphTarget } from "../inspect/PhraseSplit";
+import { LeanSplit, PhraseDivider, PhraseSplit, useGraphTarget } from "../inspect/PhraseSplit";
 const LocalGraph = lazy(() => import("../map/LocalGraph").then((m) => ({ default: m.LocalGraph })));
 
 type PassageMode = "graph" | "lean" | "passage";
@@ -219,10 +219,16 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   // On the Graph tab a chosen phrase splits the pane: graph above, its card and Lean below.
   const splitPhrase = !["path", "lean", "statement", "journey", "passage"].includes(route.v ?? "") && !!route.ph && !!phrases?.byId.get(route.ph)?.lean.length;
-  const closePhrase = useCallback(() => go({ ...base, s: route.s, p: route.p, v: "graph", d: route.d }),
+  // Closing the chosen phrase or card returns the bottom part to following the paper; the split stays.
+  const closePhrase = useCallback(() => { setClickPin(null); setFollowing(true); go({ ...base, p: route.p, v: "graph" }); },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [paper, ed, route.s, route.p, route.d]);
   const graphTarget = useGraphTarget(edition, splitPhrase ? route.d : undefined);
+  // The Graph tab is always split on a wide screen: the graph above; below, in order, the chosen
+  // phrase, a clicked card's declaration, or the Lean of the paragraph being followed.
+  const graphTab = !["path", "lean", "statement", "journey", "passage"].includes(route.v ?? "");
+  const cardPick = graphTab && !splitPhrase && route.d ? route.d : null;
+  const splitOn = graphTab && (splitPhrase || !!cardPick || wide);
   // An undrawn declaration shows its own Lean neighbours above, until the reader asks for the passage map.
   const [passageMapFor, setPassageMapFor] = useState<string | null>(null);
   const localView = splitPhrase && !!graphTarget && graphTarget.relation !== "self" && passageMapFor !== `${route.ph}|${route.d}`;
@@ -312,7 +318,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   // The graph and its paths already carry their titles. Fetch the full index
   // only when a panel may display arbitrary neighbours or statement targets.
-  const needsTitles = open && (mode === "lean" || mode === "evidence");
+  const needsTitles = open && (mode === "lean" || mode === "evidence" || mode === "graph");
   useEffect(() => {
     if (!needsTitles) return;
     let live = true;
@@ -463,6 +469,17 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   }, [reader, paper, edition.permalink, visited]);
 
   const here = sectionAt(contents, route.s && /^l(\d+)/.exec(route.s) ? Number(/^l(\d+)/.exec(route.s)![1]) : readingLine);
+  // The paragraph being followed, for the bottom part when no Lean is linked to it.
+  const followedPassage = (() => {
+    if (!splitOn || splitPhrase || cardPick || lit.length || passageLean) return null;
+    const line = readingLine;
+    const block = line == null ? null : [...document.querySelectorAll<HTMLElement>(".manuscript .source-block[data-l0]")]
+      .find((b) => Number(b.dataset.l0) <= line && line <= Number(b.dataset.l1));
+    // The paragraph's own typeset HTML, already sanitised, without its margin marks.
+    const copy = block?.cloneNode(true) as HTMLElement | undefined;
+    copy?.querySelectorAll(".lean-tag, .lean-claim-link").forEach((e) => e.remove());
+    return { title: here?.title, html: copy?.innerHTML };
+  })();
   const goSection = (r: ContentsRow) => { resumePaperFollowing(); setFollowing(true); go({ ...base, a: r.anchor, v: route.v }, true); };
 
   let panel = null;
@@ -637,7 +654,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               );
             })()}
             {(graphOpened || mode === "graph") && (
-              <div className={`inspector__graph${splitPhrase ? " has-phrase" : ""}`} hidden={mode !== "graph"}>
+              <div className={`inspector__graph${splitOn ? " has-phrase" : ""}${splitPhrase || cardPick ? " has-pick" : ""}`} hidden={mode !== "graph"}>
                 <div className="inspector__map">
                 {localView && route.d && (
                   <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
@@ -659,20 +676,25 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                     onClear={() => go({ ...base, s: route.s, p: route.p, v: "graph" })} selectedEdge={route.e ?? null} onEdge={nav.openPath}
                     progress={progress} paperName={face(paper).tab} selectionKey={!clickPin && !following && !splitPhrase ? route.s : undefined}
                     claimMatch={claimMatch} focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onGraphFocus}
-                    onFollow={() => { resumePaperFollowing(); setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} fitSelection={splitPhrase} />
+                    onFollow={() => { resumePaperFollowing(); setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} fitSelection={splitOn} />
                 </Suspense>
                 <p className="inspector__note" role="status" hidden={!clickPin}>
                   {clickPin ? "Held on the clicked paragraph; scrolling the paper resumes following." : ""}
                 </p>
                 </div>
                 </div>
-                {splitPhrase && (
+                {(splitPhrase || cardPick) && (
                   <p className="phrase-graph-strip">
-                    <span>The graph is folded while this phrase is open.</span>
+                    <span>The graph is folded while this {splitPhrase ? "phrase" : "card"} is open.</span>
                     <button type="button" className="textbutton" onClick={closePhrase}>Show the graph</button>
                   </p>
                 )}
-                {splitPhrase && <PhraseDivider />}
+                {splitOn && <PhraseDivider />}
+                {splitOn && !splitPhrase && (
+                  <LeanSplit edition={edition} mode={cardPick ? "card" : (lit.length || passageLean) ? "follow" : "none"}
+                    names={cardPick ? [cardPick] : lit.length ? lit.slice(0, 6) : passageLean ? [passageLean] : []}
+                    passage={followedPassage} onClose={cardPick ? closePhrase : undefined} />
+                )}
                 {splitPhrase && <PhraseSplit edition={edition} id={route.ph!} name={route.d} onClose={closePhrase}
                   onPick={(name) => go({ ...base, s: route.s, p: route.p, v: "graph", d: name, ph: route.ph }, true)} />}
               </div>

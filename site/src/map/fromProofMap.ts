@@ -14,6 +14,9 @@ export interface ProofCard {
   statements: Record<string, { relation: string; review: string; route: string }>;
   title: string;
   title_plain: string;
+  /** A short title when `title` is a long statement sentence; the sentence becomes the card's detail. */
+  short_title?: string;
+  short_title_plain?: string;
 }
 export interface ProofMap {
   currentness: string;
@@ -70,7 +73,7 @@ export function proofGraph(map: ProofMap): ArgGraph {
     if (isType(c)) continue;
     nodes.set(name, {
       ...blank, id: name, ref: name, kind: c.kind === "axiom" ? "assumption" : "declaration",
-      kindLabel: KIND_WORDS[c.kind] ?? "Definition", label: c.title_plain || "Title unavailable", math: c.title || undefined, declaration: name,
+      kindLabel: KIND_WORDS[c.kind] ?? "Definition", label: c.short_title_plain || c.title_plain || "Title unavailable", math: c.short_title || c.title || undefined, declaration: name,
       shape: shapeOf(c), leanFill: c.kind === "axiom" ? undefined : "whole",
       status: c.kind === "axiom" ? "axiom" : "kernel_checked", origin: LEAN,
     });

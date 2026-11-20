@@ -486,7 +486,10 @@ checks the source snapshot before and after inspection.
 checks source positions against the complete parse. [reading_phrases.py](reading_phrases.py)
 validates the [phrase ties](../docs/reading_api.md#phrase-ties-topics-and-reading-notes) against
 the manuscript bytes and the Lean graph, and the manuscript renderer marks each phrase in
-the HTML. [intake_phrase_returns.py](intake_phrase_returns.py) preserved the three accepted
+the HTML. [check_phrase_clicks.py](check_phrase_clicks.py) clicks every phrase in a served build and
+checks that its card opens; [check_graph_cards.py](check_graph_cards.py) opens every graph card
+and phrase neighbourhood and checks that no title is cut, clipped or past its card. Both need
+Playwright and are run by hand. [intake_phrase_returns.py](intake_phrase_returns.py) preserved the three accepted
 phrase returns and derived the maintained sources from them. [reading_board.py](reading_board.py)
 constructs the opening experiments from the bound source table and passages.
 Run `make reading-web` for the [browser edition](../docs/reading_api.md#browser-edition).

@@ -8,9 +8,10 @@ import { LeanPanel } from "./LeanPanel";
 import { usePhrases } from "../paper/phrases";
 import { Title } from "../text/title";
 import { CloseIcon } from "../app/icons";
+import { DeclTitle } from "./common";
 
 const KEY = "quartic:phrase-split:v1";
-const DEFAULT = 0.56;
+const DEFAULT = 0.55;
 
 /** The draggable divider between the graph (above) and the phrase (below). */
 export function PhraseDivider() {
@@ -145,4 +146,64 @@ export function useGraphTarget(edition: Edition, name: string | undefined): Grap
     return () => { live = false; };
   }, [edition, name]);
   return target?.name === name ? target : null;
+}
+
+/** The bottom part when no phrase is chosen: a clicked card's declaration, else the Lean of the
+ *  paragraph being followed (one tab per declaration), else a one-line state with the passage. */
+export function LeanSplit({ edition, names, mode, passage, onClose }: {
+  edition: Edition; names: string[]; mode: "card" | "follow" | "none";
+  passage?: { title?: string; html?: string } | null; onClose?(): void;
+}) {
+  const [pick, setPick] = useState(0);
+  const key = names.join("|");
+  useEffect(() => setPick(0), [key]);
+  useEffect(() => {
+    if (!onClose) return;
+    const on = (e: KeyboardEvent) => {
+      if (e.key !== "Escape" || e.defaultPrevented || document.querySelector(":popover-open")) return;
+      e.preventDefault(); e.stopPropagation();
+      onClose();
+    };
+    window.addEventListener("keydown", on, true);
+    return () => window.removeEventListener("keydown", on, true);
+  }, [onClose]);
+  const name = names[Math.min(pick, names.length - 1)];
+  return (
+    <section className="phrase-split lean-split" aria-label={mode === "card" ? "The selected card and its Lean" : "The Lean of the paragraph being read"}>
+      <header className="phrase-split__bar">
+        <p className="phrase-split__k">{mode === "card" ? "Selected card" : mode === "follow" ? "Following the paper · the Lean linked to this paragraph" : "Following the paper"}</p>
+        {onClose && (
+          <button type="button" className="phrase-split__close" onClick={onClose} aria-label="Close the card and follow the paper" title="Close (Esc)">
+            <CloseIcon />
+          </button>
+        )}
+      </header>
+      {names.length > 1 && (
+        <div className="phrase-split__tabs" role="tablist" aria-label="Declarations linked to this paragraph">
+          {names.map((n, i) => (
+            <button key={n} type="button" role="tab" aria-selected={i === pick} onClick={() => setPick(i)}><DeclName name={n} /></button>
+          ))}
+        </div>
+      )}
+      <div className="phrase-split__body">
+        {name ? <LeanPanel key={name} edition={edition} name={name} forStep={mode === "follow"} />
+          : (
+            <div className="lean-split__none">
+              <p className="lean-split__state">No Lean is linked to this paragraph.</p>
+              {passage && (passage.title || passage.html) && (
+                <div className="lean-split__passage">
+                  {passage.title && <p className="lean-split__title"><Title text={passage.title} /></p>}
+                  {passage.html && <div className="lean-split__text manuscript" dangerouslySetInnerHTML={{ __html: passage.html }} />}
+                </div>
+              )}
+            </div>
+          )}
+      </div>
+    </section>
+  );
+}
+
+function DeclName({ name }: { name: string }) {
+  const own = usePhrases()?.titles[name]?.title;
+  return own ? <Title text={own} /> : <DeclTitle name={name} />;
 }
