@@ -63,7 +63,7 @@ Proof Reader's Physlib Gauge theory map ([`src/paper/phrases.ts`](src/paper/phra
 [`src/inspect/PhraseCards.tsx`](src/inspect/PhraseCards.tsx)). Each phrase that states a Lean
 declaration is underlined in its topic's colour; two shades per topic alternate so
 neighbouring phrases differ. The hues keep clear of amber, the cyan, violet and grey of the
-statement matches, mauve and red. Hovering a phrase names its topic and declarations and
+statement matches, mauve and red; every two topics of a paper differ by CIEDE2000 ΔE ≥ 15 over the page in both themes (`tests/test_topic_colours.py`). Hovering a phrase names its topic and declarations and
 lights their cards; hovering a card lights its phrase. Clicking a phrase selects its
 paragraph and declaration and keeps the open tab: the Lean tab shows the declaration with the
 tied lines lit, the Graph tab a strip naming it, the Passage tab every phrase card of the

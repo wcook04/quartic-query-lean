@@ -476,7 +476,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     <StatementNamesContext.Provider value={statementNames?.reader === reader ? statementNames.index : { status: "loading", titles: {} }}>
     <NavContext.Provider value={nav}>
     <PhraseContext.Provider value={phrases}>
-      <div className={`desk${open ? " desk--open" : ""}`}>
+      <div className={`desk${open ? " desk--open" : ""}`} data-topic-count={phrases?.topics.length}>
         <nav className="papers" aria-label="Papers" inert={open && !wide}>
           <div className="papers__bar">
             <ul>

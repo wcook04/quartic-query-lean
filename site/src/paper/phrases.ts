@@ -102,7 +102,26 @@ export function lightPhrases(layer: PhraseLayer | null, names: string[] | null, 
 export function phraseHtml(id: string): string | null {
   const spans = phraseSpans(id);
   if (!spans.length) return null;
-  return spans.map((s) => s.innerHTML).join(" <span class=\"phrase-quote__cell\" aria-hidden=\"true\">|</span> ");
+  return spans.map((s) => {
+    // A quoted display keeps its equation number as text after it, never drawn over the formula.
+    const copy = s.cloneNode(true) as HTMLElement;
+    for (const display of copy.querySelectorAll<HTMLElement>(".katex-display")) {
+      const tags = [...display.querySelectorAll<HTMLElement>(".katex-html .tag")];
+      const numbers = tags.map((t) => (t.textContent ?? "").trim()).filter(Boolean);
+      tags.forEach((t) => t.remove());
+      const wrap = document.createElement("span");
+      wrap.className = "phrase-quote__display";
+      display.replaceWith(wrap);
+      wrap.append(display);
+      if (numbers.length) {
+        const n = document.createElement("span");
+        n.className = "phrase-quote__tag";
+        n.textContent = numbers.join(" ");
+        wrap.append(n);
+      }
+    }
+    return copy.innerHTML;
+  }).join(" <span class=\"phrase-quote__cell\" aria-hidden=\"true\">|</span> ");
 }
 
 /** Bring a phrase into view in the paper and flash it. */

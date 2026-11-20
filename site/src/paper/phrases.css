@@ -2,27 +2,47 @@
    (web/src/api/physlib-map.css at a7fcf2e, Apache-2.0).
 
    Topic colours: tones 2t and 2t+1 are two shades of topic t, so neighbouring phrases of
-   one topic still differ. The hues keep clear of the colours that already carry meaning
-   here: amber (what is being read, and links), cyan, violet and grey (exact, stronger and
-   partial matches), mauve (editorial) and red (gaps). Fidelity is never a colour. */
-[data-tone="0"] { --tone: oklch(0.80 0.13 240); } [data-tone="1"] { --tone: oklch(0.70 0.12 240); }
-[data-tone="2"] { --tone: oklch(0.80 0.13 165); } [data-tone="3"] { --tone: oklch(0.70 0.12 165); }
-[data-tone="4"] { --tone: oklch(0.80 0.13 0); } [data-tone="5"] { --tone: oklch(0.70 0.12 0); }
-[data-tone="6"] { --tone: oklch(0.80 0.13 118); } [data-tone="7"] { --tone: oklch(0.70 0.12 118); }
-[data-tone="8"] { --tone: oklch(0.80 0.13 195); } [data-tone="9"] { --tone: oklch(0.70 0.12 195); }
-[data-tone="10"] { --tone: oklch(0.80 0.13 280); } [data-tone="11"] { --tone: oklch(0.70 0.12 280); }
-[data-tone="12"] { --tone: oklch(0.80 0.13 322); } [data-tone="13"] { --tone: oklch(0.70 0.12 322); }
-[data-tone="14"] { --tone: oklch(0.80 0.13 140); } [data-tone="15"] { --tone: oklch(0.70 0.12 140); }
-[data-tone="16"] { --tone: oklch(0.80 0.13 222); } [data-tone="17"] { --tone: oklch(0.70 0.12 222); }
-:root[data-theme="light"] [data-tone="0"] { --tone: oklch(0.50 0.15 240); } :root[data-theme="light"] [data-tone="1"] { --tone: oklch(0.58 0.13 240); }
-:root[data-theme="light"] [data-tone="2"] { --tone: oklch(0.50 0.15 165); } :root[data-theme="light"] [data-tone="3"] { --tone: oklch(0.58 0.13 165); }
-:root[data-theme="light"] [data-tone="4"] { --tone: oklch(0.50 0.15 0); } :root[data-theme="light"] [data-tone="5"] { --tone: oklch(0.58 0.13 0); }
-:root[data-theme="light"] [data-tone="6"] { --tone: oklch(0.50 0.15 118); } :root[data-theme="light"] [data-tone="7"] { --tone: oklch(0.58 0.13 118); }
-:root[data-theme="light"] [data-tone="8"] { --tone: oklch(0.50 0.15 195); } :root[data-theme="light"] [data-tone="9"] { --tone: oklch(0.58 0.13 195); }
-:root[data-theme="light"] [data-tone="10"] { --tone: oklch(0.50 0.15 280); } :root[data-theme="light"] [data-tone="11"] { --tone: oklch(0.58 0.13 280); }
-:root[data-theme="light"] [data-tone="12"] { --tone: oklch(0.50 0.15 322); } :root[data-theme="light"] [data-tone="13"] { --tone: oklch(0.58 0.13 322); }
-:root[data-theme="light"] [data-tone="14"] { --tone: oklch(0.50 0.15 140); } :root[data-theme="light"] [data-tone="15"] { --tone: oklch(0.58 0.13 140); }
-:root[data-theme="light"] [data-tone="16"] { --tone: oklch(0.50 0.15 222); } :root[data-theme="light"] [data-tone="17"] { --tone: oklch(0.58 0.13 222); }
+   one topic still differ. A paper with n topics uses the palette [data-topic-count="n"]:
+   every two topics differ by CIEDE2000 ΔE ≥ 15 as drawn over the page in both themes, and
+   consecutive topics by far more (tests/test_topic_colours.py). Hue and lightness both vary.
+   The hues keep clear of the colours that already carry meaning here: amber (what is being
+   read, and links), red (gaps), cyan, violet and grey (exact, stronger and partial matches)
+   and mauve (editorial). Fidelity is never a colour. */
+
+[data-topic-count="9"] [data-tone="0"] { --tone: oklch(0.825 0.095 102); } [data-topic-count="9"] [data-tone="1"] { --tone: oklch(0.74 0.095 102); }
+:root[data-theme="light"] [data-topic-count="9"] [data-tone="0"] { --tone: oklch(0.46 0.095 102); } :root[data-theme="light"] [data-topic-count="9"] [data-tone="1"] { --tone: oklch(0.53 0.095 102); }
+[data-topic-count="9"] [data-tone="2"] { --tone: oklch(0.725 0.14 243); } [data-topic-count="9"] [data-tone="3"] { --tone: oklch(0.65 0.14 243); }
+:root[data-theme="light"] [data-topic-count="9"] [data-tone="2"] { --tone: oklch(0.585 0.14 243); } :root[data-theme="light"] [data-topic-count="9"] [data-tone="3"] { --tone: oklch(0.51 0.12 243); }
+[data-topic-count="9"] [data-tone="4"] { --tone: oklch(0.6 0.155 129); } [data-topic-count="9"] [data-tone="5"] { --tone: oklch(0.68 0.155 129); }
+:root[data-theme="light"] [data-topic-count="9"] [data-tone="4"] { --tone: oklch(0.585 0.155 129); } :root[data-theme="light"] [data-topic-count="9"] [data-tone="5"] { --tone: oklch(0.51 0.135 129); }
+[data-topic-count="9"] [data-tone="6"] { --tone: oklch(0.575 0.165 261); } [data-topic-count="9"] [data-tone="7"] { --tone: oklch(0.65 0.165 261); }
+:root[data-theme="light"] [data-topic-count="9"] [data-tone="6"] { --tone: oklch(0.385 0.165 261); } :root[data-theme="light"] [data-topic-count="9"] [data-tone="7"] { --tone: oklch(0.46 0.165 261); }
+[data-topic-count="9"] [data-tone="8"] { --tone: oklch(0.675 0.155 153); } [data-topic-count="9"] [data-tone="9"] { --tone: oklch(0.76 0.155 153); }
+:root[data-theme="light"] [data-topic-count="9"] [data-tone="8"] { --tone: oklch(0.61 0.155 153); } :root[data-theme="light"] [data-topic-count="9"] [data-tone="9"] { --tone: oklch(0.54 0.135 153); }
+[data-topic-count="9"] [data-tone="10"] { --tone: oklch(0.65 0.2 309); } [data-topic-count="9"] [data-tone="11"] { --tone: oklch(0.73 0.185 309); }
+:root[data-theme="light"] [data-topic-count="9"] [data-tone="10"] { --tone: oklch(0.56 0.2 309); } :root[data-theme="light"] [data-topic-count="9"] [data-tone="11"] { --tone: oklch(0.49 0.2 309); }
+[data-topic-count="9"] [data-tone="12"] { --tone: oklch(0.875 0.095 156); } [data-topic-count="9"] [data-tone="13"] { --tone: oklch(0.8 0.095 156); }
+:root[data-theme="light"] [data-topic-count="9"] [data-tone="12"] { --tone: oklch(0.41 0.095 156); } :root[data-theme="light"] [data-topic-count="9"] [data-tone="13"] { --tone: oklch(0.48 0.095 156); }
+[data-topic-count="9"] [data-tone="14"] { --tone: oklch(0.7 0.2 354); } [data-topic-count="9"] [data-tone="15"] { --tone: oklch(0.78 0.145 354); }
+:root[data-theme="light"] [data-topic-count="9"] [data-tone="14"] { --tone: oklch(0.585 0.2 354); } :root[data-theme="light"] [data-topic-count="9"] [data-tone="15"] { --tone: oklch(0.51 0.2 354); }
+[data-topic-count="9"] [data-tone="16"] { --tone: oklch(0.6 0.1 198); } [data-topic-count="9"] [data-tone="17"] { --tone: oklch(0.68 0.1 198); }
+:root[data-theme="light"] [data-topic-count="9"] [data-tone="16"] { --tone: oklch(0.635 0.1 198); } :root[data-theme="light"] [data-topic-count="9"] [data-tone="17"] { --tone: oklch(0.56 0.095 198); }
+[data-topic-count="8"] [data-tone="0"] { --tone: oklch(0.65 0.125 114); } [data-topic-count="8"] [data-tone="1"] { --tone: oklch(0.73 0.125 114); }
+:root[data-theme="light"] [data-topic-count="8"] [data-tone="0"] { --tone: oklch(0.56 0.125 114); } :root[data-theme="light"] [data-topic-count="8"] [data-tone="1"] { --tone: oklch(0.49 0.11 114); }
+[data-topic-count="8"] [data-tone="2"] { --tone: oklch(0.575 0.2 264); } [data-topic-count="8"] [data-tone="3"] { --tone: oklch(0.65 0.185 264); }
+:root[data-theme="light"] [data-topic-count="8"] [data-tone="2"] { --tone: oklch(0.51 0.2 264); } :root[data-theme="light"] [data-topic-count="8"] [data-tone="3"] { --tone: oklch(0.44 0.2 264); }
+[data-topic-count="8"] [data-tone="4"] { --tone: oklch(0.575 0.095 156); } [data-topic-count="8"] [data-tone="5"] { --tone: oklch(0.65 0.095 156); }
+:root[data-theme="light"] [data-topic-count="8"] [data-tone="4"] { --tone: oklch(0.41 0.095 156); } :root[data-theme="light"] [data-topic-count="8"] [data-tone="5"] { --tone: oklch(0.48 0.095 156); }
+[data-topic-count="8"] [data-tone="6"] { --tone: oklch(0.625 0.2 309); } [data-topic-count="8"] [data-tone="7"] { --tone: oklch(0.7 0.2 309); }
+:root[data-theme="light"] [data-topic-count="8"] [data-tone="6"] { --tone: oklch(0.635 0.2 309); } :root[data-theme="light"] [data-topic-count="8"] [data-tone="7"] { --tone: oklch(0.56 0.2 309); }
+[data-topic-count="8"] [data-tone="8"] { --tone: oklch(0.75 0.2 144); } [data-topic-count="8"] [data-tone="9"] { --tone: oklch(0.67 0.2 144); }
+:root[data-theme="light"] [data-topic-count="8"] [data-tone="8"] { --tone: oklch(0.635 0.2 144); } :root[data-theme="light"] [data-topic-count="8"] [data-tone="9"] { --tone: oklch(0.56 0.18 144); }
+[data-topic-count="8"] [data-tone="10"] { --tone: oklch(0.725 0.15 243); } [data-topic-count="8"] [data-tone="11"] { --tone: oklch(0.65 0.15 243); }
+:root[data-theme="light"] [data-topic-count="8"] [data-tone="10"] { --tone: oklch(0.635 0.15 243); } :root[data-theme="light"] [data-topic-count="8"] [data-tone="11"] { --tone: oklch(0.56 0.135 243); }
+[data-topic-count="8"] [data-tone="12"] { --tone: oklch(0.7 0.2 357); } [data-topic-count="8"] [data-tone="13"] { --tone: oklch(0.78 0.14 357); }
+:root[data-theme="light"] [data-topic-count="8"] [data-tone="12"] { --tone: oklch(0.635 0.2 357); } :root[data-theme="light"] [data-topic-count="8"] [data-tone="13"] { --tone: oklch(0.56 0.2 357); }
+[data-topic-count="8"] [data-tone="14"] { --tone: oklch(0.725 0.105 186); } [data-topic-count="8"] [data-tone="15"] { --tone: oklch(0.65 0.105 186); }
+:root[data-theme="light"] [data-topic-count="8"] [data-tone="14"] { --tone: oklch(0.61 0.105 186); } :root[data-theme="light"] [data-topic-count="8"] [data-tone="15"] { --tone: oklch(0.54 0.09 186); }
 
 .manuscript .phrase {
   --line: color-mix(in oklab, var(--tone) 78%, transparent);
@@ -111,3 +131,10 @@
 .phrase-strip__more { font: calc(var(--pane) * 0.8) var(--sans); color: var(--ink-3); }
 .phrase-strip__act { font-size: calc(var(--pane) * 0.88); }
 .phrase-strip__hint { color: var(--ink-3); }
+
+/* A quoted display: the formula scrolls sideways if it is wider than the card, and its
+   equation number follows it as text. */
+.phrase-quote__display { display: flex; align-items: center; gap: 12px; max-width: 100%; }
+.phrase-quote__display .katex-display { flex: 1 1 auto; min-width: 0; margin: 0.3em 0; overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+.phrase-quote__display .katex-display > .katex { padding-right: 0 !important; }
+.phrase-quote__tag { flex: none; color: var(--ink-2); font-family: var(--serif); }
