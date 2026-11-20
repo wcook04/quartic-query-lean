@@ -6,7 +6,7 @@ public import QuarticQuery.LowerBound.RealizedCaps
 /-!
 # Paper-route consumer of realized-cap truncation
 
-NEW SOURCE CANDIDATE, not native-compiled in this reconstructed return.
+Compiled as part of the `QuarticQuery` library target.
 This states the joint event with a mass-one hard input distribution, and routes
 the clipped tree into the separately maintained paper-style proof.
 -/

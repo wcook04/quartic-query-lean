@@ -6,8 +6,8 @@ public import QuarticQuery.ForrelationLower.Main
 /-!
 # Equation (2) for the specified circuit family
 
-Status: unelaborated. No Lean or Lake executable was available in the authoring
-environment. No uncompiled `Paper.Section2` or `ForrelationLower.Uniform` result
+Compiled as part of the `QuarticQuery` library target.
+No `Paper.Section2` or `ForrelationLower.Uniform` result
 is used here.
 
 Both complexities below refer to the same explicit `forrCircuit`. The

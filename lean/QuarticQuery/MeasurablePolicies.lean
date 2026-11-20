@@ -5,7 +5,7 @@ public import QuarticQuery.LowerBound.RealizedCaps
 /-!
 # Explicit action-table compilation with finite query allowances
 
-NEW SOURCE CANDIDATE, not native-compiled in this reconstructed return.
+Compiled as part of the `QuarticQuery` library target.
 Measurability of every action coordinate and its exact pushforward mass is
 proved in ordinary mathematics in `classical_completion.md`. This finite
 compiler is a separate syntactic component, not a claim that Lean has already

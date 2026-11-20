@@ -13,8 +13,8 @@ public import QuarticQuery.Paper.ConstructionArithmetic
 /-!
 # Integration and axiom audit
 
-UNELABORATED. These commands are supplied for the receiving pinned environment.
-No output from them has been obtained in this review.
+This file is not imported by the `QuarticQuery` target. Run it from `lean/` with
+`lake env lean QuarticQuery/Paper/ConstructionAudit.lean` to print the axioms.
 -/
 
 #print axioms QuarticQuery.Paper.construction_lemma_2_1_complete

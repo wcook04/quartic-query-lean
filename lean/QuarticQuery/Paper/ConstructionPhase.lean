@@ -5,8 +5,8 @@ public import QuarticQuery.Model.Quantum
 /-!
 # One bit query implements a phase query
 
-UNELABORATED: no Lean compiler or pinned dependency cache is available in the
-review environment. Target: leanprover/lean4:v4.36.0-rc2, with the packet's pins.
+Compiled as part of the `QuarticQuery` library target.
+Toolchain: leanprover/lean4:v4.36.0-rc2, with the repository's lake manifest.
 
 This is the local one-query assertion in the proof of Lemma 2.1(ii). It uses
 the public bit oracle directly. The factor of two charged by the general

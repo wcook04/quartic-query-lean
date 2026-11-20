@@ -5,7 +5,7 @@ public import QuarticQuery.Upper.Sampler
 /-!
 # A common finite workspace for a finite family of coherent samplers
 
-STATUS: UNELABORATED. No Lean compiler was available for this return.
+Compiled as part of the `QuarticQuery` library target.
 
 The pairwise existential workspaces in `Samples` can be replaced by one finite
 workspace, one initial basis state, and one output map. A query-free basis
@@ -24,7 +24,7 @@ open QuarticQuery.Upper
 read count has a common finite workspace, origin, and output map. The circuit
 family and all workspace choices are fixed before the oracle input. The basis
 permutation preparing each summand is input-independent and costs no reads.
-UNELABORATED. -/
+-/
 theorem quantumWorkspace_uniformize {ι J β : Type} [Fintype J] [Nonempty J]
     {c : ℕ} {L : J → BitInput ι → β → ℝ}
     (h : ∀ j, Samples c (L j)) :

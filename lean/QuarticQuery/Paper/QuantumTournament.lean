@@ -6,8 +6,8 @@ public import QuarticQuery.Paper.QuantumAmplification
 /-!
 # Proposition 3.2 in the paper's list-valued form
 
-STATUS: UNELABORATED. No Lean compiler was available for this return.
-This is an independent, renamed adaptation of the packet's uncompiled
+Compiled as part of the `QuarticQuery` library target.
+This is an independent, renamed adaptation of the earlier
 Paper/Section3.lean, with an explicit coherent output register and fresh retained workspaces.
 The physical bit-query compilation is stated separately from its logical reads.
 
@@ -29,7 +29,7 @@ open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification
 /-- Ledger: prop-3.2. Lists of at most `T` candidates. -/
 abbrev QuantumCandidateList (Col : Type) (T : ℕ) := {l : List Col // l.length ≤ T}
 
-/-- Ledger: prop-3.2. Supporting list-law identity. UNELABORATED. -/
+/-- Ledger: prop-3.2. Supporting list-law identity. -/
 theorem quantumCandidateList_code_injective {Col : Type} {T : ℕ} :
     Function.Injective fun l : QuantumCandidateList Col T => fun i : Fin (T + 1) => l.1[i.val]? := by
   intro l l' h
@@ -42,14 +42,14 @@ theorem quantumCandidateList_code_injective {Col : Type} {T : ℕ} :
     have h2 := l'.2
     rw [List.getElem?_eq_none (by omega), List.getElem?_eq_none (by omega)]
 
-/-- Ledger: prop-3.2. Supporting list-law identity. UNELABORATED. -/
+/-- Ledger: prop-3.2. Supporting list-law identity. -/
 noncomputable instance instFintypeQuantumCandidateList {Col : Type} [Fintype Col] [DecidableEq Col] {T : ℕ} :
     Fintype (QuantumCandidateList Col T) :=
   Fintype.ofInjective _ quantumCandidateList_code_injective
 
 /-- Ledger: prop-3.2. A coherent law on bounded lists is a probability law.
 The explicit subtype keeps this signature in the existing list vocabulary.
-UNELABORATED. -/
+-/
 theorem quantumCandidateList_probability {ι Col : Type} [Fintype Col]
     [DecidableEq Col] {T c : ℕ}
     {law : BitInput ι → {L : List Col // L.length ≤ T} → ℝ}
@@ -57,7 +57,7 @@ theorem quantumCandidateList_probability {ι Col : Type} [Fintype Col]
     (∀ x o, 0 ≤ law x o) ∧ (∀ x, ∑ o, law x o = 1) :=
   ⟨h.nonneg, h.sum_eq_one⟩
 
-/-- Ledger: prop-3.2. Supporting list-law identity. UNELABORATED. -/
+/-- Ledger: prop-3.2. Supporting list-law identity. -/
 theorem quantumPoint_val {Col : Type} {T : ℕ} (a b : QuantumCandidateList Col T) : pt a.1 b.1 = pt a b := by
   by_cases h : a = b
   · subst h; rw [pt_self, pt_self]
@@ -80,7 +80,7 @@ noncomputable def quantumListLaw (a : Col → Col → ℝ) (g : List Col → ℝ
 
 variable [DecidableEq Col]
 
-/-- Ledger: prop-3.2. Supporting list-law identity. UNELABORATED. -/
+/-- Ledger: prop-3.2. Supporting list-law identity. -/
 theorem quantumPoint_sum {T : ℕ} (L : List Col) (hL : L.length ≤ T) (h : List Col → ℝ) :
     ∑ o : QuantumCandidateList Col T, pt L o.1 * h o.1 = h L := by
   rw [Finset.sum_eq_single (⟨L, hL⟩ : QuantumCandidateList Col T)]
@@ -110,7 +110,7 @@ theorem quantumListLaw_vall {T : ℕ} (a : Col → Col → ℝ) (g : List Col �
         tval a v g n (p :: L) := fun p => ih (p :: L) (by simp only [List.length_cons]; omega)
     simp only [hs]
 
-/-- Ledger: prop-3.2. Every entry of the list law is nonnegative. UNELABORATED. -/
+/-- Ledger: prop-3.2. Every entry of the list law is nonnegative. -/
 theorem quantumListLaw_nonneg {a : Col → Col → ℝ} {g : List Col → ℝ}
     (ha : UnitValued a) (hg : ∀ L, 0 ≤ g L ∧ g L ≤ 1)
     (n : ℕ) (L out : List Col) : 0 ≤ quantumListLaw a g n L out := by
@@ -127,7 +127,7 @@ theorem quantumListLaw_nonneg {a : Col → Col → ℝ} {g : List Col → ℝ}
 
 /-- Ledger: prop-3.2. The bounded-list law has total probability one.
 The zero-weight hypothesis is necessary because division in Lean is totalized.
-UNELABORATED. -/
+-/
 theorem quantumListLaw_total {T : ℕ} (a : Col → Col → ℝ) (g : List Col → ℝ)
     (hz : ∀ L, total (weight a L) = 0 → g L = 1)
     (n : ℕ) (L : List Col) (hL : L.length + n ≤ T) :
@@ -239,12 +239,12 @@ end Law
 
 /-- Ledger: claim-tournament-cost. Logical reads per amplified stage at the
 maximum history length. The compiled `stageCost` is twice this quantity.
-UNELABORATED. -/
+-/
 noncomputable def quantumStageReads (m T cc : ℕ) (ε : ℝ) : ℕ :=
   trialCount ε * ((2 * iterationBound ((2 * (m : ℝ))⁻¹) + 1) * (T * cc))
 
 /-- Ledger: claim-tournament-cost. Exact read-to-bit-query conversion for the
-complete tournament. UNELABORATED. -/
+complete tournament. -/
 theorem quantumStageReads_compile (m T cc : ℕ) (ε : ℝ) :
     2 * (T * quantumStageReads m T cc ε) = T * stageCost m T cc ε := by
   unfold quantumStageReads stageCost

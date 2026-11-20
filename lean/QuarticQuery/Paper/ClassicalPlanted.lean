@@ -5,8 +5,8 @@ public import QuarticQuery.LowerBound.Planted.Main
 /-!
 # The planted experiment and the displays (18)--(23)
 
-UNELABORATED. This file was not compiled in the return environment.
-Intended pin: leanprover/lean4:v4.36.0-rc2, with the packet's lake-manifest.json.
+Compiled as part of the `QuarticQuery` library target.
+Toolchain: leanprover/lean4:v4.36.0-rc2, with the repository's lake manifest.
 
 All probability expressions below are finite weighted sums under the original
 product law. Nonheaviness stays inside an event. Times are zero-based: `t`

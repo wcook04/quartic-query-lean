@@ -7,8 +7,8 @@ public import Mathlib.Analysis.InnerProductSpace.Rayleigh
 /-!
 # Appendix A: a nonnegative eigenvector at the Euclidean operator norm
 
-STATUS: UNELABORATED. This file was written against the exact pinned Mathlib
-sources, but no Lean compiler was available in the review environment.
+Compiled as part of the `QuarticQuery` library target.
+It is written against the pinned Mathlib sources.
 
 The proof is the symmetric, entrywise nonnegative case of Perron--Frobenius.
 It maximizes the Rayleigh quadratic form on the unit sphere. Taking coordinatewise

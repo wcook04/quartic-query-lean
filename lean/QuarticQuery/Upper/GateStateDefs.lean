@@ -3,8 +3,8 @@ module
 public import QuarticQuery.Upper.AssemblyFormula
 
 /-!
-Proposed exact gate-to-coordinate bridge for the product trial state.
-UNELABORATED: proof requires native simplifier calibration in pinned Mathlib.
+Exact gate-to-coordinate bridge for the product trial state.
+Compiled as part of the `QuarticQuery` library target.
 No endpoint assumption or admitted proof is used.
 -/
 

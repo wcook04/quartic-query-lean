@@ -5,7 +5,7 @@ public import QuarticQuery.Results.Unconditional
 /-!
 # The exact tail and exponent displays in Sections 4 and 5
 
-UNELABORATED. These declarations have not been submitted to a Lean compiler.
+Compiled as part of the `QuarticQuery` library target.
 Target: `leanprover/lean4:v4.36.0-rc2`, Mathlib
 `69552756cd8a2d2d48763cf7279fd814d6a1224d`.
 

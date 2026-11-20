@@ -5,7 +5,7 @@ public import QuarticQuery.LowerBound.RealizedCaps
 /-!
 # Exact finite pushforward of an external random seed
 
-NEW SOURCE CANDIDATE, not native-compiled in this reconstructed return.
+Compiled as part of the `QuarticQuery` library target.
 This module proves algebraic pushforward results for *finite* seed spaces. The
 arbitrary measurable seed case requires the measurable finite-table compiler
 and a measure-theoretic identification of its fiber weights; that latter

@@ -6,7 +6,7 @@ public import QuarticQuery.Upper.Compile
 /-!
 # Exact local tests controlled by an arbitrary superposition
 
-Status: unelaborated. No compilation or new comparison is claimed.
+Compiled as part of the `QuarticQuery` library target.
 
 `Upper.test_samples` prepares a particular uniform distribution. The preprint's
 Lemma 2.2 also permits an index register supplied in an arbitrary superposition.

@@ -5,7 +5,7 @@ public import QuarticQuery.Upper.RetainedFactor
 
 /-!
 One fixed opaque schedule, one retained selector, one complete original H.
-UNELABORATED candidate source pending `Upper.Amplify` import closure.
+Compiled as part of the `QuarticQuery` library target.
 -/
 
 @[expose] public section

@@ -5,7 +5,7 @@ public import QuarticQuery.LowerBound.DirectProduct
 /-!
 # Original-path cap event for initially uncapped finite trees
 
-NEW SOURCE CANDIDATE, not native-compiled in this reconstructed return.
+Compiled as part of the `QuarticQuery` library target.
 
 The compiler clips before the first excess query, including on contradictory
 formal branches. The next-action-at-zero rule preserves an original terminal

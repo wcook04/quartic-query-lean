@@ -1,0 +1,78 @@
+# Build the QuarticQuery target, read the headline's dependency closure, and run
+# Comparator (sandboxed, then --paranoid for the headline) on every bundle and
+# negative fixture. The receipts are uploaded for review and committed by hand;
+# this workflow never writes to the repository.
+name: Lean build and Comparator receipts
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ["lean/**", "tools/record_evidence.py", "tools/run_comparator.py", ".github/workflows/lean-evidence.yml"]
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Install elan and the pinned toolchain
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Restore earlier Lake builds
+        uses: actions/cache/restore@v4
+        with:
+          path: lean/.lake
+          key: quartic-lake-${{ hashFiles('lean/lake-manifest.json', 'lean/lean-toolchain') }}-${{ github.run_id }}
+          restore-keys: quartic-lake-${{ hashFiles('lean/lake-manifest.json', 'lean/lean-toolchain') }}-
+      - name: Fetch Mathlib's compiled files
+        working-directory: lean
+        run: lake exe cache get
+      - name: Build QuarticQuery and record the dependency closure
+        run: |
+          set -o pipefail
+          LAKE="$(command -v lake)" python3 tools/record_evidence.py 2>&1 | tee "$RUNNER_TEMP/record_evidence.log"
+      - name: Save Lake builds
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: lean/.lake
+          key: quartic-lake-${{ hashFiles('lean/lake-manifest.json', 'lean/lean-toolchain') }}-${{ github.run_id }}
+      - name: Re-record the native captures read from the compiled environment
+        continue-on-error: true
+        run: |
+          export LAKE="$(command -v lake)"
+          for step in "record_reading_dependencies.py" "record_reading_dependencies.py --statements" \
+                      "record_reading_dependencies.py --applications" "record_proof_sites.py" \
+                      "record_parameter_origins.py" "record_kernel_paths.py" "record_retained_lines.py"; do
+            echo "== $step"
+            python3 tools/$step 2>&1 | tee -a "$RUNNER_TEMP/native_captures.log" || echo "FAILED: $step" | tee -a "$RUNNER_TEMP/native_captures.log"
+          done
+      - name: Print the axioms of the construction audit file
+        working-directory: lean
+        run: lake env lean QuarticQuery/Paper/ConstructionAudit.lean 2>&1 | tee "$RUNNER_TEMP/construction_audit.log"
+      - name: Install the sandbox Comparator uses
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq bubblewrap
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
+          bwrap --version
+      - name: Comparator on every bundle and negative fixture, sandboxed
+        run: |
+          LAKE="$(command -v lake)" QUARTIC_COMPARATOR_SANDBOX=1 python3 tools/run_comparator.py 2>&1 | tee "$RUNNER_TEMP/comparator.log"
+      - name: Comparator on the headline bundle, sandboxed and --paranoid
+        run: |
+          LAKE="$(command -v lake)" QUARTIC_COMPARATOR_SANDBOX=1 python3 tools/run_comparator.py --paranoid --only Unconditional 2>&1 | tee "$RUNNER_TEMP/comparator_paranoid.log"
+      - name: Collect receipts and logs
+        if: always()
+        run: |
+          mkdir -p "$RUNNER_TEMP/out"
+          git add -A corpus docs
+          git diff --cached --binary > "$RUNNER_TEMP/out/evidence.patch"
+          git diff --cached --stat > "$RUNNER_TEMP/out/evidence.stat"
+          cp "$RUNNER_TEMP"/*.log "$RUNNER_TEMP/out/" || true
+          { git rev-parse HEAD; lake --version; bwrap --version; } > "$RUNNER_TEMP/out/context.txt" 2>&1 || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quartic-lean-evidence
+          path: ${{ runner.temp }}/out

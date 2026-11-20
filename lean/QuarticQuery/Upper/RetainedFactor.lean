@@ -3,9 +3,9 @@ module
 public import QuarticQuery.Upper.Circuit
 
 /-!
-Proposed finite-coordinate seam for a retained-state amplifier.
-UNELABORATED in this packet environment. This is a candidate module, not a
-claim of a native Lean check or an implementation of the full circuit.
+Finite-coordinate seam for a retained-state amplifier.
+Compiled as part of the `QuarticQuery` library target.
+It does not implement the full circuit.
 The first coordinate is the auxiliary history.  The second is the fixed
 original Hilbert register, including its original preparation workspace.
 -/

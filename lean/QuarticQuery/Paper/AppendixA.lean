@@ -6,7 +6,7 @@ public import QuarticQuery.Paper.AppendixAHuangRoute
 /-!
 # Appendix A: assembly of the universal quartic bound
 
-STATUS: UNELABORATED. No Lean compiler was available in the review environment.
+Compiled as part of the `QuarticQuery` library target.
 
 This second route uses the general nonnegative matrix adversary theorem for
 both parts of Lemma A.3, the spectral form of Huang's inequality for Lemma A.4,

@@ -5,8 +5,8 @@ public import QuarticQuery.Forrelation.Circuit
 /-!
 # Magnitudes in the ideal integer computation
 
-UNELABORATED: this source has not been run through Lean. It targets the packet's
-leanprover/lean4:v4.36.0-rc2 toolchain and dependency revisions.
+Compiled as part of the `QuarticQuery` library target.
+Toolchain: leanprover/lean4:v4.36.0-rc2, with the repository's lake manifest.
 
 The bounds below concern ideal integer sums. `Forrelation.Enc` in the existing
 Boolean circuit records residues modulo a power of two. These lemmas must not

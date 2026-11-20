@@ -6,7 +6,7 @@ public import QuarticQuery.LowerBound.RealizedCaps
 /-!
 # Finite-seed bridge to initially uncapped adaptive trees
 
-NEW SOURCE CANDIDATE, not native-compiled in this reconstructed return.
+Compiled as part of the `QuarticQuery` library target.
 Every ω selects an *initially uncapped* finite tree. This theorem pushes its
 weights exactly to a finite set of behaviors and uses the joint-event result.
 The measurable Ω extension is a further formalization obligation, not hidden

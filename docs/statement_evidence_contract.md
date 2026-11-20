@@ -101,6 +101,16 @@ are not; a binding does not prove a clean reconstruction or authenticate the
 reviewer. Narrow semantic-closure bindings would require a separately validated
 extractor and are not inferred from an old dependency graph.
 
+One narrowing is defined. An edit that changes only comments in local Lean
+sources is recorded by `tools/record_comment_migration.py` as a
+`lean_comment_only_migration` in `corpus/migrations/`. It requires the same set
+of paths, byte-identical non-Lean inputs, unchanged line counts, and identical
+Lean text after `tools/lean_comments.py` removes line, block and documentation
+comments. A binding to the earlier snapshot then remains current for the later
+one; every other binding field must still match. `make check` repeats the
+comparison against the recorded commit. Build and Comparator receipts are not
+migrated and need a fresh run.
+
 ### Provenance of derived helpers
 
 The current graph is a preprint-only projection. Separately derived `r2-live-*`

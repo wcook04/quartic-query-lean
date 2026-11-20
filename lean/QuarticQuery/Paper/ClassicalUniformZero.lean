@@ -5,8 +5,8 @@ public import QuarticQuery.Paper.ClassicalPlanted
 /-!
 # Conditional uniformity of an undiscovered zero
 
-UNELABORATED. This file was not compiled in the return environment.
-Intended pin: leanprover/lean4:v4.36.0-rc2 and the packet's lake-manifest.json.
+Compiled as part of the `QuarticQuery` library target.
+Toolchain: leanprover/lean4:v4.36.0-rc2, with the repository's lake manifest.
 
 A transcript records the queried coordinates and their answers. Its scheduling
 predicate is defined recursively from the actual decision tree. The proof below

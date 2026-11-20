@@ -4,7 +4,7 @@ public import QuarticQuery.Upper.Circuit
 
 /-!
 The fixed original register and the immutable first-success selection record.
-UNELABORATED candidate source. The rest of the auxiliary history may be
+The rest of the auxiliary history may be
 carried as an additional product factor and left untouched by `regCongr`.
 -/
 

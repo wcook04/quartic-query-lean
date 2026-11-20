@@ -3,7 +3,7 @@ module
 public import QuarticQuery.Upper.GateStateDefs
 
 /-! Exact gate-state factorization from the definitions in GateStateDefs.
-UNELABORATED pending pinned native check. -/
+-/
 
 @[expose] public section
 
