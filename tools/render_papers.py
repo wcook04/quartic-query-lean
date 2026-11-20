@@ -31,7 +31,8 @@ FIGURES = {
     "expert": (DOCS / "figures", ["expert_column", "expert_planted"]),
     "record": (DOCS / "figures", ["forrelation_chain"]),
     "exposition": (DOCS / "figures/exposition",
-                   ["fig1_column", "fig2_board", "fig3_tournament", "fig4_planted", "fig5_costs"]),
+                   ["fig1_column", "fig2_board", "fig3_tournament", "fig4_planted", "fig5_costs",
+                    "fig6_rotation", "fig7_promise"]),
 }
 
 # Style shared by both papers, modelled on the SK companion papers.
@@ -110,6 +111,22 @@ function Link(el)
     local repository = el.target:match("^https://github%.com/([%w_.%-]+/[%w_.%-]+)")
     if repository then el.content = {pandoc.Str("github.com/" .. repository)} end
   end
+  return el
+end
+-- An unnumbered section sets no link anchor, so its bookmark would reuse the last
+-- anchor before it, on the previous page when the heading starts a page. Write it
+-- with the anchor set just after the heading, then the contents entry.
+function Header(el)
+  local space = pandoc.RawBlock("latex", "\\needspace{" .. (el.level == 1 and 6 or 4) .. "\\baselineskip}")
+  if el.classes:includes("unnumbered") and el.level <= 2 then
+    local cmd = el.level == 1 and "section" or "subsection"
+    local title = pandoc.write(pandoc.Pandoc({pandoc.Plain(el.content)}), "latex"):gsub("%s+$", "")
+    local plain = pandoc.utils.stringify(el.content)
+    return {space, pandoc.RawBlock("latex",
+      "\\" .. cmd .. "*{" .. title .. "}\\phantomsection\\addcontentsline{toc}{" .. cmd .. "}{" .. plain ..
+      "}\\label{" .. el.identifier .. "}")}
+  end
+  if el.level <= 2 then return {space, el} end
   return el
 end
 function Table(el)
@@ -287,7 +304,10 @@ def render(paper, out):
     figdir = build_figures(paper, out)
     (out / "header.tex").write_text(
         HEADER + HEADER_EXTRA[paper].replace("@OUT@", str(out)))
-    sibling_revision = run(["git", "rev-parse", "HEAD"], cwd=ROOT).stdout.strip()
+    # Cite the same release as the generated Lean and record links, so every
+    # link in one PDF names one version.
+    from build_lean_links import RELEASE
+    sibling_revision = RELEASE
     lua = (LUA[paper].replace("FIGDIR", repr(str(figdir))) + "\n"
            + sibling_link_filter(sibling_revision)
            + "\nfunction Link(el) return sibling_link(el) end\n")

@@ -38,7 +38,7 @@
 \node[cell, draw=win, thick, fill=win!15] at (cell4) {};
 \node at (10.55,1.46) {$\cdots$};
 \draw[addr, ->, thick] (cell4.north |- 0,2.22) -- (cell4.north);
-\node[anchor=west] at (5.76,0.80) {Selected cell: pointers and circuit transcripts};
+\node[anchor=west] at (5.76,0.80) {Cell $B_{i^\star,s_{i^\star}}$: pointers and circuit transcripts};
 % One pair of clauses suffices to compare the two columns.
 \strip{0.15}{$X_j$}{6}{r}
 \strip{-1.34}{$X_{i^\star}$}{0}{w}
@@ -54,5 +54,6 @@
   (rival.west) -- (5.35,-1.34) -- (5.35,-0.78)
   -- (w3.north |- 0,-0.78) -- (w3.north);
 \node[anchor=west, addr] at (5.76,-1.99) {For every stored row $u$, $X_{i^\star}[u]=1$.};
+\node[anchor=west, font=\small\bfseries] at (-0.6,-2.62) {Exactly one pointer finds a zero, so the comparison selects $i^\star$.};
 \end{tikzpicture}
 \end{document}

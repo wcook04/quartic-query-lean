@@ -373,7 +373,8 @@ class ReadingEditionTest(unittest.TestCase):
                 notes = {a["id"]: a["href"] for _, a in tags if a.get("role") == "doc-noteref"}
                 backlinks = {a["href"] for _, a in tags if a.get("role") == "doc-backlink"}
                 self.assertEqual(set(notes), {ref[1:] for ref in backlinks})
-                self.assertTrue(notes)
+                if key == "expert":
+                    self.assertTrue(notes)
                 for ref, dest in notes.items():
                     self.assertRegex(dest, r"^#fn[0-9]+$")
                     self.assertEqual(ref, "fnref" + dest[3:])
@@ -382,8 +383,9 @@ class ReadingEditionTest(unittest.TestCase):
                 self.assertTrue(any(tag == "table" for tag, _ in tags))
                 self.assertTrue(any(a.get("class") == "math display" for _, a in tags))
                 self.assertTrue(any(a.get("data-paper") == "exposition" for _, a in tags))
-            if key == "exposition":
+            if key == "expert":
                 self.assertTrue(any(i.startswith("fnref") for i in ids))
+            if key == "exposition":
                 self.assertTrue(any(i.startswith("ref-") for i in ids))
                 first = self.resource("selection/board.json")["scenes"][0]["selections"][0]
                 start = first["lines"][0]

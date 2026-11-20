@@ -63,7 +63,7 @@ INDEX_COMMIT = "main"
 # --check --release (run after tagging) requires the tag, its lean/ tree to equal
 # COMMIT's, and each cited record, supplement and index anchor in its own file.
 # Plain --check, for drafts before the tag exists, only reports a missing tag.
-RELEASE = "v1.0.1"
+RELEASE = "v1.0.2"
 BEGIN, END = "<!-- lean-links -->", "<!-- /lean-links -->"
 USE = re.compile(r"\]\[([A-Za-z0-9][A-Za-z0-9-]*)\]")
 # The record edition is independent of the Lean source edition.
@@ -570,8 +570,9 @@ INDEX = "docs/proof_index.md"
 
 
 def pin_index_links(text):
-    """Point theorem-index links at the release instead of the moving main branch."""
-    return text.replace(f"{REPOSITORY}/blob/main/{INDEX}", f"{REPOSITORY}/blob/{RELEASE}/{INDEX}")
+    """Point theorem-index and supplement links at this release, from main or an older tag."""
+    return re.sub(re.escape(REPOSITORY) + r"/blob/(?:main|v[0-9]+(?:\.[0-9]+)*)/(" + re.escape(INDEX) + "|"
+                  + re.escape(SUPPLEMENT) + r")", lambda m: f"{REPOSITORY}/blob/{RELEASE}/{m.group(1)}", text)
 
 
 def check_release(outputs, final=False):

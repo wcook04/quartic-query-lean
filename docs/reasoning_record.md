@@ -3816,7 +3816,7 @@ Let $I$ be a finite set of coordinates and put $\mathcal X_I=\{0,1\}^I$. A parti
 
 An algorithm for a partial function is one algorithm that works on every promised input. Its behavior outside $\mathcal D$ can be arbitrary, but its query cap still applies there. In particular, the program, its random probabilities and its quantum starting state cannot be chosen after learning the input. This separates the quantifiers “there is an algorithm, for every input” from the incorrect “for every input, there is an algorithm.”
 
-A total function is the special case $\mathcal D=\mathcal X_I$. An algorithm for $f$ may output either bit outside $\mathcal D$; the function is defined only on $\mathcal D$. The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/proof_index.md#def-partial) links the corresponding formal definitions.
+A total function is the special case $\mathcal D=\mathcal X_I$. An algorithm for $f$ may output either bit outside $\mathcal D$; the function is defined only on $\mathcal D$. The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/proof_index.md#def-partial) links the corresponding formal definitions.
 <!-- /passage:ROOT-PARTIAL -->
 
 <a id="R3-01-CLASSICAL"></a>
@@ -3918,7 +3918,7 @@ M_A(x,\psi,1)+M_A(x,\psi,0)=\|\psi\|^2.
 Both claims follow by structural induction. At a return they are immediate. A unitary or oracle preserves the norm, so the induction hypothesis applies after that transformation. At a measurement, nonnegativity is preserved by addition; summing over the two output bits and applying the induction hypotheses gives $\|\Pi_S\psi\|^2+\|(I-\Pi_S)\psi\|^2=\|\psi\|^2$. Thus a normalized starting vector gives an ordinary probability distribution. Renormalizing each branch and then adding its mass without restoring the branch probability would fail this identity.
 
 <!-- claim:def-Q -->
-On a nonempty coordinate set, a budget $q$ is admissible when one normalized starting state and one program of cap at most $q$ achieve the required success on every promised input. To include the empty coordinate set, where a constant answer needs no query register, we also allow the constant case explicitly. The resulting condition, the [quantum budget condition](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/proof_index.md#def-QLe), is
+On a nonempty coordinate set, a budget $q$ is admissible when one normalized starting state and one program of cap at most $q$ achieve the required success on every promised input. To include the empty coordinate set, where a constant answer needs no query register, we also allow the constant case explicitly. The resulting condition, the [quantum budget condition](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/proof_index.md#def-QLe), is
 
 \[
 \begin{split}
@@ -4659,11 +4659,11 @@ Section and theorem locators refer to the editions identified below. Source comp
 
 
 <!-- lean-links -->
-[def-DLe]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/lean/QuarticCorpus/Unconditional/Challenge.lean#L67-L69
-[def-RLe]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/lean/QuarticCorpus/Unconditional/Challenge.lean#L62-L65
-[src-budget-constant]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/lean/QuarticQuery/Upper/Bound.lean#L52-L57
-[src-complexitylib]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/lean/QuarticQuery/Bridge/DecisionTree.lean#L65-L68
-[src-fixed-sequence]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/lean/QuarticQuery/Bridge/Deferred.lean#L282-L290
-[src-repetitions]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/lean/QuarticQuery/Forrelation/Repetition.lean#L191-L193
-[src-tournament-runs]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/lean/QuarticQuery/Upper/Tournament.lean#L362-L378
+[def-DLe]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/lean/QuarticCorpus/Unconditional/Challenge.lean#L67-L69
+[def-RLe]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/lean/QuarticCorpus/Unconditional/Challenge.lean#L62-L65
+[src-budget-constant]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/lean/QuarticQuery/Upper/Bound.lean#L52-L57
+[src-complexitylib]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/lean/QuarticQuery/Bridge/DecisionTree.lean#L65-L68
+[src-fixed-sequence]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/lean/QuarticQuery/Bridge/Deferred.lean#L282-L290
+[src-repetitions]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/lean/QuarticQuery/Forrelation/Repetition.lean#L191-L193
+[src-tournament-runs]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/lean/QuarticQuery/Upper/Tournament.lean#L362-L378
 <!-- /lean-links -->

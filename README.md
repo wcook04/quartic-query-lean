@@ -129,7 +129,7 @@ python3 tools/run_comparator.py
 ## Reproducing the formal checks
 
 The three papers, the proof index and the verification details link to Lean
-sources and record passages at the release tag `v1.0.1`. The recorded checks of
+sources and record passages at the release tag `v1.0.2`. The recorded checks of
 that release ran on GitHub Actions
 ([workflow](.github/workflows/lean-evidence.yml), receipts in
 [corpus/receipts/](corpus/receipts/) dated 20 November 2026): `lake build
@@ -138,7 +138,7 @@ Comparator with its sandbox on every bundle and negative fixture, with `--parano
 for the headline bundle
 ([its receipt](corpus/receipts/comparator-Unconditional-2026-11-20T160320262522+0000.json)).
 The receipts name the commit GitHub built for pull request #27; each binds the
-exact Lean source bytes, which are those of `v1.0.1`.
+exact Lean source bytes, which are those of `v1.0.2`.
 The toolchain is `leanprover/lean4:v4.36.0-rc2` and Mathlib is pinned at
 `69552756cd8a2d2d48763cf7279fd814d6a1224d`.
 
