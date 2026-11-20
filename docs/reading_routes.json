@@ -13,11 +13,11 @@
       "statements": [
         "thm-1.1"
       ],
-      "note": "The Lean theorem states both bounds from a threshold on m, as Theorem 1 does. Its proof uses the Lean development's own proof of the Forrelation lower bound, a different route from Bansal and Sinha's. The explicit constants b=6 and 1/400 come from this reconstruction and are stated by a separate Lean theorem. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers.",
+      "note": "The Lean theorem states both bounds from a threshold on m, as Theorem 1 of the expert companion does. Its proof uses the Lean development's own proof of the Forrelation lower bound, a different route from Bansal and Sinha's. The explicit constants b=6 and 1/400 come from this reconstruction and are stated by a separate Lean theorem. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers.",
       "bound_at": {
         "exposition": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
-        "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d"
+        "expert": "e633939eb3abbfbef4e2f1aafd982bad23fc39fc"
       },
       "context_passages": {
         "ROOT-FAMILY-ASSEMBLY": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
@@ -159,7 +159,8 @@
       "exposition": "Suppose the fixed comparisons of Figure 2 give us",
       "reconstruction": "upper-stage-law",
       "lean": [
-        "src-stage-sampler"
+        "src-stage-sampler",
+        "src-equation-15"
       ],
       "bound_at": {
         "expert": "685f757ec50918fd659b926a44f2ba988e11359d",
@@ -185,7 +186,8 @@
           "paper": "reconstruction",
           "anchor": "upper-amplification-statement"
         }
-      ]
+      ],
+      "note": "The sampler gives the successful-index law of the displayed preparation, but it skips the remaining comparisons after a failed one, so it does not build the full tensor state; a separate Lean theorem constructs that state. In Lean each comparison's basis outcome is measured and its workspace reset, where the accounts keep fresh retained registers; the verification details explain the difference."
     },
     {
       "id": "verification",
@@ -204,7 +206,8 @@
       "context_passages": {
         "AC-circuit": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
         "AC-local-equivalence": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
-      }
+      },
+      "note": "In Lean each comparison's basis outcome is measured and its workspace reset, where the accounts keep fresh retained registers; the verification details explain the difference."
     },
     {
       "id": "planting",
@@ -236,7 +239,7 @@
       "statements": [
         "eq-19"
       ],
-      "note": "The linked Lean proof uses a different count from this passage and proves the sharper coefficient two. The erased-zero identity, the printed coefficient four, and the sharper coefficient two are distinct targets.",
+      "note": "The algebraic identity follows the same argument. For the search bound, the linked Lean proof uses a different count from the expert companion and the worked exposition and proves the sharper coefficient two, as the full reconstruction does. The coefficient four printed by OpenAI and the coefficient two are distinct targets.",
       "claim_treatments": {
         "expert": [
           {
@@ -292,12 +295,12 @@
       "title": "A cell query predicts an address",
       "expert": "The index of any query to a bit of",
       "exposition": "Now fix *in advance* any column $i$ and query",
-      "reconstruction": "CL-address-guess",
+      "reconstruction": "CL-joint-event",
       "lean": [
         "src-per-time"
       ],
       "bound_at": {
-        "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
+        "reconstruction": "e633939eb3abbfbef4e2f1aafd982bad23fc39fc",
         "expert": "685f757ec50918fd659b926a44f2ba988e11359d",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
       },
@@ -329,7 +332,7 @@
         "src-direct-product-caps"
       ],
       "bound_at": {
-        "expert": "cfee12d7808c651e19bd3f0c768d46a27f214eea",
+        "expert": "e633939eb3abbfbef4e2f1aafd982bad23fc39fc",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
       },
       "detours": [
@@ -344,7 +347,7 @@
           "anchor": "CL-direct-product-statement"
         }
       ],
-      "note": "The linked Lean proof uses a different argument from this passage, an induction over sub-distributions."
+      "note": "The expert companion and the worked exposition argue through conditional values. The linked Lean proof, like §6.5 of the full reconstruction, uses an induction over sub-distributions that splits the probability mass at each query."
     },
     {
       "id": "forrelation",
@@ -355,7 +358,7 @@
       "lean": [
         "src-forr-promise"
       ],
-      "note": "The quantum readout observes the squared amplitude. A certificate must separately establish the signed one-sided promise. The Lean development proves the hardness bound (3) by a different route from Bansal and Sinha's.",
+      "note": "The quantum readout observes the squared amplitude. A certificate must separately establish the signed one-sided promise. The Lean development proves the randomized hardness bound for this promise by a different route from Bansal and Sinha's.",
       "bound_at": {
         "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
@@ -726,7 +729,7 @@
       "title": "Recovering a gap on promised inputs",
       "passage": "forr_promise_gap",
       "kind": "argument",
-      "note": "The analytic distributions can sample off-promise inputs. A difference in means alone does not establish the promised decision-tree lower bound.",
+      "note": "The analytic distributions can sample off-promise inputs. A difference in means alone does not establish the promised decision-tree lower bound. The linked statement supplies one ingredient, the positive mean of the correlation; the conversion from promise error to the acceptance gap is carried out inside the proof of the Lean lower bound.",
       "declarations": [
         "QuarticQuery.ForrelationLower.mass_ge"
       ]
@@ -753,7 +756,7 @@
       "title": "Three requirements on the address function",
       "passage": "forr_bundle",
       "kind": "interface",
-      "note": "The board needs an inexpensive quantum decoder, an exact circuit recognizing the promise and value, and classical query hardness.",
+      "note": "The board needs an inexpensive quantum decoder, an exact circuit recognizing the promise and value, and classical query hardness. The hardness part comes from the Lean development's own Forrelation lower bound (§8), a different route from Bansal and Sinha's.",
       "statements": [
         "lem-2.1"
       ],
@@ -770,7 +773,7 @@
       "title": "Specializing both bounds to the same total function",
       "passage": "ROOT-FAMILY-ASSEMBLY",
       "kind": "instantiation",
-      "note": "Substituting the Forrelation partial function and its circuit into the two generic bounds gives estimates for one family.",
+      "note": "Substituting the Forrelation partial function and its circuit into the two generic bounds gives estimates for one family. The hardness part comes from the Lean development's own Forrelation lower bound (§8), a different route from Bansal and Sinha's.",
       "statements": [
         "eq-2"
       ],
@@ -810,14 +813,17 @@
       "title": "The universal quartic upper bound",
       "passage": "R3-A-RESULT",
       "kind": "argument",
-      "note": "The upper bound for all total functions comes from Aaronson, Ben-David, Kothari, Rao and Tal. Its Lean implementations and constants have separate source records.",
+      "note": "The upper bound for all total functions comes from Aaronson, Ben-David, Kothari, Rao and Tal. A separate Lean theorem states this appendix's bound with coefficient 35^4; the headline Lean theorem instead uses the complexitylib route, with coefficient 20,736.",
       "statements": [
         "thm-A.1"
       ],
       "context_passages": {
         "R3-A-DEFINITIONS": "5fb47b33abfadffb90575c42d5649afe5444d102",
         "R3-A-ASSEMBLY": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
-      }
+      },
+      "lean": [
+        "src-quartic-minimum"
+      ]
     },
     {
       "id": "quantum-interface",
@@ -841,7 +847,7 @@
         }
       ],
       "bound_at": {
-        "verification": "cfee12d7808c651e19bd3f0c768d46a27f214eea"
+        "verification": "e633939eb3abbfbef4e2f1aafd982bad23fc39fc"
       }
     },
     {
@@ -1173,7 +1179,7 @@
       "target": "verification"
     }
   ],
-  "semantic_answers_lean_snapshot": "dfbf63214f483a43617fb0b5e0a4c2f5a4d2ce6aa1529187e0e25010e2a5322f",
+  "semantic_answers_lean_snapshot": "7aa24d249eb93e620d8f425c7bb4282c3233c011c3e881b87f10ee31d4ad585d",
   "board_scenes": [
     {
       "id": "known-pair",

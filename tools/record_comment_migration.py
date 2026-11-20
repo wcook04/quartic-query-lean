@@ -9,11 +9,16 @@ compares the sources at a committed revision with the working tree and writes a
 - the set of paths is unchanged;
 - each non-Lean input (toolchain, lakefile, manifest, Comparator JSON) is
   byte-identical;
-- each Lean file is byte-identical after removing comments with
-  `lean_comments.strip_comments`, and has the same number of lines.
+- each Lean file is byte-identical after `lean_comments.strip_comments`
+  replaces every comment by one space and keeps its line breaks, so every line
+  of code keeps its line number and every token boundary is kept;
+- no changed file uses `#guard_msgs`, whose expected output is a doc comment.
 
 The corpus then treats a review bound to the earlier snapshot as current for
-the later one. Build and Comparator receipts are never migrated: they need a
+the later one, through a single receipt whose maps match their digests and whose
+later map is exactly the current one; it never chains receipts. Documentation
+comments are part of a module's syntax and its stored docstrings; a review binds
+a declaration's statement and proof, which they do not change. Build and Comparator receipts are never migrated: they need a
 fresh run on the new bytes.
 
     python3 tools/record_comment_migration.py --from <commit>
@@ -58,8 +63,8 @@ def compare(commit, old_hashes, new_hashes, read_new):
         if sha(old) != old_hashes[path] or sha(new) != new_hashes[path]:
             raise ValueError(f"{path}: bytes do not match the recorded hashes")
         old_text, new_text = old.decode("utf-8"), new.decode("utf-8")
-        if old_text.count("\n") != new_text.count("\n"):
-            raise ValueError(f"{path}: line count changed")
+        if "#guard_msgs" in old_text or "#guard_msgs" in new_text:
+            raise ValueError(f"{path}: uses #guard_msgs, whose expected output is a comment")
         old_code, new_code = strip_comments(old_text), strip_comments(new_text)
         if old_code != new_code:
             raise ValueError(f"{path}: code outside comments changed")
@@ -100,21 +105,25 @@ def record(commit):
 
 
 def check():
-    """Recheck each migration whose later snapshot is still in the working tree."""
+    """Validate every receipt; recompare the one whose later map is the current source."""
     current = source_hashes(ROOT)
     failures = 0
     for path in sorted(RECEIPTS.glob("comment-migration-*.json")):
         receipt = json.loads(path.read_text(encoding="utf-8"))
-        if receipt["to_source_hashes"] != current:
-            continue
         try:
+            if (receipt.get("kind") != KIND
+                    or canonical_sha256(receipt["from_source_hashes"]) != receipt["from_snapshot_sha256"]
+                    or canonical_sha256(receipt["to_source_hashes"]) != receipt["to_snapshot_sha256"]):
+                raise ValueError("snapshot digests do not match their maps")
+            if receipt["to_source_hashes"] != current:
+                if receipt["to_snapshot_sha256"] == canonical_sha256(current):
+                    raise ValueError("claims the current snapshot with a different map")
+                continue
             changed = compare(receipt["from_commit"], receipt["from_source_hashes"], current,
                               lambda p: (ROOT / p).read_bytes())
-            if (changed != receipt["changed"]
-                    or canonical_sha256(receipt["from_source_hashes"]) != receipt["from_snapshot_sha256"]
-                    or canonical_sha256(current) != receipt["to_snapshot_sha256"]):
-                raise ValueError("recorded fields do not match a fresh comparison")
-        except (ValueError, subprocess.CalledProcessError) as error:
+            if changed != receipt["changed"]:
+                raise ValueError("recorded changes do not match a fresh comparison")
+        except (KeyError, ValueError, subprocess.CalledProcessError) as error:
             print(f"{path.relative_to(ROOT)}: {error}", file=sys.stderr)
             failures += 1
     if not failures:

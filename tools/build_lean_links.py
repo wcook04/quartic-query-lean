@@ -56,13 +56,14 @@ RECORD_BIBLIOGRAPHIES = ["docs/expert_companion.bib"]
 SCHEMA = "quartic-lean-links-v1"
 REPOSITORY = "https://github.com/wcook04/quartic-query-lean"
 # The commit the papers describe. Every pinned line range is read from this tree.
-COMMIT = "d2c86fdea7dc5ee868c486ba826e9716c351681d"
-RECORD_COMMIT = "d2c86fdea7dc5ee868c486ba826e9716c351681d"
+COMMIT = "45cb0c11a96174948364d20ee5eb74c86103544f"
+RECORD_COMMIT = "45cb0c11a96174948364d20ee5eb74c86103544f"
 INDEX_COMMIT = "main"
 # Every pinned link names the release tag, so all three papers cite one revision.
-# When the tag exists, --check requires its lean/ tree to equal COMMIT's and its
-# record and supplement to carry every cited anchor.
-RELEASE = "v1.0.0"
+# --check --release (run after tagging) requires the tag, its lean/ tree to equal
+# COMMIT's, and each cited record, supplement and index anchor in its own file.
+# Plain --check, for drafts before the tag exists, only reports a missing tag.
+RELEASE = "v1.0.1"
 BEGIN, END = "<!-- lean-links -->", "<!-- /lean-links -->"
 USE = re.compile(r"\]\[([A-Za-z0-9][A-Za-z0-9-]*)\]")
 # The record edition is independent of the Lean source edition.
@@ -563,21 +564,43 @@ def pin_record_links(text, paper):
                            + (f"#{m.group(2)}" if m.group(2) else ""), text)
 
 
-def check_release(outputs):
-    """Once the release tag exists, it must hold the cited Lean tree and anchors."""
+RELEASE_LINK = re.compile(re.escape(REPOSITORY) + r"/blob/([^/\s)]+)/(docs/[A-Za-z_]+\.md)"
+                          r"(?:#([A-Za-z0-9_.:-]+))?(?=[\s)<>\]}]|$)")
+INDEX = "docs/proof_index.md"
+
+
+def pin_index_links(text):
+    """Point theorem-index links at the release instead of the moving main branch."""
+    return text.replace(f"{REPOSITORY}/blob/main/{INDEX}", f"{REPOSITORY}/blob/{RELEASE}/{INDEX}")
+
+
+def check_release(outputs, final=False):
+    """Check the tag against what the papers cite; a final check requires the tag."""
     if git("rev-parse", "--verify", "--quiet", f"refs/tags/{RELEASE}").returncode:
+        if final:
+            raise SystemExit(f"release tag {RELEASE} does not exist")
         print(f"release tag {RELEASE} not created yet; links name it", file=sys.stderr)
         return
     if git("rev-parse", f"{RELEASE}:lean").stdout != git("rev-parse", f"{COMMIT}:lean").stdout:
         raise SystemExit(f"{RELEASE}: lean/ differs from {COMMIT[:12]}")
-    cited = {(m.group(2) or "") for text in outputs.values() for m in RECORD_LINK.finditer(text)} - {""}
-    held = record_anchors(at_commit(RECORD, RELEASE)[1] or "") | record_anchors(at_commit(SUPPLEMENT, RELEASE)[1] or "")
-    if cited - held:
-        raise SystemExit(f"{RELEASE}: record anchors missing: {', '.join(sorted(cited - held))}")
+    missing, held = [], {}
+    for text in outputs.values():
+        for m in RELEASE_LINK.finditer(text):
+            if m.group(1) == "main":
+                missing.append(f"{m.group(2)} on main")
+                continue
+            if m.group(1) != RELEASE or not m.group(3):
+                continue
+            if m.group(2) not in held:
+                held[m.group(2)] = record_anchors(at_commit(m.group(2), RELEASE)[1] or "")
+            if m.group(3) not in held[m.group(2)]:
+                missing.append(f"{m.group(2)}#{m.group(3)}")
+    if missing:
+        raise SystemExit(f"{RELEASE}: unresolved links: {', '.join(sorted(set(missing)))}")
 
 
 def updated_paper(paper, links):
-    text = (ROOT / paper).read_text(encoding="utf-8")
+    text = pin_index_links((ROOT / paper).read_text(encoding="utf-8"))
     if paper not in (RECORD, SUPPLEMENT):
         text = pin_record_links(text, paper)
     pattern = re.compile(re.escape(BEGIN) + r".*?" + re.escape(END), re.S)
@@ -592,6 +615,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--check", action="store_true",
                         help="fail if docs/lean_links.json or a paper's link block is stale")
+    parser.add_argument("--release", action="store_true",
+                        help="with --check, require the release tag and every cited anchor in it")
     args = parser.parse_args()
     registry, unpinned = build()
     outputs = {OUTPUT: render(registry)}
@@ -606,7 +631,7 @@ def main():
         print(f"lean links not pinned to {COMMIT[:12]} (file absent there): {', '.join(unpinned)}",
               file=sys.stderr)
     if args.check:
-        check_release(outputs)
+        check_release(outputs, final=args.release)
         stale = [p.relative_to(ROOT).as_posix() for p, text in outputs.items()
                  if not p.exists() or p.read_text(encoding="utf-8") != text]
         if stale:

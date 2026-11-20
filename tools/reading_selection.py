@@ -342,7 +342,7 @@ def selection_resources(edition, config, papers, texts, passages, compiled, stat
                 by_statement[sid].append({"paper": paper, "id": row["id"]})
                 for tie in statements[sid]["lean"]:
                     index(tie["declaration"], paper, row["id"], f"statement:{sid}",
-                          statement=sid, source=tie["file"], relation=tie["relation"], review=tie["review_evidence"])
+                          statement=sid, source=tie["file"], relation=tie["relation"], route=tie.get("route"), review=tie["review_evidence"])
             for name in topic.get("constituents", []):
                 index(name, paper, row["id"], "editorial_constituent")
             for label in topic.get("labels", []) + ([row["label"]] if "label" in row else []):

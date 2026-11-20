@@ -3,14 +3,14 @@
 A Lean formalisation of the nearly quartic separation between randomized and
 quantum query complexity in
 [OpenAI's preprint](https://github.com/openai/math/blob/main/preprints/A-Nearly-Quartic-Separation-Between-Randomized-and-Quantum-Query-Complexity-October-5-2026/quartic-query-separation.pdf).
-The preprint and its mathematics are OpenAI's. The Lean development, the three
-accounts of the proof and the reader website were written with AI systems under
-Will Cook's direction.
+The preprint and its mathematics are OpenAI's. AI systems wrote the Lean
+development, the three accounts of the proof and the reader website under Will
+Cook's direction. No human expert has reviewed them.
 
-Lean checks the whole of Theorem 1.1 of the preprint with no hypothesis, as
-[`theorem_1_1_unconditional`](lean/QuarticQuery/Results/Unconditional.lean):
-the optimal exponent, the universal quartic bound, and for each fixed `k ≥ 2`
-a family of total functions with the two bounds of equation (2). Its first
+Lean accepts [`theorem_1_1_unconditional`](lean/QuarticQuery/Results/Unconditional.lean),
+which has no hypotheses: the optimal exponent, the universal quartic bound, and for
+each fixed `k ≥ 2` a family of total functions with the two bounds of equation (2).
+AI agents compared its statement with Theorem 1.1 of the preprint; no person has. Its first
 conclusion is also stated alone:
 
 ```lean
@@ -27,12 +27,13 @@ compiled challenges that import Mathlib only. The challenges share the maintaine
 statement vocabulary and theorem specifications; agreement does not replace
 review of their mathematical meaning.
 
-The Forrelation lower bound is proved along a shorter route than the published
-one, in the weaker form the separation needs: fixed `k`, error `1/3`, and an
-unspecified threshold in `m`. [The blueprint](docs/forrelation_lower_bound_blueprint.md)
-describes the route, [an independent reading](docs/forrelation_lower_bound_review.md)
-checks it, and [a prior-art search](docs/forrelation_route_prior_art.md) records
-what is already known. No person has reviewed it yet.
+The Forrelation lower bound has an alternative proof here, using one-block bias
+interpolation, in the weaker form the separation needs: fixed `k`, error `1/3`, and
+an unspecified threshold in `m`. §8 of the [full proof reconstruction](docs/reasoning_record.md)
+gives the maintained account. Three dated records from 2 November are kept
+unchanged: [the blueprint](docs/forrelation_lower_bound_blueprint.md), [an AI reading
+report](docs/forrelation_lower_bound_review.md) and [an AI prior-art
+search](docs/forrelation_route_prior_art.md). No person has reviewed the proof.
 
 ## Start reading
 
@@ -128,16 +129,16 @@ python3 tools/run_comparator.py
 ## Reproducing the formal checks
 
 The three papers, the proof index and the verification details link to Lean
-sources and record passages at the release tag `v1.0.0`. The recorded checks of
+sources and record passages at the release tag `v1.0.1`. The recorded checks of
 that release ran on GitHub Actions
 ([workflow](.github/workflows/lean-evidence.yml), receipts in
 [corpus/receipts/](corpus/receipts/) dated 20 November 2026): `lake build
 QuarticQuery` with the dependency closure read from the compiled environment, and
 Comparator with its sandbox on every bundle and negative fixture, with `--paranoid`
 for the headline bundle
-([its receipt](corpus/receipts/comparator-Unconditional-2026-11-20T130400184111+0000.json)).
-The receipts name the commit GitHub built for pull request #25; each binds the
-exact Lean source bytes, which are those of `v1.0.0`.
+([its receipt](corpus/receipts/comparator-Unconditional-2026-11-20T160320262522+0000.json)).
+The receipts name the commit GitHub built for pull request #27; each binds the
+exact Lean source bytes, which are those of `v1.0.1`.
 The toolchain is `leanprover/lean4:v4.36.0-rc2` and Mathlib is pinned at
 `69552756cd8a2d2d48763cf7279fd814d6a1224d`.
 

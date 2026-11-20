@@ -75,11 +75,11 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch }
 
   const treatments = (d.treatments ?? []).map((t: any) => ({ paper: t.paper, id: t.selection }));
   // The paper statements this declaration is tied to, each with its review, once.
-  const ties = new Map<string, { relation: string; review?: string }>();
+  const ties = new Map<string, { relation: string; route?: string; review?: string }>();
   for (const t of d.treatments ?? []) {
     if (!t.statement) continue;
     const prev = ties.get(t.statement);
-    if (!prev || (prev.review !== "current" && t.review === "current")) ties.set(t.statement, { relation: t.relation, review: t.review });
+    if (!prev || (prev.review !== "current" && t.review === "current")) ties.set(t.statement, { relation: t.relation, route: t.route, review: t.review });
   }
   const isTheorem = d.kind === "theorem" || d.kind === "lemma" || /^(private |protected )?(theorem|lemma)\s/m.test(src.text ?? "");
   const kindWord = isTheorem ? "Theorem" : d.kind === "structure" || d.kind === "inductive" ? "Type" : "Definition";
@@ -115,7 +115,9 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch }
           {reviewed.map(([st, t]) => (
             <div key={st} className="match__item">
               <p className="match__line"><span className="match__k">Matches the paper</span> <RelationMark relation={t.relation} openAssumptions={d.gaps[st]} /> <span className="match__vs">against</span> {statementButton(st)}</p>
+              {t.route === "alternative" && <p className="match__note">Its proof takes a different route from the paper’s.</p>}
               {t.relation === "partial" && <p className="match__note">{d.notes[st] ?? "This declaration covers only part of the statement. Open the comparison for the reviewed scope."}</p>}
+              {t.relation !== "partial" && t.route === "alternative" && d.notes[st] && <p className="match__note">{d.notes[st]}</p>}
             </div>
           ))}
           {linkedOnly.length > 0 && (

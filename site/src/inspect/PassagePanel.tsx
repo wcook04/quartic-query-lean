@@ -17,7 +17,7 @@ export function PassagePanel({ edition, query }: { edition: Edition; query: any 
 
 const reviewedTies = (statement: any) => (statement.lean ?? []).filter((t: any) => t.review_evidence === "current" && t.relation !== "unassessed");
 
-interface Row { name: string; relation?: string; note?: string; openAssumptions?: string[] }
+interface Row { name: string; relation?: string; route?: string; note?: string; openAssumptions?: string[] }
 
 function Passage({ r }: { r: any }) {
   const nav = useNav();
@@ -41,7 +41,7 @@ function Passage({ r }: { r: any }) {
   const groups = statements.map((s) => {
     const lead = s.review_scope?.leading_matches?.[0]?.declaration;
     const ties = [...reviewedTies(s)].sort((a: any, b: any) => Number(b.declaration === lead) - Number(a.declaration === lead));
-    const rows: Row[] = ties.map((t: any) => ({ name: t.declaration, relation: t.relation, note: t.relation === "partial" ? t.note : undefined, openAssumptions: Array.isArray(t.open_assumptions) ? t.open_assumptions : undefined }));
+    const rows: Row[] = ties.map((t: any) => ({ name: t.declaration, relation: t.relation, route: t.route, note: t.relation === "partial" || t.route === "alternative" ? t.note : undefined, openAssumptions: Array.isArray(t.open_assumptions) ? t.open_assumptions : undefined }));
     for (const p of roots) {
       const tie = p.basis.find((b: any) => b.basis === "statement_tie" && b.statement === s.id);
       if (tie && !rows.some((x) => x.name === p.name)) rows.push({ name: p.name, relation: tie.relation });
@@ -184,6 +184,7 @@ function Rows({ rows }: { rows: Row[] }) {
         <li key={x.name} className="proves__row">
           <span className="proves__decl"><DeclButton name={x.name} /></span>
           {x.relation && <RelationMark relation={x.relation} openAssumptions={x.openAssumptions} />}
+          {x.route === "alternative" && <span className="proves__note">Its proof takes a different route from the paper’s.</span>}
           {x.note && <span className="proves__note">{x.note}</span>}
         </li>
       ))}

@@ -9,6 +9,9 @@ on:
     paths: ["lean/**", "tools/record_evidence.py", "tools/run_comparator.py", "tools/rerun_recorded_receipts.py", ".github/workflows/lean-evidence.yml"]
 permissions:
   contents: read
+defaults:
+  run:
+    shell: bash
 jobs:
   evidence:
     runs-on: ubuntu-24.04
@@ -39,16 +42,19 @@ jobs:
           path: lean/.lake
           key: quartic-lake-${{ hashFiles('lean/lake-manifest.json', 'lean/lean-toolchain') }}-${{ github.run_id }}
       - name: Re-record the native captures read from the compiled environment
-        continue-on-error: true
         run: |
           export LAKE="$(command -v lake)"
+          failed=0
           for step in "record_reading_dependencies.py" "record_reading_dependencies.py --statements" \
                       "record_reading_dependencies.py --applications" "record_proof_sites.py" \
                       "record_parameter_origins.py" "record_kernel_paths.py --max-rss-mib 12000" \
                       "record_retained_lines.py --max-rss-mib 12000"; do
-            echo "== $step"
-            python3 tools/$step 2>&1 | tee -a "$RUNNER_TEMP/native_captures.log" || echo "FAILED: $step" | tee -a "$RUNNER_TEMP/native_captures.log"
+            echo "== $step" | tee -a "$RUNNER_TEMP/native_captures.log"
+            if ! python3 tools/$step >> "$RUNNER_TEMP/native_captures.log" 2>&1; then
+              echo "FAILED: $step" | tee -a "$RUNNER_TEMP/native_captures.log"; failed=1
+            fi
           done
+          exit $failed
       - name: Print the axioms of the construction audit file
         working-directory: lean
         run: lake env lean QuarticQuery/Paper/ConstructionAudit.lean 2>&1 | tee "$RUNNER_TEMP/construction_audit.log"

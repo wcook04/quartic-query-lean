@@ -9,7 +9,7 @@ Compiled as part of the `QuarticQuery` library target.
 Target: `leanprover/lean4:v4.36.0-rc2`, Mathlib
 `69552756cd8a2d2d48763cf7279fd814d6a1224d`.
 
-The declarations in this file do not import the uncompiled `Paper.Section4`.
+The declarations in this file do not import `Paper.Section4`.
 The asymptotic logarithms are base two, as in the preprint. The threshold for
 the randomized lower bound may depend on the fixed integer `k`.
 -/
