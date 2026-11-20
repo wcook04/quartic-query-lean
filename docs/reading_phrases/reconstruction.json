@@ -60,6 +60,18 @@
    "reason": "The returned range ran past the declaration, lines 142-155; it is cut to the declaration."
   },
   {
+   "tie": "qr-test-count-bound",
+   "declaration": "QuarticQuery.Paper.construction_K_bound",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qr-comparison-table",
+   "declaration": "QuarticQuery.Tournament.IsComparison",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
    "tie": "qr-comparison-table",
    "declaration": "QuarticQuery.Tournament.IsComparison",
    "returned_lines": [
@@ -71,6 +83,12 @@
     304
    ],
    "reason": "The returned range ran past the declaration, lines 300-304; it is cut to the declaration."
+  },
+  {
+   "tie": "qr-comparison-table",
+   "declaration": "QuarticQuery.Tournament.UnitValued",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
   },
   {
    "tie": "qr-tournament-parameters",
@@ -86,6 +104,84 @@
    "reason": "The returned range ran past the declaration, lines 54-59; it is cut to the declaration."
   },
   {
+   "tie": "qr-dominant-weight-chain",
+   "declaration": "QuarticQuery.Paper.quantumWeight_lower",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qr-ideal-miss",
+   "declaration": "QuarticQuery.Tournament.ideal_miss_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qr-decode-cost-and-accuracy",
+   "declaration": "QuarticQuery.Paper.quantumDecode_query_bound_real",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qr-verifier-count",
+   "declaration": "QuarticQuery.Paper.construction_K_count",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qr-full-algorithm-errors",
+   "declaration": "QuarticQuery.Paper.quantumError_bound",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qr-full-algorithm-errors",
+   "declaration": "QuarticQuery.Paper.quantumError_numeric",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "rec-cl-mplusone-ingredient",
+   "declaration": "QuarticQuery.zero_search_sum_successor",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "rec-cl-weighted-optimum",
+   "declaration": "QuarticQuery.exists_tree_budgetValue_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "rec-cl-weighted-optimum",
+   "declaration": "QuarticQuery.treeSuccess_le_budgetValue",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "rec-cl-tail-display",
+   "declaration": "QuarticQuery.Paper.classical_tail_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "rec-cl-contradiction",
+   "declaration": "QuarticQuery.addressedF_not_RLe",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "rec-cl-same-family-bounds",
+   "declaration": "QuarticQuery.Paper.construction_family_named",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "rec-cl-power-beats-log",
+   "declaration": "QuarticQuery.Paper.classical_power_log_tendsto",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
    "tie": "fr-walsh-objects",
    "declaration": "QuarticQuery.Forrelation.H",
    "returned_lines": [
@@ -99,6 +195,30 @@
    "reason": "The returned range ran past the declaration, lines 137-140; it is cut to the declaration."
   },
   {
+   "tie": "fr-walsh-objects",
+   "declaration": "QuarticQuery.Forrelation.signDiag",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-normalization-identities",
+   "declaration": "QuarticQuery.Forrelation.isOrth_signDiag",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-forrelation-overlap",
+   "declaration": "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-forrelation-overlap",
+   "declaration": "QuarticQuery.Forrelation.delta",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
    "tie": "fr-forrelation-overlap",
    "declaration": "QuarticQuery.Forrelation.delta",
    "returned_lines": [
@@ -110,6 +230,30 @@
     18
    ],
    "reason": "The returned range ran past the declaration, lines 17-18; it is cut to the declaration."
+  },
+  {
+   "tie": "fr-promise-classes",
+   "declaration": "QuarticQuery.Forrelation.P_eq_cases",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-explicit-threshold-scope",
+   "declaration": "QuarticQuery.lvalue_lt_R_explicit",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-probability-weights",
+   "declaration": "QuarticQuery.ForrelationLower.bw_nonneg",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-extension-bound",
+   "declaration": "QuarticQuery.ForrelationLower.abs_ext_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
   },
   {
    "tie": "fr-gaussian-functions",
@@ -151,6 +295,54 @@
    "reason": "The returned range ran past the declaration, lines 25-26; it is cut to the declaration."
   },
   {
+   "tie": "fr-gaussian-derivatives",
+   "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-gaussian-derivatives",
+   "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_psiS",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-rounding-odd-bounded",
+   "declaration": "QuarticQuery.ForrelationLower.phiS_neg",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-rounding-odd-bounded",
+   "declaration": "QuarticQuery.ForrelationLower.abs_phiS_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-interpolation-derivative",
+   "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_ext_s",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-three-block-chain-rule",
+   "declaration": "QuarticQuery.ForrelationLower.sum_dw_eq",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-iterated-gaussian-identity",
+   "declaration": "QuarticQuery.ForrelationLower.integral_walk",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-forrelation-path-expansion",
+   "declaration": "QuarticQuery.forrelationDenominator",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
    "tie": "fr-forrelation-path-expansion",
    "declaration": "QuarticQuery.forrelationDenominator",
    "returned_lines": [
@@ -162,6 +354,192 @@
     181
    ],
    "reason": "The returned range ran past the declaration, lines 179-181; it is cut to the declaration."
+  },
+  {
+   "tie": "fr-positive-forrelation-mean",
+   "declaration": "QuarticQuery.ForrelationLower.mass_ge",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-positive-forrelation-mean",
+   "declaration": "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-positive-forrelation-mean",
+   "declaration": "QuarticQuery.ForrelationLower.dl_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-real-leaf-sharp-advantage",
+   "declaration": "QuarticQuery.ForrelationLower.advantage_le_sharp_real_leaves_explicit",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-leaf-pairing-identity",
+   "declaration": "QuarticQuery.ForrelationLower.walk_chaos",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-maximal-inequality-scope",
+   "declaration": "QuarticQuery.ForrelationLower.hit_azuma",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-crude-polynomial-bound",
+   "declaration": "QuarticQuery.ForrelationLower.abs_chaos_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-off-promise-pointwise-comparison",
+   "declaration": "QuarticQuery.ForrelationLower.not_RLe_of_gap_sharp",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-acceptance-expectation-gap",
+   "declaration": "QuarticQuery.ForrelationLower.not_RLe_of_gap_sharp",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qm-a1",
+   "declaration": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qm-adversary",
+   "declaration": "QuarticQuery.Paper.appendixA_lemmaA2",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qm-star-mask",
+   "declaration": "QuarticQuery.Paper.appendixA_mask_star_norm_le_one",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qm-huang-rayleigh",
+   "declaration": "QuarticQuery.Paper.huang_absolute_rayleigh_supported",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qm-a-assembled",
+   "declaration": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "rec-cl-early-late-total-endpoint",
+   "declaration": "QuarticQuery.Paper.expectedZeros_le_four",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "rec-cl-total-discovery-factor-two",
+   "declaration": "QuarticQuery.Paper.expectedZeros_le_two",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "rec-cl-appendix-fixed-time-inclusion",
+   "declaration": "QuarticQuery.eval_simTree",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "rec-cl-allowance-range",
+   "declaration": "QuarticQuery.one_le_Lvalue",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-uniform-small-errors",
+   "declaration": "QuarticQuery.ForrelationLower.eps_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-uniform-small-errors",
+   "declaration": "QuarticQuery.ForrelationLower.dl_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "fr-sharp-residual",
+   "declaration": "QuarticQuery.ForrelationLower.tail_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qm-repeated-failure",
+   "declaration": "QuarticQuery.Amplification.failProb_attempts",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qm-amplification-cap",
+   "declaration": "QuarticQuery.Paper.amplification_budget_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qm-list-budget",
+   "declaration": "QuarticQuery.Paper.quantumTournament_cost",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qm-coherent-local-physical",
+   "declaration": "QuarticQuery.Paper.construction_controlled_compile",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qm-two-query-circuit",
+   "declaration": "QuarticQuery.Paper.quantum_compile_circuit",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qm-tree-quantum-simulation",
+   "declaration": "QuarticQuery.AdaptiveProgram.outputMass_ofTree",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qr-integer-normalization",
+   "declaration": "QuarticQuery.Paper.construction_N_phi",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qr-integer-normalization",
+   "declaration": "QuarticQuery.Forrelation.denominator_eq",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qr-sharp-physical-decoder-cap",
+   "declaration": "QuarticQuery.Paper.construction_decoder_sharp",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "qr-final-signed-range",
+   "declaration": "QuarticQuery.Forrelation.test_bounds",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
   }
  ],
  "topics": [
@@ -986,7 +1364,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This declaration gives the cubic upper bound under ht and hS. The displayed exact equality is supplied by construction_K_count."
+     "fidelity_note": "This declaration gives the cubic upper bound under `ht` and `hS`. The displayed exact equality is supplied by `construction_K_count`."
     }
    ]
   },
@@ -1177,7 +1555,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This structure states complementarity and the zero diagonal, but omits 0≤a_ij≤1; UnitValued supplies that clause."
+     "fidelity_note": "This structure states complementarity and the zero diagonal, but omits $0\\le a_{ij}\\le 1$; `UnitValued` supplies that clause."
     },
     {
      "name": "QuarticQuery.Tournament.UnitValued",
@@ -1188,7 +1566,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This predicate states only 0≤a_ij≤1; IsComparison supplies complementarity and the zero diagonal."
+     "fidelity_note": "This predicate states only $0\\le a_{ij}\\le 1$; `IsComparison` supplies complementarity and the zero diagonal."
     }
    ]
   },
@@ -1421,7 +1799,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The type gives (1−ε)^h≤w_s, 1−Tε≤(1−ε)^h and w_s>1/2. It does not state the intermediate 1−hε or the substitution 1−Tε=999/1000 shown here."
+     "fidelity_note": "The type gives $(1-\\varepsilon)^h\\le w_s$, $1-T\\varepsilon\\le(1-\\varepsilon)^h$ and $w_s>1/2$. It does not state the intermediate $1-h\\varepsilon$ or the substitution $1-T\\varepsilon=999/1000$ shown here."
     }
    ]
   },
@@ -1443,7 +1821,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem states absence≤Pr[W_T≥1/2]≤2m/2^T. The intermediate Pr[W_T≥1/2]≤2 E W_T is used in its proof, not exposed in its type."
+     "fidelity_note": "The theorem states absence $\\le\\Pr[W_T\\ge 1/2]\\le 2m/2^T$. The intermediate $\\Pr[W_T\\ge 1/2]\\le 2\\,\\mathbb{E}\\, W_T$ is used in its proof, not exposed in its type."
     }
    ]
   },
@@ -1571,7 +1949,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem bounds the physical decoder budget but does not assert promised accuracy; quantumDecode_correct supplies that separate clause."
+     "fidelity_note": "This theorem bounds the physical decoder budget but does not assert promised accuracy; `quantumDecode_correct` supplies that separate clause."
     },
     {
      "name": "QuarticQuery.Paper.quantumDecode_correct",
@@ -1688,7 +2066,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The type gives the exact cardinality. It does not give the O_k(mℓ³) bound in this display; construction_K_bound supplies that bound under the circuit-size hypothesis."
+     "fidelity_note": "The type gives the exact cardinality. It does not give the $O_k(m\\ell^3)$ bound in this display; `construction_K_bound` supplies that bound under the circuit-size hypothesis."
     },
     {
      "name": "QuarticQuery.Paper.construction_K_bound",
@@ -1785,7 +2163,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The declaration gives both zero-input and one-input probability bounds, but omits the final strict comparison with 1/3; quantumError_numeric supplies it."
+     "fidelity_note": "The declaration gives both zero-input and one-input probability bounds, but omits the final strict comparison with $1/3$; `quantumError_numeric` supplies it."
     },
     {
      "name": "QuarticQuery.Paper.quantumError_numeric",
@@ -1796,7 +2174,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The declaration gives only Tε=1/1000 and the numeric bound below 1/3; the input-dependent probability inequalities are in quantumError_bound."
+     "fidelity_note": "The declaration gives only $T\\varepsilon=1/1000$ and the numeric bound below $1/3$; the input-dependent probability inequalities are in `quantumError_bound`."
     }
    ]
   },
@@ -2240,7 +2618,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem proves the one-column inequality (|U|+1)D_U ≤ 2Q_U. It does not state either averaged bound on EZ or selected-column hit probability; those require averaging and the independent-selection identity."
+     "fidelity_note": "This theorem proves the one-column inequality $(|U|+1)D_U \\le 2Q_U$. It does not state either averaged bound on $\\mathbb{E}Z$ or selected-column hit probability; those require averaging and the independent-selection identity."
     }
    ],
    "after": "<a id=\"CL-zero-optional\"></a>"
@@ -2622,7 +3000,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This declaration constructs a depth-c tree with success at least W_c. The upper bound for all trees is the separate treeSuccess_le_budgetValue declaration."
+     "fidelity_note": "This declaration constructs a depth-$c$ tree with success at least $W_c$. The upper bound for all trees is the separate `treeSuccess_le_budgetValue` declaration."
     },
     {
      "name": "QuarticQuery.treeSuccess_le_budgetValue",
@@ -2633,7 +3011,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This declaration bounds every depth-c tree by W_c. Attainment, the other half of being a maximum, is supplied by exists_tree_budgetValue_le."
+     "fidelity_note": "This declaration bounds every depth-$c$ tree by $W_c$. Attainment, the other half of being a maximum, is supplied by `exists_tree_budgetValue_le`."
     }
    ],
    "after": "<a id=\"CL-weighted-values\"></a>"
@@ -2923,7 +3301,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The Lean theorem gives G(2/3)^(40t) ≤ m^(2−20 log₂(3/2))/100. It does not include the displayed further inequality ≤ m^(−8)/100."
+     "fidelity_note": "The Lean theorem gives $G(2/3)^{40t} \\le m^{2-20\\log_2(3/2)}/100$. It does not include the displayed further inequality $\\le m^{-8}/100$."
     }
    ],
    "after": "<a id=\"CL-tail-numeric\"></a>"
@@ -2990,7 +3368,7 @@
      ],
      "relation": "proof",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem concludes ¬ RLe F G under a discrepancy premise. The conversion to the numeric minimum R(F)>G is supplied by Gvalue_lt_R_addressedF and the finite-minimum lemmas, not by this declaration alone."
+     "fidelity_note": "The theorem concludes `¬ RLe F G` under a discrepancy premise. The conversion to the numeric minimum $R(F)>G$ is supplied by `Gvalue_lt_R_addressedF` and the finite-minimum lemmas, not by this declaration alone."
     }
    ],
    "after": "<a id=\"CL-randomized-contradiction\"></a>"
@@ -3080,7 +3458,7 @@
      ],
      "relation": "contains",
      "fidelity": "stronger",
-     "fidelity_note": "The theorem supplies the same explicit circuit, the coefficient 1/400, and the logarithmic exponent 6, as well as circuit correctness and size. The paper display leaves the constant C_k and exponent b_k unspecified."
+     "fidelity_note": "The theorem supplies the same explicit circuit, the coefficient $1/400$, and the logarithmic exponent $6$, as well as circuit correctness and size. The paper display leaves the constant $C_k$ and exponent $b_k$ unspecified."
     }
    ],
    "after": "<a id=\"ROOT-FAMILY-ASSEMBLY\"></a>"
@@ -3136,7 +3514,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem proves divergence of the scalar lower bound d m^δ/(log₂m)^e. It does not itself state divergence of the query-complexity quotient; classical_Fkm_ratio supplies that conclusion."
+     "fidelity_note": "This theorem proves divergence of the scalar lower bound $d\\, m^\\delta/(\\log_2 m)^e$. It does not itself state divergence of the query-complexity quotient; `classical_Fkm_ratio` supplies that conclusion."
     }
    ],
    "after": "<a id=\"ROOT-RATIO\"></a>"
@@ -3281,7 +3659,7 @@
      ],
      "relation": "defines",
      "fidelity": "weaker",
-     "fidelity_note": "This definition supplies the sign diagonal D_z; the selected sentence defines four objects. The other three objects have separate definition links."
+     "fidelity_note": "This definition supplies the sign diagonal $D_z$; the selected sentence defines four objects. The other three objects have separate definition links."
     }
    ]
   },
@@ -3373,7 +3751,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "Orthogonality of each sign diagonal.",
-     "fidelity_note": "This declaration supplies only D_zᵀD_z=I. The complete selected display also asserts the other matrix and vector normalization identities, which are separate declarations."
+     "fidelity_note": "This declaration supplies only $D_z^\\top D_z=I$. The complete selected display also asserts the other matrix and vector normalization identities, which are separate declarations."
     }
    ]
   },
@@ -3396,7 +3774,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The identity defining the matrix overlap.",
-     "fidelity_note": "The theorem states the matrix-overlap identity for Φ under k≥1. The selected display also defines δ=32^{-k}; that threshold is supplied by the separate delta definition."
+     "fidelity_note": "The theorem states the matrix-overlap identity for $\\Phi$ under $k\\ge 1$. The selected display also defines $\\delta=32^{-k}$; that threshold is supplied by the separate `delta` definition."
     },
     {
      "name": "QuarticQuery.Forrelation.delta",
@@ -3408,7 +3786,7 @@
      "relation": "defines",
      "fidelity": "weaker",
      "link_note": "The promise threshold in the same display.",
-     "fidelity_note": "This definition gives δ=2^{-5k}=32^{-k}. It does not state the matrix identity for Φ that occupies the other half of the selected display."
+     "fidelity_note": "This definition gives $\\delta=2^{-5k}=32^{-k}$. It does not state the matrix identity for $\\Phi$ that occupies the other half of the selected display."
     }
    ]
   },
@@ -3430,7 +3808,7 @@
      ],
      "relation": "contains",
      "fidelity": "stronger",
-     "fidelity_note": "The paper names only the two promised preimages. P_eq_cases additionally states that every remaining input has output none."
+     "fidelity_note": "The paper names only the two promised preimages. `P_eq_cases` additionally states that every remaining input has output `none`."
     }
    ]
   },
@@ -3473,7 +3851,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The paper gives t₀(k)=13669k². The named theorem instead assumes ht : 3499200 * k ^ 2 ≤ t. It proves the desired floor conclusion only above that larger sufficient threshold; the sharp uniform supplier is linked separately."
+     "fidelity_note": "The paper gives $t_0(k)=13669k^2$. The named theorem instead assumes `ht : 3499200 * k ^ 2 ≤ t`. It proves the desired floor conclusion only above that larger sufficient threshold; the sharp uniform supplier is linked separately."
     }
    ]
   },
@@ -3538,7 +3916,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "Nonnegativity needs the bias box.",
-     "fidelity_note": "The theorem gives nonnegative weights when every |μᵢ|≤1. The selected phrase also says that their sum is one; that separate claim is supplied by sum_bw."
+     "fidelity_note": "The theorem gives nonnegative weights when every $|\\mu_i|\\le 1$. The selected phrase also says that their sum is one; that separate claim is supplied by `sum_bw`."
     },
     {
      "name": "QuarticQuery.ForrelationLower.sum_bw",
@@ -3571,7 +3949,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The prose takes B=max_z |g(z)|. The theorem permits any real upper bound B supplied by hg, with the same probability-box hypothesis hμ."
+     "fidelity_note": "The prose takes $B=\\max_z |g(z)|$. The theorem permits any real upper bound $B$ supplied by `hg`, with the same probability-box hypothesis `hμ`."
     }
    ]
   },
@@ -3804,7 +4182,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "Derivative of the rounding function.",
-     "fidelity_note": "The theorem states only φ′(x)=3/q(x)^5. The selected display also states the derivative of Ψ and the identity φ=xΨ−Ψ′."
+     "fidelity_note": "The theorem states only $\\varphi'(x)=3/q(x)^5$. The selected display also states the derivative of $\\Psi$ and the identity $\\varphi=x\\Psi-\\Psi'$."
     },
     {
      "name": "QuarticQuery.ForrelationLower.hasDerivAt_psiS",
@@ -3816,7 +4194,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "Derivative of the integration weight.",
-     "fidelity_note": "The theorem states only Ψ′(x)=−x/(2q(x)^3). The selected display also states the derivative of φ and the identity φ=xΨ−Ψ′."
+     "fidelity_note": "The theorem states only $\\Psi'(x)=-x/(2q(x)^3)$. The selected display also states the derivative of $\\varphi$ and the identity $\\varphi=x\\Psi-\\Psi'$."
     }
    ]
   },
@@ -3838,7 +4216,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem gives oddness, φ(−x)=−φ(x). The selected phrase also asserts the bound |φ|≤1/2, supplied by abs_phiS_le."
+     "fidelity_note": "This theorem gives oddness, $\\varphi(-x)=-\\varphi(x)$. The selected phrase also asserts the bound $|\\varphi|\\le 1/2$, supplied by `abs_phiS_le`."
     },
     {
      "name": "QuarticQuery.ForrelationLower.abs_phiS_le",
@@ -3849,7 +4227,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem gives |φ(x)|≤1/2. The selected phrase also asserts oddness, supplied by phiS_neg."
+     "fidelity_note": "This theorem gives $|\\varphi(x)|\\le 1/2$. The selected phrase also asserts oddness, supplied by `phiS_neg`."
     }
    ]
   },
@@ -4064,7 +4442,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem differentiates F_g(w_s(U)) for fixed U. Equation (8.15) differentiates its Gaussian average. The latter interchange is proved separately inside exists_identity for 0<s<1."
+     "fidelity_note": "This theorem differentiates $F_g(w_s(U))$ for fixed $U$. Equation (8.15) differentiates its Gaussian average. The latter interchange is proved separately inside `exists_identity` for $0<s<1$."
     },
     {
      "name": "QuarticQuery.ForrelationLower.exists_identity",
@@ -4119,7 +4497,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem is the algebraic bias-chain sum after assuming hE : E (cn j a)=0; it does not itself assert that E is this mixed derivative or state the full k=3 derivative formula. hasDerivAt_ext and D_D supply those additional steps."
+     "fidelity_note": "The theorem is the algebraic bias-chain sum after assuming `hE : E (cn j a)=0`; it does not itself assert that $E$ is this mixed derivative or state the full $k=3$ derivative formula. `hasDerivAt_ext` and `D_D` supply those additional steps."
     }
    ]
   },
@@ -4163,7 +4541,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem replaces a remaining rounded factor under the integral by Int, assuming a continuous bounded coefficient that satisfies EarlyOnly. It is one induction ingredient, not the full derivative-of-h_g path formula."
+     "fidelity_note": "The theorem replaces a remaining rounded factor under the integral by `Int`, assuming a continuous bounded coefficient that satisfies `EarlyOnly`. It is one induction ingredient, not the full derivative-of-$h_g$ path formula."
     },
     {
      "name": "QuarticQuery.ForrelationLower.Int_eq_paths",
@@ -4249,7 +4627,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This definition gives only the normalization m(√m)^{k−1}. The selected display also contains the path numerator and its real correlation, which are separate definitions."
+     "fidelity_note": "This definition gives only the normalization $m(\\sqrt{m})^{k-1}$. The selected display also contains the path numerator and its real correlation, which are separate definitions."
     }
    ]
   },
@@ -4371,7 +4749,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The increase over the uniform mean is at least aₖ.",
-     "fidelity_note": "The theorem gives correlated mean minus uniform mean ≥18^{-(k−1)}. The selected display additionally identifies the uniform mean as zero and compares 18^{-(k−1)} with 32δ; those are supplied by the other two links."
+     "fidelity_note": "The theorem gives correlated mean minus uniform mean $\\ge 18^{-(k-1)}$. The selected display additionally identifies the uniform mean as zero and compares $18^{-(k-1)}$ with $32\\delta$; those are supplied by the other two links."
     },
     {
      "name": "QuarticQuery.ForrelationLower.ext_PhiF_zero",
@@ -4383,7 +4761,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The uniform mean to subtract is zero.",
-     "fidelity_note": "This theorem supplies only the zero uniform mean needed to turn mass_ge into an absolute correlated-mean bound. It does not state either inequality in the selected lower-mean chain."
+     "fidelity_note": "This theorem supplies only the zero uniform mean needed to turn `mass_ge` into an absolute correlated-mean bound. It does not state either inequality in the selected lower-mean chain."
     },
     {
      "name": "QuarticQuery.ForrelationLower.dl_le",
@@ -4395,7 +4773,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The numerical margin aₖ≥32δ.",
-     "fidelity_note": "The theorem gives the numerical inequality 32δ≤18^{-(k−1)}. It does not state the correlated-distribution mean inequality in the selected display."
+     "fidelity_note": "The theorem gives the numerical inequality $32\\delta\\le 18^{-(k-1)}$. It does not state the correlated-distribution mean inequality in the selected display."
     }
    ]
   },
@@ -4459,7 +4837,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The paper specializes to the Walsh matrix with |H_ab|=m^{-1/2}. The theorem allows any row-orthogonal H with entry bound ε≥0 and uses (3ε/16)^{k-1}; its real-leaf and depth hypotheses match the paper’s tree setting."
+     "fidelity_note": "The paper specializes to the Walsh matrix with $|H_{ab}|=m^{-1/2}$. The theorem allows any row-orthogonal $H$ with entry bound $\\varepsilon\\ge 0$ and uses $(3\\varepsilon/16)^{k-1}$; its real-leaf and depth hypotheses match the paper’s tree setting."
     }
    ]
   },
@@ -4545,7 +4923,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The paper allows an independent real value in [-1,1] at every leaf. walk_chaos uses T : QueryTree ι with Boolean leaves and one postprocessing map v : Bool → ℝ. The full real-leaf endpoint growth theorem is separately linked at (8.28)."
+     "fidelity_note": "The paper allows an independent real value in $[-1,1]$ at every leaf. `walk_chaos` uses `T : QueryTree ι` with Boolean leaves and one postprocessing map `v : Bool → ℝ`. The full real-leaf endpoint growth theorem is separately linked at (8.28)."
     }
    ]
   },
@@ -4567,7 +4945,7 @@
      ],
      "relation": "part",
      "fidelity": "different",
-     "fidelity_note": "The paper quantifies over arbitrary zero-start martingales and gives a two-sided maximum bound with deterministic increment bound B. hit_azuma quantifies over a finite QueryTree, fixed product biases and the specific fresh-query increment identity hY; its conclusion is one-sided and adds the probability of a bad coefficient event."
+     "fidelity_note": "The paper quantifies over arbitrary zero-start martingales and gives a two-sided maximum bound with deterministic increment bound $B$. `hit_azuma` quantifies over a finite `QueryTree`, fixed product biases and the specific fresh-query increment identity `hY`; its conclusion is one-sided and adds the probability of a bad coefficient event."
     }
    ]
   },
@@ -4611,7 +4989,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The paper uses factors bounded by 2 and a revealed set at a leaf. The theorem permits factors bounded by any B≥0 and any revealed set, with bound (nB)^r."
+     "fidelity_note": "The paper uses factors bounded by 2 and a revealed set at a leaf. The theorem permits factors bounded by any $B\\ge 0$ and any revealed set, with bound $(nB)^r$."
     }
    ]
   },
@@ -4718,7 +5096,7 @@
      ],
      "relation": "proof",
      "fidelity": "weaker",
-     "fidelity_note": "The paper quantifies over every acceptance function A in [0,1] with any promise error ε in [0,1]. The proof slice establishes these comparisons only for its constructed amplified acceptance a, with ε=(8/9)^τ, fixed δ=dl(l+1), and Φ=PhiF t."
+     "fidelity_note": "The paper quantifies over every acceptance function $A$ in $[0,1]$ with any promise error $\\varepsilon$ in $[0,1]$. The proof slice establishes these comparisons only for its constructed amplified acceptance $a$, with $\\varepsilon=(8/9)^\\tau$, fixed $\\delta=dl(l+1)$, and `Φ=PhiF t`."
     }
    ]
   },
@@ -4740,7 +5118,7 @@
      ],
      "relation": "proof",
      "fidelity": "weaker",
-     "fidelity_note": "The displayed inequality applies to arbitrary A and ε satisfying the preceding promise assumptions. The local proof uses its finite amplified tree mixture a and the fixed error ε=(8/9)^τ; hE1, hE0, and mass_ge yield this specialized gap."
+     "fidelity_note": "The displayed inequality applies to arbitrary $A$ and $\\varepsilon$ satisfying the preceding promise assumptions. The local proof uses its finite amplified tree mixture $a$ and the fixed error $\\varepsilon=(8/9)^\\tau$; `hE1`, `hE0`, and `mass_ge` yield this specialized gap."
     }
    ]
   },
@@ -4837,7 +5215,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This declaration states the D ≤ 1,500,625 Q^4 component. The R ≤ D component is the separate linked theorem; neither declaration alone states the whole displayed chain."
+     "fidelity_note": "This declaration states the $D \\le 1{,}500{,}625\\, Q^4$ component. The $R \\le D$ component is the separate linked theorem; neither declaration alone states the whole displayed chain."
     },
     {
      "name": "QuarticQuery.R_le_D",
@@ -5104,7 +5482,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The declaration states Q(f) ≥ (1/35)‖Γ‖/M, the weaker end of (A.3). It does not state the displayed sharper coefficient (1−2√2/3)/2. That coefficient appears before division in appendixA_adversary_of_perron."
+     "fidelity_note": "The declaration states $Q(f) \\ge (1/35)\\|\\Gamma\\|/M$, the weaker end of (A.3). It does not state the displayed sharper coefficient $(1-2\\sqrt{2}/3)/2$. That coefficient appears before division in `appendixA_adversary_of_perron`."
     }
    ],
    "after": "<!-- passage:R3-A-ADVERSARY -->"
@@ -5375,7 +5753,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The declaration assumes hcount, that at most one leaf survives the mask. It proves the norm conclusion but not the sentence’s derivation of hcount from block disjointness; that is provided by appendixA_sensitiveFamily_star_properties."
+     "fidelity_note": "The declaration assumes `hcount`, that at most one leaf survives the mask. It proves the norm conclusion but not the sentence’s derivation of `hcount` from block disjointness; that is provided by `appendixA_sensitiveFamily_star_properties`."
     }
    ],
    "after": "<!-- passage:R3-A-STAR -->"
@@ -5710,7 +6088,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem states the outer Rayleigh inequality √d‖|v|‖² ≤ |v|ᵀA_U|v| under the eigenvector/support hypotheses. It omits the displayed intermediate equalities through vᵀH′dv."
+     "fidelity_note": "The theorem states the outer Rayleigh inequality $\\sqrt{d}\\,\\||v|\\|^2 \\le |v|^\\top A_U|v|$ under the eigenvector/support hypotheses. It omits the displayed intermediate equalities through $v^\\top H'dv$."
     }
    ],
    "after": "<!-- passage:R3-A-HUANG -->"
@@ -5845,7 +6223,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem gives D ≤ 1,500,625 Q^4 directly. The display additionally shows the factorization into two 1225 Q² terms; this intermediate product is in appendixA_D_le_of_QLe’s proof, not in this theorem’s statement."
+     "fidelity_note": "The theorem gives $D \\le 1{,}500{,}625\\, Q^4$ directly. The display additionally shows the factorization into two $1225\\, Q^2$ terms; this intermediate product is in `appendixA_D_le_of_QLe`’s proof, not in this theorem’s statement."
     }
    ],
    "after": "<!-- passage:R3-A-ASSEMBLY -->"
@@ -6305,7 +6683,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "Lean proves only the final total bound EZ≤4G/m. It does not define Z_early or Z_late and does not prove the two separately displayed early/late bounds."
+     "fidelity_note": "Lean proves only the final total bound $\\mathbb{E}Z\\le 4G/m$. It does not define $Z_{\\mathrm{early}}$ or $Z_{\\mathrm{late}}$ and does not prove the two separately displayed early/late bounds."
     }
    ],
    "after": "<a id=\"CL-early-late\"></a>"
@@ -6394,7 +6772,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem states EZ≤2G/m. The displayed intermediate bound EZ≤(2/m)E Q_X is used through the per-column estimate and summed query-count proof, but is not a conjunct of this endpoint."
+     "fidelity_note": "The theorem states $\\mathbb{E}Z\\le 2G/m$. The displayed intermediate bound $\\mathbb{E}Z\\le(2/m)\\,\\mathbb{E}\\, Q_X$ is used through the per-column estimate and summed query-count proof, but is not a conjunct of this endpoint."
     }
    ],
    "after": "<a id=\"CL-zero-average\"></a>"
@@ -6551,7 +6929,7 @@
      ],
      "relation": "proof",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem proves correct simulator output assuming compatible answers and a prefix target-count bound. The specific nonheavy true-cell event implies those premises in the proof of eq_21; that event inclusion is not the general simulator theorem’s statement."
+     "fidelity_note": "The theorem proves correct simulator output assuming compatible answers and a prefix target-count bound. The specific nonheavy true-cell event implies those premises in the proof of `eq_21`; that event inclusion is not the general simulator theorem’s statement."
     }
    ],
    "after": "<a id=\"CL-planted-interface\"></a>"
@@ -6618,7 +6996,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This declaration gives 1≤L under k≥2 and t≥8; the upper bound L≤m is the separate Lvalue_le_mValue theorem."
+     "fidelity_note": "This declaration gives $1\\le L$ under $k\\ge 2$ and $t\\ge 8$; the upper bound $L\\le m$ is the separate `Lvalue_le_mValue` theorem."
     },
     {
      "name": "QuarticQuery.Lvalue_le_mValue",
@@ -6953,7 +7331,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem supplies only ε≤18^{-k}; the selected display states three separate numerical estimates. The other two are linked independently with their own hypotheses."
+     "fidelity_note": "This theorem supplies only $\\varepsilon\\le 18^{-k}$; the selected display states three separate numerical estimates. The other two are linked independently with their own hypotheses."
     },
     {
      "name": "QuarticQuery.ForrelationLower.dl_le",
@@ -6964,7 +7342,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem supplies only δ≤a_k/32; the selected display states three separate numerical estimates. The other two are linked independently with their own hypotheses."
+     "fidelity_note": "This theorem supplies only $\\delta\\le a_k/32$; the selected display states three separate numerical estimates. The other two are linked independently with their own hypotheses."
     },
     {
      "name": "QuarticQuery.ForrelationLower.q_le",
@@ -7041,7 +7419,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The paper uses b=3/16. For t≥6, Lean bounds the larger residual using edge coefficient 3 and the same final 2^{-k}; the paper’s dimension condition implies t≥6. The remaining expression is algebraically 2^{-k} for every cd≥1."
+     "fidelity_note": "The paper uses $b=3/16$. For $t\\ge 6$, Lean bounds the larger residual using edge coefficient 3 and the same final $2^{-k}$; the paper’s dimension condition implies $t\\ge 6$. The remaining expression is algebraically $2^{-k}$ for every $cd\\ge 1$."
     }
    ]
   },
@@ -7737,7 +8115,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem proves the exact f^N identity under M≠0. The inequalities additionally use trialFail_le and the chosen N; neither numerical inequality is in this declaration."
+     "fidelity_note": "The theorem proves the exact $f^N$ identity under $M\\ne 0$. The inequalities additionally use `trialFail_le` and the chosen $N$; neither numerical inequality is in this declaration."
     }
    ],
    "after": "<!-- passage:upper-amplification-proof -->"
@@ -7771,7 +8149,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem proves N(2M+1)≤138 γ^(-1/2) log(1/η). It does not itself relate the product to the procedure’s callCap."
+     "fidelity_note": "This theorem proves $N(2M+1)\\le 138\\,\\gamma^{-1/2}\\log(1/\\eta)$. It does not itself relate the product to the procedure’s `callCap`."
     }
    ],
    "after": "<!-- passage:upper-amplification-proof -->"
@@ -7885,7 +8263,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem proves the displayed upper bound for T·stageCost. The displayed equality to 2T² c_rd N(2M₀+1) requires unfolding stageCost and the parameter definitions; it is not an explicit equality in the theorem statement."
+     "fidelity_note": "The theorem proves the displayed upper bound for `T·stageCost`. The displayed equality to $2T^2 c_{rd} N(2M_0+1)$ requires unfolding `stageCost` and the parameter definitions; it is not an explicit equality in the theorem statement."
     }
    ],
    "after": "<!-- passage:upper-padded-tournament-budget -->"
@@ -8041,7 +8419,7 @@
      ],
      "relation": "states",
      "fidelity": "different",
-     "fidelity_note": "The theorem compiles any given indexed IsCirc n family with cap 2n. It does not itself supply local-test circuits or simplify max{3,ℓ+1}=ℓ+1; construction_lemma_2_2_ii and ℓ≥2 provide those steps."
+     "fidelity_note": "The theorem compiles any given indexed `IsCirc n` family with cap $2n$. It does not itself supply local-test circuits or simplify $\\max\\{3,\\ell+1\\}=\\ell+1$; `construction_lemma_2_2_ii` and $\\ell\\ge 2$ provide those steps."
     }
    ],
    "after": "<!-- passage:AC-coherent -->"
@@ -8131,7 +8509,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem states the physical 2q compilation bound and continuation-mass equality. The sentence’s separate equal-cost claim for logical inversion is supplied by quantum_inverse_reads."
+     "fidelity_note": "The theorem states the physical $2q$ compilation bound and continuation-mass equality. The sentence’s separate equal-cost claim for logical inversion is supplied by `quantum_inverse_reads`."
     }
    ],
    "after": "<!-- passage:upper-read-compiler -->"
@@ -9015,7 +9393,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem gives the exact output law of the tree simulation. Its cap equality is a separate theorem queryCap_ofTree and is not stated here."
+     "fidelity_note": "The theorem gives the exact output law of the tree simulation. Its cap equality is a separate theorem `queryCap_ofTree` and is not stated here."
     }
    ],
    "after": "<!-- passage:R3-01-ADAPTIVE -->"
@@ -9453,7 +9831,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The type gives N as the unnormalized matrix product, Φ=N/M, positivity and M=m(√m)^(k−1). The path sum is the definition of N; the additional equality M=2^{t(k+1)} is in denominator_eq."
+     "fidelity_note": "The type gives $N$ as the unnormalized matrix product, $\\Phi=N/M$, positivity and $M=m(\\sqrt{m})^{k-1}$. The path sum is the definition of $N$; the additional equality $M=2^{t(k+1)}$ is in `denominator_eq`."
     },
     {
      "name": "QuarticQuery.Forrelation.denominator_eq",
@@ -9464,7 +9842,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This type gives only M=2^{t(k+1)} after k=l+1; it omits the numerator, positivity and real normalization clauses."
+     "fidelity_note": "This type gives only $M=2^{t(k+1)}$ after $k=l+1$; it omits the numerator, positivity and real normalization clauses."
     }
    ]
   },
@@ -9742,7 +10120,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The candidate type supplies the explicit nk cap with n=repetitions k η and promised accuracy, but not the displayed asymptotic O_k reformulation. Its compiler is explicitly not native-checked.",
+     "fidelity_note": "The candidate type supplies the explicit $nk$ cap with `n=repetitions k η` and promised accuracy, but not the displayed asymptotic $O_k$ reformulation. Its compiler is explicitly not native-checked.",
      "link_note": "Sharp candidate; native elaboration is not established."
     }
    ]
@@ -9990,7 +10368,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The type gives membership in the required signed interval, not the preceding absolute-value estimate with coefficient 2^{s+1}+1."
+     "fidelity_note": "The type gives membership in the required signed interval, not the preceding absolute-value estimate with coefficient $2^{s+1}+1$."
     }
    ]
   },

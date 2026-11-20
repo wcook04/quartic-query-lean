@@ -21,6 +21,18 @@
    "reason": "The returned range ran past the declaration, lines 243-249; it is cut to the declaration."
   },
   {
+   "tie": "q4-preview-verify",
+   "declaration": "QuarticQuery.Paper.quantumVerify_search_query_bound",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "q4-preview-weight",
+   "declaration": "QuarticQuery.Tournament.expectFrom",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
    "tie": "p2-oracle",
    "declaration": "QuarticQuery.bitOracle",
    "returned_lines": [
@@ -32,6 +44,24 @@
     105
    ],
    "reason": "The returned range ran past the declaration, lines 100-105; it is cut to the declaration."
+  },
+  {
+   "tie": "p2-table-circuit",
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_1_iii",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "p2-sign-coordinate",
+   "declaration": "QuarticQuery.bitSign",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "p2-lemma-circuit",
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_1_iii",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
   },
   {
    "tie": "p3-untrusted-input",
@@ -71,6 +101,54 @@
     265
    ],
    "reason": "The returned range ran past the declaration, lines 264-265; it is cut to the declaration."
+  },
+  {
+   "tie": "p3-K",
+   "declaration": "QuarticQuery.card_testIndex",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "q4-probability-weight",
+   "declaration": "QuarticQuery.Paper.tensor_success_mass",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "q4-weights-display",
+   "declaration": "QuarticQuery.Tournament.weight",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "q4-weights-display",
+   "declaration": "QuarticQuery.Tournament.total",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "q4-pivot-zero",
+   "declaration": "QuarticQuery.Tournament.weight",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "q4-pivot-zero",
+   "declaration": "QuarticQuery.Tournament.IsComparison",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "q4-ideal-label-law",
+   "declaration": "QuarticQuery.Paper.equation_15_conditional_index",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "q4-amplifier-label",
+   "declaration": "QuarticQuery.Paper.quantum_amplified_label_law",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
   },
   {
    "tie": "c5-planted-object",
@@ -123,6 +201,30 @@
     898
    ],
    "reason": "The returned range ran past the declaration, lines 877-898; it is cut to the declaration."
+  },
+  {
+   "tie": "c5-joint-event-chain",
+   "declaration": "QuarticQuery.Paper.avg_reachedCellAt_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "c5-guess-tail",
+   "declaration": "QuarticQuery.twoThirds_pow_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "e-ratio-display",
+   "declaration": "QuarticQuery.eventually_gt_rpow",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "f-mean-separation",
+   "declaration": "QuarticQuery.ForrelationLower.mass_ge",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
   },
   {
    "declaration": "QuarticQuery.Gvalue_lt_R_Fkm",
@@ -822,7 +924,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The type bounds fixed-address failed-test search under K ≥ 2 and 0 < ε < 1/2. It does not include fresh address decoding, complete winner verification or the substitution K = O_k(m ell^3)."
+     "fidelity_note": "The type bounds fixed-address failed-test search under $K \\ge 2$ and $0 < \\varepsilon < 1/2$. It does not include fresh address decoding, complete winner verification or the substitution $K = O_k(m\\ell^3)$."
     }
    ]
   },
@@ -1043,7 +1145,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The definition supplies sampling with ratios w_i/W and stopping at W = 0. The equality of each weight to the probability of winning fresh independent comparisons is not part of its type."
+     "fidelity_note": "The definition supplies sampling with ratios $w_i/W$ and stopping at $W = 0$. The equality of each weight to the probability of winning fresh independent comparisons is not part of its type."
     }
    ]
   },
@@ -1384,7 +1486,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean gives the explicit O_k(m(log₂m)²) size and also covers k = 1."
+     "fidelity_note": "Lean gives the explicit $O_k(m(\\log_2 m)^2)$ size and also covers $k = 1$."
     }
    ],
    "after": "## 2. Preliminaries"
@@ -1451,7 +1553,7 @@
      ],
      "relation": "defines",
      "fidelity": "different",
-     "fidelity_note": "Lean applies bitSign to the stored Bool z (j,a); the printed exponent a denotes the coordinate in z_j(a), so the displayed formula omits the input value."
+     "fidelity_note": "Lean applies `bitSign` to the stored `Bool` `z (j,a)`; the printed exponent $a$ denotes the coordinate in $z_j(a)$, so the displayed formula omits the input value."
     }
    ],
    "after": "## 2. Preliminaries"
@@ -1852,7 +1954,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean covers k ≥ 1 and every t ≥ 1, so the circuit statement holds for all m = 4^t ≥ 4 rather than only eventually."
+     "fidelity_note": "Lean covers $k \\ge 1$ and every $t \\ge 1$, so the circuit statement holds for all $m = 4^t \\ge 4$ rather than only eventually."
     }
    ],
    "after": "## 2. Preliminaries"
@@ -2453,7 +2555,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The exact count is proved for arbitrary ell, r and S; the paper substitutes m = 2^ell and r = 20ell."
+     "fidelity_note": "The exact count is proved for arbitrary $\\ell$, $r$ and $S$; the paper substitutes $m = 2^\\ell$ and $r = 20\\ell$."
     }
    ],
    "after": "## 3. The function"
@@ -2908,7 +3010,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem factors success mass for independent register vectors. It does not identify those individual masses with the a_ij entries or define the candidate weights."
+     "fidelity_note": "The theorem factors success mass for independent register vectors. It does not identify those individual masses with the $a_{ij}$ entries or define the candidate weights."
     }
    ]
   },
@@ -2930,7 +3032,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This definition supplies only w_i, including its product update. It does not define the displayed total W; that is the separate total declaration."
+     "fidelity_note": "This definition supplies only $w_i$, including its product update. It does not define the displayed total $W$; that is the separate total declaration."
     },
     {
      "name": "QuarticQuery.Tournament.total",
@@ -2941,7 +3043,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This definition supplies only W = sum_i w_i. It does not define the individual product weights displayed in the same formula."
+     "fidelity_note": "This definition supplies only $W = \\sum_i w_i$. It does not define the individual product weights displayed in the same formula."
     }
    ]
   },
@@ -3005,7 +3107,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The recursive definition supplies the multiplication update. The conclusion that the new pivot’s weight is zero additionally needs the self_zero field of IsComparison."
+     "fidelity_note": "The recursive definition supplies the multiplication update. The conclusion that the new pivot’s weight is zero additionally needs the `self_zero` field of `IsComparison`."
     },
     {
      "name": "QuarticQuery.Tournament.IsComparison",
@@ -3017,7 +3119,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The zero diagonal is an assumption of the generic comparison table.",
-     "fidelity_note": "The structure supplies the zero-diagonal assumption and complementarity. It does not define or carry out the weight update; multiplying by a_jj = 0 uses the separate weight definition."
+     "fidelity_note": "The structure supplies the zero-diagonal assumption and complementarity. It does not define or carry out the weight update; multiplying by $a_{jj} = 0$ uses the separate weight definition."
     }
    ]
   },
@@ -3359,7 +3461,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The exact conditional law follows from the prepared state, without estimated comparison probabilities.",
-     "fidelity_note": "The theorem gives the exact conditional product-weight law under hv and hW > 0. It does not by itself exhibit the query circuit or express the absence of stored numerical a_ij values."
+     "fidelity_note": "The theorem gives the exact conditional product-weight law under `hv` and `hW > 0`. It does not by itself exhibit the query circuit or express the absence of stored numerical $a_{ij}$ values."
     }
    ]
   },
@@ -3436,7 +3538,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "Supplies the physical program realizing the preserved label law.",
-     "fidelity_note": "The type supplies a physical program with output law ampLaw, but does not itself display the conditional-law equality. That equality also needs the positive-success hypotheses stated in quantum_amplified_conditional."
+     "fidelity_note": "The type supplies a physical program with output law `ampLaw`, but does not itself display the conditional-law equality. That equality also needs the positive-success hypotheses stated in `quantum_amplified_conditional`."
     }
    ]
   },
@@ -4953,7 +5055,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The highlighted proof establishes the first inequality, joint light-hit probability at most simulator success, for each fixed outside choice A,J. This excerpt does not state the final beta^r bound under the full dummy law.",
+     "fidelity_note": "The highlighted proof establishes the first inequality, joint light-hit probability at most simulator success, for each fixed outside choice $A,J$. This excerpt does not state the final $\\beta^r$ bound under the full dummy law.",
      "link_note": "Pointwise simulation gives the first inequality before averaging the independent outside data."
     },
     {
@@ -5093,7 +5195,7 @@
      ],
      "relation": "proof",
      "fidelity": "stronger",
-     "fidelity_note": "Lean bounds the factor (2/3)^(40t) itself by m^(-10) for every natural t. Multiplication by the nonnegative G gives the printed bound at m=4^t, r=40t=20 ell."
+     "fidelity_note": "Lean bounds the factor $(2/3)^{40t}$ itself by $m^{-10}$ for every natural $t$. Multiplication by the nonnegative $G$ gives the printed bound at $m=4^t$, $r=40t=20\\ell$."
     }
    ]
   },
@@ -5266,7 +5368,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem states eventual R_t>D(1+Q_t)^α for any supplied positive D under the family bounds. It does not state the full displayed pointwise quotient inequality with coefficient 1/[400(1+C_k)^α].",
+     "fidelity_note": "The theorem states eventual $R_t>D(1+Q_t)^\\alpha$ for any supplied positive $D$ under the family bounds. It does not state the full displayed pointwise quotient inequality with coefficient $1/[400(1+C_k)^\\alpha]$.",
      "link_note": "Supplies eventual domination; the exact displayed coefficient is an arithmetic calculation in the text."
     }
    ]
@@ -5450,7 +5552,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean gives the explicit positive mean gap (1/18)^(k−1), while the prose asserts separation without a constant."
+     "fidelity_note": "Lean gives the explicit positive mean gap $(1/18)^{k-1}$, while the prose asserts separation without a constant."
     }
    ]
   },

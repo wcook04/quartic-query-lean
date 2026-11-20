@@ -8,6 +8,60 @@
  "return": "research/returns/phrase_links/members/09_quartic_exposition",
  "corrections": [
   {
+   "tie": "exp-1-global-sign",
+   "declaration": "QuarticQuery.Upper.lawOf_smul",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-1-summary-table-upper",
+   "declaration": "QuarticQuery.D_le_Q_pow_four",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-1-summary-table-upper",
+   "declaration": "QuarticQuery.R_le_D",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-1-all-smaller-powers",
+   "declaration": "QuarticQuery.Paper.classical_Fkm_ratio",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-1-critical-exponent-definition",
+   "declaration": "QuarticQuery.alphaTot",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-1-classical-scale",
+   "declaration": "QuarticQuery.Paper.construction_equation_two",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-1-fourth-power-limit",
+   "declaration": "QuarticQuery.familyExponent_tendsto",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-2-pointer-read-budget",
+   "declaration": "QuarticQuery.Paper.construction_test_depth",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-2-cell-cardinality",
+   "declaration": "QuarticQuery.Paper.construction_layout_cardinalities",
+   "field": "link_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
    "tie": "exp-4-draw",
    "declaration": "QuarticQuery.Upper.stageLaw",
    "returned_lines": [
@@ -19,6 +73,84 @@
     40
    ],
    "reason": "The returned range ran past the declaration, lines 34-40; it is cut to the declaration."
+  },
+  {
+   "tie": "exp-4-product-mass",
+   "declaration": "QuarticQuery.Paper.equation_15_index_law",
+   "field": "link_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-4-actual-miss",
+   "declaration": "QuarticQuery.Paper.quantumTournament",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-5-capped-address-guessing",
+   "declaration": "QuarticQuery.Paper.classical_direct_product",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-6-true-board-error-sources",
+   "declaration": "QuarticQuery.Paper.quantumTournament",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-7-small-discrepancy",
+   "declaration": "QuarticQuery.discrepancy_parameters",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-7-time-union",
+   "declaration": "QuarticQuery.avg_reachedCell_le",
+   "field": "link_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-7-final-numeric",
+   "declaration": "QuarticQuery.Paper.classical_numeric_components",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-7-classical-lower-bound",
+   "declaration": "QuarticQuery.Paper.prop_4_2",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-8-restoring-logarithms",
+   "declaration": "QuarticQuery.Paper.classical_power_log_tendsto",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-8-cubic-fails",
+   "declaration": "QuarticQuery.Paper.classical_Fkm_ratio",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "exp-8-universal-d-bound",
+   "declaration": "QuarticQuery.D_le_Q_pow_four",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "app-a4-absorbing-the-lower-bound-constant",
+   "declaration": "QuarticQuery.Paper.construction_bs_comparison_chain",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+  },
+  {
+   "tie": "app-e-measured-law",
+   "declaration": "QuarticQuery.Paper.quantum_amplified_conditional",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
   },
   {
    "declaration": "QuarticQuery.Paper.eq_19",
@@ -215,7 +347,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "lawOf_smul treats every complex scalar a and gives the exact factor |a|²; the sentence is its a=-1 case."
+     "fidelity_note": "`lawOf_smul` treats every complex scalar $a$ and gives the exact factor $|a|^2$; the sentence is its $a=-1$ case."
     }
    ]
   },
@@ -501,7 +633,7 @@
      ],
      "relation": "part",
      "fidelity": "stronger",
-     "fidelity_note": "The theorem gives D(f) ≤ 20736 Q(f)^4 for every total f. Together with R_le_D, it yields the displayed bound on R."
+     "fidelity_note": "The theorem gives $D(f) \\le 20736\\, Q(f)^4$ for every total $f$. Together with `R_le_D`, it yields the displayed bound on $R$."
     },
     {
      "name": "QuarticQuery.R_le_D",
@@ -512,7 +644,7 @@
      ],
      "relation": "part",
      "fidelity": "stronger",
-     "fidelity_note": "R_le_D holds for every partial Boolean function on a finite coordinate type, including the total functions in this row."
+     "fidelity_note": "`R_le_D` holds for every partial Boolean function on a finite coordinate type, including the total functions in this row."
     }
    ]
   },
@@ -534,7 +666,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "classical_Fkm_ratio assumes 0 ≤ α and α/2 < 2-1/k for a fixed k≥2; exists_nat_exponent chooses k for α<4. Negative α require the additional monotonicity observation, not stated by this declaration."
+     "fidelity_note": "`classical_Fkm_ratio` assumes $0 \\le \\alpha$ and $\\alpha/2 < 2-1/k$ for a fixed $k\\ge 2$; `exists_nat_exponent` chooses $k$ for $\\alpha<4$. Negative $\\alpha$ require the additional monotonicity observation, not stated by this declaration."
     },
     {
      "name": "QuarticQuery.exists_nat_exponent",
@@ -567,7 +699,7 @@
      ],
      "relation": "defines",
      "fidelity": "different",
-     "fidelity_note": "alphaTot takes the infimum of nonnegative α satisfying a uniform bound in (1+Q(f))^α; the sentence writes Q(f)^α without that restriction. The positive-Q bases are comparable, but the expressions are not literally identical."
+     "fidelity_note": "`alphaTot` takes the infimum of nonnegative $\\alpha$ satisfying a uniform bound in $(1+Q(f))^\\alpha$; the sentence writes $Q(f)^\\alpha$ without that restriction. The positive-$Q$ bases are comparable, but the expressions are not literally identical."
     },
     {
      "name": "QuarticQuery.UniversalPower",
@@ -675,7 +807,7 @@
      ],
      "relation": "part",
      "fidelity": "different",
-     "fidelity_note": "The family theorem gives an eventual lower bound c m^(2-1/k)/(log₂m)². It does not assert an exact product cost or the explanatory split of the two factors; this display intentionally suppresses logarithms."
+     "fidelity_note": "The family theorem gives an eventual lower bound $c\\, m^{2-1/k}/(\\log_2 m)^2$. It does not assert an exact product cost or the explanatory split of the two factors; this display intentionally suppresses logarithms."
     }
    ]
   },
@@ -697,7 +829,7 @@
      ],
      "relation": "proof",
      "fidelity": "different",
-     "fidelity_note": "The theorem states lim_{k→∞}(4-2/k)=4, a numerical exponent limit. The displayed sentence is about powers of m; fixed-k query bounds and then growing m are a further step."
+     "fidelity_note": "The theorem states $\\lim_{k\\to\\infty}(4-2/k)=4$, a numerical exponent limit. The displayed sentence is about powers of $m$; fixed-$k$ query bounds and then growing $m$ are a further step."
     }
    ]
   },
@@ -772,7 +904,7 @@
      ],
      "relation": "proof",
      "fidelity": "weaker",
-     "fidelity_note": "construction_test_depth states an upper bound ≤2t+1 for local tests on m=4^t with t≥1. It is not an equality or a lower bound for every pointer-following procedure."
+     "fidelity_note": "`construction_test_depth` states an upper bound $\\le 2t+1$ for local tests on $m=4^t$ with $t\\ge 1$. It is not an equality or a lower bound for every pointer-following procedure."
     }
    ]
   },
@@ -889,7 +1021,7 @@
      ],
      "relation": "part",
      "fidelity": "same",
-     "link_note": "With m=4^t and r=40t, the third cardinality is 2^r=m^20."
+     "link_note": "With $m=4^t$ and $r=40t$, the third cardinality is $2^r=m^{20}$."
     }
    ],
    "after": "![Column 1's cell labelled $10$ stores three row numbers. The solid arrows end at zeros in columns 2, 3 and 4. The middle arrow ends at row 2 of column 3. The dashed arrow from column 3 ends at row 3 of column 1, where the bit is one.](figures/exposition/fig2_board.svg){width=92%}"
@@ -2183,7 +2315,7 @@
      ],
      "relation": "part",
      "fidelity": "same",
-     "link_note": "Adding the uniform column register gives the joint mass w_i/m."
+     "link_note": "Adding the uniform column register gives the joint mass $w_i/m$."
     }
    ]
   },
@@ -2527,7 +2659,7 @@
      ],
      "relation": "contains",
      "fidelity": "stronger",
-     "fidelity_note": "The list theorem gives the sharper symbolic miss bound 2m/2^T + Tε; at T = ceil(log₂(1000m)), 2m/2^T ≤ 1/500.",
+     "fidelity_note": "The list theorem gives the sharper symbolic miss bound $2m/2^T + T\\varepsilon$; at $T = \\lceil \\log_2(1000m) \\rceil$, $2m/2^T \\le 1/500$.",
      "link_note": "The bound concerns list membership itself, not acceptance after a verifier."
     }
    ]
@@ -3434,7 +3566,7 @@
      "file": "lean/QuarticQuery/Paper/ClassicalDirectProduct.lean",
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The bound is at most β^r under a mass-one product hard distribution and a cap of L queries to each input on every branch; set β = 2/3. The phrase omits these restrictions and suggests a rate rather than an upper bound."
+     "fidelity_note": "The bound is at most $\\beta^r$ under a mass-one product hard distribution and a cap of $L$ queries to each input on every branch; set $\\beta = 2/3$. The phrase omits these restrictions and suggests a rate rather than an upper bound."
     }
    ]
   },
@@ -4086,7 +4218,7 @@
      "file": "lean/QuarticQuery/Paper/QuantumTournamentFacts.lean",
      "relation": "part",
      "fidelity": "stronger",
-     "fidelity_note": "The list-omission contribution is bounded by 2m/2^T + Tε, retaining the sharper symbolic term before the paper bounds it by 1/500.",
+     "fidelity_note": "The list-omission contribution is bounded by $2m/2^T + T\\varepsilon$, retaining the sharper symbolic term before the paper bounds it by $1/500$.",
      "lines": [
       287,
       303
@@ -4206,7 +4338,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The Lean theorem supplies this inequality for k≥2 and t≥8, with m=4^t and the defined L and G. The preview sentence does not yet state that threshold."
+     "fidelity_note": "The Lean theorem supplies this inequality for $k\\ge 2$ and $t\\ge 8$, with $m=4^t$ and the defined $L$ and $G$. The preview sentence does not yet state that threshold."
     }
    ]
   },
@@ -5090,7 +5222,7 @@
      ],
      "relation": "states",
      "fidelity": "same",
-     "link_note": "Instantiate ρ with the separate-cap bound (2/3)^r; outside board data are fixed in this theorem."
+     "link_note": "Instantiate $\\rho$ with the separate-cap bound $(2/3)^r$; outside board data are fixed in this theorem."
     }
    ]
   },
@@ -5244,7 +5376,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "Lean states the weaker third-term bound 1/100 and total bound 6/100<1/3, rather than the displayed sharper third-term bound 1/(100m^8)."
+     "fidelity_note": "Lean states the weaker third-term bound $1/100$ and total bound $6/100<1/3$, rather than the displayed sharper third-term bound $1/(100m^8)$."
     }
    ]
   },
@@ -5309,7 +5441,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean proves the stated eventual lower bound for every circuit realizing P, with a threshold independent of that circuit, rather than only the chosen circuit of F_{k,m}."
+     "fidelity_note": "Lean proves the stated eventual lower bound for every circuit realizing $P$, with a threshold independent of that circuit, rather than only the chosen circuit of $F_{k,m}$."
     }
    ]
   },
@@ -5331,7 +5463,7 @@
      ],
      "relation": "proof",
      "fidelity": "stronger",
-     "fidelity_note": "The theorem applies to any positive coefficient and positive real power of m, divided by any fixed real logarithmic power, along m=4^t."
+     "fidelity_note": "The theorem applies to any positive coefficient and positive real power of $m$, divided by any fixed real logarithmic power, along $m=4^t$."
     }
    ]
   },
@@ -5353,7 +5485,7 @@
      ],
      "relation": "proof",
      "fidelity": "stronger",
-     "fidelity_note": "For k=3, classical_Fkm_ratio gives divergence for every nonnegative α<10/3, including α=3; it treats all fixed k≥2."
+     "fidelity_note": "For $k=3$, `classical_Fkm_ratio` gives divergence for every nonnegative $\\alpha<10/3$, including $\\alpha=3$; it treats all fixed $k\\ge 2$."
     },
     {
      "name": "QuarticQuery.familyExponent_three",
@@ -5675,7 +5807,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The source gives the explicit uniform inequality D(f) ≤ 20736 Q(f)^4 for every total function, with no asymptotic threshold."
+     "fidelity_note": "The source gives the explicit uniform inequality $D(f) \\le 20736\\, Q(f)^4$ for every total function, with no asymptotic threshold."
     }
    ]
   },
@@ -6764,7 +6896,7 @@
      "file": "lean/QuarticQuery/Paper/ConstructionForrelationComparison.lean",
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The statement proves the eventual strict comparison for every positive constant c at fixed k ≥ 2. It does not state the ratio asymptotic of order (log m)^(1+1/k)."
+     "fidelity_note": "The statement proves the eventual strict comparison for every positive constant $c$ at fixed $k \\ge 2$. It does not state the ratio asymptotic of order $(\\log m)^{1+1/k}$."
     }
    ]
   },
@@ -7250,7 +7382,7 @@
      ],
      "relation": "proof",
      "fidelity": "stronger",
-     "fidelity_note": "The conditional-law theorem permits arbitrary finite nonnegative label weights of positive mass and 0≤f<1. Here q_i=w_i/m, so normalisation gives w_i/W."
+     "fidelity_note": "The conditional-law theorem permits arbitrary finite nonnegative label weights of positive mass and $0\\le f<1$. Here $q_i=w_i/m$, so normalisation gives $w_i/W$."
     }
    ]
   },

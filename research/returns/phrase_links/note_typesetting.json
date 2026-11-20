@@ -1,0 +1,818 @@
+[
+ {
+  "paper": "expert",
+  "tie": "q4-preview-verify",
+  "declaration": "QuarticQuery.Paper.quantumVerify_search_query_bound",
+  "field": "fidelity_note",
+  "returned": "The type bounds fixed-address failed-test search under K ≥ 2 and 0 < ε < 1/2. It does not include fresh address decoding, complete winner verification or the substitution K = O_k(m ell^3).",
+  "typeset": "The type bounds fixed-address failed-test search under $K \\ge 2$ and $0 < \\varepsilon < 1/2$. It does not include fresh address decoding, complete winner verification or the substitution $K = O_k(m\\ell^3)$."
+ },
+ {
+  "paper": "expert",
+  "tie": "q4-preview-weight",
+  "declaration": "QuarticQuery.Tournament.expectFrom",
+  "field": "fidelity_note",
+  "returned": "The definition supplies sampling with ratios w_i/W and stopping at W = 0. The equality of each weight to the probability of winning fresh independent comparisons is not part of its type.",
+  "typeset": "The definition supplies sampling with ratios $w_i/W$ and stopping at $W = 0$. The equality of each weight to the probability of winning fresh independent comparisons is not part of its type."
+ },
+ {
+  "paper": "expert",
+  "tie": "p2-table-circuit",
+  "declaration": "QuarticQuery.Paper.construction_lemma_2_1_iii",
+  "field": "fidelity_note",
+  "returned": "Lean gives the explicit O_k(m(log₂m)²) size and also covers k = 1.",
+  "typeset": "Lean gives the explicit $O_k(m(\\log_2 m)^2)$ size and also covers $k = 1$."
+ },
+ {
+  "paper": "expert",
+  "tie": "p2-sign-coordinate",
+  "declaration": "QuarticQuery.bitSign",
+  "field": "fidelity_note",
+  "returned": "Lean applies bitSign to the stored Bool z (j,a); the printed exponent a denotes the coordinate in z_j(a), so the displayed formula omits the input value.",
+  "typeset": "Lean applies `bitSign` to the stored `Bool` `z (j,a)`; the printed exponent $a$ denotes the coordinate in $z_j(a)$, so the displayed formula omits the input value."
+ },
+ {
+  "paper": "expert",
+  "tie": "p2-lemma-circuit",
+  "declaration": "QuarticQuery.Paper.construction_lemma_2_1_iii",
+  "field": "fidelity_note",
+  "returned": "Lean covers k ≥ 1 and every t ≥ 1, so the circuit statement holds for all m = 4^t ≥ 4 rather than only eventually.",
+  "typeset": "Lean covers $k \\ge 1$ and every $t \\ge 1$, so the circuit statement holds for all $m = 4^t \\ge 4$ rather than only eventually."
+ },
+ {
+  "paper": "expert",
+  "tie": "p3-K",
+  "declaration": "QuarticQuery.card_testIndex",
+  "field": "fidelity_note",
+  "returned": "The exact count is proved for arbitrary ell, r and S; the paper substitutes m = 2^ell and r = 20ell.",
+  "typeset": "The exact count is proved for arbitrary $\\ell$, $r$ and $S$; the paper substitutes $m = 2^\\ell$ and $r = 20\\ell$."
+ },
+ {
+  "paper": "expert",
+  "tie": "q4-probability-weight",
+  "declaration": "QuarticQuery.Paper.tensor_success_mass",
+  "field": "fidelity_note",
+  "returned": "The theorem factors success mass for independent register vectors. It does not identify those individual masses with the a_ij entries or define the candidate weights.",
+  "typeset": "The theorem factors success mass for independent register vectors. It does not identify those individual masses with the $a_{ij}$ entries or define the candidate weights."
+ },
+ {
+  "paper": "expert",
+  "tie": "q4-weights-display",
+  "declaration": "QuarticQuery.Tournament.weight",
+  "field": "fidelity_note",
+  "returned": "This definition supplies only w_i, including its product update. It does not define the displayed total W; that is the separate total declaration.",
+  "typeset": "This definition supplies only $w_i$, including its product update. It does not define the displayed total $W$; that is the separate total declaration."
+ },
+ {
+  "paper": "expert",
+  "tie": "q4-weights-display",
+  "declaration": "QuarticQuery.Tournament.total",
+  "field": "fidelity_note",
+  "returned": "This definition supplies only W = sum_i w_i. It does not define the individual product weights displayed in the same formula.",
+  "typeset": "This definition supplies only $W = \\sum_i w_i$. It does not define the individual product weights displayed in the same formula."
+ },
+ {
+  "paper": "expert",
+  "tie": "q4-pivot-zero",
+  "declaration": "QuarticQuery.Tournament.weight",
+  "field": "fidelity_note",
+  "returned": "The recursive definition supplies the multiplication update. The conclusion that the new pivot’s weight is zero additionally needs the self_zero field of IsComparison.",
+  "typeset": "The recursive definition supplies the multiplication update. The conclusion that the new pivot’s weight is zero additionally needs the `self_zero` field of `IsComparison`."
+ },
+ {
+  "paper": "expert",
+  "tie": "q4-pivot-zero",
+  "declaration": "QuarticQuery.Tournament.IsComparison",
+  "field": "fidelity_note",
+  "returned": "The structure supplies the zero-diagonal assumption and complementarity. It does not define or carry out the weight update; multiplying by a_jj = 0 uses the separate weight definition.",
+  "typeset": "The structure supplies the zero-diagonal assumption and complementarity. It does not define or carry out the weight update; multiplying by $a_{jj} = 0$ uses the separate weight definition."
+ },
+ {
+  "paper": "expert",
+  "tie": "q4-ideal-label-law",
+  "declaration": "QuarticQuery.Paper.equation_15_conditional_index",
+  "field": "fidelity_note",
+  "returned": "The theorem gives the exact conditional product-weight law under hv and hW > 0. It does not by itself exhibit the query circuit or express the absence of stored numerical a_ij values.",
+  "typeset": "The theorem gives the exact conditional product-weight law under `hv` and `hW > 0`. It does not by itself exhibit the query circuit or express the absence of stored numerical $a_{ij}$ values."
+ },
+ {
+  "paper": "expert",
+  "tie": "q4-amplifier-label",
+  "declaration": "QuarticQuery.Paper.quantum_amplified_label_law",
+  "field": "fidelity_note",
+  "returned": "The type supplies a physical program with output law ampLaw, but does not itself display the conditional-law equality. That equality also needs the positive-success hypotheses stated in quantum_amplified_conditional.",
+  "typeset": "The type supplies a physical program with output law `ampLaw`, but does not itself display the conditional-law equality. That equality also needs the positive-success hypotheses stated in `quantum_amplified_conditional`."
+ },
+ {
+  "paper": "expert",
+  "tie": "c5-joint-event-chain",
+  "declaration": "QuarticQuery.Paper.avg_reachedCellAt_le",
+  "field": "fidelity_note",
+  "returned": "The highlighted proof establishes the first inequality, joint light-hit probability at most simulator success, for each fixed outside choice A,J. This excerpt does not state the final beta^r bound under the full dummy law.",
+  "typeset": "The highlighted proof establishes the first inequality, joint light-hit probability at most simulator success, for each fixed outside choice $A,J$. This excerpt does not state the final $\\beta^r$ bound under the full dummy law."
+ },
+ {
+  "paper": "expert",
+  "tie": "c5-guess-tail",
+  "declaration": "QuarticQuery.twoThirds_pow_le",
+  "field": "fidelity_note",
+  "returned": "Lean bounds the factor (2/3)^(40t) itself by m^(-10) for every natural t. Multiplication by the nonnegative G gives the printed bound at m=4^t, r=40t=20 ell.",
+  "typeset": "Lean bounds the factor $(2/3)^{40t}$ itself by $m^{-10}$ for every natural $t$. Multiplication by the nonnegative $G$ gives the printed bound at $m=4^t$, $r=40t=20\\ell$."
+ },
+ {
+  "paper": "expert",
+  "tie": "e-ratio-display",
+  "declaration": "QuarticQuery.eventually_gt_rpow",
+  "field": "fidelity_note",
+  "returned": "The theorem states eventual R_t>D(1+Q_t)^α for any supplied positive D under the family bounds. It does not state the full displayed pointwise quotient inequality with coefficient 1/[400(1+C_k)^α].",
+  "typeset": "The theorem states eventual $R_t>D(1+Q_t)^\\alpha$ for any supplied positive $D$ under the family bounds. It does not state the full displayed pointwise quotient inequality with coefficient $1/[400(1+C_k)^\\alpha]$."
+ },
+ {
+  "paper": "expert",
+  "tie": "f-mean-separation",
+  "declaration": "QuarticQuery.ForrelationLower.mass_ge",
+  "field": "fidelity_note",
+  "returned": "Lean gives the explicit positive mean gap (1/18)^(k−1), while the prose asserts separation without a constant.",
+  "typeset": "Lean gives the explicit positive mean gap $(1/18)^{k-1}$, while the prose asserts separation without a constant."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-1-global-sign",
+  "declaration": "QuarticQuery.Upper.lawOf_smul",
+  "field": "fidelity_note",
+  "returned": "lawOf_smul treats every complex scalar a and gives the exact factor |a|²; the sentence is its a=-1 case.",
+  "typeset": "`lawOf_smul` treats every complex scalar $a$ and gives the exact factor $|a|^2$; the sentence is its $a=-1$ case."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-1-summary-table-upper",
+  "declaration": "QuarticQuery.D_le_Q_pow_four",
+  "field": "fidelity_note",
+  "returned": "The theorem gives D(f) ≤ 20736 Q(f)^4 for every total f. Together with R_le_D, it yields the displayed bound on R.",
+  "typeset": "The theorem gives $D(f) \\le 20736\\, Q(f)^4$ for every total $f$. Together with `R_le_D`, it yields the displayed bound on $R$."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-1-summary-table-upper",
+  "declaration": "QuarticQuery.R_le_D",
+  "field": "fidelity_note",
+  "returned": "R_le_D holds for every partial Boolean function on a finite coordinate type, including the total functions in this row.",
+  "typeset": "`R_le_D` holds for every partial Boolean function on a finite coordinate type, including the total functions in this row."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-1-all-smaller-powers",
+  "declaration": "QuarticQuery.Paper.classical_Fkm_ratio",
+  "field": "fidelity_note",
+  "returned": "classical_Fkm_ratio assumes 0 ≤ α and α/2 < 2-1/k for a fixed k≥2; exists_nat_exponent chooses k for α<4. Negative α require the additional monotonicity observation, not stated by this declaration.",
+  "typeset": "`classical_Fkm_ratio` assumes $0 \\le \\alpha$ and $\\alpha/2 < 2-1/k$ for a fixed $k\\ge 2$; `exists_nat_exponent` chooses $k$ for $\\alpha<4$. Negative $\\alpha$ require the additional monotonicity observation, not stated by this declaration."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-1-critical-exponent-definition",
+  "declaration": "QuarticQuery.alphaTot",
+  "field": "fidelity_note",
+  "returned": "alphaTot takes the infimum of nonnegative α satisfying a uniform bound in (1+Q(f))^α; the sentence writes Q(f)^α without that restriction. The positive-Q bases are comparable, but the expressions are not literally identical.",
+  "typeset": "`alphaTot` takes the infimum of nonnegative $\\alpha$ satisfying a uniform bound in $(1+Q(f))^\\alpha$; the sentence writes $Q(f)^\\alpha$ without that restriction. The positive-$Q$ bases are comparable, but the expressions are not literally identical."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-1-classical-scale",
+  "declaration": "QuarticQuery.Paper.construction_equation_two",
+  "field": "fidelity_note",
+  "returned": "The family theorem gives an eventual lower bound c m^(2-1/k)/(log₂m)². It does not assert an exact product cost or the explanatory split of the two factors; this display intentionally suppresses logarithms.",
+  "typeset": "The family theorem gives an eventual lower bound $c\\, m^{2-1/k}/(\\log_2 m)^2$. It does not assert an exact product cost or the explanatory split of the two factors; this display intentionally suppresses logarithms."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-1-fourth-power-limit",
+  "declaration": "QuarticQuery.familyExponent_tendsto",
+  "field": "fidelity_note",
+  "returned": "The theorem states lim_{k→∞}(4-2/k)=4, a numerical exponent limit. The displayed sentence is about powers of m; fixed-k query bounds and then growing m are a further step.",
+  "typeset": "The theorem states $\\lim_{k\\to\\infty}(4-2/k)=4$, a numerical exponent limit. The displayed sentence is about powers of $m$; fixed-$k$ query bounds and then growing $m$ are a further step."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-2-pointer-read-budget",
+  "declaration": "QuarticQuery.Paper.construction_test_depth",
+  "field": "fidelity_note",
+  "returned": "construction_test_depth states an upper bound ≤2t+1 for local tests on m=4^t with t≥1. It is not an equality or a lower bound for every pointer-following procedure.",
+  "typeset": "`construction_test_depth` states an upper bound $\\le 2t+1$ for local tests on $m=4^t$ with $t\\ge 1$. It is not an equality or a lower bound for every pointer-following procedure."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-2-cell-cardinality",
+  "declaration": "QuarticQuery.Paper.construction_layout_cardinalities",
+  "field": "link_note",
+  "returned": "With m=4^t and r=40t, the third cardinality is 2^r=m^20.",
+  "typeset": "With $m=4^t$ and $r=40t$, the third cardinality is $2^r=m^{20}$."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-4-product-mass",
+  "declaration": "QuarticQuery.Paper.equation_15_index_law",
+  "field": "link_note",
+  "returned": "Adding the uniform column register gives the joint mass w_i/m.",
+  "typeset": "Adding the uniform column register gives the joint mass $w_i/m$."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-4-actual-miss",
+  "declaration": "QuarticQuery.Paper.quantumTournament",
+  "field": "fidelity_note",
+  "returned": "The list theorem gives the sharper symbolic miss bound 2m/2^T + Tε; at T = ceil(log₂(1000m)), 2m/2^T ≤ 1/500.",
+  "typeset": "The list theorem gives the sharper symbolic miss bound $2m/2^T + T\\varepsilon$; at $T = \\lceil \\log_2(1000m) \\rceil$, $2m/2^T \\le 1/500$."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-5-capped-address-guessing",
+  "declaration": "QuarticQuery.Paper.classical_direct_product",
+  "field": "fidelity_note",
+  "returned": "The bound is at most β^r under a mass-one product hard distribution and a cap of L queries to each input on every branch; set β = 2/3. The phrase omits these restrictions and suggests a rate rather than an upper bound.",
+  "typeset": "The bound is at most $\\beta^r$ under a mass-one product hard distribution and a cap of $L$ queries to each input on every branch; set $\\beta = 2/3$. The phrase omits these restrictions and suggests a rate rather than an upper bound."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-6-true-board-error-sources",
+  "declaration": "QuarticQuery.Paper.quantumTournament",
+  "field": "fidelity_note",
+  "returned": "The list-omission contribution is bounded by 2m/2^T + Tε, retaining the sharper symbolic term before the paper bounds it by 1/500.",
+  "typeset": "The list-omission contribution is bounded by $2m/2^T + T\\varepsilon$, retaining the sharper symbolic term before the paper bounds it by $1/500$."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-7-small-discrepancy",
+  "declaration": "QuarticQuery.discrepancy_parameters",
+  "field": "fidelity_note",
+  "returned": "The Lean theorem supplies this inequality for k≥2 and t≥8, with m=4^t and the defined L and G. The preview sentence does not yet state that threshold.",
+  "typeset": "The Lean theorem supplies this inequality for $k\\ge 2$ and $t\\ge 8$, with $m=4^t$ and the defined $L$ and $G$. The preview sentence does not yet state that threshold."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-7-time-union",
+  "declaration": "QuarticQuery.avg_reachedCell_le",
+  "field": "link_note",
+  "returned": "Instantiate ρ with the separate-cap bound (2/3)^r; outside board data are fixed in this theorem.",
+  "typeset": "Instantiate $\\rho$ with the separate-cap bound $(2/3)^r$; outside board data are fixed in this theorem."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-7-final-numeric",
+  "declaration": "QuarticQuery.Paper.classical_numeric_components",
+  "field": "fidelity_note",
+  "returned": "Lean states the weaker third-term bound 1/100 and total bound 6/100<1/3, rather than the displayed sharper third-term bound 1/(100m^8).",
+  "typeset": "Lean states the weaker third-term bound $1/100$ and total bound $6/100<1/3$, rather than the displayed sharper third-term bound $1/(100m^8)$."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-7-classical-lower-bound",
+  "declaration": "QuarticQuery.Paper.prop_4_2",
+  "field": "fidelity_note",
+  "returned": "Lean proves the stated eventual lower bound for every circuit realizing P, with a threshold independent of that circuit, rather than only the chosen circuit of F_{k,m}.",
+  "typeset": "Lean proves the stated eventual lower bound for every circuit realizing $P$, with a threshold independent of that circuit, rather than only the chosen circuit of $F_{k,m}$."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-8-restoring-logarithms",
+  "declaration": "QuarticQuery.Paper.classical_power_log_tendsto",
+  "field": "fidelity_note",
+  "returned": "The theorem applies to any positive coefficient and positive real power of m, divided by any fixed real logarithmic power, along m=4^t.",
+  "typeset": "The theorem applies to any positive coefficient and positive real power of $m$, divided by any fixed real logarithmic power, along $m=4^t$."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-8-cubic-fails",
+  "declaration": "QuarticQuery.Paper.classical_Fkm_ratio",
+  "field": "fidelity_note",
+  "returned": "For k=3, classical_Fkm_ratio gives divergence for every nonnegative α<10/3, including α=3; it treats all fixed k≥2.",
+  "typeset": "For $k=3$, `classical_Fkm_ratio` gives divergence for every nonnegative $\\alpha<10/3$, including $\\alpha=3$; it treats all fixed $k\\ge 2$."
+ },
+ {
+  "paper": "exposition",
+  "tie": "exp-8-universal-d-bound",
+  "declaration": "QuarticQuery.D_le_Q_pow_four",
+  "field": "fidelity_note",
+  "returned": "The source gives the explicit uniform inequality D(f) ≤ 20736 Q(f)^4 for every total function, with no asymptotic threshold.",
+  "typeset": "The source gives the explicit uniform inequality $D(f) \\le 20736\\, Q(f)^4$ for every total function, with no asymptotic threshold."
+ },
+ {
+  "paper": "exposition",
+  "tie": "app-a4-absorbing-the-lower-bound-constant",
+  "declaration": "QuarticQuery.Paper.construction_bs_comparison_chain",
+  "field": "fidelity_note",
+  "returned": "The statement proves the eventual strict comparison for every positive constant c at fixed k ≥ 2. It does not state the ratio asymptotic of order (log m)^(1+1/k).",
+  "typeset": "The statement proves the eventual strict comparison for every positive constant $c$ at fixed $k \\ge 2$. It does not state the ratio asymptotic of order $(\\log m)^{1+1/k}$."
+ },
+ {
+  "paper": "exposition",
+  "tie": "app-e-measured-law",
+  "declaration": "QuarticQuery.Paper.quantum_amplified_conditional",
+  "field": "fidelity_note",
+  "returned": "The conditional-law theorem permits arbitrary finite nonnegative label weights of positive mass and 0≤f<1. Here q_i=w_i/m, so normalisation gives w_i/W.",
+  "typeset": "The conditional-law theorem permits arbitrary finite nonnegative label weights of positive mass and $0\\le f<1$. Here $q_i=w_i/m$, so normalisation gives $w_i/W$."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-test-count-bound",
+  "declaration": "QuarticQuery.Paper.construction_K_bound",
+  "field": "fidelity_note",
+  "returned": "This declaration gives the cubic upper bound under ht and hS. The displayed exact equality is supplied by construction_K_count.",
+  "typeset": "This declaration gives the cubic upper bound under `ht` and `hS`. The displayed exact equality is supplied by `construction_K_count`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-comparison-table",
+  "declaration": "QuarticQuery.Tournament.IsComparison",
+  "field": "fidelity_note",
+  "returned": "This structure states complementarity and the zero diagonal, but omits 0≤a_ij≤1; UnitValued supplies that clause.",
+  "typeset": "This structure states complementarity and the zero diagonal, but omits $0\\le a_{ij}\\le 1$; `UnitValued` supplies that clause."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-comparison-table",
+  "declaration": "QuarticQuery.Tournament.UnitValued",
+  "field": "fidelity_note",
+  "returned": "This predicate states only 0≤a_ij≤1; IsComparison supplies complementarity and the zero diagonal.",
+  "typeset": "This predicate states only $0\\le a_{ij}\\le 1$; `IsComparison` supplies complementarity and the zero diagonal."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-dominant-weight-chain",
+  "declaration": "QuarticQuery.Paper.quantumWeight_lower",
+  "field": "fidelity_note",
+  "returned": "The type gives (1−ε)^h≤w_s, 1−Tε≤(1−ε)^h and w_s>1/2. It does not state the intermediate 1−hε or the substitution 1−Tε=999/1000 shown here.",
+  "typeset": "The type gives $(1-\\varepsilon)^h\\le w_s$, $1-T\\varepsilon\\le(1-\\varepsilon)^h$ and $w_s>1/2$. It does not state the intermediate $1-h\\varepsilon$ or the substitution $1-T\\varepsilon=999/1000$ shown here."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-ideal-miss",
+  "declaration": "QuarticQuery.Tournament.ideal_miss_le",
+  "field": "fidelity_note",
+  "returned": "The theorem states absence≤Pr[W_T≥1/2]≤2m/2^T. The intermediate Pr[W_T≥1/2]≤2 E W_T is used in its proof, not exposed in its type.",
+  "typeset": "The theorem states absence $\\le\\Pr[W_T\\ge 1/2]\\le 2m/2^T$. The intermediate $\\Pr[W_T\\ge 1/2]\\le 2\\,\\mathbb{E}\\, W_T$ is used in its proof, not exposed in its type."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-decode-cost-and-accuracy",
+  "declaration": "QuarticQuery.Paper.quantumDecode_query_bound_real",
+  "field": "fidelity_note",
+  "returned": "This theorem bounds the physical decoder budget but does not assert promised accuracy; quantumDecode_correct supplies that separate clause.",
+  "typeset": "This theorem bounds the physical decoder budget but does not assert promised accuracy; `quantumDecode_correct` supplies that separate clause."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-verifier-count",
+  "declaration": "QuarticQuery.Paper.construction_K_count",
+  "field": "fidelity_note",
+  "returned": "The type gives the exact cardinality. It does not give the O_k(mℓ³) bound in this display; construction_K_bound supplies that bound under the circuit-size hypothesis.",
+  "typeset": "The type gives the exact cardinality. It does not give the $O_k(m\\ell^3)$ bound in this display; `construction_K_bound` supplies that bound under the circuit-size hypothesis."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-full-algorithm-errors",
+  "declaration": "QuarticQuery.Paper.quantumError_bound",
+  "field": "fidelity_note",
+  "returned": "The declaration gives both zero-input and one-input probability bounds, but omits the final strict comparison with 1/3; quantumError_numeric supplies it.",
+  "typeset": "The declaration gives both zero-input and one-input probability bounds, but omits the final strict comparison with $1/3$; `quantumError_numeric` supplies it."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-full-algorithm-errors",
+  "declaration": "QuarticQuery.Paper.quantumError_numeric",
+  "field": "fidelity_note",
+  "returned": "The declaration gives only Tε=1/1000 and the numeric bound below 1/3; the input-dependent probability inequalities are in quantumError_bound.",
+  "typeset": "The declaration gives only $T\\varepsilon=1/1000$ and the numeric bound below $1/3$; the input-dependent probability inequalities are in `quantumError_bound`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "rec-cl-mplusone-ingredient",
+  "declaration": "QuarticQuery.zero_search_sum_successor",
+  "field": "fidelity_note",
+  "returned": "This theorem proves the one-column inequality (|U|+1)D_U ≤ 2Q_U. It does not state either averaged bound on EZ or selected-column hit probability; those require averaging and the independent-selection identity.",
+  "typeset": "This theorem proves the one-column inequality $(|U|+1)D_U \\le 2Q_U$. It does not state either averaged bound on $\\mathbb{E}Z$ or selected-column hit probability; those require averaging and the independent-selection identity."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "rec-cl-weighted-optimum",
+  "declaration": "QuarticQuery.exists_tree_budgetValue_le",
+  "field": "fidelity_note",
+  "returned": "This declaration constructs a depth-c tree with success at least W_c. The upper bound for all trees is the separate treeSuccess_le_budgetValue declaration.",
+  "typeset": "This declaration constructs a depth-$c$ tree with success at least $W_c$. The upper bound for all trees is the separate `treeSuccess_le_budgetValue` declaration."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "rec-cl-weighted-optimum",
+  "declaration": "QuarticQuery.treeSuccess_le_budgetValue",
+  "field": "fidelity_note",
+  "returned": "This declaration bounds every depth-c tree by W_c. Attainment, the other half of being a maximum, is supplied by exists_tree_budgetValue_le.",
+  "typeset": "This declaration bounds every depth-$c$ tree by $W_c$. Attainment, the other half of being a maximum, is supplied by `exists_tree_budgetValue_le`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "rec-cl-tail-display",
+  "declaration": "QuarticQuery.Paper.classical_tail_le",
+  "field": "fidelity_note",
+  "returned": "The Lean theorem gives G(2/3)^(40t) ≤ m^(2−20 log₂(3/2))/100. It does not include the displayed further inequality ≤ m^(−8)/100.",
+  "typeset": "The Lean theorem gives $G(2/3)^{40t} \\le m^{2-20\\log_2(3/2)}/100$. It does not include the displayed further inequality $\\le m^{-8}/100$."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "rec-cl-contradiction",
+  "declaration": "QuarticQuery.addressedF_not_RLe",
+  "field": "fidelity_note",
+  "returned": "The theorem concludes ¬ RLe F G under a discrepancy premise. The conversion to the numeric minimum R(F)>G is supplied by Gvalue_lt_R_addressedF and the finite-minimum lemmas, not by this declaration alone.",
+  "typeset": "The theorem concludes `¬ RLe F G` under a discrepancy premise. The conversion to the numeric minimum $R(F)>G$ is supplied by `Gvalue_lt_R_addressedF` and the finite-minimum lemmas, not by this declaration alone."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "rec-cl-same-family-bounds",
+  "declaration": "QuarticQuery.Paper.construction_family_named",
+  "field": "fidelity_note",
+  "returned": "The theorem supplies the same explicit circuit, the coefficient 1/400, and the logarithmic exponent 6, as well as circuit correctness and size. The paper display leaves the constant C_k and exponent b_k unspecified.",
+  "typeset": "The theorem supplies the same explicit circuit, the coefficient $1/400$, and the logarithmic exponent $6$, as well as circuit correctness and size. The paper display leaves the constant $C_k$ and exponent $b_k$ unspecified."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "rec-cl-power-beats-log",
+  "declaration": "QuarticQuery.Paper.classical_power_log_tendsto",
+  "field": "fidelity_note",
+  "returned": "This theorem proves divergence of the scalar lower bound d m^δ/(log₂m)^e. It does not itself state divergence of the query-complexity quotient; classical_Fkm_ratio supplies that conclusion.",
+  "typeset": "This theorem proves divergence of the scalar lower bound $d\\, m^\\delta/(\\log_2 m)^e$. It does not itself state divergence of the query-complexity quotient; `classical_Fkm_ratio` supplies that conclusion."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-walsh-objects",
+  "declaration": "QuarticQuery.Forrelation.signDiag",
+  "field": "fidelity_note",
+  "returned": "This definition supplies the sign diagonal D_z; the selected sentence defines four objects. The other three objects have separate definition links.",
+  "typeset": "This definition supplies the sign diagonal $D_z$; the selected sentence defines four objects. The other three objects have separate definition links."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-normalization-identities",
+  "declaration": "QuarticQuery.Forrelation.isOrth_signDiag",
+  "field": "fidelity_note",
+  "returned": "This declaration supplies only D_zᵀD_z=I. The complete selected display also asserts the other matrix and vector normalization identities, which are separate declarations.",
+  "typeset": "This declaration supplies only $D_z^\\top D_z=I$. The complete selected display also asserts the other matrix and vector normalization identities, which are separate declarations."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-forrelation-overlap",
+  "declaration": "QuarticQuery.Forrelation.Phi_eq_matrix_product",
+  "field": "fidelity_note",
+  "returned": "The theorem states the matrix-overlap identity for Φ under k≥1. The selected display also defines δ=32^{-k}; that threshold is supplied by the separate delta definition.",
+  "typeset": "The theorem states the matrix-overlap identity for $\\Phi$ under $k\\ge 1$. The selected display also defines $\\delta=32^{-k}$; that threshold is supplied by the separate `delta` definition."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-forrelation-overlap",
+  "declaration": "QuarticQuery.Forrelation.delta",
+  "field": "fidelity_note",
+  "returned": "This definition gives δ=2^{-5k}=32^{-k}. It does not state the matrix identity for Φ that occupies the other half of the selected display.",
+  "typeset": "This definition gives $\\delta=2^{-5k}=32^{-k}$. It does not state the matrix identity for $\\Phi$ that occupies the other half of the selected display."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-promise-classes",
+  "declaration": "QuarticQuery.Forrelation.P_eq_cases",
+  "field": "fidelity_note",
+  "returned": "The paper names only the two promised preimages. P_eq_cases additionally states that every remaining input has output none.",
+  "typeset": "The paper names only the two promised preimages. `P_eq_cases` additionally states that every remaining input has output `none`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-explicit-threshold-scope",
+  "declaration": "QuarticQuery.lvalue_lt_R_explicit",
+  "field": "fidelity_note",
+  "returned": "The paper gives t₀(k)=13669k². The named theorem instead assumes ht : 3499200 * k ^ 2 ≤ t. It proves the desired floor conclusion only above that larger sufficient threshold; the sharp uniform supplier is linked separately.",
+  "typeset": "The paper gives $t_0(k)=13669k^2$. The named theorem instead assumes `ht : 3499200 * k ^ 2 ≤ t`. It proves the desired floor conclusion only above that larger sufficient threshold; the sharp uniform supplier is linked separately."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-probability-weights",
+  "declaration": "QuarticQuery.ForrelationLower.bw_nonneg",
+  "field": "fidelity_note",
+  "returned": "The theorem gives nonnegative weights when every |μᵢ|≤1. The selected phrase also says that their sum is one; that separate claim is supplied by sum_bw.",
+  "typeset": "The theorem gives nonnegative weights when every $|\\mu_i|\\le 1$. The selected phrase also says that their sum is one; that separate claim is supplied by `sum_bw`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-extension-bound",
+  "declaration": "QuarticQuery.ForrelationLower.abs_ext_le",
+  "field": "fidelity_note",
+  "returned": "The prose takes B=max_z |g(z)|. The theorem permits any real upper bound B supplied by hg, with the same probability-box hypothesis hμ.",
+  "typeset": "The prose takes $B=\\max_z |g(z)|$. The theorem permits any real upper bound $B$ supplied by `hg`, with the same probability-box hypothesis `hμ`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-gaussian-derivatives",
+  "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
+  "field": "fidelity_note",
+  "returned": "The theorem states only φ′(x)=3/q(x)^5. The selected display also states the derivative of Ψ and the identity φ=xΨ−Ψ′.",
+  "typeset": "The theorem states only $\\varphi'(x)=3/q(x)^5$. The selected display also states the derivative of $\\Psi$ and the identity $\\varphi=x\\Psi-\\Psi'$."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-gaussian-derivatives",
+  "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_psiS",
+  "field": "fidelity_note",
+  "returned": "The theorem states only Ψ′(x)=−x/(2q(x)^3). The selected display also states the derivative of φ and the identity φ=xΨ−Ψ′.",
+  "typeset": "The theorem states only $\\Psi'(x)=-x/(2q(x)^3)$. The selected display also states the derivative of $\\varphi$ and the identity $\\varphi=x\\Psi-\\Psi'$."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-rounding-odd-bounded",
+  "declaration": "QuarticQuery.ForrelationLower.phiS_neg",
+  "field": "fidelity_note",
+  "returned": "This theorem gives oddness, φ(−x)=−φ(x). The selected phrase also asserts the bound |φ|≤1/2, supplied by abs_phiS_le.",
+  "typeset": "This theorem gives oddness, $\\varphi(-x)=-\\varphi(x)$. The selected phrase also asserts the bound $|\\varphi|\\le 1/2$, supplied by `abs_phiS_le`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-rounding-odd-bounded",
+  "declaration": "QuarticQuery.ForrelationLower.abs_phiS_le",
+  "field": "fidelity_note",
+  "returned": "This theorem gives |φ(x)|≤1/2. The selected phrase also asserts oddness, supplied by phiS_neg.",
+  "typeset": "This theorem gives $|\\varphi(x)|\\le 1/2$. The selected phrase also asserts oddness, supplied by `phiS_neg`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-interpolation-derivative",
+  "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_ext_s",
+  "field": "fidelity_note",
+  "returned": "This theorem differentiates F_g(w_s(U)) for fixed U. Equation (8.15) differentiates its Gaussian average. The latter interchange is proved separately inside exists_identity for 0<s<1.",
+  "typeset": "This theorem differentiates $F_g(w_s(U))$ for fixed $U$. Equation (8.15) differentiates its Gaussian average. The latter interchange is proved separately inside `exists_identity` for $0<s<1$."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-three-block-chain-rule",
+  "declaration": "QuarticQuery.ForrelationLower.sum_dw_eq",
+  "field": "fidelity_note",
+  "returned": "The theorem is the algebraic bias-chain sum after assuming hE : E (cn j a)=0; it does not itself assert that E is this mixed derivative or state the full k=3 derivative formula. hasDerivAt_ext and D_D supply those additional steps.",
+  "typeset": "The theorem is the algebraic bias-chain sum after assuming `hE : E (cn j a)=0`; it does not itself assert that $E$ is this mixed derivative or state the full $k=3$ derivative formula. `hasDerivAt_ext` and `D_D` supply those additional steps."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-iterated-gaussian-identity",
+  "declaration": "QuarticQuery.ForrelationLower.integral_walk",
+  "field": "fidelity_note",
+  "returned": "The theorem replaces a remaining rounded factor under the integral by Int, assuming a continuous bounded coefficient that satisfies EarlyOnly. It is one induction ingredient, not the full derivative-of-h_g path formula.",
+  "typeset": "The theorem replaces a remaining rounded factor under the integral by `Int`, assuming a continuous bounded coefficient that satisfies `EarlyOnly`. It is one induction ingredient, not the full derivative-of-$h_g$ path formula."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-forrelation-path-expansion",
+  "declaration": "QuarticQuery.forrelationDenominator",
+  "field": "fidelity_note",
+  "returned": "This definition gives only the normalization m(√m)^{k−1}. The selected display also contains the path numerator and its real correlation, which are separate definitions.",
+  "typeset": "This definition gives only the normalization $m(\\sqrt{m})^{k-1}$. The selected display also contains the path numerator and its real correlation, which are separate definitions."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-positive-forrelation-mean",
+  "declaration": "QuarticQuery.ForrelationLower.mass_ge",
+  "field": "fidelity_note",
+  "returned": "The theorem gives correlated mean minus uniform mean ≥18^{-(k−1)}. The selected display additionally identifies the uniform mean as zero and compares 18^{-(k−1)} with 32δ; those are supplied by the other two links.",
+  "typeset": "The theorem gives correlated mean minus uniform mean $\\ge 18^{-(k-1)}$. The selected display additionally identifies the uniform mean as zero and compares $18^{-(k-1)}$ with $32\\delta$; those are supplied by the other two links."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-positive-forrelation-mean",
+  "declaration": "QuarticQuery.ForrelationLower.ext_PhiF_zero",
+  "field": "fidelity_note",
+  "returned": "This theorem supplies only the zero uniform mean needed to turn mass_ge into an absolute correlated-mean bound. It does not state either inequality in the selected lower-mean chain.",
+  "typeset": "This theorem supplies only the zero uniform mean needed to turn `mass_ge` into an absolute correlated-mean bound. It does not state either inequality in the selected lower-mean chain."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-positive-forrelation-mean",
+  "declaration": "QuarticQuery.ForrelationLower.dl_le",
+  "field": "fidelity_note",
+  "returned": "The theorem gives the numerical inequality 32δ≤18^{-(k−1)}. It does not state the correlated-distribution mean inequality in the selected display.",
+  "typeset": "The theorem gives the numerical inequality $32\\delta\\le 18^{-(k-1)}$. It does not state the correlated-distribution mean inequality in the selected display."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-real-leaf-sharp-advantage",
+  "declaration": "QuarticQuery.ForrelationLower.advantage_le_sharp_real_leaves_explicit",
+  "field": "fidelity_note",
+  "returned": "The paper specializes to the Walsh matrix with |H_ab|=m^{-1/2}. The theorem allows any row-orthogonal H with entry bound ε≥0 and uses (3ε/16)^{k-1}; its real-leaf and depth hypotheses match the paper’s tree setting.",
+  "typeset": "The paper specializes to the Walsh matrix with $|H_{ab}|=m^{-1/2}$. The theorem allows any row-orthogonal $H$ with entry bound $\\varepsilon\\ge 0$ and uses $(3\\varepsilon/16)^{k-1}$; its real-leaf and depth hypotheses match the paper’s tree setting."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-leaf-pairing-identity",
+  "declaration": "QuarticQuery.ForrelationLower.walk_chaos",
+  "field": "fidelity_note",
+  "returned": "The paper allows an independent real value in [-1,1] at every leaf. walk_chaos uses T : QueryTree ι with Boolean leaves and one postprocessing map v : Bool → ℝ. The full real-leaf endpoint growth theorem is separately linked at (8.28).",
+  "typeset": "The paper allows an independent real value in $[-1,1]$ at every leaf. `walk_chaos` uses `T : QueryTree ι` with Boolean leaves and one postprocessing map `v : Bool → ℝ`. The full real-leaf endpoint growth theorem is separately linked at (8.28)."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-maximal-inequality-scope",
+  "declaration": "QuarticQuery.ForrelationLower.hit_azuma",
+  "field": "fidelity_note",
+  "returned": "The paper quantifies over arbitrary zero-start martingales and gives a two-sided maximum bound with deterministic increment bound B. hit_azuma quantifies over a finite QueryTree, fixed product biases and the specific fresh-query increment identity hY; its conclusion is one-sided and adds the probability of a bad coefficient event.",
+  "typeset": "The paper quantifies over arbitrary zero-start martingales and gives a two-sided maximum bound with deterministic increment bound $B$. `hit_azuma` quantifies over a finite `QueryTree`, fixed product biases and the specific fresh-query increment identity `hY`; its conclusion is one-sided and adds the probability of a bad coefficient event."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-crude-polynomial-bound",
+  "declaration": "QuarticQuery.ForrelationLower.abs_chaos_le",
+  "field": "fidelity_note",
+  "returned": "The paper uses factors bounded by 2 and a revealed set at a leaf. The theorem permits factors bounded by any B≥0 and any revealed set, with bound (nB)^r.",
+  "typeset": "The paper uses factors bounded by 2 and a revealed set at a leaf. The theorem permits factors bounded by any $B\\ge 0$ and any revealed set, with bound $(nB)^r$."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-off-promise-pointwise-comparison",
+  "declaration": "QuarticQuery.ForrelationLower.not_RLe_of_gap_sharp",
+  "field": "fidelity_note",
+  "returned": "The paper quantifies over every acceptance function A in [0,1] with any promise error ε in [0,1]. The proof slice establishes these comparisons only for its constructed amplified acceptance a, with ε=(8/9)^τ, fixed δ=dl(l+1), and Φ=PhiF t.",
+  "typeset": "The paper quantifies over every acceptance function $A$ in $[0,1]$ with any promise error $\\varepsilon$ in $[0,1]$. The proof slice establishes these comparisons only for its constructed amplified acceptance $a$, with $\\varepsilon=(8/9)^\\tau$, fixed $\\delta=dl(l+1)$, and `Φ=PhiF t`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-acceptance-expectation-gap",
+  "declaration": "QuarticQuery.ForrelationLower.not_RLe_of_gap_sharp",
+  "field": "fidelity_note",
+  "returned": "The displayed inequality applies to arbitrary A and ε satisfying the preceding promise assumptions. The local proof uses its finite amplified tree mixture a and the fixed error ε=(8/9)^τ; hE1, hE0, and mass_ge yield this specialized gap.",
+  "typeset": "The displayed inequality applies to arbitrary $A$ and $\\varepsilon$ satisfying the preceding promise assumptions. The local proof uses its finite amplified tree mixture $a$ and the fixed error $\\varepsilon=(8/9)^\\tau$; `hE1`, `hE0`, and `mass_ge` yield this specialized gap."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qm-a1",
+  "declaration": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four",
+  "field": "fidelity_note",
+  "returned": "This declaration states the D ≤ 1,500,625 Q^4 component. The R ≤ D component is the separate linked theorem; neither declaration alone states the whole displayed chain.",
+  "typeset": "This declaration states the $D \\le 1{,}500{,}625\\, Q^4$ component. The $R \\le D$ component is the separate linked theorem; neither declaration alone states the whole displayed chain."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qm-adversary",
+  "declaration": "QuarticQuery.Paper.appendixA_lemmaA2",
+  "field": "fidelity_note",
+  "returned": "The declaration states Q(f) ≥ (1/35)‖Γ‖/M, the weaker end of (A.3). It does not state the displayed sharper coefficient (1−2√2/3)/2. That coefficient appears before division in appendixA_adversary_of_perron.",
+  "typeset": "The declaration states $Q(f) \\ge (1/35)\\|\\Gamma\\|/M$, the weaker end of (A.3). It does not state the displayed sharper coefficient $(1-2\\sqrt{2}/3)/2$. That coefficient appears before division in `appendixA_adversary_of_perron`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qm-star-mask",
+  "declaration": "QuarticQuery.Paper.appendixA_mask_star_norm_le_one",
+  "field": "fidelity_note",
+  "returned": "The declaration assumes hcount, that at most one leaf survives the mask. It proves the norm conclusion but not the sentence’s derivation of hcount from block disjointness; that is provided by appendixA_sensitiveFamily_star_properties.",
+  "typeset": "The declaration assumes `hcount`, that at most one leaf survives the mask. It proves the norm conclusion but not the sentence’s derivation of `hcount` from block disjointness; that is provided by `appendixA_sensitiveFamily_star_properties`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qm-huang-rayleigh",
+  "declaration": "QuarticQuery.Paper.huang_absolute_rayleigh_supported",
+  "field": "fidelity_note",
+  "returned": "The theorem states the outer Rayleigh inequality √d‖|v|‖² ≤ |v|ᵀA_U|v| under the eigenvector/support hypotheses. It omits the displayed intermediate equalities through vᵀH′dv.",
+  "typeset": "The theorem states the outer Rayleigh inequality $\\sqrt{d}\\,\\||v|\\|^2 \\le |v|^\\top A_U|v|$ under the eigenvector/support hypotheses. It omits the displayed intermediate equalities through $v^\\top H'dv$."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qm-a-assembled",
+  "declaration": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four",
+  "field": "fidelity_note",
+  "returned": "The theorem gives D ≤ 1,500,625 Q^4 directly. The display additionally shows the factorization into two 1225 Q² terms; this intermediate product is in appendixA_D_le_of_QLe’s proof, not in this theorem’s statement.",
+  "typeset": "The theorem gives $D \\le 1{,}500{,}625\\, Q^4$ directly. The display additionally shows the factorization into two $1225\\, Q^2$ terms; this intermediate product is in `appendixA_D_le_of_QLe`’s proof, not in this theorem’s statement."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "rec-cl-early-late-total-endpoint",
+  "declaration": "QuarticQuery.Paper.expectedZeros_le_four",
+  "field": "fidelity_note",
+  "returned": "Lean proves only the final total bound EZ≤4G/m. It does not define Z_early or Z_late and does not prove the two separately displayed early/late bounds.",
+  "typeset": "Lean proves only the final total bound $\\mathbb{E}Z\\le 4G/m$. It does not define $Z_{\\mathrm{early}}$ or $Z_{\\mathrm{late}}$ and does not prove the two separately displayed early/late bounds."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "rec-cl-total-discovery-factor-two",
+  "declaration": "QuarticQuery.Paper.expectedZeros_le_two",
+  "field": "fidelity_note",
+  "returned": "The theorem states EZ≤2G/m. The displayed intermediate bound EZ≤(2/m)E Q_X is used through the per-column estimate and summed query-count proof, but is not a conjunct of this endpoint.",
+  "typeset": "The theorem states $\\mathbb{E}Z\\le 2G/m$. The displayed intermediate bound $\\mathbb{E}Z\\le(2/m)\\,\\mathbb{E}\\, Q_X$ is used through the per-column estimate and summed query-count proof, but is not a conjunct of this endpoint."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "rec-cl-appendix-fixed-time-inclusion",
+  "declaration": "QuarticQuery.eval_simTree",
+  "field": "fidelity_note",
+  "returned": "The theorem proves correct simulator output assuming compatible answers and a prefix target-count bound. The specific nonheavy true-cell event implies those premises in the proof of eq_21; that event inclusion is not the general simulator theorem’s statement.",
+  "typeset": "The theorem proves correct simulator output assuming compatible answers and a prefix target-count bound. The specific nonheavy true-cell event implies those premises in the proof of `eq_21`; that event inclusion is not the general simulator theorem’s statement."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "rec-cl-allowance-range",
+  "declaration": "QuarticQuery.one_le_Lvalue",
+  "field": "fidelity_note",
+  "returned": "This declaration gives 1≤L under k≥2 and t≥8; the upper bound L≤m is the separate Lvalue_le_mValue theorem.",
+  "typeset": "This declaration gives $1\\le L$ under $k\\ge 2$ and $t\\ge 8$; the upper bound $L\\le m$ is the separate `Lvalue_le_mValue` theorem."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-uniform-small-errors",
+  "declaration": "QuarticQuery.ForrelationLower.eps_le",
+  "field": "fidelity_note",
+  "returned": "This theorem supplies only ε≤18^{-k}; the selected display states three separate numerical estimates. The other two are linked independently with their own hypotheses.",
+  "typeset": "This theorem supplies only $\\varepsilon\\le 18^{-k}$; the selected display states three separate numerical estimates. The other two are linked independently with their own hypotheses."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-uniform-small-errors",
+  "declaration": "QuarticQuery.ForrelationLower.dl_le",
+  "field": "fidelity_note",
+  "returned": "This theorem supplies only δ≤a_k/32; the selected display states three separate numerical estimates. The other two are linked independently with their own hypotheses.",
+  "typeset": "This theorem supplies only $\\delta\\le a_k/32$; the selected display states three separate numerical estimates. The other two are linked independently with their own hypotheses."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "fr-sharp-residual",
+  "declaration": "QuarticQuery.ForrelationLower.tail_le",
+  "field": "fidelity_note",
+  "returned": "The paper uses b=3/16. For t≥6, Lean bounds the larger residual using edge coefficient 3 and the same final 2^{-k}; the paper’s dimension condition implies t≥6. The remaining expression is algebraically 2^{-k} for every cd≥1.",
+  "typeset": "The paper uses $b=3/16$. For $t\\ge 6$, Lean bounds the larger residual using edge coefficient 3 and the same final $2^{-k}$; the paper’s dimension condition implies $t\\ge 6$. The remaining expression is algebraically $2^{-k}$ for every $cd\\ge 1$."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qm-repeated-failure",
+  "declaration": "QuarticQuery.Amplification.failProb_attempts",
+  "field": "fidelity_note",
+  "returned": "The theorem proves the exact f^N identity under M≠0. The inequalities additionally use trialFail_le and the chosen N; neither numerical inequality is in this declaration.",
+  "typeset": "The theorem proves the exact $f^N$ identity under $M\\ne 0$. The inequalities additionally use `trialFail_le` and the chosen $N$; neither numerical inequality is in this declaration."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qm-amplification-cap",
+  "declaration": "QuarticQuery.Paper.amplification_budget_le",
+  "field": "fidelity_note",
+  "returned": "This theorem proves N(2M+1)≤138 γ^(-1/2) log(1/η). It does not itself relate the product to the procedure’s callCap.",
+  "typeset": "This theorem proves $N(2M+1)\\le 138\\,\\gamma^{-1/2}\\log(1/\\eta)$. It does not itself relate the product to the procedure’s `callCap`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qm-list-budget",
+  "declaration": "QuarticQuery.Paper.quantumTournament_cost",
+  "field": "fidelity_note",
+  "returned": "The theorem proves the displayed upper bound for T·stageCost. The displayed equality to 2T² c_rd N(2M₀+1) requires unfolding stageCost and the parameter definitions; it is not an explicit equality in the theorem statement.",
+  "typeset": "The theorem proves the displayed upper bound for `T·stageCost`. The displayed equality to $2T^2 c_{rd} N(2M_0+1)$ requires unfolding `stageCost` and the parameter definitions; it is not an explicit equality in the theorem statement."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qm-coherent-local-physical",
+  "declaration": "QuarticQuery.Paper.construction_controlled_compile",
+  "field": "fidelity_note",
+  "returned": "The theorem compiles any given indexed IsCirc n family with cap 2n. It does not itself supply local-test circuits or simplify max{3,ℓ+1}=ℓ+1; construction_lemma_2_2_ii and ℓ≥2 provide those steps.",
+  "typeset": "The theorem compiles any given indexed `IsCirc n` family with cap $2n$. It does not itself supply local-test circuits or simplify $\\max\\{3,\\ell+1\\}=\\ell+1$; `construction_lemma_2_2_ii` and $\\ell\\ge 2$ provide those steps."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qm-two-query-circuit",
+  "declaration": "QuarticQuery.Paper.quantum_compile_circuit",
+  "field": "fidelity_note",
+  "returned": "The theorem states the physical 2q compilation bound and continuation-mass equality. The sentence’s separate equal-cost claim for logical inversion is supplied by quantum_inverse_reads.",
+  "typeset": "The theorem states the physical $2q$ compilation bound and continuation-mass equality. The sentence’s separate equal-cost claim for logical inversion is supplied by `quantum_inverse_reads`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qm-tree-quantum-simulation",
+  "declaration": "QuarticQuery.AdaptiveProgram.outputMass_ofTree",
+  "field": "fidelity_note",
+  "returned": "The theorem gives the exact output law of the tree simulation. Its cap equality is a separate theorem queryCap_ofTree and is not stated here.",
+  "typeset": "The theorem gives the exact output law of the tree simulation. Its cap equality is a separate theorem `queryCap_ofTree` and is not stated here."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-integer-normalization",
+  "declaration": "QuarticQuery.Paper.construction_N_phi",
+  "field": "fidelity_note",
+  "returned": "The type gives N as the unnormalized matrix product, Φ=N/M, positivity and M=m(√m)^(k−1). The path sum is the definition of N; the additional equality M=2^{t(k+1)} is in denominator_eq.",
+  "typeset": "The type gives $N$ as the unnormalized matrix product, $\\Phi=N/M$, positivity and $M=m(\\sqrt{m})^{k-1}$. The path sum is the definition of $N$; the additional equality $M=2^{t(k+1)}$ is in `denominator_eq`."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-integer-normalization",
+  "declaration": "QuarticQuery.Forrelation.denominator_eq",
+  "field": "fidelity_note",
+  "returned": "This type gives only M=2^{t(k+1)} after k=l+1; it omits the numerator, positivity and real normalization clauses.",
+  "typeset": "This type gives only $M=2^{t(k+1)}$ after $k=l+1$; it omits the numerator, positivity and real normalization clauses."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-sharp-physical-decoder-cap",
+  "declaration": "QuarticQuery.Paper.construction_decoder_sharp",
+  "field": "fidelity_note",
+  "returned": "The candidate type supplies the explicit nk cap with n=repetitions k η and promised accuracy, but not the displayed asymptotic O_k reformulation. Its compiler is explicitly not native-checked.",
+  "typeset": "The candidate type supplies the explicit $nk$ cap with `n=repetitions k η` and promised accuracy, but not the displayed asymptotic $O_k$ reformulation. Its compiler is explicitly not native-checked."
+ },
+ {
+  "paper": "reconstruction",
+  "tie": "qr-final-signed-range",
+  "declaration": "QuarticQuery.Forrelation.test_bounds",
+  "field": "fidelity_note",
+  "returned": "The type gives membership in the required signed interval, not the preceding absolute-value estimate with coefficient 2^{s+1}+1.",
+  "typeset": "The type gives membership in the required signed interval, not the preceding absolute-value estimate with coefficient $2^{s+1}+1$."
+ }
+]

@@ -87,8 +87,15 @@ def declaration_lines(cache, file):
     return cache[file]
 
 
+NOTE_TYPESETTING = ROOT / "research/returns/phrase_links/note_typesetting.json"
+
+
 def maintained(packet, rows, paper, manuscript, snapshot, commit):
     corrections = []
+    # Comparison notes that wrote mathematics or Lean names as plain text: the same words,
+    # with the mathematics in $…$ and the Lean names in backticks.
+    typeset = {(r["tie"], r["declaration"], r["field"]): r for r in json.loads(NOTE_TYPESETTING.read_text())
+               if r["paper"] == paper}
     blocks = {}
     ties = []
     for tie in rows["ties"]["ties"]:
@@ -100,6 +107,12 @@ def maintained(packet, rows, paper, manuscript, snapshot, commit):
                 raise ValueError(f"{packet}/{tie['id']}: {link['name']} is not declared once in {file}")
             first, last = found[0]
             row = {**link, "file": file}
+            for field in ("fidelity_note", "link_note"):
+                fix = typeset.get((tie["id"], link["name"], field))
+                if fix and row.get(field) == fix["returned"]:
+                    row[field] = fix["typeset"]
+                    corrections.append({"tie": tie["id"], "declaration": link["name"], "field": field,
+                                        "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."})
             if "lines" in link:
                 a, b = link["lines"]
                 if b < first or a > last:

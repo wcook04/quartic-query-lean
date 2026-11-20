@@ -124,6 +124,8 @@ def prose_check(where, value, words=None):
         raise ValueError(f"{where}: avoid the word {AVOIDED.search(value)[0]!r}")
     if value.count("$") % 2:
         raise ValueError(f"{where}: unbalanced $")
+    if re.search(r"[_^\\]", re.sub(r"\$[^$]+\$|`[^`]+`", "", value)):
+        raise ValueError(f"{where}: set mathematics in $…$ and Lean names in backticks")
     if words:
         count = len(value.split())
         if not words[0] <= count <= words[1]:
