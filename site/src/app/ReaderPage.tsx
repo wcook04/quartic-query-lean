@@ -22,7 +22,6 @@ import { ReaderSplit } from "./ReaderSplit";
 import { Title } from "../text/title";
 
 type PassageMode = "graph" | "lean" | "passage";
-const nextPassageMode = (view: PassageMode | undefined): PassageMode => view === "graph" ? "lean" : view === "lean" ? "passage" : "graph";
 
 function useWide(): boolean {
   const q = "(min-width: 901px)";
@@ -75,8 +74,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [clickError, setClickError] = useState<string | null>(null);
   const graphFocus = useRef<GraphFocus>({ cards: [], passages: [], paused: false, whole: false });
   const clickSequence = useRef(0);
-  const clickPending = useRef<{ key: string; count: number; start: PassageMode | undefined; tab: PassageMode; focus: GraphFocus } | null>(null);
-  const passageCycle = useRef<{ key: string; view: PassageMode } | null>(null);
+  const clickPending = useRef<{ key: string; focus: GraphFocus } | null>(null);
   const [names, setNames] = useState<{ reader: typeof reader; titles: DeclarationTitles } | null>(null);
   const [statementNames, setStatementNames] = useState<{ reader: typeof reader; index: StatementTitles } | null>(null);
   // Selections this reader has met in this edition and paper (this browser only).
@@ -146,7 +144,6 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   const onGraphFocus = useCallback((focus: GraphFocus) => {
     graphFocus.current = focus;
-    if (focus.paused || focus.whole) passageCycle.current = null;
   }, []);
 
   // A paragraph click is held only until the next deliberate paper scroll.
@@ -158,7 +155,6 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     if (!clickPin && !clickPending.current) return;
     clickSequence.current++;
     clickPending.current = null;
-    passageCycle.current = null;
     setClickPin(null);
     setClickError(null);
     setFollowing(true);
@@ -169,11 +165,10 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   }, [clickPin, paper, ed]);
 
   async function selectPassage(id: string) {
+    // A click changes the subject only. The tab stays the reader's choice, read when the
+    // lookup lands, so a tab chosen while it was pending is kept.
     const key = `${paper}:${id}`;
-    const previous = clickPending.current;
-    const pending = previous?.key === key
-      ? { ...previous, count: previous.count + 1 }
-      : { key, count: 1, start: passageCycle.current?.key === key ? passageCycle.current.view : undefined, tab: openTab(), focus: graphFocus.current };
+    const pending = { key, focus: graphFocus.current };
     clickPending.current = pending;
     const sequence = ++clickSequence.current;
     setFollowing(false);
@@ -184,22 +179,17 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       const cards: string[] = focus.cards ?? [];
       const displayed = pending.focus;
       const mapped = displayed.availableCards ? cards.filter((id) => displayed.availableCards!.includes(id)) : cards;
-      // The first click shows this paragraph in the tab already open; each further
-      // click on the same paragraph moves to the next tab.
-      let view: PassageMode = pending.start ? nextPassageMode(pending.start) : pending.tab;
-      for (let n = 1; n < pending.count; n++) view = nextPassageMode(view);
-      const next = view;
       // Some passages reach their Lean only through their reviewed statement
       // (resolve().proof), with no graph card of their own. Lean must still
       // open that declaration rather than fall back to the main result.
       let lean = mapped[0] ?? cards[0];
-      if (next === "lean" && !lean) {
+      if (!lean) {
         const resolved = await (reader as any).resolve({ paper, id }).catch(() => null);
         if (sequence !== clickSequence.current || clickPending.current !== pending) return;
         lean = resolved?.proof?.[0]?.name;
       }
       clickPending.current = null;
-      passageCycle.current = { key, view: next };
+      const next = openTab();
       setClickPin(id);
       setLit(cards);
       setFocusPassages([key]);
@@ -252,35 +242,36 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   }, [open, wide]);
   // Evidence follows the reading line, as the graph does, until the reader pins a passage.
   const followed = useRef<string | undefined>(undefined);
+  const followedPage = useRef<number | undefined>(undefined);
   const mode: "graph" | "path" | "lean" | "evidence" =
     route.v === "graph" ? "graph" : route.v === "path" ? "path" : route.v === "lean" ? "lean" : route.v === "statement" || route.v === "journey" ? "evidence"
       : route.v === "passage" ? "evidence" : "graph";
-  useEffect(() => {
-    const cycle = passageCycle.current;
-    if (cycle?.key === `${paper}:${route.s}` && (route.v === "graph" || route.v === "lean" || route.v === "passage")) cycle.view = route.v;
-  }, [paper, route.s, route.v]);
   useEffect(() => {
     if (!clickPin || route.s === clickPin) return;
     // Back/Forward or an independent navigation owns its saved selection.
     clickSequence.current++;
     clickPending.current = null;
-    passageCycle.current = null;
     setClickPin(null);
     setFocusRequest(undefined);
     setFollowing(!route.s && !route.a);
   }, [route.s, route.a, clickPin]);
   // A passage whose Lean is reached through its reviewed statement has no
   // graph card; the Lean tab still opens that declaration.
-  const [statementLean, setStatementLean] = useState<{ key: string; name?: string } | null>(null);
+  const [statementLean, setStatementLean] = useState<{ key: string; name?: string; failed?: boolean } | null>(null);
   const leanKey = currentSelection && !/^l\d+-\d+$/.test(currentSelection) && !lit.length ? currentSelection : null;
   useEffect(() => {
     if (!leanKey) return;
     let live = true;
-    (reader as any).resolve({ paper, id: leanKey }).then((r: any) => live && setStatementLean({ key: leanKey, name: r?.proof?.[0]?.name }), () => {});
+    (reader as any).resolve({ paper, id: leanKey }).then((r: any) => live && setStatementLean({ key: leanKey, name: r?.proof?.[0]?.name }),
+      () => live && setStatementLean({ key: leanKey, failed: true }));
     return () => { live = false; };
   }, [reader, paper, leanKey]);
   const passageLean = leanKey && statementLean?.key === leanKey ? statementLean.name : undefined;
-  const activeLean = route.d ?? lit[0] ?? passageLean ?? rootDeclaration;
+  // The Lean answers the passage in hand. A passage with no linked declaration says so; the
+  // main result stands in only where no linked paragraph is selected at all.
+  const leanResolving = !!leanKey && statementLean?.key !== leanKey;
+  const leanLookupFailed = !!leanKey && statementLean?.key === leanKey && !!statementLean.failed;
+  const activeLean = route.d ?? lit[0] ?? passageLean ?? (currentSelection ? undefined : rootDeclaration);
   const claimMatch = rows.find((r) => r.id === currentSelection)?.claim_match;
   const [graphOpened, setGraphOpened] = useState(mode === "graph");
   useEffect(() => { if (mode === "graph") setGraphOpened(true); }, [mode]);
@@ -321,6 +312,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   useEffect(() => {
     if (!following || isRestoringReadingPlace() || mode !== "evidence" || route.v !== "passage" || paper !== "original" || readingPage == null || route.p === readingPage) return;
     if (route.s && rows.find((r) => r.id === route.s)?.location?.page === readingPage) return;
+    followedPage.current = readingPage;
     go({ ...base, p: readingPage, v: "passage" }, true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [following, mode, readingPage, paper]);
@@ -376,6 +368,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const panelKey = `${route.v}|${route.st}|${route.d}|${route.j}|${route.s}|${route.p}`;
   useEffect(() => {
     if (!open || !route.v || isRestoringReadingPlace()) return;
+    // Following the paper updates the pane's content only: no focus, no paper movement.
+    if (following && !clickPin && ((route.s && route.s === followed.current) || (!route.s && route.p != null && route.p === followedPage.current))) return;
     panelMove.current = window.setTimeout(() => {
       if (isRestoringReadingPlace()) return;
       const h = aside.current?.querySelector<HTMLElement>("h2");
@@ -439,6 +433,14 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   let panel = null;
   if (route.v === "statement" && route.st) panel = <StatementPanel edition={edition} id={route.st} />;
+  else if (mode === "lean" && !activeLean && currentSelection) panel = (
+    <article className="panel">
+      {leanResolving ? <p className="pending" role="status">Finding the Lean linked to this passage…</p> : <>
+        <p>{leanLookupFailed ? "The Lean linked to this passage could not be looked up." : "No Lean declaration is linked to this passage in this edition."}</p>
+        {rootDeclaration && <p><button type="button" className="textbutton" onClick={() => nav.openLean(rootDeclaration)}>Show the Lean of the main result</button></p>}
+      </>}
+    </article>
+  );
   else if (mode === "lean" && activeLean) panel = <LeanPanel key={activeLean} edition={edition} name={activeLean} forStep={lit.includes(activeLean) || activeLean === passageLean} claimMatch={claimMatch} />;
   else if (route.v === "path" && route.e) panel = <PathPanel edition={edition} edge={route.e} />;
   else if (mode === "graph") panel = null;
@@ -508,7 +510,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             </div>
             {(paper !== "original" || originalHtml) && (
               <p className="legend"><span className="lean-tag" aria-hidden="true">Lean</span>
-                {wide ? "Marked paragraphs are linked to Lean. Click one to show it in the open tab (graph, Lean or passage); click it again for the next tab."
+                {wide ? "Marked paragraphs are linked to Lean. Click one to show it in the open tab: graph, Lean or passage."
                   : "Marked paragraphs are linked to Lean. Tap one to see it in the open tab."}
               </p>
             )}
@@ -546,7 +548,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             })()}
             <div className="inspector__modes" role="group" aria-label="What the pane contains">
               <button type="button" aria-pressed={mode === "graph" || mode === "path"} onClick={() => nav.openGraph()}>Graph</button>
-              <button type="button" aria-pressed={mode === "lean"} disabled={!activeLean} onClick={() => activeLean && nav.openLeanTab!()}>Lean</button>
+              <button type="button" aria-pressed={mode === "lean"} disabled={!activeLean && !currentSelection} onClick={() => nav.openLeanTab!()}>Lean</button>
               <button type="button" aria-pressed={mode === "evidence"} disabled={!currentSelection && !route.p} onClick={nav.backToPassage} title="This step in each paper, and what the Lean proves">Passage</button>
               <button type="button" className="inspector__close" onClick={close} aria-label={wide ? "Close the Lean pane" : undefined} title={wide ? "Close (Esc)" : undefined}>
                 {wide ? <CloseIcon /> : <><BackIcon /><span>Back to paper</span></>}
@@ -555,13 +557,12 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             {mode !== "graph" && (() => {
               // One quiet line: what the pane is doing, then at most two actions. The Passage
               // tab itself returns to the selected passage, so the bar does not repeat it.
-              const nextWord = route.v === "lean" ? "other explanations" : route.v === "passage" ? "the graph" : "its Lean";
-              const leanFallback = mode === "lean" && !route.d && !lit.length && !passageLean;
+              const leanFallback = mode === "lean" && !route.d && !currentSelection && activeLean === rootDeclaration;
               const pinnedLean = mode === "lean" && route.v === "lean" && !!route.d;
               const followingLean = mode === "lean" && route.v === "lean" && !route.d;
               const passageView = (mode === "lean" || mode === "evidence") && (!route.v || route.v === "passage");
-              const status = clickPin ? <>Click the paragraph again for {nextWord}.</>
-                : leanFallback ? <>No Lean is linked to this paragraph; showing the main result.</>
+              const status = leanFallback ? <>No linked paragraph at this place; showing the main result.</>
+                : clickPin ? <>Held on the clicked paragraph; scrolling the paper resumes following.</>
                 : pinnedLean ? <>Pinned to this declaration.</>
                 : followingLean ? (following ? <>Following the paper.</> : <>Pinned to this passage.</>)
                 : passageView ? (following ? <>Following the paper.</> : <>Pinned to this passage.</>)
@@ -585,10 +586,10 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                     onClear={() => go({ ...base, s: route.s, p: route.p, v: "graph" })} selectedEdge={route.e ?? null} onEdge={nav.openPath}
                     progress={progress} paperName={face(paper).tab} selectionKey={!clickPin && !following ? route.s : undefined}
                     claimMatch={claimMatch} focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onGraphFocus}
-                    onFollow={() => { resumePaperFollowing(); passageCycle.current = null; setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} />
+                    onFollow={() => { resumePaperFollowing(); setClickPin(null); setFocusRequest(undefined); setFollowing(true); }} />
                 </Suspense>
                 <p className="inspector__note" role="status" hidden={!clickPin}>
-                  {clickPin ? "Click the paragraph again for its Lean; scrolling the paper resumes following." : ""}
+                  {clickPin ? "Held on the clicked paragraph; scrolling the paper resumes following." : ""}
                 </p>
               </div>
             )}
