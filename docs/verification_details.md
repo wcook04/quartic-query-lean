@@ -1758,7 +1758,7 @@ The [compared failure of the cubic bound][thm-cubic] states exactly that no real
 
 The [compared Forrelation lower bound][thm-forrelation] is exact for Lemma 2.1(i) with an eventual threshold. It is weaker than the ordinary result in [§8.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_target), which also gives the explicit threshold $13669k^2$.
 
-The quantifier order in the compared family statement is $\forall k\ \exists S,A,b,t_0\ \forall t\ \exists\mathcal C$, with one circuit $\mathcal C$ for both bounds, as in §1. The other central statements of this record have their own formal status, recorded by the dated receipts and [the round-four formal adjudication](../research/adjudication/round4_formal.md). The Lean links in this edition use `8357f268732746d1575e05e7de8c888e20ad3793`. Its `lean/` tree is byte-identical to the paranoid receipt revision `9a0a5cdace28594058f6df59b9b2e45a9e7c1a4f`; the editorial revision supplies no fresh Lean or Comparator execution.
+The quantifier order in the compared family statement is $\forall k\ \exists S,A,b,t_0\ \forall t\ \exists\mathcal C$, with one circuit $\mathcal C$ for both bounds, as in §1. The other central statements of this record have their own formal status, recorded by the dated receipts and [the round-four formal adjudication](../research/adjudication/round4_formal.md). The Lean links in this edition name the release tag `v1.0.0`. Its Lean sources were rebuilt and checked by Comparator, sandboxed and with `--paranoid` for the headline bundle, on GitHub Actions on 20 November 2026; the receipts are in `corpus/receipts/`.
 
 | Bundle statement file | Imported vocabulary |
 | --- | --- |

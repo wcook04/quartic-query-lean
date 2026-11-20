@@ -112,18 +112,20 @@ class LeanLinksTests(unittest.TestCase):
                 mock.patch.object(MODULE, "at_commit", return_value=("blob", '<a id="new-proof"></a>')) as read:
             result = MODULE.pin_record_links(url, "paper")
             read.assert_called_once_with(MODULE.RECORD, record_commit)
-            self.assertIn(f"/blob/{record_commit}/", result)
+            self.assertIn(f"/blob/{MODULE.RELEASE}/", result)
             self.assertNotIn(MODULE.COMMIT, result)
+            self.assertNotIn(record_commit, result)
         with mock.patch.object(MODULE, "RECORD_COMMIT", record_commit), \
                 mock.patch.object(MODULE, "at_commit", return_value=("blob", '<a id="other"></a>')):
             with self.assertRaisesRegex(SystemExit, "new-proof"):
                 MODULE.pin_record_links(url, "paper")
 
-    def test_registry_is_current_and_pinned_links_name_the_commit(self):
+    def test_registry_is_current_and_pinned_links_name_the_release(self):
         registry, _ = MODULE.build()
         self.assertEqual(MODULE.render(registry), MODULE.OUTPUT.read_text(encoding="utf-8"))
+        self.assertEqual(registry["release"], MODULE.RELEASE)
         for label, entry in registry["links"].items():
-            ref = MODULE.COMMIT if entry["pinned"] else "main"
+            ref = MODULE.RELEASE if entry["pinned"] else "main"
             self.assertIn(f"/{ref}/{entry['path']}", entry["url"], label)
             if "lines" in entry:
                 start, end = entry["lines"]

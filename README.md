@@ -64,7 +64,7 @@ these editorial checks are separate from the recorded formal proof checks.
 | --- | --- |
 | Proofs | The `QuarticQuery` target builds at the recorded commit with no `sorry`, no custom axioms and no `native_decide`. |
 | Statements | [Statement.lean](lean/QuarticQuery/Statement.lean) fixes every definition a theorem means. It imports Mathlib only. |
-| Comparison | Comparator accepts each bundle in [lean/QuarticCorpus/](lean/QuarticCorpus/) against an independently compiled challenge, and rejects five deliberately wrong solutions for the intended reason. The unconditional bundle also passes every external kernel bundled with Lean (`--paranoid`). Runs on this machine are unsandboxed local rehearsals, and [corpus/receipts/](corpus/receipts/) records them as such. |
+| Comparison | Comparator accepts each bundle in [lean/QuarticCorpus/](lean/QuarticCorpus/) against an independently compiled challenge, and rejects five deliberately wrong solutions for the intended reason. The unconditional bundle also passes every external kernel bundled with Lean (`--paranoid`). The receipts of the release come from sandboxed runs on GitHub Actions; earlier local runs were unsandboxed and [corpus/receipts/](corpus/receipts/) records them as such. |
 | Fidelity | [The review](docs/statement_fidelity_review.md) compares Lean statements with the preprint. It was done by an AI agent that did not write the proofs. No human has reviewed it. |
 | Literature | Claims about cited sources were checked against those sources by AI agents; see [the adjudication](research/adjudication/adjudication_notes.md). |
 
@@ -127,15 +127,17 @@ python3 tools/run_comparator.py
 
 ## Reproducing the formal checks
 
-The two papers and the record link to Lean sources and record passages pinned
-at the round-nine source edition `8357f268732746d1575e05e7de8c888e20ad3793`.
-The recorded Comparator run of the headline bundle
-([its receipt](corpus/receipts/comparator-Unconditional-2026-11-03T121735042729+0000.json))
-was made at commit `9a0a5cdace28594058f6df59b9b2e45a9e7c1a4f`, in Comparator's
-`--paranoid` mode and without a sandboxing tool (`--inadvisably-no-sandbox`).
-The `lean/` directory is byte-identical between that checked revision and the
-linked source edition; the round-nine changes are editorial. No fresh Lean or
-Comparator run is claimed for them.
+The three papers, the proof index and the verification details link to Lean
+sources and record passages at the release tag `v1.0.0`. The recorded checks of
+that release ran on GitHub Actions
+([workflow](.github/workflows/lean-evidence.yml), receipts in
+[corpus/receipts/](corpus/receipts/) dated 20 November 2026): `lake build
+QuarticQuery` with the dependency closure read from the compiled environment, and
+Comparator with its sandbox on every bundle and negative fixture, with `--paranoid`
+for the headline bundle
+([its receipt](corpus/receipts/comparator-Unconditional-2026-11-20T130400184111+0000.json)).
+The receipts name the commit GitHub built for pull request #25; each binds the
+exact Lean source bytes, which are those of `v1.0.0`.
 The toolchain is `leanprover/lean4:v4.36.0-rc2` and Mathlib is pinned at
 `69552756cd8a2d2d48763cf7279fd814d6a1224d`.
 
