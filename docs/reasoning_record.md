@@ -4655,11 +4655,11 @@ Section and theorem locators refer to the editions identified below. Source comp
 
 
 <!-- lean-links -->
-[def-DLe]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L67-L69
-[def-RLe]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L62-L65
-[src-budget-constant]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Bound.lean#L52-L57
-[src-complexitylib]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Bridge/DecisionTree.lean#L65-L68
-[src-fixed-sequence]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Bridge/Deferred.lean#L282-L290
-[src-repetitions]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Forrelation/Repetition.lean#L191-L193
-[src-tournament-runs]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Tournament.lean#L362-L378
+[def-DLe]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L67-L69
+[def-RLe]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L62-L65
+[src-budget-constant]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Bound.lean#L52-L57
+[src-complexitylib]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Bridge/DecisionTree.lean#L65-L68
+[src-fixed-sequence]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Bridge/Deferred.lean#L282-L290
+[src-repetitions]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Forrelation/Repetition.lean#L191-L193
+[src-tournament-runs]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Tournament.lean#L362-L378
 <!-- /lean-links -->

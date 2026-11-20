@@ -11,9 +11,9 @@
  "inputs": {
   "corpus/lean_dependencies.json": "1bc253fd3f3f86245e538bb71dd99d321fdb575cee596fede6bc46babbffe06c",
   "corpus/statements.json": "036f7ca0c8b518349f8cd3c9646f6308f6486e967008db394a89a063f423c474",
-  "docs/reasoning_record.md": "c9c57980da8803a5740c87617996cb29fdfc086368e5022fc67340ca9c336724",
-  "docs/reasoning_record_correspondence.json": "10ef26c0be1125dfd03c0d1151876f8d14af02879292a5f9099d5f4a84b92fad",
-  "docs/verification_details.md": "6ba66b0d023c9ef7565e92667760f07ad4b4d8df9dec71ade8ecf3cb43fa1fb5",
+  "docs/reasoning_record.md": "72addba4c1901a47bae4c7d83449dec2180ed42281c7d8fe61a006e13924aa9c",
+  "docs/reasoning_record_correspondence.json": "cc03a7e6f67c2a1708cc20cf961d17b0759d7d6dd93b3f34c404b7dc4b2cfe7e",
+  "docs/verification_details.md": "e087809c4b0cc12ecde1b071c31ed29c00e685b29d8dceb0de3579c211ed0025",
   "lean/QuarticCorpus/Construction/Challenge.lean": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
   "lean/QuarticCorpus/Construction/Solution.lean": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
   "lean/QuarticCorpus/Construction/comparator.json": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
@@ -86,10 +86,10 @@
  },
  "record": {
   "path": "docs/reasoning_record.md",
-  "sha256": "c9c57980da8803a5740c87617996cb29fdfc086368e5022fc67340ca9c336724",
+  "sha256": "72addba4c1901a47bae4c7d83449dec2180ed42281c7d8fe61a006e13924aa9c",
   "sources": {
-   "docs/reasoning_record.md": "c9c57980da8803a5740c87617996cb29fdfc086368e5022fc67340ca9c336724",
-   "docs/verification_details.md": "6ba66b0d023c9ef7565e92667760f07ad4b4d8df9dec71ade8ecf3cb43fa1fb5"
+   "docs/reasoning_record.md": "72addba4c1901a47bae4c7d83449dec2180ed42281c7d8fe61a006e13924aa9c",
+   "docs/verification_details.md": "e087809c4b0cc12ecde1b071c31ed29c00e685b29d8dceb0de3579c211ed0025"
   },
   "passages_verified": 305,
   "passages_in_correspondence": 305,
@@ -7295,7 +7295,7 @@
      "join": "lean_link_mention",
      "label": "def-bansal-sinha",
      "passage_claims": [],
-     "passage_sha256": "160b550a760e87e358f4d30b5653b53c4b5cef8ec77cfb5cb34ca57de794926a",
+     "passage_sha256": "aa52fb0136e5426aac0fa224692a09d036c722d67b2c6235b286acf90b388d1e",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1856,
@@ -7496,7 +7496,7 @@
      "join": "statement_claim",
      "statement_id": "def-D",
      "via": "solution_proof_reference",
-     "passage_sha256": "36d53bc0e11f40e868c6cf5c8ba2cc9d963b7198299675b658824b8bb133a309",
+     "passage_sha256": "dc4e721172668b5bb9eb90cf0f10a60384d03d48888721735bd2ac6acff70598",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1265,
@@ -7588,7 +7588,7 @@
      "join": "statement_claim",
      "statement_id": "def-Q",
      "via": "solution_proof_reference",
-     "passage_sha256": "209871f5beb8d54f900e5b439024986298dbc0315cf7853f55f037c37fe3cd9a",
+     "passage_sha256": "6482246468368ba2c4e988007b633430656f33b295257807f74d909120bccd31",
      "path": "docs/verification_details.md",
      "passage_lines": [
       73,
@@ -7663,7 +7663,7 @@
      "join": "statement_claim",
      "statement_id": "def-Q",
      "via": "solution_proof_reference",
-     "passage_sha256": "209871f5beb8d54f900e5b439024986298dbc0315cf7853f55f037c37fe3cd9a",
+     "passage_sha256": "6482246468368ba2c4e988007b633430656f33b295257807f74d909120bccd31",
      "path": "docs/verification_details.md",
      "passage_lines": [
       73,
@@ -7742,7 +7742,7 @@
      "join": "statement_claim",
      "statement_id": "def-R",
      "via": "solution_proof_reference",
-     "passage_sha256": "91c095482f9e9b4a20521a45aaedf8320e7cdcab600a3d890f52e10e8b52adbb",
+     "passage_sha256": "e536baf4bdfec1652038d05b249859ba31b41816b44b9639457a7ee5c6578baf",
      "path": "docs/verification_details.md",
      "passage_lines": [
       49,
@@ -7817,7 +7817,7 @@
      "join": "statement_claim",
      "statement_id": "def-R",
      "via": "solution_proof_reference",
-     "passage_sha256": "91c095482f9e9b4a20521a45aaedf8320e7cdcab600a3d890f52e10e8b52adbb",
+     "passage_sha256": "e536baf4bdfec1652038d05b249859ba31b41816b44b9639457a7ee5c6578baf",
      "path": "docs/verification_details.md",
      "passage_lines": [
       49,
@@ -7879,7 +7879,7 @@
      "join": "statement_claim",
      "statement_id": "prop-4.2-generic",
      "via": "solution_proof_reference",
-     "passage_sha256": "fb7673672c32bc72565702e0adebc5b01b10295610118a95597c161be07743a7",
+     "passage_sha256": "b7dce160465544d12b42dff5f2d5ac91381b3ec0ebd048dd2a0d4430a62db9c8",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1207,
@@ -7941,7 +7941,7 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "23556158d594f84b9024814f958eee81d0675326fce6b01fb1d2e980c5f30575",
+     "passage_sha256": "e1f14fbf08ba3b630caafdae4a85f550ccb1293b7e06650b47dc1377c5e32643",
      "path": "docs/verification_details.md",
      "passage_lines": [
       109,
@@ -8003,7 +8003,7 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "23556158d594f84b9024814f958eee81d0675326fce6b01fb1d2e980c5f30575",
+     "passage_sha256": "e1f14fbf08ba3b630caafdae4a85f550ccb1293b7e06650b47dc1377c5e32643",
      "path": "docs/verification_details.md",
      "passage_lines": [
       109,
@@ -8065,7 +8065,7 @@
      "join": "statement_claim",
      "statement_id": "cor-cubic-refuted",
      "via": "solution_proof_reference",
-     "passage_sha256": "d92dbaacc421c32a7151c89982e45f083dd3c5395630585fb9e792b8f9444ba5",
+     "passage_sha256": "6de7eb8b90fad2c326d526055b2aa0ddbb0eaad79c0dcc5dc5125524840cc396",
      "path": "docs/verification_details.md",
      "passage_lines": [
       121,
@@ -8127,7 +8127,7 @@
      "join": "statement_claim",
      "statement_id": "cor-cubic-refuted",
      "via": "solution_proof_reference",
-     "passage_sha256": "d92dbaacc421c32a7151c89982e45f083dd3c5395630585fb9e792b8f9444ba5",
+     "passage_sha256": "6de7eb8b90fad2c326d526055b2aa0ddbb0eaad79c0dcc5dc5125524840cc396",
      "path": "docs/verification_details.md",
      "passage_lines": [
       121,
@@ -8177,7 +8177,7 @@
      "join": "statement_claim",
      "statement_id": "def-transcript",
      "via": "solution_proof_reference",
-     "passage_sha256": "b01dee1d26e0a13d15663b80395406b2b99bce0a2093a85763a0e9ef926893c1",
+     "passage_sha256": "2d7f7e48138744e6794e1de4e8776a7499c69aa829a9ac16a6e526b64dfa2929",
      "path": "docs/verification_details.md",
      "passage_lines": [
       299,
@@ -8202,12 +8202,12 @@
     "anchor": "CAT-def-transcript",
     "join": "statement_claim",
     "statement_id": "def-transcript",
-    "passage_sha256": "b01dee1d26e0a13d15663b80395406b2b99bce0a2093a85763a0e9ef926893c1",
+    "passage_sha256": "2d7f7e48138744e6794e1de4e8776a7499c69aa829a9ac16a6e526b64dfa2929",
     "path": "docs/verification_details.md",
     "line_start": 302,
     "line_end": 304,
-    "excerpt_sha256": "0299e0e84f8c47412f90e742e1b3391972b987972c693e9585fd38e22328f86b",
-    "excerpt": "> For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input.\n\n**Argument:** [§4.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-transcripts)."
+    "excerpt_sha256": "bc268fdd8f5e4defc5f4fa1062f2b0bab93f4b2ee143057a86907e80d92b6425",
+    "excerpt": "> For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input.\n\n**Argument:** [§4.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-transcripts)."
    },
    "gap": null
   },
@@ -8286,7 +8286,7 @@
      "join": "statement_claim",
      "statement_id": "eq-2",
      "via": "solution_proof_reference",
-     "passage_sha256": "bb146ac00ec954dcfd0fd8031c799a037f3ae664f14d439d4dfca705f12c25a8",
+     "passage_sha256": "7b5d6e406f89e0232c6e847aab1f4ba2d595dc53fad2c02256f4d84af287e3dc",
      "path": "docs/verification_details.md",
      "passage_lines": [
       97,
@@ -8348,7 +8348,7 @@
      "join": "statement_claim",
      "statement_id": "lem-2.1.i",
      "via": "solution_proof_reference",
-     "passage_sha256": "82fd291a4d42a4bdd395662b8f8d2e500408ad1b9fe44593ac9e0a82c8ce1730",
+     "passage_sha256": "dfc18e92409c386992de0340f41e2256e4cb10b7d802da297151717a3a4c34de",
      "path": "docs/verification_details.md",
      "passage_lines": [
       199,
@@ -8360,7 +8360,7 @@
      "join": "lean_link_mention",
      "label": "thm-forrelation",
      "passage_claims": [],
-     "passage_sha256": "160b550a760e87e358f4d30b5653b53c4b5cef8ec77cfb5cb34ca57de794926a",
+     "passage_sha256": "aa52fb0136e5426aac0fa224692a09d036c722d67b2c6235b286acf90b388d1e",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1856,
@@ -8422,7 +8422,7 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "23556158d594f84b9024814f958eee81d0675326fce6b01fb1d2e980c5f30575",
+     "passage_sha256": "e1f14fbf08ba3b630caafdae4a85f550ccb1293b7e06650b47dc1377c5e32643",
      "path": "docs/verification_details.md",
      "passage_lines": [
       109,
@@ -8484,7 +8484,7 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "23556158d594f84b9024814f958eee81d0675326fce6b01fb1d2e980c5f30575",
+     "passage_sha256": "e1f14fbf08ba3b630caafdae4a85f550ccb1293b7e06650b47dc1377c5e32643",
      "path": "docs/verification_details.md",
      "passage_lines": [
       109,
@@ -8534,7 +8534,7 @@
      "join": "statement_claim",
      "statement_id": "thm-A.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "82c846d5847895b68bbe5288e4c78c5deaa0dcc20d8a9238d678f27ce688dcc5",
+     "passage_sha256": "091467a89be331bbbcc7e36b7be922c3581d43d5497772c63667f6053eb656fa",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1505,
@@ -8546,12 +8546,12 @@
     "anchor": "CAT-thm-A.1",
     "join": "statement_claim",
     "statement_id": "thm-A.1",
-    "passage_sha256": "82c846d5847895b68bbe5288e4c78c5deaa0dcc20d8a9238d678f27ce688dcc5",
+    "passage_sha256": "091467a89be331bbbcc7e36b7be922c3581d43d5497772c63667f6053eb656fa",
     "path": "docs/verification_details.md",
     "line_start": 1508,
     "line_end": 1510,
-    "excerpt_sha256": "fd1b9ccd250d7db5010545f2968e49f8928d917f540161487c6ec49190c49923",
-    "excerpt": "> Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.\n\n**Argument:** [Appendix A](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-APPENDIX-INTRO), [§A.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-QUARTIC-UPPER)."
+    "excerpt_sha256": "a4696b5ddde403042947d1002094d9b49dbf0c86f03c998aebb50a2ad6e72cd5",
+    "excerpt": "> Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.\n\n**Argument:** [Appendix A](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-APPENDIX-INTRO), [§A.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-QUARTIC-UPPER)."
    },
    "gap": null
   },
@@ -8596,7 +8596,7 @@
      "join": "statement_claim",
      "statement_id": "claim-winner-dominates",
      "via": "solution_proof_reference",
-     "passage_sha256": "11be4e89002957590ee7ff9c878396478ccf2506b06be3412721f0939747bcf9",
+     "passage_sha256": "233f9fd1e15a296764df6090266c8fd076ffd15f7181d93355ebcf0470e166b6",
      "path": "docs/verification_details.md",
      "passage_lines": [
       803,
@@ -8671,7 +8671,7 @@
      "join": "statement_claim",
      "statement_id": "claim-winner-dominates",
      "via": "solution_proof_reference",
-     "passage_sha256": "11be4e89002957590ee7ff9c878396478ccf2506b06be3412721f0939747bcf9",
+     "passage_sha256": "233f9fd1e15a296764df6090266c8fd076ffd15f7181d93355ebcf0470e166b6",
      "path": "docs/verification_details.md",
      "passage_lines": [
       803,
@@ -8743,7 +8743,7 @@
      "join": "statement_claim",
      "statement_id": "def-F",
      "via": "solution_proof_reference",
-     "passage_sha256": "516123ca071d059f8953b6aa12ec87f377cb86b07bdaf8948ad0abf73591376b",
+     "passage_sha256": "1435098814a4f8f4a77151e4b6787eea63bf4f5b5fe2a41515511dbd4a734b15",
      "path": "docs/verification_details.md",
      "passage_lines": [
       383,
@@ -8755,7 +8755,7 @@
      "join": "statement_claim",
      "statement_id": "cor-unique-winner",
      "via": "solution_proof_reference",
-     "passage_sha256": "d9c0f70a9d33ec24f48262da4537e6785d1718db45acc7561faf048238a62b89",
+     "passage_sha256": "26f060af6d2fb91f635ff8350bf35d45144b2469398b4ac6faf0ce2c040ce4c7",
      "path": "docs/verification_details.md",
      "passage_lines": [
       395,
@@ -8780,12 +8780,12 @@
     "anchor": "CAT-def-F",
     "join": "statement_claim",
     "statement_id": "def-F",
-    "passage_sha256": "516123ca071d059f8953b6aa12ec87f377cb86b07bdaf8948ad0abf73591376b",
+    "passage_sha256": "1435098814a4f8f4a77151e4b6787eea63bf4f5b5fe2a41515511dbd4a734b15",
     "path": "docs/verification_details.md",
     "line_start": 386,
     "line_end": 388,
-    "excerpt_sha256": "81c825880fd8d55a7aded62e790a50139dfefe57f3f5ad30b6d6e7736f77ea0a",
-    "excerpt": "> F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.\n\n**Argument:** [§4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-construction-context), [§4.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-address-winner)."
+    "excerpt_sha256": "6da23cadce90ca34eddfd48972b7fc2a7705c88d25b7414391235a6c0389c1af",
+    "excerpt": "> F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.\n\n**Argument:** [§4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-construction-context), [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-address-winner)."
    },
    "gap": null
   },
@@ -9191,7 +9191,7 @@
      "join": "statement_claim",
      "statement_id": "eq-19",
      "via": "statement_tie",
-     "passage_sha256": "21db05474a7c20fe731296467c7712026a920a426918d0a1e70acd35920a91e8",
+     "passage_sha256": "faae95353f9873e7fb54f635c5c952b615799a212254953e93e2769ef1f55318",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1075,
@@ -9414,7 +9414,7 @@
      "join": "statement_claim",
      "statement_id": "lem-2.2.i",
      "via": "statement_tie",
-     "passage_sha256": "33e3638f37ed1dd8addc15cdb49d98806a7a13e76e2ca087010b8f4ff2e11087",
+     "passage_sha256": "1b0a032d7a64af2956aa03dde20e27c91e62f4844abf289d1b551cceaaf81adc",
      "path": "docs/verification_details.md",
      "passage_lines": [
       431,
@@ -9426,7 +9426,7 @@
      "join": "statement_claim",
      "statement_id": "lem-2.2.ii",
      "via": "statement_tie",
-     "passage_sha256": "9aee5f4689a17a945596bfa146aa075180388a535eb01350a84d60f154aafc8c",
+     "passage_sha256": "51ed6b3c906d6bf3624d331916088b5e924ed237276b7b1a58b62986f3140aa4",
      "path": "docs/verification_details.md",
      "passage_lines": [
       443,
@@ -9438,7 +9438,7 @@
      "join": "statement_claim",
      "statement_id": "lem-2.2",
      "via": "statement_tie",
-     "passage_sha256": "90a7cc66d256a76f7a7774a4852d297809cf22b3bfaf56817400a528f9be7844",
+     "passage_sha256": "39541db0610fb342b38dcf0f610e6720ec56d28f45251ff48fe9739b8a11d71a",
      "path": "docs/verification_details.md",
      "passage_lines": [
       455,
@@ -9462,12 +9462,12 @@
     "anchor": "CAT-lem-2.2.i",
     "join": "statement_claim",
     "statement_id": "lem-2.2.i",
-    "passage_sha256": "33e3638f37ed1dd8addc15cdb49d98806a7a13e76e2ca087010b8f4ff2e11087",
+    "passage_sha256": "1b0a032d7a64af2956aa03dde20e27c91e62f4844abf289d1b551cceaaf81adc",
     "path": "docs/verification_details.md",
     "line_start": 434,
     "line_end": 436,
-    "excerpt_sha256": "4e189ca79fd8722c94a486e82048d729ca771039ef9ed7e8647a599d829043f0",
-    "excerpt": "> For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.\n\n**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-local-tests), [§4.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-local-equivalence), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-verifier)."
+    "excerpt_sha256": "457c925c4d72d4c69dbda1224accdfee272843ef5004461b75c601ce0eb3a2b2",
+    "excerpt": "> For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.\n\n**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-local-tests), [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-local-equivalence), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-verifier)."
    },
    "gap": null
   },
@@ -9508,7 +9508,7 @@
      "join": "statement_claim",
      "statement_id": "eq-19",
      "via": "statement_tie",
-     "passage_sha256": "21db05474a7c20fe731296467c7712026a920a426918d0a1e70acd35920a91e8",
+     "passage_sha256": "faae95353f9873e7fb54f635c5c952b615799a212254953e93e2769ef1f55318",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1075,
@@ -10243,7 +10243,7 @@
      "passage_claims": [
       "r3-q-physical-state-bridge"
      ],
-     "passage_sha256": "195a9bc86257f1d17fe94d77fb7f9b04ad5dd089f69410e19edff4a64f89575e",
+     "passage_sha256": "6a20463d9b4919fc64780b5afbfefc9d386dedc8937e595b95321114875a1452",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1918,
@@ -10254,7 +10254,7 @@
    "primary_gloss": {
     "anchor": "upper-missing-physical-state",
     "join": "lean_link_mention",
-    "passage_sha256": "195a9bc86257f1d17fe94d77fb7f9b04ad5dd089f69410e19edff4a64f89575e",
+    "passage_sha256": "6a20463d9b4919fc64780b5afbfefc9d386dedc8937e595b95321114875a1452",
     "path": "docs/verification_details.md",
     "line_start": 1944,
     "line_end": 1944,
@@ -10458,7 +10458,7 @@
      "join": "lean_link_mention",
      "label": "cmp-direct-product",
      "passage_claims": [],
-     "passage_sha256": "803d1fe6d1bd9ac6a5b9a5bf83effc322d561954743410c93eddb27f2202805c",
+     "passage_sha256": "e47e493394f1db5489a617fd899233bdd4d04cfe22948526255667f96631f11d",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1950,
@@ -10469,7 +10469,7 @@
    "primary_gloss": {
     "anchor": "CL-direct-product-formal",
     "join": "lean_link_mention",
-    "passage_sha256": "803d1fe6d1bd9ac6a5b9a5bf83effc322d561954743410c93eddb27f2202805c",
+    "passage_sha256": "e47e493394f1db5489a617fd899233bdd4d04cfe22948526255667f96631f11d",
     "path": "docs/verification_details.md",
     "line_start": 1962,
     "line_end": 1972,

@@ -27,7 +27,7 @@ The first group fixes the objects quantified over in the theorem. Read §§2.1�
 
 > log means log_2, except where changing the base only changes an absolute constant. Ledger pinning: log in T (prop-3.2), r and l (eq-6) and L (eq-5) is exactly log_2.
 
-**Argument:** [§2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-LOGS).
+**Argument:** [§2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-LOGS).
 
 <!-- /passage:CAT-def-log-convention -->
 
@@ -39,7 +39,7 @@ The first group fixes the objects quantified over in the theorem. Read §§2.1�
 
 > A partial Boolean function is a pair (D,P) with D a subset of {0,1}^N and P:D->{0,1}. An algorithm computes it if it is correct, with the stated error, on every x in D; behaviour off D is unconstrained.
 
-**Argument:** [§2.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-PARTIAL).
+**Argument:** [§2.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-PARTIAL).
 
 <!-- /passage:CAT-def-partial-query -->
 
@@ -51,7 +51,7 @@ The first group fixes the objects quantified over in the theorem. Read §§2.1�
 
 > For a (partial) Boolean function f, R(f) is the least q such that some probability distribution on deterministic decision trees of depth at most q satisfies Pr[T(x)=f(x)] >= 2/3 for every x in dom f. The query cap holds on every branch and every coin outcome.
 
-**Argument:** [§2.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-PARTIAL), [§2.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#R3-01-CLASSICAL).
+**Argument:** [§2.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-PARTIAL), [§2.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#R3-01-CLASSICAL).
 
 <!-- /passage:CAT-def-R -->
 
@@ -63,7 +63,7 @@ The first group fixes the objects quantified over in the theorem. Read §§2.1�
 
 > For x in {0,1}^n the bit oracle is the unitary O_x|i,b,z> = |i, b xor x_i, z>, with i in [n], b a bit, z a workspace label. It is self-inverse.
 
-**Argument:** [§2.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-ORACLE).
+**Argument:** [§2.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-ORACLE).
 
 <!-- /passage:CAT-def-query-oracle -->
 
@@ -75,7 +75,7 @@ The first group fixes the objects quantified over in the theorem. Read §§2.1�
 
 > Q(f) is the least q such that some quantum algorithm, with unrestricted query-free computation between uses of O_x and with at most q queries on every branch including all measurement outcomes, outputs f(x) with probability >= 2/3 for every x in dom f.
 
-**Argument:** [§2.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-ORACLE), [§2.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#R3-01-ADAPTIVE).
+**Argument:** [§2.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-ORACLE), [§2.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#R3-01-ADAPTIVE).
 
 <!-- /passage:CAT-def-Q -->
 
@@ -87,7 +87,7 @@ The first group fixes the objects quantified over in the theorem. Read §§2.1�
 
 > alpha_tot = inf{alpha >= 0 : exists C_alpha < infinity such that for every n >= 1 and every total f:{0,1}^n->{0,1}, R(f) <= C_alpha (1+Q(f))^alpha}.
 
-**Argument:** [§1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-RESULT).
+**Argument:** [§1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-RESULT).
 
 <!-- /passage:CAT-eq-1 -->
 
@@ -99,7 +99,7 @@ The first group fixes the objects quantified over in the theorem. Read §§2.1�
 
 > For fixed integer k>=2 and all sufficiently large powers of four m: Q(F_{k,m}) <= C_k sqrt(m) (log m)^{b_k} and R(F_{k,m}) >= c_k m^{2-1/k}/(log m)^2, with c_k,C_k,b_k>0 depending only on k.
 
-**Argument:** [§1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-RESULT), [§1.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-ARCHITECTURE), [§7](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-FAMILY-ASSEMBLY).
+**Argument:** [§1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-RESULT), [§1.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-ARCHITECTURE), [§7](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-FAMILY-ASSEMBLY).
 
 <!-- /passage:CAT-eq-2 -->
 
@@ -111,7 +111,7 @@ The first group fixes the objects quantified over in the theorem. Read §§2.1�
 
 > alpha_tot = 4. More precisely, R(f) = O((1+Q(f))^4) for every total Boolean f, and eq-2 holds for each fixed integer k>=2.
 
-**Argument:** [§1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-RESULT), [§1.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-ARCHITECTURE), [Appendix G.2](#ROOT-EVIDENCE-CONVENTION), [§7](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-FAMILY-ASSEMBLY), [§7.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-NO-SMALLER).
+**Argument:** [§1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-RESULT), [§1.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-ARCHITECTURE), [Appendix G.2](#ROOT-EVIDENCE-CONVENTION), [§7](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-FAMILY-ASSEMBLY), [§7.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-NO-SMALLER).
 
 <!-- /passage:CAT-thm-1.1 -->
 
@@ -123,7 +123,7 @@ The first group fixes the objects quantified over in the theorem. Read §§2.1�
 
 > It is false that R(f) = O(Q(f)^3) for all total Boolean f ([3, Conjecture 2]): no C satisfies R(f) <= C Q(f)^3 for all total f.
 
-**Argument:** [§1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-RESULT), [§7.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-NO-SMALLER), [§1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#R3-01-QUANTIFIERS).
+**Argument:** [§1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-RESULT), [§7.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-NO-SMALLER), [§1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#R3-01-QUANTIFIERS).
 
 <!-- /passage:CAT-cor-cubic-refuted -->
 
@@ -141,7 +141,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > m=4^t. H is the m x m normalized Walsh-Hadamard matrix, H_{a,b}=m^{-1/2}(-1)^{<a,b>} for a,b in {0,1}^{log_2 m}. u=m^{-1/2}(1,...,1)^T. A bit a is identified with the sign (-1)^a. For z in {+-1}^m, D_z=diag(z).
 
-**Argument:** [§3.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_definition).
+**Argument:** [§3.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_definition).
 
 <!-- /passage:CAT-def-walsh-sign -->
 
@@ -153,7 +153,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > For z_1,...,z_k in {+-1}^m: Phi(z_1,...,z_k) = u^T D_{z_1} H D_{z_2} H ... H D_{z_k} u (k diagonals, k-1 copies of H), and delta = 2^{-5k}.
 
-**Argument:** [§3.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_definition), [§3.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_references).
+**Argument:** [§3.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_definition), [§3.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_references).
 
 <!-- /passage:CAT-eq-3 -->
 
@@ -165,7 +165,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > P=P_{k,m} is the partial function on km bits with P=1 if Phi>=delta, P=0 if |Phi|<=delta/2, undefined otherwise. The two cases are disjoint.
 
-**Argument:** [§3.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_definition), [§3.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_references).
+**Argument:** [§3.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_definition), [§3.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_references).
 
 <!-- /passage:CAT-eq-4 -->
 
@@ -177,7 +177,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > L = L_{k,m} = floor(m^{1-1/k}/(log_2 m)^2).
 
-**Argument:** [§3.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_definition).
+**Argument:** [§3.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_definition).
 
 <!-- /passage:CAT-eq-5 -->
 
@@ -189,7 +189,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > For fixed k>=2 and the positive constant c of the Bansal-Sinha bound: for all sufficiently large powers of four m, c k^{-29} (m/log(km))^{1-1/k} > floor(m^{1-1/k}/(log_2 m)^2).
 
-**Argument:** [§8.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_bs_translation), [§3.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_references).
+**Argument:** [§8.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_bs_translation), [§3.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_references).
 
 <!-- /passage:CAT-claim-bs-to-L -->
 
@@ -201,7 +201,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > For fixed k>=2 and all sufficiently large powers of four m, R(P_{k,m})>L with L as in eq-5.
 
-**Argument:** [§8.14](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_threshold), [§8.15](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_attribution), [§3.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_bundle), [§3.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_references).
+**Argument:** [§8.14](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_threshold), [§8.15](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_attribution), [§3.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_bundle), [§3.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_references).
 
 <!-- /passage:CAT-lem-2.1.i -->
 
@@ -213,7 +213,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > Prepare u, apply D_{z_1} H ... H D_{z_k} right to left, measure the projection onto u. Each D uses one bit query (phase kickback), H and the projection use none. Success probability is exactly Phi^2: >=delta^2 on 1-inputs, <=delta^2/4 on 0-inputs.
 
-**Argument:** [§8.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_quantum).
+**Argument:** [§8.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_quantum).
 
 <!-- /passage:CAT-claim-proj-prob -->
 
@@ -225,7 +225,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > For every 0<eta<1/2 there is a quantum algorithm using O_k(1+log(1/eta)) bit queries that outputs P_{k,m}(z) with error <=eta for every z in dom P. It has a coherent implementation retaining all workspace. On every input, promised or not, measuring its output register yields a bit.
 
-**Argument:** [§8.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_quantum), [§3.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_bundle), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-decode), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-decode-cost), [§8.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_coherent).
+**Argument:** [§8.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_quantum), [§3.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_bundle), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-decode), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-decode-cost), [§8.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_coherent).
 
 <!-- /passage:CAT-lem-2.1.ii -->
 
@@ -237,7 +237,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > With W=sqrt(m) H (entries +-1), N = z_1^T W D_{z_2} W ... W D_{z_k} (1,...,1)^T is an integer, Phi=N/M_{k,m}, and M_{k,m}=m (sqrt m)^{k-1} is a positive integer because m is a power of four.
 
-**Argument:** [§8.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_integer).
+**Argument:** [§8.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_integer).
 
 <!-- /passage:CAT-claim-N-phi -->
 
@@ -249,7 +249,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > Phi>=delta iff 2^{5k} N >= M_{k,m}; and |Phi|<=delta/2 iff 2^{5k+1}|N| <= M_{k,m}. d is the disjunction, b the first comparison.
 
-**Argument:** [§8.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_integer).
+**Argument:** [§8.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_integer).
 
 <!-- /passage:CAT-claim-integer-tests -->
 
@@ -261,7 +261,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > N is computed by k-1 unnormalized Walsh-Hadamard transforms, coordinate sign changes and a final signed sum. Each transform uses O(m log m) additions and subtractions; all intermediate integers have absolute value at most m^{O(k)}, so O_k(log m) bits suffice; hence Boolean size O_k(m (log m)^2).
 
-**Argument:** [§8.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_circuit).
+**Argument:** [§8.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_circuit).
 
 <!-- /passage:CAT-claim-circuit-size -->
 
@@ -273,7 +273,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > There is a Boolean circuit C=C_{k,m} of fan-in at most two and size S=S_{k,m}=O_k(m (log m)^2), counting non-input gates, with output bits d,b such that for every input z: d=1 iff P_{k,m} is defined at z, and d=1 implies b=P_{k,m}(z). The circuit computes these outputs exactly on every input.
 
-**Argument:** [§8.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_circuit), [§3.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_bundle), [§8.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_circuit_size).
+**Argument:** [§8.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_circuit), [§3.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_bundle), [§8.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_circuit_size).
 
 <!-- /passage:CAT-lem-2.1.iii -->
 
@@ -285,7 +285,7 @@ Section 3 defines the promise and states its contract; §§8.1–8.4 construct t
 
 > Conjunction of lem-2.1.i, lem-2.1.ii and lem-2.1.iii for each fixed k>=2.
 
-**Argument:** [§3.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_bundle), [§3.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_references).
+**Argument:** [§3.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_bundle), [§3.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_references).
 
 <!-- /passage:CAT-lem-2.1 -->
 
@@ -301,7 +301,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input.
 
-**Argument:** [§4.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-transcripts).
+**Argument:** [§4.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-transcripts).
 
 <!-- /passage:CAT-def-transcript -->
 
@@ -313,7 +313,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > r = ceil(20 log_2 m), l = log_2 m.
 
-**Argument:** [§4.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-layout).
+**Argument:** [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-layout).
 
 <!-- /passage:CAT-eq-6 -->
 
@@ -325,7 +325,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > The input has m columns. Column i contains: X_i in {0,1}^m; strings A_{i,1},...,A_{i,r} in {0,1}^{km} with no promise; and for each s in {0,1}^r a cell B_{i,s} holding, for each j != i, a pointer p_{i,s,j} in [m] encoded in l bits by a fixed bijection, and for each h in [r] an alleged evaluation transcript of C_{k,m} on A_{i,h}.
 
-**Argument:** [§4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-construction-context), [§4.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-layout).
+**Argument:** [§4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-construction-context), [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-layout).
 
 <!-- /passage:CAT-def-column-layout -->
 
@@ -337,7 +337,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > An evaluation transcript of C_{k,m} on A_{i,h} has one bit per non-input gate including output gates, and these gates are the count S. It is correct iff every bit equals the true value of that gate on input A_{i,h}.
 
-**Argument:** [§4.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-transcripts).
+**Argument:** [§4.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-transcripts).
 
 <!-- /passage:CAT-def-eval-transcript -->
 
@@ -349,7 +349,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > If every P(A_{i,h}) is defined, the true address of column i is s_i=(P(A_{i,1}),...,P(A_{i,r})) in {0,1}^r.
 
-**Argument:** [§4.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-address-winner).
+**Argument:** [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-address-winner).
 
 <!-- /passage:CAT-eq-7 -->
 
@@ -361,7 +361,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > Outward pointer condition at address s: X_j[p_{i,s,j}] = 0 for every j != i. Eq. 8 of the paper is the case s=s_i.
 
-**Argument:** [§4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-construction-context), [§4.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-address-winner).
+**Argument:** [§4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-construction-context), [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-address-winner).
 
 <!-- /passage:CAT-eq-8 -->
 
@@ -373,7 +373,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > Column i is a winner iff X_i=1^m, every P(A_{i,h}) is defined, and the cell B_{i,s_i} contains correct evaluation transcripts on all A_{i,h} and pointers satisfying eq-8.
 
-**Argument:** [§4.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-address-winner).
+**Argument:** [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-address-winner).
 
 <!-- /passage:CAT-def-winner -->
 
@@ -385,7 +385,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.
 
-**Argument:** [§4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-construction-context), [§4.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-address-winner).
+**Argument:** [§4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-construction-context), [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-address-winner).
 
 <!-- /passage:CAT-def-F -->
 
@@ -397,7 +397,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > For every input, at most one column is a winner.
 
-**Argument:** [§4.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-unique).
+**Argument:** [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-unique).
 
 <!-- /passage:CAT-cor-unique-winner -->
 
@@ -409,7 +409,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > WinsAt(y,i,s) holds iff X_i=1^m, for every h the transcript in B_{i,s} on A_{i,h} is correct with outputs d=1 and b=s_h, and eq-8 holds at s. The paper's wording, i is a winner and s=s_i, is equivalent by claim-winner-fidelity.
 
-**Argument:** [§4.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-fidelity).
+**Argument:** [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-fidelity).
 
 <!-- /passage:CAT-def-win-at-address -->
 
@@ -421,7 +421,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > K_{k,m} = m + (m-1) + r(S_{k,m}+2) = O_k(m (log m)^3).
 
-**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-local-tests), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-verifier).
+**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-local-tests), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-verifier).
 
 <!-- /passage:CAT-def-K -->
 
@@ -433,7 +433,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.
 
-**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-local-tests), [§4.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-local-equivalence), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-verifier).
+**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-local-tests), [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-local-equivalence), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-verifier).
 
 <!-- /passage:CAT-lem-2.2.i -->
 
@@ -445,7 +445,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > Each test is evaluated exactly with O(log m) bit queries, also coherently with the same bound with test indices in superposition. The number of tests and the indexing convention are the same for every (i,s).
 
-**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-local-tests), [§4.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-coherent-tests), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-verification-proof).
+**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-local-tests), [§4.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-coherent-tests), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-verification-proof).
 
 <!-- /passage:CAT-lem-2.2.ii -->
 
@@ -457,7 +457,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > Conjunction of lem-2.2.i and lem-2.2.ii.
 
-**Argument:** [§4.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-coherent-tests).
+**Argument:** [§4.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-coherent-tests).
 
 <!-- /passage:CAT-lem-2.2 -->
 
@@ -469,7 +469,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > A winner has an address at which every test passes; a nonwinner has a failing test at every address.
 
-**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-dichotomy).
+**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-dichotomy).
 
 <!-- /passage:CAT-cor-local-dichotomy -->
 
@@ -481,7 +481,7 @@ Section 4 constructs one total function from a circuit and explains every local 
 
 > Given the correctness half of lem-2.1.iii: WinsAt(y,i,s) iff X_i=1^m, every P(A_{i,h}) is defined, s=s_i, the transcripts in B_{i,s} are correct, and eq-8 holds. Hence exists s, WinsAt(y,i,s) is the paper's winner condition.
 
-**Argument:** [§4.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-fidelity).
+**Argument:** [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-fidelity).
 
 <!-- /passage:CAT-claim-winner-fidelity -->
 
@@ -497,7 +497,7 @@ Section 5.6 gives the state calculation and bounded fresh-trial procedure. The [
 
 > M = ceil(10/sqrt(gamma)). A trial picks with probability 1/2 l=0, and with probability 1/2 a uniform l in {0,...,M-1}, applies l Grover iterations to A|0>, and measures the success bit. The procedure runs ceil(log(1/eta)/log(40/31)) trials with fresh registers, stopping at the first success.
 
-**Argument:** [§5.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-grover-trial).
+**Argument:** [§5.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-grover-trial).
 
 <!-- /passage:CAT-def-grover-trial -->
 
@@ -509,7 +509,7 @@ Section 5.6 gives the state calculation and bounded fresh-trial procedure. The [
 
 > For 0<p<1 write A|0>=sin(theta)|g>+cos(theta)|b>, 0<theta<pi/2, with g,b normalized in the successful and unsuccessful subspaces. After l Grover iterations the state is sin((2l+1)theta)|g>+cos((2l+1)theta)|b>. Hence measuring success yields |g> up to global phase, independently of l.
 
-**Argument:** [§5.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-grover-geometry).
+**Argument:** [§5.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-grover-geometry).
 
 <!-- /passage:CAT-claim-grover-state -->
 
@@ -521,7 +521,7 @@ Section 5.6 gives the state calculation and bounded fresh-trial procedure. The [
 
 > If gamma<=p<=1/2 then sin(2theta)=2 sqrt(p(1-p)) >= sqrt(gamma).
 
-**Argument:** [§5.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-small-probability).
+**Argument:** [§5.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-small-probability).
 
 <!-- /passage:CAT-claim-sin2theta -->
 
@@ -533,7 +533,7 @@ Section 5.6 gives the state calculation and bounded fresh-trial procedure. The [
 
 > If gamma<=p<=1/2 and M=ceil(10/sqrt(gamma)), then (1/M) sum_{l=0}^{M-1} sin^2((2l+1)theta) >= 1/2 - 1/(2M|sin 2theta|) >= 9/20.
 
-**Argument:** [§5.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-average-exact), [§5.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-small-probability).
+**Argument:** [§5.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-average-exact), [§5.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-small-probability).
 
 <!-- /passage:CAT-eq-9 -->
 
@@ -545,7 +545,7 @@ Section 5.6 gives the state calculation and bounded fresh-trial procedure. The [
 
 > For 0<gamma<=1/2 and 0<eta<1/2 there is a single procedure, black-box in A and A^{-1} and with call counts depending only on gamma and eta, using O(gamma^{-1/2} log(1/eta)) calls for every p and on every branch, such that for every state preparation A with a success bit, success probability p and, if p>0, normalized successful state |g>: it reports failure or produces a successful outcome; conditional on success the output is |g> up to global phase; if p>=gamma, failure probability <=eta; if p=0 it always reports failure.
 
-**Argument:** [§5.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-amplification-statement), [§5.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-amplification-proof).
+**Argument:** [§5.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-amplification-statement), [§5.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-amplification-proof).
 
 <!-- /passage:CAT-lem-3.1 -->
 
@@ -561,7 +561,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > For a fixed oracle input and a coherent comparison circuit, a_{ij} is the probability that i is reported as defeating j when the result is measured, using one circuit per unordered pair; a_{ii}=0.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-comparison-model).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-comparison-model).
 
 <!-- /passage:CAT-def-aij -->
 
@@ -573,7 +573,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > a_{ij}+a_{ji}=1 for i != j, and a_{ii}=0.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-comparison-model), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-comparison-law).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-comparison-model), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-comparison-law).
 
 <!-- /passage:CAT-eq-10 -->
 
@@ -585,7 +585,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > For m>=2: T=ceil(log_2(1000m)), epsilon=1/(1000T).
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-tournament-parameters).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-tournament-parameters).
 
 <!-- /passage:CAT-def-T-eps -->
 
@@ -597,7 +597,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > i_* is dominant if a_{i_* j} >= 1-epsilon for every j != i_*.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-tournament-parameters).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-tournament-parameters).
 
 <!-- /passage:CAT-eq-11 -->
 
@@ -609,7 +609,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > Ideal process: w_i=1 for all i, W=sum_i w_i. While W>0 sample p with probability w_p/W, append p to the list, update by eq-12. If W=0, leave list and weights unchanged. Run T steps.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-ideal-process).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-ideal-process).
 
 <!-- /passage:CAT-def-ideal-process -->
 
@@ -621,7 +621,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > Update w_i <- w_i a_{ip} for all i in [m].
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-ideal-process).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-ideal-process).
 
 <!-- /passage:CAT-eq-12 -->
 
@@ -633,7 +633,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > For W>0: E[W_new | w] = (1/W) sum_{p,i} w_p w_i a_{ip} = (W^2 - sum_i w_i^2)/(2W) <= W/2.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-weight-drift).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-weight-drift).
 
 <!-- /passage:CAT-eq-13 -->
 
@@ -645,7 +645,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > The bound of eq-13 also holds when W=0, hence E[W_T] <= m/2^T.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-weight-drift).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-weight-drift).
 
 <!-- /passage:CAT-claim-expected-WT -->
 
@@ -657,7 +657,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > If i_* satisfies eq-11 and has not been selected in t<=T steps, then w_{i_*} >= (1-epsilon)^t >= 1-T epsilon > 1/2. Hence W>0 until it is selected.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-dominant-weight).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-dominant-weight).
 
 <!-- /passage:CAT-claim-weight-lb -->
 
@@ -669,7 +669,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > Pr[i_* absent from the ideal list] <= Pr[W_T >= 1/2] <= 2m/2^T.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-dominant-weight).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-dominant-weight).
 
 <!-- /passage:CAT-eq-14 -->
 
@@ -681,7 +681,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > Given pivots p_1,...,p_t with t<T: prepare uniform |i> over [m], compare i with each pivot in a fresh workspace, set the success bit iff every comparison says i defeats its pivot, keeping all garbage. Apply lem-3.1 with gamma=1/(2m), eta=epsilon. On failure stop and return the accumulated list; otherwise measure the index, append, and continue for at most T stages.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-stage-state), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-quantum-tournament).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-stage-state), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-quantum-tournament).
 
 <!-- /passage:CAT-construct-sampler -->
 
@@ -693,7 +693,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > Pre-success state: m^{-1/2} sum_{i=1}^m |i> tensor_{b=1}^t |phi(i,p_b)>.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-stage-state), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-tournament-evidence).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-stage-state), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-tournament-evidence).
 
 <!-- /passage:CAT-eq-15 -->
 
@@ -705,7 +705,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > Conditional on index i the success probability is prod_{b=1}^t a_{i p_b} = w_i (empty product 1). Total success probability is W/m, and conditional on success the index has law w_i/W exactly.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-stage-law), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-tournament-evidence).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-stage-law), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-tournament-evidence).
 
 <!-- /passage:CAT-claim-success-prob -->
 
@@ -717,7 +717,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > Until i_* is first selected, W/m >= 1/(2m), so at each such history the sampler fails with probability <=epsilon and otherwise follows the exact ideal pivot law. The real list contains i_* except with probability <= 2m/2^T + T epsilon.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-coupling), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-tournament-evidence), [§5.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-continuation-induction).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-coupling), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-tournament-evidence), [§5.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-continuation-induction).
 
 <!-- /passage:CAT-claim-coupling -->
 
@@ -729,7 +729,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > Stage t uses O(c(t+1)) queries per call; lem-3.1 uses O(sqrt(m) log(1/epsilon)) calls; the sum over t<T is O(c sqrt(m) T^2 log T), a fixed cap on every branch.
 
-**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-tournament-cost), [§5.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-finite-budget).
+**Argument:** [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-tournament-cost), [§5.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-finite-budget).
 
 <!-- /passage:CAT-claim-tournament-cost -->
 
@@ -741,7 +741,7 @@ The matrix inequalities lead to the ideal process and its shrinking expected wei
 
 > Let m>=2, T=ceil(log_2(1000m)), epsilon=1/(1000T). For a coherent comparison circuit controlled by two candidate indices, reversible with all workspace retained, using at most c>=1 bit queries, with probabilities a_{ij} satisfying eq-10, there is a quantum algorithm making O(c sqrt(m) T^2 log T) queries on every branch and returning a list of at most T candidates such that, for every fixed oracle input and every i_* satisfying eq-11, the list contains i_* with probability >= 1-2m/2^T-T epsilon.
 
-**Argument:** [§5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-purpose), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-comparison-model), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-tournament-cost), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-tournament-evidence).
+**Argument:** [§5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-purpose), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-comparison-model), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-tournament-cost), [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-tournament-evidence).
 
 <!-- /passage:CAT-prop-3.2 -->
 
@@ -757,7 +757,7 @@ Sections 5.3–5.4 put decoding, tournament comparison and verification into one
 
 > decode(i): run the algorithm of lem-2.1.ii on each A_{i,h}, h in [r], with error <= epsilon/r, retaining workspace. Output a string in {0,1}^r on every input.
 
-**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-decode).
+**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-decode).
 
 <!-- /passage:CAT-def-decode -->
 
@@ -769,7 +769,7 @@ Sections 5.3–5.4 put decoding, tournament comparison and verification into one
 
 > decode uses O_k(r log(r/epsilon)) = (log m)^{O_k(1)} queries. If all r instances are defined, the address is correct with probability >=1-epsilon. Otherwise it still returns some address.
 
-**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-decode-cost).
+**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-decode-cost).
 
 <!-- /passage:CAT-claim-decode-cost -->
 
@@ -781,7 +781,7 @@ Sections 5.3–5.4 put decoding, tournament comparison and verification into one
 
 > Comparison of distinct columns, in sorted order: decode each in separate workspaces; read each column's pointer towards the other at its decoded address and inspect the pointed bit of the other's X string. A column disqualifies its opponent if that bit is 0. If exactly one disqualifies the other it is victorious, otherwise the smaller index. A self-comparison returns false without reading a pointer.
 
-**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-comparator).
+**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-comparator).
 
 <!-- /passage:CAT-def-comparison -->
 
@@ -793,7 +793,7 @@ Sections 5.3–5.4 put decoding, tournament comparison and verification into one
 
 > The comparison uses c=(log m)^{O_k(1)} queries; its reversal costs the same. Measurement probabilities agree with the classical description, since later operations are controlled on the decoded registers in the computational basis. The resulting a_{ij} satisfy eq-10.
 
-**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-comparator), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-comparison-law).
+**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-comparator), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-comparison-law).
 
 <!-- /passage:CAT-claim-comparison-state -->
 
@@ -805,7 +805,7 @@ Sections 5.3–5.4 put decoding, tournament comparison and verification into one
 
 > If i_* is a winner then for every j != i_*, a_{i_* j} >= 1-epsilon, on every input, whether or not the opponent's instances are defined.
 
-**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-winner-dominates).
+**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-winner-dominates).
 
 <!-- /passage:CAT-claim-winner-dominates -->
 
@@ -817,7 +817,7 @@ Sections 5.3–5.4 put decoding, tournament comparison and verification into one
 
 > verify(i): decode and measure an address s afresh. Let A prepare a uniform test index and an exact failing-test flag at (i,s), with K tests. Apply lem-3.1 with gamma=1/K and eta=epsilon. Reject if a failed test is found, otherwise accept. Output 1 iff some listed candidate is accepted.
 
-**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-verifier).
+**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-verifier).
 
 <!-- /passage:CAT-def-verify -->
 
@@ -829,7 +829,7 @@ Sections 5.3–5.4 put decoding, tournament comparison and verification into one
 
 > A non-winner is accepted with probability <=epsilon, at every address. A true winner is rejected with probability <=epsilon, only by decoding error. Verification costs O(sqrt(K) log(1/epsilon) log m) = sqrt(m)(log m)^{O_k(1)} queries for the search, plus decoding.
 
-**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-verification-proof).
+**Argument:** [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-verification-proof).
 
 <!-- /passage:CAT-claim-verify -->
 
@@ -841,7 +841,7 @@ Sections 5.3–5.4 put decoding, tournament comparison and verification into one
 
 > On a 0-input the error is at most T epsilon. On a 1-input it is at most 2m/2^T + T epsilon + epsilon < 1/3.
 
-**Argument:** [§5.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-continuation-induction), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-total-error).
+**Argument:** [§5.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-continuation-induction), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-total-error).
 
 <!-- /passage:CAT-claim-error -->
 
@@ -853,7 +853,7 @@ Sections 5.3–5.4 put decoding, tournament comparison and verification into one
 
 > All superposed array accesses are ordinary bit queries. The global bit index is computed reversibly; a pointer is read in O(log m) queries; a controlled query uses load, use, unload, two queries.
 
-**Argument:** [§5.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-oracle-access), [§5.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-read-compiler).
+**Argument:** [§5.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-oracle-access), [§5.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-read-compiler).
 
 <!-- /passage:CAT-claim-coherent-access -->
 
@@ -865,7 +865,7 @@ Sections 5.3–5.4 put decoding, tournament comparison and verification into one
 
 > For every fixed k>=2, Q(F_{k,m}) <= sqrt(m) (log m)^{O_k(1)}.
 
-**Argument:** [§5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-purpose), [§5.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-finite-budget), [§5.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-asymptotic-bound), [§5.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-explicit-log6).
+**Argument:** [§5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-purpose), [§5.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-finite-budget), [§5.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-asymptotic-bound), [§5.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-explicit-log6).
 
 <!-- /passage:CAT-prop-3.3 -->
 
@@ -881,7 +881,7 @@ Section 6.1 gives both the conditional-transcript argument and the unnormalized-
 
 > For a deterministic algorithm, at every transcript tau of positive probability, the conditional law of (U_1,...,U_r) given tau is a product of separate conditional laws, because the event of obtaining tau is a Cartesian product of constraints on each input.
 
-**Argument:** [§6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-product-law).
+**Argument:** [§6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-product-law).
 
 <!-- /passage:CAT-claim-product-law -->
 
@@ -893,7 +893,7 @@ Section 6.1 gives both the conditional-transcript argument and the unnormalized-
 
 > With q_h queries already made to U_h, V_h(tau) is the largest success probability for computing P(U_h) under its conditional law given tau using at most L-q_h further queries.
 
-**Argument:** [§6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-conditional-values).
+**Argument:** [§6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-conditional-values).
 
 <!-- /passage:CAT-def-value-V -->
 
@@ -905,7 +905,7 @@ Section 6.1 gives both the conditional-transcript argument and the unnormalized-
 
 > If the next query at tau addresses U_h then E[V_h(tau') | tau] <= V_h(tau). The conditional laws and budgets of the other inputs do not change.
 
-**Argument:** [§6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-conditional-values).
+**Argument:** [§6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-conditional-values).
 
 <!-- /passage:CAT-eq-16 -->
 
@@ -917,7 +917,7 @@ Section 6.1 gives both the conditional-transcript argument and the unnormalized-
 
 > E[prod_j V_j(tau') | tau] <= prod_j V_j(tau). The product is a supermartingale over at most rL queries.
 
-**Argument:** [§6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-supermartingale).
+**Argument:** [§6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-supermartingale).
 
 <!-- /passage:CAT-claim-supermartingale -->
 
@@ -929,7 +929,7 @@ Section 6.1 gives both the conditional-transcript argument and the unnormalized-
 
 > At the final transcript tau, Pr[chosen vector correct | tau] <= prod_h max_b Pr(P(U_h)=b | tau) <= prod_h V_h(tau).
 
-**Argument:** [§6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-supermartingale).
+**Argument:** [§6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-supermartingale).
 
 <!-- /passage:CAT-claim-final-bound -->
 
@@ -941,7 +941,7 @@ Section 6.1 gives both the conditional-transcript argument and the unnormalized-
 
 > Let P:D->{0,1}, D subset {0,1}^n, mu a distribution on D, L a nonnegative integer. Suppose every deterministic algorithm making at most L queries computes P under mu with success probability <=beta. If U_1,...,U_r are iid mu, every classical algorithm making at most L queries to each U_h, possibly randomized, adaptive among the r inputs, and given arbitrary additional information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=beta^r.
 
-**Argument:** [§6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-direct-product-statement), [§6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-supermartingale), [§6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-weighted-values), [§6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-weighted-product), [§6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-independent-information).
+**Argument:** [§6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-direct-product-statement), [§6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-supermartingale), [§6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-weighted-values), [§6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-weighted-product), [§6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-independent-information).
 
 <!-- /passage:CAT-lem-4.1 -->
 
@@ -953,7 +953,7 @@ Section 6.1 gives both the conditional-transcript argument and the unnormalized-
 
 > If L<R(P), there is a distribution mu on dom P, which is in particular nonempty, such that every deterministic tree of depth <=L has success probability <=2/3 under mu.
 
-**Argument:** [§6.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-minimax).
+**Argument:** [§6.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-minimax).
 
 <!-- /passage:CAT-claim-minimax-mu -->
 
@@ -965,7 +965,7 @@ Section 6.1 gives both the conditional-transcript argument and the unnormalized-
 
 > Under mu from claim-minimax-mu, for U_1,...,U_r iid mu, every classical algorithm making at most L queries to each U_h, given information independent of (U_1,...,U_r), outputs (P(U_1),...,P(U_r)) with probability <=(2/3)^r.
 
-**Argument:** [§6.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-address-guess).
+**Argument:** [§6.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-address-guess).
 
 <!-- /passage:CAT-claim-address-guess -->
 
@@ -981,7 +981,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > G = floor(mL/100).
 
-**Argument:** [§6.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-generic-statement).
+**Argument:** [§6.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-generic-statement).
 
 <!-- /passage:CAT-eq-17 -->
 
@@ -993,7 +993,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > Dummy input Y^(0): independently for each i, J_i uniform in [m], X_i has a single 0 at position J_i. All A_{i,h} are iid mu independent of the J_i. All cells B_{i,s} are one fixed blank pattern.
 
-**Argument:** [§6.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-dummy).
+**Argument:** [§6.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-dummy).
 
 <!-- /passage:CAT-def-dummy -->
 
@@ -1005,7 +1005,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > I is uniform in [m] and independent of Y^(0). Y^(1) is Y^(0) with X_I:=1^m and B_{I,s_I} filled with the correct transcripts and pointers p_{I,s_I,j}=J_j for j != I.
 
-**Argument:** [§6.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-planted).
+**Argument:** [§6.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-planted).
 
 <!-- /passage:CAT-def-planted -->
 
@@ -1017,7 +1017,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > F_{k,m}(Y^(0))=0 and F_{k,m}(Y^(1))=1 for all sample points.
 
-**Argument:** [§6.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-planted).
+**Argument:** [§6.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-planted).
 
 <!-- /passage:CAT-claim-Y-values -->
 
@@ -1029,7 +1029,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > For a deterministic algorithm with at most G queries, |Pr[outputs 1 on Y^(1)]-Pr[outputs 1 on Y^(0)]| <= Pr(the dummy run queries X_I[J_I]) + Pr(the dummy run queries any bit of B_{I,s_I}).
 
-**Argument:** [§6.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-first-difference).
+**Argument:** [§6.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-first-difference).
 
 <!-- /passage:CAT-eq-18 -->
 
@@ -1041,7 +1041,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > Z is the number of columns whose zero is discovered in the dummy run.
 
-**Argument:** [§6.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-early-late), [§6.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-erased-zero-identity).
+**Argument:** [§6.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-early-late), [§6.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-erased-zero-identity).
 
 <!-- /passage:CAT-def-Z -->
 
@@ -1053,7 +1053,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > Before the zero in a column is found, its location is uniform among positions of that column not yet queried, conditional on the full adaptive transcript.
 
-**Argument:** [§6.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-early-late).
+**Argument:** [§6.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-early-late).
 
 <!-- /passage:CAT-claim-uniform-zero -->
 
@@ -1065,7 +1065,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > E Z <= 4G/m: an early discovery (fewer than m/2 distinct positions queried in that column before it) has probability <=2/m per query, giving <=2G/m in expectation; any other discovery lies in one of at most 2G/m columns receiving >=m/2 queries.
 
-**Argument:** [§6.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-early-late).
+**Argument:** [§6.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-early-late).
 
 <!-- /passage:CAT-claim-EZ -->
 
@@ -1077,7 +1077,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > Pr(the dummy run queries X_I[J_I]) = E Z/m <= 4G/m^2.
 
-**Argument:** [§6.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-early-late), [§6.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-zero-worlds), [§6.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-zero-average).
+**Argument:** [§6.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-early-late), [§6.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-zero-worlds), [§6.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-zero-average).
 
 <!-- /passage:CAT-eq-19 -->
 
@@ -1089,7 +1089,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > Column i is heavy if, over the entire dummy run, the algorithm makes more than L queries in total to A_{i,1},...,A_{i,r}. Repeats count.
 
-**Argument:** [§6.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-heavy).
+**Argument:** [§6.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-heavy).
 
 <!-- /passage:CAT-def-heavy -->
 
@@ -1101,7 +1101,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > Pr(I is heavy) <= G/(mL).
 
-**Argument:** [§6.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-heavy).
+**Argument:** [§6.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-heavy).
 
 <!-- /passage:CAT-eq-20 -->
 
@@ -1113,7 +1113,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > Fix i and t in {1,...,G}. A simulator receives all of the dummy input outside A_{i,1},...,A_{i,r}, runs the deterministic algorithm up to its proposed t-th query, and aborts before an (L+1)st query to those r strings in total. If it reaches time t and the proposed query is to a cell B_{i,s}, it outputs s; otherwise it outputs a fixed vector.
 
-**Argument:** [§6.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-simulator).
+**Argument:** [§6.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-simulator).
 
 <!-- /passage:CAT-def-simulator -->
 
@@ -1125,7 +1125,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > For each i and t: Pr(i is nonheavy and the t-th query is in B_{i,s_i}) <= (2/3)^r.
 
-**Argument:** [§6.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-simulator), [§6.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-joint-event).
+**Argument:** [§6.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-simulator), [§6.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-joint-event).
 
 <!-- /passage:CAT-eq-21 -->
 
@@ -1137,7 +1137,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > Pr(the dummy run queries B_{I,s_I}) <= G/(mL) + G(2/3)^r.
 
-**Argument:** [§6.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-cell-union).
+**Argument:** [§6.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-cell-union).
 
 <!-- /passage:CAT-eq-22 -->
 
@@ -1149,7 +1149,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > The output-probability difference is at most 4G/m^2 + G/(mL) + G(2/3)^r.
 
-**Argument:** [§6.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-discrepancy).
+**Argument:** [§6.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-discrepancy).
 
 <!-- /passage:CAT-eq-23 -->
 
@@ -1161,7 +1161,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > G(2/3)^r <= (1/100) m^{2-20 log_2(3/2)} = o(1).
 
-**Argument:** [§6.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-tail-numeric).
+**Argument:** [§6.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-tail-numeric).
 
 <!-- /passage:CAT-claim-tail -->
 
@@ -1173,7 +1173,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > For m=4^t, r=40t, 1<=L<=m and G<=mL/100: 4G/m^2<=4/100, G/(mL)<=1/100, G(2/3)^r<=1/100, so eq-23 is at most 6/100<1/3.
 
-**Argument:** [§6.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-tail-numeric).
+**Argument:** [§6.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-tail-numeric).
 
 <!-- /passage:CAT-claim-numeric -->
 
@@ -1185,7 +1185,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > For each fixed integer k>=2 and every sufficiently large power of four m, R(F_{k,m}) > G=floor(mL/100), with L=floor(m^{1-1/k}/(log_2 m)^2).
 
-**Argument:** [§6.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-concrete-lower).
+**Argument:** [§6.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-concrete-lower).
 
 <!-- /passage:CAT-prop-4.2 -->
 
@@ -1197,7 +1197,7 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > For fixed k, R(F_{k,m}) = Omega_k(m^{2-1/k}/(log m)^2).
 
-**Argument:** [§7](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-FAMILY-ASSEMBLY), [§6.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-concrete-lower).
+**Argument:** [§7](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-FAMILY-ASSEMBLY), [§6.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-concrete-lower).
 
 <!-- /passage:CAT-cor-R-omega -->
 
@@ -1209,15 +1209,15 @@ Sections 6.2–6.6 prove the planted lower bound. The complete equality-and-boun
 
 > Let m=4^t with t>=1 and r=40t. Let P be a partial function on km bits with an exact circuit C (d=1 iff defined, and d=1 implies b=P), and F the total function built from (P,C). If 1<=L<=m and L<R(P), then R(F)>floor(mL/100).
 
-**Argument:** [§6.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-generic-statement), [§6.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-randomized-contradiction).
+**Argument:** [§6.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-generic-statement), [§6.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-randomized-contradiction).
 
 
-This original catalogue row specializes the coordinate count to $km$ for the Forrelation application. The [body theorem](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-generic-statement) allows any finite coordinate set and every realizing circuit.
+This original catalogue row specializes the coordinate count to $km$ for the Forrelation application. The [body theorem](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-generic-statement) allows any finite coordinate set and every realizing circuit.
 <!-- /passage:CAT-prop-4.2-generic -->
 
 ### B.9. Passing to the exponent
 
-Section 7 removes the floor and compares exponents for each fixed $k$. The same-family upper and lower estimates are used together. The threshold may depend on $k$; the fixed-$k$ argument of §§7.1–7.2 alone gives no joint growing-$k$ schedule. The separate uniform argument in [§7.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-GROWING-K) gives such a schedule. The no-smaller-exponent declaration and the stronger numerical suppliers have their full quantifier order recorded in the correspondence.
+Section 7 removes the floor and compares exponents for each fixed $k$. The same-family upper and lower estimates are used together. The threshold may depend on $k$; the fixed-$k$ argument of §§7.1–7.2 alone gives no joint growing-$k$ schedule. The separate uniform argument in [§7.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-GROWING-K) gives such a schedule. The no-smaller-exponent declaration and the stronger numerical suppliers have their full quantifier order recorded in the correspondence.
 
 #### claim-floor
 
@@ -1227,7 +1227,7 @@ Section 7 removes the floor and compares exponents for each fixed $k$. The same-
 
 > For sufficiently large m, floor((m/100) floor(m^{1-1/k}/(log m)^2)) >= c_k m^{2-1/k}/(log m)^2 after decreasing c_k>0.
 
-**Argument:** [§7](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-FAMILY-ASSEMBLY), [§6.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-floors).
+**Argument:** [§7](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-FAMILY-ASSEMBLY), [§6.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-floors).
 
 <!-- /passage:CAT-claim-floor -->
 
@@ -1239,7 +1239,7 @@ Section 7 removes the floor and compares exponents for each fixed $k$. The same-
 
 > For fixed 0<=alpha<4 and integer k>=2 with 2-1/k>alpha/2: R(F_{k,m})/(1+Q(F_{k,m}))^alpha >= c_{k,alpha} m^{2-1/k-alpha/2}/(log m)^{2+alpha b_k}, which tends to infinity.
 
-**Argument:** [§7.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-RATIO), [§1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#R3-01-QUANTIFIERS).
+**Argument:** [§7.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-RATIO), [§1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#R3-01-QUANTIFIERS).
 
 <!-- /passage:CAT-claim-exponent-ratio -->
 
@@ -1251,7 +1251,7 @@ Section 7 removes the floor and compares exponents for each fixed $k$. The same-
 
 > For every 0<=alpha<4, alpha does not belong to the set in eq-1, because a suitable k exists with k > 1/(2-alpha/2).
 
-**Argument:** [§7.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-NO-SMALLER).
+**Argument:** [§7.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-NO-SMALLER).
 
 <!-- /passage:CAT-claim-no-smaller-exponent -->
 
@@ -1267,7 +1267,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > D(f) is the least depth of a deterministic decision tree computing f exactly on every input.
 
-**Argument:** [§2.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-PARTIAL), [§2.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#R3-01-CLASSICAL).
+**Argument:** [§2.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-PARTIAL), [§2.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#R3-01-CLASSICAL).
 
 <!-- /passage:CAT-def-D -->
 
@@ -1279,7 +1279,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > deg(f) is the degree of the unique real multilinear polynomial agreeing with f on the cube, with degree 0 for every constant function, including the zero function. With this convention it is unchanged by replacing input or output bits by signs.
 
-**Argument:** [§A.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-DEGREE-BLOCK).
+**Argument:** [§A.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-DEGREE-BLOCK).
 
 <!-- /passage:CAT-def-deg -->
 
@@ -1291,7 +1291,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > A nonempty B subset [n] is a sensitive block at x if flipping all bits of B changes f(x). bs(f) is the maximum over x of the number of pairwise disjoint sensitive blocks at x.
 
-**Argument:** [§A.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-DEGREE-BLOCK).
+**Argument:** [§A.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-DEGREE-BLOCK).
 
 <!-- /passage:CAT-def-bs -->
 
@@ -1303,7 +1303,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > For an input-indexed matrix Gamma, (Gamma_i)_{xy}=Gamma_{xy} 1{x_i != y_i}. Matrix norms are operator norms for the Euclidean norm.
 
-**Argument:** [§A.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-ADVERSARY-PERRON).
+**Argument:** [§A.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-ADVERSARY-PERRON).
 
 <!-- /passage:CAT-def-Gamma-i -->
 
@@ -1315,7 +1315,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > A nonzero real symmetric entrywise nonnegative Gamma has a nonnegative unit eigenvector v of eigenvalue ||Gamma||.
 
-**Argument:** [§A.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-ADVERSARY-PERRON).
+**Argument:** [§A.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-ADVERSARY-PERRON).
 
 <!-- /passage:CAT-claim-perron -->
 
@@ -1327,7 +1327,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > W_t = sum_{x,y} v_x v_y Gamma_{xy} <psi_x^t | psi_y^t>, where psi_x^t is the purified state after t queries on input x.
 
-**Argument:** [§A.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-ADVERSARY-PROGRESS).
+**Argument:** [§A.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-ADVERSARY-PROGRESS).
 
 <!-- /passage:CAT-def-adv-progress -->
 
@@ -1339,7 +1339,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > Each query changes W by at most: |W_{t+1}-W_t| <= 2 sum_i u_i^T Gamma_i u_i <= 2 max_i ||Gamma_i||, where u_i(x)=v_x ||phi_{x,i}||.
 
-**Argument:** [§A.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-ADVERSARY-PROGRESS).
+**Argument:** [§A.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-ADVERSARY-PROGRESS).
 
 <!-- /passage:CAT-claim-per-query -->
 
@@ -1351,7 +1351,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > If Pr[output 1] is <=1/3 on one state and >=2/3 on another, their overlap has absolute value <=2 sqrt(2)/3. Hence |W_final| <= (2 sqrt(2)/3)||Gamma||.
 
-**Argument:** [§A.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-ADVERSARY-FINAL).
+**Argument:** [§A.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-ADVERSARY-FINAL).
 
 <!-- /passage:CAT-claim-final-overlap -->
 
@@ -1363,7 +1363,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > Let f be a nonconstant total Boolean function, Gamma a nonzero real symmetric entrywise nonnegative input-indexed matrix with Gamma_{xy}=0 whenever f(x)=f(y). Then Q(f) >= c ||Gamma|| / max_i ||Gamma_i|| for an absolute constant c>0.
 
-**Argument:** [§A.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-ADVERSARY-PROGRESS), [§A.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-ADVERSARY-FINAL).
+**Argument:** [§A.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-ADVERSARY-PROGRESS), [§A.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-ADVERSARY-FINAL).
 
 <!-- /passage:CAT-lem-A.2 -->
 
@@ -1375,7 +1375,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > S_f is the adjacency matrix on {0,1}^n of the graph joining inputs that differ in exactly one bit and have different f-values. lambda(f)=||S_f||.
 
-**Argument:** [§A.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#R3-A-DEFINITIONS) (definition), [§A.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-BS-LAMBDA) (use).
+**Argument:** [§A.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#R3-A-DEFINITIONS) (definition), [§A.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-BS-LAMBDA) (use).
 
 <!-- /passage:CAT-def-Sf -->
 
@@ -1387,7 +1387,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > For nonconstant total f, bs(f)=O(Q(f)^2).
 
-**Argument:** [§A.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-BS-LAMBDA).
+**Argument:** [§A.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-BS-LAMBDA).
 
 <!-- /passage:CAT-lem-A.3.bs -->
 
@@ -1399,7 +1399,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > For nonconstant total f, lambda(f)=O(Q(f)).
 
-**Argument:** [§A.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-BS-LAMBDA).
+**Argument:** [§A.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-BS-LAMBDA).
 
 <!-- /passage:CAT-lem-A.3.lambda -->
 
@@ -1411,7 +1411,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > Conjunction of lem-A.3.bs and lem-A.3.lambda.
 
-**Argument:** [§A.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-BS-LAMBDA).
+**Argument:** [§A.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-BS-LAMBDA).
 
 <!-- /passage:CAT-lem-A.3 -->
 
@@ -1423,7 +1423,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > With f in sign form and d=deg f>=1, restricting variables outside a degree-d monomial's support gives g on the d-cube with nonzero parity correlation. So for some sigma in {-1,1}, U={x:g(x)=sigma x_1...x_d} has |U|>2^{d-1}, and every cube edge inside U changes g.
 
-**Argument:** [§A.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-HUANG-RESTRICTION).
+**Argument:** [§A.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-HUANG-RESTRICTION).
 
 <!-- /passage:CAT-claim-restrict-parity -->
 
@@ -1435,7 +1435,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > H'_1=[[0,1],[1,0]], H'_{j+1}=[[H'_j,I],[I,-H'_j]]. Its entrywise absolute value is the cube adjacency matrix.
 
-**Argument:** [§A.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-HUANG-SPECTRUM).
+**Argument:** [§A.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-HUANG-SPECTRUM).
 
 <!-- /passage:CAT-def-huang -->
 
@@ -1447,7 +1447,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > For d>=1, (H'_d)^2=dI and trace H'_d=0; H'_d has eigenvalues +-sqrt(d), each of multiplicity 2^{d-1}.
 
-**Argument:** [§A.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-HUANG-SPECTRUM).
+**Argument:** [§A.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-HUANG-SPECTRUM).
 
 <!-- /passage:CAT-claim-huang-spectrum -->
 
@@ -1459,7 +1459,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > There is a nonzero v in the sqrt(d)-eigenspace supported on U; with u=|v|, u^T A_U u >= v^T H'_d v = sqrt(d)||u||^2.
 
-**Argument:** [§A.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-HUANG-SPECTRUM).
+**Argument:** [§A.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-HUANG-SPECTRUM).
 
 <!-- /passage:CAT-claim-interlace -->
 
@@ -1471,7 +1471,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > Every nonconstant total Boolean f satisfies deg(f) <= lambda(f)^2.
 
-**Argument:** [§A.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-HUANG-SPECTRUM).
+**Argument:** [§A.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-HUANG-SPECTRUM).
 
 <!-- /passage:CAT-lem-A.4 -->
 
@@ -1483,7 +1483,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > In each round of the algorithm on input x, with S the selected maximum-degree monomial's support in the current restriction, the restriction to S with all other unqueried variables set as in x is nonconstant. So some nonempty subset of S is a sensitive block at x. Blocks of different rounds are disjoint.
 
-**Argument:** [§A.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-MONOMIAL-TREE).
+**Argument:** [§A.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-MONOMIAL-TREE).
 
 <!-- /passage:CAT-claim-round-block -->
 
@@ -1495,7 +1495,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > Every total Boolean f satisfies D(f) <= bs(f) deg(f).
 
-**Argument:** [§A.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-MONOMIAL-TREE).
+**Argument:** [§A.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-MONOMIAL-TREE).
 
 <!-- /passage:CAT-lem-A.5 -->
 
@@ -1507,7 +1507,7 @@ Appendix A gives the complete ordinary derivation with coefficient $35^4$; [Appe
 
 > Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.
 
-**Argument:** [Appendix A](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-APPENDIX-INTRO), [§A.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-QUARTIC-UPPER).
+**Argument:** [Appendix A](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-APPENDIX-INTRO), [§A.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-QUARTIC-UPPER).
 
 <!-- /passage:CAT-thm-A.1 -->
 
@@ -1632,9 +1632,9 @@ A Lean 4 formalization accompanies this record. Its four headline targets are th
 One configured statement, checked against Theorem 1.1, shows what the formalization establishes.
 
 1. Read the [compared headline theorem][thm-headline] beside Theorem 1.1 in §1. Its quantifiers run $\forall k\ \exists S,A,b,t_0\ \forall t\ \exists\mathcal C$, with one circuit for both bounds. Here $S$ is a coefficient in $\mathcal C.\mathrm{size}\le S\,m(2t)^2$, not the earlier actual gate count; $A$ is the quantum-query coefficient, $b$ its logarithmic exponent and $t_0$ the dyadic-size threshold. Its lower bound is the integer form $\lfloor mL/100\rfloor<R(F_{k,m})$, which implies (2) by the floor calculation of §6.6.
-2. Read the [definition of $R$][def-R] and the [definition of $Q$][def-Q] in the same file against §§2.1–2.4: one algorithm for every promised input, success probability at least $2/3$, and a cap that holds on every input and every branch. The classical read-all witnesses of [§2.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#R3-01-CLASSICAL) and quantum witness of [§2.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#R3-01-ADAPTIVE) make each complexity the minimum of a nonempty set of caps.
+2. Read the [definition of $R$][def-R] and the [definition of $Q$][def-Q] in the same file against §§2.1–2.4: one algorithm for every promised input, success probability at least $2/3$, and a cap that holds on every input and every branch. The classical read-all witnesses of [§2.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#R3-01-CLASSICAL) and quantum witness of [§2.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#R3-01-ADAPTIVE) make each complexity the minimum of a nonempty set of caps.
 3. Check that the [solution file][statement-solution] proves the statement by forwarding to an implementation theorem, and that the [configuration][statement-config] names it.
-4. Read the two-bit OR calculation in [§2.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#R3-01-OR) against these definitions, whose randomized complexity is one because the threshold $2/3$ is inclusive; the semantic controls of Appendix G.3 state such values against the same definitions.
+4. Read the two-bit OR calculation in [§2.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#R3-01-OR) against these definitions, whose randomized complexity is one because the threshold $2/3$ is inclusive; the semantic controls of Appendix G.3 state such values against the same definitions.
 5. Read [the separation-family paragraph in G.4](#formal-separation-family): confirm its exact configured comparison and distinguish its existential logarithmic exponent from the built explicit-constants theorem.
 
 This route exposes the proposed correspondence between the compared type, Theorem 1.1 and the query models of §2 for mathematical inspection. Comparator establishes that the submitted proofs inhabit the configured types under the shared definitions. Deciding that those definitions express the intended theorem is a separate semantic judgment; no human review is claimed.
@@ -1743,20 +1743,20 @@ The *corpus judgments* below come from [the statement corpus](../corpus/statemen
 
 #### The optimal exponent
 
-The [compared exponent theorem][thm-alpha] states exactly $\alpha_{\mathrm{tot}}=4$. The corpus calls its relation to catalogue claim thm-1.1 partial because that claim also contains the universal bound and the family. The ordinary proof is in [§7.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-NO-SMALLER).
+The [compared exponent theorem][thm-alpha] states exactly $\alpha_{\mathrm{tot}}=4$. The corpus calls its relation to catalogue claim thm-1.1 partial because that claim also contains the universal bound and the family. The ordinary proof is in [§7.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-NO-SMALLER).
 
 <a id="formal-separation-family"></a>
 #### The separation family
 
-The [compared separation theorem][thm-headline] is exact for catalogue claim thm-1.1. Its type is a conjunction: $\alpha_{\rm tot}=4$, the universal power-four bound, and a fixed-parameter separating family. In its family clause it gives $\lfloor mL/100\rfloor<R(F_{k,m})$ and $Q\le A\,2^t(2t)^b$, with $b$ existential and one circuit per size. This implies (2) by the floor calculation of §6.6; it does not state $b=6$ or the coefficient $1/400$. The ordinary assembly is in [§7](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-FAMILY-ASSEMBLY).
+The [compared separation theorem][thm-headline] is exact for catalogue claim thm-1.1. Its type is a conjunction: $\alpha_{\rm tot}=4$, the universal power-four bound, and a fixed-parameter separating family. In its family clause it gives $\lfloor mL/100\rfloor<R(F_{k,m})$ and $Q\le A\,2^t(2t)^b$, with $b$ existential and one circuit per size. This implies (2) by the floor calculation of §6.6; it does not state $b=6$ or the coefficient $1/400$. The ordinary assembly is in [§7](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-FAMILY-ASSEMBLY).
 
 #### Failure of a cubic bound
 
-The [compared failure of the cubic bound][thm-cubic] states exactly that no real $C$ satisfies $R(f)\le C\,Q(f)^3$ for every $n\ge1$ and every total $f$. See [§7.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-NO-SMALLER) for the ordinary proof.
+The [compared failure of the cubic bound][thm-cubic] states exactly that no real $C$ satisfies $R(f)\le C\,Q(f)^3$ for every $n\ge1$ and every total $f$. See [§7.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-NO-SMALLER) for the ordinary proof.
 
 #### Fixed-parameter Forrelation hardness
 
-The [compared Forrelation lower bound][thm-forrelation] is exact for Lemma 2.1(i) with an eventual threshold. It is weaker than the ordinary result in [§8.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_target), which also gives the explicit threshold $13669k^2$.
+The [compared Forrelation lower bound][thm-forrelation] is exact for Lemma 2.1(i) with an eventual threshold. It is weaker than the ordinary result in [§8.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_target), which also gives the explicit threshold $13669k^2$.
 
 The quantifier order in the compared family statement is $\forall k\ \exists S,A,b,t_0\ \forall t\ \exists\mathcal C$, with one circuit $\mathcal C$ for both bounds, as in §1. The other central statements of this record have their own formal status, recorded by the dated receipts and [the round-four formal adjudication](../research/adjudication/round4_formal.md). The Lean links in this edition use `8357f268732746d1575e05e7de8c888e20ad3793`. Its `lean/` tree is byte-identical to the paranoid receipt revision `9a0a5cdace28594058f6df59b9b2e45a9e7c1a4f`; the editorial revision supplies no fresh Lean or Comparator execution.
 
@@ -1771,39 +1771,39 @@ Separate compilation has these different source boundaries; it is not a uniform 
 <a id="formal-named-family"></a>
 #### Explicit constants for the named family
 
-The [named-family theorem][src-constants] proves Equation (2) with $b_k=6$, coefficient $1/400$ and a circuit-size bound. It is built and axiom-audited, but not configured for comparison. The 2 November corpus and the 3 November textual review both judge it stronger than (2), because it fixes explicit constants for the named circuit. Its threshold remains existential: no Lean theorem states $t\ge13669k^2$. The file header’s “Status: unelaborated” describes its original authoring environment, before the recorded build and axiom audit; it is not the current checking status. The [2 November source-bound build receipt](../corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json) includes this exact declaration; its separate axiom-audit and comparison status are recorded in the [round-four formal adjudication](../research/adjudication/round4_formal.md). See [§6.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-floors), [Appendix G.9](#ROOT-EXPONENT-CORRESPONDENCE).
+The [named-family theorem][src-constants] proves Equation (2) with $b_k=6$, coefficient $1/400$ and a circuit-size bound. It is built and axiom-audited, but not configured for comparison. The 2 November corpus and the 3 November textual review both judge it stronger than (2), because it fixes explicit constants for the named circuit. Its threshold remains existential: no Lean theorem states $t\ge13669k^2$. The file header’s “Status: unelaborated” describes its original authoring environment, before the recorded build and axiom audit; it is not the current checking status. The [2 November source-bound build receipt](../corpus/receipts/lean-build-root-2026-11-02T182539383153+0000.json) includes this exact declaration; its separate axiom-audit and comparison status are recorded in the [round-four formal adjudication](../research/adjudication/round4_formal.md). See [§6.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-floors), [Appendix G.9](#ROOT-EXPONENT-CORRESPONDENCE).
 
 #### The existential form of Equation (2)
 
-The [existential family theorem][src-equation-two] packages Equation (2) existentially. It is built, not compared, and the corpus judges it stronger because it adds a circuit-size witness for the same circuit. The textual review did not cover it. See [§7](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-FAMILY-ASSEMBLY).
+The [existential family theorem][src-equation-two] packages Equation (2) existentially. It is built, not compared, and the corpus judges it stronger because it adds a circuit-size witness for the same circuit. The textual review did not cover it. See [§7](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-FAMILY-ASSEMBLY).
 
 #### The explicit Forrelation threshold
 
-The threshold $t\ge13669k^2$ in (F51) is the ordinary specialization of (F43) proved in [§8.14](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_threshold). It has no Lean statement and was not covered by the textual review.
+The threshold $t\ge13669k^2$ in (F51) is the ordinary specialization of (F43) proved in [§8.14](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_threshold). It has no Lean statement and was not covered by the textual review.
 
 #### The uniform Forrelation estimate
 
-The [uniform Forrelation estimate][src-forrelation-uniform] formalizes (F43). It is built but not compared, and has no corpus row. The textual review judges it the same statement: uniform in $k$, with a better power of $k$ and a worse power of the logarithm than Bansal and Sinha. The ordinary proof is in [§8.14](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_uniform_assembly).
+The [uniform Forrelation estimate][src-forrelation-uniform] formalizes (F43). It is built but not compared, and has no corpus row. The textual review judges it the same statement: uniform in $k$, with a better power of $k$ and a worse power of the logarithm than Bansal and Sinha. The ordinary proof is in [§8.14](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_uniform_assembly).
 
 #### The quantum bound with logarithmic exponent six
 
-The [quantum upper bound with logarithmic exponent six][src-q-bound] is built but not compared. The corpus judges it stronger than Proposition 3.3 because it gives $C_k2^t(2t)^6$ for the same circuit family. The textual review did not cover it. See [§5.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-explicit-log6).
+The [quantum upper bound with logarithmic exponent six][src-q-bound] is built but not compared. The corpus judges it stronger than Proposition 3.3 because it gives $C_k2^t(2t)^6$ for the same circuit family. The textual review did not cover it. See [§5.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-explicit-log6).
 
 #### The quantum bound uniform in the parameter
 
-The [quantum upper bound uniform in $k$][src-budget-exponential] is built but not compared and has no corpus row. The textual review judges it the same as (7.5): $Q\le2^{53}k\,2^{10k}\sqrt m\,(2t)^6$ for every $t\ge1$. Its ordinary proof is in [§7.3](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#ROOT-GROWING-K).
+The [quantum upper bound uniform in $k$][src-budget-exponential] is built but not compared and has no corpus row. The textual review judges it the same as (7.5): $Q\le2^{53}k\,2^{10k}\sqrt m\,(2t)^6$ for every $t\ge1$. Its ordinary proof is in [§7.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-GROWING-K).
 
 #### The bounded tournament theorem
 
-The [bounded tournament theorem][src-quantum-tournament] is built but not compared. The corpus judges it stronger than Proposition 3.2 because it supplies a bounded-list law with explicit cap $6072\,c_{\mathrm{rd}}\sqrt m\,T^2\ln T$. The textual review did not cover it. See [§5.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-tournament-statement).
+The [bounded tournament theorem][src-quantum-tournament] is built but not compared. The corpus judges it stronger than Proposition 3.2 because it supplies a bounded-list law with explicit cap $6072\,c_{\mathrm{rd}}\sqrt m\,T^2\ln T$. The textual review did not cover it. See [§5.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-tournament-statement).
 
 #### Local certificate tests
 
-The [local certificate theorem][src-construction-full] was compared in its own bundle and passed again on the 3 November sources. Both reviews judge it stronger than Lemma 2.2: it includes both parts, the test equivalence on every input, the exact count $K$, a size bound, adaptive depth $2t+1$, physical cap $2(2t+1)$ and the essential-coordinate diagnostic for pointers. The coherent clause does not promise to restore the workspace. See [§§4.4–4.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-local-tests).
+The [local certificate theorem][src-construction-full] was compared in its own bundle and passed again on the 3 November sources. Both reviews judge it stronger than Lemma 2.2: it includes both parts, the test equivalence on every input, the exact count $K$, a size bound, adaptive depth $2t+1$, physical cap $2(2t+1)$ and the essential-coordinate diagnostic for pointers. The coherent clause does not promise to restore the workspace. See [§§4.4–4.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-local-tests).
 
 #### Abstract bounded amplification
 
-The [abstract amplification theorem][src-amplification] is built and the corpus judges it exact for Lemma 3.1 in its abstract procedure semantics. That semantics neither compiles to the bit-query model nor identifies a returned subsystem. The textual review did not cover it. See [§5.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-amplification-proof).
+The [abstract amplification theorem][src-amplification] is built and the corpus judges it exact for Lemma 3.1 in its abstract procedure semantics. That semantics neither compiles to the bit-query model nor identifies a returned subsystem. The textual review did not cover it. See [§5.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-amplification-proof).
 
 #### Amplification returning the successful state
 
@@ -1811,39 +1811,39 @@ The [retained-state amplification theorem][src-opaque-amplifier] was compared on
 
 #### Amplification of measured labels
 
-The [measured-label amplification theorem][src-amplify-measured] is built. The corpus judges it partial for Lemma 3.1, and the textual review judges it weaker: it gives the cap, failure bounds and measured-label law without the state. This is the form used by the proof of Theorem 1.1. See [§5.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-amplification-proof).
+The [measured-label amplification theorem][src-amplify-measured] is built. The corpus judges it partial for Lemma 3.1, and the textual review judges it weaker: it gives the cap, failure bounds and measured-label law without the state. This is the form used by the proof of Theorem 1.1. See [§5.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-amplification-proof).
 
 #### Direct products with finite averaging
 
-The [finite-average direct-product theorem][src-direct-product-average] is built and the corpus judges it partial for Lemma 4.1: it averages over finite seeds without arbitrary external information. The textual review did not cover it. See [§6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-direct-product-statement).
+The [finite-average direct-product theorem][src-direct-product-average] is built and the corpus judges it partial for Lemma 4.1: it averages over finite seeds without arbitrary external information. The textual review did not cover it. See [§6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-direct-product-statement).
 
 #### Direct products on the cap event
 
-The [direct product on the cap event][src-direct-product-caps] was compared on 3 November and has no corpus row. The textual review judges it stronger in allowing initially uncapped trees through the joint event of success and compliance, and narrower in allowing only finitely many weighted seeds. Compliance is a recursive predicate; its agreement with per-input query counts is an ordinary identification in [Appendix G.8](#CL-direct-product-formal). The ordinary cap-event proof is in [§6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-joint-cap).
+The [direct product on the cap event][src-direct-product-caps] was compared on 3 November and has no corpus row. The textual review judges it stronger in allowing initially uncapped trees through the joint event of success and compliance, and narrower in allowing only finitely many weighted seeds. Compliance is a recursive predicate; its agreement with per-input query counts is an ordinary identification in [Appendix G.8](#CL-direct-product-formal). The ordinary cap-event proof is in [§6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-joint-cap).
 
 #### The erased-zero identity and bound
 
-The [complete erased-zero theorem][src-equation-19] was compared and passed again on the 3 November sources. Both reviews judge it stronger than Equation (19): it conjoins identity and bound for every $m=2^\ell$, and the textual review also records that the input law is arbitrary. The alternative complete-expectation wrapper is built only. See [§6.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-erased-zero-identity).
+The [complete erased-zero theorem][src-equation-19] was compared and passed again on the 3 November sources. Both reviews judge it stronger than Equation (19): it conjoins identity and bound for every $m=2^\ell$, and the textual review also records that the input law is arbitrary. The alternative complete-expectation wrapper is built only. See [§6.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-erased-zero-identity).
 
 #### The stronger charging estimate
 
-The [deterministic charging inequality][src-zero-successor] behind $2G/(m(m+1))$ is built and has no corpus row. The textual review judges it weaker than the probability bound: averaging the deterministic estimate remains ordinary mathematics. See [§6.4](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-zero-optional).
+The [deterministic charging inequality][src-zero-successor] behind $2G/(m(m+1))$ is built and has no corpus row. The textual review judges it weaker than the probability bound: averaging the deterministic estimate remains ordinary mathematics. See [§6.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-zero-optional).
 
 #### The fixed-time planted-cell event
 
-The [fixed-time joint-event theorem][src-per-time] is built, exact in the corpus and judged the same by the textual review. It states Equation (21) at one time as a joint event under the original law, with $\beta=2/3$ and the minimax hypothesis on $\mu$ as a premise. Prose query time $q$ corresponds to the source's zero-based index $q-1$; [the joint-event definition](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-joint-event) fixes the event before that change of indices. See [§6.5](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-simulator).
+The [fixed-time joint-event theorem][src-per-time] is built, exact in the corpus and judged the same by the textual review. It states Equation (21) at one time as a joint event under the original law, with $\beta=2/3$ and the minimax hypothesis on $\mu$ as a premise. Prose query time $q$ corresponds to the source's zero-based index $q-1$; [the joint-event definition](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-joint-event) fixes the event before that change of indices. See [§6.5](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-simulator).
 
 #### Winner uniqueness and dominance
 
-The [four winner theorems][cmp-winners] were compared in the Construction bundle. The corpus judges them stronger relative to the unique-winner corollary; the textual review records different statements used beside Lemma 2.2: unique winners, unique gate-consistent transcripts and the two halves of winner dominance. See [§4.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#AC-total-unique), [§4.7](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#AC-comparison).
+The [four winner theorems][cmp-winners] were compared in the Construction bundle. The corpus judges them stronger relative to the unique-winner corollary; the textual review records different statements used beside Lemma 2.2: unique winners, unique gate-consistent transcripts and the two halves of winner dominance. See [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#AC-total-unique), [§4.7](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#AC-comparison).
 
 #### Controls for the query models
 
-The compared [zero costs][cmp-zero-cost], [degree][cmp-degree] controls have no corpus row. The textual review judges them the same as their ordinary counterparts: $D$, $R$ and $Q$ vanish exactly on functions constant on the promise, and degree means the degree of the unique multilinear representation. See [§2.6](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#R3-01-ZERO), [Appendix A.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#R3-A-DEFINITIONS).
+The compared [zero costs][cmp-zero-cost], [degree][cmp-degree] controls have no corpus row. The textual review judges them the same as their ordinary counterparts: $D$, $R$ and $Q$ vanish exactly on functions constant on the promise, and degree means the degree of the unique multilinear representation. See [§2.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#R3-01-ZERO), [Appendix A.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#R3-A-DEFINITIONS).
 
 #### The universal quartic bound
 
-The [formal universal quartic bound][src-universal-power] is compared through the Separation bundle’s configured universal-bound wrapper. The corpus judges it partial for Theorem A.1: it proves that four belongs to the set in (1), but omits $D$. The textual review did not cover it. See [Appendix A](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#R3-A-RESULT).
+The [formal universal quartic bound][src-universal-power] is compared through the Separation bundle’s configured universal-bound wrapper. The corpus judges it partial for Theorem A.1: it proves that four belongs to the set in (1), but omits $D$. The textual review did not cover it. See [Appendix A](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#R3-A-RESULT).
 
 
 
@@ -1856,7 +1856,7 @@ A comparison establishes that two statements agree under shared definitions. Whe
 <!-- passage:forr_validation_scope -->
 **Formal implementation of the asymptotic conclusion.** Instantiating the supplied coherent sampler at $q$ repetitions gives $qk$ abstract reads, which its generic compiler implements with at most $2qk$ physical bit queries. The complete Lemma 2.1(ii) wrapper packages this construction with the repetition count $n$ and the law existentially quantified, and its proof chooses $n=q$. The wrapper binds one isometry $F_z$, one initial basis state, one output labeling and the measured law of that isometry, and the physical implementation applies the same $F_z$ before every subsequent continuation, adding at most $2nk$ to the continuation's cap. Coherence, the measured law and the physical cost therefore sit in one witness, which proves the required $O_k(1+\log(1/\eta))$ conclusion. The explicit ceiling choice comes from the repetition and decoder theorems; the wrapper's existential statement alone does not assert it.
 
-The local phase-kickback identity has also been compiled, but it does not yet supply a complete formal program with the sharper $qk$ physical cap, so the sharper displayed inequality rests on the ordinary construction above. Likewise, [the tensor state in §8.2](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#forr_quantum) explains our construction, and the source's retained-isometry theorem asserts no equality with that concrete-register display. The correspondence files record the full theorem types and these distinctions.
+The local phase-kickback identity has also been compiled, but it does not yet supply a complete formal program with the sharper $qk$ physical cap, so the sharper displayed inequality rests on the ordinary construction above. Likewise, [the tensor state in §8.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_quantum) explains our construction, and the source's retained-isometry theorem asserts no equality with that concrete-register display. The correspondence files record the full theorem types and these distinctions.
 
 
 The fixed-$k$ statement (F3) with an eventual threshold is the [compared Forrelation lower bound][thm-forrelation], a configured Unconditional target whose type is the [Forrelation hardness statement][def-bansal-sinha] ([Appendix G.4](#checked-statements)). Its solution forwards to the [implementation theorem][src-forr-implementation], which supplies the proof; Comparator compares the configured target, and the implementation receives no separate comparison credit. The uniform estimate (F43) is the [uniform Forrelation estimate][src-forrelation-uniform], which has a recorded build and an axiom audit and is not configured for comparison.
@@ -1937,7 +1937,7 @@ $$
        \quad\hbox{and}\quad\|\xi_x\|^2=s_x.
  \end{aligned}
 $$
-Here $M=\lceil10/\sqrt\gamma\rceil$ and $N=\lceil\ln(1/\eta)/\ln(40/31)\rceil$ are the input-independent counts in [the bounded trial schedule](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#upper-grover-trial). It must give a logical-read circuit cap $qN(2M+1)$ and transport this same circuit through the physical compiler with cap at most $2qN(2M+1)$ ordinary bit queries, on arbitrary embedded input states and continuations. This arbitrary-state clause concerns correctness of the compiler; the amplification guarantee concerns the specified initial state. All these bounds hold on every input, whether or not $p_x\geq\gamma$.
+Here $M=\lceil10/\sqrt\gamma\rceil$ and $N=\lceil\ln(1/\eta)/\ln(40/31)\rceil$ are the input-independent counts in [the bounded trial schedule](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-grover-trial). It must give a logical-read circuit cap $qN(2M+1)$ and transport this same circuit through the physical compiler with cap at most $2qN(2M+1)$ ordinary bit queries, on arbitrary embedded input states and continuations. This arbitrary-state clause concerns correctness of the compiler; the amplification guarantee concerns the specified initial state. All these bounds hold on every input, whether or not $p_x\geq\gamma$.
 
 To express the preprint's black-box uniformity, the underlying program with slots for $A$ and $A^{-1}$ must be fixed by $\gamma,\eta$ and the register/query interface before the preparation oracle is supplied. Its branches, $M,N$ and cap cannot depend on $p_x$. The auxiliary space, routing and all non-oracle gates are input-independent. An equivalent adaptive formulation gives the same normalized original-register state, up to phase, on every positive-mass successful history. The finite-coordinate version and an explicitly uncompiled proposed interface are in the [quantum gap record](../research/returns/round3/members/05_quantum_upper/LEAN_GAPS.md).
 
@@ -1974,7 +1974,7 @@ Lean theorem.
 **Ordinary cap-count identification.** At a leaf, every observable count is zero and recursive compliance holds. At a query to instance $h$, compliance requires $c_h>0$ and applies the same condition to the chosen subtree with $c_h$ lowered by one. The path count for $h$ is one plus its subtree count; other counts are unchanged. Induction therefore identifies recursive compliance with the condition that each instance is queried at most its cap. This is an ordinary proof, not a new formal declaration.
 
 Arbitrary measurable
-external randomness is handled by the ordinary [finite-behavior reduction in §6.1](https://github.com/wcook04/quartic-query-lean/blob/071ce02338cd0e4f43185ef41c8c4a555dc460f7/docs/reasoning_record.md#CL-independent-information),
+external randomness is handled by the ordinary [finite-behavior reduction in §6.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-independent-information),
 not by a Lean theorem. The arbitrary-information reduction, the generic
 joint-event truncation corollary and the combined identity (6.11) are ordinary
 deductions supplied here. The worked example is a separate exact finite
@@ -2283,127 +2283,127 @@ This accounting is a hand derivation from the same constructors and bounds the a
 Will Cook directed this reconstruction. AI agents wrote the Lean formalization, the explanatory additions and the text of this record, working from OpenAI's preprint, which contains the theorem, the construction and both analyses; the earlier ingredients keep their authors' credit as cited. No person has reviewed the mathematics, and the record has not been submitted for publication.
 
 <!-- lean-links -->
-[cmp-amplifier]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L52
-[cmp-degree]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Independent/Degree/Challenge.lean#L14-L20
-[cmp-direct-product]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25
-[cmp-le-iff]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Foundations/Challenge.lean#L326-L330
-[cmp-winners]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Construction/Challenge.lean#L326-L341
-[cmp-zero-cost]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Independent/ModelZero/Challenge.lean#L11-L14
-[def-D]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L76-L77
-[def-DLe]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L67-L69
-[def-L]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L297-L300
-[def-Q]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L139-L140
-[def-QLe]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L133-L137
-[def-R]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L71-L74
-[def-RLe]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L62-L65
-[def-alpha]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L317-L318
-[def-bansal-sinha]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L305-L309
-[def-bit-input]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L15
-[def-partial]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L18-L19
-[def-realises]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L215-L221
-[def-reindex]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L27-L29
-[def-totalise]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L21-L22
-[def-universal]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L311-L315
-[src-alpha]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Results/Unconditional.lean#L17-L18
-[src-alpha-infimum]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Results/Exponent.lean#L240-L248
-[src-amplification]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Amplification/Bounded.lean#L238-L293
-[src-amplify-measured]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Amplify.lean#L345-L352
-[src-budget]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Bound.lean#L86-L90
-[src-budget-constant]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Bound.lean#L52-L57
-[src-budget-exponential]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Bound.lean#L286-L290
-[src-coherent-amplify]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/QuantumAmplification.lean#L352-L361
-[src-common-workspace]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/QuantumWorkspace.lean#L23-L34
-[src-comparison-state]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/QuantumComparison.lean#L216-L223
-[src-complies]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/LowerBound/RealizedCaps.lean#L50-L61
-[src-conditional-value-module]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean
-[src-constants]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionFamily.lean#L28-L40
-[src-construction-complete]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionComplete.lean#L23-L67
-[src-construction-full]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionFull.lean#L21-L69
-[src-construction-models]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionModels.lean
-[src-count]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/LowerBound/RealizedCaps.lean#L101-L107
-[src-coupled-average]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/LowerBound/Planted/Main.lean#L26-L29
-[src-cubic]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Results/Unconditional.lean#L40-L44
-[src-decoder]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/QuantumComparison.lean#L52-L59
-[src-direct-product]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/LowerBound/DirectProduct.lean#L302-L308
-[src-direct-product-average]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean#L900-L909
-[src-direct-product-capped]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean#L877-L884
-[src-direct-product-caps]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/LowerBound/RealizedCapsExternal.lean#L24-L34
-[src-direct-product-module]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/LowerBound/DirectProduct.lean
-[src-discovered-zeros]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L180-L185
-[src-dummy]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/LowerBound/Planted/Inputs.lean#L48-L54
-[src-equation-15]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/QuantumTensor.lean#L114-L131
-[src-equation-19]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/Eq19Whole.lean#L26-L33
-[src-equation-19-expectation]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/Eq19Complete.lean#L23-L31
-[src-equation-two]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionFamily.lean#L56-L67
-[src-erased-zero-bound]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L249-L254
-[src-erased-zero-identity]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L204-L209
-[src-error-bound]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/QuantumComparison.lean#L536-L549
-[src-eventual-comparison]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Results/Exponent.lean#L115-L123
-[src-expected-zeros]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L197-L202
-[src-expected-zeros-bound]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L238-L243
-[src-exponent-choice]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Results/Exponent.lean#L159-L161
-[src-family-conditional]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Results/Conditional.lean#L22-L31
-[src-fixed-sequence]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Bridge/Deferred.lean#L282-L290
-[src-forr-census]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Forrelation/Sanity.lean
-[src-forr-circuit]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Forrelation/Circuit.lean#L336-L339
-[src-forr-circuit-exists]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Forrelation/Circuit.lean#L477-L482
-[src-forr-implementation]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/ForrelationLower/Main.lean#L524-L525
-[src-forr-integer]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean#L139-L152
-[src-forr-output-bits]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean#L55-L69
-[src-forr-product]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean#L48-L54
-[src-forr-promise]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean#L57-L65
-[src-forr-tests]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean#L166-L178
-[src-forrelation-uniform]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/ForrelationLower/Uniform.lean#L525-L532
-[src-found-zero]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean#L156-L159
-[src-le-iff-classical]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Model/Classical.lean#L277-L282
-[src-le-iff-quantum]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Model/Quantum.lean#L413-L414
-[src-lemma-a2]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean#L105-L113
-[src-lemma-a3]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/AppendixAStar.lean#L480-L484
-[src-lemma-a4]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/AppendixAHuangRoute.lean#L112-L117
-[src-lemma-a5]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/AppendixASensitivity.lean#L288-L291
-[src-lemma21]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean#L63-L90
-[src-lemma21-ii]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean#L21-L44
-[src-lemma21-iii]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean#L109-L115
-[src-no-smaller-exponent]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Results/Exponent.lean#L230-L236
-[src-opaque-amplifier]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/UniformEndpoint.lean#L15-L53
-[src-per-time]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L340-L348
-[src-planted-core]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/LowerBound/Planted/Main.lean#L201-L206
-[src-pointer-support]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionPointerSupport.lean#L77-L85
-[src-proc]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Amplification/Procedure.lean#L31-L39
-[src-prop33]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Bound.lean#L270-L273
-[src-prop42]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/Section4.lean#L16-L32
-[src-q-bound]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Bound.lean#L277-L280
-[src-quantum-tournament]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean#L283-L303
-[src-quartic-cap]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/AppendixA.lean#L46-L51
-[src-quartic-hybrid]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/AppendixA.lean#L104-L106
-[src-quartic-minimum]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/AppendixA.lean#L59-L62
-[src-quartic-older]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Appendix/TheoremA1.lean#L51-L53
-[src-query-oracle]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionModels.lean#L178-L185
-[src-ratio-abstract]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean#L332-L348
-[src-ratio-arithmetic]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean#L232-L240
-[src-ratio-family]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean#L369-L386
-[src-runs]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Compile.lean#L329-L332
-[src-samples]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Sampler.lean#L113-L117
-[src-stage-sampler]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Tournament.lean#L62-L65
-[src-tensor-stage]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/QuantumTensor.lean#L322-L335
-[src-theorem]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Results/Unconditional.lean#L21-L29
-[src-theorem-a1]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/AppendixA.lean#L65-L70
-[src-theorem-conditional]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Results/Conditional.lean#L50-L60
-[src-transcript]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Construction/Transcript.lean#L62-L65
-[src-uniform-zero]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ClassicalUniformZero.lean#L248-L257
-[src-universal-power]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Appendix/TheoremA1.lean#L68-L70
-[src-verifier]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/QuantumComparison.lean#L496-L507
-[src-walsh]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean#L26-L37
-[src-winner-dominates]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Paper/QuantumComparison.lean#L294-L302
-[src-winner-paper]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Construction/LocalTests.lean#L326-L330
-[src-winner-tests]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Construction/LocalTests.lean#L235-L238
-[src-winner-unique]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Construction/Winner.lean#L54-L56
-[src-zero-successor]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean#L17-L22
-[statement-config]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/comparator.json
-[statement-file]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean
-[statement-solution]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Solution.lean
-[thm-alpha]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L326
-[thm-cubic]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L336-L338
-[thm-forrelation]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L340
-[thm-headline]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334
+[cmp-amplifier]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Independent/UniformAmplifier/Challenge.lean#L17-L52
+[cmp-degree]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Independent/Degree/Challenge.lean#L14-L20
+[cmp-direct-product]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Independent/RealizedCaps/Challenge.lean#L18-L25
+[cmp-le-iff]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Foundations/Challenge.lean#L326-L330
+[cmp-winners]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Construction/Challenge.lean#L326-L341
+[cmp-zero-cost]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Independent/ModelZero/Challenge.lean#L11-L14
+[def-D]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L76-L77
+[def-DLe]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L67-L69
+[def-L]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L297-L300
+[def-Q]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L139-L140
+[def-QLe]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L133-L137
+[def-R]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L71-L74
+[def-RLe]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L62-L65
+[def-alpha]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L317-L318
+[def-bansal-sinha]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L305-L309
+[def-bit-input]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L15
+[def-partial]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L18-L19
+[def-realises]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L215-L221
+[def-reindex]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L27-L29
+[def-totalise]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L21-L22
+[def-universal]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L311-L315
+[src-alpha]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Results/Unconditional.lean#L17-L18
+[src-alpha-infimum]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Results/Exponent.lean#L240-L248
+[src-amplification]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Amplification/Bounded.lean#L238-L293
+[src-amplify-measured]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Amplify.lean#L345-L352
+[src-budget]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Bound.lean#L86-L90
+[src-budget-constant]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Bound.lean#L52-L57
+[src-budget-exponential]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Bound.lean#L286-L290
+[src-coherent-amplify]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/QuantumAmplification.lean#L352-L361
+[src-common-workspace]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/QuantumWorkspace.lean#L23-L34
+[src-comparison-state]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/QuantumComparison.lean#L216-L223
+[src-complies]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/LowerBound/RealizedCaps.lean#L50-L61
+[src-conditional-value-module]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean
+[src-constants]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionFamily.lean#L28-L40
+[src-construction-complete]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionComplete.lean#L23-L67
+[src-construction-full]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionFull.lean#L21-L69
+[src-construction-models]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionModels.lean
+[src-count]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/LowerBound/RealizedCaps.lean#L101-L107
+[src-coupled-average]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/LowerBound/Planted/Main.lean#L26-L29
+[src-cubic]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Results/Unconditional.lean#L40-L44
+[src-decoder]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/QuantumComparison.lean#L52-L59
+[src-direct-product]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/LowerBound/DirectProduct.lean#L302-L308
+[src-direct-product-average]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean#L900-L909
+[src-direct-product-capped]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalDirectProduct.lean#L877-L884
+[src-direct-product-caps]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/LowerBound/RealizedCapsExternal.lean#L24-L34
+[src-direct-product-module]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/LowerBound/DirectProduct.lean
+[src-discovered-zeros]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L180-L185
+[src-dummy]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/LowerBound/Planted/Inputs.lean#L48-L54
+[src-equation-15]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/QuantumTensor.lean#L114-L131
+[src-equation-19]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/Eq19Whole.lean#L26-L33
+[src-equation-19-expectation]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/Eq19Complete.lean#L23-L31
+[src-equation-two]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionFamily.lean#L56-L67
+[src-erased-zero-bound]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L249-L254
+[src-erased-zero-identity]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L204-L209
+[src-error-bound]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/QuantumComparison.lean#L536-L549
+[src-eventual-comparison]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Results/Exponent.lean#L115-L123
+[src-expected-zeros]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L197-L202
+[src-expected-zeros-bound]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L238-L243
+[src-exponent-choice]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Results/Exponent.lean#L159-L161
+[src-family-conditional]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Results/Conditional.lean#L22-L31
+[src-fixed-sequence]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Bridge/Deferred.lean#L282-L290
+[src-forr-census]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Forrelation/Sanity.lean
+[src-forr-circuit]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Forrelation/Circuit.lean#L336-L339
+[src-forr-circuit-exists]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Forrelation/Circuit.lean#L477-L482
+[src-forr-implementation]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/ForrelationLower/Main.lean#L524-L525
+[src-forr-integer]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean#L139-L152
+[src-forr-output-bits]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean#L55-L69
+[src-forr-product]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean#L48-L54
+[src-forr-promise]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean#L57-L65
+[src-forr-tests]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean#L166-L178
+[src-forrelation-uniform]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/ForrelationLower/Uniform.lean#L525-L532
+[src-found-zero]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/LowerBound/Planted/ZeroSearch.lean#L156-L159
+[src-le-iff-classical]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Model/Classical.lean#L277-L282
+[src-le-iff-quantum]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Model/Quantum.lean#L413-L414
+[src-lemma-a2]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/AppendixASpectralAdversary.lean#L105-L113
+[src-lemma-a3]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/AppendixAStar.lean#L480-L484
+[src-lemma-a4]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/AppendixAHuangRoute.lean#L112-L117
+[src-lemma-a5]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/AppendixASensitivity.lean#L288-L291
+[src-lemma21]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean#L63-L90
+[src-lemma21-ii]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionForrelationComplete.lean#L21-L44
+[src-lemma21-iii]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionForrelationCircuit.lean#L109-L115
+[src-no-smaller-exponent]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Results/Exponent.lean#L230-L236
+[src-opaque-amplifier]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/UniformEndpoint.lean#L15-L53
+[src-per-time]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalPlanted.lean#L340-L348
+[src-planted-core]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/LowerBound/Planted/Main.lean#L201-L206
+[src-pointer-support]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionPointerSupport.lean#L77-L85
+[src-proc]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Amplification/Procedure.lean#L31-L39
+[src-prop33]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Bound.lean#L270-L273
+[src-prop42]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/Section4.lean#L16-L32
+[src-q-bound]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Bound.lean#L277-L280
+[src-quantum-tournament]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/QuantumTournamentFacts.lean#L283-L303
+[src-quartic-cap]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/AppendixA.lean#L46-L51
+[src-quartic-hybrid]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/AppendixA.lean#L104-L106
+[src-quartic-minimum]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/AppendixA.lean#L59-L62
+[src-quartic-older]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Appendix/TheoremA1.lean#L51-L53
+[src-query-oracle]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionModels.lean#L178-L185
+[src-ratio-abstract]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean#L332-L348
+[src-ratio-arithmetic]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean#L232-L240
+[src-ratio-family]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalAsymptotics.lean#L369-L386
+[src-runs]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Compile.lean#L329-L332
+[src-samples]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Sampler.lean#L113-L117
+[src-stage-sampler]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Tournament.lean#L62-L65
+[src-tensor-stage]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/QuantumTensor.lean#L322-L335
+[src-theorem]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Results/Unconditional.lean#L21-L29
+[src-theorem-a1]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/AppendixA.lean#L65-L70
+[src-theorem-conditional]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Results/Conditional.lean#L50-L60
+[src-transcript]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Construction/Transcript.lean#L62-L65
+[src-uniform-zero]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ClassicalUniformZero.lean#L248-L257
+[src-universal-power]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Appendix/TheoremA1.lean#L68-L70
+[src-verifier]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/QuantumComparison.lean#L496-L507
+[src-walsh]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/ConstructionForrelationDefinitions.lean#L26-L37
+[src-winner-dominates]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Paper/QuantumComparison.lean#L294-L302
+[src-winner-paper]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Construction/LocalTests.lean#L326-L330
+[src-winner-tests]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Construction/LocalTests.lean#L235-L238
+[src-winner-unique]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Construction/Winner.lean#L54-L56
+[src-zero-successor]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/LowerBound/Planted/ZeroSearchSuccessor.lean#L17-L22
+[statement-config]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/comparator.json
+[statement-file]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean
+[statement-solution]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Solution.lean
+[thm-alpha]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L326
+[thm-cubic]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L336-L338
+[thm-forrelation]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L340
+[thm-headline]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L328-L334
 <!-- /lean-links -->

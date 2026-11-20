@@ -55,15 +55,19 @@ SUPPLEMENT = "docs/verification_details.md"
 RECORD_BIBLIOGRAPHIES = ["docs/expert_companion.bib"]
 SCHEMA = "quartic-lean-links-v1"
 REPOSITORY = "https://github.com/wcook04/quartic-query-lean"
-# The commit the papers describe. Every pinned link resolves against this tree.
-COMMIT = "8357f268732746d1575e05e7de8c888e20ad3793"
-RECORD_COMMIT = "5fb47b33abfadffb90575c42d5649afe5444d102"
+# The commit the papers describe. Every pinned line range is read from this tree.
+COMMIT = "d2c86fdea7dc5ee868c486ba826e9716c351681d"
+RECORD_COMMIT = "d2c86fdea7dc5ee868c486ba826e9716c351681d"
 INDEX_COMMIT = "main"
+# Every pinned link names the release tag, so all three papers cite one revision.
+# When the tag exists, --check requires its lean/ tree to equal COMMIT's and its
+# record and supplement to carry every cited anchor.
+RELEASE = "v1.0.0"
 BEGIN, END = "<!-- lean-links -->", "<!-- /lean-links -->"
 USE = re.compile(r"\]\[([A-Za-z0-9][A-Za-z0-9-]*)\]")
 # The record edition is independent of the Lean source edition.
 RECORD = "docs/reasoning_record.md"
-RECORD_LINK = re.compile(re.escape(REPOSITORY) + r"/blob/([0-9a-f]{40}|main)/" + re.escape(RECORD)
+RECORD_LINK = re.compile(re.escape(REPOSITORY) + r"/blob/([0-9a-f]{40}|main|v[0-9]+(?:\.[0-9]+)*)/" + re.escape(RECORD)
                          + r"(?:#([A-Za-z0-9_.:-]+))?(?=[\s)<>\]}]|$)")
 
 UNCONDITIONAL = "lean/QuarticCorpus/Unconditional/Challenge.lean"
@@ -464,7 +468,7 @@ def build():
             kind = "tree" if local.is_dir() else "blob"
             text = local.read_text(encoding="utf-8") if kind == "blob" else None
             unpinned.append(label)
-        ref = COMMIT if pinned else "main"
+        ref = RELEASE if pinned else "main"
         entry = {"reader_name": reader, "path": path, "pinned": pinned}
         if names:
             start, end = locate(text, names, path)
@@ -490,6 +494,7 @@ def build():
         "generated_by": "tools/build_lean_links.py",
         "repository": REPOSITORY,
         "commit": COMMIT,
+        "release": RELEASE,
         "boundary": ("Reading aid: plain names and line links for Lean objects cited in "
                      "docs/expert_companion.md, docs/exposition.md and docs/reasoning_record.md. Line ranges are read from "
                      "the pinned commit; an entry with \"pinned\": false points at main and must "
@@ -553,9 +558,22 @@ def pin_record_links(text, paper):
         if missing:
             raise SystemExit(f"{paper}: record anchors absent at {RECORD_COMMIT[:12]}: {', '.join(missing)}")
     return RECORD_LINK.sub(lambda m: f"{REPOSITORY}/blob/"
-                           + (f"{INDEX_COMMIT}/{SUPPLEMENT}" if m.group(2) in relocated
-                              else f"{RECORD_COMMIT}/{RECORD}")
+                           + (f"{RELEASE}/{SUPPLEMENT}" if m.group(2) in relocated
+                              else f"{RELEASE}/{RECORD}")
                            + (f"#{m.group(2)}" if m.group(2) else ""), text)
+
+
+def check_release(outputs):
+    """Once the release tag exists, it must hold the cited Lean tree and anchors."""
+    if git("rev-parse", "--verify", "--quiet", f"refs/tags/{RELEASE}").returncode:
+        print(f"release tag {RELEASE} not created yet; links name it", file=sys.stderr)
+        return
+    if git("rev-parse", f"{RELEASE}:lean").stdout != git("rev-parse", f"{COMMIT}:lean").stdout:
+        raise SystemExit(f"{RELEASE}: lean/ differs from {COMMIT[:12]}")
+    cited = {(m.group(2) or "") for text in outputs.values() for m in RECORD_LINK.finditer(text)} - {""}
+    held = record_anchors(at_commit(RECORD, RELEASE)[1] or "") | record_anchors(at_commit(SUPPLEMENT, RELEASE)[1] or "")
+    if cited - held:
+        raise SystemExit(f"{RELEASE}: record anchors missing: {', '.join(sorted(cited - held))}")
 
 
 def updated_paper(paper, links):
@@ -588,6 +606,7 @@ def main():
         print(f"lean links not pinned to {COMMIT[:12]} (file absent there): {', '.join(unpinned)}",
               file=sys.stderr)
     if args.check:
+        check_release(outputs)
         stale = [p.relative_to(ROOT).as_posix() for p, text in outputs.items()
                  if not p.exists() or p.read_text(encoding="utf-8") != text]
         if stale:

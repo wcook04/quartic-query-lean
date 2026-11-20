@@ -65,7 +65,7 @@ function Journey({ j, step }: { j: any; step?: string }) {
       <header className="panel__head">
         <h2 id="jr-h" className="panel__title">{j.title}</h2>
         <p className="panel__lede" dangerouslySetInnerHTML={{ __html: inlineTex(j.scope) }} />
-        <SourceLine kind="editors">The editors wrote the explanations, to help reading; not a proof. Lean reports the source lines and what they use.</SourceLine>
+        <SourceLine kind="editors">AI agents wrote the explanations, to help reading; not a proof. Lean reports the source lines and what they use.</SourceLine>
         <details className="fold journey__key">
           <summary>What the words next to each use mean</summary>
           <ul className="plain marklist">
@@ -81,7 +81,7 @@ function Journey({ j, step }: { j: any; step?: string }) {
       <section className="block">
         <h3 className="block__h">Read this argument in a paper</h3>
         <Elsewhere rows={rows} here={nav.paper} />
-        <SourceLine kind="editors">Passages linked by the editors, to help reading; not a proof.</SourceLine>
+        <SourceLine kind="editors">Passages linked by AI agents, to help reading; not a proof.</SourceLine>
       </section>
       {j.interfaces?.length > 0 && (
         <details className="fold journey__defs">

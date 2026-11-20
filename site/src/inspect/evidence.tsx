@@ -33,7 +33,7 @@ const WHO_TITLE: Record<Source, string> = {
   lean: "Reported by Lean from the project's source in this edition",
   review: "A review judgment bound to the current Lean source",
   check: "A recorded Lean build or Comparator run",
-  editors: "An editorial reading link or explanation; it helps reading and is not a proof",
+  editors: "A reading link or explanation written by AI agents; it helps reading and is not a proof",
 };
 const AI_REVIEW_TITLE = "A review judgment, carried out with AI and bound to the current Lean source";
 
@@ -55,7 +55,7 @@ const SOURCE_WORDS: Record<Source, (ai: boolean) => string> = {
   lean: () => "From Lean, for the project’s source in this edition.",
   review: (ai) => `Compared ${ai ? "by AI review" : "by review"}, bound to the current Lean source.`,
   check: () => "From recorded Lean builds and Comparator runs.",
-  editors: () => "Linked by the editors, to help reading; not a proof.",
+  editors: () => "Linked by AI agents, to help reading; not a proof.",
 };
 export const reviewWords = (by?: string | readonly (string | null | undefined)[] | null) => (byAI(by) ? "AI review" : "review");
 

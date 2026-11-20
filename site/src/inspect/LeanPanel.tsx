@@ -127,7 +127,7 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch }
           <SourceLine kind={reviewed.length ? "review" : "editors"} by={d.by}>
             {reviewed.length > 0 && <>Compared by {reviewWords(d.by)}, bound to this Lean source.</>}
             {reviewed.length > 0 && linkedOnly.length > 0 && " "}
-            {linkedOnly.length > 0 && <>{reviewed.length ? "Other statement links" : "Linked"} by the editors.</>}
+            {linkedOnly.length > 0 && <>{reviewed.length ? "Other statement links" : "Linked"} by AI agents.</>}
           </SourceLine>
         </section>
       )}
@@ -162,7 +162,7 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch }
           <details className="fold">
             <summary>Where the papers discuss it {places > 0 && <span className="fold__n">{places} {places === 1 ? "paper" : "papers"}</span>}</summary>
             <Elsewhere rows={treatments} here="" current={nav.paper} />
-            <SourceLine kind="editors">Passages linked by the editors.</SourceLine>
+            <SourceLine kind="editors">Passages linked by AI agents.</SourceLine>
           </details>
         )}
         <details className="fold">

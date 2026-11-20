@@ -57,7 +57,7 @@ export function EdgeEvidence({ reader, graph, edge, onClose, onOpenChain, onOpen
         <p className="edge-ev__note">This line is context, not a Lean dependency. What uses this declaration lies outside the steps shown, so the map places it under the main result. Whole proof shows every recorded use.</p>
       )}
       {style === "paper" && (
-        <p className="edge-ev__note">The editors link OpenAI’s Theorem 1.1 to the Lean theorem that states it. It is not a Lean dependency, so no Lean line is recorded for it. <button type="button" className="textbutton" onClick={() => onOpenLean(edge.to)}>Open its Lean</button></p>
+        <p className="edge-ev__note">AI agents link OpenAI’s Theorem 1.1 to the Lean theorem that states it. It is not a Lean dependency, so no Lean line is recorded for it. <button type="button" className="textbutton" onClick={() => onOpenLean(edge.to)}>Open its Lean</button></p>
       )}
       {path.state === "loading" && <p className="edge-ev__note" role="status">Loading the recorded evidence…</p>}
       {path.state === "failed" && <p className="edge-ev__note" role="alert">The evidence for this line could not be loaded.</p>}
