@@ -15,9 +15,9 @@
       ],
       "note": "The Lean theorem states both bounds from a threshold on m, as Theorem 1 of the expert companion does. Its proof uses the Lean development's own proof of the Forrelation lower bound, a different route from Bansal and Sinha's. The explicit constants b=6 and 1/400 come from this reconstruction and are stated by a separate Lean theorem. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers.",
       "bound_at": {
-        "exposition": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
-        "expert": "e633939eb3abbfbef4e2f1aafd982bad23fc39fc"
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       },
       "context_passages": {
         "ROOT-FAMILY-ASSEMBLY": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
@@ -36,8 +36,8 @@
         "src-winner-unique"
       ],
       "bound_at": {
-        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       },
       "context_passages": {
         "AC-circuit": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
@@ -65,7 +65,7 @@
         "src-winner-dominates"
       ],
       "bound_at": {
-        "expert": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       },
@@ -131,8 +131,8 @@
         ]
       },
       "bound_at": {
-        "exposition": "1bf0a59e61ddcc4a6614691d69a202ebb56c41e2",
-        "expert": "9fc4e70a2281cda3fec8cb86e1b5d669d7797b87",
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
         "reconstruction": "cff428ed354e4f93d63efd6adeba0b8d67d4ef99"
       },
       "context_passages": {
@@ -163,8 +163,8 @@
         "src-equation-15"
       ],
       "bound_at": {
-        "expert": "685f757ec50918fd659b926a44f2ba988e11359d",
-        "exposition": "70580ee73a01da95fd32c42680a93dc15fbd3c09"
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       },
       "context_passages": {
         "upper-comparison-model": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
@@ -200,8 +200,8 @@
         "src-budget"
       ],
       "bound_at": {
-        "expert": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       },
       "context_passages": {
         "AC-circuit": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
@@ -220,8 +220,8 @@
         "src-planted-core"
       ],
       "bound_at": {
-        "expert": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       }
     },
     {
@@ -285,8 +285,8 @@
         ]
       },
       "bound_at": {
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
-        "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
         "reconstruction": "cff428ed354e4f93d63efd6adeba0b8d67d4ef99"
       }
     },
@@ -301,8 +301,8 @@
       ],
       "bound_at": {
         "reconstruction": "e633939eb3abbfbef4e2f1aafd982bad23fc39fc",
-        "expert": "685f757ec50918fd659b926a44f2ba988e11359d",
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       },
       "detours": [
         {
@@ -332,8 +332,8 @@
         "src-direct-product-caps"
       ],
       "bound_at": {
-        "expert": "e633939eb3abbfbef4e2f1aafd982bad23fc39fc",
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       },
       "detours": [
         {
@@ -360,8 +360,8 @@
       ],
       "note": "The quantum readout observes the squared amplitude. A certificate must separately establish the signed one-sided promise. The Lean development proves the randomized hardness bound for this promise by a different route from Bansal and Sinha's.",
       "bound_at": {
-        "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       },
       "context_passages": {
@@ -392,9 +392,9 @@
         "src-no-smaller-exponent"
       ],
       "bound_at": {
-        "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
         "reconstruction": "2a45f5e5f0c1fb66b469bb2f403e15b2753daf11",
-        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       },
       "context_passages": {
         "ROOT-FAMILY-ASSEMBLY": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
@@ -630,7 +630,7 @@
         "def-comparison"
       ],
       "bound_at": {
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7"
       },
       "correspondence_scope": "illustration"
@@ -654,8 +654,8 @@
         "eq-4"
       ],
       "bound_at": {
-        "expert": "d2c86fdea7dc5ee868c486ba826e9716c351681d",
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       },
       "context_passages": {
         "forr_definition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
@@ -682,8 +682,8 @@
       ],
       "bound_at": {
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
-        "exposition": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
-        "expert": "685f757ec50918fd659b926a44f2ba988e11359d"
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb",
+        "expert": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       },
       "context_passages": {
         "CL-dummy": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
@@ -847,7 +847,7 @@
         }
       ],
       "bound_at": {
-        "verification": "e633939eb3abbfbef4e2f1aafd982bad23fc39fc"
+        "verification": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       }
     },
     {
@@ -1193,7 +1193,7 @@
         ]
       },
       "bound_at": {
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       }
     },
     {
@@ -1206,7 +1206,7 @@
         ]
       },
       "bound_at": {
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       }
     },
     {
@@ -1220,7 +1220,7 @@
         ]
       },
       "bound_at": {
-        "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f"
+        "exposition": "5926ae2488ea47cec5cd15ba3dbb2b3935a21aeb"
       }
     }
   ]

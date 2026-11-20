@@ -144,6 +144,7 @@ $$
  =\frac{W^2-\sum_i w_i^2}{2W}.
 \tag{5}
 $$
+
 For $W>0$, the nonnegative sum of squares in (5) gives the bound $\mathbb E[W_{\rm new}\mid w]\le W/2$. Equivalently, draw two independent indices from the weights: the ordered pairs $(i,j)$ and $(j,i)$ have equal probability, their selection probabilities sum to one when $i\ne j$, and the diagonal contributes nothing.
 
 In the ideal process we stop if $W=0$. After $T$ steps the expected total weight is at most $m2^{-T}$. If the winner is still unlisted, its weight is at least $(1-\varepsilon)^T\ge1-T\varepsilon>1/2$. This single inequality does two jobs. First, by Markov's inequality, the probability that the winner remains unlisted is at most $2m2^{-T}$. Second, while the winner is unlisted the total weight exceeds $1/2$, which keeps the sampling step below affordable.
@@ -204,7 +205,9 @@ Run a deterministic decision tree on both inputs. The sequences of queried indic
 
 ### 5.2 Searching for the erased zero
 
-Let $Z$ count the columns $i$ in which the tree queries the unique zero of $X_i$ on the dummy input. By independence of $I$, the probability that $I$ is among these columns is $\mathbb E Z/m$. Before the first query to a column's zero, its row is uniform among the unqueried rows of that column, even conditional on the transcript. While the tree has queried fewer than half the rows of a column, its next query there finds the zero with probability at most $2/m$, so zeros found this way number at most $2G/m$ in expectation. Every other found zero costs at least $m/2$ queries in its column, so there are at most $2G/m$ of those. With at most $G$ queries in the dummy run, the erased-zero probability is therefore
+Let $Z$ count the columns $i$ in which the tree queries the unique zero of $X_i$ on the dummy input. By independence of $I$, the probability that $I$ is among these columns is $\mathbb E Z/m$. Before the first query to a column's zero, its row is uniform among the unqueried rows of that column, even conditional on the transcript. While the tree has queried fewer than half the rows of a column, its next query there finds the zero with probability at most $2/m$, so zeros found this way number at most $2G/m$ in expectation. Every other found zero costs at least $m/2$ queries in its column, so there are at most $2G/m$ of those.
+
+With at most $G$ queries in the dummy run, the erased-zero probability is therefore
 $$
  \Pr[\text{query }X_I[J_I]]\le\frac{4G}{m^2}.
 \tag{8}
