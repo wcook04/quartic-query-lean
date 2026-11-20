@@ -6,6 +6,8 @@ export interface Nav {
   openPassage(paper: string, anchor?: string): void;
   openStatement(id: string): void;
   openLean(name: string): void;
+  /** Open the Lean tab; it follows the paper unless a declaration is chosen. */
+  openLeanTab?(): void;
   openGraph(name?: string): void;
   openPath(edge: string): void;
   openJourney(id: string): void;
