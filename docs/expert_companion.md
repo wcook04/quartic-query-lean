@@ -1,7 +1,7 @@
 ---
 title: "Reconstructing OpenAI’s nearly quartic query separation"
 subtitle: "Comparing candidates and predicting a hidden address"
-author: "Will Cook"
+author: "Written by AI systems under the direction of Will Cook"
 date: "November 2026"
 bibliography: expert_companion.bib
 link-citations: true
@@ -12,7 +12,9 @@ abstract: |
   OpenAI proved that the optimal exponent bounding randomized query complexity in terms of quantum query complexity for total Boolean functions is four. The quantum algorithm compares columns before verifying certificates. A comparison between two losing columns can have any bias. Give each column a weight equal to its probability of winning fresh comparisons against all previous pivots. When the next pivot is sampled proportionally to these weights, the bias of each pair cancels and the expected total weight falls by at least half. For the lower bound, a simulator with a fixed query budget predicts independent Boolean values from the cell address in a classical query for one certificate bit.
 ---
 
-This companion gives the construction and both query bounds for readers familiar with query complexity and quantum search; prior reading of OpenAI's paper is not required. We derive the sampling rule by cancelling arbitrary comparison biases and use a capped predictor to avoid conditioning on an adaptively chosen query count. The [worked exposition](exposition.md) develops the operations through small examples; the [full proof reconstruction](reasoning_record.md) supplies the supporting derivations, including the Forrelation lower bound used here.
+**About this paper.** AI systems wrote this paper, its two companion texts and the Lean development, under the direction of Will Cook. No human expert has reviewed them. In particular, no person has checked that the Lean statements say what OpenAI's paper says; AI agents made that comparison. The separation theorem, its construction and its proof are OpenAI's [@OpenAI2026]. Section 6 lists the claims that go beyond OpenAI's paper. None of them has been reviewed by a person.
+
+This companion gives the construction and both query bounds for readers familiar with query complexity and quantum search; prior reading of OpenAI's paper is not required. We derive the sampling rule by cancelling arbitrary comparison biases and use a capped predictor to avoid conditioning on an adaptively chosen query count. The [worked exposition](exposition.md) develops the operations through small examples; the [full proof reconstruction](reasoning_record.md) supplies the supporting derivations.
 
 ## 1. The fourth power
 
@@ -26,14 +28,14 @@ Computing $P$ on promised inputs requires $\widetilde\Omega_k(m^{1-1/k})$ random
 
 \Needspace{10\baselineskip}
 
-**Theorem 1** (OpenAI [@OpenAI2026, Theorem 1.1], with explicit bounds from this reconstruction). *For each integer $k\ge2$ there are total Boolean functions $F_{k,m}$ indexed by powers of four $m\ge4$ such that, for a constant $C_k$ and $\ell=\log_2m$, the quantum bound below holds for every such $m$ and the randomized bound holds for all sufficiently large $m$ at fixed $k$:*
+**Theorem 1** (OpenAI [@OpenAI2026, Theorem 1.1]). *The optimal universal exponent in $R(f)=O((1+Q(f))^\alpha)$ for total Boolean $f$ is four. For each integer $k\ge2$ there are total Boolean functions $F_{k,m}$ indexed by powers of four $m$, and constants $C_k>0$ and $b_k$, such that for all sufficiently large $m$, with $\ell=\log_2m$ and $L=\lfloor m^{1-1/k}/\ell^2\rfloor$,*^[We use worst-case bit-query caps and error at most $1/3$. For partial functions the cap applies on every input and branch, the error bound on the promise.]
 $$
- Q(F_{k,m})\le C_k\sqrt m\,\ell^6,
- \qquad R(F_{k,m})\ge \frac{m^{2-1/k}}{400\ell^2}.
+ Q(F_{k,m})\le C_k\sqrt m\,\ell^{b_k},
+ \qquad R(F_{k,m})>\left\lfloor\frac{mL}{100}\right\rfloor.
 \tag{1}
 $$
-*The optimal universal exponent in $R(f)=O((1+Q(f))^\alpha)$ for total Boolean $f$ is four.*^[We use worst-case bit-query caps and error at most $1/3$. For partial functions the cap applies on every input and branch, the error bound on the promise.]
 
+This is the form in which the Lean theorem states the result, with both bounds from a threshold on $m$. Its Lean proof uses the development's own proof of the Forrelation lower bound in place of the one by Bansal and Sinha (§6). The argument below gives $b_k=6$ (§3.3) and, for fixed $k$ and all sufficiently large $m$, $R(F_{k,m})\ge m^{2-1/k}/(400\ell^2)$ (§5). These explicit constants come from this reconstruction, not from OpenAI's paper. A separate Lean theorem states both, again for all sufficiently large $m$.
 
 ## 2. The certificate
 
@@ -165,6 +167,7 @@ $$
  \Pr[\text{query }X_I[J_I]]\le\frac{4G}{m^2}.
 \tag{8}
 $$
+The Lean development proves the sharper bound $2G/m^2$ by a different count. Section 4.4 needs only (8).
 
 \Needspace{20\baselineskip}
 
@@ -179,7 +182,7 @@ In a light column the tree has made at most $L$ queries to those $r$ inputs. We 
 
 Fix a column $i$ and query time $\tau\le G$. Use the predictor's $r$ unknown strings as $A_{i,1},\ldots,A_{i,r}$. Independently sample all zero rows and the other columns' address strings as on a dummy input, and set all cell bits to zero. Simulate the tree's queries before $\tau$, querying the unknown strings only for requested bits of $A_{i,h}$. Stop before the $(L+1)$-st such query in total. Inspect the bit index the tree would query at time $\tau$. If it specifies a bit of $B_{i,s}$, output $s$ without reading that bit. For any other index, early termination of the tree, or a simulation already stopped by the cap, output a fixed $r$-bit string. The [worked exposition, Appendix C, “Two clocks in a capped simulation”](exposition.md#predictor-trace) separates the tree’s query time from the predictor’s target-read count.
 
-The total cap gives the predictor at most $L$ queries to *each* target input, on every branch. Under $\mu^{\otimes r}$ its success probability is therefore at most $\beta^r$ by the separate-cap direct-product bound. This bound allows adaptive interleaving and side information and coins jointly independent of the tuple [@Drucker2012, §3; @OpenAI2026, Lemma 4.1].^[Fix the independent coins and side information. Given the queried indices and replies, the $r$ strings remain independent. For each string take the greatest probability of predicting its value under $P$ with its remaining queries. A query to one input leaves the other factors fixed and cannot increase the chosen factor in expectation, since that query was already an available next step. The product gives the [separate-cap bound](https://github.com/wcook04/quartic-query-lean/blob/5fb47b33abfadffb90575c42d5649afe5444d102/docs/reasoning_record.md#CL-product-law).]
+The total cap gives the predictor at most $L$ queries to *each* target input, on every branch. Under $\mu^{\otimes r}$ its success probability is therefore at most $\beta^r$ by the separate-cap direct-product bound. This bound allows adaptive interleaving and side information and coins jointly independent of the tuple [@Drucker2012, §3; @OpenAI2026, Lemma 4.1].^[Fix the independent coins and side information. Given the queried indices and replies, the $r$ strings remain independent. For each string take the greatest probability of predicting its value under $P$ with its remaining queries. A query to one input leaves the other factors fixed and cannot increase the chosen factor in expectation, since that query was already an available next step. The product gives the [separate-cap bound](https://github.com/wcook04/quartic-query-lean/blob/5fb47b33abfadffb90575c42d5649afe5444d102/docs/reasoning_record.md#CL-product-law).] The Lean proof of this product bound uses a different argument, an induction over sub-distributions.
 
 \Needspace{9\baselineskip}
 
@@ -217,9 +220,9 @@ We require a partial function $P$ with a low-query quantum algorithm on its prom
 $$
  \Phi=u^{\mathsf T}D_{z_1}H D_{z_2}H\cdots H D_{z_k}u,\qquad \delta=2^{-5k}.
 $$
-Set $P=1$ when $\Phi\ge\delta$, $P=0$ when $|\Phi|\le\delta/2$, and leave $P$ undefined elsewhere. Applying the unitary product to $u$ and projecting onto $u$ succeeds with probability $\Phi^2$. For fixed $k$ the two promised cases have a constant gap, giving the claimed decoder by repetition with trial registers retained. The projection probability depends only on $|\Phi|$, whereas an input with $\Phi\le-\delta$ lies outside the promise. For the exact circuit, compute the signed numerator by $k-1$ unnormalized fast Walsh–Hadamard transforms on integers of $O_k(\ell)$ bits and test the two defining inequalities after clearing denominators. This yields both domain and value bits in $O_k(m\ell^2)$ fan-in-two gates [@OpenAI2026, Lemma 2.1]. The lower bound of Bansal and Sinha [@BansalSinha2021, Corollary 1.4] gives (3). Fixing this circuit in the cells defines $F_{k,m}$.
+Set $P=1$ when $\Phi\ge\delta$, $P=0$ when $|\Phi|\le\delta/2$, and leave $P$ undefined elsewhere. Applying the unitary product to $u$ and projecting onto $u$ succeeds with probability $\Phi^2$. For fixed $k$ the two promised cases have a constant gap, giving the claimed decoder by repetition with trial registers retained. The projection probability depends only on $|\Phi|$, whereas an input with $\Phi\le-\delta$ lies outside the promise. For the exact circuit, compute the signed numerator by $k-1$ unnormalized fast Walsh–Hadamard transforms on integers of $O_k(\ell)$ bits and test the two defining inequalities after clearing denominators. This yields both domain and value bits in $O_k(m\ell^2)$ fan-in-two gates [@OpenAI2026, Lemma 2.1]. The lower bound of Bansal and Sinha [@BansalSinha2021, Corollary 1.4] gives (3). The Lean development proves (3) along a different route (§6). Fixing this circuit in the cells defines $F_{k,m}$.
 
-For sufficiently large $m$, the floor in (3) gives $L\ge m^{1-1/k}/(2\ell^2)$ and $\lfloor mL/100\rfloor\ge mL/200$, proving the randomized inequality of (1). Now fix $0\le\alpha<4$. Choose $k\ge2$ with $k>2/(4-\alpha)$ and hold it fixed as $m$ grows through powers of four. By (1),
+For sufficiently large $m$, the floor in (3) gives $L\ge m^{1-1/k}/(2\ell^2)$ and $\lfloor mL/100\rfloor\ge mL/200$, so $R(F_{k,m})\ge m^{2-1/k}/(400\ell^2)$. Now fix $0\le\alpha<4$. Choose $k\ge2$ with $k>2/(4-\alpha)$ and hold it fixed as $m$ grows through powers of four. By (1) with $b_k=6$ and this bound,
 $$
  \frac{R(F_{k,m})}{(1+Q(F_{k,m}))^\alpha}
  \ \ge\ \frac{1}{400(1+C_k)^\alpha}\,
@@ -227,6 +230,15 @@ $$
  \ \longrightarrow\ \infty.
 $$
 Thus for each exponent below four some fixed $k$ gives a counterexample, proving optimality of the quartic upper bound. The quantum algorithm uses $\widetilde O_k(\sqrt m)$ queries to sample the list and as many again to verify it. For a uniformly chosen winning column, the randomized lower bound is of order $mL$, where $L$ is already a lower bound for computing one address bit.
+
+## 6. Claims beyond OpenAI's paper
+
+The following results go beyond OpenAI's paper. AI systems produced them, and no person has reviewed them.
+
+- **A second proof of the Forrelation lower bound.** The [full reconstruction, §8](reasoning_record.md#forr_target) and the Lean development prove (3) in the weaker form the separation needs: fixed $k$, error $1/3$ and an unspecified threshold in $m$. The route differs from the published proof of Bansal and Sinha [@BansalSinha2021]. Lean checks the proof; only AI agents have compared its statement with the one OpenAI's paper uses.
+- **A single family with growing $k$.** The [full reconstruction](reasoning_record.md#ROOT-GROWING-K) tracks the dependence on $k$ to obtain one family in which $k$ grows with $m$.
+- **A step in the proof of Bansal and Sinha.** [Appendix D](reasoning_record.md#forr_bs_mismatch) of the full reconstruction finds a logarithmic mismatch between two successive displayed bounds in §5.4 of arXiv:2008.07003v3. It does not by itself refute their theorem.
+- **Explicit constants.** The exponent $b_k=6$ and the constant $1/400$ in §1 and §5 come from this reconstruction.
 
 \Needspace{30\baselineskip}
 

@@ -1,11 +1,13 @@
 ---
 title: "How many bits must an algorithm read?"
 subtitle: "OpenAI’s nearly quartic separation between randomized and quantum queries"
-author: "Will Cook"
+author: "Written by AI systems under the direction of Will Cook"
 date: "November 2026"
 bibliography: exposition.bib
 link-citations: true
 ---
+
+**About this paper.** AI systems wrote this paper, its two companion texts and the Lean development, under the direction of Will Cook. No human expert has reviewed them. In particular, no person has checked that the Lean statements say what OpenAI's paper says; AI agents made that comparison. The separation theorem, its construction and its proof are OpenAI's [@OpenAI2026].
 
 This worked exposition develops OpenAI's nearly quartic separation from small boards and explicit queries. It assumes finite-dimensional linear algebra, conditional probability and asymptotic notation, with no prior knowledge of quantum algorithms. Sections 1–6 form a continuous argument; the appendices give optional calculations, tests of the hypotheses and exercises. The [expert companion](expert_companion.md) gives a shorter route, and the [full proof reconstruction](reasoning_record.md) contains the detailed supporting proofs.
 
@@ -287,7 +289,7 @@ Q(F_{k,m})\le C_k\sqrt m\,(\log_2m)^6,
 \qquad
 R(F_{k,m})\ge \frac{m^{2-1/k}}{400(\log_2m)^2}.
 $$
-The first comes from listing columns by quantum comparisons and checking the list. For the second, the bound $R>\lfloor mL/100\rfloor$ uses the limit of $L=\lfloor m^{1-1/k}/(\log_2m)^2\rfloor$ bit reads for predicting a single address digit. With $m$ possible columns, $mL/100$ total reads leave at most one column in a hundred above that limit. For large $m$, rounding down to $L$ retains at least half the unrounded value, so the displayed constant $1/400$ suffices. Both the quantum constant $C_k$ and the size threshold for $m$ may depend on $k$. We will choose $k$ first and then increase $m$, so these dependencies stay fixed.
+The first comes from listing columns by quantum comparisons and checking the list. For the second, the bound $R>\lfloor mL/100\rfloor$ uses the limit of $L=\lfloor m^{1-1/k}/(\log_2m)^2\rfloor$ bit reads for predicting a single address digit. With $m$ possible columns, $mL/100$ total reads leave at most one column in a hundred above that limit. For large $m$, rounding down to $L$ retains at least half the unrounded value, so the displayed constant $1/400$ suffices. The explicit constants $6$ and $1/400$ come from this reconstruction, not from OpenAI's paper, and no person has reviewed them. Both the quantum constant $C_k$ and the size threshold for $m$ may depend on $k$. We will choose $k$ first and then increase $m$, so these dependencies stay fixed.
 
 Measured in powers of $\sqrt m$, the classical exponent is $4-2/k$, since $(\sqrt m)^{4-2/k}=m^{2-1/k}$. Given any proposed $0\le\alpha<4$, first choose an integer $k\ge2$ with $4-2/k>\alpha$. Keep this $k$ fixed and increase $m$. In the ratio of the classical lower bound to the $\alpha$th power of the quantum upper bound the excess exponent of $m$ is now positive:
 $$

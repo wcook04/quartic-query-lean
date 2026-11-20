@@ -13,7 +13,7 @@
       "statements": [
         "thm-1.1"
       ],
-      "note": "The unconditional family result uses the local Forrelation bound. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers.",
+      "note": "The Lean theorem states both bounds from a threshold on m, as Theorem 1 does. Its proof uses the Lean development's own proof of the Forrelation lower bound, a different route from Bansal and Sinha's. The explicit constants b=6 and 1/400 come from this reconstruction and are stated by a separate Lean theorem. The universal upper bound applies to every total function. The fixed-k exclusion and growing-k estimates have different quantifiers.",
       "bound_at": {
         "exposition": "685f757ec50918fd659b926a44f2ba988e11359d",
         "reconstruction": "a6bd73e61480e9b1536e19bddbc413e49a0fb5e7",
@@ -236,7 +236,7 @@
       "statements": [
         "eq-19"
       ],
-      "note": "The erased-zero identity, the printed coefficient four, and the sharper coefficient two are distinct targets. The reviewed whole statement uses an alternative derivation.",
+      "note": "The linked Lean proof uses a different count from this passage and proves the sharper coefficient two. The erased-zero identity, the printed coefficient four, and the sharper coefficient two are distinct targets.",
       "claim_treatments": {
         "expert": [
           {
@@ -343,7 +343,8 @@
           "paper": "reconstruction",
           "anchor": "CL-direct-product-statement"
         }
-      ]
+      ],
+      "note": "The linked Lean proof uses a different argument from this passage, an induction over sub-distributions."
     },
     {
       "id": "forrelation",
@@ -354,7 +355,7 @@
       "lean": [
         "src-forr-promise"
       ],
-      "note": "The quantum readout observes the squared amplitude. A certificate must separately establish the signed one-sided promise.",
+      "note": "The quantum readout observes the squared amplitude. A certificate must separately establish the signed one-sided promise. The Lean development proves the hardness bound (3) by a different route from Bansal and Sinha's.",
       "bound_at": {
         "expert": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
         "exposition": "12c9f3400f3a1aacf95b6ea63bb731322d3d2a8f",
