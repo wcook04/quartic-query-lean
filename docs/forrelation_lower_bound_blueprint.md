@@ -1,5 +1,12 @@
 # Blueprint: the Forrelation randomized lower bound in Lean
 
+> **Historical record.** The design blueprint for the Lean proof of the Forrelation lower bound, written on 2 November 2026 about the route
+> as it stood at commit `06f3eb8`. It is not a human review, and its statements about build
+> and import status describe that edition. The maintained account is §8 of the
+> [full proof reconstruction](reasoning_record.md#forr_target); the current checks are in the
+> [README](../README.md#what-is-checked-and-what-that-means). The library root now imports these files and the unconditional theorem uses them. Two phrases were corrected on 20 November 2026: the comparison of thresholds with Bansal–Sinha, and "only level `k`", now "only order-`k` derivatives at biased points". The rest is as written.
+
+
 Target, frozen in `lean/QuarticQuery/Statement.lean`:
 
 ```lean
@@ -56,7 +63,8 @@ A, with an elementary truncation. Scale only block 0 by `s ∈ [0,1]`. Multi-aff
 `d/ds = Σ_a X_0(a) ∂_{(0,a)}`, with no Gaussian time derivative. Each `X_j(a)` is removed by
 one Stein identity in coordinate `U_j(a)`, which yields one `H` and moves one block to the
 right. Because the same index that entered a block leaves it, no mismatch `i_r ≠ j_r` ever
-appears, so there is no branching and only level `k` occurs:
+appears, so there is no branching and only order-`k` derivatives at biased points occur (each still
+contains higher uniform Fourier levels; see (8.27) of the reconstruction):
 
 ```
 E[ext g(w_1)] - ext g(0)
@@ -67,7 +75,8 @@ E[ext g(w_1)] - ext g(0)
 Check before formalising: (★) was evaluated by Gauss–Hermite quadrature at `k=3, N=2` with a
 random `g` (BS truncation), both sides `-6.1263979774e-4`, agreeing to 12 digits. Lean now
 proves its mean-value form for every `k` (`exists_identity`, then `Int_eq_paths`). It gives the
-same threshold `d ≪ m^(1-1/k)/log m` as Bansal–Sinha, using only level `k`, whereas their proof
+threshold `d ≪ m^(1-1/k)/log m`, a full logarithm, where Bansal–Sinha print the exponent `1-1/k`
+on the logarithm; it uses only order-`k` derivatives at biased points, whereas their proof
 uses levels `k … k(k-1)`. The sources read do not state (★); no wider search was made, so no
 novelty is claimed. Bansal–Sinha remain the source of the hard-distribution shape and the
 promise calculation.

@@ -1,5 +1,12 @@
 # Prior-art check: the Forrelation lower-bound route in `forrelation_lower_bound_blueprint.md`
 
+> **Historical record.** The text below is kept as written. An AI-run search for prior art on the route, written on 2 November 2026 about the route
+> as it stood at commit `06f3eb8`. It is not a human review, and its statements about build
+> and import status describe that edition. The maintained account is §8 of the
+> [full proof reconstruction](reasoning_record.md#forr_target); the current checks are in the
+> [README](../README.md#what-is-checked-and-what-that-means). Where it says only level `k` occurs, read: only order-`k` derivatives at biased points occur; such a derivative still contains higher uniform Fourier levels, as equation (8.27) of the reconstruction shows. Not finding a source does not establish novelty.
+
+
 Date of search: 2 Nov 2026. Scope: items (a)-(e) of the route in
 `docs/forrelation_lower_bound_blueprint.md` (route D, identity (★), the Azuma growth bound, the
 bound `(16 k d log 4n)^(k/2) + 1`). Read-only research; nothing was committed.

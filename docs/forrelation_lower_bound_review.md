@@ -1,5 +1,12 @@
 # Independent review: the Forrelation lower bound in Lean
 
+> **Historical record.** The text below is kept as written. An AI reading report on the alternative Forrelation lower-bound proof, written on 2 November 2026 about the route
+> as it stood at commit `06f3eb8`. It is not a human review, and its statements about build
+> and import status describe that edition. The maintained account is §8 of the
+> [full proof reconstruction](reasoning_record.md#forr_target); the current checks are in the
+> [README](../README.md#what-is-checked-and-what-that-means). Its judgments of correctness and of the dependence on $k$ are an AI agent's.
+
+
 Reviewer: an adversarial reading by an agent that did not write the proof. No Lean was run and no
 Lean file was edited. Every number below was computed in this review. Scripts and raw output are
 in the session scratch folder (`star.py`, `star2.py`, `sim.py`, `params.py`), not in this repository.

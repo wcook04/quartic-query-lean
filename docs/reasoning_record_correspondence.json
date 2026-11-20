@@ -2,7 +2,7 @@
   "schema": "quartic_integrated_reasoning_correspondence_v1",
   "created_utc": "2026-11-02T19:47:11.861336+00:00",
   "record_path": "docs/reasoning_record.md",
-  "record_sha256": "72addba4c1901a47bae4c7d83449dec2180ed42281c7d8fe61a006e13924aa9c",
+  "record_sha256": "0c0074d1a5637f1daf596c550e1c6484272b0c2110110df8ce32fdf5775e794d",
   "baseline": {
     "path": "research/returns/funnel/1_long_reasoning_record/reasoning-record.md",
     "sha256": "a6d1ede97135064c2c1b54992bfe32caac76da93688e67a378eab8cca16947ff"
@@ -482,16 +482,16 @@
     {
       "id": "ROOT-PARTIAL",
       "path": "docs/reasoning_record.md",
-      "line_start": 3808,
-      "line_end": 3816,
+      "line_start": 3812,
+      "line_end": 3820,
       "claims": [],
-      "sha256": "1bfe012bc356814afd082f66bf263549fe5d4d1bbac94a807246e37674bcd891"
+      "sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22"
     },
     {
       "id": "R3-01-CLASSICAL",
       "path": "docs/reasoning_record.md",
-      "line_start": 3819,
-      "line_end": 3865,
+      "line_start": 3823,
+      "line_end": 3869,
       "claims": [
         "def-D",
         "def-R"
@@ -501,8 +501,8 @@
     {
       "id": "ROOT-ORACLE",
       "path": "docs/reasoning_record.md",
-      "line_start": 3868,
-      "line_end": 3889,
+      "line_start": 3872,
+      "line_end": 3893,
       "claims": [
         "def-query-oracle"
       ],
@@ -511,59 +511,59 @@
     {
       "id": "R3-01-ADAPTIVE",
       "path": "docs/reasoning_record.md",
-      "line_start": 3892,
-      "line_end": 3940,
+      "line_start": 3896,
+      "line_end": 3944,
       "claims": [
         "ROOT-MASS",
         "def-Q"
       ],
-      "sha256": "36f8af880f30eff2fc49e927eff926e11be11862e4387474f5a538b2fc4fb5ea"
+      "sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162"
     },
     {
       "id": "R3-01-BRIDGES",
       "path": "docs/reasoning_record.md",
-      "line_start": 3943,
-      "line_end": 3979,
+      "line_start": 3947,
+      "line_end": 3983,
       "claims": [],
       "sha256": "9b497efea841df23edd9f255944196699194ada19a76f813013778f3af2da607"
     },
     {
       "id": "R3-01-ZERO",
       "path": "docs/reasoning_record.md",
-      "line_start": 3982,
-      "line_end": 3997,
+      "line_start": 3986,
+      "line_end": 4001,
       "claims": [],
       "sha256": "e31cee87c8fcbd19550a87fd48810cfd24a564cf3d73f288255913f1d0ea9dfb"
     },
     {
       "id": "R3-01-IDENTITY",
       "path": "docs/reasoning_record.md",
-      "line_start": 4000,
-      "line_end": 4006,
+      "line_start": 4004,
+      "line_end": 4010,
       "claims": [],
       "sha256": "f75c7012c2f47d24f9ba80c7000d125dad91a810049e0366e5e31c8021c70218"
     },
     {
       "id": "R3-01-OR",
       "path": "docs/reasoning_record.md",
-      "line_start": 4009,
-      "line_end": 4030,
+      "line_start": 4013,
+      "line_end": 4034,
       "claims": [],
       "sha256": "2c06b6a8b1915a723080332d0c205383a11c206aace798bfca7b1f0466246fcb"
     },
     {
       "id": "R3-01-OFFPROMISE",
       "path": "docs/reasoning_record.md",
-      "line_start": 4033,
-      "line_end": 4035,
+      "line_start": 4037,
+      "line_end": 4039,
       "claims": [],
       "sha256": "605ee52e38533c2a5aa1db80d3e5a6adc81b940c1e077b6c90cca3955bba6804"
     },
     {
       "id": "R3-01-PARITY",
       "path": "docs/reasoning_record.md",
-      "line_start": 4038,
-      "line_end": 4060,
+      "line_start": 4042,
+      "line_end": 4064,
       "claims": [],
       "sha256": "0b87781ff42db1297bd62c22dbfd9c2ef3c846a533a619eb6fe3b287252840ba"
     },
@@ -599,8 +599,8 @@
     {
       "id": "forr_integer",
       "path": "docs/reasoning_record.md",
-      "line_start": 4067,
-      "line_end": 4100,
+      "line_start": 4071,
+      "line_end": 4104,
       "claims": [
         "claim-N-phi",
         "claim-integer-tests"
@@ -610,8 +610,8 @@
     {
       "id": "forr_quantum",
       "path": "docs/reasoning_record.md",
-      "line_start": 4103,
-      "line_end": 4135,
+      "line_start": 4107,
+      "line_end": 4139,
       "claims": [
         "claim-proj-prob"
       ],
@@ -620,8 +620,8 @@
     {
       "id": "forr_repetition",
       "path": "docs/reasoning_record.md",
-      "line_start": 4138,
-      "line_end": 4177,
+      "line_start": 4142,
+      "line_end": 4181,
       "claims": [
         "NEW-FOR-02"
       ],
@@ -630,8 +630,8 @@
     {
       "id": "forr_coherent",
       "path": "docs/reasoning_record.md",
-      "line_start": 4180,
-      "line_end": 4232,
+      "line_start": 4184,
+      "line_end": 4236,
       "claims": [
         "R3-FOR-COHERENT-LAW",
         "NEW-FOR-28",
@@ -642,8 +642,8 @@
     {
       "id": "forr_circuit",
       "path": "docs/reasoning_record.md",
-      "line_start": 4235,
-      "line_end": 4255,
+      "line_start": 4239,
+      "line_end": 4259,
       "claims": [
         "NEW-FOR-03",
         "claim-circuit-size"
@@ -653,8 +653,8 @@
     {
       "id": "forr_boolean_arithmetic",
       "path": "docs/reasoning_record.md",
-      "line_start": 4258,
-      "line_end": 4280,
+      "line_start": 4262,
+      "line_end": 4284,
       "claims": [
         "NEW-FOR-04"
       ],
@@ -663,8 +663,8 @@
     {
       "id": "forr_final_signs",
       "path": "docs/reasoning_record.md",
-      "line_start": 4283,
-      "line_end": 4308,
+      "line_start": 4287,
+      "line_end": 4312,
       "claims": [
         "NEW-FOR-05"
       ],
@@ -673,8 +673,8 @@
     {
       "id": "forr_circuit_size",
       "path": "docs/reasoning_record.md",
-      "line_start": 4311,
-      "line_end": 4362,
+      "line_start": 4315,
+      "line_end": 4366,
       "claims": [
         "NEW-FOR-29",
         "R3-FOR-CIRCUIT-SIZE",
@@ -685,8 +685,8 @@
     {
       "id": "forr_small_instance",
       "path": "docs/reasoning_record.md",
-      "line_start": 4365,
-      "line_end": 4412,
+      "line_start": 4369,
+      "line_end": 4416,
       "claims": [
         "R3-FOR-THREE-EXAMPLES",
         "NEW-FOR-26"
@@ -717,8 +717,8 @@
     {
       "id": "forr_bs_translation",
       "path": "docs/reasoning_record.md",
-      "line_start": 3172,
-      "line_end": 3190,
+      "line_start": 3174,
+      "line_end": 3192,
       "claims": [
         "claim-bs-to-L"
       ],
@@ -912,16 +912,16 @@
     {
       "id": "forr_bs_mismatch",
       "path": "docs/reasoning_record.md",
-      "line_start": 3197,
-      "line_end": 3239,
+      "line_start": 3199,
+      "line_end": 3241,
       "claims": [],
       "sha256": "8226de18d44317c5936b4a322d394eeadbdf0a80ea9bc03520f17533379a7e48"
     },
     {
       "id": "forr_ssw_comparison",
       "path": "docs/reasoning_record.md",
-      "line_start": 3244,
-      "line_end": 3311,
+      "line_start": 3246,
+      "line_end": 3313,
       "claims": [],
       "sha256": "77e1dc1b70041d9e5397ac37551bd889ede999d0e5cf6fba0833bbfff135e492"
     },
@@ -931,7 +931,7 @@
       "line_start": 1856,
       "line_end": 1867,
       "claims": [],
-      "sha256": "aa52fb0136e5426aac0fa224692a09d036c722d67b2c6235b286acf90b388d1e"
+      "sha256": "bcbe62542e6a3012617acf7b1c7387a92aece5aeeee9c3e1f8fbc38862077ed4"
     },
     {
       "id": "forr_bundle",
@@ -1044,40 +1044,40 @@
     {
       "id": "AC-example-tests",
       "path": "docs/reasoning_record.md",
-      "line_start": 4415,
-      "line_end": 4445,
+      "line_start": 4419,
+      "line_end": 4449,
       "claims": [],
       "sha256": "14d8b7d5568d4df09507546116a0d9c8a6619fdb0cd556a01b34e5c8bdd3603c"
     },
     {
       "id": "AC-pointer-support",
       "path": "docs/reasoning_record.md",
-      "line_start": 3673,
-      "line_end": 3679,
+      "line_start": 3677,
+      "line_end": 3683,
       "claims": [],
       "sha256": "5a6611aadbf284c70bf8c8be72061cbc00551a11c77f72148f9ef588af70e9fc"
     },
     {
       "id": "AC-coherent",
       "path": "docs/reasoning_record.md",
-      "line_start": 3687,
-      "line_end": 3702,
+      "line_start": 3691,
+      "line_end": 3706,
       "claims": [],
       "sha256": "8b2b4bfd607d76d17f3372fea60f65dec14ccc2e479438b7bd787dfef170827e"
     },
     {
       "id": "AC-clean-oracle",
       "path": "docs/reasoning_record.md",
-      "line_start": 3705,
-      "line_end": 3716,
+      "line_start": 3709,
+      "line_end": 3720,
       "claims": [],
       "sha256": "5a85de29b9e287d9041ae60927085cd55bc9899118f4cbc9944d932182ca1c0a"
     },
     {
       "id": "AC-uniform-sampler",
       "path": "docs/reasoning_record.md",
-      "line_start": 3719,
-      "line_end": 3721,
+      "line_start": 3723,
+      "line_end": 3725,
       "claims": [],
       "sha256": "b9398080c0035a677c07c7f23a2f67ae256d71143e683c8776da32ce948e5c93"
     },
@@ -1124,16 +1124,16 @@
     {
       "id": "upper-amplification-statement",
       "path": "docs/reasoning_record.md",
-      "line_start": 3398,
-      "line_end": 3411,
+      "line_start": 3402,
+      "line_end": 3415,
       "claims": [],
       "sha256": "3db52a91794b5973dc396dab69bd4e7c8955c996d86044b28cd1cdf026e0b759"
     },
     {
       "id": "upper-grover-geometry",
       "path": "docs/reasoning_record.md",
-      "line_start": 3416,
-      "line_end": 3446,
+      "line_start": 3420,
+      "line_end": 3450,
       "claims": [
         "claim-grover-state"
       ],
@@ -1142,8 +1142,8 @@
     {
       "id": "upper-grover-trial",
       "path": "docs/reasoning_record.md",
-      "line_start": 3449,
-      "line_end": 3465,
+      "line_start": 3453,
+      "line_end": 3469,
       "claims": [
         "def-grover-trial"
       ],
@@ -1152,8 +1152,8 @@
     {
       "id": "upper-average-exact",
       "path": "docs/reasoning_record.md",
-      "line_start": 3468,
-      "line_end": 3480,
+      "line_start": 3472,
+      "line_end": 3484,
       "claims": [
         "new-upper-average-exact"
       ],
@@ -1162,8 +1162,8 @@
     {
       "id": "upper-small-probability",
       "path": "docs/reasoning_record.md",
-      "line_start": 3483,
-      "line_end": 3502,
+      "line_start": 3487,
+      "line_end": 3506,
       "claims": [
         "claim-sin2theta",
         "eq-9"
@@ -1173,8 +1173,8 @@
     {
       "id": "upper-amplification-proof",
       "path": "docs/reasoning_record.md",
-      "line_start": 3505,
-      "line_end": 3523,
+      "line_start": 3509,
+      "line_end": 3527,
       "claims": [
         "new-upper-call-cap"
       ],
@@ -1183,8 +1183,8 @@
     {
       "id": "upper-returned-register",
       "path": "docs/reasoning_record.md",
-      "line_start": 3526,
-      "line_end": 3544,
+      "line_start": 3530,
+      "line_end": 3548,
       "claims": [
         "r3-q-labels-do-not-determine-state"
       ],
@@ -1203,8 +1203,8 @@
     {
       "id": "upper-bounded-error-comparison",
       "path": "docs/reasoning_record.md",
-      "line_start": 3662,
-      "line_end": 3664,
+      "line_start": 3666,
+      "line_end": 3668,
       "claims": [],
       "sha256": "051e6a5e20becc34b54215eb3afebea2e42decea8cf91f2312909a826b5779ec"
     },
@@ -1274,8 +1274,8 @@
     {
       "id": "upper-cyclic-example",
       "path": "docs/reasoning_record.md",
-      "line_start": 3566,
-      "line_end": 3619,
+      "line_start": 3570,
+      "line_end": 3623,
       "claims": [
         "r3-q-cyclic-example"
       ],
@@ -1284,8 +1284,8 @@
     {
       "id": "upper-quantum-tournament",
       "path": "docs/reasoning_record.md",
-      "line_start": 3550,
-      "line_end": 3563,
+      "line_start": 3554,
+      "line_end": 3567,
       "claims": [
         "new-upper-sampler-law"
       ],
@@ -1314,8 +1314,8 @@
     {
       "id": "upper-padded-tournament-budget",
       "path": "docs/reasoning_record.md",
-      "line_start": 3625,
-      "line_end": 3641,
+      "line_start": 3629,
+      "line_end": 3645,
       "claims": [
         "r2-quantum-tournament-budget-6072"
       ],
@@ -1324,8 +1324,8 @@
     {
       "id": "upper-tournament-evidence",
       "path": "docs/reasoning_record.md",
-      "line_start": 3645,
-      "line_end": 3658,
+      "line_start": 3649,
+      "line_end": 3662,
       "claims": [
         "r2-quantum-coherent-list-witness"
       ],
@@ -1334,8 +1334,8 @@
     {
       "id": "upper-continuation-induction",
       "path": "docs/reasoning_record.md",
-      "line_start": 3351,
-      "line_end": 3391,
+      "line_start": 3355,
+      "line_end": 3395,
       "claims": [
         "new-upper-continuation-bound"
       ],
@@ -1418,24 +1418,24 @@
     {
       "id": "upper-oracle-access",
       "path": "docs/reasoning_record.md",
-      "line_start": 3727,
-      "line_end": 3736,
+      "line_start": 3731,
+      "line_end": 3740,
       "claims": [],
       "sha256": "ebe9c7188794277c04b9adfc7a9c8ba17e4dd6bd6e7ea0ac9d7419793159af56"
     },
     {
       "id": "upper-read-compiler",
       "path": "docs/reasoning_record.md",
-      "line_start": 3739,
-      "line_end": 3746,
+      "line_start": 3743,
+      "line_end": 3750,
       "claims": [],
       "sha256": "2bc229a047a96d3828ec2fb1a621716fd0aa141083e9bfcf0b03c97d6465cb34"
     },
     {
       "id": "upper-finite-budget",
       "path": "docs/reasoning_record.md",
-      "line_start": 3749,
-      "line_end": 3781,
+      "line_start": 3753,
+      "line_end": 3785,
       "claims": [
         "new-upper-finite-budget"
       ],
@@ -1454,8 +1454,8 @@
     {
       "id": "upper-explicit-log6",
       "path": "docs/reasoning_record.md",
-      "line_start": 3784,
-      "line_end": 3803,
+      "line_start": 3788,
+      "line_end": 3807,
       "claims": [
         "new-upper-log6"
       ],
@@ -1477,7 +1477,7 @@
       "claims": [
         "r3-q-physical-state-bridge"
       ],
-      "sha256": "6a20463d9b4919fc64780b5afbfefc9d386dedc8937e595b95321114875a1452"
+      "sha256": "7ae412bb86870d28e5b0850cb64f0f819315e214183317dde8b4d9819218d048"
     },
     {
       "id": "CL-direct-product-statement",
@@ -1918,8 +1918,8 @@
     {
       "id": "R3-A-PARITY-PREFACTOR",
       "path": "docs/reasoning_record.md",
-      "line_start": 3316,
-      "line_end": 3340,
+      "line_start": 3320,
+      "line_end": 3344,
       "claims": [],
       "sha256": "4e4958f882246017d45016bcb423706caa163c16840d6ce7299dd783f3fb75ae"
     },
@@ -1995,7 +1995,7 @@
       "claims": [
         "def-log-convention"
       ],
-      "sha256": "99ddc591a1d7516d0fa4cf6b7553ab5119d3eea65cc39e225a866c0ce08456bb"
+      "sha256": "fcdad03c804d68387b85122cc51e1c62e78622b9bddec62100050a21d19bceb1"
     },
     {
       "id": "CAT-def-partial-query",
@@ -2005,7 +2005,7 @@
       "claims": [
         "def-partial-query"
       ],
-      "sha256": "9b048af89629ae9bebefd6e99aba8effbd59ffbe54d69074a4e96e7c2d42c5f5"
+      "sha256": "d1b6fd594b29088721e61f88c2887f632adfb76dbb5ca1c6ed43e7030fa2e06a"
     },
     {
       "id": "CAT-def-R",
@@ -2015,7 +2015,7 @@
       "claims": [
         "def-R"
       ],
-      "sha256": "e536baf4bdfec1652038d05b249859ba31b41816b44b9639457a7ee5c6578baf"
+      "sha256": "6f262d7463f2f91876fe1cfe17c8b39b801840e68c7f7d70633cdc5221d0444f"
     },
     {
       "id": "CAT-def-query-oracle",
@@ -2025,7 +2025,7 @@
       "claims": [
         "def-query-oracle"
       ],
-      "sha256": "a76bce5eeb202c30db466ad5237cbbcede22bbc270fc1ec207da2045d1caf134"
+      "sha256": "d41dfc9a711016b7a652c10eae5e0c98ace4d821ad9a38c49ca156f5e957edfe"
     },
     {
       "id": "CAT-def-Q",
@@ -2035,7 +2035,7 @@
       "claims": [
         "def-Q"
       ],
-      "sha256": "6482246468368ba2c4e988007b633430656f33b295257807f74d909120bccd31"
+      "sha256": "fc4e25cf8faec9c72037d720a5d6d15100a892f14f1f6da07a8105030cd5d69f"
     },
     {
       "id": "CAT-eq-1",
@@ -2045,7 +2045,7 @@
       "claims": [
         "eq-1"
       ],
-      "sha256": "eee0fc676a0fb9151fecdc50da51c2b6acdab4996d826760f0003cbdb4fb0ad3"
+      "sha256": "8b5041dde7c9f017ac4c8abdd8f984cfbd90c16be117fcb44bee1f6021e3d9fd"
     },
     {
       "id": "CAT-eq-2",
@@ -2055,7 +2055,7 @@
       "claims": [
         "eq-2"
       ],
-      "sha256": "7b5d6e406f89e0232c6e847aab1f4ba2d595dc53fad2c02256f4d84af287e3dc"
+      "sha256": "be6c6a3f0fca263bd3d5475d4f87327619b4b521ecac2a4ec446720a08aca92c"
     },
     {
       "id": "CAT-thm-1.1",
@@ -2065,7 +2065,7 @@
       "claims": [
         "thm-1.1"
       ],
-      "sha256": "e1f14fbf08ba3b630caafdae4a85f550ccb1293b7e06650b47dc1377c5e32643"
+      "sha256": "b656cbd1f6fddd66093f64b1e554445edf3d2b35ef0d3c6174e7f4ad5e0857f5"
     },
     {
       "id": "CAT-cor-cubic-refuted",
@@ -2075,7 +2075,7 @@
       "claims": [
         "cor-cubic-refuted"
       ],
-      "sha256": "6de7eb8b90fad2c326d526055b2aa0ddbb0eaad79c0dcc5dc5125524840cc396"
+      "sha256": "f518578f8d45114e81ff8a4df962230da292713a9a19e42258c51488997ccfdf"
     },
     {
       "id": "CAT-def-walsh-sign",
@@ -2085,7 +2085,7 @@
       "claims": [
         "def-walsh-sign"
       ],
-      "sha256": "be8bcd56f8b5af81bd83fc543fbf8523d1b952e006f679e4776fdb3ed6ce6a86"
+      "sha256": "878eb38f53c01ab4a16c5fcb61fbad4f25893408c8b560f6413d9858875e6f24"
     },
     {
       "id": "CAT-eq-3",
@@ -2095,7 +2095,7 @@
       "claims": [
         "eq-3"
       ],
-      "sha256": "add28d99103d536f2658aa71bf977d4489888370469bd67507b32308644756d4"
+      "sha256": "67d4e319e4ca55c082198eaa2154919cddf6e4390907f519d12e268b7c8c7d37"
     },
     {
       "id": "CAT-eq-4",
@@ -2105,7 +2105,7 @@
       "claims": [
         "eq-4"
       ],
-      "sha256": "74b5c81da451709c81f0d7d2c33740af06dacf4229e02541afc4797af6e02ad0"
+      "sha256": "2e96c4da0d597c801fab49633170cefbad52e963d1bd7513685a940ed04acaa2"
     },
     {
       "id": "CAT-eq-5",
@@ -2115,7 +2115,7 @@
       "claims": [
         "eq-5"
       ],
-      "sha256": "a2974bfd1eff2546c4490886f0b2831271fa9ee6542c2f35670e51787b206d05"
+      "sha256": "88b92fa57239d02dee7e679c5d2bae42fc921d9ea2d857ec4ec8704e49a15898"
     },
     {
       "id": "CAT-claim-bs-to-L",
@@ -2125,7 +2125,7 @@
       "claims": [
         "claim-bs-to-L"
       ],
-      "sha256": "d36cd40f62d5963772c7f80db137a45674bb9365d61a1fdf11824f9a6a087cc5"
+      "sha256": "e9683edb97509059bb21fff88377049e4f94fbe1c4995fe608677e4f021a3947"
     },
     {
       "id": "CAT-lem-2.1.i",
@@ -2135,7 +2135,7 @@
       "claims": [
         "lem-2.1.i"
       ],
-      "sha256": "dfc18e92409c386992de0340f41e2256e4cb10b7d802da297151717a3a4c34de"
+      "sha256": "67f52d46d90472ff76d4b4f82a420b369d6fa58953d456c2aae3aee1cbd9b982"
     },
     {
       "id": "CAT-claim-proj-prob",
@@ -2145,7 +2145,7 @@
       "claims": [
         "claim-proj-prob"
       ],
-      "sha256": "a688b6f0319c252edc5b91c3d6b2662d9507ca30a9e640624b82f99325cc4623"
+      "sha256": "2dc1f1a519df53e9cede4ce0e9327379cdd35ffc301dcde5839de3dad5437d2d"
     },
     {
       "id": "CAT-lem-2.1.ii",
@@ -2155,7 +2155,7 @@
       "claims": [
         "lem-2.1.ii"
       ],
-      "sha256": "4e55630efea62e6fc09aa2700e8727cd5d4a5006f5dcffe4c569b00e1f8320b5"
+      "sha256": "2bd1b1cdbf4dc6ad5ea1a84c4881144580ca60e8d9ce4fee6b3b97576341d0bf"
     },
     {
       "id": "CAT-claim-N-phi",
@@ -2165,7 +2165,7 @@
       "claims": [
         "claim-N-phi"
       ],
-      "sha256": "b1dcb12d25f7d23f99a5e4b953a05f2a02223547d3a39d67172041f6a4b19d07"
+      "sha256": "baffe498f695057557cd05ec66f851d4c64bd8773c6b2a81d20506d261e9273c"
     },
     {
       "id": "CAT-claim-integer-tests",
@@ -2175,7 +2175,7 @@
       "claims": [
         "claim-integer-tests"
       ],
-      "sha256": "648f64e6b93bb59abe007d843f710a7bae29745f812ab7bc99e0bf53e76060b5"
+      "sha256": "d55a53a58a80e8c66c95089389d6b38163e443ea06aefbc91bd13dbdf6e1840b"
     },
     {
       "id": "CAT-claim-circuit-size",
@@ -2185,7 +2185,7 @@
       "claims": [
         "claim-circuit-size"
       ],
-      "sha256": "e62693be884ec75d417a4a6370853369b67fbb0e5d649b2961d7f1253dad181f"
+      "sha256": "4772b215290c6808af873433e36205d61ba956fb496b60224b5ba6b13c359899"
     },
     {
       "id": "CAT-lem-2.1.iii",
@@ -2195,7 +2195,7 @@
       "claims": [
         "lem-2.1.iii"
       ],
-      "sha256": "05d2bb7152164a68da8ec15a839a9162288d37a57a3092738fc8a22e62694554"
+      "sha256": "b30841e36fa5da6f207fd3c3949ed14d744fe3f41160fc4fbb36e30e8b6c657f"
     },
     {
       "id": "CAT-lem-2.1",
@@ -2205,7 +2205,7 @@
       "claims": [
         "lem-2.1"
       ],
-      "sha256": "7e5de59f5bbba452d91d0704c503a830a3584d46960a4c7b88e3a80871267371"
+      "sha256": "a35566fc6c39e98835a7fe5002090ff4814fd576ec7f664fdd05186fb1ca0710"
     },
     {
       "id": "CAT-def-transcript",
@@ -2215,7 +2215,7 @@
       "claims": [
         "def-transcript"
       ],
-      "sha256": "2d7f7e48138744e6794e1de4e8776a7499c69aa829a9ac16a6e526b64dfa2929"
+      "sha256": "a8c82347cf7641983eb2dcd4e00f172e246d286538b1883c35e6e06ce9f867b6"
     },
     {
       "id": "CAT-eq-6",
@@ -2225,7 +2225,7 @@
       "claims": [
         "eq-6"
       ],
-      "sha256": "9bb3a37794258ea6938bc3ac04320f33fed982d9c3bbdd0853e49b7ce96f814d"
+      "sha256": "d1f6e02e5555420ed2839d7294e8d963cd6ed3637a43f1e37c1b279b7ee0921c"
     },
     {
       "id": "CAT-def-column-layout",
@@ -2235,7 +2235,7 @@
       "claims": [
         "def-column-layout"
       ],
-      "sha256": "d91cdb0ab9e9ecb605c09dc422ef80a7d97cad5b371e634304655355219b4ff1"
+      "sha256": "2d635e8b15b622aff49b0eba9c0b80dd5f9bf2b570aa8339db50c195b844d50a"
     },
     {
       "id": "CAT-def-eval-transcript",
@@ -2245,7 +2245,7 @@
       "claims": [
         "def-eval-transcript"
       ],
-      "sha256": "b534a8c8a2a8505246587642aaf85701245c2c429cf95b85b757a6d8401f7028"
+      "sha256": "351843c6f550cd86053f983b53defae6f2c775603aa9dc8db3e43ae94aed3d4c"
     },
     {
       "id": "CAT-eq-7",
@@ -2255,7 +2255,7 @@
       "claims": [
         "eq-7"
       ],
-      "sha256": "22954bddc6d0892ab20f40f9456429dab9ecc1b3c5de561ecefc847e7b551e00"
+      "sha256": "8fcaf508744ee6e41d9dd5c8ea73e1cbfdb1fcf70fdfa577d49215e170844898"
     },
     {
       "id": "CAT-eq-8",
@@ -2265,7 +2265,7 @@
       "claims": [
         "eq-8"
       ],
-      "sha256": "25367e9fa942ef92a3bf58ca0a6969d273e22c4a137f1a08808a6f85343b2d08"
+      "sha256": "78e255c9a007cd3db3cc799cff5575f41737ef86160bf181e2c6985234c9ea09"
     },
     {
       "id": "CAT-def-winner",
@@ -2275,7 +2275,7 @@
       "claims": [
         "def-winner"
       ],
-      "sha256": "c57090e0d98ab858be7c0a24978d239c339b7113ee2e557c2975e1b30819e9e1"
+      "sha256": "91faed35b2518949af8047b22ffff8770a379237e549095fa150ba0c8ed6dedb"
     },
     {
       "id": "CAT-def-F",
@@ -2285,7 +2285,7 @@
       "claims": [
         "def-F"
       ],
-      "sha256": "1435098814a4f8f4a77151e4b6787eea63bf4f5b5fe2a41515511dbd4a734b15"
+      "sha256": "9cab2b53e4178b27cfa4039e1e5a216d20aa5f6b960f6c8e28d83cff69ae306b"
     },
     {
       "id": "CAT-cor-unique-winner",
@@ -2295,7 +2295,7 @@
       "claims": [
         "cor-unique-winner"
       ],
-      "sha256": "26f060af6d2fb91f635ff8350bf35d45144b2469398b4ac6faf0ce2c040ce4c7"
+      "sha256": "b0d67e397e02c37e3fd6c88c6a0e8aa9a117374e557f96e47f6e612778f94b42"
     },
     {
       "id": "CAT-def-win-at-address",
@@ -2305,7 +2305,7 @@
       "claims": [
         "def-win-at-address"
       ],
-      "sha256": "267d0494dc195f3baa4856a78b7a66be0c9deb17611b4a390fb15e10b104b090"
+      "sha256": "645dd6ed33d176f603e76afc85b2d537c57a95956bc5003f5ab59a30b922424c"
     },
     {
       "id": "CAT-def-K",
@@ -2315,7 +2315,7 @@
       "claims": [
         "def-K"
       ],
-      "sha256": "74bfffb9da88b9c625d0bc73228b47fb534e9a203366cfbe1572db585c4bb9c0"
+      "sha256": "5e03d9a7dfb956ee545f01d90eb5b22ed0ce6893a50d051bda399d3f844702c7"
     },
     {
       "id": "CAT-lem-2.2.i",
@@ -2325,7 +2325,7 @@
       "claims": [
         "lem-2.2.i"
       ],
-      "sha256": "1b0a032d7a64af2956aa03dde20e27c91e62f4844abf289d1b551cceaaf81adc"
+      "sha256": "36f4bf6b663725387ab2fe69be4a0dfb0e473aa328bc7f308e8cab290dcc76d7"
     },
     {
       "id": "CAT-lem-2.2.ii",
@@ -2335,7 +2335,7 @@
       "claims": [
         "lem-2.2.ii"
       ],
-      "sha256": "51ed6b3c906d6bf3624d331916088b5e924ed237276b7b1a58b62986f3140aa4"
+      "sha256": "4a6a2bc3a790dd98776983568c507eb1de90ed9f51fce9886f50d500f67d9659"
     },
     {
       "id": "CAT-lem-2.2",
@@ -2345,7 +2345,7 @@
       "claims": [
         "lem-2.2"
       ],
-      "sha256": "39541db0610fb342b38dcf0f610e6720ec56d28f45251ff48fe9739b8a11d71a"
+      "sha256": "459deded5bd28193a372e14e8070506accd4b6e43b0c9fb6c51c519145d44f73"
     },
     {
       "id": "CAT-cor-local-dichotomy",
@@ -2355,7 +2355,7 @@
       "claims": [
         "cor-local-dichotomy"
       ],
-      "sha256": "3cc0b700f27691b50cf386b8f4abbca469e670181a0ad154f3a0313774f92ba3"
+      "sha256": "7f38c73725661fe74c1d62c4aad16fdb821e8627ea9f8e16c9ab3aac9cfb560d"
     },
     {
       "id": "CAT-claim-winner-fidelity",
@@ -2365,7 +2365,7 @@
       "claims": [
         "claim-winner-fidelity"
       ],
-      "sha256": "372a95f2d838e2bcf2d1715e370fc5789cc6223d1d15729d31130d4b8a5a744c"
+      "sha256": "b047a7c652fc63a14385fff2ce849be41b24bcb6e93d94aa78215851fb6b0066"
     },
     {
       "id": "CAT-def-grover-trial",
@@ -2375,7 +2375,7 @@
       "claims": [
         "def-grover-trial"
       ],
-      "sha256": "f987cfd929e9dc5665ecc633038068b56b2a632912ca120fe232acdcd7b88ec7"
+      "sha256": "8e0f514307a0e6783541df128f5d35ddb5007039e8d79bef31551466a5cb46c0"
     },
     {
       "id": "CAT-claim-grover-state",
@@ -2385,7 +2385,7 @@
       "claims": [
         "claim-grover-state"
       ],
-      "sha256": "d5a2b343bafb9f4407d8b2133526528f0911beaad918d89f1de23e7b3f246a34"
+      "sha256": "34f01910f9a6c74cc0875ebc9944d136b459322b22e9010a5897ec00ebfa3692"
     },
     {
       "id": "CAT-claim-sin2theta",
@@ -2395,7 +2395,7 @@
       "claims": [
         "claim-sin2theta"
       ],
-      "sha256": "06f256988af8a3177dbf0696001188527bd6e63fccb6c9736ff5d566f83a7712"
+      "sha256": "82f706152b64666c14d1243bc6413d8f21797186c7ecd143695da5664f859b51"
     },
     {
       "id": "CAT-eq-9",
@@ -2405,7 +2405,7 @@
       "claims": [
         "eq-9"
       ],
-      "sha256": "cb3a2692032af572c84e15e8ce44db2c82cc9942d408c5e73685ea6e6f608c82"
+      "sha256": "64e886980a4eccc92346c73f7158ba4f21e88abd720ccf82ad117ac23aa62ca4"
     },
     {
       "id": "CAT-lem-3.1",
@@ -2415,7 +2415,7 @@
       "claims": [
         "lem-3.1"
       ],
-      "sha256": "fdee9c3a187763cb50be9b18d4d2cf59b4cd26255ef64966e98622ce9eb586ce"
+      "sha256": "28dddb4fedb9c809a67a4c5bc628007e6c13535fbea5ff4ba27b7b3a71745944"
     },
     {
       "id": "CAT-def-aij",
@@ -2425,7 +2425,7 @@
       "claims": [
         "def-aij"
       ],
-      "sha256": "825f4c4d7b8feaf64d4efa14473ce8cfad486379ce09d287ffd821fd87cfb09f"
+      "sha256": "21a6c11fa0c9e46ca2e19851bf806d3e14420e13036285b707b44e5f95d5e2c5"
     },
     {
       "id": "CAT-eq-10",
@@ -2435,7 +2435,7 @@
       "claims": [
         "eq-10"
       ],
-      "sha256": "179a0e64b1a7d982f101b08285e1a6388f117f325658a95967a435fa02b4a1b7"
+      "sha256": "4f641d19a9ee4c87785f0ceab339881b22845b7eb4ba595149b98947ba0877f0"
     },
     {
       "id": "CAT-def-T-eps",
@@ -2445,7 +2445,7 @@
       "claims": [
         "def-T-eps"
       ],
-      "sha256": "0e0bdc9f7d18c516e6be5135c31c33937c6dec8e9310d7e4649940e97b58d50a"
+      "sha256": "048f90b6b234d35492d475abd7346dbee8431f0a7aecfa003bd51e7cfdf0cd61"
     },
     {
       "id": "CAT-eq-11",
@@ -2455,7 +2455,7 @@
       "claims": [
         "eq-11"
       ],
-      "sha256": "2b63601960669784a373d4929ac83dc8698dab8eb6f20d9cec2846e7b4dd7db3"
+      "sha256": "19a819b04ad925ecb4d06cbe517adead704f543c4ae971da58d0125a4bc72871"
     },
     {
       "id": "CAT-def-ideal-process",
@@ -2465,7 +2465,7 @@
       "claims": [
         "def-ideal-process"
       ],
-      "sha256": "0c7357cd3a9cfb06b4afffa3dbb3d9d04366b54a66268b42ab06bb871179e618"
+      "sha256": "863089119d0113c7996781137317c289912952827e59bccfab8fe480781dc694"
     },
     {
       "id": "CAT-eq-12",
@@ -2475,7 +2475,7 @@
       "claims": [
         "eq-12"
       ],
-      "sha256": "3b2b45d306baae2dcc5b789eaaff6ffb2f2b99bb74af0233377c8b225d1ac9da"
+      "sha256": "d60d52cc02393df4efc0c1a16aec7112fa587a474284d1296b5dc1e5fee3869f"
     },
     {
       "id": "CAT-eq-13",
@@ -2485,7 +2485,7 @@
       "claims": [
         "eq-13"
       ],
-      "sha256": "f5230387ddf7285d3366edb6aadb21e0714377946f753865404104641a76f942"
+      "sha256": "e8ce01e5784232b7d4a99f6fb670a9760640803eb7abd8b2448623b449394008"
     },
     {
       "id": "CAT-claim-expected-WT",
@@ -2495,7 +2495,7 @@
       "claims": [
         "claim-expected-WT"
       ],
-      "sha256": "90faae42073ab056ac628cf9dbf52219f5c9ca9c2d1956b515ee3f29e4c8d246"
+      "sha256": "ae3e1b06ac23d0a01f82e377814b7952202e2fd30f71e8f35a6f64bd8d2bf92e"
     },
     {
       "id": "CAT-claim-weight-lb",
@@ -2505,7 +2505,7 @@
       "claims": [
         "claim-weight-lb"
       ],
-      "sha256": "afe7b8f60788a863de8aafba63ebfe2ca25965cfc796de676cef8f2c6c71b461"
+      "sha256": "ffa89bccaced8a7a5b743300d4a5c0fb6f9e98e873538f733020e5e287bb02a2"
     },
     {
       "id": "CAT-eq-14",
@@ -2515,7 +2515,7 @@
       "claims": [
         "eq-14"
       ],
-      "sha256": "70374e9dc58811b6b3edc91a299349b4c57be12a6f030d6ed2f159e863db694e"
+      "sha256": "a7637e0da47c2d39e0812dbd8b8307bd7244dd055e49d4cd279f235c876d443b"
     },
     {
       "id": "CAT-construct-sampler",
@@ -2525,7 +2525,7 @@
       "claims": [
         "construct-sampler"
       ],
-      "sha256": "efd707484f569582833f8d38b9188c2977fb5237a0ade3997891987a9bce9fbf"
+      "sha256": "3e4e76a156d67c8c5e99b30c40925272e58f880cf0cbd990bb35a86f2e603290"
     },
     {
       "id": "CAT-eq-15",
@@ -2535,7 +2535,7 @@
       "claims": [
         "eq-15"
       ],
-      "sha256": "8a9deeae129d0d7531d3f8067c7004f741d08a68cc6cb5e6b4804b3346507320"
+      "sha256": "5bd1eb5e8723a7fe58b7d6e97067340c58ef7fea19d9e8fb70075f02058e2294"
     },
     {
       "id": "CAT-claim-success-prob",
@@ -2545,7 +2545,7 @@
       "claims": [
         "claim-success-prob"
       ],
-      "sha256": "34d844f9c2f6b9b814e5381857bdaf41792c34b5427edb67151a3a792f8b20a9"
+      "sha256": "f4b61c4d390c874239f529282d4588f4f3a4bd8425d6a4d9d53aa4b088a4a872"
     },
     {
       "id": "CAT-claim-coupling",
@@ -2555,7 +2555,7 @@
       "claims": [
         "claim-coupling"
       ],
-      "sha256": "840286d74c020d89bbfa18591a9d39ddb13d5666d8efbcd2d8c3d94a42eafb4a"
+      "sha256": "d44f7404bd7c320a6436ea48f7215e3b68aecac7cec4f1523f01a4b9bba40bd2"
     },
     {
       "id": "CAT-claim-tournament-cost",
@@ -2565,7 +2565,7 @@
       "claims": [
         "claim-tournament-cost"
       ],
-      "sha256": "8a27641f499d7e39694ff025a0e205a89556bc106dce4e8415e57b9d3c2a591d"
+      "sha256": "02949c605016974d447d9c3243a5fc27ab7a33a3392a05c62c72be5b6cca6231"
     },
     {
       "id": "CAT-prop-3.2",
@@ -2575,7 +2575,7 @@
       "claims": [
         "prop-3.2"
       ],
-      "sha256": "a06f2d211c8f2b6db85e1e952ff5da2e0fc1235fb82b4e89c2d1802ffd691ada"
+      "sha256": "494bdf00a84f9efe2d15e91fddba6bb5be5628c3fc68499947bac781f59ebcc9"
     },
     {
       "id": "CAT-def-decode",
@@ -2585,7 +2585,7 @@
       "claims": [
         "def-decode"
       ],
-      "sha256": "c59ab7bbe6435dac5c05d5171e41ade9179097f708866c18e188605818de952e"
+      "sha256": "a2386e565cda0d800fa21746147c92d2859e576ced2c2a7f9a1edb21f97a307c"
     },
     {
       "id": "CAT-claim-decode-cost",
@@ -2595,7 +2595,7 @@
       "claims": [
         "claim-decode-cost"
       ],
-      "sha256": "5bb44caf2e5a5a61dec8adfe9049c31ff39e631da1cbe6af7790b12b94e8d0e7"
+      "sha256": "7d4121d97a365e1dfd7539e1c646efc0df465ad3d4f8dfb4fdbd72bb0300d7ae"
     },
     {
       "id": "CAT-def-comparison",
@@ -2605,7 +2605,7 @@
       "claims": [
         "def-comparison"
       ],
-      "sha256": "73592d34ba692b02e75dcff45514df62317417e080d57de2e62b3c4e0de55df3"
+      "sha256": "0801eebe873fb02ddcdcf05954d6f9777abbdb2a5fe97dda8e70525513ebbbb7"
     },
     {
       "id": "CAT-claim-comparison-state",
@@ -2615,7 +2615,7 @@
       "claims": [
         "claim-comparison-state"
       ],
-      "sha256": "565057c26871d65c65e62677a1868dc4b8b327fa727ae44bbd5794ac84db74c2"
+      "sha256": "00877815eab470ad553c79c671149a99421526466a86b883320f5aec347bbf41"
     },
     {
       "id": "CAT-claim-winner-dominates",
@@ -2625,7 +2625,7 @@
       "claims": [
         "claim-winner-dominates"
       ],
-      "sha256": "233f9fd1e15a296764df6090266c8fd076ffd15f7181d93355ebcf0470e166b6"
+      "sha256": "39a8540deef2ed1c59ac12484b81ec14440583859ac1d7de6915a16af9eac75f"
     },
     {
       "id": "CAT-def-verify",
@@ -2635,7 +2635,7 @@
       "claims": [
         "def-verify"
       ],
-      "sha256": "e9738f133434c88c24c26d6fea088d7ffd0073a726c751075def9aa72a16b365"
+      "sha256": "1917318b93fc36eece48ee2b71d7f4418eef6bcf70da4c3eb927e4e8779206ab"
     },
     {
       "id": "CAT-claim-verify",
@@ -2645,7 +2645,7 @@
       "claims": [
         "claim-verify"
       ],
-      "sha256": "5e7e98859bceb195dc1316fb373ad2323f83f2fb1a737cb25833c5258fa49d32"
+      "sha256": "9f2940181a791daafdab28b46c8a23e4fdd279854aa8eb6a2a07c9708b510e46"
     },
     {
       "id": "CAT-claim-error",
@@ -2655,7 +2655,7 @@
       "claims": [
         "claim-error"
       ],
-      "sha256": "9df7d4006bae17d6754ef69a22697f6bf12155bc2022220247455b6b69f02e71"
+      "sha256": "40ec5f2873fd75a57753374cc7b7c9b3d6f9bcc82b53f47fe09bd2be7a5bef2e"
     },
     {
       "id": "CAT-claim-coherent-access",
@@ -2665,7 +2665,7 @@
       "claims": [
         "claim-coherent-access"
       ],
-      "sha256": "b767ba6b0b3436bbe5651a6b4c2a9118cb3f16deb2067974bfc08fd078a9d259"
+      "sha256": "2be9a6a56ae7d306f831004e06f0db31e2e6126f34829f2b796762ad75873317"
     },
     {
       "id": "CAT-prop-3.3",
@@ -2675,7 +2675,7 @@
       "claims": [
         "prop-3.3"
       ],
-      "sha256": "d588224770c96c59145fff9575ef301dbd07f011ff57fe28b7dcc9f6509d3814"
+      "sha256": "d83aa4c9ab4e186aef1635b6efc6313b9c8df4bb45c552bf23fdb5cc332b9a8c"
     },
     {
       "id": "CAT-claim-product-law",
@@ -2685,7 +2685,7 @@
       "claims": [
         "claim-product-law"
       ],
-      "sha256": "5471108501c892535d345caf4409d9d04a39ce2c3933dcb8f5f9f428cafbc07f"
+      "sha256": "25160a588149d18c660bf2b83f74d627cf2211f8acf0eacd6958dbd3a2a5c0db"
     },
     {
       "id": "CAT-def-value-V",
@@ -2695,7 +2695,7 @@
       "claims": [
         "def-value-V"
       ],
-      "sha256": "80b751efb2db9bebd157aa2398747d181934d357dc98afd2fc0214702e2bf5ca"
+      "sha256": "ff200b2291fefb4bec670a27e3ccda69e995a942afb95ac3a37c0cd7c749bc60"
     },
     {
       "id": "CAT-eq-16",
@@ -2705,7 +2705,7 @@
       "claims": [
         "eq-16"
       ],
-      "sha256": "efec9ee2e98f56bcb055eee83f560e5bb1d19ea3bafb7e6615a357d9b86eb453"
+      "sha256": "225cf7fd1131933ff759aff0f00bf0af62337ce70b1d6a76d26702dfbf8396b8"
     },
     {
       "id": "CAT-claim-supermartingale",
@@ -2715,7 +2715,7 @@
       "claims": [
         "claim-supermartingale"
       ],
-      "sha256": "64be1fc4dda371353eeef6db419a5175f18153a8c5d49a257275e083510465f8"
+      "sha256": "43999ee3c72790dfc7f58c373648180d51905ff8f1d5ffcd22bc45e93c02f715"
     },
     {
       "id": "CAT-claim-final-bound",
@@ -2725,7 +2725,7 @@
       "claims": [
         "claim-final-bound"
       ],
-      "sha256": "4d2691d93b5675970b3ab98da1156dc9b845973b8b2cf04f5ecc056a6e8ea835"
+      "sha256": "80406b8491bfb5d6f894bea78eded29e3fa8621caea674ae57795d94b709e85f"
     },
     {
       "id": "CAT-lem-4.1",
@@ -2735,7 +2735,7 @@
       "claims": [
         "lem-4.1"
       ],
-      "sha256": "5a84f57921ec81908b78536e601acd3dd633a1f158acea0980af565eef1bd2a3"
+      "sha256": "ef810f343591d1a893f0c5f0ad781072d2b3aac451973d40482e826935f63a93"
     },
     {
       "id": "CAT-claim-minimax-mu",
@@ -2745,7 +2745,7 @@
       "claims": [
         "claim-minimax-mu"
       ],
-      "sha256": "1329caf55959467f0848f4e96e415160de257b62b9056c41051da8c60c96e31e"
+      "sha256": "23585b929dadb16ddd485558287176c9f0880b8fb0e33d223bf8c797be5105e1"
     },
     {
       "id": "CAT-claim-address-guess",
@@ -2755,7 +2755,7 @@
       "claims": [
         "claim-address-guess"
       ],
-      "sha256": "0dfb0d5484c2d3c06b02df3d0b6d5ff02ca3763b3b4716f92a26f6ea630a5bba"
+      "sha256": "f2b24c827ef5798e7b0fd6371e1ff9852efcbaef331728bac3329ad6dd5571b7"
     },
     {
       "id": "CAT-eq-17",
@@ -2765,7 +2765,7 @@
       "claims": [
         "eq-17"
       ],
-      "sha256": "d408c506762414f11c4f4baa47532d136aa2fcc715928bf8382dea8782b9be9f"
+      "sha256": "fb4cf864e826138860c6d639eeee5e65d47da6fd1b44394d3899726cf6b91da8"
     },
     {
       "id": "CAT-def-dummy",
@@ -2775,7 +2775,7 @@
       "claims": [
         "def-dummy"
       ],
-      "sha256": "bcfb2d6115427a485635d69101eda4325a874ac0ad64314960f3822b9e900922"
+      "sha256": "9005709e544d7d53c804788bdb0321dd0a6c39f2c55738cb16ca8d9648c8217c"
     },
     {
       "id": "CAT-def-planted",
@@ -2785,7 +2785,7 @@
       "claims": [
         "def-planted"
       ],
-      "sha256": "2670687b152b501c1166a6d804fbad755cf5339a3d7a0cf4b14e89957f6e24c1"
+      "sha256": "5ff69c74c2bce716aad8968342957e3f9b71ce60ead9caa11351c8c8c8afa270"
     },
     {
       "id": "CAT-claim-Y-values",
@@ -2795,7 +2795,7 @@
       "claims": [
         "claim-Y-values"
       ],
-      "sha256": "f1e80b43b5b8ddc0b423df5bac546fe327e92332b652d9edbba47857c64f6337"
+      "sha256": "c5777ffabb743690ad77a375bc0e37520847a751f072bac7326705150a1bdff8"
     },
     {
       "id": "CAT-eq-18",
@@ -2805,7 +2805,7 @@
       "claims": [
         "eq-18"
       ],
-      "sha256": "7196aabe6dbfc82754e2dc8d732edd7da6a4a562e039578c1a289f39a0bed813"
+      "sha256": "27f09ea8bac0b6d8642638b3193a84ed26a7b510031ddf1e62932ce0378c9d18"
     },
     {
       "id": "CAT-def-Z",
@@ -2815,7 +2815,7 @@
       "claims": [
         "def-Z"
       ],
-      "sha256": "17604aff84f3a0aa6eb0db061e8d1e2cdd7d4e4cc054dbeb5f1e5aaa7f2fd443"
+      "sha256": "6d62b37ad42357a2192d467e884a0afb41a3a60267c4c2c17e7ec8f2dde2fb07"
     },
     {
       "id": "CAT-claim-uniform-zero",
@@ -2825,7 +2825,7 @@
       "claims": [
         "claim-uniform-zero"
       ],
-      "sha256": "73f836e651c9dbf3ef8d83a700d24fb8e940b6fb135af9942abcdd00fc66955f"
+      "sha256": "ca277e665e172aa41e8c857443f81a6e1b5878beca8530296de98b28eddf6246"
     },
     {
       "id": "CAT-claim-EZ",
@@ -2835,7 +2835,7 @@
       "claims": [
         "claim-EZ"
       ],
-      "sha256": "56d219ea0ce6b064dee8f8d559812e1a87ad8f7f8c3e1060fe944a5020c68c12"
+      "sha256": "2cb7c314ab9947ee7ba5f068b1ccb12371d576f43eda232f59e538c5907377e2"
     },
     {
       "id": "CAT-eq-19",
@@ -2845,7 +2845,7 @@
       "claims": [
         "eq-19"
       ],
-      "sha256": "faae95353f9873e7fb54f635c5c952b615799a212254953e93e2769ef1f55318"
+      "sha256": "8c76332717a87917844111345d94c8646f7de82616fdd3cdfe9cda475bb20699"
     },
     {
       "id": "CAT-def-heavy",
@@ -2855,7 +2855,7 @@
       "claims": [
         "def-heavy"
       ],
-      "sha256": "0ba4ba7be5589449dec3c3d29b53b317f5cb8a0cd050b6cb6af0327475e63893"
+      "sha256": "147fa1f4518106264fdbad714618c8fd33a0e030501ea28b976967e29d2025b4"
     },
     {
       "id": "CAT-eq-20",
@@ -2865,7 +2865,7 @@
       "claims": [
         "eq-20"
       ],
-      "sha256": "77fadaa2ba63b4ebc6ec554bf7d7d2cb146e0590b2497454d52da8950b9e7eef"
+      "sha256": "19b8d021aa6b0ae9554a398dfe3e61989183641a8540b1f4f99a0b1edf5e095b"
     },
     {
       "id": "CAT-def-simulator",
@@ -2875,7 +2875,7 @@
       "claims": [
         "def-simulator"
       ],
-      "sha256": "c8e23ab1166f3ad7173083036c1f49b66f19aaed944465a38e2f712bfe1527d2"
+      "sha256": "dcbec9edd534db3382a1f59bddaa3496ee27dad9251aa55df8f2ce8783dec64f"
     },
     {
       "id": "CAT-eq-21",
@@ -2885,7 +2885,7 @@
       "claims": [
         "eq-21"
       ],
-      "sha256": "b4012495ed9c8aab3ecab6b73b4212cb07b20004bd3b0652f4f77426d028030c"
+      "sha256": "7fc8eac7231322a3873cfd9a8132bc2aa2e7a8a4fd347133821bfdadb1dd3157"
     },
     {
       "id": "CAT-eq-22",
@@ -2895,7 +2895,7 @@
       "claims": [
         "eq-22"
       ],
-      "sha256": "d9fa2fd8dd8af4d78f2cf0781dc99f4ff940cabfc192f47806fd83cd579a975a"
+      "sha256": "9149c1df0b40bfa60cac04c106d49de99091663bb11aadc8701e3c0e4eb0fe6b"
     },
     {
       "id": "CAT-eq-23",
@@ -2905,7 +2905,7 @@
       "claims": [
         "eq-23"
       ],
-      "sha256": "43b6ff32078aac958544adbcb68797cdc3c9e01b5e90d99145d38c5eb6c76bd9"
+      "sha256": "d6cef67e08748e196fdc705f6784f229018739712733671b86e2a94a0496c2a0"
     },
     {
       "id": "CAT-claim-tail",
@@ -2915,7 +2915,7 @@
       "claims": [
         "claim-tail"
       ],
-      "sha256": "eea5d89f2e313d5ec9773b88d71154c05a3fdcae3d8770b87800bfe3794cc7a5"
+      "sha256": "77fb9b6da1ae81d1f01e718edcbbd4e06f95762c6ea9d35362b1512abf2debf3"
     },
     {
       "id": "CAT-claim-numeric",
@@ -2925,7 +2925,7 @@
       "claims": [
         "claim-numeric"
       ],
-      "sha256": "0fd6f19112f5e5c0cfc6b92d1bf9d6aae917487c8342fade8656ce21e28f4780"
+      "sha256": "f52a1df25edc57656c89ad6f3d0b20efea82e464c0c134c733a3f5e7059570ec"
     },
     {
       "id": "CAT-prop-4.2",
@@ -2935,7 +2935,7 @@
       "claims": [
         "prop-4.2"
       ],
-      "sha256": "37273ab9ffbff6cb1955634da0c701efecb6baa6f7548e0570f37a5b58ca3496"
+      "sha256": "8279c6d4cf1632997b823177ac22842d42bd7c6b0dca6e9dc39fcabd4746e8c6"
     },
     {
       "id": "CAT-cor-R-omega",
@@ -2945,7 +2945,7 @@
       "claims": [
         "cor-R-omega"
       ],
-      "sha256": "6e6e3bc5e685df22b778f89376bdf69f286c85ec0378714cafae7a577719a0da"
+      "sha256": "dbfae7dfcb6904a70a3fdf2953584258a2a8879a95bc0d1a9d11447c7846b25f"
     },
     {
       "id": "CAT-prop-4.2-generic",
@@ -2955,7 +2955,7 @@
       "claims": [
         "prop-4.2-generic"
       ],
-      "sha256": "b7dce160465544d12b42dff5f2d5ac91381b3ec0ebd048dd2a0d4430a62db9c8"
+      "sha256": "7c423110be5f1a5ff9ddbc424d696489fc0ad18816c5407d18369aacb0198f03"
     },
     {
       "id": "CAT-claim-floor",
@@ -2965,7 +2965,7 @@
       "claims": [
         "claim-floor"
       ],
-      "sha256": "8a17c3d5f1a85316371e17bc74d87ade708485a580b8b1287e011e7daeae391a"
+      "sha256": "dd5e32c8ac476f7425df1dcce7294e57387cd69e529b442fe31b3c3b6abb39b8"
     },
     {
       "id": "CAT-claim-exponent-ratio",
@@ -2975,7 +2975,7 @@
       "claims": [
         "claim-exponent-ratio"
       ],
-      "sha256": "92ac89719f0a4791a8c4bcdf431b3e765c9190e1e1df10216c5bfbd12b2365ac"
+      "sha256": "1aa615e0ef9d22aa57bb83f60dae9dfadfac64a1992d580c7a4e9b9282855585"
     },
     {
       "id": "CAT-claim-no-smaller-exponent",
@@ -2985,7 +2985,7 @@
       "claims": [
         "claim-no-smaller-exponent"
       ],
-      "sha256": "e8003928a449f67428c52a0587f690b101a8810b431a6cfe110c6b08145d3483"
+      "sha256": "4eba62da2f5fac025f6e99a3b51a8f26d72df286da1d39942127458e086f55a5"
     },
     {
       "id": "CAT-def-D",
@@ -2995,7 +2995,7 @@
       "claims": [
         "def-D"
       ],
-      "sha256": "dc4e721172668b5bb9eb90cf0f10a60384d03d48888721735bd2ac6acff70598"
+      "sha256": "e5dcb22579bdcf51cd5b9db57d76205d4b89acc55084417131f8eee78281630f"
     },
     {
       "id": "CAT-def-deg",
@@ -3005,7 +3005,7 @@
       "claims": [
         "def-deg"
       ],
-      "sha256": "3a7ddf248e6a35adcf28f611cdb9d7445188ee8e680afdd105f6f8fc9d64ef73"
+      "sha256": "fe9b152b8150287bdc1bbd91547bedfc260cbb2630efac67a25a30a0aa38956a"
     },
     {
       "id": "CAT-def-bs",
@@ -3015,7 +3015,7 @@
       "claims": [
         "def-bs"
       ],
-      "sha256": "6ee8279f6e029723dffe179611d195af2fc3784e6c3ef539b7257971d0a469bb"
+      "sha256": "be848f8ba1c1809fbed9d049226e0ac1a6b3800bf2ebf5332bbf752417b3c866"
     },
     {
       "id": "CAT-def-Gamma-i",
@@ -3025,7 +3025,7 @@
       "claims": [
         "def-Gamma-i"
       ],
-      "sha256": "f1d184f43b451a128c477c877e76904ff19d799f32f0a3356a2c39ffdb12d88c"
+      "sha256": "f362cbc9a0125ed164fc30eb2efe6fc845125315b28b03f2ac8672a47f5d3b9e"
     },
     {
       "id": "CAT-claim-perron",
@@ -3035,7 +3035,7 @@
       "claims": [
         "claim-perron"
       ],
-      "sha256": "dc36e79167010620af2797ccd8c98da31df7bfd49011eeca5cc0460e66aca6bf"
+      "sha256": "a1c3b0df8526f9bef66305e54c6ffd57c210aba1ae086b890efce448d357a8e1"
     },
     {
       "id": "CAT-def-adv-progress",
@@ -3045,7 +3045,7 @@
       "claims": [
         "def-adv-progress"
       ],
-      "sha256": "8b4df8ead54c6429d1e7fb854fcfeccbb496f2a7dd7c5f2701172f961290722a"
+      "sha256": "f5b351ec3ff3203b48d600d3244d079ae6f7d1726250eb5f607103558c4b7eab"
     },
     {
       "id": "CAT-claim-per-query",
@@ -3055,7 +3055,7 @@
       "claims": [
         "claim-per-query"
       ],
-      "sha256": "2f5ed1ed543cdb70da79ef31d85eb2d687aea9f8ff3168192cf810c2ff3cebbf"
+      "sha256": "18fdbd26ce8a91e2b5ed20da7c228e717ba8e94c2bd22b4d7e24cf6d796a842c"
     },
     {
       "id": "CAT-claim-final-overlap",
@@ -3065,7 +3065,7 @@
       "claims": [
         "claim-final-overlap"
       ],
-      "sha256": "eb3ac08dbc72ad456f75416cc52364d17a9b4777d0f2af5628be5bac3119e3cf"
+      "sha256": "4b5fd83dbbc5930ac833b398fb5de18165010408c58c52033ae22834b606a85e"
     },
     {
       "id": "CAT-lem-A.2",
@@ -3075,7 +3075,7 @@
       "claims": [
         "lem-A.2"
       ],
-      "sha256": "755e99876fbecdb25a9031d24d92e0e280c15270e2ba4c217a28e3acef66eec5"
+      "sha256": "928c3dcf3355f5744c96be7ccd4226b38583ab922e59531b7f3eeb6601a3967e"
     },
     {
       "id": "CAT-def-Sf",
@@ -3085,7 +3085,7 @@
       "claims": [
         "def-Sf"
       ],
-      "sha256": "d4560a2ddf3bc40f10d53c6c2deb0c809a96d8db864fc9b6d434b565f332d396"
+      "sha256": "8a94a711f95524c8fb180818e9b90ad2ceaf9519a0e58cf0ef1bce5d93c14988"
     },
     {
       "id": "CAT-lem-A.3.bs",
@@ -3095,7 +3095,7 @@
       "claims": [
         "lem-A.3.bs"
       ],
-      "sha256": "c8511c0eae1ed36a18e48544296eca51e0d4578f5415b1277627b09274d01d32"
+      "sha256": "26aa19773a9bb80e2cb88d780d6c6d7edacd24f6fab9ffcc339f0897dadc2eb7"
     },
     {
       "id": "CAT-lem-A.3.lambda",
@@ -3105,7 +3105,7 @@
       "claims": [
         "lem-A.3.lambda"
       ],
-      "sha256": "6f339314dd23841a344a530e23a5078eac4b4b98a1fa4dad18a3fd13837ed435"
+      "sha256": "088200361b648b6a3aed60d4459d50f8ffbaed087e8b35ac59fe4b90c59b8afd"
     },
     {
       "id": "CAT-lem-A.3",
@@ -3115,7 +3115,7 @@
       "claims": [
         "lem-A.3"
       ],
-      "sha256": "346ae5f95ca4c5f02288e6a2f539d6daa7160ad71f7ce4a43ad697db6c0150b2"
+      "sha256": "ddd6a261fda1097d24636e2137bd562acb501407146a8962b3be6d61d55a5a3f"
     },
     {
       "id": "CAT-claim-restrict-parity",
@@ -3125,7 +3125,7 @@
       "claims": [
         "claim-restrict-parity"
       ],
-      "sha256": "b8ac455dddde3a63e278b79daaf33487714b79e90c92c549d50f468201033e3a"
+      "sha256": "d0b92f0ebef4bfa65e592100e71003475e59abe98a935e5c3b36d991c4c3b8e9"
     },
     {
       "id": "CAT-def-huang",
@@ -3135,7 +3135,7 @@
       "claims": [
         "def-huang"
       ],
-      "sha256": "67b872ffdf98d1e2e6166fe2bf52928931857832da8cce4e6ec38af2e9871b11"
+      "sha256": "e1a7384b92df96424f44307e3275d6a28653bd20ba6f51636375467d2c4a26ef"
     },
     {
       "id": "CAT-claim-huang-spectrum",
@@ -3145,7 +3145,7 @@
       "claims": [
         "claim-huang-spectrum"
       ],
-      "sha256": "b08107077901d4fae88b6d2b0137bb8febe053aef04396cb338726ab9ec5a370"
+      "sha256": "301291eec03e45e8db07cbe7436a693b28474036d7e925edce559452b75c9b7a"
     },
     {
       "id": "CAT-claim-interlace",
@@ -3155,7 +3155,7 @@
       "claims": [
         "claim-interlace"
       ],
-      "sha256": "5a1b7f706cf18263de563997c2bc4032856d673cdb83b1c26a3b484556287a85"
+      "sha256": "df96bc2894d4dd2258311884540cdecc39243cb3ced507da245664a0d2b07573"
     },
     {
       "id": "CAT-lem-A.4",
@@ -3165,7 +3165,7 @@
       "claims": [
         "lem-A.4"
       ],
-      "sha256": "f1fd86bdedca5e0917f4906149b4b7a11bf3c8e8e333b8dd467e4e71d0630a18"
+      "sha256": "4309155ad442702b384a7106935e2866e80eb61403b2d1abaa1ecdc6375939fd"
     },
     {
       "id": "CAT-claim-round-block",
@@ -3175,7 +3175,7 @@
       "claims": [
         "claim-round-block"
       ],
-      "sha256": "8d536bb201ab4781938b94dc297fd0f76f43a643d5a6122889b2ce2522f29c0b"
+      "sha256": "49975a723427f686776202f59bdcd577aef1bcf2631693a76f42588699f44e70"
     },
     {
       "id": "CAT-lem-A.5",
@@ -3185,7 +3185,7 @@
       "claims": [
         "lem-A.5"
       ],
-      "sha256": "a4030bc1316f1e2a62b7fd930104fd652690d76e220e26aa640ad61c221fbb94"
+      "sha256": "ef139def8533ccfe886851d39f95153bce1f171080d8cfe719fc6a47cfa0ffd7"
     },
     {
       "id": "CAT-thm-A.1",
@@ -3195,13 +3195,13 @@
       "claims": [
         "thm-A.1"
       ],
-      "sha256": "091467a89be331bbbcc7e36b7be922c3581d43d5497772c63667f6053eb656fa"
+      "sha256": "e0d117eb9226b92ec073846a25688c05bc37003a34f11a5f020e2aadad943440"
     },
     {
       "id": "ROOT-REFERENCES",
       "path": "docs/reasoning_record.md",
-      "line_start": 4506,
-      "line_end": 4625,
+      "line_start": 4510,
+      "line_end": 4629,
       "claims": [],
       "sha256": "a23e00526829541d77173a7924a3bbc2230e0912b9647b7cd0524e9ec4f27d54"
     },
@@ -3286,7 +3286,7 @@
       "line_start": 1950,
       "line_end": 1982,
       "claims": [],
-      "sha256": "e47e493394f1db5489a617fd899233bdd4d04cfe22948526255667f96631f11d"
+      "sha256": "c6191485a7bcfe65c31886ba2d254dabe2a705156d0a9bfea66c6e5ce0fa4976"
     },
     {
       "id": "R3-A-ROUTES",
@@ -123154,7 +123154,7 @@
   },
   "frozen_for_independent_review_utc": "2026-11-02T21:45:36.478005+00:00",
   "sources": {
-    "docs/reasoning_record.md": "72addba4c1901a47bae4c7d83449dec2180ed42281c7d8fe61a006e13924aa9c",
-    "docs/verification_details.md": "b3649ad48fe5e04e6b0e357e06a4ed2eaf6120759618e08e2d44cea07d0ea1ee"
+    "docs/reasoning_record.md": "0c0074d1a5637f1daf596c550e1c6484272b0c2110110df8ce32fdf5775e794d",
+    "docs/verification_details.md": "9bceda2127a17a6fcd35525cdf09144ca4e9689b1dd5a92dbf55c9cc7da299d4"
   }
 }

@@ -10,10 +10,10 @@
  },
  "inputs": {
   "corpus/lean_dependencies.json": "64af5646aa384e099dfd263366ca00b0bfd8749fca1f5cabf85f84bcc7701e2d",
-  "corpus/statements.json": "1a1bfce5c5c522d8055a40b555307f4e44e3cd6190c728bc74dd580afce71847",
-  "docs/reasoning_record.md": "72addba4c1901a47bae4c7d83449dec2180ed42281c7d8fe61a006e13924aa9c",
-  "docs/reasoning_record_correspondence.json": "5453fb01aa8743629ccb1ec93c48ac9bb5cf255f1ad7dd4723075aaef2e3d53a",
-  "docs/verification_details.md": "b3649ad48fe5e04e6b0e357e06a4ed2eaf6120759618e08e2d44cea07d0ea1ee",
+  "corpus/statements.json": "036f7ca0c8b518349f8cd3c9646f6308f6486e967008db394a89a063f423c474",
+  "docs/reasoning_record.md": "0c0074d1a5637f1daf596c550e1c6484272b0c2110110df8ce32fdf5775e794d",
+  "docs/reasoning_record_correspondence.json": "7d51ad721dcb52058beb22c158ec597c7753ec750d40d434c40fa22d9f36db5f",
+  "docs/verification_details.md": "9bceda2127a17a6fcd35525cdf09144ca4e9689b1dd5a92dbf55c9cc7da299d4",
   "lean/QuarticCorpus/Construction/Challenge.lean": "d554e5a96889c4c9c3aa6bd3231f984fa7cf695aa103ebcd092ac2c7a08240b1",
   "lean/QuarticCorpus/Construction/Solution.lean": "63cfe11442f76eb9b0f1b579e2a925a19fc9312f870e8480bfbf3eacfb9bb9de",
   "lean/QuarticCorpus/Construction/comparator.json": "c18c76b87a777251e70ec3f55c5704be82d52dbba0220e5adb2cf3063709dd78",
@@ -86,10 +86,10 @@
  },
  "record": {
   "path": "docs/reasoning_record.md",
-  "sha256": "72addba4c1901a47bae4c7d83449dec2180ed42281c7d8fe61a006e13924aa9c",
+  "sha256": "0c0074d1a5637f1daf596c550e1c6484272b0c2110110df8ce32fdf5775e794d",
   "sources": {
-   "docs/reasoning_record.md": "72addba4c1901a47bae4c7d83449dec2180ed42281c7d8fe61a006e13924aa9c",
-   "docs/verification_details.md": "b3649ad48fe5e04e6b0e357e06a4ed2eaf6120759618e08e2d44cea07d0ea1ee"
+   "docs/reasoning_record.md": "0c0074d1a5637f1daf596c550e1c6484272b0c2110110df8ce32fdf5775e794d",
+   "docs/verification_details.md": "9bceda2127a17a6fcd35525cdf09144ca4e9689b1dd5a92dbf55c9cc7da299d4"
   },
   "passages_verified": 305,
   "passages_in_correspondence": 305,
@@ -97,7 +97,7 @@
  },
  "dependency_export": {
   "path": "corpus/lean_dependencies.json",
-  "currentness": "current"
+  "currentness": "stale"
  },
  "coverage": {
   "challenge_files": 16,
@@ -171,10 +171,10 @@
       "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
       "ran_at": "2026-11-20T13:19:06.726005+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 2,
+     "current_positive_receipts": 0,
      "receipts_recorded": 6
     }
    ],
@@ -206,7 +206,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -243,7 +243,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -611,7 +611,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -638,7 +638,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -665,7 +665,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -692,7 +692,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -729,7 +729,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -755,7 +755,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -781,7 +781,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -807,7 +807,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -833,7 +833,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -859,7 +859,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -885,7 +885,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -911,7 +911,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -937,7 +937,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1047,7 +1047,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1069,7 +1069,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1091,7 +1091,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1113,7 +1113,7 @@
        "receipt_sha256": "8bc466336e213b7cd4fd28ad08a6ba01b188482023dadc17b1eb1dff8f6bea87",
        "ran_at": "2026-11-20T13:19:06.726005+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1149,10 +1149,10 @@
       "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
       "ran_at": "2026-11-20T13:19:44.253705+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 2,
+     "current_positive_receipts": 0,
      "receipts_recorded": 6
     }
    ],
@@ -1188,7 +1188,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1230,7 +1230,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1277,7 +1277,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1306,7 +1306,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1335,7 +1335,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1364,7 +1364,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1390,7 +1390,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1416,7 +1416,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1442,7 +1442,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1468,7 +1468,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1495,7 +1495,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1521,7 +1521,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1548,7 +1548,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1574,7 +1574,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1600,7 +1600,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1626,7 +1626,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1652,7 +1652,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1678,7 +1678,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1704,7 +1704,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1730,7 +1730,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1756,7 +1756,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1782,7 +1782,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -1808,7 +1808,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2160,7 +2160,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2182,7 +2182,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2204,7 +2204,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2226,7 +2226,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2248,7 +2248,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2270,7 +2270,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2292,7 +2292,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2314,7 +2314,7 @@
        "receipt_sha256": "5de337922b666c96df546e6eedb6175e7aff57e8f779b1e0eb1f1f8a79de0aea",
        "ran_at": "2026-11-20T13:19:44.253705+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2344,10 +2344,10 @@
       "receipt_sha256": "ac44d8511b1b6d00c98a2a125cc3b7c98b9ea0ebecf9b3bb11b1e2ca33c20f5e",
       "ran_at": "2026-11-20T13:27:04.476376+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 1,
+     "current_positive_receipts": 0,
      "receipts_recorded": 3
     }
    ],
@@ -2400,7 +2400,7 @@
        "receipt_sha256": "ac44d8511b1b6d00c98a2a125cc3b7c98b9ea0ebecf9b3bb11b1e2ca33c20f5e",
        "ran_at": "2026-11-20T13:27:04.476376+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2429,7 +2429,7 @@
       "receipt_sha256": "aa646977d597ca304a24160d363e71854822f1acbee431722aeaa1dde0fb69ae",
       "ran_at": "2026-11-20T13:28:30.236458+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "accepted_shared_bad_spec_blind_spot"
      },
@@ -2492,7 +2492,7 @@
       "receipt_sha256": "32f804d00f0f0673a053f9b31be75bdf444568ea35187baaf5a1acda741b6f48",
       "ran_at": "2026-11-20T13:28:49.550130+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
@@ -2556,10 +2556,10 @@
       "receipt_sha256": "c18a4adc324b2aa9d18f888770c3558ab10639aa2f55a32aab1b46fc53b99efe",
       "ran_at": "2026-11-20T13:29:42.889632+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 1,
+     "current_positive_receipts": 0,
      "receipts_recorded": 2
     }
    ],
@@ -2612,7 +2612,7 @@
        "receipt_sha256": "c18a4adc324b2aa9d18f888770c3558ab10639aa2f55a32aab1b46fc53b99efe",
        "ran_at": "2026-11-20T13:29:42.889632+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2644,10 +2644,10 @@
       "receipt_sha256": "b896d149d21784a9b95a0a6e85d8c644cad5563ddd6ff2fd612cad489a453381",
       "ran_at": "2026-11-20T13:30:07.742331+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 1,
+     "current_positive_receipts": 0,
      "receipts_recorded": 2
     },
     {
@@ -2662,7 +2662,7 @@
       "receipt_sha256": "8e1252b1436d53a607efc04955351c21dae086d5c279fd1d51e3f08d83fbc653",
       "ran_at": "2026-11-20T13:30:24.400768+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only",
       "negative_control": "rejected_as_expected"
      },
@@ -2694,7 +2694,7 @@
        "receipt_sha256": "b896d149d21784a9b95a0a6e85d8c644cad5563ddd6ff2fd612cad489a453381",
        "ran_at": "2026-11-20T13:30:07.742331+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2725,10 +2725,10 @@
       "receipt_sha256": "e4718392386ae2a1fc6f1ca8c6fb3fbf83c1d3c538bf96b6b845a6d8d1450114",
       "ran_at": "2026-11-20T13:27:52.472092+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 1,
+     "current_positive_receipts": 0,
      "receipts_recorded": 3
     },
     {
@@ -2743,7 +2743,7 @@
       "receipt_sha256": "7fcf292d6e98028faeea29ad8f9c05ddeeb98359c7006f5648bdc153972d2a5e",
       "ran_at": "2026-11-20T13:28:11.695188+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
@@ -2781,7 +2781,7 @@
        "receipt_sha256": "e4718392386ae2a1fc6f1ca8c6fb3fbf83c1d3c538bf96b6b845a6d8d1450114",
        "ran_at": "2026-11-20T13:27:52.472092+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2810,10 +2810,10 @@
       "receipt_sha256": "9386dc1e820685982006a8e4862dac5f1261f8268e208099a2647717f5755db9",
       "ran_at": "2026-11-20T13:27:28.618798+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 1,
+     "current_positive_receipts": 0,
      "receipts_recorded": 3
     }
    ],
@@ -2864,7 +2864,7 @@
        "receipt_sha256": "9386dc1e820685982006a8e4862dac5f1261f8268e208099a2647717f5755db9",
        "ran_at": "2026-11-20T13:27:28.618798+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -2895,10 +2895,10 @@
       "receipt_sha256": "fed0c5edf7c12b555c238f092259ae25e17785f151380e710b106f46faad11d2",
       "ran_at": "2026-11-20T13:30:58.844113+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 1,
+     "current_positive_receipts": 0,
      "receipts_recorded": 2
     },
     {
@@ -2913,7 +2913,7 @@
       "receipt_sha256": "09c246b607c801bcec8791dcf6dbdb131ece0e846569f6c08bdec553fc005ac1",
       "ran_at": "2026-11-20T13:31:18.963964+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only",
       "negative_control": "rejected_as_expected"
      },
@@ -2971,7 +2971,7 @@
        "receipt_sha256": "fed0c5edf7c12b555c238f092259ae25e17785f151380e710b106f46faad11d2",
        "ran_at": "2026-11-20T13:30:58.844113+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3002,10 +3002,10 @@
       "receipt_sha256": "24d35b6c14fb1efa069ed138c85a717fae109ae171696af60ca3c28a7447b15c",
       "ran_at": "2026-11-20T13:33:17.401694+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 1,
+     "current_positive_receipts": 0,
      "receipts_recorded": 2
     },
     {
@@ -3020,7 +3020,7 @@
       "receipt_sha256": "31516f464894eac143a6d3ac407bece9c82bfc289788fd398f4f9d43f0f6747f",
       "ran_at": "2026-11-20T13:33:40.006253+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only",
       "negative_control": "rejected_as_expected"
      },
@@ -3078,7 +3078,7 @@
        "receipt_sha256": "24d35b6c14fb1efa069ed138c85a717fae109ae171696af60ca3c28a7447b15c",
        "ran_at": "2026-11-20T13:33:17.401694+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3100,7 +3100,7 @@
        "receipt_sha256": "24d35b6c14fb1efa069ed138c85a717fae109ae171696af60ca3c28a7447b15c",
        "ran_at": "2026-11-20T13:33:17.401694+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3129,10 +3129,10 @@
       "receipt_sha256": "4813dec1db785d8ea865c76c3024290ec937072535302f998ea0e5634fbca6b2",
       "ran_at": "2026-11-20T13:34:20.296195+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 1,
+     "current_positive_receipts": 0,
      "receipts_recorded": 2
     },
     {
@@ -3147,7 +3147,7 @@
       "receipt_sha256": "d3965078aed8afdb759c2f6158f0e1ea0cb62d840e85d817125f25f59bf1931f",
       "ran_at": "2026-11-20T13:33:59.161627+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only",
       "negative_control": "rejected_as_expected"
      },
@@ -3195,7 +3195,7 @@
        "receipt_sha256": "4813dec1db785d8ea865c76c3024290ec937072535302f998ea0e5634fbca6b2",
        "ran_at": "2026-11-20T13:34:20.296195+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3224,10 +3224,10 @@
       "receipt_sha256": "d5c50f2c253d7c8ffcd79b867f170d1f1527018e089ae49cae2a66a8edec0cca",
       "ran_at": "2026-11-20T13:35:11.537431+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 1,
+     "current_positive_receipts": 0,
      "receipts_recorded": 2
     }
    ],
@@ -3278,7 +3278,7 @@
        "receipt_sha256": "d5c50f2c253d7c8ffcd79b867f170d1f1527018e089ae49cae2a66a8edec0cca",
        "ran_at": "2026-11-20T13:35:11.537431+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3312,10 +3312,10 @@
       "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
       "ran_at": "2026-11-20T13:21:13.637469+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 2,
+     "current_positive_receipts": 0,
      "receipts_recorded": 6
     }
    ],
@@ -3349,7 +3349,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3378,7 +3378,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3407,7 +3407,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3436,7 +3436,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3487,7 +3487,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3516,7 +3516,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3545,7 +3545,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3574,7 +3574,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3603,7 +3603,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3632,7 +3632,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3661,7 +3661,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3701,7 +3701,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3740,7 +3740,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3768,7 +3768,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3796,7 +3796,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3824,7 +3824,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3852,7 +3852,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3880,7 +3880,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3908,7 +3908,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3936,7 +3936,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3964,7 +3964,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -3992,7 +3992,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4020,7 +4020,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4047,7 +4047,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4074,7 +4074,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4101,7 +4101,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4128,7 +4128,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4155,7 +4155,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4193,7 +4193,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4219,7 +4219,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4245,7 +4245,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4271,7 +4271,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4297,7 +4297,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4323,7 +4323,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4349,7 +4349,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4375,7 +4375,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4401,7 +4401,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4427,7 +4427,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4453,7 +4453,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4479,7 +4479,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4505,7 +4505,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4531,7 +4531,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4557,7 +4557,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4583,7 +4583,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4608,7 +4608,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4646,7 +4646,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4672,7 +4672,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4698,7 +4698,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4724,7 +4724,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4749,7 +4749,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4771,7 +4771,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4793,7 +4793,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4815,7 +4815,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4837,7 +4837,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4859,7 +4859,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4881,7 +4881,7 @@
        "receipt_sha256": "8ed92db79440b825bff6f483fa5ca8cbb7121b6f1876aecb7c864900067b81ef",
        "ran_at": "2026-11-20T13:21:13.637469+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -4911,7 +4911,7 @@
       "receipt_sha256": "e56319a806186599a1105d0f01e2b9fb1b7712f862b23708132e7d31343e93ba",
       "ran_at": "2026-11-20T13:24:18.253119+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
@@ -4931,7 +4931,7 @@
       "receipt_sha256": "18e6b220d0cfc1a98e9ec98d4d79d364816a56345e7c8fcb3bf22e0cf9569659",
       "ran_at": "2026-11-20T13:24:37.153054+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
@@ -4951,7 +4951,7 @@
       "receipt_sha256": "2597e7684a6fb41cb2bc8688fb8d55e9e2595995fe31249194543e23be74f18d",
       "ran_at": "2026-11-20T13:25:07.770512+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
@@ -4971,7 +4971,7 @@
       "receipt_sha256": "25533602a41038d61c6ef377f9e71424be47751ce4a24a3a1bb44d125aad114c",
       "ran_at": "2026-11-20T13:25:26.070992+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
@@ -4991,7 +4991,7 @@
       "receipt_sha256": "01e23b5247acec2fd355fb96cd3aa897fb8f4523e05917a107c4ce93e51e40a4",
       "ran_at": "2026-11-20T13:25:45.097368+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "historical_configured_plus_scanned",
       "negative_control": "rejected_as_expected"
      },
@@ -5011,10 +5011,10 @@
       "receipt_sha256": "6f9d12e15aec61b5a3f07796195df191a075e40034e26853f25d5cabf9da96ad",
       "ran_at": "2026-11-20T13:21:42.212210+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 2,
+     "current_positive_receipts": 0,
      "receipts_recorded": 6
     }
    ],
@@ -5594,7 +5594,7 @@
        "receipt_sha256": "6f9d12e15aec61b5a3f07796195df191a075e40034e26853f25d5cabf9da96ad",
        "ran_at": "2026-11-20T13:21:42.212210+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -5676,7 +5676,7 @@
        "receipt_sha256": "6f9d12e15aec61b5a3f07796195df191a075e40034e26853f25d5cabf9da96ad",
        "ran_at": "2026-11-20T13:21:42.212210+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -5703,7 +5703,7 @@
        "receipt_sha256": "6f9d12e15aec61b5a3f07796195df191a075e40034e26853f25d5cabf9da96ad",
        "ran_at": "2026-11-20T13:21:42.212210+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -5735,10 +5735,10 @@
       "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
       "ran_at": "2026-11-20T13:42:12.204804+00:00",
       "status": "passed",
-      "currentness": "current",
+      "currentness": "stale",
       "declaration_scope": "configured_theorem_names_only"
      },
-     "current_positive_receipts": 4,
+     "current_positive_receipts": 0,
      "receipts_recorded": 11
     }
    ],
@@ -5770,7 +5770,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -5796,7 +5796,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -5823,7 +5823,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -5849,7 +5849,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -5898,7 +5898,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -5925,7 +5925,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -5952,7 +5952,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -5979,7 +5979,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6006,7 +6006,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6033,7 +6033,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6060,7 +6060,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6098,7 +6098,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6135,7 +6135,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6161,7 +6161,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6187,7 +6187,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6213,7 +6213,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6239,7 +6239,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6265,7 +6265,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6291,7 +6291,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6317,7 +6317,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6343,7 +6343,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6369,7 +6369,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6394,7 +6394,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6419,7 +6419,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6444,7 +6444,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6469,7 +6469,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6494,7 +6494,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6519,7 +6519,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6555,7 +6555,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6579,7 +6579,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6603,7 +6603,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6627,7 +6627,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6651,7 +6651,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6675,7 +6675,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6699,7 +6699,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6723,7 +6723,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6747,7 +6747,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6771,7 +6771,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6795,7 +6795,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6819,7 +6819,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6843,7 +6843,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6867,7 +6867,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6891,7 +6891,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6915,7 +6915,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6939,7 +6939,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6975,7 +6975,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -6999,7 +6999,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -7023,7 +7023,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -7048,7 +7048,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -7073,7 +7073,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -7095,7 +7095,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -7117,7 +7117,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -7139,7 +7139,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -7161,7 +7161,7 @@
        "receipt_sha256": "6b2fbc7ee6c0c633c29166e359262d13367ee4b6fc6aeb52c8b72a0d597925c7",
        "ran_at": "2026-11-20T13:42:12.204804+00:00",
        "status": "passed",
-       "currentness": "current",
+       "currentness": "stale",
        "declaration_scope": "configured_theorem_names_only"
       }
      }
@@ -7186,11 +7186,11 @@
      "anchor": "R3-01-ADAPTIVE",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "36f8af880f30eff2fc49e927eff926e11be11862e4387474f5a538b2fc4fb5ea",
+     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3892,
-      3940
+      3896,
+      3944
      ]
     }
    ],
@@ -7213,11 +7213,11 @@
      "anchor": "R3-01-ADAPTIVE",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "36f8af880f30eff2fc49e927eff926e11be11862e4387474f5a538b2fc4fb5ea",
+     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3892,
-      3940
+      3896,
+      3944
      ]
     }
    ],
@@ -7240,11 +7240,11 @@
      "anchor": "R3-01-ADAPTIVE",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "36f8af880f30eff2fc49e927eff926e11be11862e4387474f5a538b2fc4fb5ea",
+     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3892,
-      3940
+      3896,
+      3944
      ]
     }
    ],
@@ -7295,7 +7295,7 @@
      "join": "lean_link_mention",
      "label": "def-bansal-sinha",
      "passage_claims": [],
-     "passage_sha256": "aa52fb0136e5426aac0fa224692a09d036c722d67b2c6235b286acf90b388d1e",
+     "passage_sha256": "bcbe62542e6a3012617acf7b1c7387a92aece5aeeee9c3e1f8fbc38862077ed4",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1856,
@@ -7367,8 +7367,8 @@
      "passage_sha256": "1bac783e056ddf2a515654388ef21e0c49b737bfb45b789436a018b80b886968",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3868,
-      3889
+      3872,
+      3893
      ]
     }
    ],
@@ -7403,11 +7403,11 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "1bfe012bc356814afd082f66bf263549fe5d4d1bbac94a807246e37674bcd891",
+     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3808,
-      3816
+      3812,
+      3820
      ]
     }
    ],
@@ -7487,8 +7487,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     },
     {
@@ -7496,7 +7496,7 @@
      "join": "statement_claim",
      "statement_id": "def-D",
      "via": "solution_proof_reference",
-     "passage_sha256": "dc4e721172668b5bb9eb90cf0f10a60384d03d48888721735bd2ac6acff70598",
+     "passage_sha256": "e5dcb22579bdcf51cd5b9db57d76205d4b89acc55084417131f8eee78281630f",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1265,
@@ -7523,8 +7523,8 @@
     "statement_id": "def-D",
     "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
     "path": "docs/reasoning_record.md",
-    "line_start": 3834,
-    "line_end": 3840,
+    "line_start": 3838,
+    "line_end": 3844,
     "excerpt_sha256": "9ffbcf0dc5bbef02a17d1573addb1512e0b3ca5c695d402cd9108230eb5a09cb",
     "excerpt": "The predicate $D_{\\leq}(f,q)$, the [deterministic budget test][def-DLe] of the formal statement, means that there is one tree $T$ of depth at most $q$ with $T(x)=f(x)$ for every $x\\in\\mathcal D$. Define\n\n\\[\nD(f)=\\min\\{q\\in\\mathbb N:D_{\\leq}(f,q)\\}.\n\\]\n\nA randomized program is a finite list of trees $T_1,\\ldots,T_s$ with real weights $p_j>0$ and $\\sum_jp_j=1$. It selects $j$ independently of the input and runs $T_j$. Its depth is $\\max_j\\operatorname{depth}(T_j)$, and its success probability on a promised input is $\\sum_{j:T_j(x)=f(x)}p_j$. We have omitted trees assigned probability zero. Since the weights sum to one, $s\\ge1$."
    },
@@ -7576,11 +7576,11 @@
      "join": "statement_claim",
      "statement_id": "def-Q",
      "via": "solution_proof_reference",
-     "passage_sha256": "36f8af880f30eff2fc49e927eff926e11be11862e4387474f5a538b2fc4fb5ea",
+     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3892,
-      3940
+      3896,
+      3944
      ]
     },
     {
@@ -7588,7 +7588,7 @@
      "join": "statement_claim",
      "statement_id": "def-Q",
      "via": "solution_proof_reference",
-     "passage_sha256": "6482246468368ba2c4e988007b633430656f33b295257807f74d909120bccd31",
+     "passage_sha256": "fc4e25cf8faec9c72037d720a5d6d15100a892f14f1f6da07a8105030cd5d69f",
      "path": "docs/verification_details.md",
      "passage_lines": [
       73,
@@ -7613,12 +7613,12 @@
     "anchor": "R3-01-ADAPTIVE",
     "join": "statement_claim",
     "statement_id": "def-Q",
-    "passage_sha256": "36f8af880f30eff2fc49e927eff926e11be11862e4387474f5a538b2fc4fb5ea",
+    "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
     "path": "docs/reasoning_record.md",
-    "line_start": 3917,
-    "line_end": 3939,
-    "excerpt_sha256": "5834baeb9d512cd30ac04ca5160a1aab3533fb4181c2c38141e1d15beafee5fb",
-    "excerpt": "On a nonempty coordinate set, a budget $q$ is admissible when one normalized starting state and one program of cap at most $q$ achieve the required success on every promised input. To include the empty coordinate set, where a constant answer needs no query register, we also allow the constant case explicitly. The resulting condition, the [quantum budget condition](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#def-QLe), is\n\n\\[\n\\begin{split}\n&\\bigl[\\exists b\\in\\{0,1\\}\\ \\forall x\\in\\mathcal D,\\ f(x)=b\\bigr]\\\\\n&\\quad\\lor\\\n\\bigl[\\exists w,\\psi_0,A:\\ \\|\\psi_0\\|=1,\\\n  \\operatorname{cap}(A)\\leq q,\\\n  \\forall x\\in\\mathcal D,\\ M_A(x,\\psi_0,f(x))\\geq2/3\\bigr].\n\\end{split}\n\\]\n\nEvery existential choice in the second clause precedes the input quantifier. The first clause permits a constant answer with no query register. It is redundant when a nonempty query register is available, but necessary for this representation when $I=\\varnothing$: there is then one possible input and no unit vector in the zero-dimensional indexed query space. Every partial Boolean function on that singleton input set is constant on its promise, including an empty promise. The clause therefore supplies exactly the expected zero-query behavior.\n\nDefine $Q(f)=\\min\\{q\\in\\mathbb N:q\\text{ is admissible for }f\\}$. To see that this minimum exists, simulate a deterministic tree. On a nonempty coordinate set, prepare the basis state for its next query with answer bit zero, query once, measure the answer bit, and follow the corresponding child. Each child has its own input-independent basis permutation preparing its next coordinate. The classical history is already encoded by the program branch. Induction on the tree gives the same output and no larger cap. Constant trees, including those on empty coordinates, use the first clause. Hence\n\n\\[\nQ(f)\\leq D(f)\\leq |I|,\n\\qquad\nQ(f)\\leq q\\iff q\\text{ is admissible for }f.\n\\]\n\nAs in the classical case, nonemptiness and monotonicity of admissible budgets justify the source's natural-number infimum."
+    "line_start": 3921,
+    "line_end": 3943,
+    "excerpt_sha256": "f98070a70034ce11ef8f9549845f911510c11ff337bbce6e6e69e3e138f1a87c",
+    "excerpt": "On a nonempty coordinate set, a budget $q$ is admissible when one normalized starting state and one program of cap at most $q$ achieve the required success on every promised input. To include the empty coordinate set, where a constant answer needs no query register, we also allow the constant case explicitly. The resulting condition, the [quantum budget condition](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/proof_index.md#def-QLe), is\n\n\\[\n\\begin{split}\n&\\bigl[\\exists b\\in\\{0,1\\}\\ \\forall x\\in\\mathcal D,\\ f(x)=b\\bigr]\\\\\n&\\quad\\lor\\\n\\bigl[\\exists w,\\psi_0,A:\\ \\|\\psi_0\\|=1,\\\n  \\operatorname{cap}(A)\\leq q,\\\n  \\forall x\\in\\mathcal D,\\ M_A(x,\\psi_0,f(x))\\geq2/3\\bigr].\n\\end{split}\n\\]\n\nEvery existential choice in the second clause precedes the input quantifier. The first clause permits a constant answer with no query register. It is redundant when a nonempty query register is available, but necessary for this representation when $I=\\varnothing$: there is then one possible input and no unit vector in the zero-dimensional indexed query space. Every partial Boolean function on that singleton input set is constant on its promise, including an empty promise. The clause therefore supplies exactly the expected zero-query behavior.\n\nDefine $Q(f)=\\min\\{q\\in\\mathbb N:q\\text{ is admissible for }f\\}$. To see that this minimum exists, simulate a deterministic tree. On a nonempty coordinate set, prepare the basis state for its next query with answer bit zero, query once, measure the answer bit, and follow the corresponding child. Each child has its own input-independent basis permutation preparing its next coordinate. The classical history is already encoded by the program branch. Induction on the tree gives the same output and no larger cap. Constant trees, including those on empty coordinates, use the first clause. Hence\n\n\\[\nQ(f)\\leq D(f)\\leq |I|,\n\\qquad\nQ(f)\\leq q\\iff q\\text{ is admissible for }f.\n\\]\n\nAs in the classical case, nonemptiness and monotonicity of admissible budgets justify the source's natural-number infimum."
    },
    "gap": null
   },
@@ -7651,11 +7651,11 @@
      "join": "statement_claim",
      "statement_id": "def-Q",
      "via": "solution_proof_reference",
-     "passage_sha256": "36f8af880f30eff2fc49e927eff926e11be11862e4387474f5a538b2fc4fb5ea",
+     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3892,
-      3940
+      3896,
+      3944
      ]
     },
     {
@@ -7663,7 +7663,7 @@
      "join": "statement_claim",
      "statement_id": "def-Q",
      "via": "solution_proof_reference",
-     "passage_sha256": "6482246468368ba2c4e988007b633430656f33b295257807f74d909120bccd31",
+     "passage_sha256": "fc4e25cf8faec9c72037d720a5d6d15100a892f14f1f6da07a8105030cd5d69f",
      "path": "docs/verification_details.md",
      "passage_lines": [
       73,
@@ -7675,12 +7675,12 @@
     "anchor": "R3-01-ADAPTIVE",
     "join": "statement_claim",
     "statement_id": "def-Q",
-    "passage_sha256": "36f8af880f30eff2fc49e927eff926e11be11862e4387474f5a538b2fc4fb5ea",
+    "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
     "path": "docs/reasoning_record.md",
-    "line_start": 3917,
-    "line_end": 3939,
-    "excerpt_sha256": "5834baeb9d512cd30ac04ca5160a1aab3533fb4181c2c38141e1d15beafee5fb",
-    "excerpt": "On a nonempty coordinate set, a budget $q$ is admissible when one normalized starting state and one program of cap at most $q$ achieve the required success on every promised input. To include the empty coordinate set, where a constant answer needs no query register, we also allow the constant case explicitly. The resulting condition, the [quantum budget condition](https://github.com/wcook04/quartic-query-lean/blob/main/docs/proof_index.md#def-QLe), is\n\n\\[\n\\begin{split}\n&\\bigl[\\exists b\\in\\{0,1\\}\\ \\forall x\\in\\mathcal D,\\ f(x)=b\\bigr]\\\\\n&\\quad\\lor\\\n\\bigl[\\exists w,\\psi_0,A:\\ \\|\\psi_0\\|=1,\\\n  \\operatorname{cap}(A)\\leq q,\\\n  \\forall x\\in\\mathcal D,\\ M_A(x,\\psi_0,f(x))\\geq2/3\\bigr].\n\\end{split}\n\\]\n\nEvery existential choice in the second clause precedes the input quantifier. The first clause permits a constant answer with no query register. It is redundant when a nonempty query register is available, but necessary for this representation when $I=\\varnothing$: there is then one possible input and no unit vector in the zero-dimensional indexed query space. Every partial Boolean function on that singleton input set is constant on its promise, including an empty promise. The clause therefore supplies exactly the expected zero-query behavior.\n\nDefine $Q(f)=\\min\\{q\\in\\mathbb N:q\\text{ is admissible for }f\\}$. To see that this minimum exists, simulate a deterministic tree. On a nonempty coordinate set, prepare the basis state for its next query with answer bit zero, query once, measure the answer bit, and follow the corresponding child. Each child has its own input-independent basis permutation preparing its next coordinate. The classical history is already encoded by the program branch. Induction on the tree gives the same output and no larger cap. Constant trees, including those on empty coordinates, use the first clause. Hence\n\n\\[\nQ(f)\\leq D(f)\\leq |I|,\n\\qquad\nQ(f)\\leq q\\iff q\\text{ is admissible for }f.\n\\]\n\nAs in the classical case, nonemptiness and monotonicity of admissible budgets justify the source's natural-number infimum."
+    "line_start": 3921,
+    "line_end": 3943,
+    "excerpt_sha256": "f98070a70034ce11ef8f9549845f911510c11ff337bbce6e6e69e3e138f1a87c",
+    "excerpt": "On a nonempty coordinate set, a budget $q$ is admissible when one normalized starting state and one program of cap at most $q$ achieve the required success on every promised input. To include the empty coordinate set, where a constant answer needs no query register, we also allow the constant case explicitly. The resulting condition, the [quantum budget condition](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/proof_index.md#def-QLe), is\n\n\\[\n\\begin{split}\n&\\bigl[\\exists b\\in\\{0,1\\}\\ \\forall x\\in\\mathcal D,\\ f(x)=b\\bigr]\\\\\n&\\quad\\lor\\\n\\bigl[\\exists w,\\psi_0,A:\\ \\|\\psi_0\\|=1,\\\n  \\operatorname{cap}(A)\\leq q,\\\n  \\forall x\\in\\mathcal D,\\ M_A(x,\\psi_0,f(x))\\geq2/3\\bigr].\n\\end{split}\n\\]\n\nEvery existential choice in the second clause precedes the input quantifier. The first clause permits a constant answer with no query register. It is redundant when a nonempty query register is available, but necessary for this representation when $I=\\varnothing$: there is then one possible input and no unit vector in the zero-dimensional indexed query space. Every partial Boolean function on that singleton input set is constant on its promise, including an empty promise. The clause therefore supplies exactly the expected zero-query behavior.\n\nDefine $Q(f)=\\min\\{q\\in\\mathbb N:q\\text{ is admissible for }f\\}$. To see that this minimum exists, simulate a deterministic tree. On a nonempty coordinate set, prepare the basis state for its next query with answer bit zero, query once, measure the answer bit, and follow the corresponding child. Each child has its own input-independent basis permutation preparing its next coordinate. The classical history is already encoded by the program branch. Induction on the tree gives the same output and no larger cap. Constant trees, including those on empty coordinates, use the first clause. Hence\n\n\\[\nQ(f)\\leq D(f)\\leq |I|,\n\\qquad\nQ(f)\\leq q\\iff q\\text{ is admissible for }f.\n\\]\n\nAs in the classical case, nonemptiness and monotonicity of admissible budgets justify the source's natural-number infimum."
    },
    "gap": null
   },
@@ -7733,8 +7733,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     },
     {
@@ -7742,7 +7742,7 @@
      "join": "statement_claim",
      "statement_id": "def-R",
      "via": "solution_proof_reference",
-     "passage_sha256": "e536baf4bdfec1652038d05b249859ba31b41816b44b9639457a7ee5c6578baf",
+     "passage_sha256": "6f262d7463f2f91876fe1cfe17c8b39b801840e68c7f7d70633cdc5221d0444f",
      "path": "docs/verification_details.md",
      "passage_lines": [
       49,
@@ -7769,8 +7769,8 @@
     "statement_id": "def-R",
     "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
     "path": "docs/reasoning_record.md",
-    "line_start": 3843,
-    "line_end": 3864,
+    "line_start": 3847,
+    "line_end": 3868,
     "excerpt_sha256": "e6132306001defad0b904c39bf3c09ddb5deef6e8b15401ea00b80d5e0f022ea",
     "excerpt": "Write $R_{\\leq}(f,q)$ for the existence of such a mixture with depth at most $q$ and success at least $2/3$ on every promised input; this is the [randomized budget test][def-RLe] of the formal statement. The randomized complexity is\n\n\\[\nR(f)=\\min\\left\\{q\\in\\mathbb N:\\\n\\exists(p_j,T_j)_{j=1}^s\\quad\n\\begin{array}{l}\np_j>0,\\quad \\sum_jp_j=1,\\quad \\operatorname{depth}(T_j)\\leq q\\ \\text{for every }j,\\\\[2pt]\n\\displaystyle \\sum_{j:T_j(x)=f(x)}p_j\\geq\\frac23\\ \\text{for every }x\\in\\mathcal D\n\\end{array}\\right\\}.\n\\]\n\nThis is the distribution-over-trees convention in [Buhrman and de Wolf, §§3.1–3.2, printed pp. 5–6][BDW02]. For fixed $I$ and $q$, there are finitely many trees of depth at most $q$: at depth zero there are two leaves, and a larger tree chooses a coordinate and two smaller trees. Fixing all random choices of a capped randomized algorithm selects one such tree; grouping outcomes that select the same tree gives a finite mixture. Conversely, a finite distribution can be selected with finitely many biased coin choices before reading the input. These observations preserve the cap and pointwise success probabilities. They use the allowed arbitrary real biases; a separate restriction to a bounded number of fair coin flips requires care at an exact error threshold.\n\nThe minima exist. Query all coordinates once, then output the prescribed value on the promise and any bit elsewhere. This tree has depth at most $|I|$, including when $I$ is empty. A tree is also a one-element randomized mixture. The admissible budgets are therefore nonempty upward-closed subsets of $\\mathbb N$, giving\n\n\\[\nR(f)\\leq q\\iff R_{\\leq}(f,q),\\qquad\nD(f)\\leq q\\iff D_{\\leq}(f,q),\\qquad\nR(f)\\leq D(f)\\leq |I|.\n\\]\n\n**Formal representation.** In the source these minima are natural-number infima. A tree that reads every coordinate gives an admissible query count, so each set is nonempty and its infimum is its minimum. The constructor-by-constructor translation to the decision trees of complexitylib preserves both evaluation and depth, and for total functions it gives the [exact equality of the two deterministic complexities][src-complexitylib]."
    },
@@ -7808,8 +7808,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     },
     {
@@ -7817,7 +7817,7 @@
      "join": "statement_claim",
      "statement_id": "def-R",
      "via": "solution_proof_reference",
-     "passage_sha256": "e536baf4bdfec1652038d05b249859ba31b41816b44b9639457a7ee5c6578baf",
+     "passage_sha256": "6f262d7463f2f91876fe1cfe17c8b39b801840e68c7f7d70633cdc5221d0444f",
      "path": "docs/verification_details.md",
      "passage_lines": [
       49,
@@ -7831,8 +7831,8 @@
     "statement_id": "def-R",
     "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
     "path": "docs/reasoning_record.md",
-    "line_start": 3843,
-    "line_end": 3864,
+    "line_start": 3847,
+    "line_end": 3868,
     "excerpt_sha256": "e6132306001defad0b904c39bf3c09ddb5deef6e8b15401ea00b80d5e0f022ea",
     "excerpt": "Write $R_{\\leq}(f,q)$ for the existence of such a mixture with depth at most $q$ and success at least $2/3$ on every promised input; this is the [randomized budget test][def-RLe] of the formal statement. The randomized complexity is\n\n\\[\nR(f)=\\min\\left\\{q\\in\\mathbb N:\\\n\\exists(p_j,T_j)_{j=1}^s\\quad\n\\begin{array}{l}\np_j>0,\\quad \\sum_jp_j=1,\\quad \\operatorname{depth}(T_j)\\leq q\\ \\text{for every }j,\\\\[2pt]\n\\displaystyle \\sum_{j:T_j(x)=f(x)}p_j\\geq\\frac23\\ \\text{for every }x\\in\\mathcal D\n\\end{array}\\right\\}.\n\\]\n\nThis is the distribution-over-trees convention in [Buhrman and de Wolf, §§3.1–3.2, printed pp. 5–6][BDW02]. For fixed $I$ and $q$, there are finitely many trees of depth at most $q$: at depth zero there are two leaves, and a larger tree chooses a coordinate and two smaller trees. Fixing all random choices of a capped randomized algorithm selects one such tree; grouping outcomes that select the same tree gives a finite mixture. Conversely, a finite distribution can be selected with finitely many biased coin choices before reading the input. These observations preserve the cap and pointwise success probabilities. They use the allowed arbitrary real biases; a separate restriction to a bounded number of fair coin flips requires care at an exact error threshold.\n\nThe minima exist. Query all coordinates once, then output the prescribed value on the promise and any bit elsewhere. This tree has depth at most $|I|$, including when $I$ is empty. A tree is also a one-element randomized mixture. The admissible budgets are therefore nonempty upward-closed subsets of $\\mathbb N$, giving\n\n\\[\nR(f)\\leq q\\iff R_{\\leq}(f,q),\\qquad\nD(f)\\leq q\\iff D_{\\leq}(f,q),\\qquad\nR(f)\\leq D(f)\\leq |I|.\n\\]\n\n**Formal representation.** In the source these minima are natural-number infima. A tree that reads every coordinate gives an admissible query count, so each set is nonempty and its infimum is its minimum. The constructor-by-constructor translation to the decision trees of complexitylib preserves both evaluation and depth, and for total functions it gives the [exact equality of the two deterministic complexities][src-complexitylib]."
    },
@@ -7879,7 +7879,7 @@
      "join": "statement_claim",
      "statement_id": "prop-4.2-generic",
      "via": "solution_proof_reference",
-     "passage_sha256": "b7dce160465544d12b42dff5f2d5ac91381b3ec0ebd048dd2a0d4430a62db9c8",
+     "passage_sha256": "7c423110be5f1a5ff9ddbc424d696489fc0ad18816c5407d18369aacb0198f03",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1207,
@@ -7941,7 +7941,7 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "e1f14fbf08ba3b630caafdae4a85f550ccb1293b7e06650b47dc1377c5e32643",
+     "passage_sha256": "b656cbd1f6fddd66093f64b1e554445edf3d2b35ef0d3c6174e7f4ad5e0857f5",
      "path": "docs/verification_details.md",
      "passage_lines": [
       109,
@@ -8003,7 +8003,7 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "e1f14fbf08ba3b630caafdae4a85f550ccb1293b7e06650b47dc1377c5e32643",
+     "passage_sha256": "b656cbd1f6fddd66093f64b1e554445edf3d2b35ef0d3c6174e7f4ad5e0857f5",
      "path": "docs/verification_details.md",
      "passage_lines": [
       109,
@@ -8065,7 +8065,7 @@
      "join": "statement_claim",
      "statement_id": "cor-cubic-refuted",
      "via": "solution_proof_reference",
-     "passage_sha256": "6de7eb8b90fad2c326d526055b2aa0ddbb0eaad79c0dcc5dc5125524840cc396",
+     "passage_sha256": "f518578f8d45114e81ff8a4df962230da292713a9a19e42258c51488997ccfdf",
      "path": "docs/verification_details.md",
      "passage_lines": [
       121,
@@ -8127,7 +8127,7 @@
      "join": "statement_claim",
      "statement_id": "cor-cubic-refuted",
      "via": "solution_proof_reference",
-     "passage_sha256": "6de7eb8b90fad2c326d526055b2aa0ddbb0eaad79c0dcc5dc5125524840cc396",
+     "passage_sha256": "f518578f8d45114e81ff8a4df962230da292713a9a19e42258c51488997ccfdf",
      "path": "docs/verification_details.md",
      "passage_lines": [
       121,
@@ -8177,7 +8177,7 @@
      "join": "statement_claim",
      "statement_id": "def-transcript",
      "via": "solution_proof_reference",
-     "passage_sha256": "2d7f7e48138744e6794e1de4e8776a7499c69aa829a9ac16a6e526b64dfa2929",
+     "passage_sha256": "a8c82347cf7641983eb2dcd4e00f172e246d286538b1883c35e6e06ce9f867b6",
      "path": "docs/verification_details.md",
      "passage_lines": [
       299,
@@ -8202,12 +8202,12 @@
     "anchor": "CAT-def-transcript",
     "join": "statement_claim",
     "statement_id": "def-transcript",
-    "passage_sha256": "2d7f7e48138744e6794e1de4e8776a7499c69aa829a9ac16a6e526b64dfa2929",
+    "passage_sha256": "a8c82347cf7641983eb2dcd4e00f172e246d286538b1883c35e6e06ce9f867b6",
     "path": "docs/verification_details.md",
     "line_start": 302,
     "line_end": 304,
-    "excerpt_sha256": "bc268fdd8f5e4defc5f4fa1062f2b0bab93f4b2ee143057a86907e80d92b6425",
-    "excerpt": "> For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input.\n\n**Argument:** [§4.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-transcripts)."
+    "excerpt_sha256": "8db866ab1dfaa5c99484c770428398b59f22ccd81f914b4b42b39bbd792e2e46",
+    "excerpt": "> For a fixed circuit, a transcript assigns a proposed bit to each non-input gate, including output gates. Input-wire values are not copied; they are read from the actual input.\n\n**Argument:** [§4.1](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#CL-transcripts)."
    },
    "gap": null
   },
@@ -8286,7 +8286,7 @@
      "join": "statement_claim",
      "statement_id": "eq-2",
      "via": "solution_proof_reference",
-     "passage_sha256": "7b5d6e406f89e0232c6e847aab1f4ba2d595dc53fad2c02256f4d84af287e3dc",
+     "passage_sha256": "be6c6a3f0fca263bd3d5475d4f87327619b4b521ecac2a4ec446720a08aca92c",
      "path": "docs/verification_details.md",
      "passage_lines": [
       97,
@@ -8348,7 +8348,7 @@
      "join": "statement_claim",
      "statement_id": "lem-2.1.i",
      "via": "solution_proof_reference",
-     "passage_sha256": "dfc18e92409c386992de0340f41e2256e4cb10b7d802da297151717a3a4c34de",
+     "passage_sha256": "67f52d46d90472ff76d4b4f82a420b369d6fa58953d456c2aae3aee1cbd9b982",
      "path": "docs/verification_details.md",
      "passage_lines": [
       199,
@@ -8360,7 +8360,7 @@
      "join": "lean_link_mention",
      "label": "thm-forrelation",
      "passage_claims": [],
-     "passage_sha256": "aa52fb0136e5426aac0fa224692a09d036c722d67b2c6235b286acf90b388d1e",
+     "passage_sha256": "bcbe62542e6a3012617acf7b1c7387a92aece5aeeee9c3e1f8fbc38862077ed4",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1856,
@@ -8422,7 +8422,7 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "e1f14fbf08ba3b630caafdae4a85f550ccb1293b7e06650b47dc1377c5e32643",
+     "passage_sha256": "b656cbd1f6fddd66093f64b1e554445edf3d2b35ef0d3c6174e7f4ad5e0857f5",
      "path": "docs/verification_details.md",
      "passage_lines": [
       109,
@@ -8484,7 +8484,7 @@
      "join": "statement_claim",
      "statement_id": "thm-1.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "e1f14fbf08ba3b630caafdae4a85f550ccb1293b7e06650b47dc1377c5e32643",
+     "passage_sha256": "b656cbd1f6fddd66093f64b1e554445edf3d2b35ef0d3c6174e7f4ad5e0857f5",
      "path": "docs/verification_details.md",
      "passage_lines": [
       109,
@@ -8534,7 +8534,7 @@
      "join": "statement_claim",
      "statement_id": "thm-A.1",
      "via": "solution_proof_reference",
-     "passage_sha256": "091467a89be331bbbcc7e36b7be922c3581d43d5497772c63667f6053eb656fa",
+     "passage_sha256": "e0d117eb9226b92ec073846a25688c05bc37003a34f11a5f020e2aadad943440",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1505,
@@ -8546,12 +8546,12 @@
     "anchor": "CAT-thm-A.1",
     "join": "statement_claim",
     "statement_id": "thm-A.1",
-    "passage_sha256": "091467a89be331bbbcc7e36b7be922c3581d43d5497772c63667f6053eb656fa",
+    "passage_sha256": "e0d117eb9226b92ec073846a25688c05bc37003a34f11a5f020e2aadad943440",
     "path": "docs/verification_details.md",
     "line_start": 1508,
     "line_end": 1510,
-    "excerpt_sha256": "a4696b5ddde403042947d1002094d9b49dbf0c86f03c998aebb50a2ad6e72cd5",
-    "excerpt": "> Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.\n\n**Argument:** [Appendix A](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-APPENDIX-INTRO), [§A.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#ROOT-QUARTIC-UPPER)."
+    "excerpt_sha256": "a7db135fb8f0929d99ef9b1c3af6499b69a2877863bd80a06fe9177b91bd5ac7",
+    "excerpt": "> Every total Boolean function satisfies R(f) <= D(f) = O((1+Q(f))^4), with an absolute constant.\n\n**Argument:** [Appendix A](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#ROOT-APPENDIX-INTRO), [§A.6](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#ROOT-QUARTIC-UPPER)."
    },
    "gap": null
   },
@@ -8596,7 +8596,7 @@
      "join": "statement_claim",
      "statement_id": "claim-winner-dominates",
      "via": "solution_proof_reference",
-     "passage_sha256": "233f9fd1e15a296764df6090266c8fd076ffd15f7181d93355ebcf0470e166b6",
+     "passage_sha256": "39a8540deef2ed1c59ac12484b81ec14440583859ac1d7de6915a16af9eac75f",
      "path": "docs/verification_details.md",
      "passage_lines": [
       803,
@@ -8671,7 +8671,7 @@
      "join": "statement_claim",
      "statement_id": "claim-winner-dominates",
      "via": "solution_proof_reference",
-     "passage_sha256": "233f9fd1e15a296764df6090266c8fd076ffd15f7181d93355ebcf0470e166b6",
+     "passage_sha256": "39a8540deef2ed1c59ac12484b81ec14440583859ac1d7de6915a16af9eac75f",
      "path": "docs/verification_details.md",
      "passage_lines": [
       803,
@@ -8743,7 +8743,7 @@
      "join": "statement_claim",
      "statement_id": "def-F",
      "via": "solution_proof_reference",
-     "passage_sha256": "1435098814a4f8f4a77151e4b6787eea63bf4f5b5fe2a41515511dbd4a734b15",
+     "passage_sha256": "9cab2b53e4178b27cfa4039e1e5a216d20aa5f6b960f6c8e28d83cff69ae306b",
      "path": "docs/verification_details.md",
      "passage_lines": [
       383,
@@ -8755,7 +8755,7 @@
      "join": "statement_claim",
      "statement_id": "cor-unique-winner",
      "via": "solution_proof_reference",
-     "passage_sha256": "26f060af6d2fb91f635ff8350bf35d45144b2469398b4ac6faf0ce2c040ce4c7",
+     "passage_sha256": "b0d67e397e02c37e3fd6c88c6a0e8aa9a117374e557f96e47f6e612778f94b42",
      "path": "docs/verification_details.md",
      "passage_lines": [
       395,
@@ -8780,12 +8780,12 @@
     "anchor": "CAT-def-F",
     "join": "statement_claim",
     "statement_id": "def-F",
-    "passage_sha256": "1435098814a4f8f4a77151e4b6787eea63bf4f5b5fe2a41515511dbd4a734b15",
+    "passage_sha256": "9cab2b53e4178b27cfa4039e1e5a216d20aa5f6b960f6c8e28d83cff69ae306b",
     "path": "docs/verification_details.md",
     "line_start": 386,
     "line_end": 388,
-    "excerpt_sha256": "6da23cadce90ca34eddfd48972b7fc2a7705c88d25b7414391235a6c0389c1af",
-    "excerpt": "> F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.\n\n**Argument:** [§4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-construction-context), [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-address-winner)."
+    "excerpt_sha256": "c759abaa33af29327c414621211a05b9c1b9761b5ff3309cf270634d1697f808",
+    "excerpt": "> F_{k,m}(y)=1 if some column of y is a winner, else 0. It is a total Boolean function on all input bit strings.\n\n**Argument:** [§4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#CL-construction-context), [§4.2](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#CL-address-winner)."
    },
    "gap": null
   },
@@ -8857,8 +8857,8 @@
      "passage_sha256": "7bf414aaa40d493d5ccaf431477e6cf64599f88ab62afb64f66f54b92ad6245e",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      4311,
-      4362
+      4315,
+      4366
      ]
     }
    ],
@@ -8905,11 +8905,11 @@
      "anchor": "R3-01-ADAPTIVE",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "36f8af880f30eff2fc49e927eff926e11be11862e4387474f5a538b2fc4fb5ea",
+     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3892,
-      3940
+      3896,
+      3944
      ]
     }
    ],
@@ -8947,8 +8947,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     }
    ],
@@ -8999,8 +8999,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     },
     {
@@ -9010,19 +9010,19 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     },
     {
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "1bfe012bc356814afd082f66bf263549fe5d4d1bbac94a807246e37674bcd891",
+     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3808,
-      3816
+      3812,
+      3820
      ]
     }
    ],
@@ -9169,7 +9169,7 @@
      "statement_id": "eq-19",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "direct",
+     "comparison_credit": "none",
      "join": "statement_tie"
     }
    ],
@@ -9191,7 +9191,7 @@
      "join": "statement_claim",
      "statement_id": "eq-19",
      "via": "statement_tie",
-     "passage_sha256": "faae95353f9873e7fb54f635c5c952b615799a212254953e93e2769ef1f55318",
+     "passage_sha256": "8c76332717a87917844111345d94c8646f7de82616fdd3cdfe9cda475bb20699",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1075,
@@ -9390,21 +9390,21 @@
      "statement_id": "lem-2.2.i",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "direct",
+     "comparison_credit": "none",
      "join": "statement_tie"
     },
     {
      "statement_id": "lem-2.2.ii",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "direct",
+     "comparison_credit": "none",
      "join": "statement_tie"
     },
     {
      "statement_id": "lem-2.2",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "direct",
+     "comparison_credit": "none",
      "join": "statement_tie"
     }
    ],
@@ -9414,7 +9414,7 @@
      "join": "statement_claim",
      "statement_id": "lem-2.2.i",
      "via": "statement_tie",
-     "passage_sha256": "1b0a032d7a64af2956aa03dde20e27c91e62f4844abf289d1b551cceaaf81adc",
+     "passage_sha256": "36f4bf6b663725387ab2fe69be4a0dfb0e473aa328bc7f308e8cab290dcc76d7",
      "path": "docs/verification_details.md",
      "passage_lines": [
       431,
@@ -9426,7 +9426,7 @@
      "join": "statement_claim",
      "statement_id": "lem-2.2.ii",
      "via": "statement_tie",
-     "passage_sha256": "51ed6b3c906d6bf3624d331916088b5e924ed237276b7b1a58b62986f3140aa4",
+     "passage_sha256": "4a6a2bc3a790dd98776983568c507eb1de90ed9f51fce9886f50d500f67d9659",
      "path": "docs/verification_details.md",
      "passage_lines": [
       443,
@@ -9438,7 +9438,7 @@
      "join": "statement_claim",
      "statement_id": "lem-2.2",
      "via": "statement_tie",
-     "passage_sha256": "39541db0610fb342b38dcf0f610e6720ec56d28f45251ff48fe9739b8a11d71a",
+     "passage_sha256": "459deded5bd28193a372e14e8070506accd4b6e43b0c9fb6c51c519145d44f73",
      "path": "docs/verification_details.md",
      "passage_lines": [
       455,
@@ -9462,12 +9462,12 @@
     "anchor": "CAT-lem-2.2.i",
     "join": "statement_claim",
     "statement_id": "lem-2.2.i",
-    "passage_sha256": "1b0a032d7a64af2956aa03dde20e27c91e62f4844abf289d1b551cceaaf81adc",
+    "passage_sha256": "36f4bf6b663725387ab2fe69be4a0dfb0e473aa328bc7f308e8cab290dcc76d7",
     "path": "docs/verification_details.md",
     "line_start": 434,
     "line_end": 436,
-    "excerpt_sha256": "457c925c4d72d4c69dbda1224accdfee272843ef5004461b75c601ce0eb3a2b2",
-    "excerpt": "> For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.\n\n**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-local-tests), [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-local-equivalence), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-verifier)."
+    "excerpt_sha256": "b43fc72b98e95c4bf32cfadf7660e67fcb07af9aec29f7a760e3f885f120b144",
+    "excerpt": "> For every input y and (i,s) in [m] x {0,1}^r: i wins at s iff all K_{k,m} tests pass, namely (a) X_i[b]=1 for each b; (b) for each j != i, X_j[p_{i,s,j}]=0; (c) for each h and each non-input gate, the claimed value equals the gate function of its predecessors, read from the transcript or from A_{i,h}; (d) for each h, claimed d=1 and claimed b=s_h. Each test is computed by a deterministic adaptive bit-query decision tree of depth at most max(3,l+1), which is l+1 for m>=4: a pointer test reads l pointer bits, then the one target bit they select, while gate tests read at most three fixed bits. A pointer test is not a function of a small fixed set of bits: it can depend on all l+m pointer and target coordinates.\n\n**Argument:** [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#CL-local-tests), [§4.4](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#CL-local-equivalence), [§5.3](https://github.com/wcook04/quartic-query-lean/blob/v1.0.1/docs/reasoning_record.md#upper-verifier)."
    },
    "gap": null
   },
@@ -9486,7 +9486,7 @@
      "statement_id": "eq-19",
      "relation": "stronger",
      "review_evidence": "current",
-     "comparison_credit": "direct",
+     "comparison_credit": "none",
      "join": "statement_tie"
     }
    ],
@@ -9508,7 +9508,7 @@
      "join": "statement_claim",
      "statement_id": "eq-19",
      "via": "statement_tie",
-     "passage_sha256": "faae95353f9873e7fb54f635c5c952b615799a212254953e93e2769ef1f55318",
+     "passage_sha256": "8c76332717a87917844111345d94c8646f7de82616fdd3cdfe9cda475bb20699",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1075,
@@ -9581,11 +9581,11 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "1bfe012bc356814afd082f66bf263549fe5d4d1bbac94a807246e37674bcd891",
+     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3808,
-      3816
+      3812,
+      3820
      ]
     }
    ],
@@ -9656,11 +9656,11 @@
      "anchor": "R3-01-ADAPTIVE",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "36f8af880f30eff2fc49e927eff926e11be11862e4387474f5a538b2fc4fb5ea",
+     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3892,
-      3940
+      3896,
+      3944
      ]
     },
     {
@@ -9715,11 +9715,11 @@
      "anchor": "R3-01-ADAPTIVE",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "36f8af880f30eff2fc49e927eff926e11be11862e4387474f5a538b2fc4fb5ea",
+     "passage_sha256": "cee320f0d16ddeb25626083b29cd503afbcfae3c779f82bb4f74eb80f688c162",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3892,
-      3940
+      3896,
+      3944
      ]
     },
     {
@@ -9737,11 +9737,11 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "1bfe012bc356814afd082f66bf263549fe5d4d1bbac94a807246e37674bcd891",
+     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3808,
-      3816
+      3812,
+      3820
      ]
     }
    ],
@@ -9776,8 +9776,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     }
    ],
@@ -9803,8 +9803,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     }
    ],
@@ -9830,8 +9830,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     }
    ],
@@ -9869,8 +9869,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     },
     {
@@ -9943,8 +9943,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     },
     {
@@ -9954,8 +9954,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     },
     {
@@ -9973,11 +9973,11 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "1bfe012bc356814afd082f66bf263549fe5d4d1bbac94a807246e37674bcd891",
+     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3808,
-      3816
+      3812,
+      3820
      ]
     },
     {
@@ -10023,8 +10023,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     }
    ],
@@ -10050,8 +10050,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     }
    ],
@@ -10077,8 +10077,8 @@
      "passage_sha256": "e5e8cf4b7da361b7f68aac44a1bd1283ccfd7645902ca74139199b51d4933583",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3819,
-      3865
+      3823,
+      3869
      ]
     }
    ],
@@ -10104,8 +10104,8 @@
      "passage_sha256": "1bac783e056ddf2a515654388ef21e0c49b737bfb45b789436a018b80b886968",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3868,
-      3889
+      3872,
+      3893
      ]
     }
    ],
@@ -10128,11 +10128,11 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "1bfe012bc356814afd082f66bf263549fe5d4d1bbac94a807246e37674bcd891",
+     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3808,
-      3816
+      3812,
+      3820
      ]
     }
    ],
@@ -10243,7 +10243,7 @@
      "passage_claims": [
       "r3-q-physical-state-bridge"
      ],
-     "passage_sha256": "6a20463d9b4919fc64780b5afbfefc9d386dedc8937e595b95321114875a1452",
+     "passage_sha256": "7ae412bb86870d28e5b0850cb64f0f819315e214183317dde8b4d9819218d048",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1918,
@@ -10254,7 +10254,7 @@
    "primary_gloss": {
     "anchor": "upper-missing-physical-state",
     "join": "lean_link_mention",
-    "passage_sha256": "6a20463d9b4919fc64780b5afbfefc9d386dedc8937e595b95321114875a1452",
+    "passage_sha256": "7ae412bb86870d28e5b0850cb64f0f819315e214183317dde8b4d9819218d048",
     "path": "docs/verification_details.md",
     "line_start": 1944,
     "line_end": 1944,
@@ -10406,8 +10406,8 @@
      "passage_sha256": "1bac783e056ddf2a515654388ef21e0c49b737bfb45b789436a018b80b886968",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3868,
-      3889
+      3872,
+      3893
      ]
     }
    ],
@@ -10458,7 +10458,7 @@
      "join": "lean_link_mention",
      "label": "cmp-direct-product",
      "passage_claims": [],
-     "passage_sha256": "e47e493394f1db5489a617fd899233bdd4d04cfe22948526255667f96631f11d",
+     "passage_sha256": "c6191485a7bcfe65c31886ba2d254dabe2a705156d0a9bfea66c6e5ce0fa4976",
      "path": "docs/verification_details.md",
      "passage_lines": [
       1950,
@@ -10469,7 +10469,7 @@
    "primary_gloss": {
     "anchor": "CL-direct-product-formal",
     "join": "lean_link_mention",
-    "passage_sha256": "e47e493394f1db5489a617fd899233bdd4d04cfe22948526255667f96631f11d",
+    "passage_sha256": "c6191485a7bcfe65c31886ba2d254dabe2a705156d0a9bfea66c6e5ce0fa4976",
     "path": "docs/verification_details.md",
     "line_start": 1962,
     "line_end": 1972,
@@ -10497,8 +10497,8 @@
      "passage_sha256": "a15d76ddff095250c472a28ce9eb95f2ab87a55f31ed00f1636c6e59fa3d109a",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      4067,
-      4100
+      4071,
+      4104
      ]
     }
    ],
@@ -10524,8 +10524,8 @@
      "passage_sha256": "a15d76ddff095250c472a28ce9eb95f2ab87a55f31ed00f1636c6e59fa3d109a",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      4067,
-      4100
+      4071,
+      4104
      ]
     }
    ],
@@ -10608,8 +10608,8 @@
      "passage_sha256": "1bac783e056ddf2a515654388ef21e0c49b737bfb45b789436a018b80b886968",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3868,
-      3889
+      3872,
+      3893
      ]
     }
    ],
@@ -10632,11 +10632,11 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "1bfe012bc356814afd082f66bf263549fe5d4d1bbac94a807246e37674bcd891",
+     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3808,
-      3816
+      3812,
+      3820
      ]
     }
    ],
@@ -10734,8 +10734,8 @@
      "passage_sha256": "9b497efea841df23edd9f255944196699194ada19a76f813013778f3af2da607",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3943,
-      3979
+      3947,
+      3983
      ]
     }
    ],
@@ -10779,11 +10779,11 @@
      "anchor": "ROOT-PARTIAL",
      "join": "returned_correspondence_lean_list",
      "source": "research/returns/round3/members/01_models_evidence/correspondence.json",
-     "passage_sha256": "1bfe012bc356814afd082f66bf263549fe5d4d1bbac94a807246e37674bcd891",
+     "passage_sha256": "b695190cbee87a498a9e5741150e6efe550fd31001a67f205d8466539cbb3c22",
      "path": "docs/reasoning_record.md",
      "passage_lines": [
-      3808,
-      3816
+      3812,
+      3820
      ]
     }
    ],
