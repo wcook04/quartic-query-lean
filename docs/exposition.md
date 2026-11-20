@@ -340,7 +340,7 @@ For $a^0$ the measured position can never be $00$. For $a^-$ the amplitude for $
 
 ## 5.3 The real decoding problem
 
-The extreme examples have $\Phi=\pm1$, so a single trial is decisive. The promise only guarantees $\Phi\ge\delta$ on a one-input, so for two blocks the promise guarantees that a one-input gives $00$ with probability at least $\delta^2=2^{-20}$, while a zero-input gives it with probability at most $\delta^2/4=2^{-22}$. The decoder therefore repeats the trial independently and returns one when the fraction of trials giving $00$ is at least $\delta^2/2$. With
+The extreme examples have $\Phi=\pm1$, so a single trial is decisive. The promise only guarantees $\Phi\ge\delta$ on a one-input, so for two blocks a one-input gives $00$ with probability at least $\delta^2=2^{-20}$, while a zero-input gives it with probability at most $\delta^2/4=2^{-22}$. The decoder therefore repeats the trial independently and returns one when the fraction of trials giving $00$ is at least $\delta^2/2$. With
 $$
 \rho=\left\lceil16\cdot2^{10k}\ln(1/\eta)\right\rceil
 $$
