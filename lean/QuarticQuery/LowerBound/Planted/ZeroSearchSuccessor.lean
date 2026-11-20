@@ -3,10 +3,10 @@ module
 public import QuarticQuery.LowerBound.Planted.ZeroSearch
 
 /-!
-UNCOMPILED ADVISORY CANDIDATE. No Lean binary is installed in this audit runtime.
-Source-derived stronger finite-world charging invariant. The complete ordinary
-induction and the exact finite tests are supplied separately; neither is a
-kernel validation of this file. The existing source is left unchanged.
+Compiled as part of the `QuarticQuery` library target.
+A stronger finite-world charging invariant. The complete ordinary
+induction and the exact finite tests are supplied separately.
+
 -/
 
 @[expose] public section

@@ -212,26 +212,22 @@ def review_currentness(ident, row, review, hashes):
 
 
 def migrated_snapshots(hashes):
-    """Earlier source snapshots joined to `hashes` by comment-only migration receipts.
+    """Earlier source snapshots joined to `hashes` by one comment-only migration receipt.
 
-    `tools/record_comment_migration.py` writes and rechecks these receipts. Each one
-    states that every Lean file is unchanged once comments are removed and every
-    other input is byte-identical. A chain of such receipts ending at the current
-    snapshot keeps a review current; build and Comparator receipts are not migrated.
+    `tools/record_comment_migration.py` writes these receipts and `make check`
+    recompares the current one against its recorded commit. A receipt counts only
+    when both maps match their digests and its later map is exactly `hashes`.
+    Receipts are never chained. Build and Comparator receipts are not migrated.
     """
-    current = canonical_sha256(hashes)
-    edges = {}
+    earlier = set()
     for path in sorted((CORPUS / "migrations").glob("comment-migration-*.json")):
         receipt = json.loads(path.read_text(encoding="utf-8"))
-        if receipt.get("kind") == "lean_comment_only_migration" and receipt.get("status") == "passed":
-            edges.setdefault(receipt["to_snapshot_sha256"], set()).add(receipt["from_snapshot_sha256"])
-    reached, frontier = set(), [current]
-    while frontier:
-        for earlier in edges.get(frontier.pop(), ()):
-            if earlier not in reached and earlier != current:
-                reached.add(earlier)
-                frontier.append(earlier)
-    return reached
+        if (receipt.get("kind") == "lean_comment_only_migration" and receipt.get("status") == "passed"
+                and receipt.get("to_source_hashes") == hashes
+                and canonical_sha256(receipt["to_source_hashes"]) == receipt.get("to_snapshot_sha256")
+                and canonical_sha256(receipt["from_source_hashes"]) == receipt.get("from_snapshot_sha256")):
+            earlier.add(receipt["from_snapshot_sha256"])
+    return earlier - {canonical_sha256(hashes)}
 
 
 def require_preprint_row(ident, row):
