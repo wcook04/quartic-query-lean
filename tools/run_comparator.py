@@ -58,9 +58,13 @@ def compared_declarations(config):
     return names
 
 
+SANDBOXED = os.environ.get("QUARTIC_COMPARATOR_SANDBOX") == "1"
+
+
 def comparator(config, paranoid):
-    command = [LAKE, "comparator", "--config", str(config.relative_to(LEAN)),
-               "--inadvisably-no-sandbox"] + (["--paranoid"] if paranoid else [])
+    command = ([LAKE, "comparator", "--config", str(config.relative_to(LEAN))]
+               + ([] if SANDBOXED else ["--inadvisably-no-sandbox"])
+               + (["--paranoid"] if paranoid else []))
     result = subprocess.run(command, cwd=LEAN, capture_output=True, text=True)
     return command, result.returncode, result.stdout + result.stderr
 
@@ -72,9 +76,10 @@ def stamp(name, command, status, log, extra):
         "status": status,
         "commit": git_head(),
         "toolchain": (LEAN / "lean-toolchain").read_text(encoding="utf-8").strip(),
-        "sandboxed": False,
+        "sandboxed": SANDBOXED,
         "command": ["lake", *command[1:]],
-        "tool": "lake comparator, unsandboxed local run",
+        "tool": ("lake comparator, sandboxed GitHub Actions run" if SANDBOXED
+                 else "lake comparator, unsandboxed local run"),
         "log_sha256": hashlib.sha256(log.encode("utf-8")).hexdigest(),
         "ran_at": datetime.now(timezone.utc).isoformat(timespec="microseconds"),
         **extra,

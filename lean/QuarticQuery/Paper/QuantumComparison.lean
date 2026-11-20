@@ -6,14 +6,14 @@ public import QuarticQuery.Paper.QuantumAmplification
 /-!
 # Section 3.3: the actual decoder, comparison, verifier and error law
 
-UNELABORATED. No Lean compiler was available in the return environment.
+Compiled as part of the `QuarticQuery` library target.
 These statements expose the already implemented procedures, then give the
 paper's probability and worst-case bit-query guarantees as separate theorems.
 The existing `Samples` budget counts logical reads; `Runs` counts physical
 bit-oracle queries. The latter budget includes the compiler's factor of two.
 
-The proofs use `Upper` modules listed as compiled in the supplied build-status
-record. They do not import the unelaborated candidate `Paper.Section3`.
+The proofs use the compiled `Upper` modules.
+They do not import the earlier `Paper.Section3` statements.
 -/
 
 @[expose] public section
@@ -459,7 +459,7 @@ theorem quantumVerify_search_query_bound (t K : ℕ) (hK : 2 ≤ K)
 single-candidate physical cap, including fresh decoding, is at most
 `budgetConst k * 2^t * (2t)^6`. Here `2^t = sqrt(m)` and `2t = log₂(m)`.
 This deliberately loose bound follows by including one verification in the
-already bounded complete-algorithm budget. UNELABORATED. -/
+already bounded complete-algorithm budget. -/
 theorem quantumVerify_polylog (ht : 1 ≤ t)
     (hSz : C.size ≤ forrConstant k * mValue t * (2 * t) ^ 2) :
     2 * addrCost k t (repetitions k (epsval (mValue t) / (40 * t : ℕ))) +
@@ -485,7 +485,7 @@ theorem quantumVerify_polylog (ht : 1 ≤ t)
 
 /-- Ledger: claim-verify. The selected `forrCircuit` satisfies the size premise
 of `quantumVerify_polylog`, yielding the paper's finite square-root-times-polylog
-verification bound for every `k = l+1`. UNELABORATED. -/
+verification bound for every `k = l+1`. -/
 theorem quantumVerify_forrCircuit_polylog (l : ℕ) (ht : 1 ≤ t) :
     2 * addrCost (l + 1) t
       (repetitions (l + 1) (epsval (mValue t) / (40 * t : ℕ))) +

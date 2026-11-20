@@ -1,11 +1,13 @@
 ---
 title: "How many bits must an algorithm read?"
 subtitle: "OpenAI’s nearly quartic separation between randomized and quantum queries"
-author: "Will Cook"
+author: "Written by AI systems under the direction of Will Cook"
 date: "November 2026"
 bibliography: exposition.bib
 link-citations: true
 ---
+
+**About this paper.** AI systems wrote this paper, its two companion texts and the Lean development, under the direction of Will Cook. No human expert has reviewed them. In particular, no person has checked that the Lean statements say what OpenAI's paper says; AI agents made that comparison. The separation theorem, its construction and its proof are OpenAI's [@OpenAI2026].
 
 This worked exposition develops OpenAI's nearly quartic separation from small boards and explicit queries. It assumes finite-dimensional linear algebra, conditional probability and asymptotic notation, with no prior knowledge of quantum algorithms. Sections 1–6 form a continuous argument; the appendices give optional calculations, tests of the hypotheses and exercises. The [expert companion](expert_companion.md) gives a shorter route, and the [full proof reconstruction](reasoning_record.md) contains the detailed supporting proofs.
 
@@ -287,7 +289,7 @@ Q(F_{k,m})\le C_k\sqrt m\,(\log_2m)^6,
 \qquad
 R(F_{k,m})\ge \frac{m^{2-1/k}}{400(\log_2m)^2}.
 $$
-The first comes from listing columns by quantum comparisons and checking the list. For the second, the bound $R>\lfloor mL/100\rfloor$ uses the limit of $L=\lfloor m^{1-1/k}/(\log_2m)^2\rfloor$ bit reads for predicting a single address digit. With $m$ possible columns, $mL/100$ total reads leave at most one column in a hundred above that limit. For large $m$, rounding down to $L$ retains at least half the unrounded value, so the displayed constant $1/400$ suffices. Both the quantum constant $C_k$ and the size threshold for $m$ may depend on $k$. We will choose $k$ first and then increase $m$, so these dependencies stay fixed.
+The first comes from listing columns by quantum comparisons and checking the list. For the second, the bound $R>\lfloor mL/100\rfloor$ uses the limit of $L=\lfloor m^{1-1/k}/(\log_2m)^2\rfloor$ bit reads for predicting a single address digit. With $m$ possible columns, $mL/100$ total reads leave at most one column in a hundred above that limit. For large $m$, rounding down to $L$ retains at least half the unrounded value, so the displayed constant $1/400$ suffices. The explicit constants $6$ and $1/400$ come from this reconstruction, not from OpenAI's paper, and no person has reviewed them. Both the quantum constant $C_k$ and the size threshold for $m$ may depend on $k$. We will choose $k$ first and then increase $m$, so these dependencies stay fixed.
 
 Measured in powers of $\sqrt m$, the classical exponent is $4-2/k$, since $(\sqrt m)^{4-2/k}=m^{2-1/k}$. Given any proposed $0\le\alpha<4$, first choose an integer $k\ge2$ with $4-2/k>\alpha$. Keep this $k$ fixed and increase $m$. In the ratio of the classical lower bound to the $\alpha$th power of the quantum upper bound the excess exponent of $m$ is now positive:
 $$
@@ -312,7 +314,7 @@ Return to the four-column puzzle. Changing a single zero to one changes the answ
 
 We count calls to the bit oracle on the longest possible run of the algorithm in Sections 3 and 4, including all choices of the number of amplification iterations.
 
-To evaluate the local tests on a superposition of test labels, compute each next input position reversibly and retain the earlier replies. To implement a read that is active only on some branches, query $x_j$ into a temporary bit, conditionally copy it to the answer bit, then query $j$ again to clear the temporary bit. This uses two ordinary oracle calls. On an inactive branch the answer and temporary bits are both restored. Padding to a common number of these controlled reads therefore has a fixed cap even in superposition. Running the computation backwards then restores its workspace. This implements the same tests using $O(\ell+1)$ bit queries per evaluation. [The controlled-read construction](https://github.com/wcook04/quartic-query-lean/blob/5fb47b33abfadffb90575c42d5649afe5444d102/docs/reasoning_record.md#AC-coherent) gives the gate sequence.
+To evaluate the local tests on a superposition of test labels, compute each next input position reversibly and retain the earlier replies. To implement a read that is active only on some branches, query $x_j$ into a temporary bit, conditionally copy it to the answer bit, then query $j$ again to clear the temporary bit. This uses two ordinary oracle calls. On an inactive branch the answer and temporary bits are both restored. Padding to a common number of these controlled reads therefore has a fixed cap even in superposition. Running the computation backwards then restores its workspace. This implements the same tests using $O(\ell+1)$ bit queries per evaluation. [The controlled-read construction](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#AC-coherent) gives the gate sequence.
 
 **Comparisons and verification.** A comparison uses $O_k(r\log(r/\varepsilon))$ queries for its decoders and $O(\ell+1)$ for its pointers, including the constant overhead of a reversible implementation. We count the tournament first, then verification.
 
@@ -326,7 +328,7 @@ O_k\!\left(\sqrt m\,T^2\log(1/\varepsilon)
  [r\log(r/\varepsilon)+\ell]
  +T[r\log(r/\varepsilon)+\sqrt K\log(1/\varepsilon)\ell]\right).
 $$
-The first term counts queries during comparisons. The second counts queries during verification, both fresh address decoding and the search for a failed local test. Here $r,T,1/\varepsilon=O(\ell)$ and $K=O_k(m\ell^3)$. Bounding $\log(1/\varepsilon)=O(\ell)$, $\log(r/\varepsilon)=O(\ell^2)$ and $\sqrt K=O_k(\sqrt m\,\ell^2)$ deliberately enlarges the logarithms and square root. These substitutions give $O_k(\sqrt m\,\ell^6)$ for the tournament and $O_k(\sqrt m\,\ell^5)$ for verification ([the explicit count](https://github.com/wcook04/quartic-query-lean/blob/5fb47b33abfadffb90575c42d5649afe5444d102/docs/reasoning_record.md#upper-explicit-log6)). Therefore
+The first term counts queries during comparisons. The second counts queries during verification, both fresh address decoding and the search for a failed local test. Here $r,T,1/\varepsilon=O(\ell)$ and $K=O_k(m\ell^3)$. Bounding $\log(1/\varepsilon)=O(\ell)$, $\log(r/\varepsilon)=O(\ell^2)$ and $\sqrt K=O_k(\sqrt m\,\ell^2)$ deliberately enlarges the logarithms and square root. These substitutions give $O_k(\sqrt m\,\ell^6)$ for the tournament and $O_k(\sqrt m\,\ell^5)$ for verification ([the explicit count](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#upper-explicit-log6)). Therefore
 $$
 Q(F_{k,m})\le C_k\sqrt m\,(\log_2m)^6.
 $$
@@ -394,7 +396,7 @@ Thus each error is at most $\eta$. The cap is $k\rho=O_k(\log(1/\eta))$ on every
 
 ## A.6 Exact certification and the input size
 
-The circuit uses integer arithmetic. The factors $1/\sqrt m$ from the initial and final copies of $u$ and the $k-1$ factors $1/\sqrt m$ from the Walsh matrices give $\Phi=N/2^{t(k+1)}$ for an integer $N$. A fast Walsh transform recursively transforms two half-size vectors, then takes the sum and the difference of the two resulting numbers at each position. These steps compute the numerator using additions and subtractions, and integer comparisons decide the two thresholds exactly. Since $m=4^t$ and $\sqrt m=2^t$, $\Phi\ge2^{-5k}$ is equivalent to $2^{5k}N\ge2^{t(k+1)}$. The small-value test is $2^{5k+1}|N|\le2^{t(k+1)}$. Words of $O(k\log m)$ bits suffice, including the threshold shifts. The [circuit construction](https://github.com/wcook04/quartic-query-lean/blob/5fb47b33abfadffb90575c42d5649afe5444d102/docs/reasoning_record.md#forr_circuit) gives the arithmetic and gate count. To check a gate, read its output bit from the transcript. For each of its at most two inputs, read either the address-string bit at the specified position or the output of the specified earlier gate from the same transcript.
+The circuit uses integer arithmetic. The factors $1/\sqrt m$ from the initial and final copies of $u$ and the $k-1$ factors $1/\sqrt m$ from the Walsh matrices give $\Phi=N/2^{t(k+1)}$ for an integer $N$. A fast Walsh transform recursively transforms two half-size vectors, then takes the sum and the difference of the two resulting numbers at each position. These steps compute the numerator using additions and subtractions, and integer comparisons decide the two thresholds exactly. Since $m=4^t$ and $\sqrt m=2^t$, $\Phi\ge2^{-5k}$ is equivalent to $2^{5k}N\ge2^{t(k+1)}$. The small-value test is $2^{5k+1}|N|\le2^{t(k+1)}$. Words of $O(k\log m)$ bits suffice, including the threshold shifts. The [circuit construction](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#forr_circuit) gives the arithmetic and gate count. To check a gate, read its output bit from the transcript. For each of its at most two inputs, read either the address-string bit at the specified position or the output of the specified earlier gate from the same transcript.
 
 **Why the choice of $L$ in Section 5.2 works.** For fixed $k$, Bansal and Sinha's lower bound for this one-sided promise [-@BansalSinha2021, Theorem 1.3 and Corollary 1.4] is at least a positive constant depending on $k$ times $m^{1-1/k}/(\log_2(km))^{1-1/k}$. Dividing this by the quantity $m^{1-1/k}/(\log_2m)^2$ used to define $L$ gives a factor of order $(\log m)^{1+1/k}$, which tends to infinity and absorbs the constant.
 
@@ -440,7 +442,7 @@ Now choose $I$ uniformly among columns where a zero was found, falling back to a
 
 Take AND on the three equally likely promised inputs $01,10,11$. A single query to either bit settles the answer on one input (the reply is zero) and leaves an equal choice between the two answers on the other two inputs. Thus the best one-query success is $2/3$.
 
-Now read the first bit, return $0$ if it is zero, and otherwise read the second bit and return it. This procedure is always correct. It stays within one read only on input $01$. Its success *given* that it stays within one read is therefore $1$. The probability of success *and* staying within one read is $1/3$, below the one-query bound $2/3$. Section 5.2 uses this joint probability. The [one-query AND example](https://github.com/wcook04/quartic-query-lean/blob/5fb47b33abfadffb90575c42d5649afe5444d102/docs/reasoning_record.md#CL-conditioning-counterexample) also gives the randomized query complexity of this three-input problem.
+Now read the first bit, return $0$ if it is zero, and otherwise read the second bit and return it. This procedure is always correct. It stays within one read only on input $01$. Its success *given* that it stays within one read is therefore $1$. The probability of success *and* staying within one read is $1/3$, below the one-query bound $2/3$. Section 5.2 uses this joint probability. The [one-query AND example](https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/docs/reasoning_record.md#CL-conditioning-counterexample) also gives the randomized query complexity of this three-input problem.
 
 []{#predictor-trace}
 

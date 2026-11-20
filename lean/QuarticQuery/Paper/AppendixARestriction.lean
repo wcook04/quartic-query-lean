@@ -7,7 +7,7 @@ public import Complexity.Foundations.Data.Finset.Expect
 /-!
 # Appendix A: coefficient preservation under restriction
 
-Status: unelaborated. No Lean compiler was available when this file was written.
+Compiled as part of the `QuarticQuery` library target.
 
 The restriction is first represented on the original ambient cube by a function
 ignoring all coordinates outside `S`. The normalized Fourier coefficient is

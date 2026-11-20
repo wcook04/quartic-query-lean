@@ -7,7 +7,7 @@ import all Mathlib.Basic.Real.Basic
 /-!
 # Appendix A: the star adversary for block sensitivity
 
-Status: **unelaborated**. No compilation has been performed.
+Compiled as part of the `QuarticQuery` library target.
 
 The proof follows the star-matrix argument of Lemma A.3. Applying the star to
 the unit vector at its centre gives a vector with one unit coordinate at each

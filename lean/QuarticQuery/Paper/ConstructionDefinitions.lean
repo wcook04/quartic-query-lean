@@ -6,9 +6,9 @@ public import QuarticQuery.Results.Exponent
 /-!
 # Section 2.2: exact definitions and their agreement
 
-Status: unelaborated. No Lean compiler or pinned Mathlib cache is available in
-the review environment. Every theorem below has a proof term, but no new build
-or Comparator evidence is claimed.
+Compiled as part of the `QuarticQuery` library target.
+Every theorem below has a proof term.
+
 
 The preprint fixes `m = 4 ^ t`. Its zero-based coordinate representation is
 `Column (2 * t)`, and its address length is `40 * t`. The generic lemmas below

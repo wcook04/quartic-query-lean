@@ -54,7 +54,7 @@ export function Architecture({ stages, edition, paper = "original" }: { stages: 
         {rest.map((s) => <Card key={s.id} s={s} />)}
       </div>
       <figcaption className="quiet">
-        The editors’ outline of the argument, in reading order. Each step opens the Lean that carries it out. The last stage
+        An outline of the argument written by AI agents, in reading order. Each step opens the Lean that carries it out. The last stage
         also uses the known universal quartic upper bound of Aaronson, Ben-David, Kothari, Rao and Tal.
       </figcaption>
     </figure>

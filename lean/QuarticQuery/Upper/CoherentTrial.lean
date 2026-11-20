@@ -4,7 +4,7 @@ public import QuarticQuery.Upper.Amplify
 public import QuarticQuery.Paper.QuantumTensor
 
 /-!
-Proposed executable-circuit seam. UNELABORATED pending pinned native checks.
+Executable-circuit seam.
 The theorem gives a single coherent circuit for a superposition
 of iteration labels and all fresh trials. It does not assert the final
 success marking, routing permutation, or retained-state theorem.

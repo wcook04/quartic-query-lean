@@ -5,7 +5,7 @@ public import QuarticQuery.Paper.ConstructionForrelationDefinitions
 /-!
 # Section 2.1: exact circuit output bits and size
 
-UNELABORATED. No Lean compiler was available in the review environment.
+Compiled as part of the `QuarticQuery` library target.
 The supplied circuit represents arithmetic modulo a power of two and proves
 that the final sign tests have the required integer meaning. Its endpoint is
 the same exact circuit assertion as Lemma 2.1(iii). An assertion about every

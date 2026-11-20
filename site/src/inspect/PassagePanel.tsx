@@ -96,7 +96,7 @@ function Passage({ r }: { r: any }) {
           </ul>
           </>
         )}
-        <SourceLine kind="editors">Passages linked by the editors, to help reading; not a proof.</SourceLine>
+        <SourceLine kind="editors">Passages linked by AI agents, to help reading; not a proof.</SourceLine>
       </section>
 
       {(groups.length > 0 || tiedRoots.length > 0 || editorial.length > 0 || claims.length > 0) && (
@@ -127,7 +127,7 @@ function Passage({ r }: { r: any }) {
             {claims.length > 0 && <>Compared by {byAI(by) ? "AI review" : "review"} against the selected claim.</>}
             {anyReviewed && claims.length === 0 && <>Matches judged by {byAI(by) ? "AI review" : "review"} against the paper’s statement, bound to the current Lean source.</>}
             {anyReviewed && editorial.length > 0 && " "}
-            {editorial.length > 0 && <>{anyReviewed ? "Unmarked rows are" : "These declarations are"} linked by the editors.</>}
+            {editorial.length > 0 && <>{anyReviewed ? "Unmarked rows are" : "These declarations are"} linked by AI agents.</>}
           </SourceLine>
         </section>
       )}
@@ -147,7 +147,7 @@ function Passage({ r }: { r: any }) {
               <li key={j}><button type="button" className="textbutton" onClick={() => nav.openJourney(j)}>{journeyName(j)}</button></li>
             ))}
           </ul>
-          <SourceLine kind="editors">Written by the editors, to help reading; not a proof.</SourceLine>
+          <SourceLine kind="editors">Written by AI agents, to help reading; not a proof.</SourceLine>
         </section>
       )}
 
@@ -168,8 +168,8 @@ function Passage({ r }: { r: any }) {
       )}
 
       {notes.length > 0 && (
-        <section className="block block--quiet" aria-label="Editors’ note">
-          {notes.map((t) => <p key={t.id} className="editnote"><span className="editnote__k">Editors’ note.</span> <span dangerouslySetInnerHTML={{ __html: inlineTex(t.note) }} /></p>)}
+        <section className="block block--quiet" aria-label="Note by AI agents">
+          {notes.map((t) => <p key={t.id} className="editnote"><span className="editnote__k">Note by AI agents.</span> <span dangerouslySetInnerHTML={{ __html: inlineTex(t.note) }} /></p>)}
         </section>
       )}
     </article>

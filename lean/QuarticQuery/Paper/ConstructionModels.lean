@@ -5,8 +5,8 @@ public import QuarticQuery.Results.Headline
 /-!
 # Sections 1 and 2: the query-model definitions
 
-Status: unelaborated. No Lean or Lake executable was available in the authoring
-environment. This module uses only the supplied base development and Mathlib;
+Compiled as part of the `QuarticQuery` library target.
+This module uses only the base development and Mathlib;
 it does not import `Paper.Section2` or `ForrelationLower.Uniform`.
 
 The definitions below translate the paper's domain-and-value presentation of a

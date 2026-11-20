@@ -5,7 +5,7 @@ public import QuarticQuery.Paper.ConstructionForrelationQuantum
 /-!
 # Lemma 2.1 with a retained physical implementation of its coherent witness
 
-UNELABORATED. No Lean compiler was available in the review environment.
+Compiled as part of the `QuarticQuery` library target.
 The final continuation equation uses `compile_circ` before any measurement or
 reset. It concerns the same finite logical isometry `F` and output map `out`
 whose law has the promised accuracy. It holds for every embedded logical state

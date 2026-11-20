@@ -34,7 +34,7 @@ function Path({ p, from, to, kind, reader }: { p: any; from: string; to: string;
         <h2 className="panel__title">This arrow</h2>
         <p>
           {p.status === "not_a_dependency_edge"
-            ? "This arrow is the editors’ link from OpenAI’s theorem to the Lean theorem that states it. It is not a Lean dependency, so there is no chain of declarations behind it."
+            ? "This arrow is a link written by AI agents from OpenAI’s theorem to the Lean theorem that states it. It is not a Lean dependency, so there is no chain of declarations behind it."
             : "This edition’s Lean graph is not current, so its dependency paths are not shown."}
         </p>
       </article>

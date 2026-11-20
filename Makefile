@@ -9,6 +9,7 @@ check-layout:
 	python3 tools/check_repository.py
 
 check-generated:
+	python3 tools/record_comment_migration.py --check
 	python3 tools/build_challenges.py --check
 	python3 tools/build_corpus.py --check
 	python3 tools/build_comparator_map.py --check

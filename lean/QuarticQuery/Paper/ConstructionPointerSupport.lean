@@ -5,7 +5,7 @@ public import QuarticQuery.Paper.ConstructionTests
 /-!
 # Essential physical coordinates of a pointer test
 
-Status: unelaborated. No compilation or new comparison is claimed.
+Compiled as part of the `QuarticQuery` library target.
 
 The pointer word and all possible targets occupy disjoint physical coordinates.
 Extending Boolean inputs along this injection transports the schema witnesses to

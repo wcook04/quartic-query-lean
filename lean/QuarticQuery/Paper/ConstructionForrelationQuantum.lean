@@ -7,7 +7,7 @@ public import QuarticQuery.Paper.ConstructionForrelationCircuit
 /-!
 # Lemma 2.1 and the projection test
 
-UNELABORATED. No Lean compiler was available in the review environment.
+Compiled as part of the `QuarticQuery` library target.
 `Samples n` retains the entire coherent workspace and counts abstract reads.
 The supplied generic compiler gives `Runs (2*n)` in physical bit queries.
 Lemma 2.1(ii) permits this constant overhead. The paper's more precise local

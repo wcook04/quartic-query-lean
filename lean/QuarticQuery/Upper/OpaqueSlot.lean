@@ -3,7 +3,7 @@ module
 public import QuarticQuery.Upper.Amplify
 
 /-!
-Proposed black-box slot source. UNELABORATED pending pinned native checks.
+Black-box slot source.
 The order is left-to-right circuit time order, matching `circU`/`trans`.
 The two A calls are unconditional on the iteration label.  Only the fixed,
 oracle-independent reflections are controlled by that label.

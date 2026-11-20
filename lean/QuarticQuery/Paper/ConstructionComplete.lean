@@ -6,7 +6,7 @@ public import QuarticQuery.Upper.Columns
 /-!
 # Lemma 2.2 with the finite size and physical query bounds together
 
-Status: unelaborated. This module has not been compiled in the review environment.
+Compiled as part of the `QuarticQuery` library target.
 
 The size constant `A` is supplied by Lemma 2.1(iii), and stays fixed as `t` varies.
 All coherent statements concern the same circuit witnesses. The final conjunct

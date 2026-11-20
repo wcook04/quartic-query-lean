@@ -17,7 +17,7 @@ import all Mathlib.Basic.Real.Basic
 /-!
 # Appendix A: the literal recursive signed cube
 
-Status: unelaborated. No Lean compiler was available when this file was written.
+Compiled as part of the `QuarticQuery` library target.
 
 `HuangVertex d` is the recursive binary-word presentation of the `d`-cube.
 Splitting on the first bit gives precisely the block recursion in Appendix A.

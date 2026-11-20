@@ -5,9 +5,9 @@ public import QuarticQuery.Upper.Amplify
 /-!
 # Section 3.1 and the coherent-access interface
 
-Status: unelaborated. No Lean compiler is available in the review environment.
-This file uses declarations in the supplied source snapshot. It is not build
-evidence, and it does not change the status of its imported declarations.
+Compiled as part of the `QuarticQuery` library target.
+It does not change the status of its imported declarations.
+
 
 The geometry is the two-dimensional calculation of Brassard, Hoyer, Mosca and
 Tapp, Section 2, Lemma 1 and equation (8), arXiv:quant-ph/0005055v1, pp. 5-7.

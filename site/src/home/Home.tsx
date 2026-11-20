@@ -87,8 +87,9 @@ export function Home({ edition }: { edition: Edition }) {
             a pane to the right of each paper.
           </p>
           <p className="hero__note">
-            The theorem and its proof are OpenAI’s. The three accounts, the Lean and the links between them were
-            prepared with AI. <a href={href({ page: "about" })}>How to read the evidence</a>
+            The theorem and its proof are OpenAI’s. AI systems wrote the three accounts, the Lean and the links
+            between them, under Will Cook’s direction. No human expert has reviewed them, and no person has checked
+            that the Lean statements say what OpenAI’s paper says. <a href={href({ page: "about" })}>How to read the evidence</a>
           </p>
           <p className="hero__links">
             <a className="button" href={href({ page: "read", paper: "expert" })}>Read the expert companion</a>
@@ -174,12 +175,12 @@ export function Home({ edition }: { edition: Edition }) {
           <h2 id="credit-h">Whose work is this?</h2>
           <p>
             The theorem and construction are OpenAI’s, published with no Lean formalization. The three accounts and the
-            Lean development are the Quartic project’s, prepared with AI systems under Will Cook’s direction.
+            Lean development were written by AI systems under Will Cook’s direction. No human expert has reviewed them.
           </p>
           <p>
             Lean reports each declaration’s statement, dependencies and axioms. The links between paper passages and
             Lean, and the judgments that a statement matches exactly, more strongly or only in part, were written and
-            reviewed with AI. The site labels each of these where it appears. <a href={href({ page: "about" })}>How to read the evidence</a>
+            reviewed by AI agents; no person has checked them. The site labels each of these where it appears. <a href={href({ page: "about" })}>How to read the evidence</a>
           </p>
         </div>
         <div className="credit__build" aria-labelledby="build-h">

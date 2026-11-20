@@ -5,7 +5,7 @@ public import QuarticQuery.Upper.RouteRegister
 public import QuarticQuery.Upper.RetainedFactor
 
 /-!
-Finite-coordinate first-success factorization. UNELABORATED candidate source.
+Finite-coordinate first-success factorization.
 `v j` already includes the chosen iteration-label amplitude; the label vector
 can be added to the auxiliary basis without altering the argument.
 -/

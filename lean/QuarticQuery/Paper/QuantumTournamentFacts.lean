@@ -7,7 +7,7 @@ public import QuarticQuery.Tournament.Drift
 /-!
 # The identities and uniform query budget in Proposition 3.2
 
-STATUS: UNELABORATED. No Lean compiler was available for this return.
+Compiled as part of the `QuarticQuery` library target.
 `cc` counts the logical reads of `Samples`. The explicit output budget counts
 ordinary bit-oracle queries, including the factor two in `compile_read`.
 The final real inequality supplies a uniform constant for the paper's big-O.
@@ -21,7 +21,7 @@ open QuarticQuery.Upper QuarticQuery.Tournament QuarticQuery.Amplification
 
 /-- Ledger: claim-coherent-access. The ordinary bit oracle as a single logical
 read. This checks the input convention of the generic comparison theorem.
-UNELABORATED. -/
+-/
 def quantumBitRead {ι : Type} (w : ℕ) : ReadSpec ι (Basis ι w) where
   addr p := p.1
   perm p := (p.1, !p.2.1, p.2.2)
@@ -33,7 +33,7 @@ def quantumBitRead {ι : Type} (w : ℕ) : ReadSpec ι (Basis ι w) where
   sign_perm _ := rfl
 
 /-- Ledger: claim-coherent-access. The read implements the exact ordinary
-bit-oracle operation from Statement.lean. UNELABORATED. -/
+bit-oracle operation from Statement.lean. -/
 theorem quantumBitRead_eq {ι : Type} [Fintype ι] (w : ℕ) (x : BitInput ι) :
     (quantumBitRead (ι := ι) w).op x = bitOracleL (w := w) x := by
   ext ψ p
@@ -44,7 +44,7 @@ theorem quantumBitRead_eq {ι : Type} [Fintype ι] (w : ℕ) (x : BitInput ι) :
 /-- Ledger: claim-coherent-access. One physical bit query is admissible as one
 `IsCirc` read. Query-free gates and composition are `IsCirc.gate` and
 `IsCirc.comp`; a coherent comparison with c queries therefore has c reads.
-UNELABORATED. -/
+-/
 theorem quantumBitOracle_isCirc {ι : Type} [Fintype ι] (w : ℕ) :
     IsCirc 1 (fun x : BitInput ι => bitOracleL (w := w) x) := by
   refine IsCirc.of_eq (IsCirc.read (quantumBitRead (ι := ι) w)) ?_
@@ -53,19 +53,19 @@ theorem quantumBitOracle_isCirc {ι : Type} [Fintype ι] (w : ℕ) :
 
 /-- Ledger: def-T-eps. The exact parameters, in the source's integer logarithm
 vocabulary. `Nat.clog 2 n` is the least natural T with n ≤ 2^T.
-UNELABORATED. -/
+-/
 theorem quantumTournament_parameters (m : ℕ) :
     Tval m = Nat.clog 2 (1000 * m) ∧
       epsval m = 1 / (1000 * (Tval m : ℝ)) := ⟨rfl, rfl⟩
 
 /-- Ledger: eq-11. The dominant-candidate predicate says exactly (11).
-UNELABORATED. -/
+-/
 theorem quantumDominant_iff {Col : Type} (a : Col → Col → ℝ) (ε : ℝ) (s : Col) :
     Dominant a ε s ↔ ∀ j, j ≠ s → 1 - ε ≤ a s j := Iff.rfl
 
 /-- Ledger: eq-13. The complete displayed drift chain for positive total weight.
 Nonnegative weights are only needed to interpret the ratios as probabilities;
-the algebraic equalities below hold for arbitrary real weights. UNELABORATED. -/
+the algebraic equalities below hold for arbitrary real weights. -/
 theorem quantumDrift {Col : Type} [Fintype Col] [DecidableEq Col]
     (w : Col → ℝ) {a : Col → Col → ℝ} (ha : IsComparison a)
     {W : ℝ} (hW : W = ∑ i, w i) (hpos : 0 < W) :
@@ -84,7 +84,7 @@ theorem quantumDrift {Col : Type} [Fintype Col] [DecidableEq Col]
   exact expected_weight_le_half w ha hW hpos
 
 /-- Ledger: claim-success-prob. The weight is the product of all comparison
-success probabilities along the pivot history. UNELABORATED. -/
+success probabilities along the pivot history. -/
 theorem quantumWeight_product {Col : Type} (a : Col → Col → ℝ) (L : List Col) (i : Col) :
     weight a L i = (L.map fun p => a i p).prod := by
   induction L with
@@ -94,7 +94,7 @@ theorem quantumWeight_product {Col : Type} (a : Col → Col → ℝ) (L : List C
     ring
 
 /-- Ledger: claim-weight-lb. The history-length version of the surviving-weight
-bound, together with positivity of total weight. UNELABORATED. -/
+bound, together with positivity of total weight. -/
 theorem quantumWeight_lower {Col : Type} [Fintype Col]
     {a : Col → Col → ℝ} {ε : ℝ} {s : Col} (ha : UnitValued a)
     (hε0 : 0 ≤ ε) (hε1 : ε ≤ 1) (hd : Dominant a ε s)
@@ -114,7 +114,7 @@ theorem quantumWeight_lower {Col : Type} [Fintype Col]
   exact ⟨hpow, by linarith, hwt, by linarith⟩
 
 /-- Ledger: claim-success-prob. Unit-valued comparisons give nonnegative
-probabilities for both stage failure and every successful index. UNELABORATED. -/
+probabilities for both stage failure and every successful index. -/
 theorem quantumStageLaw_nonneg {Col : Type} [Fintype Col]
     {a : Col → Col → ℝ} (ha : UnitValued a) (L : List Col) (o : Option Col) :
     0 ≤ stageLaw a L o := by
@@ -132,7 +132,7 @@ theorem quantumStageLaw_nonneg {Col : Type} [Fintype Col]
 
 /-- Ledger: claim-success-prob. Algebraic normalization of the complete stage
 law, including failure. Nonnegative masses are supplied separately by
-`quantumStageLaw_nonneg`. UNELABORATED. -/
+`quantumStageLaw_nonneg`. -/
 theorem quantumStageLaw_total {Col : Type} [Fintype Col] [Nonempty Col]
     (a : Col → Col → ℝ) (L : List Col) : ∑ o, stageLaw a L o = 1 := by
   have hm : (Fintype.card Col : ℝ) ≠ 0 := by exact_mod_cast Fintype.card_ne_zero
@@ -154,7 +154,7 @@ theorem quantumStageLaw_total {Col : Type} [Fintype Col] [Nonempty Col]
 /-- Ledger: claim-success-prob. The complete stage law is a probability
 distribution; its successful mass is positive, and its joint, total and
 conditional successful-index probabilities have the exact paper values.
-`ha` supplies positivity; `hW` makes conditioning meaningful. UNELABORATED. -/
+`ha` supplies positivity; `hW` makes conditioning meaningful. -/
 theorem quantumStage_success {Col : Type} [Fintype Col] [Nonempty Col]
     (a : Col → Col → ℝ) (ha : UnitValued a)
     (L : List Col) (hW : 0 < total (weight a L)) :
@@ -178,14 +178,14 @@ theorem quantumStage_success {Col : Type} [Fintype Col] [Nonempty Col]
 /-- Ledger: construct-sampler. A coherent stage has a fixed logical read budget;
 all its workspace is retained by `Samples`. Its implementation short-circuits
 on a loss, so this is a successful-law statement, not literal equation (15).
-UNELABORATED. -/
+-/
 theorem quantumStage_samples {ι Col : Type} [Nonempty ι] [Fintype Col] [Nonempty Col]
     {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}
     (hcmp : ∀ i p, Samples cc fun x b => bern (a x i p) b) (L : List Col) :
     Samples (L.length * cc) fun x o => stageLaw (a x) L o := stage_samples hcmp L
 
 /-- Ledger: claim-tournament-cost. The tournament horizon is at least two.
-UNELABORATED. -/
+-/
 theorem quantumTval_two_le {m : ℕ} (hm : 2 ≤ m) : 2 ≤ Tval m := by
   have hpow : 1000 * m ≤ 2 ^ Tval m :=
     Nat.le_pow_clog (by norm_num) (1000 * m)
@@ -200,7 +200,7 @@ theorem quantumTval_two_le {m : ℕ} (hm : 2 ≤ m) : 2 ≤ Tval m := by
     omega
 
 /-- Ledger: claim-tournament-cost. Explicit physical bit-query bound before
-simplifying the square root and logarithm. UNELABORATED. -/
+simplifying the square root and logarithm. -/
 theorem quantumTournament_cost_log {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :
     ((Tval m * stageCost m (Tval m) cc (epsval m) : ℕ) : ℝ) ≤
       276 * (cc : ℝ) * (Real.sqrt ((2 * (m : ℝ))⁻¹))⁻¹ *
@@ -234,7 +234,7 @@ theorem quantumTournament_cost_log {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :
 
 /-- Ledger: claim-tournament-cost. A uniform constant for the precise order in
 Proposition 3.2. Logarithm here is natural; changing its base changes the constant.
-UNELABORATED. -/
+-/
 theorem quantumTournament_cost {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :
     ((Tval m * stageCost m (Tval m) cc (epsval m) : ℕ) : ℝ) ≤
       6072 * (cc : ℝ) * Real.sqrt (m : ℝ) *
@@ -283,7 +283,7 @@ theorem quantumTournament_cost {m : ℕ} (hm : 2 ≤ m) (cc : ℕ) :
 /-- Ledger: prop-3.2. The paper's list probability and asymptotic query bound,
 expressed by one finite integer budget and a uniform numerical upper bound.
 `Runs` is the existing finite-output continuation interface; this law is chosen
-before the oracle input and before the dominant candidate. UNELABORATED. -/
+before the oracle input and before the dominant candidate. -/
 theorem quantumTournament {ι Col : Type} [Fintype ι] [Inhabited ι]
     [Fintype Col] [DecidableEq Col] {cc : ℕ} {a : BitInput ι → Col → Col → ℝ}
     (hm : 2 ≤ Fintype.card Col) (hc : ∀ x, IsComparison (a x))

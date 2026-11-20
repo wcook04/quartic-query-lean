@@ -9,6 +9,7 @@ graph schema, and the statement text is the join key for everything else.
 | --- | --- | --- |
 | `ties.json` | Reviewed | How each Lean declaration relates to a statement. |
 | `receipts/` | Recorded | Results of actual builds and Comparator runs. |
+| `migrations/` | Recorded | Checked comment-only edits of the Lean sources, which keep statement reviews current. |
 | `lean_dependencies.json` | Recorded | The dependency closure read from the compiled environment. |
 | [native_extractions/round3/](native_extractions/round3/README.md) | Recorded | Focused native dependency reports, graphs, selected views and their adapter/CLI receipts. |
 | `statements.json` | Generated | Statements, hashes and separate evidence fields. |
@@ -62,6 +63,12 @@ updates a review. Graph metadata receipts retain those ties and their freshness
 states even when no current declaration is selected; graph nodes remain
 unverified or external. The [contract](../docs/statement_evidence_contract.md#binding-a-completed-review)
 defines the binding and the deliberate, reviewed migration of existing ties.
+A Lean edit confined to comments keeps a review current only through a
+receipt in `migrations/` written by
+[record_comment_migration.py](../tools/record_comment_migration.py), which checks
+that every Lean file is unchanged once comments are removed, that line counts are
+unchanged, and that every other input is byte-identical. `make check` rechecks
+it. Build and Comparator receipts are never migrated.
 
 This graph currently admits preprint rows only. `r2-live-*` helper proposals
 stay in their research adjudication source with their own provenance. The

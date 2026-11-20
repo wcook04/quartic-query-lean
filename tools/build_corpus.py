@@ -202,7 +202,36 @@ def review_currentness(ident, row, review, hashes):
             or any(not re.fullmatch(r"[0-9a-f]{64}", binding[key])
                    for key in expected if key.endswith("sha256"))):
         raise ValueError(f"{ident}/{review['declaration']}: malformed review_binding")
-    return "current" if binding == expected else "stale"
+    if binding == expected:
+        return "current"
+    earlier = migrated_snapshots(hashes)
+    if (binding.get("source_snapshot_sha256") in earlier
+            and {**binding, "source_snapshot_sha256": expected["source_snapshot_sha256"]} == expected):
+        return "current"
+    return "stale"
+
+
+def migrated_snapshots(hashes):
+    """Earlier source snapshots joined to `hashes` by comment-only migration receipts.
+
+    `tools/record_comment_migration.py` writes and rechecks these receipts. Each one
+    states that every Lean file is unchanged once comments are removed and every
+    other input is byte-identical. A chain of such receipts ending at the current
+    snapshot keeps a review current; build and Comparator receipts are not migrated.
+    """
+    current = canonical_sha256(hashes)
+    edges = {}
+    for path in sorted((CORPUS / "migrations").glob("comment-migration-*.json")):
+        receipt = json.loads(path.read_text(encoding="utf-8"))
+        if receipt.get("kind") == "lean_comment_only_migration" and receipt.get("status") == "passed":
+            edges.setdefault(receipt["to_snapshot_sha256"], set()).add(receipt["from_snapshot_sha256"])
+    reached, frontier = set(), [current]
+    while frontier:
+        for earlier in edges.get(frontier.pop(), ()):
+            if earlier not in reached and earlier != current:
+                reached.add(earlier)
+                frontier.append(earlier)
+    return reached
 
 
 def require_preprint_row(ident, row):

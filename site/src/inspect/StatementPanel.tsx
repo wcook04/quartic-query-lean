@@ -146,7 +146,7 @@ function Statement({ r, edition }: { r: any; edition: Edition }) {
       <section className="block" aria-labelledby="st-papers">
         <h3 id="st-papers" className="block__h">Read it in the papers</h3>
         <Elsewhere rows={r.relatedSelections ?? []} here={nav.paper} selected={r.paper?.selection ? { paper: "original", id: r.paper.selection.id } : undefined} />
-        <SourceLine kind="editors">Passages linked by the editors, to help reading; not a proof.</SourceLine>
+        <SourceLine kind="editors">Passages linked by AI agents, to help reading; not a proof.</SourceLine>
       </section>
 
       {(r.ledgerHistory?.adjudication_findings?.length > 0 || r.otherTies?.length > 0) && (

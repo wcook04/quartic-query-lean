@@ -6,7 +6,7 @@ public import QuarticQuery.Forrelation.Promise
 /-!
 # Section 2.1: exact Forrelation definitions
 
-UNELABORATED. No Lean compiler was available in the review environment.
+Compiled as part of the `QuarticQuery` library target.
 These statements use the power-of-four domain fixed at the start of Section 2.
 -/
 

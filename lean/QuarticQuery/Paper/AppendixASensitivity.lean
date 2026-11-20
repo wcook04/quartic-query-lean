@@ -9,7 +9,7 @@ import Complexity.Foundations.BooleanAnalysis.MaximalSupport
 /-!
 # Appendix A: degree, block sensitivity, sensitivity graph and Midrijanis
 
-Status: **unelaborated**. This file has not been compiled in the return environment.
+Compiled as part of the `QuarticQuery` library target.
 
 Definitions use the exact pinned complexitylib/cslib meanings. The bridge for
 Lemma A.3.bs uses the polynomial proof of `bs(f) ≤ 16 T²`; it does not formalise

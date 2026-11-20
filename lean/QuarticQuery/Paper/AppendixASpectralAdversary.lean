@@ -6,7 +6,7 @@ public import QuarticQuery.Paper.AppendixASensitivity
 /-!
 # Appendix A: the general nonnegative spectral adversary bound
 
-STATUS: UNELABORATED. No Lean compiler was available in the review environment.
+Compiled as part of the `QuarticQuery` library target.
 
 This module combines the arbitrary-matrix progress proof with the nonnegative
 Perron vector and the existing adaptive-to-fixed-sequence simulation. The query

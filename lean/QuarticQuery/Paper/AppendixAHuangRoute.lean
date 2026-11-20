@@ -8,7 +8,7 @@ public import QuarticQuery.Paper.AppendixASensitivity
 /-!
 # Appendix A: the face and recursive-matrix route to Lemma A.4
 
-Status: unelaborated. No Lean compiler was available when this file was written.
+Compiled as part of the `QuarticQuery` library target.
 
 This file connects the genuine maximum-degree face, the literal recursive
 signed cube, and the original function's sensitivity matrix. The extension by

@@ -6,7 +6,7 @@ public import QuarticQuery.Forrelation.Circuit
 /-!
 # Lemma 2.2(i), test counts and the local dichotomy
 
-Status: unelaborated. These files have not been run through Lean in this review.
+Compiled as part of the `QuarticQuery` library target.
 The classical query bound is adaptive depth. This is the meaning of the attached
 preprint; the fixed-coordinate-support error belonged to an older ledger entry.
 -/

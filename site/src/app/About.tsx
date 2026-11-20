@@ -16,16 +16,16 @@ export function About() {
         <li className="evidence-kind">
           <h2>Review judgments</h2>
           <p className="evidence-kind__marks" aria-hidden="true"><RelationMark relation="exact" /> <RelationMark relation="stronger" /> <RelationMark relation="partial" /></p>
-          <p>Whether a Lean theorem states a paper statement <em>exactly</em>, <em>more strongly</em> or only <em>in part</em>. A partial match is still a theorem Lean accepts in full: it either proves fewer of the statement’s conclusions or proves them under an extra hypothesis, and the comparison says which. Reviews compare the project’s maintained wording of each statement, which can differ from the published sentence; the PDF has the published words. Reviews were carried out with AI and are bound to the current Lean source.</p>
+          <p>Whether a Lean theorem states a paper statement <em>exactly</em>, <em>more strongly</em> or only <em>in part</em>. A partial match is still a theorem Lean accepts in full: it either proves fewer of the statement’s conclusions or proves them under an extra hypothesis, and the comparison says which. Reviews compare the project’s maintained wording of each statement, which can differ from the published sentence; the PDF has the published words. AI agents carried out the reviews, and no person has checked them. Each is bound to the current Lean source.</p>
         </li>
         <li className="evidence-kind">
           <h2>Recorded checks</h2>
           <p>Lean builds and Comparator runs, each with a date and the source it applies to. A successful build is a different fact from a comparison against an independent specification.</p>
         </li>
         <li className="evidence-kind">
-          <h2>Editors’ links</h2>
-          <p className="evidence-kind__marks" aria-hidden="true"><span className="ev__who">Editors’ note</span></p>
-          <p>Which passage treats which argument, the step-by-step explanations, and the outline of the proof. These help reading; they are not proofs.</p>
+          <h2>Reading links written by AI agents</h2>
+          <p className="evidence-kind__marks" aria-hidden="true"><span className="ev__who">AI agents’ note</span></p>
+          <p>Which passage treats which argument, the step-by-step explanations, and the outline of the proof. AI agents wrote these, and no person has checked them. They help reading; they are not proofs.</p>
         </li>
       </ul>
       <p>

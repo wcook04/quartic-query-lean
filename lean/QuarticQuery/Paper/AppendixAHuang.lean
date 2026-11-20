@@ -13,7 +13,7 @@ public import Complexity.Foundations.Data.BitString.Parity
 /-!
 # Appendix A: the Huang spectral inequality
 
-Status: unelaborated. No Lean compiler was available when this file was written.
+Compiled as part of the `QuarticQuery` library target.
 
 The names and proof steps below are taken from the supplied complexitylib source
 at `62ca5c21461b2482e8bd12b7cb9b4937d887a33a`. These declarations use the paper's

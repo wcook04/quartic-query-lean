@@ -4576,9 +4576,9 @@
     "QuarticQuery.Paper.ClassicalPlanted": [
       {
         "caller": "QuarticQuery.Paper.avg_reachedCellAt_le",
-        "end": 16940,
+        "end": 16923,
         "source_text": "addressSimulator L t T J A i",
-        "start": 16912,
+        "start": 16895,
         "term": {
           "arguments": [
             {
@@ -4698,9 +4698,9 @@
       },
       {
         "caller": "QuarticQuery.Paper.avg_reachedCellAt_le",
-        "end": 17049,
+        "end": 17032,
         "source_text": "addressSimulator_depth_le L t T J A i",
-        "start": 17012,
+        "start": 16995,
         "term": {
           "arguments": [
             {
@@ -4830,9 +4830,9 @@
       },
       {
         "caller": "QuarticQuery.Paper.eq_21",
-        "end": 20037,
+        "end": 20020,
         "source_text": "avg_reachedCellAt_le hμ hdom (fun U hU => address_guess_le hμ hard U hU) T J A i t",
-        "start": 19953,
+        "start": 19936,
         "term": {
           "arguments": [
             {
@@ -5026,9 +5026,9 @@
       },
       {
         "caller": "QuarticQuery.Paper.eq_21",
-        "end": 20026,
+        "end": 20009,
         "source_text": "address_guess_le hμ hard U hU",
-        "start": 19996,
+        "start": 19979,
         "term": {
           "arguments": [
             {
@@ -5527,6 +5527,6 @@
       }
     ]
   },
-  "source_snapshot_sha256": "0d109ea9e9b7f4a766640d406409e30589fb4c5a4e645b6d6888569fa2edf29f",
+  "source_snapshot_sha256": "dfbf63214f483a43617fb0b5e0a4c2f5a4d2ce6aa1529187e0e25010e2a5322f",
   "toolchain": "leanprover/lean4:v4.36.0-rc2"
 }

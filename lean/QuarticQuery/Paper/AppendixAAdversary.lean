@@ -8,7 +8,7 @@ import Complexity.Foundations.Quantum.Measurement.Overlap
 /-!
 # Appendix A: arbitrary adversary matrices and the final-overlap argument
 
-STATUS: UNELABORATED. No Lean compiler was available in the review environment.
+Compiled as part of the `QuarticQuery` library target.
 
 The definitions below use the paper's complex-valued progress sum. The library's
 private `progress` instead sums absolute overlaps on sensitive edges. In particular,
@@ -16,8 +16,8 @@ the library's spectral-sensitivity theorem is not the arbitrary-matrix Lemma A.2
 
 `appendixA_adversary_of_perron` is explicitly conditional on a Perron witness.
 The arbitrary-matrix per-query estimate is supplied by `appendixAProgress_query_le`.
-Existence of the Perron witness is handled separately. Every new proof is still
-unelaborated, including the per-query proof.
+Existence of the Perron witness is handled separately.
+
 
 The final-overlap theorem is proved for arbitrary nonnegative matrices supported
 on opposite-output pairs. Its specialization to the library's fixed query model

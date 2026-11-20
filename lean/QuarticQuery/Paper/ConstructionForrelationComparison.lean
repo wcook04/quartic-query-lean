@@ -5,7 +5,7 @@ public import QuarticQuery.Paper.ConstructionForrelationDefinitions
 /-!
 # The numerical comparison in the proof of Lemma 2.1(i)
 
-UNELABORATED. No Lean compiler was available in the review environment.
+Compiled as part of the `QuarticQuery` library target.
 This file proves only the numerical comparison with `L`. It makes no assertion
 that the precise logarithmic factor in Bansal--Sinha's published lower bound
 has a complete proof. The source already proves the required fixed-`k`

@@ -6,8 +6,8 @@ public import QuarticQuery.Paper.QuantumWorkspace
 /-!
 # The fresh-workspace state in equation (15)
 
-Status: UNELABORATED. No Lean compiler is installed in the return environment.
-Intended toolchain: leanprover/lean4:v4.36.0-rc2, with the packet's manifest.
+Compiled as part of the `QuarticQuery` library target.
+Toolchain: leanprover/lean4:v4.36.0-rc2, with the repository's lake manifest.
 
 This file constructs the full tensor state. It does not identify that state with
 `Upper.stage_samples`: that implementation short-circuits comparisons on its
@@ -116,7 +116,7 @@ exactly the uniform candidate register tensored with one fresh complete comparis
 state per pivot. The slice identity is the coordinate form of equation (15), and
 `IsCirc (t*c)` supplies the circuit witness. No comparison is skipped on failure.
 The pivots used are `p 0, ..., p (t-1)`; the values `p b` for `b ≥ t` are irrelevant.
-UNELABORATED. -/
+-/
 theorem equation_15 {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Fintype Z]
     {c : ℕ} (o : Z)
     (F : Col → Col → BitInput ι → Reg Z ≃ₗᵢ[ℂ] Reg Z)
@@ -160,7 +160,7 @@ def tensorGood {Z : Type} (out : ℕ → Z → Bool) :
 
 /-- Ledger: claim-success-prob. In the literal fresh-register construction, the
 success mass factors as the product of the individual comparison success masses.
-The case `t=0` is the empty product, equal to one. UNELABORATED. -/
+The case `t=0` is the empty product, equal to one. -/
 theorem tensor_success_mass {Z : Type} [Fintype Z]
     (ψ : ℕ → Reg Z) (out : ℕ → Z → Bool) (t : ℕ) :
     lawOf (tensorVector ψ t) (tensorGood out t) true =
@@ -224,7 +224,7 @@ theorem lawOf_keep_candidate {Z Col : Type} [Fintype Z]
 /-- Ledger: claim-success-prob. Equation (15) gives successful index mass
 `m⁻¹` times the product of the comparison success probabilities. This theorem
 uses the actual full state slices, so it is independent of the short-circuit
-implementation of `Upper.stage_samples`. UNELABORATED. -/
+implementation of `Upper.stage_samples`. -/
 theorem equation_15_index_law {Col Z : Type} [Fintype Col] [Fintype Z]
     (ψ : Col → ℕ → Reg Z) (out : Col → ℕ → Z → Bool) (t : ℕ)
     (v : Reg (Σ _ : Col, TensorBasis Z t))
@@ -324,7 +324,7 @@ theorem quantumTensorStage {ι Col Z : Type} [Fintype Col] [Nonempty Col] [Finty
 literal tensor preparation. The resulting coherent sampler has the exact
 product successful-index law and uses `t*c` logical reads. The full tensor
 identity is proved inside `quantumTensorStage` through `equation_15`.
-UNELABORATED. -/
+-/
 theorem quantumTensorStage_of_samples {ι Col : Type} [Fintype Col] [Nonempty Col]
     {c : ℕ} {a : BitInput ι → Col → Col → ℝ}
     (hcmp : ∀ i j, Samples c fun x b => bern (a x i j) b)

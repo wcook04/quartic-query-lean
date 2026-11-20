@@ -1,8 +1,10 @@
 # OpenAI’s nearly quartic query separation: a complete proof reconstruction {.unnumbered .unlisted}
 
-Will Cook · November 2026
+Written by AI systems under the direction of Will Cook · November 2026
 
 **Abstract.** Let $R(f)$ and $Q(f)$ denote the randomized and quantum query complexities of a Boolean function, with error at most $1/3$. We reconstruct OpenAI’s proof that four is the least exponent $\alpha$ for which $R(f)=O((1+Q(f))^\alpha)$ holds for every total Boolean function. The input consists of $m$ columns. A column wins if its bit string consists of ones and its correctly addressed cell contains valid circuit transcripts and the row of a zero in each other column. A quantum algorithm compares columns and verifies only the candidates on a short list. On the classical side, the algorithm must specify the entire address of a cell before reading even one of its bits. We choose the address bits as answers to independent instances of a partial function. With $k\ge2$ blocks in each auxiliary input and $k$ fixed, the quantum algorithm uses at most $\sqrt m$ times a polylogarithmic factor in queries. Randomized algorithms require at least order $m^{2-1/k}/(\log m)^2$ queries. We give an alternative proof of the required $k$-fold Forrelation lower bound by Gaussian integration by parts. A separate quantitative argument, using estimates uniform in $k$, gives a single family with separation exponent tending to four.
+
+**About this reconstruction.** AI systems wrote this reconstruction, its two companion papers and the Lean development, under the direction of Will Cook. No human expert has reviewed them. In particular, no person has checked that the Lean statements say what OpenAI's paper says; AI agents made that comparison. The separation theorem, its construction and its proof are OpenAI's. Section 7.3, Section 8, Appendix C.2 and the comparison with Bansal and Sinha in Appendix D.3 go beyond OpenAI's paper, and each says so where it begins.
 
 <a id="record-reading-routes"></a>
 
@@ -1323,6 +1325,8 @@ Letting \(k\) grow with \(t\) requires estimates uniform in \(k\); these go beyo
 
 ### 7.3. Letting $k$ grow with $t$
 
+*This section goes beyond OpenAI's paper. AI systems produced it, and no person has reviewed it.*
+
 <a id="ROOT-GROWING-K"></a>
 <!-- passage:ROOT-GROWING-K -->
 This is a quantitative consequence of the estimates developed in this reconstruction, beyond the fixed-$k$ argument needed for OpenAI’s Theorem 1.1. It uses the uniform lower bound of Theorem 8.2 and the explicit quantum constant in Appendix E.5; substituting a growing $k$ into (7.1) alone would not justify it. The final choice of $k(t)$ and its rate are an ordinary deduction in [Appendix C.2](#record-schedule-proof), separate from the formally stated fixed-$k$ family.
@@ -1336,6 +1340,8 @@ Both losses are of order $\sqrt\ell$, while the logarithm of the quantum budget 
 <!-- /passage:ROOT-GROWING-K -->
 
 ## 8. Why Forrelation is hard
+
+*This section goes beyond OpenAI's paper. AI systems produced it, and no person has reviewed it.* Lean checks the proof of the fixed-$k$ estimate (8.3); only AI agents have compared that statement with the one OpenAI's paper uses.
 
 Up to this point Lemma 3.1 let us treat the classical hardness of one address bit as given. For a fixed $k$ the published Forrelation bound suffices. To see how the power $1-1/k$ arises, and to control the cost when $k$ grows, we now prove that bound directly for the promise used on the board.
 
@@ -2922,6 +2928,8 @@ The coarser estimate proves (C.2). The [fixed-parameter estimate in Appendix C.4
 <a id="record-schedule-proof"></a>
 ### C.2. Parameters for the growing family
 
+*This section goes beyond OpenAI's paper. AI systems produced it, and no person has reviewed it.*
+
 Put $m=4^t$ and $\ell=2t$. We prove the bound in [§7.3](#ROOT-GROWING-K).
 
 On the quantum side, the useful scale is $C_k\le2^{53}k2^{10k}$. Its exponential factor contributes $40k$ to $4\log_2Q$, which will be balanced against the classical loss $\ell/k$. To verify this envelope, expand the constant $C_k$ of Appendix E.5:
@@ -3182,6 +3190,8 @@ which tends to infinity. This accounts for the preprint's use of the published t
 <!-- /passage:forr_bs_translation -->
 
 #### A displayed step in Bansal–Sinha v3, §5.4
+
+*This section goes beyond OpenAI's paper. AI systems produced it, and no person has reviewed it.*
 
 <a id="forr_bs_mismatch"></a>
 <!-- passage:forr_bs_mismatch -->
@@ -4645,11 +4655,11 @@ Section and theorem locators refer to the editions identified below. Source comp
 
 
 <!-- lean-links -->
-[def-DLe]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L67-L69
-[def-RLe]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticCorpus/Unconditional/Challenge.lean#L62-L65
-[src-budget-constant]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Bound.lean#L52-L57
-[src-complexitylib]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Bridge/DecisionTree.lean#L65-L68
-[src-fixed-sequence]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Bridge/Deferred.lean#L282-L290
-[src-repetitions]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Forrelation/Repetition.lean#L191-L193
-[src-tournament-runs]: https://github.com/wcook04/quartic-query-lean/blob/8357f268732746d1575e05e7de8c888e20ad3793/lean/QuarticQuery/Upper/Tournament.lean#L362-L378
+[def-DLe]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L67-L69
+[def-RLe]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticCorpus/Unconditional/Challenge.lean#L62-L65
+[src-budget-constant]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Bound.lean#L52-L57
+[src-complexitylib]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Bridge/DecisionTree.lean#L65-L68
+[src-fixed-sequence]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Bridge/Deferred.lean#L282-L290
+[src-repetitions]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Forrelation/Repetition.lean#L191-L193
+[src-tournament-runs]: https://github.com/wcook04/quartic-query-lean/blob/v1.0.0/lean/QuarticQuery/Upper/Tournament.lean#L362-L378
 <!-- /lean-links -->

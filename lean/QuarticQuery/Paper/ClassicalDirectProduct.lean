@@ -5,8 +5,8 @@ public import QuarticQuery.LowerBound.DirectProduct
 /-!
 # The conditional-value proof in Section 4.1
 
-UNELABORATED: no Lean compiler is present in the review environment.
-Expected toolchain: leanprover/lean4:v4.36.0-rc2, with the supplied lake manifest.
+Compiled as part of the `QuarticQuery` library target.
+Toolchain: leanprover/lean4:v4.36.0-rc2, with the repository's lake manifest.
 
 Finite conditional probabilities are ratios of nonnegative finite weights.
 Zero-mass branches have weight zero; no conditional distribution is asserted on
