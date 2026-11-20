@@ -50,6 +50,11 @@ class LocateTests(unittest.TestCase):
     def test_avoided_words_and_note_length(self):
         with self.assertRaisesRegex(ValueError, "avoid the word"):
             phrases.prose_check("note", "It changes the convention silently.")
+        with self.assertRaisesRegex(ValueError, "set mathematics"):
+            phrases.prose_check("note", "It assumes 0 ≤ ε ≤ 1 throughout.")
+        with self.assertRaisesRegex(ValueError, "set mathematics"):
+            phrases.prose_check("note", "The bound is exp(-n/16) here.")
+        phrases.prose_check("note", "It assumes $0\\le\\varepsilon\\le 1$ and `hε`.")
         with self.assertRaisesRegex(ValueError, "words"):
             phrases.prose_check("note", "Too short.", phrases.NOTE_WORDS)
 

@@ -47,9 +47,18 @@ TYPESET_TITLES = {
     'The erased-zero probability equals E Z/m': [
         'The erased-zero probability equals $\\mathbb{E}Z/m$',
         'The erased-zero probability equals 𝔼Z/m'],
+    'The complete address is correct with probability at least one minus epsilon': [
+        'The complete address is correct with probability at least $1-\\varepsilon$',
+        'The complete address is correct with probability at least 1 − ε'],
+    'Sampling failures add at most epsilon per stage before selection': [
+        'Sampling failures add at most $\\varepsilon$ per stage before selection',
+        'Sampling failures add at most ε per stage before selection'],
     'The tournament needs O(c sqrt(m) T^2 log(T)) physical queries': [
         'The tournament needs $O(c\\sqrt{m}\\,T^2\\log T)$ physical queries',
         'The tournament needs O(c√m T² log T) physical queries'],
+    'A nonwinner is accepted with probability at most epsilon': [
+        'A nonwinner is accepted with probability at most $\\varepsilon$',
+        'A nonwinner is accepted with probability at most ε'],
     'Searching for a failed test costs O(ell sqrt(K) log(1/epsilon)) queries': [
         'Searching for a failed test costs $O(\\ell\\sqrt{K}\\log(1/\\varepsilon))$ queries',
         'Searching for a failed test costs O(ℓ√K log(1/ε)) queries'],
@@ -71,6 +80,12 @@ TYPESET_TITLES = {
     'The factor (2/3)^r is at most m⁻¹⁰': [
         'The factor $(2/3)^r$ is at most $m^{-10}$',
         'The factor (2/3)ʳ is at most m⁻¹⁰'],
+    'The total budget is the floor of mL over one hundred': [
+        'The total budget is $\\lfloor mL/100\\rfloor$',
+        'The total budget is ⌊mL/100⌋'],
+    'The sensitivity graph gives lambda at most 35 Q': [
+        'The sensitivity graph gives $\\lambda$ at most $35Q$',
+        'The sensitivity graph gives λ at most 35Q'],
 }
 
 
@@ -112,7 +127,7 @@ def maintained(packet, rows, paper, manuscript, snapshot, commit):
                 if fix and row.get(field) == fix["returned"]:
                     row[field] = fix["typeset"]
                     corrections.append({"tie": tie["id"], "declaration": link["name"], "field": field,
-                                        "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."})
+                                        "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."})
             if "lines" in link:
                 a, b = link["lines"]
                 if b < first or a > last:

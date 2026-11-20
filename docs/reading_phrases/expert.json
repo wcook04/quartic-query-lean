@@ -8,6 +8,18 @@
  "return": "research/returns/phrase_links/members/08_quartic_expert",
  "corrections": [
   {
+   "tie": "a-family",
+   "declaration": "QuarticQuery.Paper.construction_family_named",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "i-logarithmic-exponent",
+   "declaration": "QuarticQuery.Paper.construction_family_named",
+   "field": "link_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
    "tie": "p3-overview-layout",
    "declaration": "QuarticQuery.BitLoc",
    "returned_lines": [
@@ -24,13 +36,13 @@
    "tie": "q4-preview-verify",
    "declaration": "QuarticQuery.Paper.quantumVerify_search_query_bound",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "q4-preview-weight",
    "declaration": "QuarticQuery.Tournament.expectFrom",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "p2-oracle",
@@ -46,22 +58,40 @@
    "reason": "The returned range ran past the declaration, lines 100-105; it is cut to the declaration."
   },
   {
+   "tie": "p2-table-decoder",
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
    "tie": "p2-table-circuit",
    "declaration": "QuarticQuery.Paper.construction_lemma_2_1_iii",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "p2-sign-coordinate",
    "declaration": "QuarticQuery.bitSign",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "p2-Phi-delta",
+   "declaration": "QuarticQuery.Paper.construction_equation_3",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "p2-lemma-decoder",
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "p2-lemma-circuit",
    "declaration": "QuarticQuery.Paper.construction_lemma_2_1_iii",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "p3-untrusted-input",
@@ -103,52 +133,118 @@
    "reason": "The returned range ran past the declaration, lines 264-265; it is cut to the declaration."
   },
   {
+   "tie": "p3-pointer-valid",
+   "declaration": "QuarticQuery.Paper.construction_pointer_encoding",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "p3-unique",
+   "declaration": "QuarticQuery.Paper.construction_unique_winner",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
    "tie": "p3-K",
    "declaration": "QuarticQuery.card_testIndex",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "p3-K-growth",
+   "declaration": "QuarticQuery.Paper.construction_K_family",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "q4-probability-weight",
    "declaration": "QuarticQuery.Paper.tensor_success_mass",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "q4-weights-display",
    "declaration": "QuarticQuery.Tournament.weight",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "q4-weights-display",
    "declaration": "QuarticQuery.Tournament.total",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "q4-pivot-zero",
    "declaration": "QuarticQuery.Tournament.weight",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "q4-pivot-zero",
    "declaration": "QuarticQuery.Tournament.IsComparison",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "q4-drift-display",
+   "declaration": "QuarticQuery.Tournament.expected_weight_eq",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "q4-half-drift",
+   "declaration": "QuarticQuery.Tournament.expected_weight_le_half",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "q4-ideal-label-law",
    "declaration": "QuarticQuery.Paper.equation_15_conditional_index",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "q4-amplifier-label",
    "declaration": "QuarticQuery.Paper.quantum_amplified_label_law",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "q4-grover-plane",
+   "declaration": "QuarticQuery.Paper.quantum_grover_state",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "q4-amplifier-parameters",
+   "declaration": "QuarticQuery.Paper.quantumTournament_list",
+   "field": "link_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "q4-sampling-guarantee",
+   "declaration": "QuarticQuery.Tournament.half_lt_total",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "q4-sampling-guarantee",
+   "declaration": "QuarticQuery.Paper.quantumStage_success",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "q4-amplified-stage",
+   "declaration": "QuarticQuery.Paper.quantumListLaw",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "q4-winner-sure-at-address",
+   "declaration": "QuarticQuery.Paper.quantumVerify_winner",
+   "field": "link_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "c5-planted-object",
@@ -206,25 +302,61 @@
    "tie": "c5-joint-event-chain",
    "declaration": "QuarticQuery.Paper.avg_reachedCellAt_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "c5-joint-event-chain",
+   "declaration": "QuarticQuery.Paper.eq_21",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "c5-guess-tail",
    "declaration": "QuarticQuery.twoThirds_pow_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "e-first-floor",
+   "declaration": "QuarticQuery.Gvalue_ge",
+   "field": "link_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "e-second-floor",
+   "declaration": "QuarticQuery.Gvalue_ge",
+   "field": "link_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "e-choose-k",
+   "declaration": "QuarticQuery.exists_nat_exponent",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "e-ratio-display",
    "declaration": "QuarticQuery.eventually_gt_rpow",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "e-k-three-range",
+   "declaration": "QuarticQuery.no_universal_power",
+   "field": "link_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "f-gaussian-transform",
+   "declaration": "QuarticQuery.ForrelationLower.Vc",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "f-mean-separation",
    "declaration": "QuarticQuery.ForrelationLower.mass_ge",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "declaration": "QuarticQuery.Gvalue_lt_R_Fkm",
@@ -263,11 +395,38 @@
    "reason": "Mathematics written in plain ASCII is set as inline TeX with a Unicode reading."
   },
   {
+   "declaration": "QuarticQuery.Paper.quantumDecode_correct",
+   "returned_title": "The complete address is correct with probability at least one minus epsilon",
+   "title": [
+    "The complete address is correct with probability at least $1-\\varepsilon$",
+    "The complete address is correct with probability at least 1 − ε"
+   ],
+   "reason": "Mathematics written in plain ASCII is set as inline TeX with a Unicode reading."
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumList_coupling",
+   "returned_title": "Sampling failures add at most epsilon per stage before selection",
+   "title": [
+    "Sampling failures add at most $\\varepsilon$ per stage before selection",
+    "Sampling failures add at most ε per stage before selection"
+   ],
+   "reason": "Mathematics written in plain ASCII is set as inline TeX with a Unicode reading."
+  },
+  {
    "declaration": "QuarticQuery.Paper.quantumTournament_cost",
    "returned_title": "The tournament needs O(c sqrt(m) T^2 log(T)) physical queries",
    "title": [
     "The tournament needs $O(c\\sqrt{m}\\,T^2\\log T)$ physical queries",
     "The tournament needs O(c√m T² log T) physical queries"
+   ],
+   "reason": "Mathematics written in plain ASCII is set as inline TeX with a Unicode reading."
+  },
+  {
+   "declaration": "QuarticQuery.Paper.quantumVerify_nonwinner",
+   "returned_title": "A nonwinner is accepted with probability at most epsilon",
+   "title": [
+    "A nonwinner is accepted with probability at most $\\varepsilon$",
+    "A nonwinner is accepted with probability at most ε"
    ],
    "reason": "Mathematics written in plain ASCII is set as inline TeX with a Unicode reading."
   },
@@ -396,7 +555,7 @@
      ],
      "relation": "contains",
      "fidelity": "stronger",
-     "fidelity_note": "Lean gives the same family with explicit logarithmic losses, b=6 and c=1/400, and a specified realizing circuit; the abstract suppresses these details."
+     "fidelity_note": "Lean gives the same family with explicit logarithmic losses, $b=6$ and $c=1/400$, and a specified realizing circuit; the abstract suppresses these details."
     }
    ]
   },
@@ -675,7 +834,7 @@
      ],
      "relation": "contains",
      "fidelity": "same",
-     "link_note": "The quantum bound has an explicit sixth power of log₂ m."
+     "link_note": "The quantum bound has an explicit sixth power of $\\log_2 m$."
     }
    ]
   },
@@ -1463,7 +1622,7 @@
      ],
      "relation": "contains",
      "fidelity": "stronger",
-     "fidelity_note": "Lean supplies the decoder already for k ≥ 1, while this paper fixes k ≥ 2."
+     "fidelity_note": "Lean supplies the decoder already for $k \\ge 1$, while this paper fixes $k \\ge 2$."
     }
    ],
    "after": "## 2. Preliminaries"
@@ -1664,7 +1823,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The matrix-product identity is proved under 1 ≤ k, including the paper's k ≥ 2 range."
+     "fidelity_note": "The matrix-product identity is proved under $1 \\le k$, including the paper's $k \\ge 2$ range."
     }
    ],
    "after": "## 2. Preliminaries"
@@ -1931,7 +2090,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean proves this for all k ≥ 1 and every t, while the lemma is stated for fixed k ≥ 2 and sufficiently large powers of four."
+     "fidelity_note": "Lean proves this for all $k \\ge 1$ and every $t$, while the lemma is stated for fixed $k \\ge 2$ and sufficiently large powers of four."
     }
    ],
    "after": "## 2. Preliminaries"
@@ -2176,7 +2335,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean also proves that every row has exactly one encoding, for every natural ell."
+     "fidelity_note": "Lean also proves that every row has exactly one encoding, for every natural $\\ell$."
     }
    ],
    "after": "## 3. The function"
@@ -2353,7 +2512,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The theorem holds for arbitrary f, C, ell and r; no circuit-realization hypothesis is needed."
+     "fidelity_note": "The theorem holds for arbitrary $f$, $C$, $\\ell$ and $r$; no circuit-realization hypothesis is needed."
     }
    ],
    "after": "## 3. The function"
@@ -2578,7 +2737,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The theorem covers k ≥ 1 and every t ≥ 1 with one B chosen before t."
+     "fidelity_note": "The theorem covers $k \\ge 1$ and every $t \\ge 1$ with one $B$ chosen before $t$."
     }
    ],
    "after": "## 3. The function"
@@ -3162,7 +3321,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The Lean identity permits arbitrary real weights and comparison entries; only complementarity, a zero diagonal and W > 0 are required."
+     "fidelity_note": "The Lean identity permits arbitrary real weights and comparison entries; only complementarity, a zero diagonal and $W > 0$ are required."
     }
    ]
   },
@@ -3184,7 +3343,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean proves the algebraic inequality for arbitrary real weights and comparison entries with IsComparison and W > 0; the probability interpretation additionally uses nonnegative weights."
+     "fidelity_note": "Lean proves the algebraic inequality for arbitrary real weights and comparison entries with `IsComparison` and $W > 0$; the probability interpretation additionally uses nonnegative weights."
     }
    ]
   },
@@ -3581,7 +3740,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The displayed geometric theorem requires h0 : 0 < A.prob and h1 : A.prob < 1; its direction conclusion also requires a nonzero successful component. The normalized successful vectors agree up to global phase (PhaseEq). At p = 0 there is no conditional successful direction; at p = 1 the two-dimensional formulation degenerates."
+     "fidelity_note": "The displayed geometric theorem requires `h0 : 0 < A.prob` and `h1 : A.prob < 1`; its direction conclusion also requires a nonzero successful component. The normalized successful vectors agree up to global phase (`PhaseEq`). At $p = 0$ there is no conditional successful direction; at $p = 1$ the two-dimensional formulation degenerates."
     }
    ]
   },
@@ -3603,7 +3762,7 @@
      ],
      "relation": "proof",
      "fidelity": "same",
-     "link_note": "The stage sampler is amplified with exactly this reciprocal threshold and the tournament’s epsilon."
+     "link_note": "The stage sampler is amplified with exactly this reciprocal threshold and the tournament’s $\\varepsilon$."
     }
    ]
   },
@@ -3625,7 +3784,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem supplies W > 1/2 while the dominant candidate is absent. It does not identify the preparation’s flag probability as W/m; division by positive m uses that separate law."
+     "fidelity_note": "The theorem supplies $W > 1/2$ while the dominant candidate is absent. It does not identify the preparation’s flag probability as $W/m$; division by positive $m$ uses that separate law."
     },
     {
      "name": "QuarticQuery.Paper.quantumStage_success",
@@ -3636,7 +3795,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem identifies the flag probability as W/m when W > 0. It does not supply W > 1/2 while the dominant candidate is absent."
+     "fidelity_note": "The theorem identifies the flag probability as $W/m$ when $W > 0$. It does not supply $W > 1/2$ while the dominant candidate is absent."
     }
    ]
   },
@@ -3680,7 +3839,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The definition supplies stopping on failure and prepending a successful pivot according to weight divided by total weight. It does not bound the failure function g L by epsilon or provide the coherent implementation."
+     "fidelity_note": "The definition supplies stopping on failure and prepending a successful pivot according to weight divided by total weight. It does not bound the failure function `g L` by $\\varepsilon$ or provide the coherent implementation."
     }
    ]
   },
@@ -3916,7 +4075,7 @@
      ],
      "relation": "proof",
      "fidelity": "same",
-     "link_note": "The proof first establishes f c s x = 1 at the winning address."
+     "link_note": "The proof first establishes `f c s x = 1` at the winning address."
     }
    ]
   },
@@ -5067,7 +5226,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem gives the first-to-last inequality with beta=2/3 under the full dummy law. It omits the middle quantity, the predictor's success probability.",
+     "fidelity_note": "This theorem gives the first-to-last inequality with $\\beta=2/3$ under the full dummy law. It omits the middle quantity, the predictor's success probability.",
      "link_note": "The combined joint-event bound after averaging outside data and applying the capped direct-product estimate."
     }
    ]
@@ -5281,7 +5440,7 @@
      ],
      "relation": "proof",
      "fidelity": "same",
-     "link_note": "The local assertion hLge removes the first floor under k≥2 and t≥8."
+     "link_note": "The local assertion `hLge` removes the first floor under $k\\ge 2$ and $t\\ge 8$."
     }
    ]
   },
@@ -5303,7 +5462,7 @@
      ],
      "relation": "proof",
      "fidelity": "same",
-     "link_note": "The proof bounds p=mL by 200 times G once p≥200."
+     "link_note": "The proof bounds $p=mL$ by 200 times $G$ once $p\\ge 200$."
     }
    ]
   },
@@ -5346,7 +5505,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean assumes only α<4, so it also covers negative α; its conclusion uses the equivalent inequality α/2<2−1/k."
+     "fidelity_note": "Lean assumes only $\\alpha<4$, so it also covers negative $\\alpha$; its conclusion uses the equivalent inequality $\\alpha/2<2-1/k$."
     }
    ]
   },
@@ -5413,7 +5572,7 @@
      ],
      "relation": "states",
      "fidelity": "same",
-     "link_note": "Specialize k=3; hs then reads α/2<5/3."
+     "link_note": "Specialize $k=3$; `hs` then reads $\\alpha/2<5/3$."
     }
    ]
   },
@@ -5456,7 +5615,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "Vc defines V=HU for an arbitrary finite matrix and coordinate vector. Gaussian sampling and specialization to the Walsh matrix are supplied by the surrounding construction, not this definition."
+     "fidelity_note": "`Vc` defines $V=HU$ for an arbitrary finite matrix and coordinate vector. Gaussian sampling and specialization to the Walsh matrix are supplied by the surrounding construction, not this definition."
     }
    ]
   },
@@ -5880,11 +6039,17 @@
   "QuarticQuery.Paper.quantumComparison_state": "A comparison and its inverse have the same read budget",
   "QuarticQuery.Paper.quantumComparison_unordered_state": "One comparison experiment supplies both ordered outcomes",
   "QuarticQuery.Paper.quantumDecode": "Decode an address with independent retained workspaces",
-  "QuarticQuery.Paper.quantumDecode_correct": "The complete address is correct with probability at least one minus epsilon",
+  "QuarticQuery.Paper.quantumDecode_correct": [
+   "The complete address is correct with probability at least $1-\\varepsilon$",
+   "The complete address is correct with probability at least 1 − ε"
+  ],
   "QuarticQuery.Paper.quantumError_bound": "The complete algorithm has separate zero-input and one-input error bounds",
   "QuarticQuery.Paper.quantumError_numeric": "The chosen parameters make both errors less than one third",
   "QuarticQuery.Paper.quantumListLaw": "Return the pivots, stopping on sampling failure",
-  "QuarticQuery.Paper.quantumList_coupling": "Sampling failures add at most epsilon per stage before selection",
+  "QuarticQuery.Paper.quantumList_coupling": [
+   "Sampling failures add at most $\\varepsilon$ per stage before selection",
+   "Sampling failures add at most ε per stage before selection"
+  ],
   "QuarticQuery.Paper.quantumStage_success": "The successful candidate has exactly the weight-proportional law",
   "QuarticQuery.Paper.quantumTournament": "A bounded quantum tournament lists a dominant candidate with high probability",
   "QuarticQuery.Paper.quantumTournament_cost": [
@@ -5895,7 +6060,10 @@
   "QuarticQuery.Paper.quantumVerify": "One bounded verifier handles both winners and nonwinners",
   "QuarticQuery.Paper.quantumVerify_fixedAddress": "Fixed-address verification always accepts a fully passing certificate",
   "QuarticQuery.Paper.quantumVerify_list": "Test the candidate list until one candidate accepts",
-  "QuarticQuery.Paper.quantumVerify_nonwinner": "A nonwinner is accepted with probability at most epsilon",
+  "QuarticQuery.Paper.quantumVerify_nonwinner": [
+   "A nonwinner is accepted with probability at most $\\varepsilon$",
+   "A nonwinner is accepted with probability at most ε"
+  ],
   "QuarticQuery.Paper.quantumVerify_runs": "Decode a fresh address and verify at its measured value",
   "QuarticQuery.Paper.quantumVerify_search_query_bound": [
    "Searching for a failed test costs $O(\\ell\\sqrt{K}\\log(1/\\varepsilon))$ queries",

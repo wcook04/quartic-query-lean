@@ -29,6 +29,9 @@ NOTE_WORDS = (40, 100)
 TITLE_WORDS = (2, 12)
 LINK_NOTE_WORDS = 25
 # Words the reader's prose avoids; the site's own labels follow the same rule.
+# Mathematics outside $…$ or backticks: TeX or Lean markup, relations, Greek letters,
+# super- and subscripts, floors and written-out function calls.
+NOTATION = re.compile(r"[_^\\≤≥<>=≠∈∉→↦×·⋅√∑∏∞≈∼±−εδγηλθαβμσπφψωΔΓΣΦΨΩℓ²³⁴⁰¹⁵⁶⁷⁸⁹₀-₉ⁿᵀ⌊⌋⌈⌉]|\b(?:exp|ln|log|sqrt)\(")
 AVOIDED = re.compile(r"\b(?:silent(?:ly)?|seamless(?:ly)?|robust(?:ly|ness)?)\b", re.I)
 
 
@@ -117,14 +120,14 @@ def check_overlaps(path, located):
             raise ValueError(f"{path}: phrases {first['id']} and {second['id']} overlap")
 
 
-def prose_check(where, value, words=None):
+def prose_check(where, value, words=None, notation=True):
     if not isinstance(value, str) or not value.strip() or value != value.strip():
         raise ValueError(f"{where}: expected trimmed text")
     if AVOIDED.search(value):
         raise ValueError(f"{where}: avoid the word {AVOIDED.search(value)[0]!r}")
     if value.count("$") % 2:
         raise ValueError(f"{where}: unbalanced $")
-    if re.search(r"[_^\\]", re.sub(r"\$[^$]+\$|`[^`]+`", "", value)):
+    if notation and NOTATION.search(re.sub(r"\$[^$]+\$|`[^`]+`", "", value)):
         raise ValueError(f"{where}: set mathematics in $…$ and Lean names in backticks")
     if words:
         count = len(value.split())
@@ -182,8 +185,8 @@ def phrase_resources(edition, texts, documents):
         if not 1 <= len(topics) <= MAX_TOPICS or len(set(ids)) != len(ids):
             raise ValueError(f"{path}: expected one to {MAX_TOPICS} distinct topics")
         for topic in topics:
-            prose_check(f"{path}: topic {topic['id']} name", topic["name"])
-            prose_check(f"{path}: topic {topic['id']} description", topic["description"])
+            prose_check(f"{path}: topic {topic['id']} name", topic["name"], notation=False)
+            prose_check(f"{path}: topic {topic['id']} description", topic["description"], notation=False)
         formulas = math_spans(text)
         located, named, phrases = [], {}, []
         seen = set()
@@ -219,7 +222,7 @@ def phrase_resources(edition, texts, documents):
         titles = {}
         for name, value in data["titles"].items():
             titles[name] = title_record(name, value)
-            prose_check(f"{path}: title of {name}", titles[name]["title_plain"], TITLE_WORDS)
+            prose_check(f"{path}: title of {name}", titles[name]["title_plain"], TITLE_WORDS, notation=False)
         for name, note in data["notes"].items():
             prose_check(f"{path}: note of {name}", note, NOTE_WORDS)
         # A topic's phrases alternate between its two shades in reading order.

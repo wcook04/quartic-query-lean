@@ -15,8 +15,10 @@ before these files were copied.
 maintained sources in [docs/reading_phrases/](../../../docs/reading_phrases/) from these
 files. Each maintained file lists its further `corrections`: Lean line ranges that ran past
 the end of their declaration are cut to it (22 rows in all, none disjoint from its
-declaration), thirteen titles that wrote mathematics in plain ASCII are set as inline TeX
-with a Unicode reading, and 102 comparison notes that wrote mathematics or Lean names as plain
-text keep their words with the mathematics in `$…$` and the Lean names in backticks
+declaration), eighteen titles that wrote mathematics in plain ASCII or words (such as
+"one minus epsilon") are set as inline TeX with a Unicode reading, and 235 comparison notes
+that wrote mathematics or Lean names as plain text are set with the mathematics in `$…$` and
+the Lean names in backticks, words that stood for a formula (such as "absence" for
+$\Pr[s\notin L_T]$) being replaced by it and the other words kept
 ([note_typesetting.json](note_typesetting.json) lists each before and after). The returns are AI work. No person has reviewed the phrase ties,
 the fidelity judgements or the reading notes.

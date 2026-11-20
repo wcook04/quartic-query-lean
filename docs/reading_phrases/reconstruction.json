@@ -8,6 +8,12 @@
  "return": "research/returns/phrase_links/members/10_quartic_reconstruction",
  "corrections": [
   {
+   "tie": "qr-same-family-bounds",
+   "declaration": "QuarticQuery.Paper.construction_family_named",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
    "tie": "qr-randomized-tree",
    "declaration": "QuarticQuery.RandomizedProgram",
    "returned_lines": [
@@ -19,6 +25,24 @@
     64
    ],
    "reason": "The returned range ran past the declaration, lines 57-64; it is cut to the declaration."
+  },
+  {
+   "tie": "qr-correlation-definition",
+   "declaration": "QuarticQuery.Paper.construction_equation_3",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qr-ingredient-quantum",
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_1_ii_complete",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qr-ingredient-circuit",
+   "declaration": "QuarticQuery.Paper.construction_lemma_2_1_iii",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-circuit-contract",
@@ -61,15 +85,27 @@
   },
   {
    "tie": "qr-test-count-bound",
+   "declaration": "QuarticQuery.Paper.construction_K_count",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qr-test-count-bound",
    "declaration": "QuarticQuery.Paper.construction_K_bound",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qr-comparison-before-list",
+   "declaration": "QuarticQuery.Paper.quantumWinner_dominates",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-comparison-table",
    "declaration": "QuarticQuery.Tournament.IsComparison",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-comparison-table",
@@ -88,7 +124,7 @@
    "tie": "qr-comparison-table",
    "declaration": "QuarticQuery.Tournament.UnitValued",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-tournament-parameters",
@@ -107,79 +143,133 @@
    "tie": "qr-dominant-weight-chain",
    "declaration": "QuarticQuery.Paper.quantumWeight_lower",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-ideal-miss",
    "declaration": "QuarticQuery.Tournament.ideal_miss_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qr-list-cost",
+   "declaration": "QuarticQuery.Paper.quantumTournament_cost",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-decode-cost-and-accuracy",
    "declaration": "QuarticQuery.Paper.quantumDecode_query_bound_real",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-verifier-count",
    "declaration": "QuarticQuery.Paper.construction_K_count",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qr-search-cost",
+   "declaration": "QuarticQuery.Paper.quantumVerify_search_query_bound",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-full-algorithm-errors",
    "declaration": "QuarticQuery.Paper.quantumError_bound",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-full-algorithm-errors",
    "declaration": "QuarticQuery.Paper.quantumError_numeric",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qr-quantum-upper-bound",
+   "declaration": "QuarticQuery.Upper.Q_Fkm_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "rec-cl-generic-lower",
+   "declaration": "QuarticQuery.Gvalue_lt_R_addressedF",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "rec-cl-two-event-discrepancy",
+   "declaration": "QuarticQuery.Paper.eq_18",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "rec-cl-independent-selection-identity",
+   "declaration": "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "rec-cl-mplusone-ingredient",
    "declaration": "QuarticQuery.zero_search_sum_successor",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "rec-cl-fixed-time-joint-event",
+   "declaration": "QuarticQuery.Paper.eq_21",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "rec-cl-weighted-optimum",
    "declaration": "QuarticQuery.exists_tree_budgetValue_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "rec-cl-weighted-optimum",
    "declaration": "QuarticQuery.treeSuccess_le_budgetValue",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "rec-cl-tail-display",
    "declaration": "QuarticQuery.Paper.classical_tail_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "rec-cl-contradiction",
    "declaration": "QuarticQuery.addressedF_not_RLe",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "rec-cl-same-family-bounds",
    "declaration": "QuarticQuery.Paper.construction_family_named",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "rec-cl-finite-ratio",
+   "declaration": "QuarticQuery.Paper.classical_ratio_arithmetic",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "rec-cl-power-beats-log",
    "declaration": "QuarticQuery.Paper.classical_power_log_tendsto",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "rec-cl-choose-fixed-k",
+   "declaration": "QuarticQuery.exists_nat_exponent",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-walsh-objects",
@@ -198,25 +288,49 @@
    "tie": "fr-walsh-objects",
    "declaration": "QuarticQuery.Forrelation.signDiag",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-normalization-identities",
+   "declaration": "QuarticQuery.Forrelation.W_mul_transpose",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-normalization-identities",
+   "declaration": "QuarticQuery.Forrelation.H_transpose",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-normalization-identities",
+   "declaration": "QuarticQuery.Forrelation.H_mul_H",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-normalization-identities",
+   "declaration": "QuarticQuery.Forrelation.u_dot_self",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-normalization-identities",
    "declaration": "QuarticQuery.Forrelation.isOrth_signDiag",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-forrelation-overlap",
    "declaration": "QuarticQuery.Forrelation.Phi_eq_matrix_product",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-forrelation-overlap",
    "declaration": "QuarticQuery.Forrelation.delta",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-forrelation-overlap",
@@ -235,25 +349,55 @@
    "tie": "fr-promise-classes",
    "declaration": "QuarticQuery.Forrelation.P_eq_cases",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-explicit-threshold-scope",
    "declaration": "QuarticQuery.lvalue_lt_R_explicit",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-probability-weights",
    "declaration": "QuarticQuery.ForrelationLower.bw_nonneg",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-extension-bound",
    "declaration": "QuarticQuery.ForrelationLower.abs_ext_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-coordinate-affinity",
+   "declaration": "QuarticQuery.ForrelationLower.ext_affine",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-derivative-moment",
+   "declaration": "QuarticQuery.ForrelationLower.ext_Dl",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-derivative-moment",
+   "declaration": "QuarticQuery.ForrelationLower.xi_mean",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-derivative-moment",
+   "declaration": "QuarticQuery.ForrelationLower.abs_xi_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-gaussian-functions",
+   "declaration": "QuarticQuery.ForrelationLower.qf",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-gaussian-functions",
@@ -271,6 +415,12 @@
   {
    "tie": "fr-gaussian-functions",
    "declaration": "QuarticQuery.ForrelationLower.psiS",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-gaussian-functions",
+   "declaration": "QuarticQuery.ForrelationLower.psiS",
    "returned_lines": [
     24,
     25
@@ -280,6 +430,12 @@
     24
    ],
    "reason": "The returned range ran past the declaration, lines 23-24; it is cut to the declaration."
+  },
+  {
+   "tie": "fr-gaussian-functions",
+   "declaration": "QuarticQuery.ForrelationLower.phiS",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-gaussian-functions",
@@ -298,49 +454,73 @@
    "tie": "fr-gaussian-derivatives",
    "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_phiS",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-gaussian-derivatives",
    "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_psiS",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-rounding-odd-bounded",
    "declaration": "QuarticQuery.ForrelationLower.phiS_neg",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-rounding-odd-bounded",
    "declaration": "QuarticQuery.ForrelationLower.abs_phiS_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-sharp-edge-bound",
+   "declaration": "QuarticQuery.ForrelationLower.psi_dphi_le_sharp",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-bias-range",
+   "declaration": "QuarticQuery.ForrelationLower.abs_wv_le_half",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-interpolation-derivative",
    "declaration": "QuarticQuery.ForrelationLower.hasDerivAt_ext_s",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-interpolation-derivative",
+   "declaration": "QuarticQuery.ForrelationLower.exists_identity",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-three-block-chain-rule",
    "declaration": "QuarticQuery.ForrelationLower.sum_dw_eq",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-iterated-gaussian-identity",
    "declaration": "QuarticQuery.ForrelationLower.integral_walk",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-forrelation-path-expansion",
+   "declaration": "QuarticQuery.forrelationNumerator",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-forrelation-path-expansion",
    "declaration": "QuarticQuery.forrelationDenominator",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-forrelation-path-expansion",
@@ -356,190 +536,511 @@
    "reason": "The returned range ran past the declaration, lines 179-181; it is cut to the declaration."
   },
   {
+   "tie": "fr-gaussian-edge-lower-estimates",
+   "declaration": "QuarticQuery.ForrelationLower.qf_le_exp",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-gaussian-edge-lower-estimates",
+   "declaration": "QuarticQuery.ForrelationLower.psi_dphi_ge",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
    "tie": "fr-positive-forrelation-mean",
    "declaration": "QuarticQuery.ForrelationLower.mass_ge",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-positive-forrelation-mean",
    "declaration": "QuarticQuery.ForrelationLower.ext_PhiF_zero",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-positive-forrelation-mean",
    "declaration": "QuarticQuery.ForrelationLower.dl_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-positive-forrelation-mean",
+   "declaration": "QuarticQuery.ForrelationLower.dl_le",
+   "field": "link_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-real-leaf-sharp-advantage",
    "declaration": "QuarticQuery.ForrelationLower.advantage_le_sharp_real_leaves_explicit",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-leaf-pairing-identity",
    "declaration": "QuarticQuery.ForrelationLower.walk_chaos",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-maximal-inequality-scope",
    "declaration": "QuarticQuery.ForrelationLower.hit_azuma",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-revealed-polynomial-crossing",
+   "declaration": "QuarticQuery.ForrelationLower.hit_chaos_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-crude-polynomial-bound",
    "declaration": "QuarticQuery.ForrelationLower.abs_chaos_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-terminal-polynomial-moment",
+   "declaration": "QuarticQuery.ForrelationLower.abs_ext_tree_chaos_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-off-promise-pointwise-comparison",
    "declaration": "QuarticQuery.ForrelationLower.not_RLe_of_gap_sharp",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-acceptance-expectation-gap",
    "declaration": "QuarticQuery.ForrelationLower.not_RLe_of_gap_sharp",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qm-a1",
    "declaration": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-a1",
+   "declaration": "QuarticQuery.R_le_D",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-a2-roadmap",
+   "declaration": "QuarticQuery.Paper.appendixA_blockSensitivity_star_le_Q_sq",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-a2-roadmap",
+   "declaration": "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-a2-roadmap",
+   "declaration": "QuarticQuery.Paper.appendixA4_paper_route",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-a2-roadmap",
+   "declaration": "QuarticQuery.Paper.appendixA_lemmaA5",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qm-adversary",
    "declaration": "QuarticQuery.Paper.appendixA_lemmaA2",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-perron",
+   "declaration": "QuarticQuery.Paper.appendixA_perron",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-progress-isometry",
+   "declaration": "QuarticQuery.Paper.appendixAProgress_isometry",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-final-overlap",
+   "declaration": "QuarticQuery.Paper.appendixA_unit_states_final_overlap",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-telescope-adversary",
+   "declaration": "QuarticQuery.Paper.appendixA_adversary_of_perron",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qm-star-mask",
    "declaration": "QuarticQuery.Paper.appendixA_mask_star_norm_le_one",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-top-coefficient",
+   "declaration": "QuarticQuery.Paper.appendixA_topFourier_survives",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-huang-eigenvalues",
+   "declaration": "QuarticQuery.Paper.huangEnd_eigenvalue",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qm-huang-rayleigh",
    "declaration": "QuarticQuery.Paper.huang_absolute_rayleigh_supported",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qm-a-assembled",
    "declaration": "QuarticQuery.Paper.appendixA_D_le_Q_pow_four",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "rec-cl-local-history-constraints",
+   "declaration": "QuarticQuery.Paper.classicalLocalConsistent",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "rec-cl-early-late-total-endpoint",
    "declaration": "QuarticQuery.Paper.expectedZeros_le_four",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "rec-cl-total-discovery-factor-two",
    "declaration": "QuarticQuery.Paper.expectedZeros_le_two",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "rec-cl-appendix-fixed-time-inclusion",
    "declaration": "QuarticQuery.eval_simTree",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "rec-cl-allowance-range",
    "declaration": "QuarticQuery.one_le_Lvalue",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "rec-cl-allowance-range",
+   "declaration": "QuarticQuery.Lvalue_le_mValue",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-historical-hardness-closure",
+   "declaration": "QuarticQuery.ForrelationLower.bansalSinhaLower",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-quantum-growing-k-bound",
+   "declaration": "QuarticQuery.Upper.Q_Fkm_le_exponential",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-centered-exponential-moment",
+   "declaration": "QuarticQuery.ForrelationLower.two_point_exp_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-uniform-small-errors",
    "declaration": "QuarticQuery.ForrelationLower.eps_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-uniform-small-errors",
    "declaration": "QuarticQuery.ForrelationLower.dl_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-uniform-small-errors",
+   "declaration": "QuarticQuery.ForrelationLower.q_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "fr-sharp-residual",
    "declaration": "QuarticQuery.ForrelationLower.tail_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-logarithm-bound",
+   "declaration": "QuarticQuery.log_four_k_m_le",
+   "field": "link_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-fixed-threshold-comparison",
+   "declaration": "QuarticQuery.forrelation_lower_uniform_sharp",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-fixed-threshold-comparison",
+   "declaration": "QuarticQuery.log_four_k_m_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-fixed-threshold-comparison",
+   "declaration": "QuarticQuery.lvalue_lt_R_explicit",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-promise-values-exist",
+   "declaration": "QuarticQuery.ForrelationLower.exists_P_yes",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "fr-promise-values-exist",
+   "declaration": "QuarticQuery.ForrelationLower.exists_P_no",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-acceptance-recursion",
+   "declaration": "QuarticQuery.Upper.tval",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-acceptance-upper",
+   "declaration": "QuarticQuery.Upper.tval_le",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-list-indicator-bound",
+   "declaration": "QuarticQuery.Paper.quantumList_coupling",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-grover-state",
+   "declaration": "QuarticQuery.Paper.quantum_grover_state",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-grover-success-state",
+   "declaration": "QuarticQuery.Paper.quantum_grover_state",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-double-angle",
+   "declaration": "QuarticQuery.Paper.quantum_sin_two_angle",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qm-repeated-failure",
    "declaration": "QuarticQuery.Amplification.failProb_attempts",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-amplification-cap",
+   "declaration": "QuarticQuery.Paper.quantum_grover_call_cap",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qm-amplification-cap",
    "declaration": "QuarticQuery.Paper.amplification_budget_le",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-positive-amplified-success",
+   "declaration": "QuarticQuery.Upper.uniformOpaqueAmplifier",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-retained-factor",
+   "declaration": "QuarticQuery.Upper.uniformOpaqueAmplifier",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qm-list-budget",
    "declaration": "QuarticQuery.Paper.quantumTournament_cost",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qm-coherent-local-physical",
    "declaration": "QuarticQuery.Paper.construction_controlled_compile",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qm-two-query-circuit",
    "declaration": "QuarticQuery.Paper.quantum_compile_circuit",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-classical-minima",
+   "declaration": "QuarticQuery.R_le_iff",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-classical-minima",
+   "declaration": "QuarticQuery.D_le_iff",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-classical-minima",
+   "declaration": "QuarticQuery.R_le_D",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-classical-minima",
+   "declaration": "QuarticQuery.D_le_card",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qm-tree-quantum-simulation",
    "declaration": "QuarticQuery.AdaptiveProgram.outputMass_ofTree",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-quantum-minima",
+   "declaration": "QuarticQuery.Q_le_D",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-quantum-minima",
+   "declaration": "QuarticQuery.D_le_card",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-quantum-minima",
+   "declaration": "QuarticQuery.Q_le_iff",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-identity-values",
+   "declaration": "QuarticQuery.Independent.ModelZero.identity_Q_eq_one",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-or-complexities",
+   "declaration": "QuarticQuery.SemanticReview.orTwo_R_eq_one",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-one-sided-values",
+   "declaration": "QuarticQuery.SemanticReview.trueOnly_R_eq_zero",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qm-one-sided-values",
+   "declaration": "QuarticQuery.SemanticReview.trueOnly_Q_eq_zero",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-integer-normalization",
    "declaration": "QuarticQuery.Paper.construction_N_phi",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-integer-normalization",
    "declaration": "QuarticQuery.Forrelation.denominator_eq",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qr-binomial-moment",
+   "declaration": "QuarticQuery.Forrelation.sum_binomWeight_mul",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qr-small-binomial-tail",
+   "declaration": "QuarticQuery.Forrelation.binomTail_small",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qr-large-binomial-tail",
+   "declaration": "QuarticQuery.Forrelation.binomTail_large",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-sharp-physical-decoder-cap",
    "declaration": "QuarticQuery.Paper.construction_decoder_sharp",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
   },
   {
    "tie": "qr-final-signed-range",
    "declaration": "QuarticQuery.Forrelation.test_bounds",
    "field": "fidelity_note",
-   "reason": "Mathematics set in $…$ and Lean names in backticks; the words are unchanged."
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "tie": "qr-expanded-circuit-count",
+   "declaration": "QuarticQuery.Forrelation.forrCircuit_size_eq",
+   "field": "fidelity_note",
+   "reason": "Mathematics set in $…$ and Lean names in backticks; words standing for a formula are replaced by it, other words unchanged."
+  },
+  {
+   "declaration": "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q",
+   "returned_title": "The sensitivity graph gives lambda at most 35 Q",
+   "title": [
+    "The sensitivity graph gives $\\lambda$ at most $35Q$",
+    "The sensitivity graph gives λ at most 35Q"
+   ],
+   "reason": "Mathematics written in plain ASCII is set as inline TeX with a Unicode reading."
   }
  ],
  "topics": [
@@ -730,7 +1231,7 @@
      ],
      "relation": "contains",
      "fidelity": "stronger",
-     "fidelity_note": "The declaration fixes c=1/400 and b=6, names the realizing circuit, and gives its size; the display allows unspecified positive constants."
+     "fidelity_note": "The declaration fixes $c=1/400$ and $b=6$, names the realizing circuit, and gives its size; the display allows unspecified positive constants."
     }
    ]
   },
@@ -909,7 +1410,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean assumes only 1≤k, while this section fixes k≥2; the displayed product and threshold agree."
+     "fidelity_note": "Lean assumes only $1\\le k$, while this section fixes $k\\ge 2$; the displayed product and threshold agree."
     }
    ]
   },
@@ -994,7 +1495,7 @@
      ],
      "relation": "contains",
      "fidelity": "stronger",
-     "fidelity_note": "Lean permits k≥1 and t≥0, while the lemma uses k≥2 and t≥1; it also supplies a retained-state physical continuation."
+     "fidelity_note": "Lean permits $k\\ge 1$ and $t\\ge 0$, while the lemma uses $k\\ge 2$ and $t\\ge 1$; it also supplies a retained-state physical continuation."
     }
    ]
   },
@@ -1016,7 +1517,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean allows k≥1 rather than the lemma’s k≥2; the exact domain/value and size conclusions agree."
+     "fidelity_note": "Lean allows $k\\ge 1$ rather than the lemma’s $k\\ge 2$; the exact domain/value and size conclusions agree."
     }
    ]
   },
@@ -1353,7 +1854,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This declaration gives the exact count, which simplifies to the equality shown after r=20ℓ. It does not give the displayed cubic upper bound."
+     "fidelity_note": "This declaration gives the exact count, which simplifies to the equality shown after $r=20\\ell$. It does not give the displayed cubic upper bound."
     },
     {
      "name": "QuarticQuery.Paper.construction_K_bound",
@@ -1533,7 +2034,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The type gives the final comparison success bound 1−ε under the decoding-repetition hypothesis. It does not state the intermediate inequality against the probability of correct address decoding."
+     "fidelity_note": "The type gives the final comparison success bound $1-\\varepsilon$ under the decoding-repetition hypothesis. It does not state the intermediate inequality against the probability of correct address decoding."
     }
    ]
   },
@@ -1821,7 +2322,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem states absence $\\le\\Pr[W_T\\ge 1/2]\\le 2m/2^T$. The intermediate $\\Pr[W_T\\ge 1/2]\\le 2\\,\\mathbb{E}\\, W_T$ is used in its proof, not exposed in its type."
+     "fidelity_note": "The theorem states $\\Pr[s\\notin L_T]\\le\\Pr[W_T\\ge 1/2]\\le 2m/2^T$. The intermediate $\\Pr[W_T\\ge 1/2]\\le 2\\,\\mathbb{E}\\, W_T$ is used in its proof, not exposed in its type."
     }
    ]
   },
@@ -1906,7 +2407,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The formal budget is bounded with the explicit factor 6072; fixed ε=1/(1000T) converts the printed logarithmic forms."
+     "fidelity_note": "The formal budget is bounded with the explicit factor 6072; fixed $\\varepsilon=1/(1000T)$ converts the printed logarithmic forms."
     }
    ]
   },
@@ -2141,7 +2642,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The theorem gives an explicit factor 276 and uses testCost=ℓ+1 in the stated t≥1 range."
+     "fidelity_note": "The theorem gives an explicit factor 276 and uses `testCost=ℓ+1` in the stated $t\\ge 1$ range."
     }
    ]
   },
@@ -2196,7 +2697,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The theorem fixes the logarithmic exponent to 6 and allows k=l+1≥1; the paper states k≥2 and an unspecified k-dependent polylogarithmic power."
+     "fidelity_note": "The theorem fixes the logarithmic exponent to 6 and allows $k=l+1\\ge 1$; the paper states $k\\ge 2$ and an unspecified $k$-dependent polylogarithmic power."
     }
    ]
   },
@@ -2284,7 +2785,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The Lean theorem has no t ≥ 1 hypothesis; it also permits t = 0 whenever its three hardness and allowance premises hold."
+     "fidelity_note": "The Lean theorem has no $t \\ge 1$ hypothesis; it also permits $t = 0$ whenever its three hardness and allowance premises hold."
     }
    ],
    "after": "<a id=\"CL-generic-statement\"></a>"
@@ -2506,7 +3007,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The weighted inequality assumes only μ≥0 and allows arbitrary transcript data. The paper additionally normalizes μ, supports it on promised inputs, and uses valid planted certificates for the probability interpretation."
+     "fidelity_note": "The weighted inequality assumes only $\\mu\\ge 0$ and allows arbitrary transcript data. The paper additionally normalizes $\\mu$, supports it on promised inputs, and uses valid planted certificates for the probability interpretation."
     }
    ],
    "after": "<a id=\"CL-first-difference\"></a>"
@@ -2573,7 +3074,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The equality holds algebraically for arbitrary real auxiliary weights μ. The paper assumes a probability law; independent uniform selection of I is built into coupledAvg in both formulations."
+     "fidelity_note": "The equality holds algebraically for arbitrary real auxiliary weights $\\mu$. The paper assumes a probability law; independent uniform selection of $I$ is built into `coupledAvg` in both formulations."
     }
    ],
    "after": "<a id=\"CL-erased-zero-identity\"></a>"
@@ -2821,7 +3322,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean permits any natural query position t and any finite tree; the paper restricts q to 1,…,G for a depth-G tree. Use t=q−1 for zero-based indexing."
+     "fidelity_note": "Lean permits any natural query position $t$ and any finite tree; the paper restricts $q$ to $1,\\dots,G$ for a depth-$G$ tree. Use $t=q-1$ for zero-based indexing."
     }
    ],
    "after": "<a id=\"CL-joint-event\"></a>"
@@ -3301,7 +3802,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The Lean theorem gives $G(2/3)^{40t} \\le m^{2-20\\log_2(3/2)}/100$. It does not include the displayed further inequality $\\le m^{-8}/100$."
+     "fidelity_note": "The Lean theorem gives $G(2/3)^{40t} \\le m^{2-20\\log_2(3/2)}/100$. It does not include the displayed further inequality $m^{2-20\\log_2(3/2)}/100\\le m^{-8}/100$."
     }
    ],
    "after": "<a id=\"CL-tail-numeric\"></a>"
@@ -3481,7 +3982,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean proves the algebra for arbitrary real lower exponent s, coefficient c, nonnegative q, and scale W≥1. The displayed statement specializes c=1/400, s=2−1/k, and W=log₂m."
+     "fidelity_note": "Lean proves the algebra for arbitrary real lower exponent $s$, coefficient $c$, nonnegative $q$, and scale $W\\ge 1$. The displayed statement specializes $c=1/400$, $s=2-1/k$, and $W=\\log_2 m$."
     }
    ],
    "after": "<a id=\"ROOT-RATIO\"></a>"
@@ -3537,7 +4038,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "Lean only assumes α<4, while the surrounding section fixes 0≤α<4."
+     "fidelity_note": "Lean only assumes $\\alpha<4$, while the surrounding section fixes $0\\le\\alpha<4$."
     }
    ],
    "after": "<a id=\"R3-01-QUANTIFIERS\"></a>"
@@ -3703,7 +4204,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The first matrix identity.",
-     "fidelity_note": "This declaration supplies only WWᵀ=mI. The complete selected display also asserts the other matrix and vector normalization identities, which are separate declarations."
+     "fidelity_note": "This declaration supplies only $WW^\\top=mI$. The complete selected display also asserts the other matrix and vector normalization identities, which are separate declarations."
     },
     {
      "name": "QuarticQuery.Forrelation.H_transpose",
@@ -3715,7 +4216,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "Symmetry of the normalized transform.",
-     "fidelity_note": "This declaration supplies only Hᵀ=H. The complete selected display also asserts the other matrix and vector normalization identities, which are separate declarations."
+     "fidelity_note": "This declaration supplies only $H^\\top=H$. The complete selected display also asserts the other matrix and vector normalization identities, which are separate declarations."
     },
     {
      "name": "QuarticQuery.Forrelation.H_mul_H",
@@ -3727,7 +4228,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The square of the transform.",
-     "fidelity_note": "This declaration supplies only H²=I. The complete selected display also asserts the other matrix and vector normalization identities, which are separate declarations."
+     "fidelity_note": "This declaration supplies only $H^2=I$. The complete selected display also asserts the other matrix and vector normalization identities, which are separate declarations."
     },
     {
      "name": "QuarticQuery.Forrelation.u_dot_self",
@@ -3739,7 +4240,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "Unit norm, stated as squared norm one.",
-     "fidelity_note": "This declaration supplies only ‖u‖₂=1, expressed as u·u=1. The complete selected display also asserts the other matrix and vector normalization identities, which are separate declarations."
+     "fidelity_note": "This declaration supplies only $\\|u\\|_2=1$, expressed as $u\\cdot u=1$. The complete selected display also asserts the other matrix and vector normalization identities, which are separate declarations."
     },
     {
      "name": "QuarticQuery.Forrelation.isOrth_signDiag",
@@ -3971,7 +4472,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The source statement gives the exact one-coordinate affine decomposition for arbitrary real μ. It does not separately assert that the full multivariate function is a polynomial, as the selected sentence also does."
+     "fidelity_note": "The source statement gives the exact one-coordinate affine decomposition for arbitrary real $\\mu$. It does not separately assert that the full multivariate function is a polynomial, as the selected sentence also does."
     }
    ]
   },
@@ -4092,7 +4593,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The mixed-derivative expectation for distinct coordinates.",
-     "fidelity_note": "Under distinct derivative coordinates and |μᵢ|<1, the theorem gives the mixed-derivative expectation identity. It does not state the separate centering or magnitude-two assertions in the selected display."
+     "fidelity_note": "Under distinct derivative coordinates and $|\\mu_i|<1$, the theorem gives the mixed-derivative expectation identity. It does not state the separate centering or magnitude-two assertions in the selected display."
     },
     {
      "name": "QuarticQuery.ForrelationLower.xi_mean",
@@ -4103,7 +4604,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The paper introduces centering under |μᵢ|<1. The named centering lemma assumes hμ : ∀ a, |μ a| ≤ 1/2, the narrower bias range used later."
+     "fidelity_note": "The paper introduces centering under $|\\mu_i|<1$. The named centering lemma assumes `hμ : ∀ a, |μ a| ≤ 1/2`, the narrower bias range used later."
     },
     {
      "name": "QuarticQuery.ForrelationLower.abs_xi_le",
@@ -4115,7 +4616,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The bound two in the narrower bias box.",
-     "fidelity_note": "The theorem proves only |ξᵢ|≤2 under |μᵢ|≤1/2. It does not give either the mixed-derivative identity or the centering identity in the selected display."
+     "fidelity_note": "The theorem proves only $|\\xi_i|\\le 2$ under $|\\mu_i|\\le 1/2$. It does not give either the mixed-derivative identity or the centering identity in the selected display."
     }
    ]
   },
@@ -4137,7 +4638,7 @@
      ],
      "relation": "defines",
      "fidelity": "weaker",
-     "fidelity_note": "This definition supplies q(x)=√(2+x²). The selected display introduces three functions; the other definitions are separate links."
+     "fidelity_note": "This definition supplies $q(x)=\\sqrt{2+x^2}$. The selected display introduces three functions; the other definitions are separate links."
     },
     {
      "name": "QuarticQuery.ForrelationLower.psiS",
@@ -4148,7 +4649,7 @@
      ],
      "relation": "defines",
      "fidelity": "weaker",
-     "fidelity_note": "This definition supplies Ψ(x)=1/(2q(x)). The selected display introduces three functions; the other definitions are separate links."
+     "fidelity_note": "This definition supplies $\\Psi(x)=1/(2q(x))$. The selected display introduces three functions; the other definitions are separate links."
     },
     {
      "name": "QuarticQuery.ForrelationLower.phiS",
@@ -4159,7 +4660,7 @@
      ],
      "relation": "defines",
      "fidelity": "weaker",
-     "fidelity_note": "This definition supplies φ(x)=x(3+x²)/(2q(x)³). The selected display introduces three functions; the other definitions are separate links."
+     "fidelity_note": "This definition supplies $\\varphi(x)=x(3+x^2)/(2q(x)^3)$. The selected display introduces three functions; the other definitions are separate links."
     }
    ]
   },
@@ -4250,7 +4751,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The sharp upper inequality; the product formula and positivity come from the definitions and positivity lemmas.",
-     "fidelity_note": "The theorem states the upper inequality Ψ(x)φ′(y)≤3/16. The selected display additionally asserts strict positivity and an explicit product formula; those are not conjuncts of this theorem’s type."
+     "fidelity_note": "The theorem states the upper inequality $\\Psi(x)\\varphi'(y)\\le 3/16$. The selected display additionally asserts strict positivity and an explicit product formula; those are not conjuncts of this theorem’s type."
     }
    ]
   },
@@ -4398,7 +4899,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The selected sentence distinguishes endpoint |w|≤1/2 and interior |w|≤1/4. The theorem proves |w|≤1/2 for every coordinate under l≥1 and |s|≤1; it does not state the sharper interior bound."
+     "fidelity_note": "The selected sentence distinguishes endpoint $|w|\\le 1/2$ and interior $|w|\\le 1/4$. The theorem proves $|w|\\le 1/2$ for every coordinate under $l\\ge 1$ and $|s|\\le 1$; it does not state the sharper interior bound."
     }
    ]
   },
@@ -4453,7 +4954,7 @@
      ],
      "relation": "proof",
      "fidelity": "weaker",
-     "fidelity_note": "The selected proof slice establishes the averaged derivative for 0<s<1 using a dominated derivative bound. It does not export the polynomial-in-s claim or the endpoint derivative formula.",
+     "fidelity_note": "The selected proof slice establishes the averaged derivative for $0<s<1$ using a dominated derivative bound. It does not export the polynomial-in-$s$ claim or the endpoint derivative formula.",
      "link_note": "The local derivative-under-the-integral step."
     }
    ]
@@ -4616,7 +5117,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This definition gives the integer path sum with unnormalized Walsh signs. The selected display is the normalized real Φ expansion; it additionally needs the denominator and the definition of H."
+     "fidelity_note": "This definition gives the integer path sum with unnormalized Walsh signs. The selected display is the normalized real $\\Phi$ expansion; it additionally needs the denominator and the definition of $H$."
     },
     {
      "name": "QuarticQuery.forrelationDenominator",
@@ -4682,7 +5183,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem gives the upper bound for q(x). The selected display also gives the lower bound for Ψ(x)φ′(y), supplied by a separate theorem."
+     "fidelity_note": "This theorem gives the upper bound for $q(x)$. The selected display also gives the lower bound for $\\Psi(x)\\varphi'(y)$, supplied by a separate theorem."
     },
     {
      "name": "QuarticQuery.ForrelationLower.psi_dphi_ge",
@@ -4693,7 +5194,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem gives the lower bound for Ψ(x)φ′(y). It uses, but does not itself state, the separate q(x) bound also printed in the selected display."
+     "fidelity_note": "This theorem gives the lower bound for $\\Psi(x)\\varphi'(y)$. It uses, but does not itself state, the separate $q(x)$ bound also printed in the selected display."
     }
    ]
   },
@@ -4749,7 +5250,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The increase over the uniform mean is at least aₖ.",
-     "fidelity_note": "The theorem gives correlated mean minus uniform mean $\\ge 18^{-(k-1)}$. The selected display additionally identifies the uniform mean as zero and compares $18^{-(k-1)}$ with $32\\delta$; those are supplied by the other two links."
+     "fidelity_note": "The theorem gives correlated mean minus uniform mean is at least $18^{-(k-1)}$. The selected display additionally identifies the uniform mean as zero and compares $18^{-(k-1)}$ with $32\\delta$; those are supplied by the other two links."
     },
     {
      "name": "QuarticQuery.ForrelationLower.ext_PhiF_zero",
@@ -4772,7 +5273,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "link_note": "The numerical margin aₖ≥32δ.",
+     "link_note": "The numerical margin $a_k\\ge 32\\delta$.",
      "fidelity_note": "The theorem gives the numerical inequality $32\\delta\\le 18^{-(k-1)}$. It does not state the correlated-distribution mean inequality in the selected display."
     }
    ]
@@ -4967,7 +5468,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The paper uses centered factors bounded by 2 and K²=8dΛ. The theorem allows any factor bound B₀>0 with K²=2dB₀²Λ, and specializes to the paper at B₀=2."
+     "fidelity_note": "The paper uses centered factors bounded by 2 and $K^2=8d\\Lambda$. The theorem allows any factor bound $B_0>0$ with $K^2=2dB_0^2\\Lambda$, and specializes to the paper at $B_0=2$."
     }
    ]
   },
@@ -5011,7 +5512,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The paper’s g may have arbitrary real leaf labels. This intermediate theorem uses a Boolean QueryTree and a single bounded map v : Bool → ℝ. It also permits a general factor bound B₀, specialized to 2 here; the lost real-leaf generality is the reason for the weaker classification."
+     "fidelity_note": "The paper’s $g$ may have arbitrary real leaf labels. This intermediate theorem uses a Boolean `QueryTree` and a single bounded map `v : Bool → ℝ`. It also permits a general factor bound $B_0$, specialized to 2 here; the lost real-leaf generality is the reason for the weaker classification."
     }
    ]
   },
@@ -5226,7 +5727,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This declaration states R ≤ D for every partial function, but does not supply the displayed quartic bound on D. The companion link supplies that component."
+     "fidelity_note": "This declaration states $R \\le D$ for every partial function, but does not supply the displayed quartic bound on $D$. The companion link supplies that component."
     }
    ],
    "after": "<!-- passage:R3-A-RESULT -->"
@@ -5382,7 +5883,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem gives bs(f)≤1225 Q(f)² only; the other three roadmap inequalities are the separate linked results."
+     "fidelity_note": "This theorem gives $\\mathrm{bs}(f)\\le 1225\\, Q(f)^2$ only; the other three roadmap inequalities are the separate linked results."
     },
     {
      "name": "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q",
@@ -5393,7 +5894,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem gives λ(f)≤35 Q(f) only; it does not also state the block-sensitivity, degree, or deterministic bounds."
+     "fidelity_note": "This theorem gives $\\lambda(f)\\le 35\\, Q(f)$ only; it does not also state the block-sensitivity, degree, or deterministic bounds."
     },
     {
      "name": "QuarticQuery.Paper.appendixA4_paper_route",
@@ -5404,7 +5905,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem gives deg(f)≤λ(f)² only; it does not state either query bound or the deterministic product bound."
+     "fidelity_note": "This theorem gives $\\deg(f)\\le\\lambda(f)^2$ only; it does not state either query bound or the deterministic product bound."
     },
     {
      "name": "QuarticQuery.Paper.appendixA_lemmaA5",
@@ -5415,7 +5916,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem gives D(f)≤bs(f)deg(f) only; the spectral and query inequalities in the display require the other declarations."
+     "fidelity_note": "This theorem gives $D(f)\\le\\mathrm{bs}(f)\\deg(f)$ only; the spectral and query inequalities in the display require the other declarations."
     }
    ],
    "after": "<!-- passage:R3-A-DEFINITIONS -->"
@@ -5528,7 +6029,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The paper’s standing adversary hypotheses require Γ ≠ 0; the Lean eigenvector theorem needs only symmetry and entrywise nonnegativity and also covers Γ = 0."
+     "fidelity_note": "The paper’s standing adversary hypotheses require $\\Gamma \\ne 0$; the Lean eigenvector theorem needs only symmetry and entrywise nonnegativity and also covers $\\Gamma = 0$."
     }
    ],
    "after": "<!-- passage:R3-A-ADVERSARY -->"
@@ -5573,7 +6074,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The declaration permits arbitrary state vectors and arbitrary Γ,v, whereas the paper uses unit states and a nonnegative Perron vector."
+     "fidelity_note": "The declaration permits arbitrary state vectors and arbitrary $\\Gamma,v$, whereas the paper uses unit states and a nonnegative Perron vector."
     }
    ],
    "after": "<!-- passage:R3-A-ADVERSARY -->"
@@ -5662,7 +6163,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The declaration gives the final bound |⟨ψ,φ⟩| ≤ 2√2/3. It does not include the displayed intermediate expression √(ab)+√((1−a)(1−b))."
+     "fidelity_note": "The declaration gives the final bound $|\\langle\\psi,\\varphi\\rangle| \\le 2\\sqrt{2}/3$. It does not include the displayed intermediate expression $\\sqrt{ab}+\\sqrt{(1-a)(1-b)}$."
     }
    ],
    "after": "<!-- passage:R3-A-ADVERSARY -->"
@@ -5707,7 +6208,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The declaration states the outer inequality (1−2√2/3)‖Γ‖ ≤ 2TM under the displayed algorithm/Perron hypotheses, but omits the intermediate |W₀−Wq| term. Its parameter T is the cap before the paper substitutes q=Q(f)."
+     "fidelity_note": "The declaration states the outer inequality $(1-2\\sqrt{2}/3)\\|\\Gamma\\| \\le 2TM$ under the displayed algorithm/Perron hypotheses, but omits the intermediate $|W_0-W_q|$ term. Its parameter $T$ is the cap before the paper substitutes $q=Q(f)$."
     }
    ],
    "after": "<!-- passage:R3-A-ADVERSARY -->"
@@ -5865,7 +6366,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The Lean equality needs only #S = degree f, whereas the paper has additionally chosen a nonzero coefficient on S."
+     "fidelity_note": "The Lean equality needs only `#S = degree f`, whereas the paper has additionally chosen a nonzero coefficient on $S$."
     }
    ],
    "after": "<!-- passage:R3-A-FACE -->"
@@ -6020,7 +6521,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The eigenvalue alternative is proved also for d=0. The paper assumes j≥1 to say the two possible eigenvalues are distinct; distinctness is not asserted by this declaration."
+     "fidelity_note": "The eigenvalue alternative is proved also for $d=0$. The paper assumes $j\\ge 1$ to say the two possible eigenvalues are distinct; distinctness is not asserted by this declaration."
     }
    ],
    "after": "<!-- passage:R3-A-HUANG -->"
@@ -6291,7 +6792,7 @@
      ],
      "relation": "defines",
      "fidelity": "different",
-     "fidelity_note": "classicalLocalConsistent tests the recorded answer equalities on the full Boolean cube; it does not itself require x∈D. Promise support is supplied by the prior μ."
+     "fidelity_note": "`classicalLocalConsistent` tests the recorded answer equalities on the full Boolean cube; it does not itself require $x\\in D$. Promise support is supplied by the prior $\\mu$."
     }
    ],
    "after": "<a id=\"CL-product-law\"></a>"
@@ -7007,7 +7508,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This declaration gives L≤m (already under k≥1,t≥1), not the lower bound 1≤L. The two declarations together establish the displayed interval."
+     "fidelity_note": "This declaration gives $L\\le m$ (already under $k\\ge 1,t\\ge 1$), not the lower bound $1\\le L$. The two declarations together establish the displayed interval."
     }
    ],
    "after": "<a id=\"CL-floors\"></a>"
@@ -7201,7 +7702,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The selected sentence uses the explicit t₀ from (C.2) with the paper’s choice τ=30k. bansalSinhaLower exports only existence of a sufficient t₀ and its proof chooses τ existentially. The general threshold witness is separately linked, but this theorem does not specify that repetition count or threshold."
+     "fidelity_note": "The selected sentence uses the explicit $t_0$ from (C.2) with the paper’s choice $\\tau=30k$. `bansalSinhaLower` exports only existence of a sufficient $t_0$ and its proof chooses $\\tau$ existentially. The general threshold witness is separately linked, but this theorem does not specify that repetition count or threshold."
     }
    ]
   },
@@ -7265,7 +7766,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The paper states k≥2 and t≥1. The theorem uses k=l+1 with arbitrary natural l, so it also includes k=1; the t≥1 condition and the fixed forrCircuit agree."
+     "fidelity_note": "The paper states $k\\ge 2$ and $t\\ge 1$. The theorem uses $k=l+1$ with arbitrary natural $l$, so it also includes $k=1$; the $t\\ge 1$ condition and the fixed `forrCircuit` agree."
     }
    ]
   },
@@ -7287,7 +7788,7 @@
      ],
      "relation": "states",
      "fidelity": "weaker",
-     "fidelity_note": "The paper allows every centered W in [-B,B]. The theorem allows only a two-point law with probabilities p0,p1, values a0,a1, and B>0. It states the final exponential bound; the cosh comparison appears inside its proof."
+     "fidelity_note": "The paper allows every centered $W$ in $[-B,B]$. The theorem allows only a two-point law with probabilities $p_0,p_1$, values $a_0,a_1$, and $B>0$. It states the final exponential bound; the cosh comparison appears inside its proof."
     }
    ]
   },
@@ -7353,7 +7854,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem supplies only 4/(mδ²)≤δ; the selected display states three separate numerical estimates. The other two are linked independently with their own hypotheses."
+     "fidelity_note": "This theorem supplies only $4/(m\\delta^2)\\le\\delta$; the selected display states three separate numerical estimates. The other two are linked independently with their own hypotheses."
     }
    ]
   },
@@ -7441,7 +7942,7 @@
      ],
      "relation": "part",
      "fidelity": "same",
-     "link_note": "The endpoint inequality ln(4km)≤6t under 1≤k≤t."
+     "link_note": "The endpoint inequality $\\ln(4km)\\le 6t$ under $1\\le k\\le t$."
     }
    ]
   },
@@ -7464,7 +7965,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The first strict lower bound under the dimension condition.",
-     "fidelity_note": "The theorem gives the first sharp lower bound under 15k+2≤2t. The selected chain additionally bounds its denominator, compares 54675k²t with 4t², and passes to the floor under t≥13669k²; those later comparisons are not its conclusion."
+     "fidelity_note": "The theorem gives the first sharp lower bound under $15k+2\\le 2t$. The selected chain additionally bounds its denominator, compares $54675k^2t$ with $4t^2$, and passes to the floor under $t\\ge 13669k^2$; those later comparisons are not its conclusion."
     },
     {
      "name": "QuarticQuery.log_four_k_m_le",
@@ -7476,7 +7977,7 @@
      "relation": "part",
      "fidelity": "weaker",
      "link_note": "The logarithmic estimate for the next comparison.",
-     "fidelity_note": "The theorem states only ln(4km)≤6t for 1≤k≤t. It helps the second line of the selected chain, but does not assert a query lower bound or either final floor comparison."
+     "fidelity_note": "The theorem states only $\\ln(4km)\\le 6t$ for $1\\le k\\le t$. It helps the second line of the selected chain, but does not assert a query lower bound or either final floor comparison."
     },
     {
      "name": "QuarticQuery.lvalue_lt_R_explicit",
@@ -7487,7 +7988,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The displayed chain assumes k≥2 and t≥13669k² and ends at the floor allowance. The named floor theorem assumes the larger threshold t≥3499200k². Neither 13669 nor the optional ceiling threshold is exported in that theorem; the sharp suppliers are separate links."
+     "fidelity_note": "The displayed chain assumes $k\\ge 2$ and $t\\ge 13669k^2$ and ends at the floor allowance. The named floor theorem assumes the larger threshold $t\\ge 3499200k^2$. Neither 13669 nor the optional ceiling threshold is exported in that theorem; the sharp suppliers are separate links."
     }
    ]
   },
@@ -7509,7 +8010,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem gives a one-input for every t when k≥2. The selected phrase asserts that both promise values occur; the zero-input existence is a separate theorem with a dimension hypothesis."
+     "fidelity_note": "This theorem gives a one-input for every $t$ when $k\\ge 2$. The selected phrase asserts that both promise values occur; the zero-input existence is a separate theorem with a dimension hypothesis."
     },
     {
      "name": "QuarticQuery.ForrelationLower.exists_P_no",
@@ -7520,7 +8021,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem gives a zero-input when 10k+3≤2t. The selected phrase asserts that both promise values occur; the one-input existence is supplied separately."
+     "fidelity_note": "This theorem gives a zero-input when $10k+3\\le 2t$. The selected phrase asserts that both promise values occur; the one-input existence is supplied separately."
     }
    ]
   },
@@ -7608,7 +8109,7 @@
      ],
      "relation": "defines",
      "fidelity": "weaker",
-     "fidelity_note": "The definition gives the first two lines algebraically. The W=0 line additionally uses the paper’s premise f(L)=1; that premise is not part of the definition."
+     "fidelity_note": "The definition gives the first two lines algebraically. The $W=0$ line additionally uses the paper’s premise $f(L)=1$; that premise is not part of the definition."
     }
    ],
    "after": "<!-- passage:upper-continuation-induction -->"
@@ -7631,7 +8132,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The theorem does not require the surrounding W=0 ⇒ f(L)=1 condition; its upper bound remains valid with any stopping probabilities in [0,1]."
+     "fidelity_note": "The theorem does not require the surrounding $W=0 \\Rightarrow f(L)=1$ condition; its upper bound remains valid with any stopping probabilities in $[0,1]$."
     }
    ],
    "after": "<!-- passage:upper-continuation-induction -->"
@@ -7699,7 +8200,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The theorem needs only v(s)=1 and 0≤v≤1, not the stronger requirement that v be the exact indicator of s. It proves the numerical continuation bound, with the membership interpretation supplied by that choice."
+     "fidelity_note": "The theorem needs only $v(s)=1$ and $0\\le v\\le 1$, not the stronger requirement that $v$ be the exact indicator of $s$. It proves the numerical continuation bound, with the membership interpretation supplied by that choice."
     }
    ],
    "after": "<!-- passage:upper-continuation-induction -->"
@@ -7880,7 +8381,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem contains the displayed state expansion for 0<p<1, but does not state the displayed squared-norm probability formula; the companion declaration supplies it."
+     "fidelity_note": "The theorem contains the displayed state expansion for $0<p<1$, but does not state the displayed squared-norm probability formula; the companion declaration supplies it."
     },
     {
      "name": "QuarticQuery.Amplification.Preparation.norm_good_iterate_sq",
@@ -7914,7 +8415,7 @@
      ],
      "relation": "contains",
      "fidelity": "weaker",
-     "fidelity_note": "The declaration concludes PhaseEq, allowing any unit complex phase. The sentence identifies the phase more specifically as the real sign +1 or −1; that specificity is not in this theorem’s conclusion."
+     "fidelity_note": "The declaration concludes `PhaseEq`, allowing any unit complex phase. The sentence identifies the phase more specifically as the real sign $+1$ or $-1$; that specificity is not in this theorem’s conclusion."
     }
    ],
    "after": "<!-- passage:upper-grover-geometry -->"
@@ -8048,7 +8549,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The theorem requires γ≤p≤1/2 but not γ>0, whereas the amplification section has the standing premise γ>0."
+     "fidelity_note": "The theorem requires $\\gamma\\le p\\le 1/2$ but not $\\gamma>0$, whereas the amplification section has the standing premise $\\gamma>0$."
     }
    ],
    "after": "<!-- passage:upper-small-probability -->"
@@ -8138,7 +8639,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem proves calls≤N(2M+1), without the logarithmic estimate. The companion declaration proves the second inequality."
+     "fidelity_note": "This theorem proves $\\mathrm{calls}\\le N(2M+1)$, without the logarithmic estimate. The companion declaration proves the second inequality."
     },
     {
      "name": "QuarticQuery.Paper.amplification_budget_le",
@@ -8172,7 +8673,7 @@
      ],
      "relation": "contains",
      "fidelity": "weaker",
-     "fidelity_note": "The concrete theorem gives the stronger numerical bound success≥p/2, but only for a basis-label success predicate S; the surrounding paper statement allows an arbitrary fixed success projector."
+     "fidelity_note": "The concrete theorem gives the stronger numerical bound $\\mathrm{success}\\ge p/2$, but only for a basis-label success predicate $S$; the surrounding paper statement allows an arbitrary fixed success projector."
     }
    ],
    "after": "<!-- passage:upper-amplification-proof -->"
@@ -8195,7 +8696,7 @@
      ],
      "relation": "contains",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem proves the factorization for a Boolean basis-label success predicate S, with auxiliary and original factors ordered ξ⊗g. The general-projector interface in the paper is not established by this declaration; equality of auxiliary norm and success is asserted when p>0."
+     "fidelity_note": "The theorem proves the factorization for a Boolean basis-label success predicate $S$, with auxiliary and original factors ordered $\\xi\\otimes g$. The general-projector interface in the paper is not established by this declaration; equality of auxiliary norm and success is asserted when $p>0$."
     }
    ],
    "after": "<!-- passage:upper-returned-register -->"
@@ -9038,7 +9539,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This declaration proves only R(f)≤q iff RLe f q; the display also contains the deterministic equivalence and R≤D≤|I|."
+     "fidelity_note": "This declaration proves only $R(f)\\le q$ iff `RLe f q`; the display also contains the deterministic equivalence and $R\\le D\\le|I|$."
     },
     {
      "name": "QuarticQuery.D_le_iff",
@@ -9049,7 +9550,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This declaration proves only D(f)≤q iff DLe f q; the display also contains the randomized equivalence and R≤D≤|I|."
+     "fidelity_note": "This declaration proves only $D(f)\\le q$ iff `DLe f q`; the display also contains the randomized equivalence and $R\\le D\\le|I|$."
     },
     {
      "name": "QuarticQuery.R_le_D",
@@ -9060,7 +9561,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This declaration proves only R(f)≤D(f); the two budget equivalences and the cardinality upper bound are supplied by the other links."
+     "fidelity_note": "This declaration proves only $R(f)\\le D(f)$; the two budget equivalences and the cardinality upper bound are supplied by the other links."
     },
     {
      "name": "QuarticQuery.D_le_card",
@@ -9071,7 +9572,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This declaration proves only D(f)≤|I|; it does not state R≤D or either budget equivalence."
+     "fidelity_note": "This declaration proves only $D(f)\\le|I|$; it does not state $R\\le D$ or either budget equivalence."
     }
    ],
    "after": "<!-- passage:R3-01-CLASSICAL -->"
@@ -9416,7 +9917,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem supplies Q(f)≤D(f), but not D(f)≤|I| or the admissible-budget equivalence."
+     "fidelity_note": "The theorem supplies $Q(f)\\le D(f)$, but not $D(f)\\le|I|$ or the admissible-budget equivalence."
     },
     {
      "name": "QuarticQuery.D_le_card",
@@ -9427,7 +9928,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem supplies D(f)≤|I|, but not Q(f)≤D(f) or the quantum-budget equivalence."
+     "fidelity_note": "The theorem supplies $D(f)\\le|I|$, but not $Q(f)\\le D(f)$ or the quantum-budget equivalence."
     },
     {
      "name": "QuarticQuery.Q_le_iff",
@@ -9438,7 +9939,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The theorem supplies Q(f)≤q iff QLe f q, but not the comparison with D or the coordinate count."
+     "fidelity_note": "The theorem supplies $Q(f)\\le q$ iff `QLe f q`, but not the comparison with $D$ or the coordinate count."
     }
    ],
    "after": "<!-- passage:R3-01-ADAPTIVE -->"
@@ -9684,7 +10185,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The declaration states only Q(id₁)=1. It does not state the displayed deterministic or randomized equalities."
+     "fidelity_note": "The declaration states only $Q(\\mathrm{id}_1)=1$. It does not state the displayed deterministic or randomized equalities."
     }
    ],
    "after": "<!-- passage:R3-01-IDENTITY -->"
@@ -9752,7 +10253,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The declaration proves R(OR₂)=1 only. It does not prove the display’s D(OR₂)=2 component."
+     "fidelity_note": "The declaration proves $R(\\mathrm{OR}_2)=1$ only. It does not prove the display’s $D(\\mathrm{OR}_2)=2$ component."
     }
    ],
    "after": "<!-- passage:R3-01-OR -->"
@@ -9797,7 +10298,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem states only R(trueOnly)=0. The displayed D and Q values are separate; Q has the companion direct declaration, while D follows from the general zero-query characterization."
+     "fidelity_note": "This theorem states only $R(\\mathtt{trueOnly})=0$. The displayed $D$ and $Q$ values are separate; $Q$ has the companion direct declaration, while $D$ follows from the general zero-query characterization."
     },
     {
      "name": "QuarticQuery.SemanticReview.trueOnly_Q_eq_zero",
@@ -9808,7 +10309,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "This theorem states only Q(trueOnly)=0. The displayed D and R values are separate; R has the companion direct declaration, while D follows from the general zero-query characterization."
+     "fidelity_note": "This theorem states only $Q(\\mathtt{trueOnly})=0$. The displayed $D$ and $R$ values are separate; $R$ has the companion direct declaration, while $D$ follows from the general zero-query characterization."
     }
    ],
    "after": "<!-- passage:R3-01-OFFPROMISE -->"
@@ -9970,7 +10471,7 @@
      ],
      "relation": "states",
      "fidelity": "stronger",
-     "fidelity_note": "The finite-sum identity holds for all real p and a; the probability reading here uses 0≤p≤1 and a>0."
+     "fidelity_note": "The finite-sum identity holds for all real $p$ and $a$; the probability reading here uses $0\\le p\\le 1$ and $a>0$."
     }
    ]
   },
@@ -9992,7 +10493,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The type states the final error bound exp(−qc/16); the intermediate exponential-moment inequalities in the selected display occur in supporting lemmas and proof steps."
+     "fidelity_note": "The type states the final error bound $\\exp(-qc/16)$; the intermediate exponential-moment inequalities in the selected display occur in supporting lemmas and proof steps."
     }
    ]
   },
@@ -10014,7 +10515,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The type states exp(−qc/16); it does not state the stronger intermediate exp(−qc/10) bound or the displayed moment chain."
+     "fidelity_note": "The type states $\\exp(-qc/16)$; it does not state the stronger intermediate $\\exp(-qc/10)$ bound or the displayed moment chain."
     }
    ]
   },
@@ -10432,7 +10933,7 @@
      ],
      "relation": "part",
      "fidelity": "weaker",
-     "fidelity_note": "The type states S=coreSize+3. The displayed closed expression additionally unfolds coreSize, layerCost and whtCost and solves their arithmetic recurrences."
+     "fidelity_note": "The type states `S=coreSize+3`. The displayed closed expression additionally unfolds `coreSize`, `layerCost` and `whtCost` and solves their arithmetic recurrences."
     }
    ]
   },
@@ -10704,7 +11205,10 @@
   "QuarticQuery.Paper.appendixA_sensitiveBlock_of_restriction": "A fresh sensitive block remains sensitive in the original input",
   "QuarticQuery.Paper.appendixA_sensitivityGraph_adj_iff": "Sensitivity edges flip one bit and change the output",
   "QuarticQuery.Paper.appendixA_sensitivity_mask_norm_le_one": "Each sensitivity coordinate mask has norm at most one",
-  "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q": "The sensitivity graph gives lambda at most 35 Q",
+  "QuarticQuery.Paper.appendixA_spectralSensitivity_adversary_le_Q": [
+   "The sensitivity graph gives $\\lambda$ at most $35Q$",
+   "The sensitivity graph gives λ at most 35Q"
+  ],
   "QuarticQuery.Paper.appendixA_spectralSensitivity_eq": "Spectral sensitivity is the Euclidean adjacency norm",
   "QuarticQuery.Paper.appendixA_star_norm_eq_sqrt_card": "A star with b leaves has operator norm square root b",
   "QuarticQuery.Paper.appendixA_topFourier_survives": "A maximum-degree coefficient survives every outside assignment",
