@@ -444,7 +444,7 @@ Before any query has found the zero in a column's string, the row of that zero i
 
 ## 7.3 Reaching the filled cell
 
-**A query address is already a prediction.** To read a bit of the cell $B_{i,s}$, the algorithm must name $s$ *before* it receives the reply. If $s$ is the true address of column $i$, then at that moment the algorithm has produced all $r$ answers $P(A_{i,1}),\ldots,P(A_{i,r})$, whatever it then reads, and whether or not it computed them. In Figure 7, naming cell $10$ in column $1$ already gives both correct address digits, even if the algorithm merely guessed. The rest of the argument bounds how often an algorithm can make such a prediction.
+[]{#query-index-prediction}**A query address is already a prediction.** To read a bit of the cell $B_{i,s}$, the algorithm must name $s$ *before* it receives the reply. If $s$ is the true address of column $i$, then at that moment the algorithm has produced all $r$ answers $P(A_{i,1}),\ldots,P(A_{i,r})$, whatever it then reads, and whether or not it computed them. In Figure 7, naming cell $10$ in column $1$ already gives both correct address digits, even if the algorithm merely guessed. The rest of the argument bounds how often an algorithm can make such a prediction.
 
 **Heavy and light columns.** For each column, count the queries made to its $r$ address inputs over the *entire* run on the first board. Call the column *heavy on this run* if the count exceeds $L$, and *light* otherwise. Each heavy column uses more than $L$ of the $G$ queries, so at most $G/L$ columns are heavy, and the independent uniform column $I$ is heavy with probability at most $G/(mL)$, the second term of (7.1). It remains to bound queries to the true cell of a light column.
 

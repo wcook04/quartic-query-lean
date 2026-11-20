@@ -448,7 +448,7 @@ await assert.rejects(trusted.restore({...first.position,documentSha256:"other"})
 corrupt = true;
 await assert.rejects(trusted.readText("docs/exposition.md"), /differs/);
 corrupt = false;
-assert((await trusted.readText("docs/exposition.md")).includes("Finding a column"));
+assert((await trusted.readText("docs/exposition.md")).includes("Reading bits one at a time"));
 const img = (await trusted.resource("reading.json")).papers.exposition.assets[0];
 await assert.rejects(trusted.figure("original",img),/does not belong/);
 corruptFigure = info.resources[img].href;
