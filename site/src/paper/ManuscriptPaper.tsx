@@ -298,14 +298,18 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
     }
     if (target.closest("button") || window.getSelection()?.toString()) return;
     const block = target.closest<HTMLElement>(".source-block[data-l0]");
-    if (!block || !rows) return;
-    const id = rowFor(rows, Number(block.dataset.l0), Number(block.dataset.l1));
+    // A phrase acts wherever it sits: a paragraph, the abstract, a caption, a table cell, a list
+    // or an appendix. Outside an indexed source block it selects its own source lines.
     const phrase = target.closest<HTMLElement>(".phrase[data-phrase]:not(.is-untied)");
-    if (phrase && onPhrase) {
+    const tied = phrase && phrases?.byId.get(phrase.dataset.phrase!);
+    if (tied && onPhrase) {
+      const id = block && rows ? rowFor(rows, Number(block.dataset.l0), Number(block.dataset.l1)) : `l${tied.lines[0]}-${tied.lines[1]}`;
       own.current = id;
-      onPhrase(phrase.dataset.phrase!, id);
+      onPhrase(tied.id, id);
       return;
     }
+    if (!block || !rows) return;
+    const id = rowFor(rows, Number(block.dataset.l0), Number(block.dataset.l1));
     // Plain prose has nothing to show: a click there leaves the panel on the last linked passage.
     if (/^l\d+-\d+$/.test(id)) return;
     own.current = id;
