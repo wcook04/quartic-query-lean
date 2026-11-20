@@ -1,0 +1,36 @@
+% Figure 3 of docs/exposition.md: the two reflections of amplitude
+% amplification in the plane of the acceptance direction g and the rejection
+% direction b, drawn for theta = 20 degrees. Uses the palette of style.tex.
+% Build with tools/render_papers.py.
+\documentclass[tikz,border=4pt]{standalone}
+\input{style.tex}
+\begin{document}
+\begin{tikzpicture}[scale=3.0, font=\small]
+\def\th{20}
+% axes and unit arc
+\draw[->, black!55] (-0.15,0) -- (1.25,0) node[right] {$b$ (reject)};
+\draw[->, black!55] (0,-0.62) -- (0,1.12) node[above] {$g$ (accept)};
+\draw[black!25] (1,0) arc[start angle=0, end angle=90, radius=1];
+\draw[black!25] (1,0) arc[start angle=0, end angle=-32, radius=1];
+% prepared state at angle theta
+\draw[->, very thick, addr] (0,0) -- (\th:1) node[right=1pt] {$A|0\rangle=\sin\theta\,g+\cos\theta\,b$};
+% after the sign flip: angle -theta
+\draw[->, thick, lose, dashed] (0,0) -- (-\th:1) node[right=1pt] {after the sign flip: angle $-\theta$};
+% after reflecting about the prepared state: angle 3 theta
+\draw[->, very thick, win] (0,0) -- (3*\th:1) node[above right=0pt] {after both reflections: angle $3\theta$};
+% the mirror line through the prepared state
+\draw[addr!50, densely dotted] (0,0) -- (\th:1.18);
+% angle marks
+\draw[addr] (0.32,0) arc[start angle=0, end angle=\th, radius=0.32];
+\node[addr] at (\th/2:0.42) {$\theta$};
+\draw[lose] (0.22,0) arc[start angle=0, end angle=-\th, radius=0.22];
+\node[lose] at (-\th/2:0.32) {$\theta$};
+\draw[win] (0.5,0) arc[start angle=0, end angle=3*\th, radius=0.5];
+\node[win] at (1.5*\th:0.6) {$3\theta$};
+% projection onto g: the acceptance amplitude
+\draw[win!60, densely dashed] (3*\th:1) -- (0,{sin(3*\th)});
+\node[win, anchor=east, font=\footnotesize] at (0,{sin(3*\th)}) {$\sin3\theta$};
+\draw[addr!60, densely dashed] (\th:1) -- (0,{sin(\th)});
+\node[addr, anchor=east, font=\footnotesize] at (0,{sin(\th)}) {$\sin\theta$};
+\end{tikzpicture}
+\end{document}

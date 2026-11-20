@@ -63,7 +63,7 @@ INDEX_COMMIT = "main"
 # --check --release (run after tagging) requires the tag, its lean/ tree to equal
 # COMMIT's, and each cited record, supplement and index anchor in its own file.
 # Plain --check, for drafts before the tag exists, only reports a missing tag.
-RELEASE = "v1.0.1"
+RELEASE = "v1.0.2"
 BEGIN, END = "<!-- lean-links -->", "<!-- /lean-links -->"
 USE = re.compile(r"\]\[([A-Za-z0-9][A-Za-z0-9-]*)\]")
 # The record edition is independent of the Lean source edition.

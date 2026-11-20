@@ -1,0 +1,33 @@
+% Figure 4 of docs/exposition.md: the one-sided Forrelation promise on the
+% signed quantity Phi in [-1,1], with the three example strings of Section 5.
+% Not to scale: delta = 2^{-10} is drawn much larger. Uses style.tex.
+% Build with tools/render_papers.py.
+\documentclass[tikz,border=4pt]{standalone}
+\input{style.tex}
+\begin{document}
+\begin{tikzpicture}[x=6.2cm, font=\small]
+\def\d{0.3}
+% outside the promise
+\fill[lose!18] (-1,-0.09) rectangle (-\d/2,0.09);
+\fill[lose!18] (\d/2,-0.09) rectangle (\d,0.09);
+% digit zero and digit one
+\fill[addr!35] (-\d/2,-0.09) rectangle (\d/2,0.09);
+\fill[win!35] (\d,-0.09) rectangle (1,0.09);
+\draw[black!60] (-1,0) -- (1,0);
+\foreach \x/\l in {-1/{$-1$}, 0/{$0$}, 1/{$1$}}
+  \draw[black!60] (\x,0.12) -- (\x,-0.12) node[below=2pt] {\l};
+\draw[black!60] (-\d/2,0.12) -- (-\d/2,-0.12) node[below=2pt] {$-\tfrac{\delta}{2}$};
+\draw[black!60] (\d/2,0.12) -- (\d/2,-0.12) node[below=2pt] {$\tfrac{\delta}{2}$};
+\draw[black!60] (\d,0.12) -- (\d,-0.12) node[below=2pt] {$\delta$};
+% region labels
+\node[lose, font=\footnotesize] at (-0.55,0.3) {outside the promise};
+\node[addr, font=\footnotesize, align=center] at (0,0.33) {digit $0$};
+\node[win, font=\footnotesize] at (0.6,0.3) {digit $1$};
+\draw[lose, ->, shorten >=1pt] (0.42,0.5) node[above, font=\footnotesize] {outside} -- (0.225,0.1);
+% example strings
+\foreach \x/\n in {-1/{a^-}, 0/{a^0}, 1/{a^+}} {
+  \fill[black] (\x,0) circle[radius=0.012];
+  \node[font=\footnotesize, black!80] at (\x,-1.0) {example $\n$};}
+\node[font=\scriptsize, black!60, anchor=west] at (-1,-1.4) {not to scale: $\delta=2^{-5k}$ is drawn much larger};
+\end{tikzpicture}
+\end{document}
