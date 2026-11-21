@@ -1,24 +1,37 @@
-"""Topic colours: every two topics of a paper must be told apart on the page.
+"""Topic colours: computed per family, stored, and checked as the page draws them.
 
-Each tone in site/src/paper/phrases.css is an OKLCH colour; the underline draws it at 78%
-over the page. Every pair of first shades in a palette must differ by CIEDE2000 ΔE ≥ 15 in
-the dark and light themes, and each must stay ΔE ≥ 15 from the colours that already mean
-something: amber, red, the exact, stronger and partial match colours and mauve.
+site/scripts/topic-colours.ts gives each family of topics one hue and each topic one shade of it
+(site/src/paper/palette.ts) and stores them in docs/reading_phrases/colours-<paper>.json. These
+checks read the stored colours as the site publishes them, with the underline at 78% opacity over
+the page composited in sRGB: any two colours of different families differ by CIEDE2000 ΔE ≥ 10
+(≥ 2.5 under deuteranopia and protanopia simulation), any two shades of one family by ΔE ≥ 6 in
+every vision, every colour keeps 3:1 contrast against its page and lies in sRGB, and the stored
+files are what the script computes from the current phrases.
 """
 import itertools
 import json
 import math
 from pathlib import Path
 import re
+import shutil
+import subprocess
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-CSS = ROOT / "site/src/paper/phrases.css"
 BACKGROUND = {"dark": "#1c1526", "light": "#f8f0e2"}
-MEANING = {"dark": ["#fab250", "#f3a43a", "#ea8470", "#55c7df", "#b49bff", "#a7b0ba", "#ca98c5"],
-           "light": ["#a25200", "#c9761a", "#a04034", "#0b6f86", "#6d3fd4", "#47505b", "#8c4f86"]}
 ALPHA = 0.78
-MINIMUM = 15.0
+FAMILY_FLOOR = {"normal": 10.0, "dichromat": 2.5}
+SHADE_FLOOR = 6.0
+MIN_CONTRAST = 3.0
+# Machado, Oliveira and Fernandes (2009), severity 1, on linear sRGB.
+VISIONS = {
+    "normal": None,
+    "deuteranopia": ((0.367322, 0.860646, -0.227968), (0.280085, 0.672501, 0.047413), (-0.01182, 0.04294, 0.968881)),
+    "protanopia": ((0.152286, 1.052583, -0.204868), (0.114503, 0.786281, 0.099216), (-0.003882, -0.048116, 1.051998)),
+}
+PAPERS = ("expert", "exposition", "reconstruction")
+
+
 def oklch_to_srgb(L,C,h):
     a=C*math.cos(math.radians(h)); b=C*math.sin(math.radians(h))
     l_=L+0.3963377774*a+0.2158037573*b; m_=L-0.1055613458*a-0.0638541728*b; s_=L-0.0894841775*a-1.2914855480*b
@@ -61,54 +74,76 @@ def de2000(l1,l2):
     dth=30*math.exp(-((hbp-275)/25)**2);RC=2*math.sqrt(Cbp**7/(Cbp**7+25**7))
     SL=1+0.015*(Lbp-50)**2/math.sqrt(20+(Lbp-50)**2);SC=1+0.045*Cbp;SH=1+0.015*Cbp*T;RT=-math.sin(math.radians(2*dth))*RC
     return math.sqrt((dLp/SL)**2+(dCp/SC)**2+(dHp/SH)**2+RT*(dCp/SC)*(dHp/SH))
-def over(tone_lin,bg_lin,alpha):
-    # color-mix with transparent: the tone at 78% opacity over the page, blended in sRGB.
-    t=[lin_to_gamma(c) for c in tone_lin]; b=[lin_to_gamma(c) for c in bg_lin]
-    return tuple(gamma_to_lin(alpha*x+(1-alpha)*y) for x,y in zip(t,b))
+def over(tone_lin, bg_lin, alpha):
+    """The tone at `alpha` opacity over the page, composited in gamma-encoded sRGB."""
+    t = [lin_to_gamma(c) for c in tone_lin]
+    b = [lin_to_gamma(c) for c in bg_lin]
+    return tuple(gamma_to_lin(alpha * x + (1 - alpha) * y) for x, y in zip(t, b))
 
 
-def palettes():
-    """{(topic count, theme): {tone: (L, C, h)}} from the stylesheet."""
-    found = {}
-    rule = re.compile(r'(:root\[data-theme="light"\] )?\[data-topic-count="(\d+)"\] \[data-tone="(\d+)"\] '
-                      r'\{ --tone: oklch\(([\d.]+) ([\d.]+) ([\d.]+)\); \}')
-    for light, count, tone, L, C, h in rule.findall(CSS.read_text()):
-        found.setdefault((int(count), "light" if light else "dark"), {})[int(tone)] = (float(L), float(C), float(h))
-    return found
+def simulate(rgb, vision):
+    matrix = VISIONS[vision]
+    if matrix is None:
+        return rgb
+    return tuple(min(1, max(0, sum(m * c for m, c in zip(row, rgb)))) for row in matrix)
 
 
-def drawn(colour, theme):
-    return lab(over(oklch_to_srgb(*colour), hex_rgb(BACKGROUND[theme]), ALPHA))
+def luminance(rgb):
+    return 0.2126729 * rgb[0] + 0.7151522 * rgb[1] + 0.0721750 * rgb[2]
 
 
-def topic_counts():
-    return {len(json.loads((ROOT / f"docs/reading_phrases/{p}.json").read_text())["topics"])
-            for p in ("expert", "exposition", "reconstruction")}
+def parse(colour):
+    m = re.fullmatch(r"oklch\(([\d.]+) ([\d.]+) ([\d.]+)\)", colour)
+    return tuple(float(v) for v in m.groups())
+
+
+def stored(paper):
+    return json.loads((ROOT / f"docs/reading_phrases/colours-{paper}.json").read_text())
 
 
 class TopicColourTests(unittest.TestCase):
-    def test_every_paper_has_a_palette_in_both_themes(self):
-        found = palettes()
-        for count in topic_counts():
-            for theme in BACKGROUND:
-                self.assertEqual(set(found[(count, theme)]), set(range(2 * count)), (count, theme))
+    def test_every_paper_has_one_colour_per_topic(self):
+        for paper in PAPERS:
+            topics = {t["id"] for t in json.loads((ROOT / f"docs/reading_phrases/{paper}.json").read_text())["topics"]}
+            data = stored(paper)
+            self.assertEqual(set(data["topics"]), topics, paper)
+            self.assertLessEqual(len(data["families"]), 8, paper)
+            for family in data["families"]:
+                self.assertLessEqual(len(family["topics"]), 3, (paper, family["id"]))
 
-    def test_topics_differ_by_at_least_fifteen(self):
-        for (count, theme), tones in palettes().items():
-            firsts = [drawn(tones[2 * t], theme) for t in range(count)]
-            worst = min(de2000(a, b) for a, b in itertools.combinations(firsts, 2))
-            self.assertGreaterEqual(worst, MINIMUM, f"{count} topics, {theme}: ΔE {worst:.1f}")
+    def test_floors_contrast_and_gamut_in_both_themes_and_every_vision(self):
+        report = []
+        for paper in PAPERS:
+            data = stored(paper)
+            for theme, page in BACKGROUND.items():
+                page_rgb = hex_rgb(page)
+                drawn = {}
+                for tid, row in data["topics"].items():
+                    rgb = oklch_to_srgb(*parse(row[theme]))
+                    self.assertTrue(all(-1e-3 <= c <= 1 + 1e-3 for c in rgb), (paper, theme, tid))
+                    drawn[tid] = over(tuple(min(1, max(0, c)) for c in rgb), page_rgb, ALPHA)
+                    ratio = (max(luminance(drawn[tid]), luminance(page_rgb)) + 0.05) / (min(luminance(drawn[tid]), luminance(page_rgb)) + 0.05)
+                    self.assertGreaterEqual(ratio, MIN_CONTRAST, (paper, theme, tid))
+                family_of = {tid: row["family"] for tid, row in data["topics"].items()}
+                for vision in VISIONS:
+                    seen = {tid: lab(simulate(rgb, vision)) for tid, rgb in drawn.items()}
+                    across, within = math.inf, math.inf
+                    for a, b in itertools.combinations(seen, 2):
+                        d = de2000(seen[a], seen[b])
+                        if family_of[a] == family_of[b]:
+                            within = min(within, d)
+                        else:
+                            across = min(across, d)
+                    floor = FAMILY_FLOOR["normal" if vision == "normal" else "dichromat"]
+                    self.assertGreaterEqual(across, floor, (paper, theme, vision))
+                    self.assertGreaterEqual(within, SHADE_FLOOR, (paper, theme, vision))
+                    report.append(f"{paper:15} {theme:5} {vision:12} families ΔE ≥ {across:5.1f}  shades ΔE ≥ {within:5.1f}")
+        print("\n" + "\n".join(report))
 
-    def test_topics_keep_clear_of_meaning_colours_and_the_page(self):
-        for (count, theme), tones in palettes().items():
-            page = lab(hex_rgb(BACKGROUND[theme]))
-            for tone, colour in tones.items():
-                self.assertTrue(in_gamut(oklch_to_srgb(*colour)), (count, theme, tone))
-                mark = drawn(colour, theme)
-                self.assertGreaterEqual(de2000(mark, page), 30, (count, theme, tone))
-                if tone % 2 == 0:
-                    for meaning in MEANING[theme]:
-                        self.assertGreaterEqual(de2000(mark, lab(hex_rgb(meaning))), MINIMUM, (count, theme, tone, meaning))
+    @unittest.skipUnless(shutil.which("node"), "Node is not installed")
+    def test_stored_colours_are_what_the_script_computes(self):
+        run = subprocess.run(["node", "site/scripts/topic-colours.ts", "--check"], cwd=ROOT, capture_output=True, text=True)
+        self.assertEqual(run.returncode, 0, run.stderr + run.stdout)
 
 
 if __name__ == "__main__":

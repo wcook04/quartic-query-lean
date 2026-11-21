@@ -18,10 +18,14 @@ export interface PhraseLean {
   link_note?: string;
 }
 export interface Phrase { id: string; order: number; lines: [number, number]; text: string; role: string; topic: string; tone: number; lean: PhraseLean[] }
-export interface Topic { id: string; name: string; description: string }
+/** A topic in colour order: `tone` is its `--tone-N`, `light` and `dark` its stored colour per theme. */
+export interface Topic { id: string; name: string; description: string; tone: number; family?: string; light?: string; dark?: string }
+/** A family of topics, in hue order; `named` is false when derived from how the topics co-occur. */
+export interface Family { id: string; name: string; named: boolean; topics: string[] }
 export interface PhraseLayer {
   paper: string;
   topics: Topic[];
+  families: Family[];
   phrases: Phrase[];
   titles: Record<string, { title: string; title_plain: string }>;
   notes: Record<string, string>;
@@ -38,15 +42,22 @@ export function phraseLayer(data: any): PhraseLayer | null {
     byId.set(p.id, p);
     for (const row of p.lean) if (!byName.get(row.name)?.includes(p)) byName.set(row.name, [...byName.get(row.name) ?? [], p]);
   }
-  const topicIndex = new Map<string, number>((data.topics as Topic[]).map((t, i) => [t.id, i]));
-  return { paper: data.paper, topics: data.topics, phrases: data.phrases, titles: data.titles, notes: data.notes, byId, byName, topicIndex };
+  const topicIndex = new Map<string, number>((data.topics as Topic[]).map((t) => [t.id, t.tone]));
+  return { paper: data.paper, topics: data.topics, families: data.families ?? [], phrases: data.phrases, titles: data.titles, notes: data.notes, byId, byName, topicIndex };
 }
 
 export const PhraseContext = createContext<PhraseLayer | null>(null);
 export const usePhrases = () => useContext(PhraseContext);
 
-/** The first shade of a topic, for keys and bars. */
-export const topicTone = (layer: PhraseLayer, topic: string) => 2 * (layer.topicIndex.get(topic) ?? 0);
+/** A topic's colour index (its `--tone-N`), for keys and bars. */
+export const topicTone = (layer: PhraseLayer, topic: string) => layer.topicIndex.get(topic) ?? 0;
+
+/** The topics of a layer grouped by family, in hue order; one group per topic when there are no families. */
+export function topicGroups(layer: PhraseLayer): { family: Family | null; topics: Topic[] }[] {
+  const byId = new Map(layer.topics.map((t) => [t.id, t]));
+  if (!layer.families.length) return layer.topics.map((t) => ({ family: null, topics: [t] }));
+  return layer.families.map((family) => ({ family, topics: family.topics.flatMap((id) => (byId.has(id) ? [byId.get(id)!] : [])) }));
+}
 
 const RELATION: Record<PhraseLean["relation"], string> = {
   states: "Lean states this phrase",
