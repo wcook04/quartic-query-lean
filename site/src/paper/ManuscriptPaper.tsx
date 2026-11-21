@@ -21,7 +21,8 @@ interface Props {
   selected?: string;
   anchor?: string;
   page?: number;
-  onSelect(id: string): void;
+  /** A paragraph click: its selection, and the first source line of the block clicked. */
+  onSelect(id: string, line?: number): void;
   onLink(paper: string, fragment?: string): void;
   onNavigateWithin?(): void;
   onRows?(rows: Row[]): void;
@@ -35,9 +36,11 @@ interface Props {
   pickedPhrase?: string;
   /** A click on a phrase: the phrase and the selection of its paragraph. */
   onPhrase?(id: string, selection: string): void;
+  /** What the pointer is over: a tied phrase's declarations, or a paragraph's source lines. */
+  onHover?(over: { names?: string[]; lines?: [number, number] } | null): void;
 }
 
-export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSelect, onLink, onRows, onReadingLine, onContents, followed, onNavigateWithin, phrases, pickedPhrase, onPhrase }: Props) {
+export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSelect, onLink, onRows, onReadingLine, onContents, followed, onNavigateWithin, phrases, pickedPhrase, onPhrase, onHover }: Props) {
   const root = useRef<HTMLDivElement>(null);
   const [rows, setRows] = useState<Row[] | null>(null);
   const [sourceView, setSourceView] = useState(false);
@@ -189,11 +192,19 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
     if (pickedPhrase) for (const span of el.querySelectorAll<HTMLElement>(`.phrase[data-phrase="${CSS.escape(pickedPhrase)}"]`)) span.classList.add("is-picked");
   }, [ready, pickedPhrase]);
 
+  const hovered = useRef("");
   function onPointer(e: React.MouseEvent) {
-    if (!phrases) return;
-    const span = (e.target as HTMLElement).closest<HTMLElement>(".phrase[data-phrase]");
-    const phrase = span ? phrases.byId.get(span.dataset.phrase!) : undefined;
-    lightPhrases(phrases, phrase ? phrase.lean.map((row) => row.name) : null, phrase ? [phrase.id] : []);
+    const target = e.target as HTMLElement;
+    const span = target.closest<HTMLElement>(".phrase[data-phrase]");
+    const phrase = span && phrases ? phrases.byId.get(span.dataset.phrase!) : undefined;
+    if (phrases) lightPhrases(phrases, phrase ? phrase.lean.map((row) => row.name) : null, phrase ? [phrase.id] : []);
+    // The graph lights the cards of the phrase, else of the paragraph, under the pointer.
+    const block = target.closest<HTMLElement>(".source-block[data-l0]");
+    const key = phrase ? `p:${phrase.id}` : block ? `b:${block.dataset.l0}` : "";
+    if (key === hovered.current) return;
+    hovered.current = key;
+    onHover?.(phrase?.lean.length ? { names: phrase.lean.map((row) => row.name) }
+      : block ? { lines: [Number(block.dataset.l0), Number(block.dataset.l1)] } : null);
   }
 
   // Navigation (not the reader's own click) brings its target into view, and
@@ -276,7 +287,11 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
   function onClick(e: React.MouseEvent) {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     const target = e.target as HTMLElement;
-    const a = target.closest("a");
+    let a = target.closest("a");
+    // A phrase acts wherever it sits, also when its words are all a link: the link keeps its
+    // address for copying, middle-click and Cmd/Ctrl-click.
+    const linkPhrase = a && target.closest<HTMLElement>(".phrase[data-phrase]:not(.is-untied)");
+    if (a && linkPhrase && (linkPhrase.contains(a) ? a.textContent?.trim() === linkPhrase.textContent?.trim() : a.contains(linkPhrase))) a = null;
     if (a) {
       const claim = a.dataset.leanSelection && rows?.find((row) => row.id === a.dataset.leanSelection);
       if (claim && claim.claim_match) {
@@ -313,7 +328,7 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
     // Plain prose has nothing to show: a click there leaves the panel on the last linked passage.
     if (/^l\d+-\d+$/.test(id)) return;
     own.current = id;
-    onSelect(id);
+    onSelect(id, Number(block.dataset.l0));
   }
 
   return (
@@ -332,7 +347,7 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
       )}
       {ready && sourceView && <p className="quiet">Manuscript source from this edition. Select a passage to inspect its evidence.</p>}
       <div ref={root} className={`manuscript manuscript--${paper}${phrases ? " has-phrases" : ""}`} onClick={onClick} hidden={!ready}
-        onMouseOver={onPointer} onMouseLeave={() => phrases && lightPhrases(phrases, null)} />
+        onMouseOver={onPointer} onMouseLeave={() => { if (phrases) lightPhrases(phrases, null); hovered.current = ""; onHover?.(null); }} />
     </>
   );
 }

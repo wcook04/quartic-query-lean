@@ -23,7 +23,9 @@ edition manifest. Figures and PDFs are displayed from verified Blob URLs.
 | `src/results` | The index of OpenAI's statements with their Lean labels, as a page and a homepage band |
 | `src/family` | The header lockup, theme switch, the two videos and the footer shared with Will Cook's other sites |
 | `src/paper` | The four papers as edition HTML, their own contents, and the original PDF pane (pdf.js) |
-| `src/inspect` | Passage, statement comparison, Lean declaration and journey panels, and the Comparator evidence that opens under a directly checked declaration |
+| `src/inspect` | Passage, statement comparison, Lean declaration and journey panels, the dock under the graph, and the Comparator evidence that opens under a directly checked declaration |
+| `src/map` | The Graph view: the shared focus graph (`FocusGraph.tsx`, `focus-graph.css`), its feed from the edition (`SubjectGraph.tsx`) and the whole proof map (`ProofPane.tsx`, `GraphPane.tsx`) |
+| `scripts` | Build helpers and the browser check of the Graph view (`check_graph_pane.py` with the shared `graph_pane_checks.py`) |
 | `src/lean`, `src/text` | Lean listings and KaTeX typesetting |
 
 Adapted code carries its upstream notice: KaTeX handling from
@@ -37,18 +39,55 @@ a matched passage keeps a visible return to the origin, including its scroll,
 selection and open proof view. Restoration adapts Lean Exposition's history and
 late-content handling and stops immediately when the reader takes control.
 
-On desktop Graph opens to the right of the paper. SK’s Lean-graph neighborhood isolates the
-linked passage’s steps and lays out that subgraph; unlinked paragraphs keep the
-last valid view. Whole proof expands the full graph, and the local view retains the real branching dependencies. Lean is the second tab; Passage offers alternative
-explanations and statement comparisons. The graph has explicit zoom, full-bounds
-fit and selected-step controls. A manual
-camera survives switching views and resizing; Follow resumes movement with the
-paper. Dependencies and helper lists follow the source listing.
+## The Graph view
 
-Scrolling advances the graph at linked passages and leaves its last valid
-neighborhood in place through unlinked prose. Clicking a different passage
-focuses its graph; clicking the focused passage cycles Graph → Lean → Passage
-→ Graph. A passage click does not permanently stop scroll following.
+The pane to the right of the paper has three views, Graph, Lean and Passage, each filling
+the pane. [The graph pane specification](../docs/graph-pane.md) is the authority for their
+behaviour; the Quartic, SK, Erdős #257 and Proof Reader sites share it with the drawing
+component and the browser checks. All three views show one subject: the declaration of a
+clicked phrase, else a clicked card, else the steps of the clicked paragraph, else the steps
+of the paragraph under the reading line as the paper scrolls. A click on a phrase, a
+paragraph or a card changes the subject and never the view; only the view buttons and
+"Open its Lean" change the view. A clicked subject holds while the paper scrolls, until the
+next click, Escape or "Follow the paper". With nothing clicked, Escape closes the pane.
+
+The Graph view draws the subject in the middle, the declarations that use it in a column on
+the left and the declarations it uses in a column on the right, each joined to it by a curved
+line with an arrowhead ([`src/map/SubjectGraph.tsx`](src/map/SubjectGraph.tsx)). Cards and
+lines come from the edition: the proof map gives the paper's steps and the lines between them;
+the recorded Lean dependencies give the Lean helper lemmas and definitions a step uses or is
+used by, for declarations with their own source lines. A node is a paper result when its
+reviewed statement is a numbered theorem, proposition, lemma or corollary, and carries that
+number; a definition when its Lean keyword defines; otherwise a step of the argument, or a Lean
+helper when the proof map does not draw it. A line is dashed when only the statement uses the
+declaration. A node's left edge has the colour of its phrases' topic, and a node this paper
+states further on is set in paler ink.
+
+The drawing fits the pane when it opens. A column with more neighbours than fit is drawn as
+groups with counts: by the topic of the declaration's phrases in this paper (the names in
+Topic colours), else by the top folder of its Lean file, such as `Upper/` or
+`Tournament/`. A group opens in place on a click; a large one opens first into its members' Lean
+files. Fit folds every
+group. A paragraph tied to more than two steps shows one step at a time, its leading step
+first, with Previous and Next. One line over the drawing gives the shortest chain of uses from
+the subject to the main result. A phrase whose declaration the proof map does not draw puts
+that declaration in the middle with its Lean neighbours, with a button back to the paragraph's
+steps. A paragraph with no Lean keeps the last paragraph's steps and says so. Under 600 pixels
+the graph folds to one line with a button to unfold it.
+
+Under the graph, below a draggable handle (15% to 70% of the pane, remembered), the dock
+shows in order: the card under the pointer, the chosen phrase with its Lean, the subject's
+Lean, or "No Lean is linked to this paragraph." with the paragraph itself. "Whole proof
+map" over the drawing opens the complete map of the Lean proof in the same place; it pans
+and zooms, a card chosen there becomes the subject, and "Around this step" returns.
+
+`python3 scripts/check_graph_pane.py` drives the built site in Chromium at 1440×900 and
+2560×1440: it follows each paper, clicks a phrase, a paragraph and a card, opens the largest
+neighbourhoods, and after each step checks that the drawing fits and that its largest group
+opens in place. Build first with
+`VITE_BASE_PATH=/quartic-query-lean/ npm run build`; the script serves `dist/` itself, or
+takes `--url` for a running server and `--shots <dir>` to keep screenshots. It needs Python's
+Playwright package with Chromium.
 
 OpenAI's [pinned source and conversion checks](../docs/original_source/README.md)
 produce a native reading copy while retaining the unchanged PDF. The original
@@ -64,22 +103,14 @@ Proof Reader's Physlib Gauge theory map ([`src/paper/phrases.ts`](src/paper/phra
 declaration is underlined in its topic's colour; two shades per topic alternate so
 neighbouring phrases differ. The hues keep clear of amber, the cyan, violet and grey of the
 statement matches, mauve and red; every two topics of a paper differ by CIEDE2000 ΔE ≥ 15 over the page in both themes (`tests/test_topic_colours.py`). Hovering a phrase names its topic and declarations and
-lights their cards; hovering a card lights its phrase. Clicking a phrase selects its
-paragraph and declaration and keeps the open tab: the Lean tab shows the declaration with the
-tied lines lit; on a wide screen the Graph tab is always split ([`src/inspect/PhraseSplit.tsx`](src/inspect/PhraseSplit.tsx)).
-Below the graph, in order: the chosen phrase; else a clicked card's declaration; else, while
-following the paper, the Lean linked to the paragraph being read, one tab per declaration; else
-"No Lean is linked to this paragraph" with the paragraph itself. Closing the phrase or card, or
-Escape, returns the bottom part to following the paper. A phrase acts wherever it sits, the
-abstract, captions, tables and lists included. With a phrase chosen
-the graph stays above, framed on the declaration's card and its drawn neighbours; when the map
-does not draw it, the top half shows the declaration with the project declarations it uses and
-those that use it ([`src/map/LocalGraph.tsx`](src/map/LocalGraph.tsx), at most eight each,
-most specific first) as cards in the graph's colours that wrap into rows, every title whole,
-with a button back to the passage map. Graph tiles are sized from their typeset titles, and a
-card whose declaration title is a long statement draws its short title. Below a draggable divider the
-phrase's card and Lean, with the tied lines lit, scroll on their own, one tab per declaration
-when the phrase has several. The close button or Escape restores the whole graph; on a phone the graph folds to one line above the card. The
+lights their cards in the graph; hovering a paragraph lights the cards it is linked to; hovering
+a card lights its phrases. Clicking a phrase makes its declaration the subject and keeps the open
+view: the Lean view shows the declaration with the tied lines lit, and the dock under the graph
+shows the phrase's card and Lean ([`src/inspect/PhraseSplit.tsx`](src/inspect/PhraseSplit.tsx)),
+one tab per declaration when the phrase has several. A phrase acts wherever it sits: the
+abstract, captions, tables, lists, formulas, and a phrase whose words are all a link. The close
+button or Escape returns the pane to following the paper. A card whose declaration title is a
+long statement draws its short title. The
 Passage tab puts the clicked phrase's card first, then the paragraph's other phrases. A card gives the paper's own title, the quoted words, what the Lean row does with
 them, the comparison with these words in plain words ("Lean states less: …", marked
 AI-assessed) and the reading note (marked AI-drafted), typeset with KaTeX. The comparison
@@ -88,23 +119,16 @@ statement". The contents rail and the Topic colours menu give the key; every lis
 and subsection in the rail carries the colour dashes of the topics whose tied phrases it
 contains, its subsections' included.
 
-Whenever the graph's subject changes (a passage followed, a card or phrase chosen) the camera
-moves for 250 ms (none under reduced motion) to frame the selected card with its drawn
-neighbours, or the passage's graph, at a readable scale; when that cannot fit, the selected
-card or the passage's own steps stay centred. A manual pan or zoom holds until the next
-subject change; a resize or a dragged divider frames the subject again.
+When the subject changes the drawing is laid out afresh and fitted. The reader's own opened
+groups, scrolling and zoom are kept until the subject changes again.
 
 ## Colours in the graph, and figures
 
-Amber marks the paragraph being read and nothing else: a card the paragraph
-relies on has an amber fill and border, and a line between two such cards is
-amber. The selected card, whose Lean is open in the Lean tab, has an outline in
-the text ink, and the route from it to the main result is a thicker ink line.
-The key under the map lists each card and line state that is on screen. A click
-on a card selects it and opens a summary under the map with its label against the
-paper and its Lean statement; a second click, or the summary's button, opens the
-Lean tab. The
-pane names the selected paragraph above its three tabs.
+Amber marks what the reader is attending to: the subject's border in the Graph
+view, and in the whole proof map a card the paragraph relies on, with an amber
+fill and border, and a line between two such cards. The key under the whole map
+lists each card and line state that is on screen. The pane names the selected
+paragraph above its three views.
 
 Figures in the papers are drawn as dark ink on white. `styles.css` blends them
 into the page: by day white multiplies into the paper, and at night lightness is

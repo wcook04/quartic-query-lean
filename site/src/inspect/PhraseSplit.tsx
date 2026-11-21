@@ -1,7 +1,7 @@
-// A clicked phrase under the graph: the graph keeps the top of the pane and the phrase's
-// card with its Lean lines takes the bottom, scrolling on its own. The divider adapts the
-// reader's paper/proof handle (app/ReaderSplit.tsx): pointer capture, a CSS share, a
-// remembered size and keyboard resizing, here on the vertical axis.
+// The dock under the graph (docs/graph-pane.md): a clicked phrase's card with its Lean lines,
+// else the subject's Lean, else a line saying no Lean is linked, scrolling on its own. The
+// divider adapts the reader's paper/proof handle (app/ReaderSplit.tsx): pointer capture, a
+// CSS share, a remembered size and keyboard resizing, here on the vertical axis.
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { Edition } from "../app/edition";
 import { LeanPanel } from "./LeanPanel";
@@ -9,20 +9,24 @@ import { usePhrases } from "../paper/phrases";
 import { Title } from "../text/title";
 import { CloseIcon } from "../app/icons";
 import { DeclTitle } from "./common";
+import { CardSummary } from "../map/CardSummary";
 
-const KEY = "quartic:phrase-split:v1";
-const DEFAULT = 0.55;
+const KEY = "quartic:graph-dock:v1";
+/** The graph's share of the pane; the dock under it takes 15% to 70%, about 30% at first. */
+const DEFAULT = 0.7;
+const MIN = 0.3;
+const MAX = 0.85;
 
-/** The draggable divider between the graph (above) and the phrase (below). */
+/** The draggable divider between the graph (above) and the dock (below). */
 export function PhraseDivider() {
   const handle = useRef<HTMLDivElement>(null);
   const [share, setShare] = useState(() => {
-    try { const n = Number(localStorage.getItem(KEY)); return n >= .2 && n <= .8 ? n : DEFAULT; } catch { return DEFAULT; }
+    try { const n = Number(localStorage.getItem(KEY)); return n >= MIN && n <= MAX ? n : DEFAULT; } catch { return DEFAULT; }
   });
   const box = () => handle.current?.closest<HTMLElement>(".inspector__graph");
   function apply(value: number, save = true) {
     const height = box()?.clientHeight || window.innerHeight;
-    const next = Math.max(Math.max(.2, 120 / height), Math.min(Math.min(.8, 1 - 160 / height), value));
+    const next = Math.max(Math.max(MIN, 200 / height), Math.min(Math.min(MAX, 1 - 90 / height), value));
     box()?.style.setProperty("--phrase-split", `${next * 100}%`);
     setShare(next);
     if (save) try { localStorage.setItem(KEY, String(next)); } catch { /* optional preference */ }
@@ -35,9 +39,9 @@ export function PhraseDivider() {
   }, []);
   return (
     <div ref={handle} className="phrase-divider" role="separator" aria-orientation="horizontal"
-      aria-label="Resize the graph and the phrase" aria-valuemin={20} aria-valuemax={80} aria-valuenow={Math.round(share * 100)}
+      aria-label="Resize the graph and the part under it" aria-valuemin={MIN * 100} aria-valuemax={MAX * 100} aria-valuenow={Math.round(share * 100)}
       aria-valuetext={`${Math.round(share * 100)} percent for the graph`} tabIndex={0}
-      title="Drag to resize the graph and the phrase. Arrow keys adjust it; double-click resets it."
+      title="Drag to resize the graph and the part under it. Arrow keys adjust it; double-click resets it."
       onDoubleClick={() => apply(DEFAULT)}
       onKeyDown={(e) => {
         if (!["ArrowUp", "ArrowDown", "Home", "Enter"].includes(e.key)) return;
@@ -66,28 +70,19 @@ export function PhraseDivider() {
   );
 }
 
-/** The phrase half: its card and Lean, with a close button; Escape closes it too. */
-export function PhraseSplit({ edition, id, name, onClose, onPick }: { edition: Edition; id: string; name?: string; onClose(): void; onPick(name: string): void }) {
+/** The chosen phrase in the dock: its card and Lean, with the tied lines lit. */
+export function PhraseSplit({ edition, id, name, onClose, onPick, onOpenLean }: { edition: Edition; id: string; name?: string; onClose(): void; onPick(name: string): void; onOpenLean(name: string): void }) {
   const layer = usePhrases();
   const phrase = layer?.byId.get(id);
   const declaration = name && phrase?.lean.some((r) => r.name === name) ? name : phrase?.lean[0]?.name;
-  useEffect(() => {
-    // Escape restores the full graph before it can close the whole pane.
-    const on = (e: KeyboardEvent) => {
-      if (e.key !== "Escape" || e.defaultPrevented || document.querySelector(":popover-open")) return;
-      e.preventDefault(); e.stopPropagation();
-      onClose();
-    };
-    window.addEventListener("keydown", on, true);
-    return () => window.removeEventListener("keydown", on, true);
-  }, [onClose]);
   if (!layer || !phrase || !declaration) return null;
   const title = layer.titles[declaration];
   return (
     <section className="phrase-split" aria-label="The chosen phrase and its Lean">
       <header className="phrase-split__bar">
         <p className="phrase-split__k">Chosen phrase{title && phrase.lean.length === 1 && <> · <Title text={title.title} /></>}{phrase.lean.length > 1 && <> · {phrase.lean.length} declarations</>}</p>
-        <button type="button" className="phrase-split__close" onClick={onClose} aria-label="Close the phrase and show the whole graph" title="Close (Esc)">
+        <button type="button" className="textbutton phrase-split__open" onClick={() => onOpenLean(declaration)}>Open its Lean</button>
+        <button type="button" className="phrase-split__close" onClick={onClose} aria-label="Close the phrase and follow the paper" title="Close (Esc)">
           <CloseIcon />
         </button>
       </header>
@@ -107,73 +102,23 @@ export function PhraseSplit({ edition, id, name, onClose, onPick }: { edition: E
   );
 }
 
-export interface GraphTarget { name: string; drawn: string | null; relation: "self" | "user" | "used" | null }
-
-/** The card the graph centres for a phrase's declaration: the declaration itself when the map
- *  draws it, else the nearest drawn card that uses it, else the nearest drawn card it uses
- *  (fewest Lean steps in the recorded graph). */
-export function useGraphTarget(edition: Edition, name: string | undefined): GraphTarget | null {
-  const [target, setTarget] = useState<GraphTarget | null>(null);
-  useEffect(() => {
-    if (!name) { setTarget(null); return; }
-    let live = true;
-    (async (): Promise<GraphTarget> => {
-      const reader = edition.reader as any;
-      const map = await reader.proofMap();
-      const cards = map?.currentness === "current" ? map.cards ?? {} : {};
-      if (Object.hasOwn(cards, name)) return { name, drawn: name, relation: "self" };
-      for (const relation of ["user", "used"] as const) {
-        const seen = new Set([name]);
-        let frontier = [name];
-        while (frontier.length && seen.size < 3000) {
-          const next: string[] = [];
-          for (const n of frontier) {
-            const node = await reader.expand(n).catch(() => null);
-            const side = relation === "user" ? node?.incoming : node;
-            for (const kind of ["type", "value", "structural"])
-              for (const other of side?.[kind] ?? []) {
-                if (seen.has(other)) continue;
-                seen.add(other);
-                if (Object.hasOwn(cards, other)) return { name, drawn: other, relation };
-                next.push(other);
-              }
-          }
-          frontier = next;
-        }
-      }
-      return { name, drawn: null, relation: null };
-    })().then((t) => live && setTarget(t), () => live && setTarget({ name, drawn: null, relation: null }));
-    return () => { live = false; };
-  }, [edition, name]);
-  return target?.name === name ? target : null;
-}
-
-/** The bottom part when no phrase is chosen: a clicked card's declaration, else the Lean of the
- *  paragraph being followed (one tab per declaration), else a one-line state with the passage. */
-export function LeanSplit({ edition, names, mode, passage, onClose }: {
-  edition: Edition; names: string[]; mode: "card" | "follow" | "none";
-  passage?: { title?: string; html?: string } | null; onClose?(): void;
+/** The dock when no phrase is chosen: the subject's Lean (one tab per declaration), else a
+ *  line saying that no Lean is linked to the paragraph, with the paragraph itself. */
+export function LeanSplit({ edition, names, heading, passage, onClose, onOpenLean }: {
+  edition: Edition; names: string[]; heading: string;
+  passage?: { title?: string; html?: string } | null; onClose?(): void; onOpenLean(name: string): void;
 }) {
   const [pick, setPick] = useState(0);
   const key = names.join("|");
   useEffect(() => setPick(0), [key]);
-  useEffect(() => {
-    if (!onClose) return;
-    const on = (e: KeyboardEvent) => {
-      if (e.key !== "Escape" || e.defaultPrevented || document.querySelector(":popover-open")) return;
-      e.preventDefault(); e.stopPropagation();
-      onClose();
-    };
-    window.addEventListener("keydown", on, true);
-    return () => window.removeEventListener("keydown", on, true);
-  }, [onClose]);
   const name = names[Math.min(pick, names.length - 1)];
   return (
-    <section className="phrase-split lean-split" aria-label={mode === "card" ? "The selected card and its Lean" : "The Lean of the paragraph being read"}>
+    <section className="phrase-split lean-split" aria-label={heading}>
       <header className="phrase-split__bar">
-        <p className="phrase-split__k">{mode === "card" ? "Selected card" : mode === "follow" ? "Following the paper · the Lean linked to this paragraph" : "Following the paper"}</p>
+        <p className="phrase-split__k">{heading}</p>
+        {name && <button type="button" className="textbutton phrase-split__open" onClick={() => onOpenLean(name)}>Open its Lean</button>}
         {onClose && (
-          <button type="button" className="phrase-split__close" onClick={onClose} aria-label="Close the card and follow the paper" title="Close (Esc)">
+          <button type="button" className="phrase-split__close" onClick={onClose} aria-label="Close and follow the paper" title="Close (Esc)">
             <CloseIcon />
           </button>
         )}
@@ -186,7 +131,7 @@ export function LeanSplit({ edition, names, mode, passage, onClose }: {
         </div>
       )}
       <div className="phrase-split__body">
-        {name ? <LeanPanel key={name} edition={edition} name={name} forStep={mode === "follow"} />
+        {name ? <LeanPanel key={name} edition={edition} name={name} forStep />
           : (
             <div className="lean-split__none">
               <p className="lean-split__state">No Lean is linked to this paragraph.</p>
@@ -198,6 +143,21 @@ export function LeanSplit({ edition, names, mode, passage, onClose }: {
               )}
             </div>
           )}
+      </div>
+    </section>
+  );
+}
+
+/** The dock while a card is under the pointer or holds the keyboard focus: a preview of it. */
+export function CardPreview({ edition, name, title, kind, onOpenLean }: { edition: Edition; name: string; title: string; kind: string; onOpenLean(name: string): void }) {
+  return (
+    <section className="phrase-split card-preview" aria-label="The card under the pointer">
+      <header className="phrase-split__bar">
+        <p className="phrase-split__k">{kind} · <Title text={title} /></p>
+        <button type="button" className="textbutton phrase-split__open" onClick={() => onOpenLean(name)}>Open its Lean</button>
+      </header>
+      <div className="phrase-split__body">
+        <CardSummary reader={edition.reader} name={name} title={title} />
       </div>
     </section>
   );
