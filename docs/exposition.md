@@ -470,7 +470,7 @@ By the choice of $\mu$, $L$ reads of one string give the correct answer with pro
 The product bound needs a limit on each string. Take two independent copies of AND on two fair bits; one read of a pair gives success at most $3/4$. With one read allowed from each pair, the chance of getting both answers right is at most $(3/4)^2=9/16$. With two reads to spend anywhere, read both bits of the first pair and guess zero for the second; this succeeds with probability $3/4$. The independence must also be joint: if $X,Y$ are independent fair bits and the predictor is told $X\oplus Y$, which is independent of each bit, it can output $(0,X\oplus Y)$ and be right with probability $1/2$, twice the success of a blind guess. In our predictor the generated data are independent of the whole tuple of target strings.
 :::
 
-For a fixed column $i$ there are at most $G$ query times $j$, so a true-cell visit while $i$ is light has probability at most $G(2/3)^r$. Averaging over the uniform choice of $I$ gives the same bound, the third term of (7.1). Since $(2/3)^2<1/2$, taking $r=20\log_2m$ makes $(2/3)^r\le m^{-10}$, so this term is at most $Gm^{-10}$.
+[]{#light-column-sum}For a fixed column $i$ there are at most $G$ query times $j$, so a true-cell visit while $i$ is light has probability at most $G(2/3)^r$. Averaging over the uniform choice of $I$ gives the same bound, the third term of (7.1). Since $(2/3)^2<1/2$, taking $r=20\log_2m$ makes $(2/3)^r\le m^{-10}$, so this term is at most $Gm^{-10}$.
 
 ## 7.4 Putting it together
 
@@ -622,7 +622,7 @@ $$
 $$
 For every other input, the conditional law and the remaining allowance are the same before and after this query. Multiplying the inequality by the other $V$'s shows that the conditional expected product after one query is at most its current value. The initial product is at most $\beta^r$.
 
-At a leaf the tree outputs a fixed word $s$. By the independence just proved, the conditional probability that $s$ is correct is $\prod_h\Pr(P(U_h)=s_h\mid\tau)$, and each factor is at most $V_h(\tau)$ because guessing $s_h$ is an available strategy. Averaging over leaves (there are at most $rL$ reads per run) and then over the coins and other data proves the bound. Return to [Section 7.4](#classical-finish).
+At a leaf the tree outputs a fixed word $s$. By the independence just proved, the conditional probability that $s$ is correct is $\prod_h\Pr(P(U_h)=s_h\mid\tau)$, and each factor is at most $V_h(\tau)$ because guessing $s_h$ is an available strategy. Averaging over leaves (there are at most $rL$ reads per run) and then over the coins and other data proves the bound. Return to [the end of Section 7.3](#light-column-sum).
 
 []{#predictor-trace}
 
@@ -677,6 +677,8 @@ On the $a=1$ branch, $10$ is correct exactly when $b=0$ and $c=d$, so this branc
 []{#measured-law-scope}The Boolean query bound uses one property of the quantum sampler: conditional on success, the measured column number has the law (4.1), and the listed candidates are then verified. Lean proves this measured-label law and uses it in the formal proof of the headline theorem. The [full amplification proof](reasoning_record.md#upper-returned-register) in the reconstruction proves a stronger statement in ordinary mathematics: it identifies the normalized successful state in a designated output register, including the preparation's original workspace, with records of earlier trials in additional registers. Equality of measured-label laws alone does not identify this state. Lean proves a retained-factor identity when success is specified by a set of basis labels; the full statement for an arbitrary fixed success projector, including identification of the output subsystem after compilation and uncomputation, is not yet fully formalized. The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/proof_index.md#src-amplification) gives the scope of these results.
 
 The [theorem index](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/proof_index.md) connects the other statements of this paper to their Lean definitions and proofs. For example, the [winning condition](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/proof_index.md#def-wins) requires every address input of a winning column to lie in the promise, which is condition 2 of Section 2.2 and excludes column $2$ in the [example of Section 6](#domain-bit-board). The [family theorem](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/proof_index.md#thm-headline) uses one circuit for both query bounds. The [optimal-exponent theorem](https://github.com/wcook04/quartic-query-lean/blob/v1.0.2/docs/proof_index.md#thm-alpha) combines the constructed family with a formal proof of the universal quartic bound.
+
+[]{#classical-gap-scope}For the classical bound, Lean proves that the difference between the probabilities that the algorithm outputs $1$ on the two boards is at most the right side of (7.1). This difference is at most the probability in (7.1) that the two runs differ, and the contradiction in Section 7.4 needs only the difference.
 
 # References {.unnumbered}
 
