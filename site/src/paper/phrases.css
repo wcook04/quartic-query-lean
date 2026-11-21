@@ -161,9 +161,7 @@
 /* On a phone the bottom sheet is too short for two halves: the graph folds to one line above the card. */
 .phrase-graph-strip { display: none; }
 @media (max-width: 900px) {
-  .inspector__graph.has-phrase:not(.show-graph) .inspector__map, .inspector__graph.has-phrase .phrase-divider { display: none; }
-  .inspector__graph.has-phrase.show-graph .phrase-split { display: none; }
-  .inspector__graph.has-phrase.show-graph .inspector__map { flex: 1 1 auto; }
+  .inspector__graph.has-pick .inspector__map, .inspector__graph.has-pick .phrase-divider { display: none; }
   .phrase-graph-strip { flex: none; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0; padding: 8px 16px; border-bottom: 1px solid var(--rule-2); background: var(--raised); color: var(--ink-2); font-size: 0.9rem; }
 }
 /* The map body under the split's note; and the local Lean neighbourhood of an undrawn declaration. */
@@ -184,7 +182,10 @@
 .lean-split__text { max-width: none; font-size: 1rem; display: -webkit-box; -webkit-line-clamp: 8; -webkit-box-orient: vertical; overflow: hidden; }
 .lean-split__text .phrase { cursor: inherit; }
 /* Wide screens keep the split on the Graph tab; phones fold the graph only for a chosen phrase or card. */
-
+@media (max-width: 900px) {
+  .inspector__graph.has-phrase:not(.has-pick) .phrase-divider, .inspector__graph.has-phrase:not(.has-pick) .phrase-split { display: none; }
+  .inspector__graph.has-phrase:not(.has-pick) .inspector__map { display: flex; flex: 1 1 auto; }
+}
 /* A declaration's Lean neighbours: bands of cards that wrap into rows, each title whole. */
 .local-graph__body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 14px 16px 18px; container-type: inline-size; }
 .lg-band__k { margin: 0 0 8px; font-size: 0.82rem; font-weight: 600; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.04em; }
@@ -209,38 +210,3 @@ button.lg-card:hover, button.lg-card:focus-visible { border-color: var(--ink-2);
 /* In the split the graph keeps its line key on one row; the sentence above it and the notes go. */
 .inspector__graph.has-phrase .gkey__intro, .inspector__graph.has-phrase .gkey__notes { display: none; }
 .inspector__graph.has-phrase .lean-split__text { -webkit-line-clamp: 4; }
-/* In the split the graph's heading row gives its height to the drawing: the follow control
-   floats at the canvas's lower right and the bottom part names what is shown. */
-.inspector__graph.has-phrase .graph { position: relative; }
-.inspector__graph.has-phrase .graph__head { position: absolute; right: 10px; bottom: 44px; z-index: 3; padding: 0; margin: 0; border: 0; background: none; }
-.inspector__graph.has-phrase .graph__title { display: none; }
-/* The split graph's bands: the same cards as a declaration's Lean neighbours. */
-.tier-bands { position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; padding: 12px 14px 16px; container-type: inline-size; }
-.tier-bands .lg-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 12.5rem), 1fr)); gap: 8px; }
-.tier-bands .lg-card { font-size: 0.88rem; padding: 7px 10px 8px; }
-.tier-bands .lg-card.is-here { border-color: var(--lit-line, var(--query-line)); box-shadow: 0 0 0 1px var(--lit-line, var(--query-line)); }
-.tier-bands .lg-card.is-selected { border: 2px solid var(--ink); font-size: 0.95rem; }
-.tier-bands .lg-band__k { margin-bottom: 6px; }
-.tier-bands .lg-link { margin: 6px 0; }
-.tier-bands .lg-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 11rem), 1fr)); gap: 6px; }
-.tier-bands .lg-card { padding: 5px 9px 6px; gap: 1px; font-size: 0.86rem; line-height: 1.26; }
-.tier-bands .lg-card__kind { font-size: 0.62rem; }
-.tier-bands .lg-link { margin: 4px 0; font-size: 0.75rem; }
-.tier-bands .lg-band__k { font-size: 0.74rem; margin-bottom: 4px; }
-.inspector__graph.has-phrase .graph__head { top: 7px; bottom: auto; }
-/* Four narrower columns where the pane allows, so a large neighbourhood stays within the half. */
-.tier-bands .lg-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 9.25rem), 1fr)); gap: 5px; }
-.tier-bands .lg-card { font-size: 0.82rem; line-height: 1.22; padding: 4px 8px 5px; }
-.tier-bands { padding: 8px 12px 10px; }
-.tier-bands { --tier-scale: 1; }
-.tier-bands .lg-card { font-size: calc(0.82rem * var(--tier-scale)); }
-.tier-bands .lg-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, calc(9.25rem * var(--tier-scale))), 1fr)); }
-/* Room at the toolbar's end for the floating follow control. */
-.inspector__graph.has-phrase .graph__bar { padding-right: 200px; }
-@media (max-width: 1100px) { .inspector__graph.has-phrase .graph__bar { padding-right: 12px; padding-top: 34px; } }
-/* The band cards' type grows with the window, like the pane's other cards. */
-.tier-bands { --tier-base: clamp(0.82rem, 0.42rem + 0.42vw, 1.05rem); }
-.tier-bands .lg-card { font-size: calc(var(--tier-base) * var(--tier-scale)); }
-.tier-bands .lg-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, calc(var(--tier-base) * 11.3 * var(--tier-scale))), 1fr)); }
-/* The bands draw no lines; their labels say what each band is, so the line key is not shown. */
-.graph:has(.tier-bands) .gkey { display: none; }
