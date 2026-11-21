@@ -78,12 +78,14 @@ const ZOOMS = [0.93, 1, 1.15, 1.3, 1.5];
 const CARD_MIN = 178;
 const CARD_MAX = 248;
 const GAP = 12;
-/** The world's left and right padding together (focus-graph.css: 34px and 22px). */
-const PAD_X = 56;
-/** The frame, its padding and the gutter the lines run in. */
-const GROUP_CHROME = 46;
+const PAD = 22;
+/** A group's frame: its padding and border. */
+const FRAME = 40;
+/** The frame and the extra left padding of the drawing, where the lines run. */
+const GROUP_CHROME = FRAME + 12;
 const MINI_W = 132;
 const MINI_H = 150;
+const MINI_MIN_W = 72;
 
 
 export function FocusGraph(props: FocusGraphProps) {
@@ -150,7 +152,10 @@ export function FocusGraph(props: FocusGraphProps) {
   const many = model.subj.length > 1;
 
   // How many cards a row holds, and how wide each is, for the room there is.
-  const room = Math.max(CARD_MIN, (width || 600) / zoom - PAD_X - GROUP_CHROME);
+  // A drawing taller than its area keeps a column on the right for the overview, so no card lies under it.
+  const tall = !!drawn && drawn.h * zoom > view.h + 4;
+  const reserve = tall ? MINI_W + 18 : 0;
+  const room = Math.max(CARD_MIN, ((width || 600) - reserve) / zoom - 2 * PAD - GROUP_CHROME);
   const cols = Math.max(1, Math.floor((room + GAP) / (CARD_MIN + GAP)));
   const biggest = Math.max(1, ...model.above.map((g) => g.ids.length), ...model.below.map((g) => g.ids.length), ...model.ranks.map((r) => r.length));
   const used = Math.min(cols, biggest);
@@ -277,6 +282,8 @@ export function FocusGraph(props: FocusGraphProps) {
     // Parents above, as many neighbours as fit below: the subject sits a little above the middle,
     // and wholly in view when it is taller than that leaves room for.
     let y = cy - el.clientHeight * 0.42;
+    // Nothing drawn below: the room goes to what uses it, above.
+    if (!w.querySelector('.fg__band[data-band="uses"]')) y = Math.max(top + r.height + 64 - el.clientHeight, Math.min(y, top - 12));
     if (r.height > el.clientHeight * 0.8) y = top - 12;
     el.scrollTo({ left: Math.max(0, cx - el.clientWidth / 2), top: Math.max(0, y) });
     moved.current = false;
@@ -374,7 +381,7 @@ export function FocusGraph(props: FocusGraphProps) {
 
   // Groups stand side by side when they all fit in one row; otherwise they stack on one left edge.
   const sideBySide = (groups: { ids: string[] }[]) =>
-    groups.length > 1 && groups.reduce((sum, g) => sum + Math.min(used, g.ids.length) * (cardW + GAP) - GAP + 40, (groups.length - 1) * 16) <= room + GROUP_CHROME;
+    groups.length > 1 && groups.reduce((sum, g) => sum + Math.min(used, g.ids.length) * (cardW + GAP) - GAP + 40, (groups.length - 1) * 16) <= room + FRAME;
 
   const renderBand = (side: "users" | "uses", groups: { role: FGRole; ids: string[] }[], rows: Map<string, { kind: string }>) =>
     groups.length > 0 && (
@@ -396,12 +403,14 @@ export function FocusGraph(props: FocusGraphProps) {
 
   const overflow = !!drawn && (drawn.h * zoom > view.h + 4 || drawn.w * zoom > view.w + 4);
   const mini = drawn ? Math.min(MINI_W / drawn.w, MINI_H / drawn.h) : 0;
+  // A very tall drawing keeps an overview wide enough to read: its width is stretched to at least MINI_MIN_W.
+  const miniX = drawn ? Math.max(mini, Math.min(MINI_W, MINI_MIN_W) / drawn.w) : 0;
   const miniMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!drawn || !(e.buttons & 1)) return;
     const r = e.currentTarget.getBoundingClientRect();
     const el = scroller.current!;
     moved.current = true;
-    el.scrollTo({ left: ((e.clientX - r.left) / mini) * zoom - el.clientWidth / 2, top: ((e.clientY - r.top) / mini) * zoom - el.clientHeight / 2 });
+    el.scrollTo({ left: ((e.clientX - r.left) / miniX) * zoom - el.clientWidth / 2, top: ((e.clientY - r.top) / mini) * zoom - el.clientHeight / 2 });
   };
   const kinds = new Set([...model.users.values(), ...model.uses.values()].map((r) => r.kind));
 
@@ -435,7 +444,7 @@ export function FocusGraph(props: FocusGraphProps) {
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        <div className="fg__world" ref={world} style={{ zoom }}>
+        <div className="fg__world" ref={world} style={{ zoom, paddingRight: PAD + reserve / zoom }}>
           {drawn && (
             <svg className="fg__lines" width={drawn.w} height={drawn.h} aria-hidden="true">
               {drawn.segs.map((s, i) => <path key={i} d={s.d} className={s.cls} data-edge={s.edge} />)}
@@ -449,7 +458,7 @@ export function FocusGraph(props: FocusGraphProps) {
               {model.above.length === 0 && <p className="fg__edge-note" data-band-note="users">Nothing drawn here uses {many ? "these" : "this"}.</p>}
               <div className={`fg__subjects${many ? " fg__subjects--many" : ""}`} data-count={model.subj.length}>
                 {many && <h4 className="fg__grouphead">{props.manyLabel ?? "Stated in this paragraph"} <span>{model.subj.length}</span></h4>}
-                {model.ranks.map((ids, i) => <div key={i} className="fg__rank" style={{ maxWidth: used * cardW + (used - 1) * GAP }}>{ids.map((id) => renderCard(id, "subject"))}</div>)}
+                {model.ranks.map((ids, i) => <div key={i} className="fg__rank" style={{ maxWidth: used * (cardW + GAP) - GAP }}>{ids.map((id) => renderCard(id, "subject"))}</div>)}
               </div>
               {renderBand("uses", model.below, model.uses)}
               {model.below.length === 0 && <p className="fg__edge-note" data-band-note="uses">{many ? "These use" : "This uses"} nothing else drawn here.</p>}
@@ -464,16 +473,16 @@ export function FocusGraph(props: FocusGraphProps) {
       {overflow && drawn && (
         <div
           className="fg__mini"
-          style={{ width: drawn.w * mini, height: drawn.h * mini }}
+          style={{ width: drawn.w * miniX, height: drawn.h * mini }}
           role="img"
           aria-label="Overview of the whole drawing; drag to move the view"
           onPointerDown={(e) => { e.currentTarget.setPointerCapture(e.pointerId); miniMove(e); }}
           onPointerMove={miniMove}
         >
           {drawn.boxes.map((b) => (
-            <i key={b.band + b.id} className={b.band === "subject" ? "is-subject" : hot === b.id ? "is-hot" : undefined} style={{ left: b.box.x * mini, top: b.box.y * mini, width: Math.max(2, b.box.w * mini), height: Math.max(2, b.box.h * mini) }} />
+            <i key={b.band + b.id} className={b.band === "subject" ? "is-subject" : hot === b.id ? "is-hot" : undefined} style={{ left: b.box.x * miniX, top: b.box.y * mini, width: Math.max(2, b.box.w * miniX), height: Math.max(2, b.box.h * mini) }} />
           ))}
-          <b style={{ left: (view.x / zoom) * mini, top: (view.y / zoom) * mini, width: Math.min(drawn.w, view.w / zoom) * mini, height: Math.min(drawn.h, view.h / zoom) * mini }} />
+          <b style={{ left: (view.x / zoom) * miniX, top: (view.y / zoom) * mini, width: Math.min(drawn.w, view.w / zoom) * miniX, height: Math.min(drawn.h, view.h / zoom) * mini }} />
         </div>
       )}
       {model.subj.length > 0 && (
