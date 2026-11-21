@@ -217,7 +217,10 @@ export function FocusGraph(props: FocusGraphProps) {
           const rest = all.slice(take).flatMap((x) => x.list);
           if (take < all.length && rest.length === 0) continue;
           const kept: Part[] = take === all.length ? all : [...all.slice(0, take), { key: `${parts[i].key}/rest`, name: parts[i].name.startsWith("Other ") ? parts[i].name : `Other ${parts[i].name.charAt(0).toLowerCase()}${parts[i].name.slice(1)}`, list: rest, depth: parts[i].depth }];
-          const next = [...parts.slice(0, i), ...kept, ...parts.slice(i + 1)];
+          // Pieces of one name (the cards with no topic, and what was left over) stand as one group.
+          const merged: Part[] = [];
+          for (const k of kept) { const same = merged.find((m) => m.name === k.name); if (same) same.list = [...same.list, ...k.list]; else merged.push({ ...k }); }
+          const next = [...parts.slice(0, i), ...merged, ...parts.slice(i + 1)];
           if (total(next) <= room) { parts = next; done = true; }
         }
         if (done) break;
