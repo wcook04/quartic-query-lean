@@ -30,7 +30,7 @@ interface Base {
 }
 
 /** A declaration as the graph knows it: its titles, its Lean keyword and whether the proof map draws it. */
-export interface Decl { name: string; title: string; plain: string; kind: string | null; onMap: boolean }
+export interface Decl { name: string; title: string; plain: string; kind: string | null; onMap: boolean; source?: string }
 export interface Around { subjects: string[]; decls: Map<string, Decl>; edges: FGEdge[]; route: string[] | null }
 
 const DEFINITION_KINDS = new Set(["def", "abbrev", "structure", "inductive", "class", "opaque", "instance"]);
@@ -73,7 +73,7 @@ async function keywordOf(reader: Reader, base: Base, name: string, node: any): P
 
 function mapDecl(base: Base, name: string): Decl {
   const c: any = base.map.cards[name];
-  return { name, title: c.short_title || c.title || name, plain: c.short_title_plain || c.title_plain || name, kind: c.kind, onMap: true };
+  return { name, title: c.short_title || c.title || name, plain: c.short_title_plain || c.title_plain || name, kind: c.kind, onMap: true, source: c.source };
 }
 
 /** The subjects, the cards next to them and the lines between, and the route to the main result. */
@@ -86,7 +86,7 @@ async function around(reader: Reader, base: Base, subjects: string[]): Promise<A
     if (decls.has(name)) return;
     if (onMap(name)) { decls.set(name, mapDecl(base, name)); return; }
     const t = base.titles[name];
-    decls.set(name, { name, title: t?.title ?? short(name), plain: t?.title_plain ?? short(name), kind: await keywordOf(reader, base, name, node), onMap: false });
+    decls.set(name, { name, title: t?.title ?? short(name), plain: t?.title_plain ?? short(name), kind: await keywordOf(reader, base, name, node), onMap: false, source: node?.source });
   };
   for (const s of subjects) {
     const node = await reader.expand(s).catch(() => null);
@@ -249,6 +249,9 @@ export function SubjectGraph({ edition, paper, subjects, position, hover, held, 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reader, base, key]);
 
+  // The reading position, kept by value so that a new array with the same lines changes nothing.
+  const atKey = position ? `${position[0]}-${position[1]}` : "";
+  const at = useMemo(() => (atKey ? atKey.split("-").map(Number) as [number, number] : null), [atKey]);
   const firstLine = useMemo(() => {
     const at = new Map<string, number>();
     for (const row of base?.map.papers?.[paper] ?? []) {
@@ -275,14 +278,26 @@ export function SubjectGraph({ edition, paper, subjects, position, hover, held, 
         kicker = lead ? kindLabel(lead, base.statementKinds[lead] ?? "") + (relation === "stronger" ? ", stronger in Lean" : relation === "partial" ? ", partial match" : "") : undefined;
       } else if (d.kind && DEFINITION_KINDS.has(d.kind)) { role = "definition"; kicker = "Lean definition"; }
       else role = "helper";
+      // Grouping: the topic whose colour the declaration's phrases carry in this paper; without
+      // one, the top folder of its Lean file (or the file itself at the top). A large group divides by
+      // Lean file.
       const topic = layer?.byName.get(d.name)?.[0]?.topic;
+      const topicName = topic ? layer?.topics.find((t) => t.id === topic)?.name : undefined;
+      const file = d.source?.replace(/^lean\/(QuarticQuery|QuarticCorpus)\//, "");
+      const top = file?.includes("/") ? file.slice(0, file.indexOf("/")) : undefined;
       const first = firstLine.get(d.name);
-      const seen = first == null || !position ? undefined : first < position[0] ? "before" : first > position[1] ? "later" : "here";
-      out.set(d.name, { id: d.name, title: d.plain, name: d.name.replace(/^QuarticQuery\./, ""), role, kicker, tone: topic ? tone(topic) : undefined, seen });
+      const seen = first == null || !at ? undefined : first < at[0] ? "before" : first > at[1] ? "later" : "here";
+      out.set(d.name, { id: d.name, title: d.plain, name: d.name.replace(/^QuarticQuery\./, ""), role, kicker, tone: topic ? tone(topic) : undefined, seen,
+        topic: topicName ?? (top ? `${top}/` : file),
+        // A large group divides by Lean file, named by its own name so that it fits a column.
+        section: file?.slice(file.lastIndexOf("/") + 1) });
     }
     return out;
-  }, [shown, base, layer, tone, firstLine, position]);
+  }, [shown, base, layer, tone, firstLine, at]);
   const card = useCallback((id: string) => cards.get(id), [cards]);
+  // Only a declaration is previewed in the dock; a group head under the pointer leaves it as it is.
+  const hoverCard = useCallback((id: string | null) => onHover(id && cards.has(id) ? id : null), [cards, onHover]);
+  const subjectSet = useMemo(() => new Set(key.split("|")), [key]);
   // A paragraph under the pointer lights the declarations its most specific passages bind.
   const lit = useMemo(() => {
     if (!hover) return [];
@@ -294,7 +309,13 @@ export function SubjectGraph({ edition, paper, subjects, position, hover, held, 
     const least = Math.min(...rows.map(width));
     return [...new Set(rows.filter((r) => width(r) === least).flatMap((r) => Object.keys(r.bindings)))];
   }, [hover, base, paper]);
-  const renderTitle = useCallback((c: FGCard) => <Title text={shown?.decls.get(c.id)?.title ?? c.title} />, [shown]);
+  // A title is typeset; one whose formula is too long for a node in a column is shown in its plain
+  // words, which wrap, so that no formula runs past the node.
+  const renderTitle = useCallback((c: FGCard) => {
+    const text = shown?.decls.get(c.id)?.title ?? c.title;
+    const longest = Math.max(0, ...[...text.matchAll(/\$([^$]+)\$/g)].map((m) => m[1].length));
+    return longest > 22 && !subjectSet.has(c.id) ? <>{c.title}</> : <Title text={text} />;
+  }, [shown, subjectSet]);
 
   if (base === null) return <p className="sgraph__state">This edition’s proof map is not current, so the graph is not drawn. The Lean and passage views still answer for each paragraph.</p>;
   if (!shown) return <p className="sgraph__state" role="status">{failed ? "The graph for this place could not be loaded." : "Drawing the graph…"}</p>;
@@ -319,7 +340,7 @@ export function SubjectGraph({ edition, paper, subjects, position, hover, held, 
     <div className="sgraph">
       {narrow && <p className="sgraph__fold"><button type="button" className="textbutton" onClick={() => setUnfolded(false)}>Fold the graph</button></p>}
       <FocusGraph subjects={drawn} card={card} edges={shown.edges} route={shown.route && shown.route.length ? shown.route : null} routeNote={routeNote}
-        label={label} lit={lit} held={held} onSubject={onSubject} onHover={onHover} renderTitle={renderTitle}
+        label={label} lit={lit} held={held} onSubject={onSubject} onHover={hoverCard} renderTitle={renderTitle}
         roles={{ helper: { one: "Lean helper" } }} manyLabel="Steps linked to this paragraph" />
     </div>
   );

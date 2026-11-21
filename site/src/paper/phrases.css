@@ -124,10 +124,13 @@
 
 /* The Graph view (docs/graph-pane.md): the drawing above, the dock under it. The handle
    between them sets the graph's share (--phrase-split, 30% to 85%). */
-.inspector__map { flex: 0 0 var(--phrase-split, 70%); min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+/* clip, not hidden: opening a group brings it into view by scrolling the drawing only, never the pane. */
+.inspector__map { flex: 0 0 var(--phrase-split, 70%); min-height: 0; display: flex; flex-direction: column; overflow: clip; }
 /* The Graph view's two actions sit at the end of the view buttons. */
 .graph-acts { display: flex; align-items: center; gap: 6px; margin: 0 4px 4px auto; }
 .graph-acts + .inspector__close { margin-left: 4px; }
+.graph-steps { display: inline-flex; align-items: center; gap: 4px; color: var(--ink-2); font-size: 0.86rem; white-space: nowrap; }
+.graph-steps .graph-acts__btn { padding: 2px 8px; }
 .inspector__modes .graph-acts__btn { padding: 4px 10px; border: 1px solid var(--rule); border-radius: 6px; background: var(--sheet); color: var(--ink); font-size: 0.86rem; white-space: nowrap; }
 .inspector__modes .graph-acts__btn:hover, .inspector__modes .graph-acts__btn:focus-visible { border-color: var(--query-line); }
 .phrase-divider { flex: none; height: 12px; display: flex; align-items: center; justify-content: center; cursor: row-resize; touch-action: none; background: var(--paper); border-block: 1px solid var(--rule-2); }

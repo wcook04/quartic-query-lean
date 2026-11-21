@@ -51,23 +51,29 @@ paragraph or a card changes the subject and never the view; only the view button
 "Open its Lean" change the view. A clicked subject holds while the paper scrolls, until the
 next click, Escape or "Follow the paper". With nothing clicked, Escape closes the pane.
 
-The Graph view draws the subject in the middle, every declaration that uses it above and
-every declaration it uses below, each joined to it by a line, grouped by kind
-([`src/map/SubjectGraph.tsx`](src/map/SubjectGraph.tsx)). Cards and lines come from the
-edition: the proof map gives the paper's steps and the lines between them; the recorded
-Lean dependencies give the Lean helper lemmas and definitions a step uses or is used by,
-for declarations with their own source lines. A card is a paper result when its reviewed
-statement is a numbered theorem, proposition, lemma or corollary, and its kicker is that
-number; a definition when its Lean keyword defines; otherwise a step of the argument, or a
-Lean helper when the proof map does not draw it. A line is dashed when only the statement
-uses the declaration below. The card's left edge has the colour of its phrases' topic, and
-"read" or "stated later" compares where this paper binds it with the paragraph in hand. One
-line over the drawing gives the shortest chain of uses from the subject to the main
-result. A phrase whose declaration the proof map does not draw puts that declaration in the
-middle with its Lean neighbours, with a button back to the paragraph's steps. A paragraph
-with no Lean keeps the last paragraph's steps and says so. The drawing scrolls and drags,
-has an overview when it is larger than its area, and −, + and Centre. Under 600 pixels the
-graph folds to one line with a button to unfold it.
+The Graph view draws the subject in the middle, the declarations that use it in a column on
+the left and the declarations it uses in a column on the right, each joined to it by a curved
+line with an arrowhead ([`src/map/SubjectGraph.tsx`](src/map/SubjectGraph.tsx)). Cards and
+lines come from the edition: the proof map gives the paper's steps and the lines between them;
+the recorded Lean dependencies give the Lean helper lemmas and definitions a step uses or is
+used by, for declarations with their own source lines. A node is a paper result when its
+reviewed statement is a numbered theorem, proposition, lemma or corollary, and carries that
+number; a definition when its Lean keyword defines; otherwise a step of the argument, or a Lean
+helper when the proof map does not draw it. A line is dashed when only the statement uses the
+declaration. A node's left edge has the colour of its phrases' topic, and a node this paper
+states further on is set in paler ink.
+
+The drawing fits the pane when it opens. A column with more neighbours than fit is drawn as
+groups with counts: by the topic of the declaration's phrases in this paper (the names in
+Topic colours), else by the top folder of its Lean file, such as `Upper/` or
+`Tournament/`. A group opens in place on a click; a large one opens first into its members' Lean
+files. Fit folds every
+group. A paragraph tied to more than two steps shows one step at a time, its leading step
+first, with Previous and Next. One line over the drawing gives the shortest chain of uses from
+the subject to the main result. A phrase whose declaration the proof map does not draw puts
+that declaration in the middle with its Lean neighbours, with a button back to the paragraph's
+steps. A paragraph with no Lean keeps the last paragraph's steps and says so. Under 600 pixels
+the graph folds to one line with a button to unfold it.
 
 Under the graph, below a draggable handle (15% to 70% of the pane, remembered), the dock
 shows in order: the card under the pointer, the chosen phrase with its Lean, the subject's
@@ -77,7 +83,8 @@ and zooms, a card chosen there becomes the subject, and "Around this step" retur
 
 `python3 scripts/check_graph_pane.py` drives the built site in Chromium at 1440×900 and
 2560×1440: it follows each paper, clicks a phrase, a paragraph and a card, opens the largest
-neighbourhoods, and runs the shared checks after each step. Build first with
+neighbourhoods, and after each step checks that the drawing fits and that its largest group
+opens in place. Build first with
 `VITE_BASE_PATH=/quartic-query-lean/ npm run build`; the script serves `dist/` itself, or
 takes `--url` for a running server and `--shots <dir>` to keep screenshots. It needs Python's
 Playwright package with Chromium.
@@ -112,9 +119,8 @@ statement". The contents rail and the Topic colours menu give the key; every lis
 and subsection in the rail carries the colour dashes of the topics whose tied phrases it
 contains, its subsections' included.
 
-When the subject changes the drawing brings it a little above the middle of the graph, so
-that what uses it shows above and as much as fits of what it uses shows below. The reader's
-own scrolling, dragging and zoom are kept until the subject changes again.
+When the subject changes the drawing is laid out afresh and fitted. The reader's own opened
+groups, scrolling and zoom are kept until the subject changes again.
 
 ## Colours in the graph, and figures
 

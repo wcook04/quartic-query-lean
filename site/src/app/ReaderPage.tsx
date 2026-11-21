@@ -23,9 +23,11 @@ import { PhraseContext, lightPhrases, phraseLayer, topicTone, type PhraseLayer }
 import { PhraseList } from "../inspect/PhraseCards";
 import { CardPreview, LeanSplit, PhraseDivider, PhraseSplit } from "../inspect/PhraseSplit";
 import { SubjectGraph } from "../map/SubjectGraph";
-import { titleHtml } from "../text/title";
+import { plainTitle, titleHtml } from "../text/title";
 
 type PassageMode = "graph" | "lean" | "passage";
+/** A paragraph tied to more steps than this shows them in the graph one at a time. */
+const MANY_STEPS = 2;
 
 function useWide(): boolean {
   const q = "(min-width: 901px)";
@@ -75,6 +77,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [clickPin, setClickPin] = useState<string | null>(null);
   const [clickError, setClickError] = useState<string | null>(null);
   const clickSequence = useRef(0);
+  // The first source line of the block a paragraph click landed on.
+  const clickLine = useRef<number | undefined>(undefined);
   const clickPending = useRef<{ key: string } | null>(null);
   // What the pointer is over in the paper: a phrase's declarations, or a paragraph's lines.
   const [paperHover, setPaperHover] = useState<{ names?: string[]; lines?: [number, number] } | null>(null);
@@ -85,6 +89,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [whole, setWhole] = useState(false);
   // The proof map's own declarations, to say when a subject is not on it.
   const [mapCards, setMapCards] = useState<Record<string, any> | null>(null);
+  // Which of a many-step paragraph's steps the graph shows, for the steps it was chosen among.
+  const [stepAt, setStepAt] = useState<{ key: string; index: number }>({ key: "", index: 0 });
   // The last paragraph with Lean, kept in the drawing through paragraphs with none.
   const lastSteps = useRef<{ steps: string[]; title?: string } | null>(null);
   const [names, setNames] = useState<{ reader: typeof reader; titles: DeclarationTitles } | null>(null);
@@ -177,7 +183,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   // move of the pane's focus.
   const stopPanelMove = useCallback(() => window.clearTimeout(panelMove.current), []);
 
-  async function selectPassage(id: string) {
+  async function selectPassage(id: string, line?: number) {
+    clickLine.current = line;
     // A click changes the subject only. The tab stays the reader's choice, read when the
     // lookup lands, so a tab chosen while it was pending is kept.
     const key = `${paper}:${id}`;
@@ -187,7 +194,10 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     setFollowing(false);
     setClickError(null);
     try {
-      const focus = await reader.proofFocus({ paper, id, line: undefined, page: undefined });
+      let focus = await reader.proofFocus({ paper, id, line: undefined, page: undefined });
+      // A whole section's selection can carry no steps of its own; the clicked block's lines then
+      // give the steps, as following the paper to that block does.
+      if (!focus.cards?.length && line != null && paper !== "original") focus = await (reader as any).proofFocus({ paper, line }).catch(() => focus);
       if (sequence !== clickSequence.current || clickPending.current !== pending) return;
       const cards: string[] = focus.cards ?? [];
       // Some passages reach their Lean only through their reviewed statement
@@ -386,7 +396,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     else if (doc?.format === "pdf" && !originalHtml && readingPage) q = { paper, page: readingPage };
     else if (readingLine) q = { paper, line: readingLine };
     if (!q) { setLit([]); return; }
-    (reader as any).proofFocus(q).then((f: any) => {
+    const line = clickPin ? clickLine.current : undefined;
+    (reader as any).proofFocus(q).then((f: any) => (!f.cards?.length && line != null ? (reader as any).proofFocus({ paper, line }).catch(() => f) : f)).then((f: any) => {
       if (!live || sequence !== clickSequence.current || clickPending.current) return;
       setLit(f.cards ?? []);
     }, () => { if (live && sequence === clickSequence.current && !clickPending.current) setLit([]); });
@@ -484,6 +495,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const offMap = (name: string) => !!mapCards && !Object.hasOwn(mapCards, name);
   let subjects: string[] = [];
   let graphLabel: React.ReactNode = null;
+  let stepper: React.ReactNode = null;
   const toParagraph = () => {
     if (phraseDeclaration) setParagraphStepsFor(`${route.ph}|${phraseDeclaration}`);
     else go({ ...base, s: route.s, p: route.p, v: "graph" });
@@ -494,10 +506,25 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   } else if (pickedCard) {
     subjects = [pickedCard];
     if (offMap(pickedCard)) graphLabel = <>The Lean around this declaration, which the proof map does not draw. <button type="button" onClick={toParagraph}>Show this paragraph’s steps</button></>;
-  } else if (paragraphSteps.length) subjects = paragraphSteps;
-  else if (lastSteps.current) {
-    subjects = lastSteps.current.steps;
-    graphLabel = <>No Lean is linked to this paragraph. The graph keeps the steps of {lastSteps.current.title ? <>“<span dangerouslySetInnerHTML={{ __html: titleHtml(lastSteps.current.title) }} />”</> : "the last linked paragraph"}.</>;
+  } else if (paragraphSteps.length || lastSteps.current) {
+    const steps = paragraphSteps.length ? paragraphSteps : lastSteps.current!.steps;
+    if (!paragraphSteps.length) graphLabel = <>No Lean is linked to this paragraph. The graph keeps the steps of {lastSteps.current!.title ? <>“<span dangerouslySetInnerHTML={{ __html: titleHtml(lastSteps.current!.title) }} />”</> : "the last linked paragraph"}.</>;
+    if (steps.length > MANY_STEPS) {
+      // A paragraph tied to many steps shows one at a time, its leading step first, so the drawing
+      // keeps the room for their neighbourhoods; the others are a button away.
+      const key = steps.join("|");
+      const at = stepAt.key === key ? Math.min(stepAt.index, steps.length - 1) : 0;
+      subjects = [steps[at]];
+      const name = (id: string) => plainTitle(mapCards?.[id]?.short_title ?? mapCards?.[id]?.title ?? names?.titles[id]?.title ?? id);
+      const move = (by: number) => setStepAt({ key, index: (at + by + steps.length) % steps.length });
+      stepper = (
+        <span className="graph-steps" role="group" aria-label="Steps linked to this paragraph">
+          <button type="button" className="graph-acts__btn" onClick={() => move(-1)} aria-label={`Previous step: ${name(steps[(at - 1 + steps.length) % steps.length])}`}>‹</button>
+          <span>Step {at + 1} of {steps.length}</span>
+          <button type="button" className="graph-acts__btn" onClick={() => move(1)} aria-label={`Next step: ${name(steps[(at + 1) % steps.length])}`}>›</button>
+        </span>
+      );
+    } else subjects = steps;
   } else if (rootDeclaration) {
     subjects = [rootDeclaration];
     graphLabel = <>No Lean is linked to this place in the paper. The graph shows the main result.</>;
@@ -665,6 +692,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               return (
                 <p className="inspector__about">
                   {title ? <><span className="inspector__about-k">{clickPin || !following || route.s === currentSelection ? "Selected paragraph" : "Paragraph being read"}</span> <Title text={title} /></>
+                    : lit.length && here ? <><span className="inspector__about-k">Paragraph being read in</span> <Title text={here.title} /></>
                     : <span className="inspector__about-k">No linked paragraph at this place in the paper</span>}
                 </p>
               );
@@ -676,6 +704,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               {mode === "graph" && (
                 <span className="graph-acts">
                   <span className="sr-only" role="status">{phraseDeclaration && !phraseHeld ? "Held on the clicked phrase." : pickedCard ? "Held on the clicked card." : held ? "Held on the clicked paragraph." : "Following the paper."}</span>
+                  {stepper}
                   {held && <button type="button" className="graph-acts__btn" onClick={followPaper} title="Follow the paper again (Esc)">Follow the paper</button>}
                   {!whole && <button type="button" className="graph-acts__btn" onClick={() => setWhole(true)}>Whole proof map</button>}
                 </span>

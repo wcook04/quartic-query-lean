@@ -2,8 +2,8 @@
 
 For each paper at 1440x900 and 2560x1440 the script follows the paper to a linked paragraph,
 clicks a tied phrase, clicks a paragraph and clicks a card, and after each step runs the
-shared checks in graph_pane_checks.py. It also opens the largest neighbourhoods of the proof
-map. A click must never change the open view. The exit status is 1 when any check fails.
+shared checks in graph_pane_checks.py: the drawing fits on opening, and its largest group opens
+in place. It also opens the largest neighbourhoods of the proof map. A click must never change the open view. The exit status is 1 when any check fails.
 
     cd site && VITE_BASE_PATH=/quartic-query-lean/ npm run build
     python3 scripts/check_graph_pane.py              # serves dist/ itself on a free port
@@ -25,7 +25,7 @@ from pathlib import Path
 from playwright.sync_api import Page, sync_playwright
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from graph_pane_checks import check_graph_pane, check_scrolls  # noqa: E402
+from graph_pane_checks import check_graph_pane, check_groups  # noqa: E402
 
 BASE = "/quartic-query-lean/"
 PAPERS = ["expert", "exposition", "reconstruction", "original"]
@@ -101,7 +101,7 @@ def run(page: Page, url: str, shots: Path | None, size: tuple[int, int]) -> list
             settle(page)
         label = f"{paper} {w} following"
         bad += check_graph_pane(page, label, dock=DOCK)
-        bad += check_scrolls(page, label)
+        bad += check_groups(page, label)
         if paper == "reconstruction":
             shot("following")
 
@@ -116,7 +116,7 @@ def run(page: Page, url: str, shots: Path | None, size: tuple[int, int]) -> list
             if view(page) != "Graph":
                 bad.append(f"{label}: a phrase click changed the view to {view(page)}")
             bad += check_graph_pane(page, label, dock=DOCK)
-            bad += check_scrolls(page, label)
+            bad += check_groups(page, label)
             if paper == "reconstruction":
                 shot("phrase")
             page.keyboard.press("Escape")
@@ -146,7 +146,7 @@ def run(page: Page, url: str, shots: Path | None, size: tuple[int, int]) -> list
             if view(page) != "Graph":
                 bad.append(f"{label}: a card click changed the view to {view(page)}")
             bad += check_graph_pane(page, label, dock=DOCK)
-            bad += check_scrolls(page, label)
+            bad += check_groups(page, label)
             if paper == "reconstruction":
                 shot("card")
             page.keyboard.press("Escape")
@@ -167,7 +167,7 @@ def run(page: Page, url: str, shots: Path | None, size: tuple[int, int]) -> list
             settle(page, 2500)
         label = f"{paper} {w} big {query}"
         bad += check_graph_pane(page, label, dock=DOCK)
-        bad += check_scrolls(page, label)
+        bad += check_groups(page, label)
         if i == 0:
             shot("big")
     return bad

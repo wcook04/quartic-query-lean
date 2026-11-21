@@ -21,7 +21,8 @@ interface Props {
   selected?: string;
   anchor?: string;
   page?: number;
-  onSelect(id: string): void;
+  /** A paragraph click: its selection, and the first source line of the block clicked. */
+  onSelect(id: string, line?: number): void;
   onLink(paper: string, fragment?: string): void;
   onNavigateWithin?(): void;
   onRows?(rows: Row[]): void;
@@ -327,7 +328,7 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
     // Plain prose has nothing to show: a click there leaves the panel on the last linked passage.
     if (/^l\d+-\d+$/.test(id)) return;
     own.current = id;
-    onSelect(id);
+    onSelect(id, Number(block.dataset.l0));
   }
 
   return (

@@ -322,7 +322,7 @@ a.film-chapters__name::after { content: " →"; color: var(--ink-3); }
 
 /* Graph, Lean and evidence beside the paper. */
 .desk--open { grid-template-columns: minmax(0, 1fr) clamp(440px, 38vw, 620px); }
-.inspector { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
+.inspector { display: flex; flex-direction: column; min-height: 0; overflow: hidden; overflow: clip; }
 .inspector__body { overflow-y: auto; flex: 1; min-height: 0; }
 .inspector__body { overscroll-behavior: contain; }
 .inspector__modes { flex: none; display: flex; gap: 2px; padding: 6px 14px 0; border-bottom: 1px solid var(--rule-2); }
