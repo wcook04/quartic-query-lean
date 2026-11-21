@@ -21,6 +21,7 @@ import { CardSummary } from "./CardSummary";
 import { REF_PX, titlePieces, wrapLines } from "./canvas/representation";
 import type { Metrics } from "./engine/types";
 import { titleHtml } from "../text/title";
+import { TierBands } from "./TierBands";
 import "./tokens.css";
 import "./graph.css";
 
@@ -56,6 +57,11 @@ export const PANE_METRICS: Metrics = {
 // the camera up to 14px so a closer view is not a large card of small text.
 export const TITLE_SIZES = (k: number) => [Math.min(14, Math.max(12, Math.round(12 * k * 2) / 2))];
 export const ROOT_TILE = { w: 440, h: 84 };
+const SPLIT_ROOT_TILE = { w: 360, h: 84 };
+/** The split's half-height graph: titles scale with the camera down to 10px on screen, so a
+ *  card and its neighbours fit whole at a smaller scale, and ranks sit a little closer. */
+const SPLIT_TITLE_SIZES = (k: number) => [Math.min(14, Math.max(10, Math.round((12 * k) / DESIGN_K * 2) / 2))];
+const SPLIT_METRICS: Metrics = { ...PANE_METRICS, gapMin: 44 };
 /** Below this pane width the map's tiles cannot hold readable titles; the list reads instead. */
 const LIST_BELOW = 440;
 
@@ -183,6 +189,37 @@ export function useTileHeights(graph: ArgGraph): (id: string) => number {
   }, [graph, fonts]);
 }
 
+/**
+ * The split's half-height graph: the subject (a selected card, or the paragraph's own steps) in
+ * one tier, the cards that use it above and the cards it uses below, each tier wrapping into
+ * rows. Only lines that touch the subject are drawn, so the drawing is three tiers deep however
+ * the neighbours use one another, and the whole neighbourhood fits the half at reading size.
+ */
+export function tierGraph(graph: ArgGraph, goal: string, subject: readonly string[]): ArgGraph {
+  const centre = new Set(subject.filter((id) => graph.nodes.has(id) && id !== goal));
+  if (!centre.size) return neighbourhood(graph, goal, []);
+  const users = new Set<string>(), uses = new Set<string>();
+  for (const id of centre) {
+    for (const e of graph.in.get(id) ?? []) if (e.from !== goal && !centre.has(e.from)) users.add(e.from);
+    for (const e of graph.out.get(id) ?? []) if (!centre.has(e.to) && !users.has(e.to)) uses.add(e.to);
+  }
+  const keep = new Set([goal, ...centre, ...users, ...uses]);
+  const edges: (ArgEdge & { note?: string })[] = graph.edges.filter((e) =>
+    (users.has(e.from) && centre.has(e.to)) || (centre.has(e.from) && uses.has(e.to)) || (e.from === goal && centre.has(e.to)));
+  const fed = new Set(edges.map((e) => e.to));
+  for (const id of [...users, ...centre]) {
+    if (fed.has(id)) continue;
+    edges.push({ key: `context:${goal}→${id}`, from: goal, to: id, kind: "formalizes", linkIds: [], scoped: false,
+      semanticClass: "neighbourhood_context", note: "Context only: what uses this result is outside this view. Whole proof shows the complete graph." });
+  }
+  const members = graph.order.filter((id) => keep.has(id));
+  const out = new Map(members.map((id) => [id, [] as ArgEdge[]]));
+  const into = new Map(members.map((id) => [id, [] as ArgEdge[]]));
+  for (const e of edges) { out.get(e.from)!.push(e); into.get(e.to)!.push(e); }
+  return { ...graph, nodes: new Map(members.map((id) => [id, graph.nodes.get(id)!])), order: members, edges, out, in: into,
+    regions: [{ id: goal, title: graph.regions[0]?.title ?? "", goal, members }], regionOf: new Map(members.map((id) => [id, goal])) };
+}
+
 export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, selected, onSelect, onOpenLean, onClear, selectedEdge, onEdge, progress: _progress, paperName: _paperName, selectionKey, onFollow, claimMatch, focusPassages = [], focusRequest, onFocusChange, fitSelection = false }: Props) {
   const tree = useRef<MapViewHandle>(null);
   const body = useRef<HTMLDivElement>(null);
@@ -211,8 +248,14 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
   // Keep SK's actual branching neighbourhood, not a compressed ancestry path.
   const [whole, setWhole] = useState(false);
   // A selected card's neighbourhood keeps the paragraph's own steps drawn, so no amber card leaves the map.
-  const drawnGraph = useMemo(() => whole ? graph : neighbourhood(graph, GOAL, scopeLit, cardScope ? passageCards.filter((id) => reachable.has(id)) : []),
-    [graph, whole, scopeLit, cardScope, passageCards, reachable]);
+  // In the split's half-height graph a selected card is drawn with its own neighbours only;
+  // the paragraph's other steps would push those neighbours out of the half.
+  // In the split, a subject is drawn as bands that wrap (TierBands); the full map draws Whole proof.
+  const bands = fitSelection && !whole && scopeLit.some((id) => graph.nodes.has(id) && id !== GOAL);
+  const drawnGraph = useMemo(() => whole ? graph
+    : fitSelection && scopeLit.length ? tierGraph(graph, GOAL, scopeLit)
+    : neighbourhood(graph, GOAL, scopeLit, cardScope ? passageCards.filter((id) => reachable.has(id)) : []),
+    [graph, whole, scopeLit, cardScope, passageCards, reachable, fitSelection]);
   const tileHeight = useTileHeights(graph);
   const types = useMemo(() => Object.entries(map.cards).filter(([, c]) => isType(c)), [map]);
   const caption = useRef<HTMLParagraphElement>(null);
@@ -260,8 +303,11 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
     });
   });
 
+  // A paragraph without Lean lights nothing: the previous paragraph's steps are no longer marked
+  // (the drawn neighbourhood stays where it was until a linked paragraph moves it).
   useEffect(() => {
     if (litRef.current.length) setPassageCards(litRef.current);
+    else if (!pausedRef.current) setPassageCards([]);
   }, [litKey]);
 
   useEffect(() => {
@@ -509,10 +555,10 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
       mode="overview"
       tileWidth={TILE_W}
       tileHeight={tileHeight}
-      denseMetrics={PANE_METRICS}
+      denseMetrics={fitSelection ? SPLIT_METRICS : PANE_METRICS}
       oneCardEach
       fitMax={1.15}
-      rootTile={ROOT_TILE}
+      rootTile={fitSelection ? SPLIT_ROOT_TILE : ROOT_TILE}
       selected={selected && drawnGraph.nodes.has(selected) ? selected : undefined}
       frameSelection={false}
       litIds={litIds}
@@ -526,7 +572,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
       notesHost={notes}
       describeEdge={describe}
       edgeBadge={whole ? undefined : badge}
-      titleSizes={TITLE_SIZES}
+      titleSizes={fitSelection ? SPLIT_TITLE_SIZES : TITLE_SIZES}
     />
   ), [drawnGraph, selected, litIds, select, noTrace, onUserMove, inspect, routeEdge, edgeSelect, notes, describe, badge, whole, tileHeight]);
 
@@ -628,7 +674,9 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, sele
       </div>
       <span className="sr-only" role="status">{following ? "The graph follows the paper." : "The graph is pinned here."}</span>
       <div className="graph__canvas" ref={body} hidden={shownView !== "map"}>
-        {view}
+        {bands
+          ? <TierBands graph={drawnGraph} goal={GOAL} centre={scopeLit} selected={selected && scopeLit.includes(selected) ? selected : null} lit={litIds} onSelect={select} />
+          : view}
         <p ref={caption} className="graph__caption" hidden aria-live="polite" />
       </div>
       {shownView === "list" && (

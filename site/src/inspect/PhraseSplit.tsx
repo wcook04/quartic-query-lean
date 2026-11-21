@@ -27,6 +27,23 @@ export function PhraseDivider() {
     setShare(next);
     if (save) try { localStorage.setItem(KEY, String(next)); } catch { /* optional preference */ }
   }
+  // A subject that needs more height than the graph's share has at reading size gets it, up to
+  // four fifths of the pane, for as long as it is shown; the reader's own share returns after.
+  useEffect(() => {
+    const on = (event: Event) => {
+      const need = (event as CustomEvent<{ content: number; view: number } | null>).detail;
+      const root = box();
+      if (!root) return;
+      const total = root.clientHeight;
+      const top = root.querySelector<HTMLElement>(".inspector__map")?.clientHeight ?? total * share;
+      // The height the graph's share must have for the bands to show whole, from their own height.
+      const wanted = need ? Math.min(0.85, Math.max(share, (top - need.view + need.content + 6) / total)) : share;
+      const current = parseFloat(root.style.getPropertyValue("--phrase-split")) / 100 || share;
+      if (Math.abs(wanted - current) > 0.005) root.style.setProperty("--phrase-split", `${wanted * 100}%`);
+    };
+    window.addEventListener("quartic:graph-need", on);
+    return () => window.removeEventListener("quartic:graph-need", on);
+  }, [share]);
   useLayoutEffect(() => {
     apply(share, false);
     const root = box();
