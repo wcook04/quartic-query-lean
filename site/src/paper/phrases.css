@@ -35,7 +35,7 @@
 .topic-key li { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; align-items: center; column-gap: 10px; min-height: 22px; }
 .topic-key__name { color: var(--ink); line-height: 1.3; text-wrap: pretty; }
 .topic-key__family { display: block !important; min-height: 0 !important; }
-.topic-key__family > .topic-key { gap: inherit; }
+.topic-key .topic-key__family > .topic-key { position: static; max-height: none; overflow: visible; margin: 0; padding: 0; border: 0; background: none; box-shadow: none; animation: none; gap: inherit; }
 .topic-key__family-name { display: block; margin: 2px 0 4px; color: var(--ink-3); font-size: 0.85em; font-weight: 600; }
 .topic-key__n { color: var(--ink-3); font-size: 0.85em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .jump--topics ul.topic-key { display: flex; grid-template-columns: none; gap: 2px; padding: 10px 12px; }
