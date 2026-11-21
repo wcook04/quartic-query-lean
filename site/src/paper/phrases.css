@@ -236,11 +236,20 @@ button.lg-card:hover, button.lg-card:focus-visible { border-color: var(--ink-2);
 .tier-bands .lg-card { font-size: calc(0.82rem * var(--tier-scale)); }
 .tier-bands .lg-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, calc(9.25rem * var(--tier-scale))), 1fr)); }
 /* Room at the toolbar's end for the floating follow control. */
-.inspector__graph.has-phrase .graph__bar { padding-right: 200px; }
-@media (max-width: 1100px) { .inspector__graph.has-phrase .graph__bar { padding-right: 12px; padding-top: 34px; } }
+
 /* The band cards' type grows with the window, like the pane's other cards. */
 .tier-bands { --tier-base: clamp(0.82rem, 0.42rem + 0.42vw, 1.05rem); }
 .tier-bands .lg-card { font-size: calc(var(--tier-base) * var(--tier-scale)); }
 .tier-bands .lg-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, calc(var(--tier-base) * 11.3 * var(--tier-scale))), 1fr)); }
 /* The bands draw no lines; their labels say what each band is, so the line key is not shown. */
 .graph:has(.tier-bands) .gkey { display: none; }
+/* Scrolling bands: the view ends after a whole row and a cue counts the cards below it. */
+.tier-wrap { position: absolute; inset: 0; }
+.tier-bands { scroll-snap-type: y proximity; }
+.tier-bands .lg-grid > li { scroll-snap-align: start; scroll-margin-top: 8px; }
+.tier-more { position: absolute; left: 50%; bottom: 4px; transform: translateX(-50%); padding: 3px 12px; border: 1px solid var(--rule); border-radius: 999px;
+  background: var(--sheet); color: var(--ink-2); font: 600 0.8rem/1.4 var(--sans); cursor: pointer; box-shadow: var(--shadow-sheet); }
+.tier-more:hover { color: var(--ink); border-color: var(--control); }
+/* The follow control sits at the canvas's lower right, beside the "more below" cue. */
+.inspector__graph.has-phrase .graph__head { top: auto; bottom: 4px; right: 10px; }
+.inspector__graph.has-phrase .tier-bands { padding-bottom: 34px; }

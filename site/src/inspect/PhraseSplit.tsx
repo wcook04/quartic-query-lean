@@ -12,23 +12,25 @@ import { DeclTitle } from "./common";
 
 const KEY = "quartic:phrase-split:v1";
 const DEFAULT = 0.55;
+/** The most of the pane the graph takes by itself to fit a subject. */
+const AUTO_MAX = 0.6;
 
 /** The draggable divider between the graph (above) and the phrase (below). */
 export function PhraseDivider() {
   const handle = useRef<HTMLDivElement>(null);
   const [share, setShare] = useState(() => {
-    try { const n = Number(localStorage.getItem(KEY)); return n >= .2 && n <= .8 ? n : DEFAULT; } catch { return DEFAULT; }
+    try { const n = Number(localStorage.getItem(KEY)); return n >= .2 && n <= .85 ? n : DEFAULT; } catch { return DEFAULT; }
   });
   const box = () => handle.current?.closest<HTMLElement>(".inspector__graph");
   function apply(value: number, save = true) {
     const height = box()?.clientHeight || window.innerHeight;
-    const next = Math.max(Math.max(.2, 120 / height), Math.min(Math.min(.8, 1 - 160 / height), value));
+    const next = Math.max(Math.max(.2, 120 / height), Math.min(Math.min(.85, 1 - 160 / height), value));
     box()?.style.setProperty("--phrase-split", `${next * 100}%`);
     setShare(next);
     if (save) try { localStorage.setItem(KEY, String(next)); } catch { /* optional preference */ }
   }
   // A subject that needs more height than the graph's share has at reading size gets it, up to
-  // four fifths of the pane, for as long as it is shown; the reader's own share returns after.
+  // three fifths of the pane, for as long as it is shown; the reader's own share returns after.
   useEffect(() => {
     const on = (event: Event) => {
       const need = (event as CustomEvent<{ content: number; view: number } | null>).detail;
@@ -37,7 +39,9 @@ export function PhraseDivider() {
       const total = root.clientHeight;
       const top = root.querySelector<HTMLElement>(".inspector__map")?.clientHeight ?? total * share;
       // The height the graph's share must have for the bands to show whole, from their own height.
-      const wanted = need ? Math.min(0.85, Math.max(share, (top - need.view + need.content + 6) / total)) : share;
+      // Growth stops at three fifths, so the Lean below keeps its title, quote and first lines;
+      // beyond that the bands scroll. The reader's own drag may still give the graph more.
+      const wanted = need ? Math.min(Math.max(share, AUTO_MAX), Math.max(share, (top - need.view + need.content + 6) / total)) : share;
       const current = parseFloat(root.style.getPropertyValue("--phrase-split")) / 100 || share;
       if (Math.abs(wanted - current) > 0.005) root.style.setProperty("--phrase-split", `${wanted * 100}%`);
     };
@@ -52,7 +56,7 @@ export function PhraseDivider() {
   }, []);
   return (
     <div ref={handle} className="phrase-divider" role="separator" aria-orientation="horizontal"
-      aria-label="Resize the graph and the phrase" aria-valuemin={20} aria-valuemax={80} aria-valuenow={Math.round(share * 100)}
+      aria-label="Resize the graph and the phrase" aria-valuemin={20} aria-valuemax={85} aria-valuenow={Math.round(share * 100)}
       aria-valuetext={`${Math.round(share * 100)} percent for the graph`} tabIndex={0}
       title="Drag to resize the graph and the phrase. Arrow keys adjust it; double-click resets it."
       onDoubleClick={() => apply(DEFAULT)}
