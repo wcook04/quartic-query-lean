@@ -19,7 +19,8 @@ import { Contents, NumberedTitle, sectionAt, type ContentsRow } from "../paper/C
 import { BackIcon, Chevron, CloseIcon, PaneIcon } from "./icons";
 import { ReaderSplit } from "./ReaderSplit";
 import { Title } from "../text/title";
-import { PhraseContext, lightPhrases, phraseLayer, topicTone, type PhraseLayer } from "../paper/phrases";
+import { PhraseContext, lightPhrases, phraseLayer, topicGroups, topicTone, type PhraseLayer } from "../paper/phrases";
+import { useTopicColours } from "../paper/topicColours";
 import { PhraseList } from "../inspect/PhraseCards";
 import { CardPreview, LeanSplit, PhraseDivider, PhraseSplit } from "../inspect/PhraseSplit";
 import { SubjectGraph } from "../map/SubjectGraph";
@@ -95,6 +96,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const lastSteps = useRef<{ steps: string[]; title?: string } | null>(null);
   const [names, setNames] = useState<{ reader: typeof reader; titles: DeclarationTitles } | null>(null);
   const [phrases, setPhrases] = useState<PhraseLayer | null>(null);
+  useTopicColours(phrases?.topics);
   useEffect(() => {
     let live = true;
     setPhrases(null);
@@ -790,15 +792,22 @@ function selectionLines(rows: Row[], id: string | undefined): [number, number] |
   return lines ? [lines[0], lines[1]] : null;
 }
 
-/** The topic key: one colour per topic, each with its name and what it covers. */
+/** The topic key: one colour per topic, grouped under its family, each with its name and what it covers. */
 export function TopicKeyList({ layer }: { layer: PhraseLayer }) {
   return (
     <ul className="topic-key">
-      {layer.topics.map((t) => (
-        <li key={t.id} title={t.description}>
-          <span className="topic-swatch" data-tone={topicTone(layer, t.id)} aria-hidden="true" />
-          <span className="topic-key__name">{t.name}</span>
-          <span className="topic-key__n">{layer.phrases.filter((p) => p.topic === t.id).length} phrases</span>
+      {topicGroups(layer).map(({ family, topics }, g) => (
+        <li key={family?.id ?? g} className="topic-key__family">
+          {family?.named && topics.length > 1 && <span className="topic-key__family-name">{family.name}</span>}
+          <ul className="topic-key">
+            {topics.map((t) => (
+              <li key={t.id} title={t.description}>
+                <span className="topic-swatch" data-tone={topicTone(layer, t.id)} aria-hidden="true" />
+                <span className="topic-key__name">{t.name}</span>
+                <span className="topic-key__n">{layer.phrases.filter((p) => p.topic === t.id).length} phrases</span>
+              </li>
+            ))}
+          </ul>
         </li>
       ))}
     </ul>

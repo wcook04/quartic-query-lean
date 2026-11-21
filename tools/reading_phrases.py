@@ -17,6 +17,9 @@ from build_comparator_map import lean_blocks
 from reading_titles import title_record, unique_keys
 
 SOURCE = "docs/reading_phrases/{paper}.json"
+# Topic colours, computed by site/scripts/topic-colours.ts: one hue per family, one shade per topic.
+COLOURS = "docs/reading_phrases/colours-{paper}.json"
+COLOURS_SCHEMA = "topic-colours/1"
 RESOURCE = "selection/phrases/{paper}.json"
 SCHEMA = "quartic-reading-phrases-v1"
 PAPERS = ("expert", "exposition", "reconstruction")
@@ -225,13 +228,21 @@ def phrase_resources(edition, texts, documents):
             prose_check(f"{path}: title of {name}", titles[name]["title_plain"], TITLE_WORDS, notation=False)
         for name, note in data["notes"].items():
             prose_check(f"{path}: note of {name}", note, NOTE_WORDS)
-        # A topic's phrases alternate between its two shades in reading order.
-        count = {topic: 0 for topic in ids}
+        # Every phrase of a topic takes its topic's one colour, stored by the palette script.
+        colours = json.loads(edition.read(COLOURS.format(paper=paper)))
+        if (colours.get("schema") != COLOURS_SCHEMA or set(colours["topics"]) != set(ids)
+                or any(topic.get("family", colours["topics"][topic["id"]]["family"])
+                       != colours["topics"][topic["id"]]["family"] for topic in topics)):
+            raise ValueError(f"{COLOURS.format(paper=paper)}: stale for the topics of {path}; "
+                             "run node site/scripts/topic-colours.ts")
+        tones = {tid: row["index"] for tid, row in colours["topics"].items()}
+        topics = [{**topic, "tone": tones[topic["id"]],
+                   **{key: colours["topics"][topic["id"]][key] for key in ("family", "light", "dark")}}
+                  for topic in sorted(topics, key=lambda t: tones[t["id"]])]
+        families = [{key: family[key] for key in ("id", "name", "named", "topics")} for family in colours["families"]]
         marks = []
         for order, (begin, end, tie) in enumerate(located):
-            topic = ids.index(tie["topic"])
-            tone = topic * 2 + count[tie["topic"]] % 2
-            count[tie["topic"]] += 1
+            tone = tones[tie["topic"]]
             marks.extend((a, b, order, tie["id"], tone) for a, b in segments(text, begin, end, formulas))
             lean = []
             for row in tie["lean"]:
@@ -248,7 +259,7 @@ def phrase_resources(edition, texts, documents):
         edition.add(resource, {"schema": SCHEMA, "revision": edition.commit, "paper": paper,
                                "manuscript_sha256": data["manuscript_sha256"],
                                "lean_source_snapshot_sha256": data["lean_source_snapshot_sha256"],
-                               "source": path, "topics": topics, "phrases": phrases,
+                               "source": path, "topics": topics, "families": families, "phrases": phrases,
                                "titles": titles, "notes": data["notes"]})
         listing[paper] = resource
     return ranges, listing

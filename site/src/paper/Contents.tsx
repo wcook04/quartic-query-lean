@@ -1,7 +1,7 @@
 // The paper's sections, following the reading line. Rows come from the
 // edition's manuscript `contents` (older editions: its outline).
 import { Title } from "../text/title";
-import { topicTone, type PhraseLayer } from "./phrases";
+import { topicGroups, topicTone, type PhraseLayer } from "./phrases";
 
 export interface ContentsRow { title: string; level: number; line: number; end_line: number; anchor?: string; listed?: boolean }
 
@@ -51,10 +51,17 @@ export function Contents({ rows, current, onGo, phrases }: { rows: ContentsRow[]
         <div className="contents__key">
           <p className="contents__title">Topic colours</p>
           <ul className="topic-key">
-            {phrases.topics.map((t) => (
-              <li key={t.id} title={t.description}>
-                <span className="topic-swatch" data-tone={topicTone(phrases, t.id)} aria-hidden="true" />
-                <span className="topic-key__name">{t.name}</span>
+            {topicGroups(phrases).map(({ family, topics }, g) => (
+              <li key={family?.id ?? g} className="topic-key__family">
+                {family?.named && topics.length > 1 && <span className="topic-key__family-name">{family.name}</span>}
+                <ul className="topic-key">
+                  {topics.map((t) => (
+                    <li key={t.id} title={t.description}>
+                      <span className="topic-swatch" data-tone={topicTone(phrases, t.id)} aria-hidden="true" />
+                      <span className="topic-key__name">{t.name}</span>
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ul>

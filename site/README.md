@@ -100,9 +100,13 @@ The expert companion, the exposition and the reconstruction carry the edition's
 [phrase ties](../docs/reading_api.md#phrase-ties-topics-and-reading-notes), adapted from
 Proof Reader's Physlib Gauge theory map ([`src/paper/phrases.ts`](src/paper/phrases.ts),
 [`src/inspect/PhraseCards.tsx`](src/inspect/PhraseCards.tsx)). Each phrase that states a Lean
-declaration is underlined in its topic's colour; two shades per topic alternate so
-neighbouring phrases differ. The hues keep clear of amber, the cyan, violet and grey of the
-statement matches, mauve and red; every two topics of a paper differ by CIEDE2000 ΔE ≥ 15 over the page in both themes (`tests/test_topic_colours.py`). Hovering a phrase names its topic and declarations and
+declaration is underlined in its topic's colour. The colours are computed
+([`scripts/topic-colours.ts`](scripts/topic-colours.ts), [`src/paper/palette.ts`](src/paper/palette.ts)):
+each family of related topics takes one hue and each topic one shade of it, stored in
+`docs/reading_phrases/colours-<paper>.json`. Colours of different families differ by CIEDE2000
+ΔE ≥ 10 (≥ 2.5 under deuteranopia and protanopia simulation), shades of one family by ΔE ≥ 6, and
+every underline keeps 3:1 against the page in both themes (`tests/test_topic_colours.py`). Rerun
+the script after changing topics or phrases. Hovering a phrase names its topic and declarations and
 lights their cards in the graph; hovering a paragraph lights the cards it is linked to; hovering
 a card lights its phrases. Clicking a phrase makes its declaration the subject and keeps the open
 view: the Lean view shows the declaration with the tied lines lit, and the dock under the graph
