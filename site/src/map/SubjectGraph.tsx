@@ -7,7 +7,7 @@
 // joins two declarations that the edition does not join.
 import { useCallback, useEffect, useLayoutEffect, useMemo, useState, type ReactNode } from "react";
 import type { Edition } from "../app/edition";
-import { FocusGraph, type FGCard, type FGEdge, type FGRole } from "./FocusGraph";
+import { FG_ROLES, FocusGraph, type FGCard, type FGEdge, type FGRole } from "./FocusGraph";
 import type { ProofMap } from "./fromProofMap";
 import { kindLabel } from "../results/Results";
 import { Title } from "../text/title";
@@ -307,7 +307,7 @@ export function SubjectGraph({ edition, paper, subjects, position, hover, held, 
     const first = cards.get(drawn[0]);
     return (
       <div className="sgraph__strip">
-        <p><span className="sgraph__strip-k">{drawn.length > 1 ? `${drawn.length} steps` : first?.kicker ?? "Graph"}</span>{" "}
+        <p><span className="sgraph__strip-k">{drawn.length > 1 ? `${drawn.length} steps` : first?.kicker ?? (first ? FG_ROLES[first.role].one : "Graph")}</span>{" "}
           {drawn.length === 1 && first ? <Title text={shown.decls.get(drawn[0])?.title ?? first.title} /> : null}
           <span className="sgraph__strip-n"> · uses {uses.size} · used by {users.size}</span></p>
         <button type="button" className="textbutton" onClick={() => setUnfolded(true)}>Show the graph</button>

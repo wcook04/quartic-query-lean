@@ -30,7 +30,7 @@
 .sgraph__strip-n { color: var(--ink-2); white-space: nowrap; }
 .sgraph__strip .textbutton { flex: none; }
 /* A long chain to the main result keeps the drawing its room: past three lines it scrolls by itself. */
-.sgraph .fg__route { max-height: calc(3 * 1.4em + 14px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.sgraph .fg__route { max-height: calc(3 * 1.55em + 14px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 /* The zoom buttons sit in the key's row and the overview just above it, so neither covers the drawing's lower edge. */
 .sgraph .fg__key { padding-right: 150px; }
 .sgraph .fg__tools { bottom: 4px; }
