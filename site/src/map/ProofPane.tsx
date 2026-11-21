@@ -1,15 +1,12 @@
-// Load the edition's proof map once and draw it. A map from a different
+// Load the edition's proof map once and draw the whole of it. A map from a different
 // edition is never substituted: stale or absent maps say so.
 import { useMemo } from "react";
 import type { Edition } from "../app/edition";
-import type { ClaimMatch } from "../paper/selectRow";
 import { useAsync } from "../app/useAsync";
-import { GraphPane, type GraphFocus, type GraphFocusRequest } from "./GraphPane";
+import { GraphPane } from "./GraphPane";
 import { proofGraph, type ProofMap } from "./fromProofMap";
 
-export interface Progress { total: number; visited: { count: number; cards: string[] }; cards: string[] }
-
-export function ProofPane({ edition, lit, selected, onSelect, onOpenLean, onClear, selectedEdge, onEdge, progress, paperName, selectionKey, onFollow, claimMatch, focusPassages, focusRequest, onFocusChange, fitSelection }: { edition: Edition; lit: readonly string[]; selected: string | null; onSelect(name: string): void; onOpenLean(name: string): void; onClear?: () => void; selectedEdge: string | null; onEdge(key: string): void; progress: Progress | null; paperName: string; selectionKey?: string; onFollow(): void; claimMatch?: ClaimMatch; focusPassages?: readonly string[]; focusRequest?: GraphFocusRequest; onFocusChange?(focus: GraphFocus): void; fitSelection?: boolean }) {
+export function ProofPane({ edition, lit, onSelect, onOpenLean, selectedEdge, onEdge, onBack }: { edition: Edition; lit: readonly string[]; onSelect(name: string): void; onOpenLean(name: string): void; selectedEdge: string | null; onEdge(key: string): void; onBack(): void }) {
   const map = useAsync(() => edition.reader.proofMap() as Promise<ProofMap>, [edition]);
   const graph = useMemo(() => (map.state === "ready" && map.value.currentness === "current" ? proofGraph(map.value) : null), [map]);
   if (map.state === "loading") return <p className="pending" role="status">Loading the Lean graph…</p>;
@@ -20,5 +17,5 @@ export function ProofPane({ edition, lit, selected, onSelect, onOpenLean, onClea
         <p>{map.value.currentness === "stale" ? "This edition’s Lean graph was recorded for an earlier Lean source, so it is not shown." : "This edition has no Lean graph."} The evidence for each passage is still available.</p>
       </div>
     );
-  return <GraphPane reader={edition.reader} map={map.value} graph={graph} lit={lit} selected={selected} onSelect={onSelect} onOpenLean={onOpenLean} onClear={onClear} selectedEdge={selectedEdge} onEdge={onEdge} progress={progress} paperName={paperName} selectionKey={selectionKey} onFollow={onFollow} claimMatch={claimMatch} focusPassages={focusPassages} focusRequest={focusRequest} onFocusChange={onFocusChange} fitSelection={fitSelection} />;
+  return <GraphPane reader={edition.reader} map={map.value} graph={graph} lit={lit} onSelect={onSelect} onOpenLean={onOpenLean} selectedEdge={selectedEdge} onEdge={onEdge} onBack={onBack} />;
 }

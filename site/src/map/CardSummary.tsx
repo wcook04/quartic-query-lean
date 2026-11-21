@@ -1,12 +1,9 @@
-// The selected card, summarised in place under the map, in the place and grammar of a
-// line's evidence (EdgeEvidence): its title, its kind and Lean name, the reviewed
-// match to a paper statement (derived as the Lean tab derives it, LeanPanel.tsx),
-// and the Lean statement with its proof folded (as the homepage's HeadlinePair).
-import { useEffect, useRef } from "react";
+// A card previewed in the dock under the graph while it is under the pointer: its kind and
+// Lean name, the reviewed match to a paper statement (derived as the Lean view derives it,
+// LeanPanel.tsx), and the Lean statement with its proof folded (as the homepage's HeadlinePair).
 import type { ClaimMatch } from "../paper/selectRow";
 import { useAsync } from "../app/useAsync";
 import { LeanCode } from "../lean/LeanCode";
-import { Title } from "../text/title";
 import { RelationMark } from "../inspect/evidence";
 import { StatementLabel } from "../inspect/common";
 
@@ -21,8 +18,6 @@ interface Props {
   /** The proof map's kind for the declaration, when recorded. */
   kind?: string | null;
   claimMatch?: ClaimMatch;
-  onClose(): void;
-  onOpenLean(name: string): void;
 }
 
 function kindWords(kind: string | null | undefined, text: string): string {
@@ -32,9 +27,7 @@ function kindWords(kind: string | null | undefined, text: string): string {
   return "Lean definition";
 }
 
-export function CardSummary({ reader, name, title, kind, claimMatch, onClose, onOpenLean }: Props) {
-  const head = useRef<HTMLHeadingElement>(null);
-  useEffect(() => { head.current?.focus({ preventScroll: true }); }, [name]);
+export function CardSummary({ reader, name, kind, claimMatch }: Props) {
   const data = useAsync<any>(() => reader.fromDeclaration(name), [reader, name]);
   const d = data.state === "ready" ? data.value : null;
   const src = d?.source ?? {};
@@ -50,12 +43,7 @@ export function CardSummary({ reader, name, title, kind, claimMatch, onClose, on
   const words = kindWords(kind, src.text ?? "");
 
   return (
-    <section className="edge-ev card-sum" aria-labelledby="card-sum-h" onKeyDown={(event) => { if (event.key === "Escape") { event.stopPropagation(); onClose(); } }}>
-      <header className="edge-ev__head">
-        <h3 id="card-sum-h" ref={head} tabIndex={-1} className="edge-ev__title card-sum__title"><Title text={title} /></h3>
-        <button type="button" className="tool tool--primary card-sum__open" onClick={() => onOpenLean(name)}>Open in the Lean tab</button>
-        <button type="button" className="edge-ev__close" onClick={onClose} aria-label="Clear the selected card">×</button>
-      </header>
+    <div className="card-sum">
       <p className="card-sum__kind">{words} <code className="card-sum__name">{name}</code></p>
       {data.state === "loading" && <p className="edge-ev__note" role="status">Loading the card…</p>}
       {data.state === "failed" && <p className="edge-ev__note" role="alert">This card’s Lean could not be loaded.</p>}
@@ -70,6 +58,6 @@ export function CardSummary({ reader, name, title, kind, claimMatch, onClose, on
             caption={<span className="leancode__file">{file || "Lean source"}</span>} />
         </div>
       )}
-    </section>
+    </div>
   );
 }
