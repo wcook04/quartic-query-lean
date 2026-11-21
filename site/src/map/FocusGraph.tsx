@@ -82,7 +82,7 @@ interface Rel { kind: string; of: Set<string> }
 /** One thing in a side's column: a card, or a named group of cards that opens in place. */
 type Item =
   | { type: "node"; id: string }
-  | { type: "group"; key: string; name: string; tone?: string; role?: FGRole; ids: string[]; open: boolean; children: Item[] };
+  | { type: "group"; key: string; name: string; tone?: string; role?: FGRole; said?: string; ids: string[]; open: boolean; children: Item[] };
 /** How one side is divided when it does not fit: named parts, some of them drawn out as their own nodes. */
 interface Part { key: string; name: string; list: string[]; depth: number }
 type Plan = { flat: true } | { flat: false; parts: Part[]; out: ReadonlySet<string> };
@@ -161,7 +161,7 @@ export function FocusGraph(props: FocusGraphProps) {
 
   const key = model.subj.join("|");
   const many = model.subj.length > 1;
-  useLayoutEffect(() => { setOpened(new Set()); setTight(0); }, [key]);
+  useLayoutEffect(() => { setOpened(new Set()); setTight(0); setHot(null); }, [key]);
   // A new size is fitted afresh, unless the reader has a group open.
   useLayoutEffect(() => { if (!openedNow.current) setTight(0); }, [size.w, size.h, zoom]);
 
@@ -259,8 +259,13 @@ export function FocusGraph(props: FocusGraphProps) {
       }
       return { type: "group", key: path, name, tone: tones.size === 1 ? [...tones][0] : undefined, role: kinds.size === 1 ? [...kinds][0] : undefined, ids: list, open: isOpen, children };
     };
-    return how.parts.flatMap((p) => (how.out.has(p.key) && !open(p.key) ? p.list.map(node) : [group(p.key, p.name, p.list, p.depth < 2)]));
-  }, [card, opened]);
+    const items = how.parts.flatMap((p) => (how.out.has(p.key) && !open(p.key) ? p.list.map(node) : [group(p.key, p.name, p.list, p.depth < 2)]));
+    // Two groups of one name (one topic among the definitions and again among the lemmas) each say their kind.
+    const names = new Map<string, number>();
+    for (const it of items) if (it.type === "group") names.set(it.name, (names.get(it.name) ?? 0) + 1);
+    for (const it of items) if (it.type === "group" && it.role && (names.get(it.name) ?? 0) > 1) { const w = words(it.role).many; it.said = w.charAt(0).toLowerCase() + w.slice(1); }
+    return items;
+  }, [card, opened, words]);
 
   const leftItems = useMemo(() => column("users", model.left, plans.users), [column, model.left, plans]);
   const rightItems = useMemo(() => column("uses", model.right, plans.uses), [column, model.right, plans]);
@@ -495,7 +500,7 @@ export function FocusGraph(props: FocusGraphProps) {
           {!subject && c.kicker && <span className="fg__tag">{c.kicker}</span>}
           {renderTitle ? renderTitle(c) : c.title}
         </span>
-        {subject && !many && c.name && <code className="fg__name">{c.name}</code>}
+        {subject && !many && c.name && <code className="fg__name">{c.name.replace(/([._])/g, "$1\u200b")}</code>}
       </button>
     );
   };
@@ -517,7 +522,7 @@ export function FocusGraph(props: FocusGraphProps) {
             title={it.open ? "Fold these back into one group" : `Show these ${it.ids.length} cards here`}
             onClick={() => toggle(side, it.key)}
           >
-            <span className="fg__groupname">{it.name}</span>
+            <span className="fg__groupname">{it.name}{it.said && <span className="fg__groupkind"> {it.said}</span>}</span>
             <span className="fg__count">{it.ids.length}</span>
             <span className="fg__sign" aria-hidden="true">{it.open ? "−" : "+"}</span>
           </button>
