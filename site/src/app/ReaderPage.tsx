@@ -228,7 +228,10 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   // phrase, a clicked card's declaration, or the Lean of the paragraph being followed.
   const graphTab = !["path", "lean", "statement", "journey", "passage"].includes(route.v ?? "");
   const cardPick = graphTab && !splitPhrase && route.d ? route.d : null;
-  const splitOn = graphTab && (splitPhrase || !!cardPick || wide);
+  const splitOn = graphTab;
+  // On a phone the split folds the graph to one line above the bottom card; the reader can unfold it.
+  const [phoneGraph, setPhoneGraph] = useState(false);
+  useEffect(() => setPhoneGraph(false), [route.ph, route.d]);
   // An undrawn declaration shows its own Lean neighbours above, until the reader asks for the passage map.
   const [passageMapFor, setPassageMapFor] = useState<string | null>(null);
   const localView = splitPhrase && !!graphTarget && graphTarget.relation !== "self" && passageMapFor !== `${route.ph}|${route.d}`;
@@ -654,7 +657,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               );
             })()}
             {(graphOpened || mode === "graph") && (
-              <div className={`inspector__graph${splitOn ? " has-phrase" : ""}${splitPhrase || cardPick ? " has-pick" : ""}`} hidden={mode !== "graph"}>
+              <div className={`inspector__graph${splitOn ? " has-phrase" : ""}${phoneGraph ? " show-graph" : ""}`} hidden={mode !== "graph"}>
                 <div className="inspector__map">
                 {localView && route.d && (
                   <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
@@ -683,10 +686,11 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                 </p>
                 </div>
                 </div>
-                {(splitPhrase || cardPick) && (
+                {splitOn && (
                   <p className="phrase-graph-strip">
-                    <span>The graph is folded while this {splitPhrase ? "phrase" : "card"} is open.</span>
-                    <button type="button" className="textbutton" onClick={closePhrase}>Show the graph</button>
+                    {phoneGraph
+                      ? <><span>The graph fills the sheet.</span><button type="button" className="textbutton" onClick={() => setPhoneGraph(false)}>Show the Lean below it</button></>
+                      : <><span>The graph is folded above the {splitPhrase ? "phrase" : cardPick ? "card" : "Lean of this paragraph"}.</span><button type="button" className="textbutton" onClick={() => setPhoneGraph(true)}>Show the graph</button></>}
                   </p>
                 )}
                 {splitOn && <PhraseDivider />}

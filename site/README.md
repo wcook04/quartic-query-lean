@@ -88,6 +88,14 @@ statement". The contents rail and the Topic colours menu give the key; every lis
 and subsection in the rail carries the colour dashes of the topics whose tied phrases it
 contains, its subsections' included.
 
+In the split the graph draws its subject (a selected card, or the steps of the paragraph being
+read) as bands that wrap into rows ([`src/map/TierBands.tsx`](src/map/TierBands.tsx)): the
+cards that use it, the subject, and the cards it uses, every title whole. When the bands are
+taller than the graph's share, the split grows it for that subject (up to 85%), and then the
+card type steps down to about 10px; a paragraph with dozens of neighbours still scrolls. Whole
+proof keeps the full map. A paragraph without Lean lights no steps. On a phone the Graph tab
+always folds the graph to one line above the bottom card, with a button to unfold it.
+
 Whenever the graph's subject changes (a passage followed, a card or phrase chosen) the camera
 moves for 250 ms (none under reduced motion) to frame the selected card with its drawn
 neighbours, or the passage's graph, at a readable scale; when that cannot fit, the selected

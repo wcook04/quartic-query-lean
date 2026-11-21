@@ -488,7 +488,9 @@ validates the [phrase ties](../docs/reading_api.md#phrase-ties-topics-and-readin
 the manuscript bytes and the Lean graph, and the manuscript renderer marks each phrase in
 the HTML. [check_phrase_clicks.py](check_phrase_clicks.py) clicks every phrase in a served build and
 checks that its card opens; [check_graph_cards.py](check_graph_cards.py) opens every graph card
-and phrase neighbourhood and checks that no title is cut, clipped or past its card. Both need
+and phrase neighbourhood and checks that no title is cut, clipped or past its card;
+[check_graph_focus.py](check_graph_focus.py) chooses every map card and follows every linked
+paragraph and checks that the subject and its drawn neighbours lie inside the graph area. All three need
 Playwright and are run by hand. [intake_phrase_returns.py](intake_phrase_returns.py) preserved the three accepted
 phrase returns and derived the maintained sources from them. [reading_board.py](reading_board.py)
 constructs the opening experiments from the bound source table and passages.
