@@ -560,8 +560,9 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const goSection = (r: ContentsRow) => { resumePaperFollowing(); setFollowing(true); go({ ...base, a: r.anchor, v: route.v }, true); };
 
   const selectionStatements = rows.find((row) => row.id === currentSelection)?.statements;
+  const awaitingLinkedLean = SOURCE_READER && combineViews && !whole && noLeanHere && leanResolving;
   const inlineLean = SOURCE_READER && combineViews && !whole && !noLeanHere;
-  const mapOnly = SOURCE_READER && (whole || (combineViews && noLeanHere));
+  const mapOnly = SOURCE_READER && (whole || (combineViews && noLeanHere && !awaitingLinkedLean));
   const graphDetail = preview && !inlineLean ? <CardPreview edition={edition} name={preview} title={phrases?.titles[preview]?.title ?? names?.titles[preview]?.title ?? mapCards?.[preview]?.title ?? preview}
     kind={mapCards && Object.hasOwn(mapCards, preview) ? "On the proof map" : "Lean declaration outside the paper’s map"} onOpenLean={(n) => nav.openLean(n)} />
     : phraseDeclaration ? <PhraseSplit edition={edition} id={route.ph!} name={phraseDeclaration} onClose={followPaper}
@@ -770,7 +771,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                 hidden={mode !== "graph"}>
                 {inlineLean && <div className="graph-dock">{graphDetail}</div>}
                 <div className="inspector__map">
-                  {whole || mapOnly ? (
+                  {awaitingLinkedLean ? <p className="pending" role="status">Finding the Lean linked to this passage…</p> : whole || mapOnly ? (
                     <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
                       <ProofPane edition={edition} lit={paragraphSteps} onSelect={selectCard} onOpenLean={nav.openLean}
                         selectedEdge={route.e ?? null} onEdge={nav.openPath} onBack={whole || !mapOnly ? () => setWhole(false) : undefined} />
@@ -780,7 +781,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                       held={preview} label={graphLabel} onSubject={selectCard} onHover={onGraphHover} combined={inlineLean} onFitHeight={SOURCE_READER ? setFitHeight : undefined} />
                   )}
                 </div>
-                {!inlineLean && !mapOnly && <>
+                {!inlineLean && !mapOnly && !awaitingLinkedLean && <>
                   <PhraseDivider />
                   <div className="graph-dock" onMouseEnter={() => window.clearTimeout(previewTimer.current)} onMouseLeave={() => preview && onGraphHover(null)}>{graphDetail}</div>
                 </>}
