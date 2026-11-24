@@ -1,167 +1,167 @@
 {
   "QuarticQuery.Amplification.Preparation.good_iterate": {
-    "title": "The successful amplitude after $j$ Grover steps is $\\sin((2j+1)\\theta)$",
-    "title_plain": "The successful Grover component is a sine multiple of the successful state"
+    "title": "The successful amplitude after j Grover steps is sin((2j+1)θ)",
+    "title_plain": "The successful amplitude after j Grover steps is sin((2j+1)θ)"
   },
   "QuarticQuery.Amplification.Preparation.grover_rotation": {
-    "title": "For $0<p<1$, Grover rotates the success–failure plane by $2\\theta$",
-    "title_plain": "Grover rotates the successful and unsuccessful plane by twice the angle"
+    "title": "Grover rotation by 2θ in the success–failure plane for 0<p<1",
+    "title_plain": "Grover rotation by 2θ in the success–failure plane for 0<p<1"
   },
   "QuarticQuery.Amplification.Preparation.iterate_eq": {
     "title": "The sine and cosine amplitudes after any number of Grover steps",
     "title_plain": "The sine and cosine amplitudes after any number of Grover steps"
   },
   "QuarticQuery.Amplification.Preparation.norm_good_iterate_sq": {
-    "title": "After $j$ Grover steps, success probability is $\\sin^2((2j+1)\\theta)$",
-    "title_plain": "Grover success probability is sin²((2ℓ + 1)θ)"
+    "title": "After j Grover steps, success probability is sin²((2j+1)θ)",
+    "title_plain": "After j Grover steps, success probability is sin²((2j+1)θ)"
   },
   "QuarticQuery.Amplification.Preparation.sin_two_angle": {
-    "title": "The Grover double-angle identity $\\sin(2\\theta)=2\\sqrt{p(1-p)}$",
-    "title_plain": "The double-angle identity sin(2θ) = 2√(p(1 − p))"
+    "title": "The Grover double-angle identity sin(2θ)=2√(p(1−p))",
+    "title_plain": "The Grover double-angle identity sin(2θ)=2√(p(1−p))"
   },
   "QuarticQuery.Amplification.Preparation.trialFail_le": {
-    "title": "A mixed trial fails with probability $\\le31/40$ if $p\\ge\\gamma$",
-    "title_plain": "One trial fails with probability at most 31/40 when p ≥ γ"
+    "title": "Mixed-trial failure probability ≤31/40 when p≥γ",
+    "title_plain": "Mixed-trial failure probability ≤31/40 when p≥γ"
   },
   "QuarticQuery.Amplification.average_sin_sq_ge_nine_twentieths": {
-    "title": "With enough random Grover iterations, mean success is at least $9/20$",
-    "title_plain": "A sufficiently large Grover iteration range gives average success at least 9/20"
+    "title": "Random Grover success ≥9/20 when sin(2θ)≥√γ and M≥10/√γ",
+    "title_plain": "Random Grover success ≥9/20 when sin(2θ)≥√γ and M≥10/√γ"
   },
   "QuarticQuery.Amplification.bounded_amplification": {
-    "title": "With $p\\ge\\gamma$, amplification preserves the successful state and failure is $\\le\\eta$",
-    "title_plain": "Uniform bounded amplification with the correct successful output state"
+    "title": "Amplification preserves the successful state with failure ≤η when p≥γ",
+    "title_plain": "Amplification preserves the successful state with failure ≤η when p≥γ"
   },
   "QuarticQuery.Amplification.pow_trialCount_le": {
-    "title": "The number of trials makes $(31/40)^N\\le\\eta$",
-    "title_plain": "The chosen number of trials reduces geometric failure below the target"
+    "title": "Trial count N gives (31/40)ᴺ ≤ η",
+    "title_plain": "Trial count N gives (31/40)ᴺ ≤ η"
   },
   "QuarticQuery.BitLoc": {
     "title": "Column strings, address strings, cell pointers and cell transcripts",
     "title_plain": "Column strings, address strings, cell pointers and cell transcripts"
   },
   "QuarticQuery.D_le_Q_pow_four": {
-    "title": "Every total function satisfies $D(f)\\le20736\\,Q(f)^4$",
-    "title_plain": "The deterministic quartic bound D(f) ≤ 20736Q(f)⁴"
+    "title": "D(f) ≤ 20736Q(f)⁴ for total functions",
+    "title_plain": "D(f) ≤ 20736Q(f)⁴ for total functions"
   },
   "QuarticQuery.Forrelation.P_eq_some_false_iff": {
-    "title": "The Forrelation promise assigns zero when $\\lvert\\Phi\\rvert\\le\\delta/2$",
-    "title_plain": "The partial Forrelation function is false exactly when |Φ| ≤ δ/2"
+    "title": "Forrelation assigns zero exactly when |Φ| ≤ δ/2",
+    "title_plain": "Forrelation assigns zero exactly when |Φ| ≤ δ/2"
   },
   "QuarticQuery.Forrelation.P_eq_some_true_iff": {
-    "title": "The Forrelation promise assigns one when $\\Phi\\ge\\delta$",
-    "title_plain": "The partial Forrelation function is true exactly when Φ ≥ δ"
+    "title": "Forrelation assigns one exactly when Φ ≥ δ",
+    "title_plain": "Forrelation assigns one exactly when Φ ≥ δ"
   },
   "QuarticQuery.Forrelation.binomTail_large": {
-    "title": "If $p\\ge c$, falling below $nc/2$ has probability at most $e^{-nc/16}$",
-    "title_plain": "If p ≥ c > 0, falling below nc/2 successes has probability at most exp(−nc/16)"
+    "title": "For p≥c, binomial probability below nc/2 is at most e^(−nc/16)",
+    "title_plain": "For p≥c, binomial probability below nc/2 is at most e^(−nc/16)"
   },
   "QuarticQuery.Forrelation.binomTail_small": {
-    "title": "If $p\\le c/4$, reaching $nc/2$ has probability at most $e^{-nc/16}$",
-    "title_plain": "If p ≤ c/4, reaching nc/2 successes has probability at most exp(−nc/16)"
+    "title": "For p≤c/4, binomial probability of reaching nc/2 is at most e^(−nc/16)",
+    "title_plain": "For p≤c/4, binomial probability of reaching nc/2 is at most e^(−nc/16)"
   },
   "QuarticQuery.Forrelation.delta": {
-    "title": "The Forrelation promise threshold $\\delta=2^{-5k}$",
-    "title_plain": "The promise threshold δ = 2^(−5k)"
+    "title": "The Forrelation promise threshold δ=2⁻⁵ᵏ",
+    "title_plain": "The Forrelation promise threshold δ=2⁻⁵ᵏ"
   },
   "QuarticQuery.Forrelation.delta_sq": {
-    "title": "The square of the Forrelation threshold is $2^{-10k}$",
-    "title_plain": "The squared promise threshold equals δ² = 2^(−10k)"
+    "title": "The square of the Forrelation threshold is 2⁻¹⁰ᵏ",
+    "title_plain": "The square of the Forrelation threshold is 2⁻¹⁰ᵏ"
   },
   "QuarticQuery.Forrelation.denominator_eq": {
-    "title": "The Forrelation normalization denominator is $2^{t(k+1)}$",
-    "title_plain": "For k = ℓ + 1, the denominator is M = 2^(t(ℓ + 2))"
+    "title": "The Forrelation normalization denominator is 2ᵗ⁽ᵏ⁺¹⁾",
+    "title_plain": "The Forrelation normalization denominator is 2ᵗ⁽ᵏ⁺¹⁾"
   },
   "QuarticQuery.Forrelation.forrCircuit_size_le": {
-    "title": "The exact Forrelation circuit has $O_k(m\\log^2m)$ gates",
-    "title_plain": "The exact Forrelation circuit uses at most cₖm(2t)² gates"
+    "title": "The exact Forrelation circuit has Oₖ(m log²m) gates",
+    "title_plain": "The exact Forrelation circuit has Oₖ(m log²m) gates"
   },
   "QuarticQuery.Forrelation.repetitions": {
-    "title": "The projection trial count for promised error at most $\\eta$",
-    "title_plain": "Choose ⌈16 · 2^(10k) log(1/η)⌉ independent repetitions"
+    "title": "The projection trial count for promised error at most η",
+    "title_plain": "The projection trial count for promised error at most η"
   },
   "QuarticQuery.Forrelation.successProb_of_false": {
-    "title": "On promised zero-inputs, projection probability is at most $\\delta^2/4$",
-    "title_plain": "On false inputs the projection success probability is at most δ²/4"
+    "title": "Projection probability ≤δ²/4 on promised zero-inputs",
+    "title_plain": "Projection probability ≤δ²/4 on promised zero-inputs"
   },
   "QuarticQuery.Forrelation.successProb_of_true": {
-    "title": "On promised one-inputs, projection probability is at least $\\delta^2$",
-    "title_plain": "On true inputs the projection success probability is at least δ²"
+    "title": "Projection probability ≥δ² on promised one-inputs",
+    "title_plain": "Projection probability ≥δ² on promised one-inputs"
   },
   "QuarticQuery.Forrelation.threshold_correct": {
-    "title": "Thresholding projection frequency at $\\delta^2/2$ gives promised error at most $\\eta$",
-    "title_plain": "Thresholding at nδ²/2 separates the promise cases with error at most η"
+    "title": "On the promise, projection threshold δ²/2 gives error ≤η with enough trials",
+    "title_plain": "On the promise, projection threshold δ²/2 gives error ≤η with enough trials"
   },
   "QuarticQuery.ForrelationLower.Xk_facts": {
-    "title": "The unfloored cutoff is at least one for $k\\ge2$ and $t\\ge8$",
-    "title_plain": "The proposed query scale is positive and has the required power and floor bounds"
+    "title": "The unfloored cutoff is at least one for k≥2 and t≥8",
+    "title_plain": "The unfloored cutoff is at least one for k≥2 and t≥8"
   },
   "QuarticQuery.ForrelationLower.bansalSinhaLower": {
-    "title": "For fixed $k\\ge2$, Forrelation eventually needs more than $L$ randomized queries",
-    "title_plain": "Randomized hardness of the Forrelation promise problem"
+    "title": "For fixed k≥2, Forrelation eventually needs more than L randomized queries",
+    "title_plain": "For fixed k≥2, Forrelation eventually needs more than L randomized queries"
   },
   "QuarticQuery.ForrelationLower.eps_le": {
-    "title": "The amplified error satisfies $(8/9)^{25k}\\le18^{-k}$",
-    "title_plain": "The chosen amplification error is below the chain expectation scale"
+    "title": "The amplified error satisfies (8/9)²⁵ᵏ≤18⁻ᵏ",
+    "title_plain": "The amplified error satisfies (8/9)²⁵ᵏ≤18⁻ᵏ"
   },
   "QuarticQuery.ForrelationLower.exists_P_no": {
-    "title": "Forrelation has a promised zero-input when $m\\ge2^{10k+3}$",
-    "title_plain": "A sufficiently large Forrelation block has a no instance"
+    "title": "Forrelation has a promised zero-input when m≥2¹⁰ᵏ⁺³",
+    "title_plain": "Forrelation has a promised zero-input when m≥2¹⁰ᵏ⁺³"
   },
   "QuarticQuery.ForrelationLower.exists_identity": {
     "title": "One interior interpolation point gives the difference of the two expectations",
     "title_plain": "One interior interpolation point gives the difference of the two expectations"
   },
   "QuarticQuery.ForrelationLower.four_sq_le_two_pow": {
-    "title": "The inequality $4t^2\\le2^t$ for $t\\ge8$",
-    "title_plain": "A power of two dominates four times the squared dimension parameter"
+    "title": "The inequality 4t²≤2ᵗ for t≥8",
+    "title_plain": "The inequality 4t²≤2ᵗ for t≥8"
   },
   "QuarticQuery.ForrelationLower.main_term_le_sharp": {
-    "title": "The sharp main term is at most $18^{-(k-1)}/3$",
-    "title_plain": "The improved uniform query budget makes the sharp main advantage term small"
+    "title": "The sharp main term is at most 18⁻⁽ᵏ⁻¹⁾/3",
+    "title_plain": "The sharp main term is at most 18⁻⁽ᵏ⁻¹⁾/3"
   },
   "QuarticQuery.ForrelationLower.padding_pow_le": {
-    "title": "Query-depth padding adds a factor at most $50/49$",
-    "title_plain": "The multiplicative depth padding stays below fifty over forty-nine"
+    "title": "Query-depth padding adds a factor at most 50/49",
+    "title_plain": "Query-depth padding adds a factor at most 50/49"
   },
   "QuarticQuery.ForrelationLower.psi_dphi_eq_sharp_at_zero": {
     "title": "The sharp Gaussian edge bound is attained at the origin",
     "title_plain": "The sharp Gaussian edge bound is attained at the origin"
   },
   "QuarticQuery.ForrelationLower.q_le": {
-    "title": "The exceptional probability $4/(m\\delta^2)$ is at most $\\delta$ when $m\\ge2^{15k+2}$",
-    "title_plain": "The uniform second-moment error is below the promise threshold"
+    "title": "Exceptional probability 4/(mδ²) is at most δ when m≥2¹⁵ᵏ⁺²",
+    "title_plain": "Exceptional probability 4/(mδ²) is at most δ when m≥2¹⁵ᵏ⁺²"
   },
   "QuarticQuery.ForrelationLower.qf": {
-    "title": "The Gaussian rounding denominator $\\sqrt{2+x^2}$",
-    "title_plain": "Square-root denominator q(x) = √(2 + x²)"
+    "title": "The Gaussian rounding denominator √(2+x²)",
+    "title_plain": "The Gaussian rounding denominator √(2+x²)"
   },
   "QuarticQuery.Paper.HeavyColumn": {
-    "title": "A column is heavy after more than $L$ address-string reads",
-    "title_plain": "A column receiving more queries than its local budget"
+    "title": "A column is heavy after more than L address-string reads",
+    "title_plain": "A column is heavy after more than L address-string reads"
   },
   "QuarticQuery.Paper.addressSimulator": {
     "title": "Replay with capped address reads to predict a cell address",
     "title_plain": "Replay with capped address reads to predict a cell address"
   },
   "QuarticQuery.Paper.addressSimulator_depth_le": {
-    "title": "The predictor uses at most $L$ reads across all target strings",
-    "title_plain": "The address simulator respects its local query cap"
+    "title": "At most L predictor reads across all target strings",
+    "title_plain": "At most L predictor reads across all target strings"
   },
   "QuarticQuery.Paper.amplification_budget_le": {
-    "title": "The padded amplifier uses at most $138\\ln(1/\\eta)/\\sqrt\\gamma$ calls",
-    "title_plain": "Amplification costs at most an inverse square root times logarithmic error reduction"
+    "title": "Amplification uses at most 138 ln(1/η)/√γ padded calls",
+    "title_plain": "Amplification uses at most 138 ln(1/η)/√γ padded calls"
   },
   "QuarticQuery.Paper.appendixA_D_le_Q_pow_four": {
-    "title": "The appendix’s spectral route gives $D(f)\\le1500625Q(f)^4$",
-    "title_plain": "Deterministic complexity is at most 1500625Q⁴"
+    "title": "The spectral route gives D(f) ≤ 1500625Q(f)⁴",
+    "title_plain": "The spectral route gives D(f) ≤ 1500625Q(f)⁴"
   },
   "QuarticQuery.Paper.appendixA_adversary_of_perron": {
     "title": "A Perron eigenvector gives the nonnegative adversary lower bound",
     "title_plain": "A Perron eigenvector gives the nonnegative adversary lower bound"
   },
   "QuarticQuery.Paper.appendixA_mask_star_norm_le_one": {
-    "title": "A coordinate mask retaining at most one star edge has norm $\\le1$",
-    "title_plain": "A star mask containing at most one edge has norm at most one"
+    "title": "A coordinate mask retaining at most one star edge has norm ≤1",
+    "title_plain": "A coordinate mask retaining at most one star edge has norm ≤1"
   },
   "QuarticQuery.Paper.avg_reachedCellAt_le": {
     "title": "A light true-cell visit at one time is bounded by address-guessing success",
@@ -176,32 +176,32 @@
     "title_plain": "Optimal weighted success divided by the remaining prior mass"
   },
   "QuarticQuery.Paper.classical_Fkm_ratio": {
-    "title": "For fixed $k$, $R/(1+Q)^\\alpha$ diverges when $0\\le\\alpha<4-2/k$",
-    "title_plain": "The constructed family's randomized to quantum power ratio diverges"
+    "title": "R/(1+Q)^α diverges for fixed k and 0≤α<4−2/k",
+    "title_plain": "R/(1+Q)^α diverges for fixed k and 0≤α<4−2/k"
   },
   "QuarticQuery.Paper.classical_capped_depth_uniform": {
-    "title": "A cap of $L$ per input allows at most $rL$ queries",
-    "title_plain": "Uniform per instance caps bound total depth by their sum"
+    "title": "A cap of L per input allows at most rL queries",
+    "title_plain": "A cap of L per input allows at most rL queries"
   },
   "QuarticQuery.Paper.classical_direct_product": {
-    "title": "Separate query caps give joint success at most $\\beta^r$ on $r$ inputs",
-    "title_plain": "Independent hard instances obey the classical direct product bound"
+    "title": "Separate query caps give joint success at most βʳ on r inputs",
+    "title_plain": "Separate query caps give joint success at most βʳ on r inputs"
   },
   "QuarticQuery.Paper.classical_eq_17_floor": {
-    "title": "The randomized query budget $G=\\lfloor mL/100\\rfloor$",
-    "title_plain": "Equation (17): express the query budget as the floor of the real quotient"
+    "title": "The randomized query budget G=⌊mL/100⌋",
+    "title_plain": "The randomized query budget G=⌊mL/100⌋"
   },
   "QuarticQuery.Paper.classical_numeric_components": {
-    "title": "The three distinguishing terms are at most $4/100$, $1/100$ and $1/100$",
-    "title_plain": "The three classical error terms sum to less than one third"
+    "title": "Distinguishing terms bounded by 4/100, 1/100 and 1/100",
+    "title_plain": "Distinguishing terms bounded by 4/100, 1/100 and 1/100"
   },
   "QuarticQuery.Paper.classical_prefix_iff": {
     "title": "A compatible transcript imposes separate constraints on each input",
     "title_plain": "A compatible transcript imposes separate constraints on each input"
   },
   "QuarticQuery.Paper.classical_tail_le": {
-    "title": "The address-guessing term is at most $m^{2-20\\log_2(3/2)}/100$",
-    "title_plain": "Bound the accumulated direct product tail by its envelope"
+    "title": "The address-guessing term is at most m^(2−20log₂(3/2))/100",
+    "title_plain": "The address-guessing term is at most m^(2−20log₂(3/2))/100"
   },
   "QuarticQuery.Paper.classical_transcriptWeight_append": {
     "title": "Each reply restricts only the probability law of the queried input",
@@ -212,16 +212,16 @@
     "title_plain": "The conditional expectation of the product of continuation values cannot increase"
   },
   "QuarticQuery.Paper.construction_K_bound": {
-    "title": "Circuits of size $O_k(m\\log^2m)$ give $O_k(m\\log^3m)$ certificate tests",
-    "title_plain": "Bound the local test count using the circuit size bound"
+    "title": "Circuit size Oₖ(m log²m) gives Oₖ(m log³m) certificate tests",
+    "title_plain": "Circuit size Oₖ(m log²m) gives Oₖ(m log³m) certificate tests"
   },
   "QuarticQuery.Paper.construction_K_count": {
-    "title": "The certificate uses exactly $m+(m-1)+r(S+2)$ tests",
-    "title_plain": "Count all column, pointer and transcript tests exactly"
+    "title": "The certificate has exactly m + (m−1) + r(S+2) tests",
+    "title_plain": "The certificate has exactly m + (m−1) + r(S+2) tests"
   },
   "QuarticQuery.Paper.construction_K_family": {
-    "title": "The exact Forrelation circuit gives $O_k(m\\log^3m)$ certificate tests",
-    "title_plain": "The Forrelation family has a column count times polylogarithmic test count"
+    "title": "The exact Forrelation circuit gives Oₖ(m log³m) certificate tests",
+    "title_plain": "The exact Forrelation circuit gives Oₖ(m log³m) certificate tests"
   },
   "QuarticQuery.Paper.construction_N_phi": {
     "title": "The integer Walsh path sum divided by its positive normalization",
@@ -232,32 +232,32 @@
     "title_plain": "The minus-state answer qubit converts a bit query to input signs"
   },
   "QuarticQuery.Paper.construction_butterfly_block_bound": {
-    "title": "A Walsh butterfly block of size $2^q$ has magnitude $\\le2^q B$",
-    "title_plain": "Bound an integer Walsh butterfly block"
+    "title": "For input magnitudes ≤B, 2ᑫ-point Walsh blocks have magnitude ≤2ᑫB",
+    "title_plain": "For input magnitudes ≤B, 2ᑫ-point Walsh blocks have magnitude ≤2ᑫB"
   },
   "QuarticQuery.Paper.construction_decoder_sharp": {
-    "title": "A coherent $n$-trial Forrelation decoder uses at most $nk$ bit queries",
-    "title_plain": "Realize the repeated Forrelation decoder with a sharp read count"
+    "title": "A coherent n-trial Forrelation decoder uses at most nk bit queries",
+    "title_plain": "A coherent n-trial Forrelation decoder uses at most nk bit queries"
   },
   "QuarticQuery.Paper.construction_eq6": {
-    "title": "The board has $r=20\\log_2 m=40t$ address bits per column",
-    "title_plain": "Equation (6): the column and address length parameters"
+    "title": "Address length r = 20 log₂m = 40t bits per column",
+    "title_plain": "Address length r = 20 log₂m = 40t bits per column"
   },
   "QuarticQuery.Paper.construction_equation_3": {
-    "title": "The alternating Walsh product for $\\Phi$ and threshold $\\delta=2^{-5k}$",
-    "title_plain": "Equation (3): the alternating matrix formula for Forrelation"
+    "title": "The alternating Walsh product for Φ and threshold δ=2⁻⁵ᵏ",
+    "title_plain": "The alternating Walsh product for Φ and threshold δ=2⁻⁵ᵏ"
   },
   "QuarticQuery.Paper.construction_equation_4": {
-    "title": "The Forrelation promise sets one at $\\Phi\\ge\\delta$ and zero at $\\lvert\\Phi\\rvert\\le\\delta/2$",
-    "title_plain": "Equation (4): the Forrelation promise and its disjoint output cases"
+    "title": "Forrelation assigns one at Φ≥δ and zero at |Φ|≤δ/2",
+    "title_plain": "Forrelation assigns one at Φ≥δ and zero at |Φ|≤δ/2"
   },
   "QuarticQuery.Paper.construction_equation_5": {
-    "title": "The one-input query cutoff $L=\\lfloor m^{1-1/k}/(\\log_2 m)^2\\rfloor$",
-    "title_plain": "Equation (5): the floored classical hardness budget"
+    "title": "One-input query cutoff L = ⌊m^(1−1/k)/(log₂m)²⌋",
+    "title_plain": "One-input query cutoff L = ⌊m^(1−1/k)/(log₂m)²⌋"
   },
   "QuarticQuery.Paper.construction_equation_two": {
-    "title": "Both query bounds for each fixed Forrelation order $k\\ge2$",
-    "title_plain": "Equation (2): the constructed family realizes both separation bounds"
+    "title": "Both query bounds for each fixed Forrelation order k≥2",
+    "title_plain": "Both query bounds for each fixed Forrelation order k≥2"
   },
   "QuarticQuery.Paper.construction_family_named": {
     "title": "The explicit Forrelation family has both bounds with fixed logarithmic powers",
@@ -272,28 +272,28 @@
     "title_plain": "Two exact integer comparisons give the Forrelation domain and value bits"
   },
   "QuarticQuery.Paper.construction_layout_cardinalities": {
-    "title": "Board dimensions are $m$ columns, $km$ bits per address input, $2^r$ addresses",
-    "title_plain": "Count columns, Forrelation inputs and addresses"
+    "title": "m columns, km bits per address input, and 2ʳ addresses",
+    "title_plain": "m columns, km bits per address input, and 2ʳ addresses"
   },
   "QuarticQuery.Paper.construction_lemma_2_1_complete": {
     "title": "Forrelation’s randomized lower bound, coherent decoder and exact promise circuit",
     "title_plain": "Forrelation’s randomized lower bound, coherent decoder and exact promise circuit"
   },
   "QuarticQuery.Paper.construction_lemma_2_1_i": {
-    "title": "For fixed $k\\ge2$, Forrelation eventually needs more than $L$ randomized queries",
-    "title_plain": "Lemma 2.1(i): the chosen budget is below randomized Forrelation complexity"
+    "title": "For fixed k≥2, Forrelation eventually needs more than L randomized queries",
+    "title_plain": "For fixed k≥2, Forrelation eventually needs more than L randomized queries"
   },
   "QuarticQuery.Paper.construction_lemma_2_1_ii_complete": {
-    "title": "Coherent Forrelation decoding uses $O_k(1+\\log(1/\\eta))$ bit queries",
-    "title_plain": "Lemma 2.1(ii) with a quantum sampler and its sharp bit query realization"
+    "title": "Coherent Forrelation decoding uses Oₖ(1+log(1/η)) bit queries",
+    "title_plain": "Coherent Forrelation decoding uses Oₖ(1+log(1/η)) bit queries"
   },
   "QuarticQuery.Paper.construction_lemma_2_1_iii": {
-    "title": "An $O_k(m\\log^2m)$ circuit computes Forrelation promise membership and value",
-    "title_plain": "Lemma 2.1(iii): a small exact Boolean circuit for Forrelation"
+    "title": "An Oₖ(m log²m) circuit computes Forrelation promise membership and value",
+    "title_plain": "An Oₖ(m log²m) circuit computes Forrelation promise membership and value"
   },
   "QuarticQuery.Paper.construction_lemma_2_2_i": {
-    "title": "Every certificate test has an exact tree of depth $\\le\\max(3,\\ell+1)$",
-    "title_plain": "Lemma 2.2(i): local tests characterize winners and have logarithmic depth"
+    "title": "Every certificate test has an exact tree of depth ≤max(3,ℓ+1)",
+    "title_plain": "Every certificate test has an exact tree of depth ≤max(3,ℓ+1)"
   },
   "QuarticQuery.Paper.construction_lemma_2_2_ii": {
     "title": "All certificate tests act coherently on arbitrary index superpositions",
@@ -304,20 +304,20 @@
     "title_plain": "A column wins exactly when it has a cell passing every test"
   },
   "QuarticQuery.Paper.construction_log2_mValue": {
-    "title": "At board size $m=4^t$, $\\log_2m=2t$",
-    "title_plain": "The binary logarithm of the column count is 2t"
+    "title": "At board size m=4ᵗ, log₂m=2t",
+    "title_plain": "At board size m=4ᵗ, log₂m=2t"
   },
   "QuarticQuery.Paper.construction_projection_test": {
-    "title": "Projection succeeds with probability $\\Phi^2$ and separates the two promise cases",
-    "title_plain": "The Forrelation projection has probability equal to the squared statistic"
+    "title": "Projection probability Φ² separates the two promise cases",
+    "title_plain": "Projection probability Φ² separates the two promise cases"
   },
   "QuarticQuery.Paper.construction_walsh_definitions": {
     "title": "Walsh signs, normalized Walsh matrix and uniform unit vector",
     "title_plain": "Walsh signs, normalized Walsh matrix and uniform unit vector"
   },
   "QuarticQuery.Paper.cor_R_omega_log2": {
-    "title": "For large $m$, the classical lower bound is $m^{2-1/k}/(400(\\log_2m)^2)$",
-    "title_plain": "The explicit randomized lower bound with constant one four hundredth"
+    "title": "For large m, the classical lower bound is m^(2−1/k)/(400(log₂m)²)",
+    "title_plain": "For large m, the classical lower bound is m^(2−1/k)/(400(log₂m)²)"
   },
   "QuarticQuery.Paper.discoveredZeros": {
     "title": "Count columns whose zero is read during the dummy run",
@@ -328,20 +328,20 @@
     "title_plain": "The acceptance gap is bounded by erased-zero and true-cell visits"
   },
   "QuarticQuery.Paper.eq_19": {
-    "title": "A $G$-query dummy run finds the erased zero with probability $\\le4G/m^2$",
-    "title_plain": "Equation (19): bound the erased zero hit probability"
+    "title": "Erased-zero hit probability ≤4G/m² within G dummy queries",
+    "title_plain": "Erased-zero hit probability ≤4G/m² within G dummy queries"
   },
   "QuarticQuery.Paper.eq_19_complete": {
-    "title": "Erased-zero probability is $\\mathbb E[Z]/m$ and at most $4G/m^2$",
-    "title_plain": "Equation (19): the erased zero equality and its expected discovery bound"
+    "title": "Erased-zero probability equals E[Z]/m and is at most 4G/m²",
+    "title_plain": "Erased-zero probability equals E[Z]/m and is at most 4G/m²"
   },
   "QuarticQuery.Paper.eq_21": {
-    "title": "At a fixed time, a light true-cell visit has probability $\\le(2/3)^r$",
-    "title_plain": "Equation (21): the direct product bound for reaching a decoded cell"
+    "title": "Light true-cell visit probability ≤(2/3)ʳ at any fixed time",
+    "title_plain": "Light true-cell visit probability ≤(2/3)ʳ at any fixed time"
   },
   "QuarticQuery.Paper.eq_22": {
-    "title": "The true-cell hit probability is at most $G/(mL)+G(2/3)^r$",
-    "title_plain": "Equation (22): bound the planted cell visit probability"
+    "title": "True-cell hit probability ≤ G/(mL) + G(2/3)ʳ",
+    "title_plain": "True-cell hit probability ≤ G/(mL) + G(2/3)ʳ"
   },
   "QuarticQuery.Paper.eq_23": {
     "title": "Erased-zero search, heavy columns and address guesses bound the acceptance gap",
@@ -356,16 +356,16 @@
     "title_plain": "The three-term acceptance-gap bound improves the erased-zero coefficient to two"
   },
   "QuarticQuery.Paper.erasedZero_eq_expectedZeros_div": {
-    "title": "Erased-zero hit probability equals $\\mathbb E[Z]/m$",
-    "title_plain": "The erased zero hit probability is expected discoveries divided by the column count"
+    "title": "Erased-zero hit probability equals E[Z]/m",
+    "title_plain": "Erased-zero hit probability equals E[Z]/m"
   },
   "QuarticQuery.Paper.forr_walsh_physical": {
     "title": "A Walsh projection trial uses one bit query per block",
     "title_plain": "A Walsh projection trial uses one bit query per block"
   },
   "QuarticQuery.Paper.prop_4_2_forrCircuit": {
-    "title": "The explicit Forrelation board needs more than $\\lfloor mL/100\\rfloor$ randomized queries",
-    "title_plain": "Proposition 4.2 for the exact Forrelation circuit family"
+    "title": "The explicit Forrelation board needs more than ⌊mL/100⌋ randomized queries",
+    "title_plain": "The explicit Forrelation board needs more than ⌊mL/100⌋ randomized queries"
   },
   "QuarticQuery.Paper.quantumComparison_query_bound": {
     "title": "Comparison cost comes from two address decodings and two pointer tests",
@@ -384,44 +384,44 @@
     "title_plain": "Independent retained-workspace decoders give a product law for the address"
   },
   "QuarticQuery.Paper.quantumDecode_correct": {
-    "title": "On promised address strings, whole-address decoding succeeds with probability at least $1-\\varepsilon$",
-    "title_plain": "The decoded true address has probability at least one minus the error"
+    "title": "On promised address strings, whole-address decoding succeeds with probability ≥1−ε",
+    "title_plain": "On promised address strings, whole-address decoding succeeds with probability ≥1−ε"
   },
   "QuarticQuery.Paper.quantumDecode_query_bound_real": {
-    "title": "Whole-address decoding costs at most $80tk(1+16\\cdot2^{10k}\\ln(40t/\\varepsilon))$ bit queries",
-    "title_plain": "Bound address decoding queries in terms of target error"
+    "title": "Whole-address bit-query upper bound 80tk(1 + 16·2¹⁰ᵏ ln(40t/ε))",
+    "title_plain": "Whole-address bit-query upper bound 80tk(1 + 16·2¹⁰ᵏ ln(40t/ε))"
   },
   "QuarticQuery.Paper.quantumDrift": {
     "title": "One weighted pivot leaves at most half the weight in expectation",
     "title_plain": "One weighted pivot leaves at most half the weight in expectation"
   },
   "QuarticQuery.Paper.quantumError_bound": {
-    "title": "False acceptance is at most $T\\varepsilon$, false rejection at most $2m/2^T+(T+1)\\varepsilon$",
-    "title_plain": "Bound the total error of candidate generation and verification"
+    "title": "False acceptance ≤ Tε and false rejection ≤ 2m/2ᵀ + (T+1)ε",
+    "title_plain": "False acceptance ≤ Tε and false rejection ≤ 2m/2ᵀ + (T+1)ε"
   },
   "QuarticQuery.Paper.quantumList_coupling": {
-    "title": "With certain verification, sampling failures add at most $\\varepsilon$ per stage",
-    "title_plain": "Couple list generation to a verifier accepting the dominant column with certainty"
+    "title": "With certain verification, sampling failures add at most ε per stage",
+    "title_plain": "With certain verification, sampling failures add at most ε per stage"
   },
   "QuarticQuery.Paper.quantumStage_success": {
     "title": "An accepted pivot is drawn in proportion to its weight",
     "title_plain": "An accepted pivot is drawn in proportion to its weight"
   },
   "QuarticQuery.Paper.quantumTournament_cost": {
-    "title": "The tournament costs at most $6072c\\sqrt{m}\\,T^2\\ln T$ physical queries",
-    "title_plain": "Bound tournament queries by square root columns times logarithmic factors"
+    "title": "Tournament bit-query bound 6072c√m T² ln(T)",
+    "title_plain": "Tournament bit-query bound 6072c√m T² ln(T)"
   },
   "QuarticQuery.Paper.quantumTournament_cost_log": {
-    "title": "The tournament costs at most $276c\\sqrt{2m}\\,T^2\\log(1/\\varepsilon)$ bit queries",
-    "title_plain": "Bound tournament cost using amplification's logarithmic error estimate"
+    "title": "Tournament bit-query bound 276c√(2m) T² log(1/ε)",
+    "title_plain": "Tournament bit-query bound 276c√(2m) T² log(1/ε)"
   },
   "QuarticQuery.Paper.quantumTournament_list": {
-    "title": "The quantum list misses a dominant candidate with probability at most $2m/2^T+T\\varepsilon$",
-    "title_plain": "The quantum tournament includes a dominant column in its short list with high probability"
+    "title": "Quantum list misses a dominant candidate with probability ≤ 2m/2ᵀ + Tε",
+    "title_plain": "Quantum list misses a dominant candidate with probability ≤ 2m/2ᵀ + Tε"
   },
   "QuarticQuery.Paper.quantumTournament_parameters": {
-    "title": "The tournament uses $T=\\lceil\\log_2(1000m)\\rceil$ rounds and error $\\varepsilon=1/(1000T)$",
-    "title_plain": "Choose the logarithmic number of stages and inverse stage error"
+    "title": "Tournament length T = ⌈log₂(1000m)⌉ and error ε = 1/(1000T)",
+    "title_plain": "Tournament length T = ⌈log₂(1000m)⌉ and error ε = 1/(1000T)"
   },
   "QuarticQuery.Paper.quantumVerify_fixedAddress": {
     "title": "At a fixed address, passing every test gives certain acceptance",
@@ -432,8 +432,8 @@
     "title_plain": "Verifier acceptance is averaged over the fresh address measurement"
   },
   "QuarticQuery.Paper.quantumVerify_search_query_bound": {
-    "title": "Finding a failed test costs $O(\\ell\\sqrt{K}\\log(1/\\varepsilon))$ bit queries",
-    "title_plain": "Bound failing test search by square root test count and logarithmic error"
+    "title": "Finding a failed test costs O(ℓ√K log(1/ε)) bit queries",
+    "title_plain": "Finding a failed test costs O(ℓ√K log(1/ε)) bit queries"
   },
   "QuarticQuery.Paper.quantumVerify_winner": {
     "title": "The verifier accepts a winning column whenever its address is decoded correctly",
@@ -448,120 +448,120 @@
     "title_plain": "Amplified sampling preserves the successful label law and retains workspace"
   },
   "QuarticQuery.Paper.quantum_eq_9": {
-    "title": "For $\\gamma\\le p\\le1/2$, random Grover iteration succeeds with probability $\\ge9/20$",
-    "title_plain": "Equation (9): the average Grover success is at least 9/20"
+    "title": "Random Grover iteration succeeds with probability ≥9/20 when γ≤p≤1/2",
+    "title_plain": "Random Grover iteration succeeds with probability ≥9/20 when γ≤p≤1/2"
   },
   "QuarticQuery.Paper.quantum_grover_call_cap": {
-    "title": "Every branch uses at most $N(2M+1)$ preparation or inverse calls",
-    "title_plain": "Bound the number of state preparation calls in amplification"
+    "title": "At most N(2M+1) preparation or inverse calls on every branch",
+    "title_plain": "At most N(2M+1) preparation or inverse calls on every branch"
   },
   "QuarticQuery.Paper.quantum_grover_trial_distribution": {
     "title": "Mix a zero-iteration trial and a uniform iteration count with equal probability",
     "title_plain": "Mix a zero-iteration trial and a uniform iteration count with equal probability"
   },
   "QuarticQuery.Tournament.dominant_weight_lb": {
-    "title": "An unlisted dominant candidate retains weight at least $(1-\\varepsilon)^T$",
-    "title_plain": "Through T rounds with Tε < 1/2, an unselected dominant candidate keeps weight above one half"
+    "title": "An unlisted dominant candidate keeps weight at least (1−ε)ᵀ",
+    "title_plain": "An unlisted dominant candidate keeps weight at least (1−ε)ᵀ"
   },
   "QuarticQuery.Tournament.expected_final_weight": {
-    "title": "After $T$ pivots, expected total weight is at most $m/2^T$",
-    "title_plain": "The expected final tournament weight is at most m/2ᵀ"
+    "title": "Expected total weight after T pivots is at most m/2ᵀ",
+    "title_plain": "Expected total weight after T pivots is at most m/2ᵀ"
   },
   "QuarticQuery.Tournament.expected_weight_eq": {
-    "title": "One weighted pivot leaves expected total weight $(W^2-\\sum_i w_i^2)/(2W)$",
-    "title_plain": "The one-round expected total weight is (W² − ∑ᵢ wᵢ²)/(2W)"
+    "title": "One weighted pivot leaves expected total weight (W²−∑ᵢ wᵢ²)/(2W)",
+    "title_plain": "One weighted pivot leaves expected total weight (W²−∑ᵢ wᵢ²)/(2W)"
   },
   "QuarticQuery.Tournament.expected_weight_le_half": {
     "title": "A weighted pivot leaves at most half the total weight in expectation",
     "title_plain": "A weighted pivot leaves at most half the total weight in expectation"
   },
   "QuarticQuery.Tournament.half_lt_total": {
-    "title": "Before the dominant candidate is listed, total weight exceeds $1/2$ if $T\\varepsilon<1/2$",
-    "title_plain": "Through T rounds with Tε < 1/2, missing a dominant candidate keeps total weight above one half"
+    "title": "Total weight exceeds 1/2 before listing the dominant candidate if Tε<1/2",
+    "title_plain": "Total weight exceeds 1/2 before listing the dominant candidate if Tε<1/2"
   },
   "QuarticQuery.Tournament.ideal_miss_le": {
-    "title": "The ideal list misses a dominant candidate with probability at most $2m/2^T$",
-    "title_plain": "Markov's inequality bounds the chance of missing a dominant candidate"
+    "title": "Ideal list misses a dominant candidate with probability ≤2m/2ᵀ",
+    "title_plain": "Ideal list misses a dominant candidate with probability ≤2m/2ᵀ"
   },
   "QuarticQuery.Tournament.ideal_tournament": {
-    "title": "The ideal tournament misses a dominant candidate with probability at most $2m/2^T$",
-    "title_plain": "The ideal weighted tournament includes a dominant candidate with high probability"
+    "title": "Ideal tournament misses a dominant candidate with probability ≤2m/2ᵀ",
+    "title_plain": "Ideal tournament misses a dominant candidate with probability ≤2m/2ᵀ"
   },
   "QuarticQuery.Tournament.two_mul_weighted_sum": {
-    "title": "Reverse comparison pairs give $W^2-\\sum_i w_i^2$ in the doubled sum",
-    "title_plain": "Pairing reverse comparisons gives the doubled weighted-sum identity"
+    "title": "Reverse comparisons give W² − ∑ᵢwᵢ² in the doubled sum",
+    "title_plain": "Reverse comparisons give W² − ∑ᵢwᵢ² in the doubled sum"
   },
   "QuarticQuery.UniversalPower": {
-    "title": "The powers $\\alpha$ giving a uniform bound on $R(f)/(1+Q(f))^\\alpha$",
-    "title_plain": "A power giving a universal randomized-versus-quantum query bound"
+    "title": "Powers α with a uniform bound on R(f)/(1+Q(f))^α",
+    "title_plain": "Powers α with a uniform bound on R(f)/(1+Q(f))^α"
   },
   "QuarticQuery.Upper.Q_Fkm_le": {
-    "title": "The Forrelation board has quantum query cost $O_k(\\sqrt{m}\\log^6 m)$",
-    "title_plain": "The constructed family has quantum query bound Q(F(k, 2^(2t))) ≤ Cₖ 2ᵗ(2t)⁶"
+    "title": "Quantum query cost Oₖ(√m log⁶m) for the Forrelation board",
+    "title_plain": "Quantum query cost Oₖ(√m log⁶m) for the Forrelation board"
   },
   "QuarticQuery.Upper.Q_Fkm_le_exponential": {
-    "title": "The board’s quantum bound has order dependence $2^{53}k2^{10k}$",
-    "title_plain": "With the constant made explicit, the quantum query bound is Q(F(k, 2^(2t))) ≤ 2^53 · k · 2^(10k) · 2^t(2t)⁶"
+    "title": "Quantum query bound with order factor 2⁵³·k·2¹⁰ᵏ",
+    "title_plain": "Quantum query bound with order factor 2⁵³·k·2¹⁰ᵏ"
   },
   "QuarticQuery.Upper.budget_le": {
-    "title": "The circuit size bound gives a budget of $C_k\\sqrt{m}\\log_2^6 m$",
-    "title_plain": "Total query budget is at most Cₖ 2ᵗ(2t)⁶"
+    "title": "Circuit-size bound gives budget Cₖ√m log₂⁶m",
+    "title_plain": "Circuit-size bound gives budget Cₖ√m log₂⁶m"
   },
   "QuarticQuery.Upper.decode_samples": {
-    "title": "The coherent decoder uses $nk$ reads for the exact binomial threshold law",
-    "title_plain": "Coherently sample the repeated Forrelation decoder"
+    "title": "The coherent decoder uses nk reads for the exact binomial threshold law",
+    "title_plain": "The coherent decoder uses nk reads for the exact binomial threshold law"
   },
   "QuarticQuery.Upper.finalB_retained_original": {
     "title": "On success the original register retains the normalized good state",
     "title_plain": "On success the original register retains the normalized good state"
   },
   "QuarticQuery.Upper.testCost": {
-    "title": "Uniform local tests have logical read cap $\\max(3,2t+1)$",
-    "title_plain": "Read budget of one exact local test"
+    "title": "Uniform local tests have logical read cap max(3,2t+1)",
+    "title_plain": "Uniform local tests have logical read cap max(3,2t+1)"
   },
   "QuarticQuery.Upper.testLaw_fail": {
-    "title": "A failing test gives uniform-sampling failure detection probability at least $1/K$",
-    "title_plain": "One failing local test gives inverse-test-count failure probability"
+    "title": "Uniform sampling detects a failing test with probability at least 1/K",
+    "title_plain": "Uniform sampling detects a failing test with probability at least 1/K"
   },
   "QuarticQuery.Upper.tournament_runs": {
-    "title": "Tournament sampling and verification use at most $T(\\mathrm{stage}+c_V)$ queries",
-    "title_plain": "Implement the bounded tournament with completeness and soundness"
+    "title": "Tournament and verification cost at most T times their combined per-round cost",
+    "title_plain": "Tournament and verification cost at most T times their combined per-round cost"
   },
   "QuarticQuery.Upper.tval_le": {
-    "title": "For low-acceptance verifiers, the continuation accepts with probability $\\le(n+T)\\varepsilon$",
-    "title_plain": "Bound tournament acceptance on a zero-input"
+    "title": "Continuation acceptance ≤(n+T)ε when each candidate accepts with probability ≤ε",
+    "title_plain": "Continuation acceptance ≤(n+T)ε when each candidate accepts with probability ≤ε"
   },
   "QuarticQuery.Upper.tval_lower": {
-    "title": "The continuation acceptance lower bound is $(1-\\varepsilon)(1-\\Pr[\\mathrm{miss}]-T\\varepsilon)$",
-    "title_plain": "A dominant verifying column gives a tournament acceptance lower bound"
+    "title": "Continuation acceptance is at least (1−ε)(1−P[miss]−Tε)",
+    "title_plain": "Continuation acceptance is at least (1−ε)(1−P[miss]−Tε)"
   },
   "QuarticQuery.Upper.vall_le": {
-    "title": "For low-acceptance verifiers, an $n$-candidate list accepts with probability $\\le n\\varepsilon$",
-    "title_plain": "Bound list-verification acceptance by list length times individual error"
+    "title": "An n-candidate list accepts with probability ≤nε when each accepts with ≤ε",
+    "title_plain": "An n-candidate list accepts with probability ≤nε when each accepts with ≤ε"
   },
   "QuarticQuery.address_guess_average": {
-    "title": "Independent side information and coins preserve the $(2/3)^r$ address-guessing bound",
-    "title_plain": "For nonnegative input weights with depth-L success at most 2/3, independent finite advice preserves the separately capped address-guessing bound (2/3)ʳ"
+    "title": "Independent side information and coins preserve the (2/3)ʳ address-guessing bound",
+    "title_plain": "Independent side information and coins preserve the (2/3)ʳ address-guessing bound"
   },
   "QuarticQuery.address_guess_le": {
-    "title": "A cap of $L$ per string limits whole-address success to $(2/3)^r$",
-    "title_plain": "For nonnegative input weights with depth-L success at most 2/3, an address guess using at most L queries per instance succeeds with weight at most (2/3)ʳ"
+    "title": "Whole-address success is at most (2/3)ʳ with L queries per string",
+    "title_plain": "Whole-address success is at most (2/3)ʳ with L queries per string"
   },
   "QuarticQuery.addressedF_not_RLe": {
     "title": "A dummy–planted acceptance gap below one third rules out the randomized budget",
     "title_plain": "A dummy–planted acceptance gap below one third rules out the randomized budget"
   },
   "QuarticQuery.alphaTot": {
-    "title": "The infimum of exponents bounding randomized queries by powers of $1+Q$",
-    "title_plain": "The optimal universal exponent for total Boolean functions"
+    "title": "Infimum of powers of 1+Q that bound randomized query complexity",
+    "title_plain": "Infimum of powers of 1+Q that bound randomized query complexity"
   },
   "QuarticQuery.avg_heavy_le": {
-    "title": "A uniform column is heavy with probability at most $G/(mL)$",
-    "title_plain": "For L ≥ 1 and a path of length at most G, the probability of a uniformly chosen column having more than L input queries is at most G/(mL)"
+    "title": "A uniform column is heavy with probability ≤G/(mL)",
+    "title_plain": "A uniform column is heavy with probability ≤G/(mL)"
   },
   "QuarticQuery.avg_reachedCell_le": {
-    "title": "Across $G$ query times, light true-cell hits have probability $\\le G\\rho$",
-    "title_plain": "For nonnegative promised input weights and capped address-guessing success at most ρ, a depth-G simulation reaches a nonheavy true cell with weight at most Gρ"
+    "title": "Light true-cell hits over G query times have probability ≤Gρ",
+    "title_plain": "Light true-cell hits over G query times have probability ≤Gρ"
   },
   "QuarticQuery.budgetValue_add_le": {
     "title": "Combining the two answer branches uses one extra query",
@@ -572,40 +572,40 @@
     "title_plain": "Independent coins and advice preserve the product bound on compliant success"
   },
   "QuarticQuery.discrepancy_parameters": {
-    "title": "At the chosen budget, the three terms total at most $6/100$",
-    "title_plain": "The construction’s actual parameters make the discrepancy less than one third"
+    "title": "The three distinguishing terms total at most 6/100",
+    "title_plain": "The three distinguishing terms total at most 6/100"
   },
   "QuarticQuery.eventually_gt_rpow": {
-    "title": "If $s>\\alpha/2$, randomized growth eventually beats any constant times $(1+Q)^\\alpha$",
-    "title_plain": "The abstract family bounds eventually beat every proposed bound below their exponent"
+    "title": "If s>α/2, randomized growth eventually beats any constant times (1+Q)^α",
+    "title_plain": "If s>α/2, randomized growth eventually beats any constant times (1+Q)^α"
   },
   "QuarticQuery.exists_fixedSequence": {
-    "title": "Defer measurements using exactly $T$ phase queries under cap $T$",
-    "title_plain": "Defer all measurements without increasing the quantum query count"
+    "title": "Deferred measurements with exactly T phase queries under cap T",
+    "title_plain": "Deferred measurements with exactly T phase queries under cap T"
   },
   "QuarticQuery.exists_hard_distribution": {
-    "title": "One promised-input distribution keeps every $L$-query tree at success at most $2/3$",
-    "title_plain": "If no bounded-error randomized algorithm uses at most L queries, a promised-input distribution bounds every depth-L tree’s success by 2/3"
+    "title": "One promise distribution bounds every L-query tree’s success by 2/3",
+    "title_plain": "One promise distribution bounds every L-query tree’s success by 2/3"
   },
   "QuarticQuery.exists_nat_exponent": {
-    "title": "Every exponent below four is beaten by $4-2/k$ for some fixed $k$",
-    "title_plain": "Every exponent below four is beaten by some fixed Forrelation order"
+    "title": "Every exponent below four is exceeded by 4−2/k for some k",
+    "title_plain": "Every exponent below four is exceeded by 4−2/k for some k"
   },
   "QuarticQuery.familyExponent": {
-    "title": "The separation exponent $4-2/k$ for Forrelation order $k$",
-    "title_plain": "The fixed-order separation exponent 4 − 2/k"
+    "title": "The separation exponent 4−2/k at Forrelation order k",
+    "title_plain": "The separation exponent 4−2/k at Forrelation order k"
   },
   "QuarticQuery.forrelationDenominator": {
-    "title": "The Forrelation denominator $m(\\sqrt m)^{k-1}$",
-    "title_plain": "The exact normalization factor for Forrelation"
+    "title": "The Forrelation denominator m(√m)ᵏ⁻¹",
+    "title_plain": "The Forrelation denominator m(√m)ᵏ⁻¹"
   },
   "QuarticQuery.forrelation_lower_uniform_sharp": {
-    "title": "A uniform Forrelation lower bound with coefficient $2/18225$",
-    "title_plain": "Uniform Forrelation bound R(Pₖ,ₜ) > 2m^(1 − 1/k)/(18225k² log(4km))"
+    "title": "A uniform Forrelation lower bound with coefficient 2/18225",
+    "title_plain": "A uniform Forrelation lower bound with coefficient 2/18225"
   },
   "QuarticQuery.four_mul_sq_le_two_pow": {
-    "title": "The inequality $4t^2\\le2^t$ for $t\\ge8$",
-    "title_plain": "The estimate 4t² ≤ 2ᵗ holds from t = 8"
+    "title": "The inequality 4t²≤2ᵗ for t≥8",
+    "title_plain": "The inequality 4t²≤2ᵗ for t≥8"
   },
   "QuarticQuery.localTest": {
     "title": "Tests for the column, pointers, gate equations and circuit outputs",
@@ -616,55 +616,55 @@
     "title_plain": "Decision trees for column, pointer, gate and output tests"
   },
   "QuarticQuery.localTestTree_depth_le": {
-    "title": "Each local test uses at most $\\max(3,\\ell+1)$ input queries",
-    "title_plain": "Every local test has query depth at most max(3, ℓ + 1)"
+    "title": "Each local test uses at most max(3,ℓ+1) input queries",
+    "title_plain": "Each local test uses at most max(3,ℓ+1) input queries"
   },
   "QuarticQuery.lt_R_iff": {
-    "title": "A bound $t<R(f)$ means every budget at most $t$ fails",
-    "title_plain": "A strict randomized complexity lower bound holds exactly when every algorithm at or below that budget fails to meet the success requirement"
+    "title": "A bound t<R(f) means every budget at most t fails",
+    "title_plain": "A bound t<R(f) means every budget at most t fails"
   },
   "QuarticQuery.lvalue_lt_R_explicit": {
-    "title": "For $k\\ge2$, $t\\ge3499200k^2$ suffices for Forrelation hardness above $L$ queries",
-    "title_plain": "An explicit quadratic dimension cutoff guarantees the prescribed Forrelation lower bound"
+    "title": "Forrelation needs more than L queries when k≥2 and t≥3499200k²",
+    "title_plain": "Forrelation needs more than L queries when k≥2 and t≥3499200k²"
   },
   "QuarticQuery.no_universal_power": {
-    "title": "The fixed-$k$ family rules out exponents below $4-2/k$",
-    "title_plain": "A fixed-order family excludes every exponent below its separation exponent"
+    "title": "The fixed-k family rules out exponents below 4−2/k",
+    "title_plain": "The fixed-k family rules out exponents below 4−2/k"
   },
   "QuarticQuery.one_le_Lvalue": {
-    "title": "The Forrelation query cutoff is at least one when $k\\ge2$ and $t\\ge8$",
-    "title_plain": "The query threshold satisfies L ≥ 1 for k ≥ 2 and t ≥ 8"
+    "title": "The Forrelation query cutoff is at least one when k≥2 and t≥8",
+    "title_plain": "The Forrelation query cutoff is at least one when k≥2 and t≥8"
   },
   "QuarticQuery.planted": {
     "title": "Erase one column’s zero and fill its true-address certificate",
     "title_plain": "Erase one column’s zero and fill its true-address certificate"
   },
   "QuarticQuery.pointerEquiv": {
-    "title": "The bijection from $\\ell$-bit pointers to destination rows",
-    "title_plain": "Identify a pointer bit string with its target column"
+    "title": "The bijection from ℓ-bit pointers to destination rows",
+    "title_plain": "The bijection from ℓ-bit pointers to destination rows"
   },
   "QuarticQuery.rpow_le_of_Gvalue_lt": {
-    "title": "Removing the floors gives the randomized lower bound with coefficient $1/400$",
-    "title_plain": "Convert the integer query threshold into the asymptotic randomized lower bound"
+    "title": "Removing the floors gives the randomized lower bound with coefficient 1/400",
+    "title_plain": "Removing the floors gives the randomized lower bound with coefficient 1/400"
   },
   "QuarticQuery.theorem_1_1_unconditional": {
     "title": "The universal quartic bound and total functions approaching exponent four",
     "title_plain": "The universal quartic bound and total functions approaching exponent four"
   },
   "QuarticQuery.twoThirds_pow_le": {
-    "title": "Guessing $40t$ address bits contributes at most $m^{-10}$",
-    "title_plain": "The error tail satisfies (2/3)^(40t) ≤ m⁻¹⁰"
+    "title": "Guessing 40t address bits contributes at most m⁻¹⁰",
+    "title_plain": "Guessing 40t address bits contributes at most m⁻¹⁰"
   },
   "QuarticQuery.universalPower_four": {
-    "title": "Every total function satisfies $R(f)\\le20736(1+Q(f))^4$",
-    "title_plain": "A universal quartic randomized-versus-quantum query bound"
+    "title": "R(f) ≤ 20736(1+Q(f))⁴ for total functions",
+    "title_plain": "R(f) ≤ 20736(1+Q(f))⁴ for total functions"
   },
   "QuarticQuery.zero_search_sum": {
-    "title": "Average column queries are at least $|U|/2$ times discovery probability",
-    "title_plain": "For a family with one hidden zero and identical outside bits, |U| times the summed zero-finding indicators is at most twice the summed search queries"
+    "title": "Average column queries are at least |U|/2 times discovery probability",
+    "title_plain": "Average column queries are at least |U|/2 times discovery probability"
   },
   "QuarticQuery.zero_search_sum_successor": {
-    "title": "Average column queries are at least $(|U|+1)/2$ times discovery probability",
-    "title_plain": "For a family with one hidden zero and identical outside bits, (|U| + 1) times the summed zero-finding indicators is at most twice the summed search queries"
+    "title": "Average column queries are at least (|U|+1)/2 times discovery probability",
+    "title_plain": "Average column queries are at least (|U|+1)/2 times discovery probability"
   }
 }
