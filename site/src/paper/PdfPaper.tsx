@@ -9,7 +9,6 @@ import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import type { PDFDocumentProxy } from "pdfjs-dist";
 import type { Edition } from "../app/edition";
 import { StatementLabel } from "../inspect/common";
-import { statementTitle, useStatementNames } from "../inspect/Names";
 import type { Row } from "./selectRow";
 
 pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
@@ -151,7 +150,6 @@ export function PdfPaper({ edition, selected, page, onSelect, onPage, onReadingP
 function PdfPage({ pdf, n, width, pins, selected, onSelect, onPage }: {
   pdf: PDFDocumentProxy; n: number; width: number; pins: Placed[]; selected?: string; onSelect(id: string): void; onPage(p: number): void;
 }) {
-  const statementNames = useStatementNames();
   const canvas = useRef<HTMLCanvasElement>(null);
   const holder = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState<{ w: number; h: number; scale: number } | null>(null);
@@ -210,7 +208,7 @@ function PdfPage({ pdf, n, width, pins, selected, onSelect, onPage }: {
             const sid = p.row.statements?.[0] ?? p.row.id.replace(/^original\//, "");
             return (
               <li key={p.row.id} id={`pin-${p.row.id}`}>
-                <button type="button" className={`pin${p.row.id === selected ? " is-selected" : ""}`} aria-pressed={p.row.id === selected} onClick={() => onSelect(p.row.id)} title={statementTitle(statementNames, sid).title_plain}>
+                <button type="button" className={`pin${p.row.id === selected ? " is-selected" : ""}`} aria-pressed={p.row.id === selected} onClick={() => onSelect(p.row.id)}>
                   <StatementLabel id={sid} />
                 </button>
               </li>
