@@ -36,8 +36,17 @@ export function PhraseDivider() {
   useLayoutEffect(() => {
     apply(share, false);
     const root = box();
+    const pane = root?.querySelector<HTMLElement>(".inspector__map");
     try { if (root && localStorage.getItem(KEY) !== null) root.dataset.customGraphSize = ""; } catch { /* optional preference */ }
+    const measure = () => {
+      if (root?.clientHeight && pane?.clientHeight) setShare(pane.clientHeight / root.clientHeight);
+    };
+    const observer = new ResizeObserver(measure);
+    if (root) observer.observe(root);
+    if (pane) observer.observe(pane);
+    measure();
     return () => {
+      observer.disconnect();
       root?.style.removeProperty("--phrase-split");
       if (root) delete root.dataset.customGraphSize;
     };
