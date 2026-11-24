@@ -12,6 +12,7 @@ import { SOURCE_READER } from "../app/edition";
 import type { ProofMap } from "./fromProofMap";
 import { kindLabel } from "../results/Results";
 import { Title } from "../text/title";
+import { declarationHeading } from "../inspect/Names";
 import { topicTone, usePhrases, type PhraseLayer } from "../paper/phrases";
 import "./subject-graph.css";
 
@@ -74,7 +75,8 @@ async function keywordOf(reader: Reader, base: Base, name: string, node: any): P
 
 function mapDecl(base: Base, name: string): Decl {
   const c: any = base.map.cards[name];
-  return { name, title: c.short_title || c.title || name, plain: c.short_title_plain || c.title_plain || name, kind: c.kind, onMap: true, source: c.source };
+  const title = declarationHeading(name, { title: c.short_title || c.title || name, title_plain: c.short_title_plain || c.title_plain || name });
+  return { name, title: title.title, plain: title.title_plain, kind: c.kind, onMap: true, source: c.source };
 }
 
 /** The subjects, the cards next to them and the lines between, and the route to the main result. */
@@ -86,8 +88,8 @@ async function around(reader: Reader, base: Base, subjects: string[]): Promise<A
   const remember = async (name: string, node?: any) => {
     if (decls.has(name)) return;
     if (onMap(name)) { decls.set(name, mapDecl(base, name)); return; }
-    const t = base.titles[name];
-    decls.set(name, { name, title: t?.title ?? short(name), plain: t?.title_plain ?? short(name), kind: await keywordOf(reader, base, name, node), onMap: false, source: node?.source });
+    const t = declarationHeading(name, base.titles[name] ?? { title: short(name), title_plain: short(name) });
+    decls.set(name, { name, title: t.title, plain: t.title_plain, kind: await keywordOf(reader, base, name, node), onMap: false, source: node?.source });
   };
   for (const s of subjects) {
     const node = await reader.expand(s).catch(() => null);
@@ -213,6 +215,7 @@ function useNarrow(): boolean {
 interface Props {
   edition: Edition;
   combined?: boolean;
+  onFitHeight?(height: number | null): void;
   paper: string;
   /** The declarations in the middle. */
   subjects: readonly string[];
@@ -226,7 +229,7 @@ interface Props {
   onHover(name: string | null): void;
 }
 
-export function SubjectGraph({ edition, paper, subjects, position, hover, held, label, onSubject, onHover, combined }: Props) {
+export function SubjectGraph({ edition, paper, subjects, position, hover, held, label, onSubject, onHover, combined, onFitHeight }: Props) {
   const reader = edition.reader as Reader;
   const layer = usePhrases();
   const tone = useToneColours(layer);
@@ -342,7 +345,7 @@ export function SubjectGraph({ edition, paper, subjects, position, hover, held, 
     <div className="sgraph">
       {narrow && !combined && <p className="sgraph__fold"><button type="button" className="textbutton" onClick={() => setUnfolded(false)}>Fold the graph</button></p>}
       <FocusGraph embeddedHeader={SOURCE_READER ? { title: "Dependencies", action: null } : undefined} subjects={drawn} card={card} edges={shown.edges} route={shown.route && shown.route.length ? shown.route : null} routeNote={routeNote}
-        label={label} lit={lit} held={held} onSubject={onSubject} onHover={hoverCard} renderTitle={renderTitle}
+        label={label} onFitHeight={onFitHeight} lit={lit} held={held} onSubject={onSubject} onHover={hoverCard} renderTitle={renderTitle}
         roles={{ helper: { one: "Lean helper" } }} manyLabel="Steps linked to this paragraph" />
     </div>
   );

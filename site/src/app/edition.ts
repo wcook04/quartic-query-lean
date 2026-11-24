@@ -18,6 +18,9 @@ export interface Edition {
 const API_ROOT = new URL(import.meta.env.VITE_READING_API_BASE || `${import.meta.env.BASE_URL}reading-api/v1/`, location.href).href;
 const DEFAULT_EDITION = import.meta.env.VITE_READING_EDITION || undefined;
 export const SOURCE_READER = !!DEFAULT_EDITION;
+const linkedEdition = new URLSearchParams(location.hash.split("?")[1]).get("ed");
+export const SOURCE_TITLES = SOURCE_READER && (!linkedEdition || linkedEdition === DEFAULT_EDITION);
+
 const EDITION = /^edition-[a-f0-9]{64}\.json$/;
 
 export async function openEdition(requested: string | null): Promise<Edition> {

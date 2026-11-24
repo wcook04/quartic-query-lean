@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { SOURCE_READER, type Edition } from "./edition";
 import { excursion, go, href, switchPaper, type Route } from "./router";
 import { isRestoringReadingPlace, useReadingPlace, useReturnToPaper } from "./restore";
@@ -90,6 +90,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   // The whole proof map, opened over the drawing from the Graph view.
   const [whole, setWhole] = useState(false);
   const [combineViews, setCombineViews] = useState(SOURCE_READER);
+  const [fitHeight, setFitHeight] = useState<number | null>(null);
   // The proof map's own declarations, to say when a subject is not on it.
   const [mapCards, setMapCards] = useState<Record<string, any> | null>(null);
   // Which of a many-step paragraph's steps the graph shows, for the steps it was chosen among.
@@ -560,7 +561,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   const selectionStatements = rows.find((row) => row.id === currentSelection)?.statements;
   const inlineLean = SOURCE_READER && combineViews && !whole && !noLeanHere;
-  const mapOnly = SOURCE_READER && combineViews && noLeanHere;
+  const mapOnly = SOURCE_READER && (whole || (combineViews && noLeanHere));
   const graphDetail = preview && !inlineLean ? <CardPreview edition={edition} name={preview} title={phrases?.titles[preview]?.title ?? names?.titles[preview]?.title ?? mapCards?.[preview]?.title ?? preview}
     kind={mapCards && Object.hasOwn(mapCards, preview) ? "On the proof map" : "Lean declaration outside the paper’s map"} onOpenLean={(n) => nav.openLean(n)} />
     : phraseDeclaration ? <PhraseSplit edition={edition} id={route.ph!} name={phraseDeclaration} onClose={followPaper}
@@ -617,7 +618,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           <header className="paper__head">
             <h1 className="paper__title">{f.name}</h1>
             {f.by && <p className="paper__by">{f.by}</p>}
-            <p className="paper__byline">{f.byline}</p>
+            {!SOURCE_READER && <p className="paper__byline">{f.byline}</p>}
             <div className="paper__tools" ref={paperTools}>
               {SOURCE_READER && <button type="button" className="papers__pane" aria-pressed={open} onClick={() => open ? close() : nav.openGraph()}><PaneIcon />Lean and graph</button>}
               {keyed.length > 0 && (
@@ -653,7 +654,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               {paper === "reconstruction" && <a className="tool" href={href({ page: "read", paper: SUPPLEMENT.id, ed })}>Verification details</a>}
               {!SOURCE_READER && paper === "original" && <a className="tool" href={href({ page: "results" })}>All results with their Lean statements</a>}
             </div>
-            {(paper !== "original" || originalHtml) && (
+            {!SOURCE_READER && (paper !== "original" || originalHtml) && (
               <p className="legend"><span className="lean-tag" aria-hidden="true">Lean</span>
                 {wide ? "Marked paragraphs are linked to Lean. Click one to show it in the open tab: graph, Lean or passage."
                   : "Marked paragraphs are linked to Lean. Tap one to see it in the open tab."}
@@ -665,7 +666,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                   : "An underlined phrase states a Lean declaration; its colour names the topic. Tap it to show that declaration."}
               </p>
             )}
-            {originalHtml && <p className="paper__edition">Reading edition rendered from OpenAI’s source. The original wording, numbering and authorship are retained; our passage links are an editorial layer.</p>}
+            {!SOURCE_READER && originalHtml && <p className="paper__edition">Reading edition rendered from OpenAI’s source. The original wording, numbering and authorship are retained; our passage links are an editorial layer.</p>}
           </header>
           {paper === "original" && !originalHtml ? (
             <Suspense fallback={<p className="pending" role="status">Loading the PDF viewer…</p>}>
@@ -680,6 +681,11 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               onSelect={selectPassage} phrases={phrases} pickedPhrase={route.ph} onPhrase={selectPhrase} onHover={setPaperHover}
               onLink={nav.openPassage} onNavigateWithin={resumePaperFollowing} />
           )}
+          {SOURCE_READER && <details className="fold paper__credit">
+            <summary>About this reading copy</summary>
+            <p className="paper__edition">{f.byline}</p>
+            {originalHtml && <p className="paper__edition">OpenAI’s original wording, numbering and authorship are retained. The Quartic project added the passage links to the reading copy.</p>}
+          </details>}
         </main>
 
         {open && wide && <ReaderSplit />}
@@ -758,17 +764,20 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               );
             })()}
             {(graphOpened || mode === "graph") && (
-              <div className={`inspector__graph${inlineLean ? " inspector__graph--combined" : ""}${mapOnly ? " inspector__graph--map-only" : ""}`} hidden={mode !== "graph"}>
+              <div className={`inspector__graph${inlineLean ? " inspector__graph--combined" : ""}${mapOnly ? " inspector__graph--map-only" : ""}`}
+                data-fit-graph={fitHeight == null ? undefined : ""}
+                style={fitHeight == null ? undefined : { "--fit-graph-height": `${fitHeight}px` } as CSSProperties}
+                hidden={mode !== "graph"}>
                 {inlineLean && <div className="graph-dock">{graphDetail}</div>}
                 <div className="inspector__map">
                   {whole || mapOnly ? (
                     <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
                       <ProofPane edition={edition} lit={paragraphSteps} onSelect={selectCard} onOpenLean={nav.openLean}
-                        selectedEdge={route.e ?? null} onEdge={nav.openPath} onBack={mapOnly ? undefined : () => setWhole(false)} />
+                        selectedEdge={route.e ?? null} onEdge={nav.openPath} onBack={whole || !mapOnly ? () => setWhole(false) : undefined} />
                     </Suspense>
                   ) : (
                     <SubjectGraph edition={edition} paper={paper} subjects={subjects} position={subjectLines} hover={paperHover}
-                      held={preview} label={graphLabel} onSubject={selectCard} onHover={onGraphHover} combined={inlineLean} />
+                      held={preview} label={graphLabel} onSubject={selectCard} onHover={onGraphHover} combined={inlineLean} onFitHeight={SOURCE_READER ? setFitHeight : undefined} />
                   )}
                 </div>
                 {!inlineLean && !mapOnly && <>

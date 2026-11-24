@@ -110,8 +110,10 @@ explicit edition still open the app published with that historical snapshot.
 
 A selected passage with a Lean link opens the declaration and its dependencies.
 The proof starts collapsed. A current review of the selected statement and
-declaration appears once, after the Lean. With no linked declaration, the pane
-can show the whole proof map.
+declaration appears once, after the Lean. A small local graph can leave more of
+the pane to the Lean. A grouped graph uses available room for individual
+dependencies. The whole proof map has its own view. The paper's original
+author line stays at the title, and the reading copy's credit follows the text.
 
 ## Phrases, topics and reading notes
 

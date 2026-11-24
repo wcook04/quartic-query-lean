@@ -10,6 +10,7 @@ import { FAMILY } from "../family/family";
 import { useScheme } from "../family/theme";
 import { VideoMenu } from "../family/VideoMenu";
 import plectis from "../family/plectis.svg?url";
+import quarticMark from "../family/quartic.svg?raw";
 import { Chevron, MoonIcon, SunIcon } from "./icons";
 
 export function App() {
@@ -34,7 +35,11 @@ export function App() {
       <a className="skip" href="#main" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>Skip to the reading</a>
       {SOURCE_READER ? (
         <header className="site site--source">
-          <a className="site__name" href="/library/quartic/">Quartic query separation</a>
+          <a className="site__name" href="/library/quartic/">
+            <span className="source-paper-mark" aria-hidden="true" dangerouslySetInnerHTML={{ __html: quarticMark }} />
+            <span>Quartic query separation</span>
+          </a>
+          <div className="source-reader-actions">
           <details className="jump source-reader-menu">
             <summary className="tool">Menu<Chevron /></summary>
             <ul aria-label="Quartic reader menu" onClick={(event) => {
@@ -50,6 +55,11 @@ export function App() {
               <li><button type="button" className="source-reader-scheme" onClick={() => setScheme(scheme === "dark" ? "light" : "dark")}>{scheme === "dark" ? "Switch to day colours" : "Switch to night colours"}</button></li>
             </ul>
           </details>
+          <a className="fam-lockup__home source-reader-owner" href={FAMILY.owner.home} rel="author">
+            <img src={plectis} alt="" width={23} height={23} />
+            <span className="fam-lockup__owner" translate="no">Will Cook</span>
+          </a>
+          </div>
         </header>
       ) : <header className="site">
         <span className="fam-lockup">

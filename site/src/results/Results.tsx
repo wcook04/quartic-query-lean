@@ -4,6 +4,7 @@
 // them. This page adds no mathematical claim of its own.
 import { useMemo, useState } from "react";
 import type { Edition } from "../app/edition";
+import { statementHeading } from "../inspect/Names";
 import { href } from "../app/router";
 import { useAsync } from "../app/useAsync";
 import { RELATION_WORD, RelationMark } from "../inspect/evidence";
@@ -79,7 +80,7 @@ async function loadResults(edition: Edition, scope: "all" | "major"): Promise<Re
     const sel = selections.get(s.id);
     return {
       id: s.id, kind: s.kind, label: kindLabel(s.id, s.kind),
-      title: titles.titles?.[s.id]?.title ?? s.id,
+      title: titles.titles?.[s.id] ? statementHeading(s.id, titles.titles[s.id]).title : s.id,
       page: sel?.location?.page ?? null,
       order: [sel?.lines?.[0] ?? sel?.location?.lines?.[0] ?? Infinity, s.source_line ?? Infinity],
       // The edition's own record of the leading comparison's relation; verified to

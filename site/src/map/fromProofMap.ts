@@ -4,6 +4,7 @@
 // edition: an edge runs from a declaration to one it uses, as Lean recorded it,
 // possibly through helper lemmas the map does not draw (see proofWitness).
 import type { ArgEdge, ArgGraph, ArgNode, LinkKind, Origin } from "../model/graph";
+import { declarationHeading } from "../inspect/Names";
 
 export interface ProofCard {
   kind: string;
@@ -71,9 +72,10 @@ export function proofGraph(map: ProofMap): ArgGraph {
   nodes.set(GOAL, { ...blank, id: GOAL, ref: GOAL, kind: "goal", kindLabel: "OpenAI’s Theorem 1.1", label: "The optimal exponent is four, and a family of total functions shows it", status: "external", origin: PAPER });
   for (const [name, c] of Object.entries(map.cards)) {
     if (isType(c)) continue;
+    const title = declarationHeading(name, { title: c.short_title || c.title || "Title unavailable", title_plain: c.short_title_plain || c.title_plain || "Title unavailable" });
     nodes.set(name, {
       ...blank, id: name, ref: name, kind: c.kind === "axiom" ? "assumption" : "declaration",
-      kindLabel: KIND_WORDS[c.kind] ?? "Definition", label: c.short_title_plain || c.title_plain || "Title unavailable", math: c.short_title || c.title || undefined, declaration: name,
+      kindLabel: KIND_WORDS[c.kind] ?? "Definition", label: title.title_plain, math: title.title, declaration: name,
       shape: shapeOf(c), leanFill: c.kind === "axiom" ? undefined : "whole",
       status: c.kind === "axiom" ? "axiom" : "kernel_checked", origin: LEAN,
     });

@@ -27,14 +27,20 @@ export function PhraseDivider() {
   function apply(value: number, save = true) {
     const height = box()?.clientHeight || window.innerHeight;
     const next = Math.max(Math.max(MIN, 200 / height), Math.min(Math.min(MAX, 1 - 90 / height), value));
-    box()?.style.setProperty("--phrase-split", `${next * 100}%`);
+    const root = box();
+    root?.style.setProperty("--phrase-split", `${next * 100}%`);
+    if (save && root) root.dataset.customGraphSize = "";
     setShare(next);
     if (save) try { localStorage.setItem(KEY, String(next)); } catch { /* optional preference */ }
   }
   useLayoutEffect(() => {
     apply(share, false);
     const root = box();
-    return () => { root?.style.removeProperty("--phrase-split"); };
+    try { if (root && localStorage.getItem(KEY) !== null) root.dataset.customGraphSize = ""; } catch { /* optional preference */ }
+    return () => {
+      root?.style.removeProperty("--phrase-split");
+      if (root) delete root.dataset.customGraphSize;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

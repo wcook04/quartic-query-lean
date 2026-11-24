@@ -832,7 +832,19 @@ html, body { overflow-x: clip; max-width: 100%; }
 
 /* One document menu for the Library's original paper and verification supplement. */
 .site--source { justify-content: space-between; gap: 12px; z-index: 7; }
-.site--source .site__name { min-width: 0; line-height: 1.2; }
+.site--source .site__name { min-width: 0; display: flex; align-items: center; gap: 8px; line-height: 1.2; }
+.source-paper-mark { flex: none; display: inline-flex; width: 26px; height: 26px; }
+.source-paper-mark svg { width: 100%; height: 100%; }
+.source-reader-actions { flex: none; display: flex; align-items: center; gap: 14px; }
+.source-reader-owner { white-space: nowrap; }
+@media (max-width: 640px) {
+  .site--source { padding-inline: 12px; gap: 8px; }
+  .site--source .site__name { gap: 5px; font-size: 0.97rem; }
+  .source-paper-mark { width: 21px; height: 21px; }
+  .source-reader-actions { gap: 8px; }
+  .source-reader-owner img { width: 20px; height: 20px; }
+  .source-reader-owner .fam-lockup__owner { display: inline; font-size: 0.78rem; }
+}
 .source-reader-menu { position: relative; flex: none; }
 .source-reader-menu > ul { left: auto; grid-template-columns: minmax(0, 1fr); min-width: min(260px, calc(100vw - 40px)); }
 .source-reader-menu .source-reader-scheme { width: 100%; padding: 8px 10px; border: 0; border-radius: var(--radius-s); background: none; color: var(--ink); font: inherit; text-align: left; cursor: pointer; }
@@ -846,4 +858,9 @@ html, body { overflow-x: clip; max-width: 100%; }
   .desk--source.desk--open .paper { scroll-padding-bottom: calc(82dvh - var(--head)); }
   .inspector__graph--combined .lean-split .decl-head__title { font-size: 1.04rem; }
   .inspector__graph--combined .lean-split .decl-head__raw { display: none; }
+  .inspector__graph--combined .lean-split .leancode__bar { display: none; }
 }
+
+.desk--source .paper__by { margin-bottom: 16px; }
+.paper__credit { width: 100%; max-width: calc(30 * var(--reading-size)); margin: 32px auto 0; }
+.paper__credit .paper__edition { margin-top: 8px; }

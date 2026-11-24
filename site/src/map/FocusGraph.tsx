@@ -102,6 +102,8 @@ export interface FocusGraphProps {
   held?: string | null;
   onSubject(id: string): void;
   onHover?(id: string | null): void;
+  /** Height for a small neighbourhood at the width-fit scale, including its controls. */
+  onFitHeight?(height: number | null): void;
   renderTitle?(card: FGCard): ReactNode;
   roles?: Partial<Record<FGRole, Partial<FGRoleWords>>>;
   /** Words for the subject frame when a paragraph has several steps. */
@@ -292,6 +294,11 @@ export function FocusGraph(props: FocusGraphProps) {
     if (!overview && byHeight < MIN_READ && !openedNow.current && tightNow.current < 6) {
       setTight((t) => Math.min(6, t + 1));
       return false;
+    }
+    if (props.onFitHeight) {
+      const chrome = (el.closest<HTMLElement>(".fg")?.clientHeight ?? el.clientHeight) - el.clientHeight;
+      const fitHeight = Math.ceil(bounds.h * Math.min(FIT_MAX, byWidth) + 2 * margin + chrome);
+      props.onFitHeight(w.querySelector(".fg__grouphead") ? null : Math.max(120, fitHeight + 16));
     }
     const k = Math.min(FIT_MAX, byHeight, byWidth);
     // The midpoint of everything drawn stays in the midpoint of the usable viewport.

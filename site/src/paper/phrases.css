@@ -155,11 +155,14 @@
 .card-sum .leancode__pre { max-height: calc(9 * 1.62 * 0.8rem + 16px); overflow: auto; }
 
 /* The source reader puts the selected passage’s Lean above its fitted dependencies. */
-.inspector__graph--combined .graph-dock { flex: 0 1 auto; max-height: min(60%, max(45%, 100% - 310px)); border-bottom: 1px solid var(--rule); }
+.inspector__graph--combined .graph-dock { flex: 0 1 auto; max-height: min(60%, max(45%, 100% - min(310px, var(--fit-graph-height, 310px)))); border-bottom: 1px solid var(--rule); }
 .inspector__graph--combined .phrase-split { flex: 0 1 auto; }
 .inspector__graph--combined .phrase-split__body { flex: 0 1 auto; padding-bottom: 12px; }
 .inspector__graph--combined .inspector__map,
 .inspector__graph--map-only .inspector__map { flex: 1 1 0; }
+.inspector__graph[data-fit-graph]:not(.inspector__graph--combined, .inspector__graph--map-only, [data-custom-graph-size], :has(.sgraph__strip)) .inspector__map {
+  flex-basis: max(40%, min(var(--phrase-split, 70%), var(--fit-graph-height)));
+}
 @media (max-width: 640px) {
   .inspector__modes:has(.graph-acts) { flex-wrap: wrap; }
   .graph-acts { flex-wrap: wrap; }
