@@ -31,3 +31,16 @@
 /* The chain to the main result stays one line; a long chain scrolls sideways. */
 .sgraph .fg__route { flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; white-space: nowrap; scrollbar-width: thin; overscroll-behavior: contain; }
 .sgraph .fg__route > * { flex: none; }
+
+/* Move the graph controls into their own row, outside the fitted canvas. */
+.sgraph .map-pane__local-head {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 16px;
+  border-bottom: 1px solid var(--rule);
+}
+.sgraph .map-pane__local-head h3 { margin: 0; font-size: 0.88rem; font-weight: 600; color: var(--ink); }
+.sgraph .map-pane__local-head .fg__tools { position: static; margin-left: auto; box-shadow: none; }

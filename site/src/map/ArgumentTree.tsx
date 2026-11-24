@@ -260,6 +260,7 @@ interface CameraLeg {
 interface Built {
   layout: Layout;
   plan: Plan;
+  paintedBounds: Bounds;
   /** Drawn edges between layout ids (records, or occurrences of shared leaves); keys are drawn keys. */
   skeleton: EngineEdge[];
   /** Records drawn as several occurrences, with their number of drawn consumers. */
@@ -268,6 +269,29 @@ interface Built {
   provisional: boolean;
   pin: string | null;
 }
+
+/** The bounds of the painted cards, wires and arrowheads in world coordinates. */
+function drawingBounds(layout: Layout, routed: Routed): Bounds {
+  const bounds = { x0: Infinity, y0: Infinity, x1: -Infinity, y1: -Infinity };
+  const include = ({ x, y }: Pt) => {
+    bounds.x0 = Math.min(bounds.x0, x);
+    bounds.y0 = Math.min(bounds.y0, y);
+    bounds.x1 = Math.max(bounds.x1, x);
+    bounds.y1 = Math.max(bounds.y1, y);
+  };
+  for (const box of layout.boxes.values()) {
+    include(box);
+    include({ x: box.x + box.w, y: box.y + box.h });
+  }
+  for (const edge of routed.edges.values()) edge.points.forEach(include);
+  for (const bus of routed.buses.values()) {
+    bus.stem.forEach(include);
+    bus.head.forEach(include);
+  }
+  for (const head of routed.heads.values()) head.forEach(include);
+  return bounds;
+}
+
 
 export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function ArgumentTree(props, ref) {
   const { graph: fullGraph, selected, trace, lens, echo, insets, intro, compact = false, rootContent, rootExcerpt, onSelect, onTrace, onHover, selectedEdge, onEdgeSelect, within } = props;
@@ -475,7 +499,8 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       } else pin = null;
     }
     const { layout, plan } = layoutTree({ root: goal, nodes: split.nodes, edges: split.edges, size, metrics, prev: prevLayout, pin, keepOrder: hold });
-    return { layout, plan, skeleton: split.edges, shared: split.shared, implied: skel.implied, provisional, pin };
+    const routed = route(plan, { boxes: layout.boxes, dummyX: (key) => layout.dummies.get(key)!.x });
+    return { layout, plan, paintedBounds: drawingBounds(layout, routed), skeleton: split.edges, shared: split.shared, implied: skel.implied, provisional, pin };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [graph, goal, visible, skel, heights, compact, metrics, rootW, dense, lens, props.tileHeight]);
   const layout = built.layout;
@@ -664,6 +689,7 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
       const card = cardTitleFit(lid, el, rect, k);
       if (!card) continue;
       const { m, title, label, fit, statement } = card;
+      if (denseRef.current && lid === goalRef.current) el.toggleAttribute("data-title-only", rect.h * k < 44);
       if (fit.short || label !== el.dataset.full) shortened.current.add(lid);
       else shortened.current.delete(lid);
       const key = `${fit.size}|${fit.lines}|${statement}|${fit.short ?? ""}`;
@@ -1358,11 +1384,16 @@ export const ArgumentTree = forwardRef<MapViewHandle, TreeProps>(function Argume
   fitMaxRef.current = props.fitMax ?? 1.15;
   const overviewView = useCallback(
     (l: Layout): View => {
-      const b = layoutBounds(l);
+      const current = builtRef.current;
+      const b = current.layout === l ? current.paintedBounds : layoutBounds(l);
+      const vp = viewport();
+      if (denseRef.current) {
+        // Keep space in screen pixels for the card outlines and the connector strokes.
+        const { top, right, bottom, left } = vp.insets;
+        const margin = 12;
+        return fitBounds(b, { ...vp, insets: { top: top + margin, right: right + margin, bottom: bottom + margin, left: left + margin } }, { min: 0, max: fitMaxRef.current });
+      }
       const box = { x0: b.x0 - 16, y0: b.y0 - 16, x1: b.x1 + 16, y1: b.y1 + 16 };
-      // Full layout bounds, including the root and outermost leaves. The title
-      // readability threshold is not a camera floor for this deliberate overview.
-      if (denseRef.current) return fitBounds(box, viewport(), { min: floorK(true, false), max: fitMaxRef.current });
       return fitBounds(box, viewport(), { max: 1, min: floorK(false, compact) });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

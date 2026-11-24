@@ -8,6 +8,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useState, type ReactNode } from "react";
 import type { Edition } from "../app/edition";
 import { FG_ROLES, FocusGraph, type FGCard, type FGEdge, type FGRole } from "./FocusGraph";
+import { SOURCE_READER } from "../app/edition";
 import type { ProofMap } from "./fromProofMap";
 import { kindLabel } from "../results/Results";
 import { Title } from "../text/title";
@@ -211,6 +212,7 @@ function useNarrow(): boolean {
 
 interface Props {
   edition: Edition;
+  combined?: boolean;
   paper: string;
   /** The declarations in the middle. */
   subjects: readonly string[];
@@ -224,7 +226,7 @@ interface Props {
   onHover(name: string | null): void;
 }
 
-export function SubjectGraph({ edition, paper, subjects, position, hover, held, label, onSubject, onHover }: Props) {
+export function SubjectGraph({ edition, paper, subjects, position, hover, held, label, onSubject, onHover, combined }: Props) {
   const reader = edition.reader as Reader;
   const layer = usePhrases();
   const tone = useToneColours(layer);
@@ -324,7 +326,7 @@ export function SubjectGraph({ edition, paper, subjects, position, hover, held, 
   const isSubject = new Set(drawn);
   const users = new Set(shown.edges.filter((e) => isSubject.has(e.to) && !isSubject.has(e.from)).map((e) => e.from));
   const uses = new Set(shown.edges.filter((e) => isSubject.has(e.from) && !isSubject.has(e.to) && !users.has(e.to)).map((e) => e.to));
-  if (narrow && !unfolded) {
+  if (narrow && !combined && !unfolded) {
     const first = cards.get(drawn[0]);
     return (
       <div className="sgraph__strip">
@@ -338,8 +340,8 @@ export function SubjectGraph({ edition, paper, subjects, position, hover, held, 
   const routeNote = shown.route === null ? "No chain of uses in the proof map joins this to the main result." : shown.route.length === 0 ? "This is the main result." : undefined;
   return (
     <div className="sgraph">
-      {narrow && <p className="sgraph__fold"><button type="button" className="textbutton" onClick={() => setUnfolded(false)}>Fold the graph</button></p>}
-      <FocusGraph subjects={drawn} card={card} edges={shown.edges} route={shown.route && shown.route.length ? shown.route : null} routeNote={routeNote}
+      {narrow && !combined && <p className="sgraph__fold"><button type="button" className="textbutton" onClick={() => setUnfolded(false)}>Fold the graph</button></p>}
+      <FocusGraph embeddedHeader={SOURCE_READER ? { title: "Dependencies", action: null } : undefined} subjects={drawn} card={card} edges={shown.edges} route={shown.route && shown.route.length ? shown.route : null} routeNote={routeNote}
         label={label} lit={lit} held={held} onSubject={onSubject} onHover={hoverCard} renderTitle={renderTitle}
         roles={{ helper: { one: "Lean helper" } }} manyLabel="Steps linked to this paragraph" />
     </div>

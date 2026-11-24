@@ -829,3 +829,21 @@ html, body { overflow-x: clip; max-width: 100%; }
 .inspector__about-k { font-family: var(--sans); font-size: 0.8rem; font-weight: 600; color: var(--ink-3); margin-right: 6px; }
 .inspector__about + .inspector__modes { padding-top: 2px; }
 @media (max-width: 900px) { .inspector__about { display: none; } }
+
+/* One document menu for the Library's original paper and verification supplement. */
+.site--source { justify-content: space-between; gap: 12px; z-index: 7; }
+.site--source .site__name { min-width: 0; line-height: 1.2; }
+.source-reader-menu { position: relative; flex: none; }
+.source-reader-menu > ul { left: auto; grid-template-columns: minmax(0, 1fr); min-width: min(260px, calc(100vw - 40px)); }
+.source-reader-menu .source-reader-scheme { width: 100%; padding: 8px 10px; border: 0; border-radius: var(--radius-s); background: none; color: var(--ink); font: inherit; text-align: left; cursor: pointer; }
+.source-reader-menu .source-reader-scheme:hover { background: var(--raised); }
+.desk--source { grid-template-rows: minmax(0, 1fr); }
+@media (min-width: 901px) {
+  .desk--source > .reader-split, .desk--source.desk--open > .inspector { grid-row: 1; }
+}
+@media (max-width: 900px) {
+  .desk--source.desk--open .inspector { top: calc(var(--head) + 18dvh); }
+  .desk--source.desk--open .paper { scroll-padding-bottom: calc(82dvh - var(--head)); }
+  .inspector__graph--combined .lean-split .decl-head__title { font-size: 1.04rem; }
+  .inspector__graph--combined .lean-split .decl-head__raw { display: none; }
+}

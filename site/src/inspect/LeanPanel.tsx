@@ -28,7 +28,7 @@ function edges(node: any, side: "uses" | "used_by"): Edge[] {
   return out;
 }
 
-export function LeanPanel({ edition, name, forStep = false, claimMatch, phrase }: { edition: Edition; name: string; forStep?: boolean; claimMatch?: ClaimMatch; phrase?: string }) {
+export function LeanPanel({ edition, name, forStep = false, claimMatch, phrase, selectionStatements, compact }: { edition: Edition; name: string; forStep?: boolean; claimMatch?: ClaimMatch; phrase?: string; selectionStatements?: string[]; compact?: boolean }) {
   const data = useAsync(async () => {
     const [d, reverse, map, graph] = await Promise.all([edition.reader.fromDeclaration(name), edition.reader.resource("selection/reverse.json"),
       edition.reader.proofMap().catch(() => null), edition.reader.resource("selection/index.json")]);
@@ -49,10 +49,10 @@ export function LeanPanel({ edition, name, forStep = false, claimMatch, phrase }
     }));
     const notes = Object.fromEntries(reviews.map(([id, c]) => [id, c?.note]));
     const gaps = Object.fromEntries(reviews.map(([id, c]) => [id, c ? c.open_assumptions ?? [] : undefined]));
-    const by = reviews.map(([, c]) => c?.reviewed_by);
+    const by = Object.fromEntries(reviews.map(([id, c]) => [id, c?.reviewed_by]));
     return { d: { ...d, kind, notes, gaps, by }, linked: new Set(Object.keys(reverse)), cards, modules: graph.modules };
   }, [edition, name]);
-  return <Loaded value={data} what="Lean declaration">{({ d, linked, cards, modules }) => <Declaration edition={edition} d={d} linked={linked} cards={cards} modules={modules} forStep={forStep} claimMatch={claimMatch?.name === name ? claimMatch : undefined} phrase={phrase} />}</Loaded>;
+  return <Loaded value={data} what="Lean declaration">{({ d, linked, cards, modules }) => <Declaration edition={edition} d={d} linked={linked} cards={cards} modules={modules} forStep={forStep} claimMatch={claimMatch?.name === name ? claimMatch : undefined} phrase={phrase} selectionStatements={selectionStatements} compact={compact} />}</Loaded>;
 }
 
 /** The lines a phrase tie lights in this declaration, and bringing the first into view. */
@@ -106,7 +106,7 @@ function PhraseOnlyDeclaration({ edition, name, phrase }: { edition: Edition; na
   );
 }
 
-function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, phrase }: { edition: Edition; d: any; linked: Set<string>; cards: Set<string>; modules: Record<string, string>; forStep: boolean; claimMatch?: ClaimMatch; phrase?: string }) {
+function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, phrase, selectionStatements, compact }: { edition: Edition; d: any; linked: Set<string>; cards: Set<string>; modules: Record<string, string>; forStep: boolean; claimMatch?: ClaimMatch; phrase?: string; selectionStatements?: string[]; compact?: boolean }) {
   const nav = useNav();
   const layer = usePhrases();
   const mark = usePhraseMark(d.name, phrase);
@@ -145,30 +145,25 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, 
   const file = (src.source ?? "").replace(/^lean\//, "");
   const range = src.lines ? (src.lines[0] === src.lines[1] ? `line ${src.lines[0]}` : `lines ${src.lines[0]}–${src.lines[1]}`) : "";
   const reviewed = [...ties].filter(([, t]) => t.review === "current" && t.relation !== "unassessed");
+  const selectedTie = selectionStatements?.map((id) => reviewed.find(([st]) => id === st)).find(Boolean);
   const linkedOnly = [...ties].filter(([, t]) => !(t.review === "current" && t.relation !== "unassessed"));
   const statementButton = (st: string) => <button type="button" className="textbutton match__st" onClick={() => nav.openStatement(st)}><StatementLabel id={st} /></button>;
   const places = new Set(treatments.map((t: any) => t.paper).filter((p: string) => ["expert", "exposition", "reconstruction", "original"].includes(p))).size;
   return (
     <article className="panel panel--lean" aria-labelledby="ln-h">
       <header className="panel__head decl-head">
-        <p className="panel__kind">{forStep ? <>The Lean for this step, a {kindWord.toLowerCase()}</> : `${kindWord} in Lean`}</p>
+        {!compact && <p className="panel__kind">{forStep ? <>The Lean for this step, a {kindWord.toLowerCase()}</> : `${kindWord} in Lean`}</p>}
         <h2 id="ln-h" className="panel__title decl-head__title">{layer?.titles[d.name] ? <span title={d.name} aria-label={layer.titles[d.name].title_plain}><Title text={layer.titles[d.name].title} /></span> : <DeclTitle name={d.name} />}</h2>
         <p className="decl-head__raw">
           <code>{d.name}</code>
           <CopyName name={d.name} />
-          <button type="button" className="decl-head__act" onClick={() => nav.openGraph(d.name)}>Show in graph</button>
+          {!compact && <button type="button" className="decl-head__act" onClick={() => nav.openGraph(d.name)}>Show in graph</button>}
         </p>
       </header>
 
       <DeclarationPhrases name={d.name} picked={phrase} />
 
-      {claimMatch && (
-        <section className="block match match--lead" aria-label="Match to the selected claim">
-          <p className="match__line"><span className="match__k">{claimMatch.title}</span> <RelationMark relation={claimMatch.relation} /></p>
-          <SourceLine kind="review" by={claimMatch.reviewed_by}>Compared by {reviewWords(claimMatch.reviewed_by)} against the selected claim.</SourceLine>
-        </section>
-      )}
-      {!claimMatch && ties.size > 0 && (
+      {selectionStatements === undefined && !claimMatch && ties.size > 0 && (
         <section className="block match match--lead" aria-labelledby="ln-tie">
           <h3 id="ln-tie" className="sr-only">How it matches the paper</h3>
           {reviewed.map(([st, t]) => (
@@ -185,24 +180,38 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, 
               <p className="match__note match__note--plain">No current review compares {linkedOnly.length === 1 ? "the two" : "it with them"}.</p>
             </div>
           )}
-          <SourceLine kind={reviewed.length ? "review" : "editors"} by={d.by}>
-            {reviewed.length > 0 && <>Compared by {reviewWords(d.by)}, bound to this Lean source.</>}
+          <SourceLine kind={reviewed.length ? "review" : "editors"} by={Object.values(d.by)}>
+            {reviewed.length > 0 && <>Compared by {reviewWords(Object.values(d.by))}, bound to this Lean source.</>}
             {reviewed.length > 0 && linkedOnly.length > 0 && " "}
             {linkedOnly.length > 0 && <>{reviewed.length ? "Other statement links" : "Linked"} by AI agents.</>}
           </SourceLine>
         </section>
       )}
 
-      <ComparatorEvidence edition={edition} declaration={d.name} />
+      {!compact && <ComparatorEvidence edition={edition} declaration={d.name} />}
 
       {src.text ? (
         <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean} mark={mark}
-          label={`Lean source of ${d.name}`} url={src.url} foldOver={14} foldWord={isTheorem ? "proof" : "definition body"}
+          label={`Lean source of ${d.name}`} url={src.url} foldOver={selectionStatements === undefined ? 14 : 0} foldWord={isTheorem ? "proof" : "definition body"}
           caption={<><span className="leancode__file">{file || "Lean source"}</span>{range && <span>{range}</span>}</>} />
       ) : (
         <p className="panel-empty">No source text is recorded for this declaration.</p>
       )}
 
+      {selectedTie && (
+        <section className="block match match--lead" aria-label="Review of this passage and declaration">
+          <p className="match__line">{statementButton(selectedTie[0])} <RelationMark relation={selectedTie[1].relation} openAssumptions={d.gaps[selectedTie[0]]} /></p>
+          {d.notes[selectedTie[0]] && <p className="match__note">{d.notes[selectedTie[0]]}</p>}
+          <SourceLine kind="review" by={d.by[selectedTie[0]]}>Compared by {reviewWords(d.by[selectedTie[0]])} with this Lean declaration.</SourceLine>
+        </section>
+      )}
+      {!selectedTie && claimMatch && (
+        <section className="block match match--lead" aria-label="Match to the selected claim">
+          <p className="match__line"><span className="match__k">{claimMatch.title}</span> <RelationMark relation={claimMatch.relation} /></p>
+          <SourceLine kind="review" by={claimMatch.reviewed_by}>Compared by {reviewWords(claimMatch.reviewed_by)} against the selected claim.</SourceLine>
+        </section>
+      )}
+      {!compact && <>
       <section className="block" aria-labelledby="ln-uses">
         <h3 id="ln-uses" className="block__h">Uses</h3>
         <Neighbours empty="Nothing else in this project." list={steps} vocabulary={vocabulary} linked={linked} mapped={cards} modules={modules} />
@@ -231,6 +240,7 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, 
           <Axioms audit={d.axiomAudit} />
         </details>
       </section>
+      </>}
     </article>
   );
 }

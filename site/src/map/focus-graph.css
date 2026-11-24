@@ -23,7 +23,7 @@
   background: var(--fg-ground);
   font-family: var(--fg-sans);
 }
-.fg__label, .fg__route, .fg__key { flex: none; margin: 0; padding: 6px 14px; font-size: 13px; line-height: 1.4; color: var(--fg-muted); }
+.fg__label, .fg__route { flex: none; margin: 0; padding: 6px 14px; font-size: 13px; line-height: 1.4; color: var(--fg-muted); }
 .fg__label { color: var(--fg-ink); border-bottom: 1px solid color-mix(in srgb, var(--fg-edge) 55%, transparent); }
 .fg__label a, .fg__label button { font: inherit; color: var(--fg-accent); background: none; border: 0; padding: 0; margin-left: 8px; text-decoration: underline; cursor: pointer; }
 .fg__route { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 6px; border-bottom: 1px solid color-mix(in srgb, var(--fg-edge) 55%, transparent); }
@@ -33,47 +33,42 @@
 .fg__crumb button { font: inherit; color: var(--fg-ink); background: none; border: 0; padding: 1px 0; text-align: left; text-decoration: underline; text-decoration-color: var(--fg-edge); text-underline-offset: 3px; cursor: pointer; }
 .fg__crumb button:hover, .fg__crumb button:focus-visible { text-decoration-color: var(--fg-accent); }
 .fg__crumb button.is-main { font-weight: 650; }
-.fg__key { display: flex; flex-wrap: wrap; gap: 2px 16px; align-items: center; border-top: 1px solid color-mix(in srgb, var(--fg-edge) 55%, transparent); font-size: 12.5px; padding-right: 150px; min-height: 22px; }
-.fg__key span { white-space: nowrap; }
-/* While the drawing is larger than its area the overview stands in this row, beside the buttons. */
-.fg__key--mini { min-height: 60px; padding-right: 310px; align-content: center; }
-.fg__keyline { display: inline-block; width: 22px; height: 0; margin: 0 5px 3px 0; border-top: 1.4px solid var(--fg-wire); vertical-align: middle; }
-.fg__keyline--statement { border-top-style: dashed; }
-.fg__keyline--argument { border-top-width: 2.6px; border-top-color: var(--fg-ink); }
-.fg__keybox { display: inline-block; width: 16px; height: 10px; margin: 0 5px 1px 0; border: 1px solid var(--fg-edge); border-radius: 3px; vertical-align: middle; background: var(--fg-card); }
-.fg__keybox--helper { border-style: dashed; background: transparent; }
-.fg__keybox--definition { border-radius: 0; background: var(--fg-definition); }
-.fg__keybox--group { border-radius: 6px; border-width: 1.5px; border-color: var(--fg-wire); box-shadow: 2px 2px 0 color-mix(in srgb, var(--fg-wire) 55%, transparent); }
 
+/* The drawing's area is a canvas: its size is the pane's alone, it never scrolls and has no scroll
+   bars, and the drawing moves inside it by a transform (FocusGraph's camera). The tools and the
+   overview stand over it, so nothing the drawing does can change the room it has. */
+.fg__stage { position: relative; flex: 1 1 0; min-height: 0; min-width: 0; overflow: hidden; }
 .fg__scroll {
-  flex: 1 1 0;
-  min-height: 0;
-  overflow: auto;
-  scrollbar-width: auto;
-  scrollbar-color: var(--fg-wire) transparent;
+  position: absolute;
+  inset: 0;
+  overflow: clip;
   overscroll-behavior: contain;
+  touch-action: none;
   cursor: grab;
   outline-offset: -2px;
 }
 .fg__scroll.is-panning { cursor: grabbing; user-select: none; }
-.fg__scroll::-webkit-scrollbar { width: 11px; height: 11px; }
-.fg__scroll::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--fg-wire) 70%, transparent); border-radius: 6px; border: 2px solid transparent; background-clip: content-box; }
 .fg__world {
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   width: max-content;
-  min-width: 100%;
-  min-height: 100%;
   padding: 14px 16px;
+  transform-origin: 0 0;
 }
 .fg__lines { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
 .fg__wire { fill: none; stroke: var(--fg-wire); stroke-width: 1.3; stroke-linecap: round; }
 .fg__edge--statement { stroke-dasharray: 5 4; }
 .fg__edge--argument { stroke: color-mix(in srgb, var(--fg-ink) 78%, transparent); stroke-width: 2.2; }
+/* A link between results the edition derived from the Lean: the argument's weight, dashed, so it is never read as one the paper states. */
+.fg__edge--derived { stroke: color-mix(in srgb, var(--fg-ink) 78%, transparent); stroke-width: 2.2; stroke-dasharray: 8 4; }
+.fg__edge--assumes { stroke-width: 1.8; stroke-dasharray: 0.5 4.5; }
+.fg__edge--use { stroke-dasharray: 1.5 3.5; }
 .fg__edge--group { stroke: color-mix(in srgb, var(--fg-wire) 80%, transparent); }
 .fg__arrow { fill: var(--fg-wire); stroke: none; }
 .fg__arrow--hot { fill: var(--fg-accent); }
@@ -164,22 +159,117 @@
 .fg__subjects .fg__edge-note { margin-top: -12px; text-align: center; }
 .fg__none { padding: 28px 0; font-size: 14px; }
 
-.fg__tools { position: absolute; right: 18px; bottom: 4px; display: flex; gap: 1px; border: 1px solid var(--fg-edge); border-radius: 7px; overflow: hidden; background: var(--fg-card); box-shadow: 0 1px 6px rgb(0 0 0 / 0.12); height: max-content; }
+.fg__tools { position: absolute; right: 12px; bottom: 10px; z-index: 2; display: flex; gap: 1px; border: 1px solid var(--fg-edge); border-radius: 7px; overflow: hidden; background: var(--fg-card); box-shadow: 0 1px 6px rgb(0 0 0 / 0.12); height: max-content; }
 .fg__tools button { font: 500 13px/1 var(--fg-sans); color: var(--fg-ink); background: none; border: 0; padding: 7px 10px; cursor: pointer; }
 .fg__tools button:disabled { opacity: 0.4; cursor: default; }
 .fg__tools button:not(:disabled):hover { background: color-mix(in srgb, var(--fg-accent) 14%, transparent); }
-.fg__mini { position: absolute; right: 136px; bottom: 5px; border: 1px solid var(--fg-edge); border-radius: 5px; background: color-mix(in srgb, var(--fg-card) 92%, transparent); box-shadow: 0 1px 8px rgb(0 0 0 / 0.16); cursor: pointer; overflow: hidden; touch-action: none; }
-.fg__mini i { position: absolute; background: color-mix(in srgb, var(--fg-wire) 60%, transparent); border-radius: 1px; }
-.fg__mini i.is-subject { background: var(--fg-accent); }
-.fg__mini i.is-hot { background: var(--fg-ink); }
-.fg__mini b { position: absolute; border: 1.5px solid var(--fg-accent); background: color-mix(in srgb, var(--fg-accent) 12%, transparent); border-radius: 2px; pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) { .fg__card, .fg__grouphead { transition: box-shadow 120ms ease, border-color 120ms ease; } }
 /* Too narrow for three columns: users over the subject, uses under it, lines in the left margin. */
 .fg__world--narrow { flex-direction: column; align-items: flex-start; justify-content: flex-start; row-gap: 18px; padding-left: 30px; }
 .fg__world--narrow .fg__side, .fg__world--narrow .fg__group, .fg__world--narrow .fg__members { align-items: flex-start !important; }
 .fg__world--narrow .fg__side[data-band="users"] .fg__members { padding: 0 0 0 12px; margin: 0 0 0 8px; border-right: 0; border-left: 2px solid color-mix(in srgb, var(--fg-wire) 60%, transparent); }
-/* A phone has no room for the key or the overview: the drawing takes it. */
 @media (max-width: 600px) {
-  .fg__key, .fg__mini { display: none; }
   .fg__tools { bottom: 10px; }
+}
+
+/* A use the paper's own text states, with no Lean dependency between its ends: dashed and heavy. */
+.fg__edge--paper { stroke: color-mix(in srgb, var(--fg-ink) 70%, transparent); stroke-width: 2; stroke-dasharray: 6 4; }
+.fg__edge-hit { fill: none; stroke: transparent; stroke-width: 12; pointer-events: stroke; cursor: pointer; }
+/* Every other line answers the pointer only with its relation's name: a drag over it still pans. */
+.fg__edge-hit--plain { cursor: inherit; }
+.fg__edge-why { margin: 0; padding: 6px 10px; font-size: 0.82rem; line-height: 1.4; color: var(--fg-ink); background: var(--fg-card, transparent); border-top: 1px solid var(--rule, #ddd); }
+.fg__edge-why-label { font-weight: 600; }
+.fg__edge-why-close { margin-left: 6px; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+
+/* A large group's members, listed over the side of the drawing the group is on. The list stands
+   over the canvas and takes no room from it: the drawing, its world and its camera do not change
+   when it opens or closes, so the subject does not move. */
+.fg__list {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: min(360px, 60%);
+  min-height: 0;
+  background: var(--fg-card);
+  color: var(--fg-ink);
+}
+.fg__list--users { left: 0; border-right: 1px solid var(--fg-edge); }
+.fg__list--uses { right: 0; border-left: 1px solid var(--fg-edge); }
+/* On a phone the sides stand over and under the subject: the list takes the whole width. */
+.fg__list--narrow { left: 0; right: 0; width: auto; border-left: 0; border-right: 0; }
+@media (prefers-reduced-motion: no-preference) { .fg__list { animation: fg-list-in 160ms cubic-bezier(0.2, 0.7, 0.2, 1); } }
+@keyframes fg-list-in { from { opacity: 0; } }
+/* The buttons and the overview move to the other side of the area, so that the list never hides them. */
+.fg__stage[data-list-side="uses"] .fg__tools { right: auto; left: 12px; }
+.fg__listhead { flex: none; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 10px 12px 6px 14px; }
+.fg__listname { margin: 0; font: 600 14px/1.3 var(--fg-sans); overflow-wrap: break-word; }
+.fg__listback, .fg__listpages button {
+  flex: none;
+  min-height: 32px;
+  padding: 4px 10px;
+  font: 500 13px/1.2 var(--fg-sans);
+  color: var(--fg-ink);
+  background: var(--fg-card);
+  border: 1px solid var(--fg-edge);
+  border-radius: 7px;
+  cursor: pointer;
+}
+.fg__listsearch {
+  flex: none;
+  box-sizing: border-box;
+  margin: 2px 12px 0 14px;
+  min-height: 36px;
+  padding: 6px 10px;
+  font: 14px/1.3 var(--fg-sans);
+  color: var(--fg-ink);
+  background: var(--fg-card);
+  border: 1px solid var(--fg-edge);
+  border-radius: 7px;
+}
+.fg__liststatus { flex: none; margin: 0; padding: 6px 14px; font-size: 13px; line-height: 1.35; color: var(--fg-muted); font-variant-numeric: tabular-nums; }
+.fg__listitems { flex: 1 1 auto; min-height: 0; margin: 0; padding: 0 8px 0 10px; list-style: none; overflow-y: auto; overscroll-behavior: contain; border-top: 1px solid color-mix(in srgb, var(--fg-edge) 55%, transparent); }
+.fg__listitems li { margin: 0; padding: 0; }
+.fg__member {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 100%;
+  min-height: 40px;
+  margin: 0;
+  padding: 6px 8px 6px 12px;
+  text-align: left;
+  font: inherit;
+  color: var(--fg-ink);
+  background: none;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--fg-edge) 45%, transparent);
+  cursor: pointer;
+  overflow-wrap: break-word;
+}
+.fg__member::before { content: ""; position: absolute; left: 2px; top: 6px; bottom: 6px; width: 4px; border-radius: 2px; background: var(--fg-tone, transparent); }
+.fg__memberkicker { font: 600 13px/1.3 var(--fg-sans); letter-spacing: 0.03em; text-transform: uppercase; color: var(--fg-muted); }
+.fg__membertitle { font-size: 14px; line-height: 1.35; text-wrap: pretty; }
+.fg__member--result .fg__membertitle { font-weight: 600; }
+.fg__member[data-seen="later"] .fg__membertitle { color: color-mix(in srgb, var(--fg-ink) 70%, transparent); }
+.fg__memberkind { font-size: 13px; line-height: 1.3; color: var(--fg-muted); }
+.fg__listpages { flex: none; display: flex; justify-content: space-between; gap: 8px; padding: 8px 12px 10px 14px; border-top: 1px solid color-mix(in srgb, var(--fg-edge) 55%, transparent); }
+.fg__listpages button:disabled { opacity: 0.45; cursor: default; }
+.fg__member:hover, .fg__member.is-hot { background: color-mix(in srgb, var(--fg-accent) 10%, transparent); }
+.fg__listback:hover, .fg__listpages button:not(:disabled):hover { border-color: var(--fg-accent); }
+/* The file's focus style: the accent edge with a ring, and no browser outline. */
+.fg__member:focus-visible { outline: none; box-shadow: inset 0 0 0 1.5px var(--fg-accent); background: color-mix(in srgb, var(--fg-accent) 10%, transparent); }
+.fg__listback:focus-visible, .fg__listpages button:focus-visible, .fg__listsearch:focus-visible { outline: none; border-color: var(--fg-accent); box-shadow: 0 0 0 1.5px var(--fg-accent); }
+.fg__group.is-listed > .fg__grouphead { border-color: var(--fg-accent); }
+@media (pointer: coarse) {
+  .fg__member { min-height: 44px; }
+  .fg__listback, .fg__listpages button, .fg__listsearch { min-height: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .fg__member, .fg__listback, .fg__listpages button { transition: background-color 120ms cubic-bezier(0.2, 0.7, 0.2, 1), border-color 120ms cubic-bezier(0.2, 0.7, 0.2, 1); }
 }

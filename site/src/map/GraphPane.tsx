@@ -8,6 +8,7 @@ import { ArgumentTree, type Insets, type MapViewHandle } from "./ArgumentTree";
 import type { ArgEdge, ArgGraph } from "../model/graph";
 import { GOAL, drawnEdgeKey, isType, type ProofMap } from "./fromProofMap";
 import { Title } from "../text/title";
+import { SOURCE_READER } from "../app/edition";
 import { reach } from "./treeModel";
 import { edgeSentence } from "./edgeMeaning";
 import { EdgeEvidence } from "./EdgeEvidence";
@@ -68,7 +69,7 @@ interface Props {
   selectedEdge: string | null;
   onEdge(key: string): void;
   /** Return to the drawing around the subject. */
-  onBack(): void;
+  onBack?(): void;
 }
 
 /** Each card's tile height in world units: its title wrapped at TITLE_PX in the tile's width at
@@ -278,7 +279,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, onSe
       <div className="graph__head">
         {/* A heading by role, not an h2: the reader moves focus to a panel's h2, and the graph keeps focus where it was. */}
         <p className="graph__title" role="heading" aria-level={2}>The whole Lean proof</p>
-        <button type="button" className="gbtn" onClick={onBack}>Around this step</button>
+        {onBack && <button type="button" className="gbtn" onClick={onBack}>Neighbours of this step</button>}
       </div>
       {/* One toolbar, adapted from Lean Exposition's MapStrip controls and map shortcuts. */}
       <div className="graph__bar" role="toolbar" aria-label="Map controls" onKeyDown={(event) => {
@@ -331,7 +332,7 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, onSe
         </div>
       )}
       {evidence}
-      <GraphKey graph={graph} notesRef={setNotes} badges={false} list={shownView === "list"} passage={litIds} selected={null} route={!(inspect ?? routeEdge)} />
+      {!SOURCE_READER && <GraphKey graph={graph} notesRef={setNotes} badges={false} list={shownView === "list"} passage={litIds} selected={null} route={!(inspect ?? routeEdge)} />}
     </section>
   );
 });

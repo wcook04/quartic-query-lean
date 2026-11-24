@@ -15,11 +15,13 @@ export interface Edition {
   missingRequested: string | null;
 }
 
-const API_ROOT = new URL(`${import.meta.env.BASE_URL}reading-api/v1/`, location.href).href;
+const API_ROOT = new URL(import.meta.env.VITE_READING_API_BASE || `${import.meta.env.BASE_URL}reading-api/v1/`, location.href).href;
+const DEFAULT_EDITION = import.meta.env.VITE_READING_EDITION || undefined;
+export const SOURCE_READER = !!DEFAULT_EDITION;
 const EDITION = /^edition-[a-f0-9]{64}\.json$/;
 
 export async function openEdition(requested: string | null): Promise<Edition> {
-  const latest = await openWith(API_ROOT);
+  const latest = await openWith(API_ROOT, { edition: DEFAULT_EDITION });
   if (!requested || requested === latest.permalink) return { reader: latest, permalink: latest.permalink, pinnedOlder: false, missingRequested: null };
   if (!EDITION.test(requested)) return { reader: latest, permalink: latest.permalink, pinnedOlder: false, missingRequested: requested.slice(0, 80) };
   try {

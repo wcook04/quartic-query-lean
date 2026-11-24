@@ -94,6 +94,25 @@ produce a native reading copy while retaining the unchanged PDF. The original
 keeps its authorship, numbering and section structure. The three accompanying
 PDFs are admitted only with their exact source revision and accepted hashes.
 
+## OpenAI’s paper and the verification supplement in the Library
+
+Run `npm run build:library-source` from `site/` to build the application for
+`/library/quartic/source/`. Deploy the contents of `dist/` to that folder. The
+`.library-paper` marker lets the Library keep the source reader when it rebuilds
+the expert companion.
+
+This build reads the last captured edition's manifest and objects directly from
+the Library's frozen `quartic/editions/_site/reading-api/v1/` pool. The reading
+client checks the manifest name and every requested object. The app opens OpenAI's
+original or the verification supplement with the same hash routes and selection
+IDs. An unpinned link from the old Quartic site goes to this app. Links with an
+explicit edition still open the app published with that historical snapshot.
+
+A selected passage with a Lean link opens the declaration and its dependencies.
+The proof starts collapsed. A current review of the selected statement and
+declaration appears once, after the Lean. With no linked declaration, the pane
+can show the whole proof map.
+
 ## Phrases, topics and reading notes
 
 The expert companion, the exposition and the reconstruction carry the edition's

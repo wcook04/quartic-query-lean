@@ -2,14 +2,19 @@
 // middle, the cards that use it on the left and the cards it uses on the right, each joined to
 // it by a curved line. It fits its pane when it opens: nodes are one compact line of plain
 // words, and a side with more neighbours than fit is drawn as named groups, each with its
-// count, that open in place. Nothing is left out and nothing is replaced by a bare count.
+// count. A small group opens in place; a large one opens as a list of its members beside the
+// drawing, so the drawing never has to grow to hold it. Nothing is left out and nothing is
+// replaced by a bare count.
 // The same file serves the Quartic Reader, the SK and Erdős #257 readers and Proof Reader:
 // docs/graph-pane.md is its specification, and a change here should be copied to the other two.
 //
 // Layout is the browser's own (columns of wrapped titles); the lines are measured from the
 // nodes after layout, so a title of any length, or one with typeset mathematics, is never cut.
 
+import { toneNumber } from "./topicTone";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { flushSync } from "react-dom";
+import { graphWheel } from "./graphWheel";
 import "./focus-graph.css";
 
 /** What a card is, for the reader: this decides its look and, on a crowded side, its group. */
@@ -34,9 +39,34 @@ export interface FGCard {
   seen?: "before" | "here" | "later";
 }
 
-/** `from` uses `to`. `statement`: only the statement of `from` names `to`; `proof`: its proof or body does;
- *  `argument`: the paper's own argument, as authored. */
-export interface FGEdge { from: string; to: string; kind?: "proof" | "statement" | "argument" }
+/**
+ * `from` uses `to`, and how that is known. Paper argument: `argument`, a link the paper states;
+ * `paper`, a use the paper's own text states and no Lean dependency joins (drawn dashed, with the
+ * sentence that states it, `why`, and a link to where the using result is stated, `href`);
+ * `derived`, a link between results the edition derived from the Lean's dependencies; `assumes`,
+ * an assumption. Lean: `statement`, the statement of `from` names `to`; `proof`, its proof or body
+ * does; `use`, the Lean uses it and no record says whether in the statement or the proof.
+ */
+export type FGRelation = "argument" | "paper" | "derived" | "assumes" | "statement" | "proof" | "use";
+export interface FGEdge { from: string; to: string; kind?: FGRelation; why?: string; href?: string }
+
+/** The order relations are listed in, and which one a card's line shows when it has several. */
+export const RELATION_ORDER: readonly FGRelation[] = ["argument", "paper", "derived", "assumes", "proof", "statement", "use"];
+/** Each relation's words in a count ("3 by a link the paper states") and in the key. */
+export const RELATION_WORDS: Record<FGRelation, { count: string; key: string }> = {
+  argument: { count: "by a link the paper states", key: "a link the paper states" },
+  paper: { count: "by the paper's text alone", key: "a use the paper's proof states, with no Lean link" },
+  derived: { count: "by a link derived from the Lean", key: "a link between results, derived from the Lean" },
+  assumes: { count: "by assumption", key: "an assumption" },
+  statement: { count: "in a Lean statement", key: "used in a Lean statement" },
+  proof: { count: "in a Lean proof or body", key: "used in a Lean proof or body" },
+  use: { count: "in the Lean, statement or proof not recorded", key: "used in the Lean, statement or proof not recorded" },
+};
+
+/** How many neighbours each relation joins, as words: "4: 1 by a link the paper states, 3 in a Lean proof or body". */
+export function relationCounts(counts: ReadonlyMap<FGRelation, number>): string {
+  return RELATION_ORDER.filter((k) => counts.get(k)).map((k) => `${counts.get(k)} ${RELATION_WORDS[k].count}`).join(", ");
+}
 
 export interface FGRoleWords { order: number; one: string; many: string; uses: string; usedBy: string }
 
@@ -45,12 +75,14 @@ export const FG_ROLES: Record<FGRole, FGRoleWords> = {
   step: { order: 1, one: "Step", many: "Steps of the argument", uses: "Steps of the argument it uses", usedBy: "Steps of the argument that use it" },
   definition: { order: 2, one: "Definition", many: "Definitions", uses: "Definitions it uses", usedBy: "Definitions that use it" },
   cited: { order: 3, one: "Cited result", many: "Cited results", uses: "Cited results it uses", usedBy: "Cited results that use it" },
-  open: { order: 4, one: "Open question", many: "Open questions", uses: "Open questions it rests on", usedBy: "Open questions that use it" },
+  open: { order: 4, one: "Open question", many: "Open questions", uses: "Open questions it depends on", usedBy: "Open questions that use it" },
   helper: { order: 5, one: "Lean helper", many: "Lean helper lemmas", uses: "Lean helper lemmas it uses", usedBy: "Lean helper lemmas that use it" },
   library: { order: 6, one: "Library fact", many: "Library facts", uses: "Library facts it uses", usedBy: "Library facts that use it" },
 };
 
 export interface FocusGraphProps {
+  /** In a shared passage pane, the zoom controls and layout action share the graph's heading. */
+  embeddedHeader?: { title: string; action: ReactNode };
   /** The card or cards in the middle. */
   subjects: readonly string[];
   card(id: string): FGCard | undefined;
@@ -60,6 +92,8 @@ export interface FocusGraphProps {
   route?: readonly string[] | null;
   /** Said when there is no route to draw. */
   routeNote?: ReactNode;
+  /** The words before the route's steps (focusModel's routeWords); absent, a plain count of links. */
+  routeLabel?: string;
   /** One line over the drawing: what this view is, and a way back if it is a view of its own. */
   label?: ReactNode;
   /** Cards lit from outside: the phrase or sentence under the pointer. */
@@ -75,47 +109,201 @@ export interface FocusGraphProps {
 }
 
 interface Box { x: number; y: number; w: number; h: number }
-interface Seg { d: string; cls: string; edge?: string; width?: number }
-interface Drawn { w: number; h: number; segs: Seg[]; paths: Record<string, string>; boxes: { id: string; box: Box; band: string }[] }
+interface Seg { d: string; cls: string; kind: string; edge?: string; why?: string; href?: string }
+interface Drawn { w: number; h: number; segs: Seg[]; paths: Record<string, string>; cardCount: number }
 type Side = "users" | "uses";
-interface Rel { kind: string; of: Set<string> }
+/**
+ * A neighbour: the relation its line shows (the first of RELATION_ORDER it has), every relation it
+ * has, the subjects it joins, and for a `paper` line the sentence that states it and where.
+ */
+interface Rel { kind: FGRelation; kinds: Set<FGRelation>; of: Set<string>; why?: string; href?: string }
+
+/** How many of these neighbours each relation joins; a neighbour joined two ways counts under both. */
+function countKinds(ids: readonly string[], rels: ReadonlyMap<string, Rel>): Map<FGRelation, number> {
+  const counts = new Map<FGRelation, number>();
+  for (const id of ids) for (const k of rels.get(id)?.kinds ?? []) counts.set(k, (counts.get(k) ?? 0) + 1);
+  return counts;
+}
 /** One thing in a side's column: a card, or a named group of cards that opens in place. */
 type Item =
   | { type: "node"; id: string }
   | { type: "group"; key: string; name: string; tone?: string; role?: FGRole; said?: string; ids: string[]; open: boolean; children: Item[] };
 /** How one side is divided when it does not fit: named parts, some of them drawn out as their own nodes. */
 interface Part { key: string; name: string; list: string[]; depth: number }
-type Plan = { flat: true } | { flat: false; parts: Part[]; out: ReadonlySet<string> };
+type Plan = { flat: true } | { flat: false; parts: Part[]; out: ReadonlySet<string>; previews: ReadonlyMap<string, number> };
 
-const ZOOMS = [0.93, 1, 1.15, 1.3, 1.5];
+/** Below this scale a title is too small to read: a side that needs it is grouped further instead. */
+const MIN_READ = 0.85;
+/** The scales the reader can reach with the buttons, wheel, pinch and keys. */
+const K_MIN = 0.2;
+const K_MAX = 2.5;
+/** A small diagram stays close to the text size the reader chose. */
+const FIT_MAX = 1.15;
+/** Room kept around a fitted drawing, and how much of it a pan always leaves in view. */
+const FIT_MARGIN = 18;
+const KEEP_IN_VIEW = 60;
+/** The height the buttons over the bottom of the view take. */
+const TOOLS_ROOM = 36;
+const clampTo = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 const PAD_X = 16;
 const PAD_Y = 14;
 const ITEM_GAP = 6;
-/** A group with more members than this, from several files or sections, opens into those first. */
-const DIVIDE_ABOVE = 18;
+/** A group with more members than this opens as a list beside the drawing, not in it. */
+const LIST_ABOVE = 8;
+/** Members of a listed group shown at once. */
+const LIST_PAGE = 20;
+/** What each kind of line records, in the key and in the line's own tooltip: RELATION_WORDS's key words, as a name. */
+const relation = (kind: string) => {
+  const words = RELATION_WORDS[kind as FGRelation]?.key ?? RELATION_WORDS.use.key;
+  return words.charAt(0).toUpperCase() + words.slice(1);
+};
 /** A kind's words inside a sentence: "Definitions" becomes "definitions"; "Lean helper lemmas" keeps its capital. */
 const inSentence = (words: string) => (words.startsWith("Lean ") ? words : words.charAt(0).toLowerCase() + words.slice(1));
-const MINI_W = 150;
-const MINI_H = 58;
-const MINI_MIN_W = 64;
+/** The visible diagram in world coordinates. Text ranges exclude the unused part of a
+ * column, and SVG curve bounds include the wires that run outside the cards on phones. */
+function diagramBounds(world: HTMLElement): Box | null {
+  const origin = world.getBoundingClientRect();
+  if (!origin.width || !world.offsetWidth) return null;
+  const scale = origin.width / world.offsetWidth;
+  const range = world.ownerDocument.createRange();
+  let left = Infinity, right = -Infinity, top = Infinity, bottom = -Infinity;
+  const include = (x: number, y: number, width: number, height: number) => {
+    if (!width && !height) return;
+    left = Math.min(left, x);
+    top = Math.min(top, y);
+    right = Math.max(right, x + width);
+    bottom = Math.max(bottom, y + height);
+  };
+  const fromViewport = (rect: DOMRect) => include(
+    (rect.left - origin.left) / scale, (rect.top - origin.top) / scale,
+    rect.width / scale, rect.height / scale,
+  );
+  for (const card of world.querySelectorAll(".fg__card, .fg__grouphead, .fg__subjects--many")) {
+    fromViewport(card.getBoundingClientRect());
+  }
+  for (const wire of world.querySelectorAll<SVGPathElement>(".fg__wire")) {
+    const box = wire.getBBox();
+    include(box.x, box.y, box.width, box.height);
+  }
+  for (const label of world.querySelectorAll(".fg__sidehead, .fg__sidekinds, .fg__edge-note")) {
+    range.selectNodeContents(label);
+    for (const rect of range.getClientRects()) fromViewport(rect);
+  }
+  if (right <= left || bottom <= top) return null;
+  return { x: left, y: top, w: right - left, h: bottom - top };
+}
 
 export function FocusGraph(props: FocusGraphProps) {
-  const { subjects, card, edges, route, routeNote, label, lit, held, onSubject, onHover, renderTitle } = props;
+  const { subjects, card, edges, route, routeNote, routeLabel, label, lit, held, onSubject, onHover, renderTitle } = props;
   const scroller = useRef<HTMLDivElement>(null);
   const world = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
-  const [zoomAt, setZoomAt] = useState(1);
-  const zoom = ZOOMS[zoomAt];
+  const embedded = !!props.embeddedHeader;
+  const shortLabels = embedded && (size.w < 560 || size.h < 220);
+  const fittedKey = useRef<string | null>(null);
   const [drawn, setDrawn] = useState<Drawn | null>(null);
   const [hot, setHot] = useState<string | null>(null);
-  const [view, setView] = useState<Box>({ x: 0, y: 0, w: 0, h: 0 });
+  /** The sentence of a use the paper's text states, while it is pointed at or after a click. */
+  const [paperNote, setPaperNote] = useState<{ why: string; href?: string; edge?: string; held: boolean } | null>(null);
   /** Groups the reader opened, by side and key. */
   const [opened, setOpened] = useState<ReadonlySet<string>>(new Set());
   /** How many times the first estimate of what fits has been tightened for this subject. */
   const [tight, setTight] = useState(0);
-  const moved = useRef(false);
   const openedNow = useRef(false);
   openedNow.current = opened.size > 0;
+  const tightNow = useRef(0);
+  tightNow.current = tight;
+  /** The large group whose members are listed beside the drawing, by side and key. It is not "opened": the drawing does not change. */
+  const [listed, setListed] = useState<{ side: Side; path: string } | null>(null);
+  const listedNow = useRef(false);
+  listedNow.current = !!listed;
+  /** What the reader searched for and which page they were on in each listed group, until the subject changes. */
+  const [lists, setLists] = useState<Record<string, { q: string; page: number }>>({});
+  const searchBox = useRef<HTMLInputElement>(null);
+
+  // ---- The camera ---------------------------------------------------------------------------
+  // The drawing is laid out once for the pane's size and never for the view of it: panning and
+  // zooming only set a transform on the world, so nothing the camera does can change the layout,
+  // and the layout changes the camera only by an explicit fit. There are no scroll bars.
+  const cam = useRef({ x: 0, y: 0, k: 1 });
+  /** True from opening, a new subject or Fit until the reader moves the view or opens a group: the drawing is kept fitted. */
+  const auto = useRef(true);
+  const drawnRef = useRef<Drawn | null>(null);
+  drawnRef.current = drawn;
+  const applyCam = () => {
+    const w = world.current;
+    if (!w) return;
+    const c = cam.current;
+    const t = `translate(${c.x.toFixed(1)}px, ${c.y.toFixed(1)}px) scale(${c.k.toFixed(4)})`;
+    if (w.style.transform !== t) w.style.transform = t;
+  };
+  /** Move the camera, keeping some of the drawing in view whatever the reader does. */
+  const setCam = (next: { x: number; y: number; k: number }) => {
+    const d = drawnRef.current, el = scroller.current;
+    if (d && el) {
+      const keepX = Math.min(KEEP_IN_VIEW, (d.w * next.k) / 2), keepY = Math.min(KEEP_IN_VIEW, (d.h * next.k) / 2);
+      next = { k: next.k, x: clampTo(next.x, keepX - d.w * next.k, el.clientWidth - keepX), y: clampTo(next.y, keepY - d.h * next.k, el.clientHeight - keepY) };
+    }
+    cam.current = next;
+    applyCam();
+  };
+  /** Zoom by a factor about a point of the view (its centre by default), by the reader's hand. */
+  const zoomBy = (factor: number, px?: number, py?: number) => {
+    const el = scroller.current;
+    if (!el) return;
+    const c = cam.current;
+    const k = clampTo(c.k * factor, K_MIN, K_MAX);
+    const ox = px ?? el.clientWidth / 2, oy = py ?? el.clientHeight / 2;
+    auto.current = false;
+    setCam({ k, x: ox - ((ox - c.x) * k) / c.k, y: oy - ((oy - c.y) * k) / c.k });
+  };
+  const panBy = (dx: number, dy: number) => {
+    auto.current = false;
+    setCam({ ...cam.current, x: cam.current.x + dx, y: cam.current.y + dy });
+  };
+  /** Move the camera just enough to show a card or an open group. */
+  const reveal = (node: HTMLElement) => {
+    const view = scroller.current?.getBoundingClientRect();
+    if (!view) return;
+    const box = node.getBoundingClientRect();
+    const margin = 8;
+    let dx = 0, dy = 0;
+    if (box.left < view.left + margin || box.width > view.width - 2 * margin) dx = view.left + margin - box.left;
+    else if (box.right > view.right - margin) dx = view.right - margin - box.right;
+    if (box.top < view.top + margin || box.height > view.height - 2 * margin) dy = view.top + margin - box.top;
+    else if (box.bottom > view.bottom - margin) dy = view.bottom - margin - box.bottom;
+    if (dx || dy) panBy(dx, dy);
+  };
+  /**
+   * Fit the painted drawing in view with a margin. When that would set the
+   * titles below a readable size, the sides are grouped further first (up to six times) and the fit
+   * waits for the new layout. Returns false while it waits.
+   */
+  const fitNow = (overview = false): boolean => {
+    const d = drawnRef.current, el = scroller.current, w = world.current;
+    if (!d || !el || !w || !el.clientWidth || !el.clientHeight || !d.w || !d.h) return false;
+    // The buttons stand over the bottom of the view: a fitted drawing stays above them.
+    const vw = el.clientWidth, vh = el.clientHeight - (embedded ? 0 : TOOLS_ROOM);
+    const margin = embedded ? 8 : FIT_MARGIN;
+    const bounds = diagramBounds(w);
+    if (!bounds || vh <= 2 * margin || vw <= 2 * margin) return false;
+    const byHeight = (vh - 2 * margin) / bounds.h;
+    const byWidth = (vw - 2 * margin) / bounds.w;
+    if (!overview && byHeight < MIN_READ && !openedNow.current && tightNow.current < 6) {
+      setTight((t) => Math.min(6, t + 1));
+      return false;
+    }
+    const k = Math.min(FIT_MAX, byHeight, byWidth);
+    // The midpoint of everything drawn stays in the midpoint of the usable viewport.
+    // The limits for a manual pan apply to the canvas box and would bias this fit.
+    cam.current = {
+      k,
+      x: vw / 2 - (bounds.x + bounds.w / 2) * k,
+      y: vh / 2 - (bounds.y + bounds.h / 2) * k,
+    };
+    applyCam();
+    return true;
+  };
 
   const words = useCallback((role: FGRole): FGRoleWords => ({ ...FG_ROLES[role], ...(props.roles?.[role] ?? {}) }), [props.roles]);
 
@@ -127,19 +315,23 @@ export function FocusGraph(props: FocusGraphProps) {
     const users = new Map<string, Rel>();
     const uses = new Map<string, Rel>();
     const inner: FGEdge[] = [];
-    const add = (into: Map<string, Rel>, id: string, subject: string, kind = "proof") => {
+    const add = (into: Map<string, Rel>, id: string, subject: string, kind: FGRelation = "use", e?: FGEdge) => {
       if (!card(id)) return;
-      const row = into.get(id) ?? { kind, of: new Set<string>() };
-      // A statement-only use is said so only if no proof or body also uses it; the paper's argument outranks both.
-      if (kind === "argument" || (kind !== "statement" && row.kind !== "argument")) row.kind = kind;
+      const row = into.get(id) ?? { kind, kinds: new Set<FGRelation>(), of: new Set<string>() };
+      // The line shows the first relation in RELATION_ORDER: a link the paper states, a use the
+      // paper's text alone states, a link derived from the Lean, an assumption, a proof use, a
+      // statement-only use, an unsplit use.
+      if (RELATION_ORDER.indexOf(kind) < RELATION_ORDER.indexOf(row.kind)) row.kind = kind;
+      row.kinds.add(kind);
+      if (kind === "paper" && row.kind === "paper" && e?.why) { row.why = e.why; row.href = e.href; }
       row.of.add(subject);
       into.set(id, row);
     };
     for (const e of edges) {
       const f = isSubject.has(e.from), t = isSubject.has(e.to);
       if (f && t) { if (e.from !== e.to) inner.push(e); }
-      else if (f) add(uses, e.to, e.from, e.kind);
-      else if (t) add(users, e.from, e.to, e.kind);
+      else if (f) add(uses, e.to, e.from, e.kind, e);
+      else if (t) add(users, e.from, e.to, e.kind, e);
     }
     for (const id of users.keys()) uses.delete(id);
     // The subjects of one paragraph, in an order in which a step comes after every step that uses it.
@@ -163,13 +355,17 @@ export function FocusGraph(props: FocusGraphProps) {
 
   const key = model.subj.join("|");
   const many = model.subj.length > 1;
-  useLayoutEffect(() => { setOpened(new Set()); setTight(0); setHot(null); }, [key]);
-  // A new size is fitted afresh, unless the reader has a group open.
-  useLayoutEffect(() => { if (!openedNow.current) setTight(0); }, [size.w, size.h, zoom]);
+  useLayoutEffect(() => { setOpened(new Set()); setTight(0); setHot(null); setListed(null); setLists({}); auto.current = true; }, [key]);
+  // Reconsider the grouping at the new pane size. The camera follows the drawing that commits.
+  useLayoutEffect(() => {
+    if (!size.w || !auto.current || openedNow.current) return;
+    if (tightNow.current) setTight(0);
+  }, [size.w, size.h]);
 
-  // The widths of the three columns, for the room there is.
-  const W = (size.w || 640) / zoom;
-  const H = (size.h || 420) / zoom;
+  // The widths of the three columns, for the room there is. The height a column may take is the
+  // pane's at the smallest readable scale: a taller drawing is grouped further, a shorter one is fitted.
+  const W = size.w || 640;
+  const H = (size.h || 420) / MIN_READ;
   const both = model.left.length > 0 && model.right.length > 0;
   const gap = Math.round(Math.max(30, Math.min(96, W * 0.07)));
   // The subject is at least 190 wide where two side columns of 150 still fit beside it, and 168 in a narrower pane.
@@ -195,6 +391,8 @@ export function FocusGraph(props: FocusGraphProps) {
       return [...groups.entries()];
     };
     let parts: Part[] = by(ids, (c) => c.role).map(([role, list]) => ({ key: role, name: words(role as FGRole).many, list, depth: 0 }));
+    // Leave room for actual dependencies before subdividing the column into more headings.
+    const previewRoom = size.h && size.w ? Math.min(room * 0.38, 152) : 0;
     const total = (ps: Part[]) => ps.reduce((sum, p) => sum + headH(p.name), 0);
     // The pieces a part divides into, largest first: by topic, and a part that is one topic by file or section.
     const pieces = (p: Part): Part[] | null => {
@@ -222,7 +420,7 @@ export function FocusGraph(props: FocusGraphProps) {
           const merged: Part[] = [];
           for (const k of kept) { const same = merged.find((m) => m.name === k.name); if (same) same.list = [...same.list, ...k.list]; else merged.push({ ...k }); }
           const next = [...parts.slice(0, i), ...merged, ...parts.slice(i + 1)];
-          if (total(next) <= room) { parts = next; done = true; }
+          if (total(next) <= room - previewRoom) { parts = next; done = true; }
         }
         if (done) break;
       }
@@ -234,13 +432,31 @@ export function FocusGraph(props: FocusGraphProps) {
       const cost = p.list.reduce((sum, id) => sum + nodeH(id), 0) - headH(p.name);
       if (p.list.length === 1 || cost <= left) { out.add(p.key); left -= Math.max(0, cost); }
     }
-    return { flat: false, parts, out };
-  }, [card, words, sideW, H, tight, narrow]);
+    // Deal row space to the groups in turns. A wrapped title costs more than a short one.
+    // Each preview is a real child of its group; opening the header still exposes every member.
+    const previews = new Map<string, number>();
+    if (size.w && size.h) {
+      const grouped = parts.filter((p) => !out.has(p.key));
+      for (let row = 0; row < 4; row++) {
+        for (const part of grouped) {
+          if ((previews.get(part.key) ?? 0) !== row || row >= part.list.length - 1) continue;
+          const item = card(part.list[row])!;
+          const text = [item.kicker, item.title].filter(Boolean).join(" ");
+          const lines = Math.max(1, Math.ceil(text.length * 6.9 / Math.max(1, sideW - 46)));
+          const cost = 12 + lines * 17.5 + ITEM_GAP;
+          if (cost > left) continue;
+          previews.set(part.key, row + 1);
+          left -= cost;
+        }
+      }
+    }
+    return { flat: false, parts, out, previews };
+  }, [card, words, sideW, H, tight, narrow, size.w, size.h]);
 
-  // While the reader has a group open the division is kept as it was, so that the group stays where it is.
+  // While the reader has a group open or listed the division is kept as it was, so that the group stays where it is.
   const kept = useRef<{ key: string; users: Plan; uses: Plan } | null>(null);
   const plans = useMemo(() => {
-    if (opened.size && kept.current?.key === key) return kept.current;
+    if ((opened.size || listedNow.current) && kept.current?.key === key) return kept.current;
     kept.current = { key, users: plan(model.left), uses: plan(model.right) };
     return kept.current;
   }, [plan, model.left, model.right, opened, key]);
@@ -249,21 +465,14 @@ export function FocusGraph(props: FocusGraphProps) {
     const node = (id: string): Item => ({ type: "node", id });
     if (how.flat) return ids.map(node);
     const open = (path: string) => opened.has(`${side}:${path}`);
-    const group = (path: string, name: string, list: string[], divide: boolean): Item => {
+    // Only a small group opens in place; a large one is listed beside the drawing and never opens here.
+    const group = (path: string, name: string, list: string[]): Item => {
       const tones = new Set(list.map((id) => card(id)!.tone));
       const kinds = new Set(list.map((id) => card(id)!.role));
-      const isOpen = open(path);
-      let children: Item[] = [];
-      if (isOpen) {
-        const sections = new Map<string, string[]>();
-        if (divide && list.length > DIVIDE_ABOVE) for (const id of list) { const k = card(id)!.section ?? ""; sections.set(k, [...(sections.get(k) ?? []), id]); }
-        children = sections.size > 1 && sections.size < list.length
-          ? [...sections.entries()].map(([sec, part]) => (part.length === 1 ? node(part[0]) : group(`${path}/s:${sec}`, sec || "Elsewhere", part, false)))
-          : list.map(node);
-      }
-      return { type: "group", key: path, name, tone: tones.size === 1 ? [...tones][0] : undefined, role: kinds.size === 1 ? [...kinds][0] : undefined, ids: list, open: isOpen, children };
+      const isOpen = list.length <= LIST_ABOVE && open(path);
+      return { type: "group", key: path, name, tone: tones.size === 1 ? [...tones][0] : undefined, role: kinds.size === 1 ? [...kinds][0] : undefined, ids: list, open: isOpen, children: (isOpen ? list : list.slice(0, how.previews.get(path) ?? 0)).map(node) };
     };
-    const items = how.parts.flatMap((p) => (how.out.has(p.key) && !open(p.key) ? p.list.map(node) : [group(p.key, p.name, p.list, p.depth < 2)]));
+    const items = how.parts.flatMap((p) => (how.out.has(p.key) && !open(p.key) ? p.list.map(node) : [group(p.key, p.name, p.list)]));
     // Two groups of one name (one topic among the definitions and again among the lemmas) each say their kind.
     const names = new Map<string, number>();
     for (const it of items) if (it.type === "group") names.set(it.name, (names.get(it.name) ?? 0) + 1);
@@ -277,34 +486,55 @@ export function FocusGraph(props: FocusGraphProps) {
   useLayoutEffect(() => {
     const el = scroller.current;
     if (!el) return;
-    const read = () => setSize((s) => (s.w === el.clientWidth && s.h === el.clientHeight ? s : { w: el.clientWidth, h: el.clientHeight }));
-    read();
-    const ro = new ResizeObserver(read);
+    // A hover preview in the separate Graph tab can change the dock height. Keep the
+    // hovered card still, but refit on a viewport resize even with the pointer over it.
+    const measurePane = (viewportChanged: boolean) => {
+      const w = el.clientWidth, h = el.clientHeight;
+      const holdHover = !embedded && !viewportChanged && el.matches(":hover");
+      setSize((s) => s.w === w && (s.h === h || holdHover) ? s : { w, h });
+    };
+    const viewportResize = () => measurePane(true);
+    measurePane(true);
+    const ro = new ResizeObserver(() => measurePane(false));
     ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
+    window.addEventListener("resize", viewportResize);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", viewportResize);
+    };
+  }, [embedded]);
 
   // The lines, measured from the nodes as the browser laid them out.
   const measure = useCallback(() => {
     const w = world.current;
     if (!w) return;
-    const origin = w.getBoundingClientRect();
-    const box = (el: Element): Box => {
-      const r = el.getBoundingClientRect();
-      return { x: (r.left - origin.left) / zoom, y: (r.top - origin.top) / zoom, w: r.width / zoom, h: r.height / zoom };
+    // HTML cards and SVG wires share the world's layout space. Position them before
+    // the camera transform so a zoom, a drawer animation or a pan cannot detach a wire.
+    const box = (el: HTMLElement): Box => {
+      let x = 0, y = 0;
+      let node: HTMLElement | null = el;
+      while (node && node !== w) {
+        x += node.offsetLeft;
+        y += node.offsetTop;
+        const parent = node.offsetParent as HTMLElement | null;
+        if (parent && parent !== w) {
+          x += parent.clientLeft;
+          y += parent.clientTop;
+        }
+        node = parent;
+      }
+      return { x, y, w: el.offsetWidth, h: el.offsetHeight };
     };
-    const frame = w.querySelector(".fg__subjects");
+    const frame = w.querySelector<HTMLElement>(".fg__subjects");
     if (!frame) { setDrawn(null); return; }
     const F = box(frame);
     const stackedNow = w.classList.contains("fg__world--narrow");
     const segs: Seg[] = [];
     const paths: Record<string, string> = {};
-    const boxes: Drawn["boxes"] = [];
+    const cards = w.querySelectorAll<HTMLElement>(".fg__card");
     const subjectBox = new Map<string, Box>();
-    for (const el of w.querySelectorAll<HTMLElement>(".fg__card, .fg__grouphead")) {
-      const b = box(el);
-      boxes.push({ id: el.dataset.card ?? `group:${el.dataset.group}`, box: b, band: el.dataset.band ?? "group" });
-      if (el.dataset.band === "subject") subjectBox.set(el.dataset.card!, b);
+    for (const el of cards) {
+      if (el.dataset.band === "subject") subjectBox.set(el.dataset.card!, box(el));
     }
     const curve = (x1: number, y1: number, x2: number, y2: number) => {
       const mx = (x1 + x2) / 2;
@@ -340,14 +570,15 @@ export function FocusGraph(props: FocusGraphProps) {
         const ty = e.to.y + e.to.h / 2 + (n > 1 ? -spread / 2 + (spread * i) / (n - 1) : 0);
         const ny = e.b.y + e.b.h / 2;
         // Stacked, every line runs in the left margin, from the left edge of one to the left edge of the other.
-        const loop = (x1: number, y1: number, x2: number, y2: number) => { const m = Math.min(x1, x2) - 16; return `M${x1.toFixed(1)} ${y1.toFixed(1)} C${m.toFixed(1)} ${y1.toFixed(1)}, ${m.toFixed(1)} ${y2.toFixed(1)}, ${(x2 - 5).toFixed(1)} ${y2.toFixed(1)}`; };
+        const loop = (x1: number, y1: number, x2: number, y2: number) => { const m = Math.min(x1, x2) - 16; return `M${x1.toFixed(1)} ${y1.toFixed(1)} C${m.toFixed(1)} ${y1.toFixed(1)}, ${m.toFixed(1)} ${y2.toFixed(1)}, ${x2.toFixed(1)} ${y2.toFixed(1)}`; };
         const d = stackedNow
           ? (side === "users" ? loop(e.b.x, ny, e.to.x, ty) : loop(e.to.x, ty, e.b.x, ny))
-          : side === "users" ? curve(e.b.x + e.b.w, ny, e.to.x - 5, ty) : curve(e.to.x + e.to.w, ty, e.b.x - 5, ny);
+          : side === "users" ? curve(e.b.x + e.b.w, ny, e.to.x, ty) : curve(e.to.x + e.to.w, ty, e.b.x, ny);
         const isGroup = !e.el.dataset.card;
-        const count = Number(e.el.dataset.count ?? 1);
-        const kind = isGroup ? (e.el.dataset.kind ?? "proof") : (rels.get(e.id)?.kind ?? "proof");
-        segs.push({ d, cls: `fg__wire fg__edge fg__edge--${kind}${isGroup ? " fg__edge--group" : ""}`, edge: side === "users" ? `${e.id}>` : `>${e.id}`, width: isGroup ? 1.6 + Math.min(4.4, Math.log2(count) * 0.8) : undefined });
+        const kind = isGroup ? (e.el.dataset.kind ?? "use") : (rels.get(e.id)?.kind ?? "use");
+        const rel = isGroup ? undefined : rels.get(e.id);
+        // A line's weight says its kind alone: a group's size is its badge, never a heavier line.
+        segs.push({ d, cls: `fg__wire fg__edge fg__edge--${kind}${isGroup ? " fg__edge--group" : ""}`, kind, edge: side === "users" ? `${e.id}>` : `>${e.id}`, why: kind === "paper" ? rel?.why : undefined, href: kind === "paper" ? rel?.href : undefined });
         paths[e.id] = paths[e.id] ? `${paths[e.id]} ${d}` : d;
         // A card inside an open group lights the group's own line.
         if (isGroup) for (const m of e.el.parentElement!.querySelectorAll<HTMLElement>(".fg__card")) paths[m.dataset.card!] = paths[e.id];
@@ -357,15 +588,20 @@ export function FocusGraph(props: FocusGraphProps) {
     model.inner.forEach((e, i) => {
       const a = subjectBox.get(e.from), b = subjectBox.get(e.to);
       if (!a || !b) return;
-      const bulge = 14 + (i % 3) * 9;
-      const x = a.x + a.w - 14 - (i % 4) * 12;
-      const d = b.y > a.y + a.h + 30 || b.y < a.y
-        ? `M${x} ${a.y + a.h} C${x + bulge * 3} ${a.y + a.h + 20}, ${x + bulge * 3} ${b.y - 20}, ${x} ${b.y - 5}`
-        : `M${x} ${a.y + a.h} L${x} ${b.y - 5}`;
-      segs.push({ d, cls: `fg__wire fg__edge fg__edge--${e.kind ?? "proof"} fg__inner`, edge: `${e.from}>${e.to}` });
+      // Neighbouring subjects can connect across their vertical gap. Longer and
+      // backward links use the outer edge so they never pass through another title.
+      const consecutive = model.subj.indexOf(e.to) === model.subj.indexOf(e.from) + 1;
+      const x = (Math.max(a.x, b.x) + Math.min(a.x + a.w, b.x + b.w)) / 2;
+      const endA = a.x + a.w, endB = b.x + b.w;
+      const yA = a.y + a.h / 2, yB = b.y + b.h / 2;
+      const gutter = Math.max(endA, endB) + 13 + (i % 3) * 3;
+      const d = consecutive
+        ? `M${x} ${a.y + a.h} V${b.y}`
+        : `M${endA} ${yA} C${gutter} ${yA}, ${gutter} ${yB}, ${endB} ${yB}`;
+      segs.push({ d, cls: `fg__wire fg__edge fg__edge--${e.kind ?? "use"} fg__inner`, kind: e.kind ?? "use", edge: `${e.from}>${e.to}`, why: e.kind === "paper" ? e.why : undefined, href: e.kind === "paper" ? e.href : undefined });
     });
-    setDrawn({ w: Math.ceil(origin.width / zoom), h: Math.ceil(origin.height / zoom), segs, paths, boxes });
-  }, [zoom, model, many]);
+    setDrawn({ w: w.offsetWidth, h: w.offsetHeight, segs, paths, cardCount: cards.length });
+  }, [model, many]);
 
   useLayoutEffect(() => {
     measure();
@@ -374,104 +610,166 @@ export function FocusGraph(props: FocusGraphProps) {
     // Fonts and typeset titles can arrive after the first layout.
     const ro = new ResizeObserver(() => measure());
     ro.observe(w);
-    for (const c of w.querySelectorAll(".fg__card, .fg__grouphead")) ro.observe(c);
-    return () => ro.disconnect();
+    for (const c of w.querySelectorAll(".fg__card, .fg__grouphead, .fg__side, .fg__subjects, .fg__sidehead, .fg__sidekinds, .fg__edge-note")) ro.observe(c);
+    const fonts = w.ownerDocument.fonts;
+    fonts?.addEventListener("loadingdone", measure);
+    return () => {
+      ro.disconnect();
+      fonts?.removeEventListener("loadingdone", measure);
+    };
   }, [measure, key, leftItems, rightItems, sideW, subjectW]);
 
-  // If the estimate let through more than fits, group more: fewer nodes, or fewer and larger groups when every
-  // item is already a group. The reader's own opened groups may overflow: they scroll.
+  // The pane and its new SVG can commit in different frames. Fit the latest
+  // drawing and pane together, after both the HTML and SVG have laid out.
   useLayoutEffect(() => {
-    const el = scroller.current, w = world.current;
-    if (!el || !w || opened.size || tight >= 6) return;
-    if (w.getBoundingClientRect().height > el.clientHeight + 2) setTight((t) => t + 1);
-  }, [drawn, opened, tight, leftItems, rightItems]);
+    if (!drawn || !size.w || !size.h) return;
+    const fitFor = JSON.stringify([key, size.w, size.h, model.left, model.right]);
+    let frame = requestAnimationFrame(() => {
+      frame = requestAnimationFrame(() => {
+        // A dock preview can redraw the separate graph under the pointer.
+        // A new subject, arriving neighbours or a genuine resize still merits a fit.
+        const held = !embedded && fittedKey.current === fitFor && scroller.current?.matches(":hover");
+        if (!auto.current || openedNow.current || held) {
+          applyCam();
+          return;
+        }
+        if (fitNow()) fittedKey.current = fitFor;
+      });
+    });
+    return () => cancelAnimationFrame(frame);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [drawn, key, size.w, size.h, embedded, model.left, model.right]);
 
-  // The subject is in the middle whenever it changes; a reader's own scrolling is kept until then.
-  const centre = useCallback(() => {
-    const el = scroller.current, w = world.current;
-    const frame = w?.querySelector<HTMLElement>(".fg__subjects");
-    if (!el || !w || !frame) return;
-    const o = w.getBoundingClientRect(), r = frame.getBoundingClientRect();
-    const cx = r.left - o.left + r.width / 2, cy = r.top - o.top + r.height / 2;
-    // Stacked on a phone the drawing reads from its top: what uses the subject, the subject, what it uses.
-    const y = w.classList.contains("fg__world--narrow") ? 0 : r.height > el.clientHeight - 24 ? r.top - o.top - 12 : cy - el.clientHeight / 2;
-    el.scrollTo({ left: Math.max(0, cx - el.clientWidth / 2), top: Math.max(0, y) });
-    moved.current = false;
-  }, []);
-  useLayoutEffect(() => { centre(); }, [key, centre]);
-  useLayoutEffect(() => { if (!moved.current && !opened.size) centre(); }, [drawn?.h, drawn?.w, size.w, size.h, centre, opened]);
-
-  const readView = useCallback(() => {
-    const el = scroller.current;
-    if (el) setView({ x: el.scrollLeft, y: el.scrollTop, w: el.clientWidth, h: el.clientHeight });
-  }, []);
-  useLayoutEffect(readView, [readView, drawn, size]);
-
-  // Drag to pan. A drag that starts on a card and moves is a pan, not a click.
-  const drag = useRef<{ x: number; y: number; left: number; top: number; far: boolean } | null>(null);
+  // Drag to pan, two fingers to pinch. A drag that starts on a card and moves is a pan, not a click.
+  const drag = useRef<{ x: number; y: number; cx: number; cy: number; far: boolean } | null>(null);
+  const touches = useRef(new Map<number, { x: number; y: number }>());
+  const pinch = useRef<{ dist: number; k: number } | null>(null);
+  const local = (e: { clientX: number; clientY: number }) => {
+    const r = scroller.current!.getBoundingClientRect();
+    return { x: e.clientX - r.left, y: e.clientY - r.top };
+  };
   const onPointerDown = (e: React.PointerEvent) => {
-    if (e.button !== 0 || (e.target as HTMLElement).closest(".fg__mini, .fg__tools")) return;
-    const el = scroller.current!;
-    drag.current = { x: e.clientX, y: e.clientY, left: el.scrollLeft, top: el.scrollTop, far: false };
+    if ((e.target as HTMLElement).closest(".fg__tools")) return;
+    if (e.pointerType === "touch") touches.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (touches.current.size === 2) {
+      const [a, b] = [...touches.current.values()];
+      pinch.current = { dist: Math.hypot(a.x - b.x, a.y - b.y), k: cam.current.k };
+      drag.current = null;
+      return;
+    }
+    if (e.button !== 0) return;
+    drag.current = { x: e.clientX, y: e.clientY, cx: cam.current.x, cy: cam.current.y, far: false };
   };
   const onPointerMove = (e: React.PointerEvent) => {
+    if (touches.current.has(e.pointerId)) touches.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pinch.current && touches.current.size === 2) {
+      const [a, b] = [...touches.current.values()];
+      const mid = local({ clientX: (a.x + b.x) / 2, clientY: (a.y + b.y) / 2 });
+      zoomBy((pinch.current.k * Math.hypot(a.x - b.x, a.y - b.y)) / pinch.current.dist / cam.current.k, mid.x, mid.y);
+      return;
+    }
     const d = drag.current;
     if (!d) return;
     const dx = e.clientX - d.x, dy = e.clientY - d.y;
     if (!d.far && Math.hypot(dx, dy) < 5) return;
     if (!d.far) { d.far = true; scroller.current!.setPointerCapture(e.pointerId); scroller.current!.classList.add("is-panning"); }
-    moved.current = true;
-    scroller.current!.scrollTo({ left: d.left - dx, top: d.top - dy });
+    auto.current = false;
+    setCam({ ...cam.current, x: d.cx + dx, y: d.cy + dy });
   };
   const suppressClick = useRef(false);
   const onPointerUp = (e: React.PointerEvent) => {
+    touches.current.delete(e.pointerId);
+    if (touches.current.size < 2) pinch.current = null;
     const d = drag.current;
     drag.current = null;
     if (d?.far) {
       suppressClick.current = true;
       window.setTimeout(() => { suppressClick.current = false; }, 0);
-      scroller.current!.releasePointerCapture(e.pointerId);
+      if (scroller.current!.hasPointerCapture(e.pointerId)) scroller.current!.releasePointerCapture(e.pointerId);
       scroller.current!.classList.remove("is-panning");
     }
   };
-  // Ctrl or ⌘ with the wheel zooms; the wheel alone scrolls, as everywhere.
+  // This listener belongs to the drawing. The member list, annotations and toolbar handle their own input.
   useEffect(() => {
     const el = scroller.current;
     if (!el) return;
     const wheel = (e: WheelEvent) => {
-      moved.current = true;
-      if (!(e.ctrlKey || e.metaKey)) return;
       e.preventDefault();
-      setZoomAt((z) => Math.max(0, Math.min(ZOOMS.length - 1, z + (e.deltaY < 0 ? 1 : -1))));
+      const gesture = graphWheel(e, el);
+      if ("zoom" in gesture) {
+        const p = local(e);
+        zoomBy(gesture.zoom, p.x, p.y);
+      } else panBy(gesture.panX, 0);
     };
-    const keyed = (e: KeyboardEvent) => { if (e.key.startsWith("Arrow") || e.key.startsWith("Page") || e.key === "Home" || e.key === "End" || e.key === " ") moved.current = true; };
     el.addEventListener("wheel", wheel, { passive: false });
-    el.addEventListener("keydown", keyed);
-    return () => { el.removeEventListener("wheel", wheel); el.removeEventListener("keydown", keyed); };
+    return () => el.removeEventListener("wheel", wheel);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  // Keys on the graph: arrows pan, + and − zoom, 0 fits.
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    const step = e.shiftKey ? 160 : 60;
+    const pans: Record<string, [number, number]> = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] };
+    if (pans[e.key]) panBy(...pans[e.key]);
+    else if (e.key === "+" || e.key === "=") zoomBy(1.2);
+    else if (e.key === "-" || e.key === "_") zoomBy(1 / 1.2);
+    else if (e.key === "0") fit();
+    else return;
+    e.preventDefault();
+  };
+  // Browser scrolling cannot reveal a card above or to the left of a transformed drawing.
+  // Move the camera explicitly on focus and keep a card still while a pointer press selects it.
+  const onFocus = (e: React.FocusEvent) => {
+    if (drag.current) return;
+    const node = (e.target as HTMLElement).closest<HTMLElement>(".fg__card, .fg__grouphead");
+    if (node) reveal(node);
+  };
+  // A double click on the drawing (not on a card) zooms in there.
+  const onDoubleClick = (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).closest("button, .fg__tools")) return;
+    const p = local(e);
+    zoomBy(1.6, p.x, p.y);
+  };
+  /** Frame the drawing as it is: Fit only moves the camera, and folds, closes and forgets nothing. From here the view is kept fitted again. */
+  const fit = () => {
+    auto.current = true;
+    fitNow(true);
+  };
 
   const hover = (id: string | null) => { setHot(id); onHover?.(id); };
   const choose = (id: string) => { if (!suppressClick.current) onSubject(id); };
-  // Opening a group keeps it in view: the drawing may now be taller than its area, and scrolls.
-  const toggle = (side: Side, path: string) => {
+  const headOf = (side: Side, path: string) =>
+    [...(world.current?.querySelectorAll<HTMLElement>(`.fg__side[data-band="${side}"] .fg__grouphead`) ?? [])].find((h) => h.dataset.group === path) ?? null;
+  /** Close the list of a large group and give the keyboard back to the group's own button, without moving the drawing. */
+  const closeList = () => {
+    const was = listed;
+    // The opening button can receive focus once the list no longer covers the drawing.
+    flushSync(() => setListed(null));
+    if (was) headOf(was.side, was.path)?.focus({ preventScroll: true });
+  };
+  // A large group is listed beside the drawing: the drawing, its groups and the camera stay exactly as they are.
+  // A small one opens in place and is kept in view: the drawing may now be taller than its area.
+  const toggle = (side: Side, path: string, count: number) => {
     if (suppressClick.current) return;
+    if (count > LIST_ABOVE) {
+      setListed((was) => (was && was.side === side && was.path === path ? null : { side, path }));
+      return;
+    }
     const k = `${side}:${path}`;
     setOpened((was) => {
       const next = new Set(was);
       if (next.has(k)) { for (const o of was) if (o === k || o.startsWith(`${k}/`)) next.delete(o); } else next.add(k);
       return next;
     });
-    moved.current = true;
+    auto.current = false;
     requestAnimationFrame(() => requestAnimationFrame(() => {
-      const sc = scroller.current;
       const el = world.current?.querySelector<HTMLElement>(`.fg__side[data-band="${side}"] .fg__group[data-group="${CSS.escape(path)}"]`);
-      if (!sc || !el) return;
-      // Only the graph's own area moves: the page and the paper stay where they are.
-      const v = sc.getBoundingClientRect(), r = el.getBoundingClientRect();
-      if (r.height > v.height - 16 || r.top < v.top + 8) sc.scrollTop += r.top - v.top - 8;
-      else if (r.bottom > v.bottom - 8) sc.scrollTop += r.bottom - v.bottom + 8;
+      if (el) reveal(el);
     }));
   };
+
+  // The list takes the keyboard when it opens, at its search field.
+  useEffect(() => { if (listed) searchBox.current?.focus({ preventScroll: true }); }, [listed]);
 
   const litSet = useMemo(() => new Set(lit ?? []), [lit]);
   const hotOf = hot ? (model.users.get(hot)?.of ?? model.uses.get(hot)?.of) : null;
@@ -493,6 +791,7 @@ export function FocusGraph(props: FocusGraphProps) {
         data-seen={c.seen}
         aria-current={subject ? "true" : undefined}
         title={subject ? undefined : said}
+        data-topic-tone={toneNumber(c.tone)}
         style={c.tone ? ({ "--fg-tone": c.tone } as React.CSSProperties) : undefined}
         onClick={() => choose(id)}
         onMouseEnter={() => hover(id)}
@@ -500,12 +799,12 @@ export function FocusGraph(props: FocusGraphProps) {
         onFocus={() => hover(id)}
         onBlur={() => hover(null)}
       >
-        {subject && <span className="fg__kicker">{c.kicker ?? words(c.role).one}</span>}
+        {subject && !shortLabels && <span className="fg__kicker">{c.kicker ?? words(c.role).one}</span>}
         <span className="fg__title">
           {!subject && c.kicker && <span className="fg__tag">{c.kicker}</span>}
           {renderTitle ? renderTitle(c) : c.title}
         </span>
-        {subject && !many && c.name && <code className="fg__name">{c.name.replace(/([._])/g, "$1\u200b")}</code>}
+        {subject && !many && c.name && !shortLabels && <code className="fg__name">{c.name.replace(/([._])/g, "$1\u200b")}</code>}
       </button>
     );
   };
@@ -513,25 +812,31 @@ export function FocusGraph(props: FocusGraphProps) {
   const renderItems = (side: Side, items: Item[], rels: Map<string, Rel>): ReactNode =>
     items.map((it) => {
       if (it.type === "node") return renderCard(it.id, side, rels.get(it.id)?.kind);
-      const kinds = new Set(it.ids.map((id) => rels.get(id)?.kind ?? "proof"));
-      const kind = kinds.has("argument") ? "argument" : kinds.size === 1 && kinds.has("statement") ? "statement" : "proof";
+      const lines = new Set(it.ids.map((id) => rels.get(id)?.kind ?? "use"));
+      const kind = RELATION_ORDER.find((k) => lines.has(k)) ?? "use";
+      const how = relationCounts(countKinds(it.ids, rels));
+      const large = it.ids.length > LIST_ABOVE;
+      const isListed = large && listed?.side === side && listed.path === it.key;
       return (
-        <div key={`g:${it.key}`} className={`fg__group${it.open ? " is-open" : ""}`} data-group={it.key} style={it.tone ? ({ "--fg-tone": it.tone } as React.CSSProperties) : undefined}>
+        <div key={`g:${it.key}`} className={`fg__group${it.open ? " is-open" : ""}${isListed ? " is-listed" : ""}`} data-group={it.key} style={it.tone ? ({ "--fg-tone": it.tone } as React.CSSProperties) : undefined}>
           <button
             type="button"
             className={`fg__grouphead${it.role ? ` fg__grouphead--${it.role}` : ""}`}
             data-group={it.key}
             data-count={it.ids.length}
             data-kind={kind}
-            aria-expanded={it.open}
-            title={it.open ? "Fold these back into one group" : `Show these ${it.ids.length} cards here`}
-            onClick={() => toggle(side, it.key)}
+            data-opens={large ? "list" : "here"}
+            data-preview-count={it.open ? undefined : it.children.length || undefined}
+            aria-description={!it.open && it.children.length ? `${it.children.length} of ${it.ids.length} members shown. Open for the full group.` : undefined}
+            aria-expanded={large ? isListed : it.open}
+            title={large ? (isListed ? `Close the list of these members (${how})` : `List these ${it.ids.length} members (${how})`) : it.open ? `Fold these back into one group (${how})` : `Show these ${it.ids.length} cards here (${how})`}
+            onClick={() => toggle(side, it.key, it.ids.length)}
           >
             <span className="fg__groupname">{it.name}{it.said && <span className="fg__groupkind"> {it.said}</span>}</span>
             <span className="fg__count">{it.ids.length}</span>
             <span className="fg__sign" aria-hidden="true">{it.open ? "−" : "+"}</span>
           </button>
-          {it.open && <div className="fg__members">{renderItems(side, it.children, rels)}</div>}
+          {it.children.length > 0 && <div className="fg__members">{renderItems(side, it.children, rels)}</div>}
         </div>
       );
     });
@@ -540,28 +845,53 @@ export function FocusGraph(props: FocusGraphProps) {
   // and one line under the subject says that the side is empty.
   const renderSide = (side: Side, items: Item[], ids: string[], rels: Map<string, Rel>) => ids.length > 0 && (
     <div className="fg__side" data-band={side} data-total={ids.length} style={{ width: sideW }}>
-      <h4 className="fg__sidehead">{side === "users" ? (many ? "Use these" : "Use this") : (many ? "These use" : "This uses")} <span>{ids.length}</span></h4>
+      <h4 className="fg__sidehead">{side === "users" ? "Used by" : "Uses"} <span>{ids.length}</span></h4>
       {renderItems(side, items, rels)}
     </div>
   );
-  const emptyNote = (side: Side, ids: string[]) => ids.length === 0 && (
+  const emptyNote = (side: Side, ids: string[]) => !shortLabels && ids.length === 0 && (
     <p className="fg__edge-note" data-band-note={side}>{side === "users" ? `Nothing drawn here uses ${many ? "these" : "this"}.` : `${many ? "These use" : "This uses"} nothing else drawn here.`}</p>
   );
 
-  const overflow = !!drawn && (drawn.h * zoom > view.h + 4 || drawn.w * zoom > view.w + 4);
-  const mini = drawn ? Math.min(MINI_W / drawn.w, MINI_H / drawn.h) : 0;
-  // A very tall drawing keeps an overview wide enough to read: its width is stretched to at least MINI_MIN_W.
-  const miniX = drawn ? Math.max(mini, Math.min(MINI_W, MINI_MIN_W) / drawn.w) : 0;
-  const miniMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!drawn || !(e.buttons & 1)) return;
-    const r = e.currentTarget.getBoundingClientRect();
-    const el = scroller.current!;
-    moved.current = true;
-    el.scrollTo({ left: ((e.clientX - r.left) / miniX) * zoom - el.clientWidth / 2, top: ((e.clientY - r.top) / mini) * zoom - el.clientHeight / 2 });
-  };
-  const kinds = new Set([...model.users.values(), ...model.uses.values(), ...model.inner.map((e) => ({ kind: e.kind ?? "proof" }))].map((r) => r.kind));
   const groups = (items: Item[]) => items.filter((it) => it.type === "group").length;
-  const roles = new Set([...model.left, ...model.right].map((id) => card(id)!.role));
+
+  // The listed group, found among the groups on show; if it is no longer drawn, nothing is listed.
+  const find = (items: Item[], path: string): Extract<Item, { type: "group" }> | null => {
+    for (const it of items) {
+      if (it.type !== "group") continue;
+      if (it.key === path) return it;
+      const inner = find(it.children, path);
+      if (inner) return inner;
+    }
+    return null;
+  };
+  const listGroup = listed ? find(listed.side === "users" ? leftItems : rightItems, listed.path) : null;
+  const listCoversGraph = !!listGroup && size.w < 900;
+  const listKey = listed ? `${listed.side}:${listed.path}` : "";
+  const listState = lists[listKey] ?? { q: "", page: 0 };
+  const setList = (next: Partial<{ q: string; page: number }>) => setLists((was) => ({ ...was, [listKey]: { ...(was[listKey] ?? { q: "", page: 0 }), ...next } }));
+  const listIds = listGroup?.ids ?? [];
+  const needle = listState.q.trim().toLowerCase();
+  // The search runs over the whole group, every page of it: the plain title, the kicker and the Lean name.
+  const matching = needle
+    ? listIds.filter((id) => { const c = card(id); return !!c && [c.title, c.kicker ?? "", c.name ?? ""].some((t) => t.toLowerCase().includes(needle)); })
+    : listIds;
+  const pages = Math.max(1, Math.ceil(matching.length / LIST_PAGE));
+  const page = Math.min(listState.page, pages - 1);
+  const shown = matching.slice(page * LIST_PAGE, (page + 1) * LIST_PAGE);
+  const range = `${page * LIST_PAGE + 1}\u2013${page * LIST_PAGE + shown.length}`;
+  const listStatus = !listGroup ? "" : needle
+    ? (matching.length ? `${matching.length} of ${listIds.length} members match${matching.length > LIST_PAGE ? `, ${range} shown` : ""}` : `No matches among the ${listIds.length} members.`)
+    : `${range} of ${listIds.length} members`;
+  const hotPath = hot && drawn ? (drawn.paths[hot] ?? (listGroup && listIds.includes(hot) ? drawn.paths[`group:${listGroup.key}`] : undefined)) : undefined;
+
+  const zoomControls = (
+    <div className="fg__tools" inert={listCoversGraph} role="group" aria-label="Move the graph">
+      <button type="button" onClick={() => zoomBy(1 / 1.25)} aria-label="Zoom out" title="Zoom out (−)">−</button>
+      <button type="button" onClick={() => zoomBy(1.25)} aria-label="Zoom in" title="Zoom in (+)">+</button>
+      <button type="button" onClick={fit} title="Fit the whole graph in view (0)">Fit</button>
+    </div>
+  );
 
   return (
     <div
@@ -571,16 +901,23 @@ export function FocusGraph(props: FocusGraphProps) {
       data-uses={model.right.length}
       data-groups={groups(leftItems) + groups(rightItems)}
       data-opened={opened.size}
-      data-cards={drawn?.boxes.filter((b) => b.band !== "group").length ?? 0}
+      data-cards={drawn?.cardCount ?? 0}
       data-lines={drawn?.segs.filter((s) => s.edge).length ?? 0}
-      data-overflow={overflow ? "true" : "false"}
+      data-listed={listGroup ? listKey : undefined}
     >
+      {props.embeddedHeader && (
+        <header className="map-pane__local-head">
+          <h3>{props.embeddedHeader.title}</h3>
+          {zoomControls}
+          {props.embeddedHeader.action}
+        </header>
+      )}
       {label && <p className="fg__label">{label}</p>}
       {(route || routeNote) && (
         <nav className="fg__route" aria-label="From this step to the main result">
           {route && route.length > 0
             ? <>
-              <span className="fg__routeword">{route.length === 1 ? "The main result uses this directly:" : `${route.length} steps to the main result:`}</span>
+              <span className="fg__routeword">{routeLabel ?? (route.length === 1 ? "The main result uses this directly:" : `${route.length} links to the main result:`)}</span>
               {route.map((id, i) => (
                 <span key={id} className="fg__crumb">
                   <span aria-hidden="true">→</span>
@@ -591,27 +928,43 @@ export function FocusGraph(props: FocusGraphProps) {
             : <span className="fg__routeword">{routeNote}</span>}
         </nav>
       )}
+      <div className="fg__stage" data-list-side={listGroup ? listed!.side : undefined}>
       <div
         className="fg__scroll"
+        inert={listCoversGraph}
         ref={scroller}
         tabIndex={0}
         role="group"
-        aria-label="Graph: what uses this step, on the left, and what it uses, on the right. Scroll or drag to move."
-        onScroll={readView}
+        aria-label="Graph: what uses this step, on the left, and what it uses, on the right. Drag to move, pinch or wheel to zoom; arrow keys move, plus and minus zoom, 0 fits."
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
+        onKeyDown={onKeyDown}
+        onFocusCapture={onFocus}
+        onDoubleClick={onDoubleClick}
       >
-        <div className={`fg__world${narrow ? " fg__world--narrow" : ""}`} ref={world} style={{ zoom, columnGap: gap }}>
+        <div className={`fg__world${narrow ? " fg__world--narrow" : ""}`} ref={world} style={{ columnGap: gap }}>
           {drawn && (
             <svg className="fg__lines" width={drawn.w} height={drawn.h} aria-hidden="true">
               <defs>
                 <marker id="fg-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0.6 L7.4 4 L0 7.4 z" className="fg__arrow" /></marker>
                 <marker id="fg-arrow-hot" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0.6 L7.4 4 L0 7.4 z" className="fg__arrow fg__arrow--hot" /></marker>
               </defs>
-              {drawn.segs.map((s, i) => <path key={i} d={s.d} className={s.cls} data-edge={s.edge} markerEnd="url(#fg-arrow)" style={s.width ? { strokeWidth: s.width } : undefined} />)}
-              {hot && drawn.paths[hot] && <path d={drawn.paths[hot]} className="fg__hotline" markerEnd="url(#fg-arrow-hot)" />}
+              {drawn.segs.map((s, i) => <path key={i} d={s.d} className={s.cls} data-edge={s.edge} markerEnd="url(#fg-arrow)"><title>{relation(s.kind)}</title></path>)}
+              {/* A wide, invisible line over each line answers the pointer with its relation's name; over a use the
+                  paper's text states, with its sentence too, held by a click. */}
+              {drawn.segs.map((s, i) => s.why ? (
+                <path key={`hit${i}`} d={s.d} className="fg__edge-hit" data-edge={s.edge}
+                  onPointerEnter={() => setPaperNote({ why: s.why!, href: s.href, edge: s.edge, held: false })}
+                  onPointerLeave={() => setPaperNote((n) => (n && !n.held ? null : n))}
+                  onClick={(ev) => { ev.stopPropagation(); setPaperNote({ why: s.why!, href: s.href, edge: s.edge, held: true }); }}>
+                  <title>{`${relation(s.kind)}: ${s.why}`}</title>
+                </path>
+              ) : (
+                <path key={`hit${i}`} d={s.d} className="fg__edge-hit fg__edge-hit--plain"><title>{relation(s.kind)}</title></path>
+              ))}
+              {hotPath && <path d={hotPath} className="fg__hotline" markerEnd="url(#fg-arrow-hot)" />}
             </svg>
           )}
           {model.subj.length === 0
@@ -628,34 +981,78 @@ export function FocusGraph(props: FocusGraphProps) {
             </>}
         </div>
       </div>
-      <div className="fg__tools" role="group" aria-label="Move the graph">
-        <button type="button" onClick={() => setZoomAt((z) => Math.max(0, z - 1))} disabled={zoomAt === 0} aria-label="Smaller">−</button>
-        <button type="button" onClick={() => setZoomAt((z) => Math.min(ZOOMS.length - 1, z + 1))} disabled={zoomAt === ZOOMS.length - 1} aria-label="Larger">+</button>
-        <button type="button" onClick={() => { setZoomAt(1); setOpened(new Set()); requestAnimationFrame(centre); }} title="Fold every group and bring the subject back to the middle">Fit</button>
-      </div>
-      {overflow && drawn && (
-        <div
-          className="fg__mini"
-          style={{ width: drawn.w * miniX, height: drawn.h * mini }}
-          role="img"
-          aria-label="Overview of the whole drawing; drag to move the view"
-          onPointerDown={(e) => { e.currentTarget.setPointerCapture(e.pointerId); miniMove(e); }}
-          onPointerMove={miniMove}
+      {!embedded && zoomControls}
+      {listGroup && (
+        <section
+          // Beside the drawing only where the pane is wide enough to leave the subject in view; else over all of it.
+          className={`fg__list fg__list--${listed!.side}${listCoversGraph ? " fg__list--narrow" : ""}`}
+          role="region"
+          aria-label={`Members of ${listGroup.name}`}
+          data-group={listGroup.key}
+          data-count={listIds.length}
+          onKeyDown={(e) => {
+            // Escape closes the list only; the page's own Escape (following the paper again) is not reached.
+            if (e.key !== "Escape") return;
+            e.preventDefault();
+            e.stopPropagation();
+            closeList();
+          }}
         >
-          {drawn.boxes.map((b) => (
-            <i key={b.band + b.id} className={b.band === "subject" ? "is-subject" : hot === b.id ? "is-hot" : undefined} style={{ left: b.box.x * miniX, top: b.box.y * mini, width: Math.max(2, b.box.w * miniX), height: Math.max(2, b.box.h * mini) }} />
-          ))}
-          <b style={{ left: (view.x / zoom) * miniX, top: (view.y / zoom) * mini, width: Math.min(drawn.w, view.w / zoom) * miniX, height: Math.min(drawn.h, view.h / zoom) * mini }} />
-        </div>
+          <div className="fg__listhead">
+            <h4 className="fg__listname">{listGroup.name}{listGroup.said && <span className="fg__groupkind"> {listGroup.said}</span>}, {listIds.length}</h4>
+            <button type="button" className="fg__listback" onClick={closeList}>Back to the graph</button>
+          </div>
+          <input
+            ref={searchBox}
+            type="search"
+            className="fg__listsearch"
+            aria-label="Search these members"
+            placeholder="Search these members"
+            value={listState.q}
+            onChange={(e) => setList({ q: e.target.value, page: 0 })}
+          />
+          <p className="fg__liststatus" role="status">{listStatus}</p>
+          <ul className="fg__listitems">
+            {shown.map((id) => {
+              const c = card(id)!;
+              return (
+                <li key={id}>
+                  <button
+                    type="button"
+                    className={`fg__member fg__member--${c.role}${hot === id ? " is-hot" : ""}`}
+                    data-card={id}
+                    data-role={c.role}
+                    data-seen={c.seen}
+                    data-topic-tone={toneNumber(c.tone)}
+        style={c.tone ? ({ "--fg-tone": c.tone } as React.CSSProperties) : undefined}
+                    onClick={() => onSubject(id)}
+                    onMouseEnter={() => hover(id)}
+                    onMouseLeave={() => hover(null)}
+                    onFocus={() => hover(id)}
+                    onBlur={() => hover(null)}
+                  >
+                    {c.kicker && <span className="fg__memberkicker">{c.kicker}</span>}
+                    <span className="fg__membertitle">{renderTitle ? renderTitle(c) : c.title}</span>
+                    <span className="fg__memberkind">{words(c.role).one}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="fg__listpages">
+            <button type="button" disabled={page <= 0} onClick={() => setList({ page: page - 1 })}>Previous</button>
+            <button type="button" disabled={page >= pages - 1} onClick={() => setList({ page: page + 1 })}>Next</button>
+          </div>
+        </section>
       )}
-      {model.subj.length > 0 && (
-        <p className={`fg__key${overflow ? " fg__key--mini" : ""}`}>
-          <span><i className="fg__keyline" /> uses, left to right</span>
-          {kinds.has("argument") && kinds.size > 1 && <span><i className="fg__keyline fg__keyline--argument" /> the paper's argument</span>}
-          {kinds.has("statement") && kinds.size > 1 && <span><i className="fg__keyline fg__keyline--statement" /> statement only</span>}
-          {(roles.has("helper") || roles.has("library")) && <span><i className="fg__keybox fg__keybox--helper" /> Lean helper</span>}
-          {roles.has("definition") && <span><i className="fg__keybox fg__keybox--definition" /> definition</span>}
-          {groups(leftItems) + groups(rightItems) > 0 && <span><i className="fg__keybox fg__keybox--group" /> group, opens here</span>}
+      </div>
+      {paperNote && (
+        <p className="fg__edge-why" role="status">
+          <span className="fg__edge-why-label">The paper:</span> {paperNote.why}{" "}
+          {paperNote.href && <a href={paperNote.href}>Read it in the paper</a>}
+          {paperNote.held && (
+            <button type="button" className="fg__edge-why-close" aria-label="Close this sentence" onClick={() => setPaperNote(null)}>×</button>
+          )}
         </p>
       )}
     </div>

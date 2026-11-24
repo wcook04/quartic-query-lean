@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { openEdition, type Edition } from "./edition";
+import { openEdition, SOURCE_READER, type Edition } from "./edition";
 import { go, href, useRoute } from "./router";
 import { Home } from "../home/Home";
 import { ReaderPage } from "./ReaderPage";
@@ -10,7 +10,7 @@ import { FAMILY } from "../family/family";
 import { useScheme } from "../family/theme";
 import { VideoMenu } from "../family/VideoMenu";
 import plectis from "../family/plectis.svg?url";
-import { MoonIcon, SunIcon } from "./icons";
+import { Chevron, MoonIcon, SunIcon } from "./icons";
 
 export function App() {
   const route = useRoute();
@@ -32,7 +32,26 @@ export function App() {
   return (
     <>
       <a className="skip" href="#main" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>Skip to the reading</a>
-      <header className="site">
+      {SOURCE_READER ? (
+        <header className="site site--source">
+          <a className="site__name" href="/library/quartic/">Quartic query separation</a>
+          <details className="jump source-reader-menu">
+            <summary className="tool">Menu<Chevron /></summary>
+            <ul aria-label="Quartic reader menu" onClick={(event) => {
+              if ((event.target as HTMLElement).closest("a")) event.currentTarget.closest("details")!.open = false;
+            }}>
+              <li><a href="/library/">Reading Library</a></li>
+              <li><a href={href({ page: "read", paper: "original" })} aria-current={route.paper === "original" || route.page === "home" ? "page" : undefined}>OpenAI’s original paper</a></li>
+              <li><a href={href({ page: "read", paper: SUPPLEMENT.id })} aria-current={route.paper === SUPPLEMENT.id ? "page" : undefined}>{SUPPLEMENT.tab}</a></li>
+              <li><a href="/library/quartic/">Expert companion</a></li>
+              <li><a href="/library/quartic/exposition/">Worked exposition</a></li>
+              <li><a href="/library/quartic/reconstruction/">Full proof reconstruction</a></li>
+              <li><a href={href({ page: "results" })} aria-current={route.page === "results" ? "page" : undefined}>Results and Lean statements</a></li>
+              <li><button type="button" className="source-reader-scheme" onClick={() => setScheme(scheme === "dark" ? "light" : "dark")}>{scheme === "dark" ? "Switch to day colours" : "Switch to night colours"}</button></li>
+            </ul>
+          </details>
+        </header>
+      ) : <header className="site">
         <span className="fam-lockup">
           <a className="fam-lockup__home" href={FAMILY.owner.home} rel="author" title="All of Will Cook’s projects and videos">
             <img src={plectis} alt="" width={26} height={26} />
@@ -52,7 +71,7 @@ export function App() {
             {scheme === "dark" ? <SunIcon /> : <MoonIcon />}
           </button>
         </span>
-      </header>
+      </header>}
       {edition?.pinnedOlder && (
         <p className="banner" role="status">
           This link was made in an earlier edition, and you are reading that edition.{" "}
@@ -73,7 +92,7 @@ export function App() {
         </main>
       )}
       {!edition && !error && <p className="pending pending--page" role="status"><span className="pending__bar" aria-hidden="true" />Opening the reading edition…</p>}
-      {edition && route.page === "home" && <Home edition={edition} />}
+      {edition && route.page === "home" && (SOURCE_READER ? <ReaderPage edition={edition} route={{ page: "read", paper: "original" }} /> : <Home edition={edition} />)}
       {edition && route.page === "about" && <About />}
       {edition && route.page === "results" && <ResultsPage edition={edition} />}
       {edition && route.page === "read" && <ReaderPage key={`${edition.permalink}:${route.paper}`} edition={edition} route={route} />}

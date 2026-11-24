@@ -12,6 +12,7 @@
     "data": "node scripts/link-data.mjs",
     "dev": "node scripts/link-data.mjs && vite",
     "build": "node scripts/check-title-math.mjs && tsc --noEmit && vite build && node scripts/link-data.mjs --copy dist",
+    "build:library-source": "node scripts/check-title-math.mjs && tsc --noEmit && VITE_BASE_PATH=/library/quartic/source/ VITE_READING_API_BASE=/library/quartic/editions/_site/reading-api/v1/ VITE_READING_EDITION=edition-dbbf1f08240a1b016e41182c308366a452c348bc42e7beb7ba2cbd803587e350.json vite build && printf 'quartic-source\\n' > dist/.library-paper",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },

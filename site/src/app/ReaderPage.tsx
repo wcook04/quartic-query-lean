@@ -1,10 +1,11 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { Edition } from "./edition";
+import { SOURCE_READER, type Edition } from "./edition";
 import { excursion, go, href, switchPaper, type Route } from "./router";
 import { isRestoringReadingPlace, useReadingPlace, useReturnToPaper } from "./restore";
 import { PAPERS, SUPPLEMENT, face } from "./papers";
 import { NavContext, type Nav } from "../inspect/Nav";
 import { ReaderContext } from "../inspect/ReaderContext";
+import { StatementLabel } from "../inspect/common";
 import { NamesContext, StatementNamesContext, type DeclarationTitles, type StatementTitles } from "../inspect/Names";
 import { PassagePanel } from "../inspect/PassagePanel";
 import { StatementPanel } from "../inspect/StatementPanel";
@@ -88,6 +89,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const previewTimer = useRef(0);
   // The whole proof map, opened over the drawing from the Graph view.
   const [whole, setWhole] = useState(false);
+  const [combineViews, setCombineViews] = useState(SOURCE_READER);
   // The proof map's own declarations, to say when a subject is not on it.
   const [mapCards, setMapCards] = useState<Record<string, any> | null>(null);
   // Which of a many-step paragraph's steps the graph shows, for the steps it was chosen among.
@@ -556,6 +558,18 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   };
   const goSection = (r: ContentsRow) => { resumePaperFollowing(); setFollowing(true); go({ ...base, a: r.anchor, v: route.v }, true); };
 
+  const selectionStatements = rows.find((row) => row.id === currentSelection)?.statements;
+  const inlineLean = SOURCE_READER && combineViews && !whole && !noLeanHere;
+  const mapOnly = SOURCE_READER && combineViews && noLeanHere;
+  const graphDetail = preview && !inlineLean ? <CardPreview edition={edition} name={preview} title={phrases?.titles[preview]?.title ?? names?.titles[preview]?.title ?? mapCards?.[preview]?.title ?? preview}
+    kind={mapCards && Object.hasOwn(mapCards, preview) ? "On the proof map" : "Lean declaration outside the paper’s map"} onOpenLean={(n) => nav.openLean(n)} />
+    : phraseDeclaration ? <PhraseSplit edition={edition} id={route.ph!} name={phraseDeclaration} onClose={followPaper}
+      onPick={(name) => go({ ...base, s: route.s, p: route.p, v: "graph", d: name, ph: route.ph }, true)} onOpenLean={(n) => nav.openLean(n, route.ph)} />
+    : <LeanSplit edition={edition} names={noLeanHere ? [] : subjects}
+      heading={pickedCard ? "Selected Lean declaration" : noLeanHere ? "Selected passage" : "Lean linked to this passage"}
+      passage={dockPassage} selectionStatements={SOURCE_READER ? selectionStatements ?? [] : undefined}
+      onClose={held ? followPaper : undefined} onOpenLean={(n) => nav.openLean(n)} />;
+
   let panel = null;
   if (route.v === "statement" && route.st) panel = <StatementPanel edition={edition} id={route.st} />;
   else if (mode === "lean" && !activeLean && currentSelection) panel = (
@@ -566,7 +580,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       </>}
     </article>
   );
-  else if (mode === "lean" && activeLean) panel = <LeanPanel key={activeLean} edition={edition} name={activeLean} forStep={lit.includes(activeLean) || activeLean === passageLean} claimMatch={claimMatch} phrase={route.d === activeLean ? route.ph : undefined} />;
+  else if (mode === "lean" && activeLean) panel = <LeanPanel key={activeLean} edition={edition} name={activeLean} forStep={lit.includes(activeLean) || activeLean === passageLean} claimMatch={claimMatch} selectionStatements={SOURCE_READER ? selectionStatements ?? [] : undefined} phrase={route.d === activeLean ? route.ph : undefined} />;
   else if (route.v === "path" && route.e) panel = <PathPanel edition={edition} edge={route.e} />;
   else if (mode === "graph") panel = null;
   else if (route.v === "journey" && route.j) panel = <JourneyPanel edition={edition} id={route.j} step={route.step} />;
@@ -578,18 +592,14 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     <StatementNamesContext.Provider value={statementNames?.reader === reader ? statementNames.index : { status: "loading", titles: {} }}>
     <NavContext.Provider value={nav}>
     <PhraseContext.Provider value={phrases}>
-      <div className={`desk${open ? " desk--open" : ""}`} data-topic-count={phrases?.topics.length}>
-        <nav className="papers" aria-label="Papers" inert={open && !wide}>
+      <div className={`desk${open ? " desk--open" : ""}${SOURCE_READER ? " desk--source" : ""}`} data-topic-count={phrases?.topics.length}>
+        {!SOURCE_READER && <nav className="papers" aria-label="Papers" inert={open && !wide}>
           <div className="papers__bar">
             <ul>
               {availablePapers.map((p) => (
-                <li key={p.id}>
-                  <a href={href({ page: "read", paper: p.id, ed })} aria-current={p.id === paper ? "page" : undefined} onClick={(e) => p.id !== paper && switchTo(p.id, e)}>
-                    {p.tab}
-                  </a>
-                </li>
+                <li key={p.id}><a href={href({ page: "read", paper: p.id, ed })} aria-current={p.id === paper ? "page" : undefined} onClick={(e) => p.id !== paper && switchTo(p.id, e)}>{p.tab}</a></li>
               ))}
-              {paper === SUPPLEMENT.id && <li><a href={href({ page: "read", paper, ed })} aria-current="page">{SUPPLEMENT.tab}</a></li>}
+              {paper === SUPPLEMENT.id && <li><a href={href({ page: "read", paper: SUPPLEMENT.id, ed })} aria-current={paper === SUPPLEMENT.id ? "page" : undefined}>{SUPPLEMENT.tab}</a></li>}
             </ul>
             <button type="button" className="papers__pane" aria-pressed={open} onClick={() => (open ? close() : nav.openGraph())}
               title={open ? "Hide the pane with the graph, Lean and passages" : "Open the pane with the graph, Lean and passages"}>
@@ -597,7 +607,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             </button>
           </div>
           {returnTo && <div className="papers__return"><button type="button" className="textbutton" onClick={returnTo.returnToOrigin}><BackIcon /> Return to {returnTo.label}</button></div>}
-        </nav>
+        </nav>}
 
         <main id="main" className={`paper${contents.length ? " paper--contents" : ""}`} tabIndex={-1} aria-label={f.name} inert={open && !wide}
           onWheelCapture={stopPanelMove} onTouchMoveCapture={stopPanelMove}
@@ -609,6 +619,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             {f.by && <p className="paper__by">{f.by}</p>}
             <p className="paper__byline">{f.byline}</p>
             <div className="paper__tools" ref={paperTools}>
+              {SOURCE_READER && <button type="button" className="papers__pane" aria-pressed={open} onClick={() => open ? close() : nav.openGraph()}><PaneIcon />Lean and graph</button>}
               {keyed.length > 0 && (
                 <details className="jump" name="paper-tools" onToggle={(event) => fitPaperMenu(event.currentTarget)}>
                   <summary>Linked passages <span className="jump__count">{keyed.length}</span><Chevron /></summary>
@@ -638,7 +649,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               {paper === "original" && original?.rendered && <button type="button" className="tool" onClick={() => { setShowPdf(!showPdf); setContents([]); }}>{showPdf ? "Read the text edition" : "View the original PDF"}</button>}
               {download && <DownloadLink edition={edition} resource={download.resource} label="Download the PDF" name={`${paper}.pdf`} />}
               {paper === "reconstruction" && <a className="tool" href={href({ page: "read", paper: SUPPLEMENT.id, ed })}>Verification details</a>}
-              {paper === "original" && <a className="tool" href={href({ page: "results" })}>All results with their Lean statements</a>}
+              {!SOURCE_READER && paper === "original" && <a className="tool" href={href({ page: "results" })}>All results with their Lean statements</a>}
             </div>
             {(paper !== "original" || originalHtml) && (
               <p className="legend"><span className="lean-tag" aria-hidden="true">Lean</span>
@@ -688,12 +699,15 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                 );
               }
               const picked = route.d && !route.ph && mapCards ? (mapCards[route.d]?.short_title ?? mapCards[route.d]?.title ?? names?.titles[route.d]?.title) : undefined;
+              if (SOURCE_READER && !picked && !selectionStatements?.length && !title && !(lit.length && here)) return null;
               if (picked) return (
                 <p className="inspector__about"><span className="inspector__about-k">Clicked card</span> <Title text={picked} /></p>
               );
               return (
                 <p className="inspector__about">
-                  {title ? <><span className="inspector__about-k">{clickPin || !following || route.s === currentSelection ? "Selected paragraph" : "Paragraph being read"}</span> <Title text={title} /></>
+                  {SOURCE_READER && selectionStatements?.[0]
+                    ? <><span className="inspector__about-k">{clickPin || route.s === currentSelection || !following ? "Selected passage" : "Passage being read"}</span> <StatementLabel id={selectionStatements[0]} /></>
+                    : title ? <><span className="inspector__about-k">{clickPin || !following || route.s === currentSelection ? "Selected paragraph" : "Paragraph being read"}</span> <Title text={title} /></>
                     : lit.length && here ? <><span className="inspector__about-k">Paragraph being read in</span> <Title text={here.title} /></>
                     : <span className="inspector__about-k">No linked paragraph at this place in the paper</span>}
                 </p>
@@ -708,7 +722,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                   <span className="sr-only" role="status">{phraseDeclaration && !phraseHeld ? "Held on the clicked phrase." : pickedCard ? "Held on the clicked card." : held ? "Held on the clicked paragraph." : "Following the paper."}</span>
                   {stepper}
                   {held && <button type="button" className="graph-acts__btn" onClick={followPaper} title="Follow the paper again (Esc)">Follow the paper</button>}
-                  {!whole && <button type="button" className="graph-acts__btn" onClick={() => setWhole(true)}>Whole proof map</button>}
+                  {!whole && !mapOnly && <button type="button" className="graph-acts__btn" onClick={() => setWhole(true)}>Whole proof map</button>}
+                  {SOURCE_READER && !whole && !mapOnly && <button type="button" className="graph-acts__btn" onClick={() => setCombineViews(!combineViews)}>{combineViews ? "Minimise graph" : "Combine views"}</button>}
                 </span>
               )}
               <button type="button" className="inspector__close" onClick={close} aria-label={wide ? "Close the Lean pane" : undefined} title={wide ? "Close (Esc)" : undefined}>
@@ -741,28 +756,23 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
               );
             })()}
             {(graphOpened || mode === "graph") && (
-              <div className="inspector__graph" hidden={mode !== "graph"}>
+              <div className={`inspector__graph${inlineLean ? " inspector__graph--combined" : ""}${mapOnly ? " inspector__graph--map-only" : ""}`} hidden={mode !== "graph"}>
+                {inlineLean && <div className="graph-dock">{graphDetail}</div>}
                 <div className="inspector__map">
-                  {whole ? (
+                  {whole || mapOnly ? (
                     <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
                       <ProofPane edition={edition} lit={paragraphSteps} onSelect={selectCard} onOpenLean={nav.openLean}
-                        selectedEdge={route.e ?? null} onEdge={nav.openPath} onBack={() => setWhole(false)} />
+                        selectedEdge={route.e ?? null} onEdge={nav.openPath} onBack={mapOnly ? undefined : () => setWhole(false)} />
                     </Suspense>
                   ) : (
                     <SubjectGraph edition={edition} paper={paper} subjects={subjects} position={subjectLines} hover={paperHover}
-                      held={preview} label={graphLabel} onSubject={selectCard} onHover={onGraphHover} />
+                      held={preview} label={graphLabel} onSubject={selectCard} onHover={onGraphHover} combined={inlineLean} />
                   )}
                 </div>
-                <PhraseDivider />
-                <div className="graph-dock" onMouseEnter={() => window.clearTimeout(previewTimer.current)} onMouseLeave={() => preview && onGraphHover(null)}>
-                  {preview ? <CardPreview edition={edition} name={preview} title={phrases?.titles[preview]?.title ?? names?.titles[preview]?.title ?? mapCards?.[preview]?.title ?? preview}
-                      kind={mapCards && Object.hasOwn(mapCards, preview) ? "On the proof map" : "Lean declaration not drawn on the proof map"} onOpenLean={(n) => nav.openLean(n)} />
-                    : phraseDeclaration ? <PhraseSplit edition={edition} id={route.ph!} name={phraseDeclaration} onClose={followPaper}
-                      onPick={(name) => go({ ...base, s: route.s, p: route.p, v: "graph", d: name, ph: route.ph }, true)} onOpenLean={(n) => nav.openLean(n, route.ph)} />
-                    : <LeanSplit edition={edition} names={noLeanHere ? [] : subjects}
-                      heading={pickedCard ? "The clicked card" : noLeanHere ? (held ? "The clicked paragraph" : "Following the paper") : clickPin ? "The Lean linked to the clicked paragraph" : "Following the paper · the Lean linked to this paragraph"}
-                      passage={dockPassage} onClose={held ? followPaper : undefined} onOpenLean={(n) => nav.openLean(n)} />}
-                </div>
+                {!inlineLean && !mapOnly && <>
+                  <PhraseDivider />
+                  <div className="graph-dock" onMouseEnter={() => window.clearTimeout(previewTimer.current)} onMouseLeave={() => preview && onGraphHover(null)}>{graphDetail}</div>
+                </>}
               </div>
             )}
             {mode !== "graph" && (

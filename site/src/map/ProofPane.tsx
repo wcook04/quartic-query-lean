@@ -6,7 +6,7 @@ import { useAsync } from "../app/useAsync";
 import { GraphPane } from "./GraphPane";
 import { proofGraph, type ProofMap } from "./fromProofMap";
 
-export function ProofPane({ edition, lit, onSelect, onOpenLean, selectedEdge, onEdge, onBack }: { edition: Edition; lit: readonly string[]; onSelect(name: string): void; onOpenLean(name: string): void; selectedEdge: string | null; onEdge(key: string): void; onBack(): void }) {
+export function ProofPane({ edition, lit, onSelect, onOpenLean, selectedEdge, onEdge, onBack }: { edition: Edition; lit: readonly string[]; onSelect(name: string): void; onOpenLean(name: string): void; selectedEdge: string | null; onEdge(key: string): void; onBack?(): void }) {
   const map = useAsync(() => edition.reader.proofMap() as Promise<ProofMap>, [edition]);
   const graph = useMemo(() => (map.state === "ready" && map.value.currentness === "current" ? proofGraph(map.value) : null), [map]);
   if (map.state === "loading") return <p className="pending" role="status">Loading the Lean graph…</p>;

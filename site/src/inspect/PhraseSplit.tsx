@@ -104,9 +104,9 @@ export function PhraseSplit({ edition, id, name, onClose, onPick, onOpenLean }: 
 
 /** The dock when no phrase is chosen: the subject's Lean (one tab per declaration), else a
  *  line saying that no Lean is linked to the paragraph, with the paragraph itself. */
-export function LeanSplit({ edition, names, heading, passage, onClose, onOpenLean }: {
+export function LeanSplit({ edition, names, heading, passage, selectionStatements, onClose, onOpenLean }: {
   edition: Edition; names: string[]; heading: string;
-  passage?: { title?: string; html?: string } | null; onClose?(): void; onOpenLean(name: string): void;
+  passage?: { title?: string; html?: string } | null; selectionStatements?: string[]; onClose?(): void; onOpenLean(name: string): void;
 }) {
   const [pick, setPick] = useState(0);
   const key = names.join("|");
@@ -114,7 +114,7 @@ export function LeanSplit({ edition, names, heading, passage, onClose, onOpenLea
   const name = names[Math.min(pick, names.length - 1)];
   return (
     <section className="phrase-split lean-split" aria-label={heading}>
-      <header className="phrase-split__bar">
+      {(selectionStatements === undefined || !name) && <header className="phrase-split__bar">
         <p className="phrase-split__k">{heading}</p>
         {name && <button type="button" className="textbutton phrase-split__open" onClick={() => onOpenLean(name)}>Open its Lean</button>}
         {onClose && (
@@ -122,7 +122,7 @@ export function LeanSplit({ edition, names, heading, passage, onClose, onOpenLea
             <CloseIcon />
           </button>
         )}
-      </header>
+      </header>}
       {names.length > 1 && (
         <div className="phrase-split__tabs" role="tablist" aria-label="Declarations linked to this paragraph">
           {names.map((n, i) => (
@@ -131,7 +131,7 @@ export function LeanSplit({ edition, names, heading, passage, onClose, onOpenLea
         </div>
       )}
       <div className="phrase-split__body">
-        {name ? <LeanPanel key={name} edition={edition} name={name} forStep />
+        {name ? <LeanPanel key={name} edition={edition} name={name} forStep selectionStatements={selectionStatements} compact={selectionStatements !== undefined} />
           : (
             <div className="lean-split__none">
               <p className="lean-split__state">No Lean is linked to this paragraph.</p>

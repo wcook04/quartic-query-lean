@@ -543,12 +543,12 @@ export function route(p: Plan, frame: Frame): Routed {
       if (atParent) {
         junction = { x: at.x, y: ty };
         ownEnd = turn ? pts.length - 1 : pts.length;
-        pts.push({ x: xt, y: parent.y + parent.h + (pe.arrow ? m.arrow : 0) });
+        pts.push({ x: xt, y: parent.y + parent.h + (pe.arrow ? m.arrow - 1 : 0) });
       } else pts.push({ x: xt, y: rowTop[g] });
     }
     const own = pe.bus ? [...pts.slice(0, ownEnd), junction] : pts;
     edges.set(pe.key, { key: pe.key, points: pts, junction, own });
-    if (!pe.bus && pe.arrow) heads.set(pe.key, arrowHead({ x: pts[pts.length - 1].x, y: parent.y + parent.h - 0.5 }, m.arrow));
+    if (!pe.bus && pe.arrow) heads.set(pe.key, arrowHead({ x: pts[pts.length - 1].x, y: parent.y + parent.h }, m.arrow));
   }
 
   const buses = new Map<string, RoutedBus>();
@@ -559,9 +559,9 @@ export function route(p: Plan, frame: Frame): Routed {
     const ty = b.rank + 1 < depth ? trackY(b.rank, b.track) : parent.y + parent.h + m.padTop;
     const stem = [
       { x, y: ty },
-      { x, y: parent.y + parent.h + m.arrow },
+      { x, y: parent.y + parent.h + m.arrow - 1 },
     ];
-    buses.set(b.parent, { parent: b.parent, stem, head: arrowHead({ x, y: parent.y + parent.h - 0.5 }, m.arrow) });
+    buses.set(b.parent, { parent: b.parent, stem, head: arrowHead({ x, y: parent.y + parent.h }, m.arrow) });
   }
   return { edges, buses, heads };
 }

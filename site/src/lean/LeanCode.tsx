@@ -41,18 +41,17 @@ function lineTokens(text: string): Piece[][] {
 
 const DECL = new Set(["theorem", "lemma", "def", "abbrev", "structure", "class", "instance", "example", "axiom"]);
 
-/** Index (0-based) of the line holding the declaration's top-level `:=`, the last
- *  line of its statement; null when the source has no such separator. */
-export function statementEndLine(text: string): number | null {
+/** Position of the declaration's top-level `:=`. */
+function statementEnd(text: string): { line: number; token: number } | null {
   const lines = lineTokens(text);
   let started = false;
   let depth = 0;
   for (let i = 0; i < lines.length; i++)
-    for (const p of lines[i]) {
+    for (const [token, p] of lines[i].entries()) {
       if (p.kind === "comment" || p.kind === "prose") continue;
       if (!started) { if (p.kind === "keyword" && DECL.has(p.text)) started = true; continue; }
       if (p.kind === "bracket") depth += /[({[⦃⟨]/.test(p.text) ? 1 : -1;
-      else if (depth <= 0 && p.kind === "arrow" && p.text === ":=") return i;
+      else if (depth <= 0 && p.kind === "arrow" && p.text === ":=") return { line: i, token };
     }
   return null;
 }
@@ -119,13 +118,18 @@ export function LeanCode({ text, from = 1, links, self, onOpen, mark, spans, lab
   const source = useMemo(() => text.replace(/\s+$/, ""), [text]);
   const lines = useMemo(() => lineTokens(source), [source]);
   const [wrap, setWrap] = useWrap();
-  const split = useMemo(() => (foldOver == null ? null : statementEndLine(source)), [source, foldOver]);
-  const rest = split == null ? 0 : lines.length - split - 1;
-  const foldable = foldOver != null && split != null && rest > foldOver;
-  const markedLater = foldable && ((!!mark && mark[1] > from + split!) || !!spans?.some((sp) => sp.line > from + split!));
+  const statement = useMemo(() => (foldOver == null ? null : statementEnd(source)), [source, foldOver]);
+  const split = statement?.line;
+  const foldAt = statement && foldOver === 0 ? statement.line : split == null ? null : split + 1;
+  const rest = foldAt == null ? 0 : lines.length - foldAt;
+  const foldable = foldOver != null && rest > foldOver;
+  const markedLater = foldable && foldAt != null && ((!!mark && mark[1] >= from + foldAt) || !!spans?.some((sp) => sp.line >= from + foldAt));
   const [open, setOpen] = useState(!foldable || markedLater);
   useEffect(() => setOpen(!foldable || markedLater), [source, foldable, markedLater]);
-  const shown = foldable && !open ? lines.slice(0, split! + 1) : lines;
+  const shown = foldable && !open && statement ? lines.slice(0, statement.line + 1) : lines;
+  if (shown !== lines && statement && foldOver === 0) {
+    shown[statement.line] = shown[statement.line].slice(0, statement.token);
+  }
 
   const listing = (
     <pre className={`leancode__pre${wrap ? "" : " is-scroll"}`} aria-label={label ?? "Lean source"} tabIndex={0}>
@@ -178,7 +182,7 @@ export function LeanCode({ text, from = 1, links, self, onOpen, mark, spans, lab
     <button type="button" className="leancode__fold" aria-expanded={open} onClick={() => setOpen(!open)}>
       <span aria-hidden="true">{open ? "▾" : "▸"}</span>{" "}
       {open ? `Hide the ${foldWord}` : `Show the ${foldWord}`}, {rest} {rest === 1 ? "line" : "lines"}
-      {!open && <span className="leancode__foldat"> (lines {from + split! + 1}–{from + lines.length - 1})</span>}
+      {!open && <span className="leancode__foldat"> (line{rest === 1 ? "" : "s"} {from + foldAt!}{rest > 1 && <>–{from + lines.length - 1}</>})</span>}
     </button>
   );
 
