@@ -73,7 +73,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const wide = useWide();
   const [readingLine, setReadingLine] = useState<number | null>(null);
   const [readingPage, setReadingPage] = useState<number | null>(null);
-  const [following, setFollowing] = useState(true);
+  const [following, setFollowing] = useState(() => !SOURCE_READER || !route.s);
   const [contents, setContents] = useState<ContentsRow[]>([]);
   const [lit, setLit] = useState<string[]>([]);
   const [clickPin, setClickPin] = useState<string | null>(null);
