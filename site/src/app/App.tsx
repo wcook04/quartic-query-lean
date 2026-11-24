@@ -13,6 +13,9 @@ import plectis from "../family/plectis.svg?url";
 import quarticMark from "../family/quartic.svg?raw";
 import { Chevron, MoonIcon, SunIcon } from "./icons";
 
+/** The Reading library's index. The source reader's masthead wordmark opens it. */
+const LIBRARY_HOME = "https://wcook04.github.io/library/";
+
 export function App() {
   const route = useRoute();
   const [edition, setEdition] = useState<Edition | null>(null);
@@ -35,10 +38,15 @@ export function App() {
       <a className="skip" href="#main" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>Skip to the reading</a>
       {SOURCE_READER ? (
         <header className="site site--source">
-          <a className="site__name" href="/library/quartic/">
-            <span className="source-paper-mark" aria-hidden="true" dangerouslySetInnerHTML={{ __html: quarticMark }} />
-            <span>Quartic query separation</span>
-          </a>
+          <span className="source-lockup">
+            <a className="source-lockup__library" href={LIBRARY_HOME} translate="no">
+              <span className="source-paper-mark" aria-hidden="true" dangerouslySetInnerHTML={{ __html: quarticMark }} />
+              <span className="source-lockup__long">Reading library</span>
+              <span className="source-lockup__short">Library</span>
+            </a>
+            <span className="source-lockup__rule" aria-hidden="true" />
+            <a className="site__name" href="/library/quartic/">Quartic query separation</a>
+          </span>
           <div className="source-reader-actions">
           <details className="jump source-reader-menu">
             <summary className="tool">Menu<Chevron /></summary>
