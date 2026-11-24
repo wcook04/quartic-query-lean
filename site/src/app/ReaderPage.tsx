@@ -646,7 +646,9 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                   <TopicKeyList layer={phrases} />
                 </details>
               )}
-              {paper === "original" && original?.rendered && <button type="button" className="tool" onClick={() => { setShowPdf(!showPdf); setContents([]); }}>{showPdf ? "Read the text edition" : "View the original PDF"}</button>}
+              {paper === "original" && original?.rendered && (SOURCE_READER && !original.resource
+                ? original.url && <a className="tool" href={original.url} target="_blank" rel="noopener noreferrer">Open the original PDF</a>
+                : <button type="button" className="tool" onClick={() => { setShowPdf(!showPdf); setContents([]); }}>{showPdf ? "Read the text edition" : "View the original PDF"}</button>)}
               {download && <DownloadLink edition={edition} resource={download.resource} label="Download the PDF" name={`${paper}.pdf`} />}
               {paper === "reconstruction" && <a className="tool" href={href({ page: "read", paper: SUPPLEMENT.id, ed })}>Verification details</a>}
               {!SOURCE_READER && paper === "original" && <a className="tool" href={href({ page: "results" })}>All results with their Lean statements</a>}
