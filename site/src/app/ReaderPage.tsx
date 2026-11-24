@@ -6,7 +6,7 @@ import { PAPERS, SUPPLEMENT, face } from "./papers";
 import { NavContext, type Nav } from "../inspect/Nav";
 import { ReaderContext } from "../inspect/ReaderContext";
 import { StatementLabel } from "../inspect/common";
-import { NamesContext, StatementNamesContext, type DeclarationTitles, type StatementTitles } from "../inspect/Names";
+import { declarationHeading, NamesContext, StatementNamesContext, type DeclarationTitles, type StatementTitles } from "../inspect/Names";
 import { PassagePanel } from "../inspect/PassagePanel";
 import { StatementPanel } from "../inspect/StatementPanel";
 import { LeanPanel } from "../inspect/LeanPanel";
@@ -520,7 +520,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       const key = steps.join("|");
       const at = stepAt.key === key ? Math.min(stepAt.index, steps.length - 1) : 0;
       subjects = [steps[at]];
-      const name = (id: string) => plainTitle(mapCards?.[id]?.short_title ?? mapCards?.[id]?.title ?? names?.titles[id]?.title ?? id);
+      const name = (id: string) => plainTitle(declarationHeading(id, mapCards?.[id] ?? names?.titles[id]).title);
       const move = (by: number) => setStepAt({ key, index: (at + by + steps.length) % steps.length });
       stepper = (
         <span className="graph-steps" role="group" aria-label="Steps linked to this paragraph">
@@ -563,7 +563,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const awaitingLinkedLean = SOURCE_READER && combineViews && !whole && noLeanHere && leanResolving;
   const inlineLean = SOURCE_READER && combineViews && !whole && !noLeanHere;
   const mapOnly = SOURCE_READER && (whole || (combineViews && noLeanHere && !awaitingLinkedLean));
-  const graphDetail = preview && !inlineLean ? <CardPreview edition={edition} name={preview} title={phrases?.titles[preview]?.title ?? names?.titles[preview]?.title ?? mapCards?.[preview]?.title ?? preview}
+  const graphDetail = preview && !inlineLean ? <CardPreview edition={edition} name={preview} title={phrases?.titles[preview]?.title ?? declarationHeading(preview, mapCards?.[preview] ?? names?.titles[preview]).title}
     kind={mapCards && Object.hasOwn(mapCards, preview) ? "On the proof map" : "Lean declaration outside the paper’s map"} onOpenLean={(n) => nav.openLean(n)} />
     : phraseDeclaration ? <PhraseSplit edition={edition} id={route.ph!} name={phraseDeclaration} onClose={followPaper}
       onPick={(name) => go({ ...base, s: route.s, p: route.p, v: "graph", d: name, ph: route.ph }, true)} onOpenLean={(n) => nav.openLean(n, route.ph)} />
@@ -707,7 +707,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                   </p>
                 );
               }
-              const picked = route.d && !route.ph && mapCards ? (mapCards[route.d]?.short_title ?? mapCards[route.d]?.title ?? names?.titles[route.d]?.title) : undefined;
+              const picked = route.d && !route.ph ? declarationHeading(route.d, mapCards?.[route.d] ?? names?.titles[route.d]).title : undefined;
               if (SOURCE_READER && !picked && !selectionStatements?.length && !title && !(lit.length && here)) return null;
               if (picked) return (
                 <p className="inspector__about"><span className="inspector__about-k">Clicked card</span> <Title text={picked} /></p>

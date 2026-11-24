@@ -72,7 +72,7 @@ export function proofGraph(map: ProofMap): ArgGraph {
   nodes.set(GOAL, { ...blank, id: GOAL, ref: GOAL, kind: "goal", kindLabel: "OpenAI’s Theorem 1.1", label: "The optimal exponent is four, and a family of total functions shows it", status: "external", origin: PAPER });
   for (const [name, c] of Object.entries(map.cards)) {
     if (isType(c)) continue;
-    const title = declarationHeading(name, { title: c.short_title || c.title || "Title unavailable", title_plain: c.short_title_plain || c.title_plain || "Title unavailable" });
+    const title = declarationHeading(name, c);
     nodes.set(name, {
       ...blank, id: name, ref: name, kind: c.kind === "axiom" ? "assumption" : "declaration",
       kindLabel: KIND_WORDS[c.kind] ?? "Definition", label: title.title_plain, math: title.title, declaration: name,

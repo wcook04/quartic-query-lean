@@ -7,7 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import type { ArgEdge, ArgGraph } from "../model/graph";
 import { useAsync } from "../app/useAsync";
 import { LeanCode } from "../lean/LeanCode";
-import { Title } from "../text/title";
+import { plainTitle, Title } from "../text/title";
+import { declarationHeading, useNames } from "../inspect/Names";
 import type { ProofEdge } from "./fromProofMap";
 import { helperWords, lineStyle, usePlace } from "./edgeMeaning";
 
@@ -61,7 +62,7 @@ export function EdgeEvidence({ reader, graph, edge, onClose, onOpenChain, onOpen
       )}
       {path.state === "loading" && <p className="edge-ev__note" role="status">Loading the recorded evidence…</p>}
       {path.state === "failed" && <p className="edge-ev__note" role="alert">The evidence for this line could not be loaded.</p>}
-      {path.state === "ready" && path.value && <Variants p={path.value} edge={e} graph={graph} reader={reader} name={name} />}
+      {path.state === "ready" && path.value && <Variants p={path.value} edge={e} graph={graph} reader={reader} />}
       {(style === "proof" || style === "statement" || style === "structure") && (
         <p className="edge-ev__actions">
           <button type="button" className="textbutton" onClick={() => onOpenChain(edge.key)}>Open the whole chain</button>
@@ -74,12 +75,16 @@ export function EdgeEvidence({ reader, graph, edge, onClose, onOpenChain, onOpen
 
 const short = (s: string) => (s.length > 42 ? `${s.slice(0, 40).replace(/\s+\S*$/, "")}…` : s);
 
-function Variants({ p, edge, graph, reader, name }: { p: any; edge: ProofEdge; graph: ArgGraph; reader: Reader; name(id: string): string }) {
+function Variants({ p, edge, graph, reader }: { p: any; edge: ProofEdge; graph: ArgGraph; reader: Reader }) {
+  const names = useNames();
   if (p.status !== "current")
     return <p className="edge-ev__note">{p.status === "not_a_dependency_edge" ? "Lean records no dependency between these two declarations." : "This edition’s Lean graph is not current, so its evidence is not shown."}</p>;
   const order = edge.witnessKinds ?? [];
   const variants = [...p.variants].sort((a: any, b: any) => order.indexOf(a.firstKind) - order.indexOf(b.firstKind));
-  const titleOf = (id: string) => p.declarations?.[id]?.title ?? graph.nodes.get(id)?.math ?? name(id);
+  const titleOf = (id: string) => {
+    const title = graph.nodes.get(id)?.math ?? p.declarations?.[id]?.title;
+    return declarationHeading(id, names[id] ?? (title ? { title, title_plain: plainTitle(title) } : undefined)).title;
+  };
   return (
     <>
       {variants.map((v: any) => (

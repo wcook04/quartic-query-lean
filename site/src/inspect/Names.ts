@@ -10,14 +10,19 @@ export const NamesContext = createContext<DeclarationTitles>({});
 export const useNames = () => useContext(NamesContext);
 
 // These display titles are reviewed against the exact declarations in the source edition.
-export function declarationHeading(name: string, archived: DeclarationTitle): DeclarationTitle {
+export function declarationHeading(name: string, archived?: DeclarationTitle & { short_title?: string; short_title_plain?: string }): DeclarationTitle {
   const current = currentDeclarationTitles as DeclarationTitles;
-  return SOURCE_TITLES && Object.hasOwn(current, name) ? current[name] : archived;
+  if (SOURCE_TITLES && Object.hasOwn(current, name)) return current[name];
+  if (!SOURCE_TITLES && archived?.short_title && archived.short_title_plain)
+    return { title: archived.short_title, title_plain: archived.short_title_plain };
+  if (archived?.title && archived.title_plain) return archived;
+  const label = SOURCE_TITLES ? `Lean declaration ${name}` : "Title unavailable";
+  return { title: label, title_plain: label };
 }
 
 /** Missing editorial data never turns an identifier into a mathematical title. */
 export function declarationTitle(titles: DeclarationTitles, name: string): DeclarationTitle {
-  return declarationHeading(name, Object.hasOwn(titles, name) ? titles[name] : { title: "Title unavailable", title_plain: "Title unavailable" });
+  return declarationHeading(name, Object.hasOwn(titles, name) ? titles[name] : undefined);
 }
 
 /** Statement labels are loaded once for the selected edition, never per row. */

@@ -8,6 +8,7 @@ import { ArgumentTree, type Insets, type MapViewHandle } from "./ArgumentTree";
 import type { ArgEdge, ArgGraph } from "../model/graph";
 import { GOAL, drawnEdgeKey, isType, type ProofMap } from "./fromProofMap";
 import { Title } from "../text/title";
+import { declarationHeading } from "../inspect/Names";
 import { SOURCE_READER } from "../app/edition";
 import { reach } from "./treeModel";
 import { edgeSentence } from "./edgeMeaning";
@@ -314,9 +315,10 @@ export const GraphPane = memo(function GraphPane({ reader, map, graph, lit, onSe
             <summary className="gbtn">Types <span className="graph__count">{types.length}</span></summary>
             <div className="graph__typespop" role="group" aria-label="Types the proof is written in">
               <p className="graph__typesnote">The structures the proof is written in. Choose one for its Lean.</p>
-              {types.map(([name, c]) => (
-                <button key={name} type="button" className={lit.includes(name) ? "is-lit" : ""} onClick={(event) => { (event.currentTarget.closest("details") as HTMLDetailsElement).open = false; onOpenLean(name); }} title={name} aria-label={c.title_plain || "Title unavailable"}><Title text={c.title || "Title unavailable"} /></button>
-              ))}
+              {types.map(([name, c]) => {
+                const title = declarationHeading(name, c);
+                return <button key={name} type="button" className={lit.includes(name) ? "is-lit" : ""} onClick={(event) => { (event.currentTarget.closest("details") as HTMLDetailsElement).open = false; onOpenLean(name); }} title={name} aria-label={title.title_plain}><Title text={title.title} /></button>;
+              })}
             </div>
           </details>
         )}

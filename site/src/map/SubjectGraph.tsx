@@ -75,7 +75,7 @@ async function keywordOf(reader: Reader, base: Base, name: string, node: any): P
 
 function mapDecl(base: Base, name: string): Decl {
   const c: any = base.map.cards[name];
-  const title = declarationHeading(name, { title: c.short_title || c.title || name, title_plain: c.short_title_plain || c.title_plain || name });
+  const title = declarationHeading(name, c);
   return { name, title: title.title, plain: title.title_plain, kind: c.kind, onMap: true, source: c.source };
 }
 
@@ -84,11 +84,10 @@ async function around(reader: Reader, base: Base, subjects: string[]): Promise<A
   const decls = new Map<string, Decl>();
   const edges: FGEdge[] = [];
   const onMap = (n: string) => Object.hasOwn(base.map.cards, n);
-  const short = (n: string) => n.replace(/^QuarticQuery\./, "");
   const remember = async (name: string, node?: any) => {
     if (decls.has(name)) return;
     if (onMap(name)) { decls.set(name, mapDecl(base, name)); return; }
-    const t = declarationHeading(name, base.titles[name] ?? { title: short(name), title_plain: short(name) });
+    const t = declarationHeading(name, base.titles[name]);
     decls.set(name, { name, title: t.title, plain: t.title_plain, kind: await keywordOf(reader, base, name, node), onMap: false, source: node?.source });
   };
   for (const s of subjects) {
