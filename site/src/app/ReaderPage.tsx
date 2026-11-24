@@ -648,7 +648,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
             )}
             {phrases && (
               <p className="legend legend--phrases"><span className="phrase-sample" data-tone="0" aria-hidden="true">phrase</span>
-                {wide ? "An underlined phrase states a Lean declaration; its colour names the topic (see Topic colours). Point at it for its topic and declaration; click it to show that declaration in the open tab."
+                {wide ? "The underline shows the topic colour. Click a phrase to show its Lean declaration in the open tab."
                   : "An underlined phrase states a Lean declaration; its colour names the topic. Tap it to show that declaration."}
               </p>
             )}
