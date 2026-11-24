@@ -13,8 +13,6 @@ import { face } from "../app/papers";
 import { lightPhrases, type PhraseLayer } from "./phrases";
 import "./phrases.css";
 
-const TAG_TITLE = "Linked to Lean: click the paragraph to follow its proof";
-
 interface Props {
   edition: Edition;
   paper: string;
@@ -142,7 +140,6 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
       const a = Number(block.dataset.l0), b = Number(block.dataset.l1);
       const isLinked = linked.some((r) => r.lines![0] <= b && a <= r.lines![1]);
       block.classList.toggle("is-linked", isLinked);
-      // The margin tag is a real element so it can carry its explanation.
       const tag = block.querySelector<HTMLElement>(":scope > .lean-tag--margin");
       const claim = rows.find((row) => row.claim_match && row.lines?.[0] === a);
       if (claim?.claim_match && !block.querySelector(":scope > .lean-claim-link")) {
@@ -159,7 +156,6 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
         const t = document.createElement("span");
         t.className = "lean-tag lean-tag--margin";
         t.textContent = "Lean";
-        t.title = TAG_TITLE;
         t.setAttribute("aria-hidden", "true");
         block.prepend(t);
       } else if ((!isLinked || claim) && tag) tag.remove();
@@ -170,19 +166,14 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
     }
   }, [edition, paper, ready, rows, selected]);
 
-  // Each phrase says on hover what it is: its topic and the declarations it states.
+  // Style phrases that have no Lean link.
   useLayoutEffect(() => {
     const el = root.current;
     if (!el || !ready || !phrases) return;
     for (const span of el.querySelectorAll<HTMLElement>(".phrase[data-phrase]")) {
       const phrase = phrases.byId.get(span.dataset.phrase!);
       if (!phrase) continue;
-      const topic = phrases.topics[phrases.topicIndex.get(phrase.topic) ?? 0];
-      const names = phrase.lean.map((row) => phrases.titles[row.name]?.title_plain ?? row.name);
-      span.title = `Topic: ${topic.name}. ` + (names.length
-        ? `Tied to Lean: ${names.join("; ")}. Click to show it in the open tab.`
-        : "An explanation with no Lean declaration of its own.");
-      span.classList.toggle("is-untied", !names.length);
+      span.classList.toggle("is-untied", !phrase.lean.length);
     }
   }, [ready, phrases]);
   useLayoutEffect(() => {
