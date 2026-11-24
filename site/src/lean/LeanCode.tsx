@@ -112,9 +112,11 @@ interface Props {
   foldWord?: string;
   /** Extra content at the bottom of the frame. */
   foot?: ReactNode;
+  /** Declaration references shown below the listing. */
+  sourceDetails?: ReactNode;
 }
 
-export function LeanCode({ text, from = 1, links, self, onOpen, mark, spans, label, caption, url, foldOver, foldWord = "proof", foot }: Props) {
+export function LeanCode({ text, from = 1, links, self, onOpen, mark, spans, label, caption, url, foldOver, foldWord = "proof", foot, sourceDetails }: Props) {
   const source = useMemo(() => text.replace(/\s+$/, ""), [text]);
   const lines = useMemo(() => lineTokens(source), [source]);
   const [wrap, setWrap] = useWrap();
@@ -162,7 +164,7 @@ export function LeanCode({ text, from = 1, links, self, onOpen, mark, spans, lab
                   const target = p.kind === "ident" ? links?.get(p.text) : undefined;
                   if (target && target !== self && onOpen)
                     return (
-                      <button key={j} type="button" className={`leancode__ref lk--${typed ? "type" : "ident"}`} title={`Open ${target}`} onClick={() => onOpen(target)}>
+                      <button key={j} type="button" className={`leancode__ref lk--${typed ? "type" : "ident"}`} onClick={() => onOpen(target)}>
                         {p.text}
                       </button>
                     );
@@ -187,21 +189,33 @@ export function LeanCode({ text, from = 1, links, self, onOpen, mark, spans, lab
   );
 
   if (caption == null) return <div className="leancode leancode--bare">{listing}</div>;
+  const bar = (
+    <>
+      <span className="leancode__where">{caption}</span>
+      <span className="leancode__tools">
+        <button type="button" className="leancode__tool" aria-pressed={!wrap} onClick={() => setWrap(!wrap)} title={wrap ? "Keep each Lean line on one row and scroll sideways" : "Wrap long Lean lines under their indent"}>
+          No wrap
+        </button>
+        <CopyButton text={source} what="source" />
+        {url && <a className="leancode__tool" href={url} target="_blank" rel="noopener noreferrer">GitHub<span className="sr-only"> (opens in a new tab)</span></a>}
+      </span>
+    </>
+  );
   return (
     <figure className="leancode">
-      <figcaption className="leancode__bar">
-        <span className="leancode__where">{caption}</span>
-        <span className="leancode__tools">
-          <button type="button" className="leancode__tool" aria-pressed={!wrap} onClick={() => setWrap(!wrap)} title={wrap ? "Keep each Lean line on one row and scroll sideways" : "Wrap long Lean lines under their indent"}>
-            No wrap
-          </button>
-          <CopyButton text={source} what="source" />
-          {url && <a className="leancode__tool" href={url} target="_blank" rel="noopener noreferrer">GitHub<span className="sr-only"> (opens in a new tab)</span></a>}
-        </span>
-      </figcaption>
+      {!sourceDetails && <figcaption className="leancode__bar">{bar}</figcaption>}
       {listing}
       {fold}
       {foot}
+      {sourceDetails && (
+        <figcaption>
+          <details className="decl-head__details">
+            <summary>Sources and details</summary>
+            {sourceDetails}
+            <div className="leancode__bar">{bar}</div>
+          </details>
+        </figcaption>
+      )}
     </figure>
   );
 }

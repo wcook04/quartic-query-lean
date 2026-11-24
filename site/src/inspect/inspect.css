@@ -17,6 +17,10 @@
 .panel__title { font-family: var(--serif); font-weight: 400; font-size: 1.45rem; line-height: 1.22; margin: 0 0 6px; text-wrap: balance; }
 .panel__where, .panel__lede { color: var(--ink-2); margin: 0 0 8px; font-size: 0.95rem; }
 .decl-head { margin-bottom: 10px; }
+.decl-head__details { padding: 6px 12px; font-size: 0.82rem; color: var(--ink-2); }
+.decl-head__details > summary { width: fit-content; cursor: pointer; }
+.decl-head__details .leancode__bar { padding-inline: 0; border-bottom: 0; }
+.decl-head__details .decl-head__raw, .decl-head__details .decl-head__linked { margin: 4px 0 0; }
 .decl-head__raw { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: 0; font-size: 0.82rem; }
 .decl-head__raw code { font-size: 0.8rem; color: var(--ink-3); overflow-wrap: anywhere; font-variant-ligatures: none; }
 .decl-head__act { background: none; border: 0; padding: 2px 0; color: var(--query); cursor: pointer; font-size: 0.82rem; text-decoration: underline; text-decoration-color: var(--query-line); text-underline-offset: 3px; }

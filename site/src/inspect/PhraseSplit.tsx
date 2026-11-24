@@ -92,26 +92,29 @@ export function PhraseSplit({ edition, id, name, onClose, onPick, onOpenLean }: 
   const declaration = name && phrase?.lean.some((r) => r.name === name) ? name : phrase?.lean[0]?.name;
   if (!layer || !phrase || !declaration) return null;
   const title = layer.titles[declaration];
+  const linkedDeclarations = phrase.lean.length > 1 && (
+    <>
+      <p className="decl-head__linked">{phrase.lean.length} linked declarations</p>
+      <div className="phrase-split__tabs" role="tablist" aria-label="Declarations tied to this phrase">
+        {phrase.lean.map((row) => (
+          <button key={row.name} type="button" role="tab" aria-selected={row.name === declaration} onClick={() => onPick(row.name)}>
+            {layer.titles[row.name] ? <Title text={layer.titles[row.name].title} /> : row.name}
+          </button>
+        ))}
+      </div>
+    </>
+  );
   return (
     <section className="phrase-split" aria-label="The chosen phrase and its Lean">
       <header className="phrase-split__bar">
-        <p className="phrase-split__k">Chosen phrase{title && phrase.lean.length === 1 && <> · <Title text={title.title} /></>}{phrase.lean.length > 1 && <> · {phrase.lean.length} declarations</>}</p>
+        <p className="phrase-split__k">Chosen phrase{title && phrase.lean.length === 1 && <> · <Title text={title.title} /></>}</p>
         <button type="button" className="textbutton phrase-split__open" onClick={() => onOpenLean(declaration)}>Open its Lean</button>
         <button type="button" className="phrase-split__close" onClick={onClose} aria-label="Close the phrase and follow the paper" title="Close (Esc)">
           <CloseIcon />
         </button>
       </header>
-      {phrase.lean.length > 1 && (
-        <div className="phrase-split__tabs" role="tablist" aria-label="Declarations tied to this phrase">
-          {phrase.lean.map((row) => (
-            <button key={row.name} type="button" role="tab" aria-selected={row.name === declaration} onClick={() => onPick(row.name)}>
-              {layer.titles[row.name] ? <Title text={layer.titles[row.name].title} /> : row.name}
-            </button>
-          ))}
-        </div>
-      )}
       <div className="phrase-split__body">
-        <LeanPanel key={`${id}:${declaration}`} edition={edition} name={declaration} phrase={id} />
+        <LeanPanel key={`${id}:${declaration}`} edition={edition} name={declaration} phrase={id} linkedDeclarations={linkedDeclarations} />
       </div>
     </section>
   );
@@ -127,6 +130,16 @@ export function LeanSplit({ edition, names, heading, passage, selectionStatement
   const key = names.join("|");
   useEffect(() => setPick(0), [key]);
   const name = names[Math.min(pick, names.length - 1)];
+  const linkedDeclarations = names.length > 1 && (
+    <>
+      <p className="decl-head__linked">{names.length} linked declarations</p>
+      <div className="phrase-split__tabs" role="tablist" aria-label="Declarations linked to this paragraph">
+        {names.map((n, i) => (
+          <button key={n} type="button" role="tab" aria-selected={i === pick} onClick={() => setPick(i)}><DeclName name={n} /></button>
+        ))}
+      </div>
+    </>
+  );
   return (
     <section className="phrase-split lean-split" aria-label={heading}>
       {(selectionStatements === undefined || !name) && <header className="phrase-split__bar">
@@ -138,15 +151,8 @@ export function LeanSplit({ edition, names, heading, passage, selectionStatement
           </button>
         )}
       </header>}
-      {names.length > 1 && (
-        <div className="phrase-split__tabs" role="tablist" aria-label="Declarations linked to this paragraph">
-          {names.map((n, i) => (
-            <button key={n} type="button" role="tab" aria-selected={i === pick} onClick={() => setPick(i)}><DeclName name={n} /></button>
-          ))}
-        </div>
-      )}
       <div className="phrase-split__body">
-        {name ? <LeanPanel key={name} edition={edition} name={name} forStep selectionStatements={selectionStatements} compact={selectionStatements !== undefined} />
+        {name ? <LeanPanel key={name} edition={edition} name={name} forStep selectionStatements={selectionStatements} compact={selectionStatements !== undefined} linkedDeclarations={linkedDeclarations} />
           : (
             <div className="lean-split__none">
               <p className="lean-split__state">No Lean is linked to this paragraph.</p>

@@ -2,7 +2,7 @@
 // how it matches the paper, its source, then what it uses and what uses it. Edges are
 // Lean's; matches are reviews; paper links are editorial. Rarer facts (axioms, every
 // paper passage citing it) are folded at the end.
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useAsync } from "../app/useAsync";
 import type { Edition } from "../app/edition";
 import { LeanCode, nameLinks } from "../lean/LeanCode";
@@ -28,7 +28,7 @@ function edges(node: any, side: "uses" | "used_by"): Edge[] {
   return out;
 }
 
-export function LeanPanel({ edition, name, forStep = false, claimMatch, phrase, selectionStatements, compact }: { edition: Edition; name: string; forStep?: boolean; claimMatch?: ClaimMatch; phrase?: string; selectionStatements?: string[]; compact?: boolean }) {
+export function LeanPanel({ edition, name, forStep = false, claimMatch, phrase, selectionStatements, compact, linkedDeclarations }: { edition: Edition; name: string; forStep?: boolean; claimMatch?: ClaimMatch; phrase?: string; selectionStatements?: string[]; compact?: boolean; linkedDeclarations?: ReactNode }) {
   const data = useAsync(async () => {
     const [d, reverse, map, graph] = await Promise.all([edition.reader.fromDeclaration(name), edition.reader.resource("selection/reverse.json"),
       edition.reader.proofMap().catch(() => null), edition.reader.resource("selection/index.json")]);
@@ -52,7 +52,7 @@ export function LeanPanel({ edition, name, forStep = false, claimMatch, phrase, 
     const by = Object.fromEntries(reviews.map(([id, c]) => [id, c?.reviewed_by]));
     return { d: { ...d, kind, notes, gaps, by }, linked: new Set(Object.keys(reverse)), cards, modules: graph.modules };
   }, [edition, name]);
-  return <Loaded value={data} what="Lean declaration">{({ d, linked, cards, modules }) => <Declaration edition={edition} d={d} linked={linked} cards={cards} modules={modules} forStep={forStep} claimMatch={claimMatch?.name === name ? claimMatch : undefined} phrase={phrase} selectionStatements={selectionStatements} compact={compact} />}</Loaded>;
+  return <Loaded value={data} what="Lean declaration">{({ d, linked, cards, modules }) => <Declaration edition={edition} d={d} linked={linked} cards={cards} modules={modules} forStep={forStep} claimMatch={claimMatch?.name === name ? claimMatch : undefined} phrase={phrase} selectionStatements={selectionStatements} compact={compact} linkedDeclarations={linkedDeclarations} />}</Loaded>;
 }
 
 /** The lines a phrase tie lights in this declaration, and bringing the first into view. */
@@ -84,7 +84,7 @@ function usePhraseMark(name: string, phrase?: string): [number, number] | null {
 }
 
 /** A declaration a phrase ties to that lies outside the recorded graph, such as a semantic check. */
-function PhraseOnlyDeclaration({ edition, name, phrase }: { edition: Edition; name: string; phrase?: string }) {
+function PhraseOnlyDeclaration({ edition, name, phrase, linkedDeclarations }: { edition: Edition; name: string; phrase?: string; linkedDeclarations?: ReactNode }) {
   const layer = usePhrases()!;
   const mark = usePhraseMark(name, phrase);
   const src = useAsync(() => (edition.reader as any).phraseSource(layer.paper, name), [edition, layer.paper, name]);
@@ -94,11 +94,11 @@ function PhraseOnlyDeclaration({ edition, name, phrase }: { edition: Edition; na
       <header className="panel__head decl-head">
         <p className="panel__kind">Lean declaration outside the recorded graph</p>
         <h2 id="ln-h" className="panel__title decl-head__title">{title ? <Title text={title.title} /> : name}</h2>
-        <p className="decl-head__raw"><code>{name}</code><CopyName name={name} /></p>
       </header>
       <DeclarationPhrases name={name} picked={phrase} />
       <Loaded value={src} what="Lean source">{(v: any) => (
         <LeanCode text={v.text} from={v.lines[0]} mark={mark} label={`Lean source of ${name}`} url={v.url}
+          sourceDetails={<><p className="decl-head__raw"><code>{name}</code><CopyName name={name} /></p>{linkedDeclarations}</>}
           caption={<><span className="leancode__file">{v.source.replace(/^lean\//, "")}</span><span>lines {v.lines[0]}–{v.lines[1]}</span></>} />
       )}</Loaded>
       <p className="ev">This file is compiled and checked separately from the main development, so the dependency graph does not record it.</p>
@@ -106,7 +106,7 @@ function PhraseOnlyDeclaration({ edition, name, phrase }: { edition: Edition; na
   );
 }
 
-function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, phrase, selectionStatements, compact }: { edition: Edition; d: any; linked: Set<string>; cards: Set<string>; modules: Record<string, string>; forStep: boolean; claimMatch?: ClaimMatch; phrase?: string; selectionStatements?: string[]; compact?: boolean }) {
+function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, phrase, selectionStatements, compact, linkedDeclarations }: { edition: Edition; d: any; linked: Set<string>; cards: Set<string>; modules: Record<string, string>; forStep: boolean; claimMatch?: ClaimMatch; phrase?: string; selectionStatements?: string[]; compact?: boolean; linkedDeclarations?: ReactNode }) {
   const nav = useNav();
   const layer = usePhrases();
   const mark = usePhraseMark(d.name, phrase);
@@ -115,7 +115,7 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, 
   const users = useMemo(() => edges(src, "used_by"), [src]);
   const links = useMemo(() => nameLinks([...uses.map((e) => e.name), ...users.map((e) => e.name)]), [uses, users]);
 
-  if (src.status === "outside_recorded_graph" && layer?.byName.has(d.name)) return <PhraseOnlyDeclaration edition={edition} name={d.name} phrase={phrase} />;
+  if (src.status === "outside_recorded_graph" && layer?.byName.has(d.name)) return <PhraseOnlyDeclaration edition={edition} name={d.name} phrase={phrase} linkedDeclarations={linkedDeclarations} />;
   if (src.status === "external_module_boundary" || src.status === "outside_recorded_graph") {
     return (
       <article className="panel">
@@ -148,17 +148,22 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, 
   const selectedTie = selectionStatements?.map((id) => reviewed.find(([st]) => id === st)).find(Boolean);
   const linkedOnly = [...ties].filter(([, t]) => !(t.review === "current" && t.relation !== "unassessed"));
   const statementButton = (st: string) => <button type="button" className="textbutton match__st" onClick={() => nav.openStatement(st)}><StatementLabel id={st} /></button>;
+  const sourceDetails = (
+    <>
+      <p className="decl-head__raw">
+        <code>{d.name}</code>
+        <CopyName name={d.name} />
+        {!compact && <button type="button" className="decl-head__act" onClick={() => nav.openGraph(d.name)}>Show in graph</button>}
+      </p>
+      {linkedDeclarations}
+    </>
+  );
   const places = new Set(treatments.map((t: any) => t.paper).filter((p: string) => ["expert", "exposition", "reconstruction", "original"].includes(p))).size;
   return (
     <article className="panel panel--lean" aria-labelledby="ln-h">
       <header className="panel__head decl-head">
         {!compact && <p className="panel__kind">{forStep ? <>The Lean for this step, a {kindWord.toLowerCase()}</> : `${kindWord} in Lean`}</p>}
         <h2 id="ln-h" className="panel__title decl-head__title">{layer?.titles[d.name] ? <span title={d.name} aria-label={layer.titles[d.name].title_plain}><Title text={layer.titles[d.name].title} /></span> : <DeclTitle name={d.name} />}</h2>
-        <p className="decl-head__raw">
-          <code>{d.name}</code>
-          <CopyName name={d.name} />
-          {!compact && <button type="button" className="decl-head__act" onClick={() => nav.openGraph(d.name)}>Show in graph</button>}
-        </p>
       </header>
 
       <DeclarationPhrases name={d.name} picked={phrase} />
@@ -193,9 +198,16 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, 
       {src.text ? (
         <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean} mark={mark}
           label={`Lean source of ${d.name}`} url={src.url} foldOver={selectionStatements === undefined ? 14 : 0} foldWord={isTheorem ? "proof" : "definition body"}
+          sourceDetails={sourceDetails}
           caption={<><span className="leancode__file">{file || "Lean source"}</span>{range && <span>{range}</span>}</>} />
       ) : (
-        <p className="panel-empty">No source text is recorded for this declaration.</p>
+        <>
+          <p className="panel-empty">No source text is recorded for this declaration.</p>
+          <details className="decl-head__details">
+            <summary>Sources and details</summary>
+            {sourceDetails}
+          </details>
+        </>
       )}
 
       {selectedTie && (

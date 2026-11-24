@@ -334,7 +334,7 @@ export function SubjectGraph({ edition, paper, subjects, position, hover, held, 
       <div className="sgraph__strip">
         <p><span className="sgraph__strip-k">{drawn.length > 1 ? `${drawn.length} steps` : first?.kicker ?? (first ? FG_ROLES[first.role].one : "Graph")}</span>{" "}
           {drawn.length === 1 && first ? <Title text={shown.decls.get(drawn[0])?.title ?? first.title} /> : null}
-          <span className="sgraph__strip-n"> · uses {uses.size} · used by {users.size}</span></p>
+          <span className="sgraph__strip-n"> · This uses {uses.size} · {users.size} {users.size === 1 ? "uses" : "use"} this</span></p>
         <button type="button" className="textbutton" onClick={() => setUnfolded(true)}>Show the graph</button>
       </div>
     );

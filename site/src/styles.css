@@ -857,8 +857,6 @@ html, body { overflow-x: clip; max-width: 100%; }
   .desk--source.desk--open .inspector { top: calc(var(--head) + 18dvh); }
   .desk--source.desk--open .paper { scroll-padding-bottom: calc(82dvh - var(--head)); }
   .inspector__graph--combined .lean-split .decl-head__title { font-size: 1.04rem; }
-  .inspector__graph--combined .lean-split .decl-head__raw { display: none; }
-  .inspector__graph--combined .lean-split .leancode__bar { display: none; }
 }
 
 .desk--source .paper__by { margin-bottom: 16px; }

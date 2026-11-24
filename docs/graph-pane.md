@@ -52,7 +52,7 @@ No view is ever blank. A paragraph with nothing tied to it says "No Lean is link
 ### The drawing
 
 - The subject is in the middle, with its kind, its whole title and its Lean name. A paragraph that states several steps has them all in the middle, inside one frame, each above the steps it uses, with the lines between them drawn.
-- The cards that use a subject are in a column on the left under "Use this" with their number. The cards a subject uses are in a column on the right under "This uses" with their number. A curved line with an arrowhead joins each to the subject.
+- The cards that use a subject are in a column on the left under "These use the centre" with their number. The cards a subject uses are in a column on the right under "The centre uses these" with their number. A curved line with an arrowhead joins each to the subject.
 - Within a column the paper's results come first, then steps, definitions, cited results, open questions, Lean helper lemmas and library facts.
 - A node is one line of plain words, wrapped onto a second line when the title is long. No title is truncated or clamped, no type is under 13 pixels at any zoom, and no type shrinks to make a drawing fit.
 - The drawing fits its area when it opens. A column that would not fit is drawn as groups by topic, or by kind when the topics themselves would not fit; the smallest groups are then drawn out as their own nodes while there is room. Every neighbour is either a node on show or is counted by one group on show.
