@@ -4,7 +4,9 @@
 // the proof folded behind a count, copy and source actions) adapts Proof Reader's
 // DeclBlock; continuation lines hang four characters under their own indent, as in
 // lean-exposition site/src/lean/CodeView.tsx and lean.css (Apache-2.0).
-import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
+import { useContext, useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from "react";
+import { createPortal } from "react-dom";
+import { declarationTitle, NamesContext } from "../inspect/Names";
 import { tokenizeLean } from "./leanTokens";
 
 interface Piece { text: string; kind: string }
@@ -89,6 +91,109 @@ function CopyButton({ text, what }: { text: string; what: string }) {
   );
 }
 
+// Reuse Proof Reader’s anchored source preview for the names already resolved here.
+/** Moving from one name to the next passes over nothing, so the preview does not blink. */
+const LINGER = 140;
+
+/**
+ * Shows the linked declaration's title and exact name from the current edition. It listens on the host, so pointing re-renders this preview and not the code.
+ */
+function SourcePreview({ host }: { host: RefObject<HTMLElement | null> }) {
+  const titles = useContext(NamesContext);
+  const [shown, setShown] = useState<{ anchor: HTMLButtonElement; name: string } | null>(null);
+  const tip = useRef<HTMLDivElement>(null);
+  const id = useId();
+
+  useEffect(() => {
+    const el = host.current;
+    if (!el) return;
+    let timer = 0;
+    const refOf = (target: EventTarget | null) => (target instanceof Element ? target.closest<HTMLButtonElement>("button.leancode__ref[data-lean-declaration]") : null);
+    const show = (anchor: HTMLButtonElement) => {
+      window.clearTimeout(timer);
+      const name = anchor.dataset.leanDeclaration!;
+      setShown((was) => (was?.anchor === anchor ? was : { anchor, name }));
+    };
+    const hide = (now = false) => {
+      window.clearTimeout(timer);
+      if (now) setShown(null);
+      else timer = window.setTimeout(() => setShown(null), LINGER);
+    };
+    const over = (event: PointerEvent) => {
+      const anchor = refOf(event.target);
+      if (anchor && event.pointerType !== "touch") show(anchor);
+    };
+    const out = (event: PointerEvent) => {
+      if (refOf(event.target) && refOf(event.target) !== refOf(event.relatedTarget)) hide();
+    };
+    const focusIn = (event: FocusEvent) => {
+      const anchor = refOf(event.target);
+      if (anchor?.matches(":focus-visible")) show(anchor);
+    };
+    const focusOut = (event: FocusEvent) => {
+      if (refOf(event.target)) hide(true);
+    };
+    const click = (event: MouseEvent) => {
+      if (refOf(event.target)) hide(true);
+    };
+    el.addEventListener("pointerover", over);
+    el.addEventListener("pointerout", out);
+    el.addEventListener("focusin", focusIn);
+    el.addEventListener("focusout", focusOut);
+    el.addEventListener("click", click, true);
+    return () => {
+      window.clearTimeout(timer);
+      el.removeEventListener("pointerover", over);
+      el.removeEventListener("pointerout", out);
+      el.removeEventListener("focusin", focusIn);
+      el.removeEventListener("focusout", focusOut);
+      el.removeEventListener("click", click, true);
+    };
+  }, [host]);
+
+  useLayoutEffect(() => {
+    const box = tip.current;
+    const anchor = shown?.anchor;
+    if (!box || !anchor) return;
+    if (!anchor.isConnected) return setShown(null);
+    const prior = anchor.getAttribute("aria-describedby");
+    anchor.setAttribute("aria-describedby", [prior, id].filter(Boolean).join(" "));
+    const token = anchor.getBoundingClientRect();
+    const gap = 6;
+    const left = Math.min(window.innerWidth - box.offsetWidth - gap, Math.max(gap, token.left));
+    const below = token.bottom + gap;
+    const top = below + box.offsetHeight <= window.innerHeight - gap ? below : Math.max(gap, token.top - box.offsetHeight - gap);
+    box.style.transform = `translate(${Math.round(left)}px, ${Math.round(top)}px)`;
+    box.style.visibility = "visible";
+    const close = () => setShown(null);
+    const key = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      close();
+      event.preventDefault();
+      event.stopPropagation();
+    };
+    window.addEventListener("scroll", close, { passive: true, capture: true });
+    window.addEventListener("resize", close, { passive: true });
+    window.addEventListener("keydown", key, true);
+    return () => {
+      window.removeEventListener("scroll", close, true);
+      window.removeEventListener("resize", close);
+      window.removeEventListener("keydown", key, true);
+      if (prior === null) anchor.removeAttribute("aria-describedby");
+      else anchor.setAttribute("aria-describedby", prior);
+    };
+  }, [shown, id]);
+
+  if (!shown) return null;
+  const title = declarationTitle(titles, shown.name).title_plain;
+  return createPortal(
+    <div ref={tip} className="source-preview" id={id} role="tooltip">
+      <b>{title}</b><code>{shown.name}</code>
+    </div>,
+    document.body,
+  );
+}
+
 interface Props {
   text: string;
   /** Line number of the first line shown. */
@@ -117,6 +222,7 @@ interface Props {
 }
 
 export function LeanCode({ text, from = 1, links, self, onOpen, mark, spans, label, caption, url, foldOver, foldWord = "proof", foot, sourceDetails }: Props) {
+  const previewHost = useRef<HTMLPreElement>(null);
   const source = useMemo(() => text.replace(/\s+$/, ""), [text]);
   const lines = useMemo(() => lineTokens(source), [source]);
   const [wrap, setWrap] = useWrap();
@@ -133,8 +239,8 @@ export function LeanCode({ text, from = 1, links, self, onOpen, mark, spans, lab
     shown[statement.line] = shown[statement.line].slice(0, statement.token);
   }
 
-  const listing = (
-    <pre className={`leancode__pre${wrap ? "" : " is-scroll"}`} aria-label={label ?? "Lean source"} tabIndex={0}>
+  const listing = (<>
+    <pre ref={previewHost} className={`leancode__pre${wrap ? "" : " is-scroll"}`} aria-label={label ?? "Lean source"} tabIndex={0}>
       <code>
         {shown.map((pieces, i) => {
           const n = from + i;
@@ -164,7 +270,7 @@ export function LeanCode({ text, from = 1, links, self, onOpen, mark, spans, lab
                   const target = p.kind === "ident" ? links?.get(p.text) : undefined;
                   if (target && target !== self && onOpen)
                     return (
-                      <button key={j} type="button" className={`leancode__ref lk--${typed ? "type" : "ident"}`} onClick={() => onOpen(target)}>
+                      <button key={j} type="button" className={`leancode__ref lk--${typed ? "type" : "ident"}`} data-lean-declaration={target} onClick={() => onOpen(target)}>
                         {p.text}
                       </button>
                     );
@@ -178,7 +284,8 @@ export function LeanCode({ text, from = 1, links, self, onOpen, mark, spans, lab
         })}
       </code>
     </pre>
-  );
+    {links && onOpen && <SourcePreview host={previewHost} />}
+  </>);
 
   const fold = foldable && (
     <button type="button" className="leancode__fold" aria-expanded={open} onClick={() => setOpen(!open)}>

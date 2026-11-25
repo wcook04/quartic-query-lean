@@ -871,3 +871,10 @@ html, body { overflow-x: clip; max-width: 100%; }
 .desk--source .paper__by { margin-bottom: 16px; }
 .paper__credit { width: 100%; max-width: calc(30 * var(--reading-size)); margin: 32px auto 0; }
 .paper__credit .paper__edition { margin-top: 8px; }
+
+.source-preview { position: fixed; inset: 0 auto auto 0; z-index: 110; visibility: hidden;
+  pointer-events: none; width: max-content; max-width: min(400px, calc(100vw - 16px));
+  padding: 8px 12px; background: var(--paper, var(--ground)); border: 1px solid var(--rule);
+  border-radius: 6px; box-shadow: 0 8px 28px #0003; color: var(--ink); overflow-wrap: anywhere; }
+.source-preview b, .source-preview code { display: block; }
+.source-preview code { margin-top: 4px; font-size: .875em; }
