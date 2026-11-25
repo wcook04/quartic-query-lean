@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { openEdition, SOURCE_READER, type Edition } from "./edition";
-import { go, href, useRoute } from "./router";
+import { followSharedPaper, go, href, useRoute } from "./router";
+import { isInitialReaderEntry } from "./restore";
 import { Home } from "../home/Home";
 import { ReaderPage } from "./ReaderPage";
 import { face, PAPERS, SUPPLEMENT } from "./papers";
@@ -20,12 +21,19 @@ export function App() {
   const route = useRoute();
   const [edition, setEdition] = useState<Edition | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [requested] = useState(() => route.ed ?? null);
+  const [arrival] = useState(() => ({ route, hash: location.hash }));
   const [scheme, setScheme] = useScheme();
 
   useEffect(() => {
-    openEdition(requested).then(setEdition, (e) => setError(e instanceof Error ? e.message : String(e)));
-  }, [requested]);
+    let active = true;
+    openEdition(arrival.route.ed ?? null).then(async (loaded) => {
+      const shared = await followSharedPaper(arrival.route, loaded.reader).catch(() => arrival.route);
+      if (!active) return;
+      if (shared !== arrival.route && isInitialReaderEntry() && location.hash === arrival.hash) go(shared, true);
+      setEdition(loaded);
+    }, (e) => { if (active) setError(e instanceof Error ? e.message : String(e)); });
+    return () => { active = false; };
+  }, [arrival]);
 
   useEffect(() => {
     const titles: Record<string, string> = { home: "Quartic reader", about: "How to read the evidence · Quartic reader", results: "OpenAI’s results and their Lean statements · Quartic reader" };

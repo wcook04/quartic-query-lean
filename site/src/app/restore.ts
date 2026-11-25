@@ -22,6 +22,7 @@ const papers = new Map<string, Place>();
 const focused = new Map<string, string>();
 const listeners = new Set<() => void>();
 let live: Entry;
+let initialEntryKey: string;
 let edition = "";
 let paper = "";
 let restoring = false;
@@ -129,6 +130,7 @@ export function restoreScroll(kept: KeptScroll): () => void {
   return end;
 }
 export const isRestoringReadingPlace = () => restoring;
+export const isInitialReaderEntry = () => live.key === initialEntryKey;
 
 /** Called before history mutation, while the old DOM and identity still agree. */
 export function saveReadingPlace() {
@@ -209,6 +211,7 @@ if (typeof window !== "undefined") {
   } catch { /* memory/history remain usable */ }
   const held = state()[STATE] as Entry | undefined;
   live = held?.key ? entries.get(held.key) ?? held : { key: key(), hash: location.hash };
+  initialEntryKey = live.key;
   history.replaceState({ ...state(), [STATE]: live }, "");
   history.scrollRestoration = "manual";
   window.addEventListener("popstate", arrive);

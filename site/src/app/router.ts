@@ -4,6 +4,9 @@
 //   #/read/<paper>?s=<selection>&v=…     a paper, a selected passage and an open view
 import { useEffect, useState } from "react";
 import { excursionOrigin, navigateEntry, previousPaperPlace } from "./restore";
+import type { Reader } from "./edition";
+import type { Row } from "../paper/selectRow";
+import type { Phrase } from "../paper/phrases";
 
 export type View = "passage" | "statement" | "lean" | "journey" | "graph" | "path" | "closed";
 
@@ -57,6 +60,31 @@ export function href(route: Route): string {
   }
   const query = q.toString();
   return `#/read/${encodeURIComponent(route.paper!)}${query ? "?" + query : ""}`;
+}
+
+/** An incoming paper link supplies a reading position without holding the pane there. */
+export async function followSharedPaper(route: Route, reader: Reader): Promise<Route> {
+  const { paper, d, ph, st, v } = route;
+  if (route.page !== "read" || !paper || route.ed || v === "path" || v === "journey" ||
+      (!d && !ph && !st) || !Object.hasOwn(reader.documents, paper)) return route;
+
+  let s = route.s;
+  if (!s && ph) {
+    const { phrases } = await reader.phrases(paper) as { phrases: Phrase[] };
+    const phrase = phrases.find((item) => item.id === ph);
+    if (phrase) s = `l${phrase.lines[0]}-${phrase.lines[1]}`;
+  }
+  if (!s && st) {
+    const rows = await reader.resource(`selection/${paper}.json`) as Row[];
+    s = rows.find((row) => row.statements?.includes(st))?.id;
+  }
+  if (!s && d) {
+    const reverse = await reader.resource("selection/reverse.json") as Record<string, { paper: string; selection: string }[]>;
+    if (Object.hasOwn(reverse, d)) s = reverse[d].find((item) => item.paper === paper)?.selection;
+  }
+  // A declaration without a passage still has its standalone view.
+  if (!s && !route.p && !route.a) return route;
+  return { ...route, s, v: v === "statement" ? "passage" : v, d: undefined, ph: undefined, st: undefined };
 }
 
 export function go(route: Route, replace = false) {
