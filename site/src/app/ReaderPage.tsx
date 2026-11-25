@@ -163,8 +163,21 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     };
   }, [paper]);
   const originalHtml = paper === "original" && !!original?.rendered && !showPdf;
-  const lineSelection = rows.filter((r) => meaningful(r) && r.lines && readingLine != null && r.lines[0] <= readingLine && readingLine <= r.lines[1])
-    .sort((a, b) => (a.topic ? 0 : 1) - (b.topic ? 0 : 1) || (a.lines![1] - a.lines![0]) - (b.lines![1] - b.lines![0]))[0]?.id;
+  const lineHit = useMemo(() => {
+    if (readingLine == null) return undefined;
+    let best: (typeof rows)[number] | undefined;
+    let bestWidth = Infinity;
+    for (const row of rows) {
+      if (!row.lines || readingLine < row.lines[0] || readingLine > row.lines[1] || !meaningful(row)) continue;
+      const width = row.lines[1] - row.lines[0];
+      if (!best || (row.topic && !best.topic) || (!!row.topic === !!best.topic && width < bestWidth)) {
+        best = row;
+        bestWidth = width;
+      }
+    }
+    return best;
+  }, [rows, readingLine]);
+  const lineSelection = lineHit?.id;
   const pinnedClaim = route.d ? rows.find((r) => r.id === route.s && r.claim_match?.name === route.d) : undefined;
   const currentSelection = pinnedClaim?.id ?? (following ? lineSelection ?? route.s : route.s ?? lineSelection);
 
@@ -365,8 +378,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   useEffect(() => {
     if (!following || mode === "graph" || route.a || isRestoringReadingPlace() || (route.v && route.v !== "passage" && !(route.v === "lean" && !route.d)) || (paper === "original" && !originalHtml) || readingLine == null) return;
-    const hit = rows.filter((r) => meaningful(r) && r.lines && r.lines[0] <= readingLine && readingLine <= r.lines[1])
-      .sort((x, y) => (x.topic ? 0 : 1) - (y.topic ? 0 : 1) || (x.lines![1] - x.lines![0]) - (y.lines![1] - y.lines![0]))[0];
+    const hit = lineHit;
     if (!hit || hit.id === route.s) return;
     followed.current = hit.id;
     go({ ...base, s: hit.id, v: route.v }, true);
