@@ -423,8 +423,68 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   // Without an ordered mapping (a PDF, an older edition) the earlier behaviour stands.
   const mapped = annotations.length > 0 && manuscriptShown;
   const frontMatter = !mapped || position == null || position < annotations[0].lines[0];
-  const upcoming = mapped ? annotations.find((a) => position == null || a.lines[0] > position) : undefined;
-  const previous = mapped && position != null ? annotations.filter((a) => a.lines[0] <= position).at(-1) : undefined;
+  const afterPosition = useMemo(() => {
+    if (!mapped || position == null) return 0;
+    let first = 0, last = annotations.length;
+    while (first < last) {
+      const middle = (first + last) >>> 1;
+      if (annotations[middle].lines[0] <= position) first = middle + 1;
+      else last = middle;
+    }
+    return first;
+  }, [annotations, mapped, position]);
+  const upcoming = mapped ? annotations[afterPosition] : undefined;
+  const previous = mapped ? annotations[afterPosition - 1] : undefined;
+
+  // Warm the same verified files that the Lean pane reads. Work on a file can be
+  // reused by a click even when the reading line replaces the rest of the queue.
+  const hasReadingAddress = !!(route.s || route.a || route.d || route.p || route.ph);
+  const warmFiles = useMemo(() => {
+    if (!open || !mapped || !mapCards || mode === "evidence" || mode === "path" || (position == null && hasReadingAddress)) return "";
+    const previousIndex = previous && position != null && previous.lines[1] >= position ? afterPosition - 2 : afterPosition - 1;
+    const files = new Set<string>();
+    for (const index of [afterPosition, afterPosition + 1, previousIndex]) {
+      const names = annotations[index]?.cards ?? [];
+      for (const name of names) {
+        const node = mapCards[name];
+        if (!node?.lines || typeof node.source !== "string" || !node.source.endsWith(".lean")) continue;
+        files.add(node.source);
+        break;
+      }
+    }
+    return [...files].join("\n");
+  }, [afterPosition, annotations, hasReadingAddress, mapCards, mapped, mode, open, position, previous]);
+  const warmingLean = useRef<Promise<unknown> | null>(null);
+  useEffect(() => {
+    if (!warmFiles) return;
+    const { connection } = navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } };
+    if (connection?.saveData || /^(slow-)?2g$/.test(connection?.effectiveType ?? "")) return;
+    const files = warmFiles.split("\n");
+    let next = 0;
+    let timer: number | undefined;
+    let sequence = 0;
+    const warm = async (request: number) => {
+      await warmingLean.current;
+      while (request === sequence && next < files.length && document.visibilityState !== "hidden") {
+        const pending = reader.resource(files[next++]).catch(() => undefined);
+        warmingLean.current = pending;
+        await pending;
+        if (warmingLean.current === pending) warmingLean.current = null;
+      }
+    };
+    const schedule = () => {
+      window.clearTimeout(timer);
+      const request = ++sequence;
+      if (next < files.length) timer = window.setTimeout(() => void warm(request), 200);
+    };
+    window.addEventListener("scroll", schedule, { capture: true, passive: true });
+    schedule();
+    return () => {
+      ++sequence;
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", schedule, true);
+    };
+  }, [reader, warmFiles]);
   const nothingLinked = !route.ph && !route.d && !lit.length && !passageLean && !leanResolving;
   // Source reading opens on the whole map, kept through the front matter.
   const autoMap = SOURCE_READER && combineViews;
