@@ -79,13 +79,16 @@ function find(id: string): HTMLElement | undefined {
 /** Retry while lazy manuscripts, math, figures and fonts change the layout.
  * Any reader input cancels the entire operation, including later font refits. */
 export function restoreScroll(kept: KeptScroll): () => void {
-  let frame = 0, ended = false, still = performance.now(), height = -1;
+  let frame = 0, retry = 0, ended = false, height = -1;
   const start = performance.now();
+  let still = start;
+  const scrollers = Object.entries(kept.inner);
   const end = () => {
     if (ended) return;
     ended = true;
     restoring = false;
     cancelAnimationFrame(frame);
+    clearTimeout(retry);
     document.fonts?.removeEventListener("loadingdone", changed);
     for (const type of INPUT) window.removeEventListener(type, end, true);
   };
@@ -101,10 +104,13 @@ export function restoreScroll(kept: KeptScroll): () => void {
     if (Math.abs(window.scrollY - top) > 1 || Math.abs(window.scrollX - left) > 1) {
       window.scrollTo({ top, left, behavior: "instant" }); moved = true;
     }
-    for (const [id, [y, x]] of Object.entries(kept.inner)) {
+    let innerHeight = 0;
+    for (const [id, [y, x]] of scrollers) {
       const el = find(id);
       if (!el) { waiting = true; continue; }
-      if (y > el.scrollHeight - el.clientHeight + 1 || x > el.scrollWidth - el.clientWidth + 1) waiting = true;
+      const scrollHeight = el.scrollHeight;
+      innerHeight += scrollHeight;
+      if (y > scrollHeight - el.clientHeight + 1 || x > el.scrollWidth - el.clientWidth + 1) waiting = true;
       if (Math.abs(el.scrollTop - y) > 1 || Math.abs(el.scrollLeft - x) > 1) {
         el.scrollTo({ top: y, left: x, behavior: "instant" }); moved = true;
       }
@@ -115,13 +121,16 @@ export function restoreScroll(kept: KeptScroll): () => void {
       const target = document.querySelector<HTMLElement>(kept.focus);
       if (target && document.activeElement !== target) target.focus({ preventScroll: true });
     }
-    const nextHeight = document.documentElement.scrollHeight + Object.keys(kept.inner).reduce((sum, id) => sum + (find(id)?.scrollHeight ?? 0), 0);
+    const nextHeight = document.documentElement.scrollHeight + innerHeight;
     if (height !== nextHeight) moved = true;
     height = nextHeight;
     const now = performance.now();
     if (waiting || moved || document.fonts?.status === "loading") still = now;
     if (now - start >= 15000 || now - still >= 3000) return end();
-    frame = requestAnimationFrame(step);
+    // Once the current layout has been restored, check for late content without
+    // reading geometry on every paint. Resume per-frame checks when it moves.
+    if (moved) frame = requestAnimationFrame(step);
+    else retry = window.setTimeout(() => { frame = requestAnimationFrame(step); }, 80);
   };
   restoring = true;
   for (const type of INPUT) window.addEventListener(type, end, { capture: true, passive: true });

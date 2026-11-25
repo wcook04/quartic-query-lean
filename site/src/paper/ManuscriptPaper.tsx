@@ -46,6 +46,8 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
   const [error, setError] = useState<string | null>(null);
   const descriptor = useRef<any>(null);
   const own = useRef<string | undefined>(undefined);
+  const manuscriptBlocks = useRef<{ element: HTMLElement; from: number; to: number }[]>([]);
+  const selectedBlocks = useRef(new Set<HTMLElement>());
   const storeKey = `quartic:scroll:${edition.permalink}:${paper}`;
 
   // Refit wide display equations whenever the reading column changes width (pane, splitter, window).
@@ -130,18 +132,22 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [edition, paper]);
 
-  // Mark linked and selected blocks.
+  // Index blocks and add their permanent Lean markers when the manuscript changes.
   useLayoutEffect(() => {
     const el = root.current;
     if (!el || !ready || !rows) return;
     const linked = rows.filter((r) => meaningful(r) && r.lines);
-    const sel = linesOf(rows, selected);
-    for (const block of el.querySelectorAll<HTMLElement>(".source-block[data-l0]")) {
+    const claims = new Map<number, Row>();
+    for (const row of rows) {
+      if (row.claim_match && row.lines && !claims.has(row.lines[0])) claims.set(row.lines[0], row);
+    }
+    selectedBlocks.current.clear();
+    manuscriptBlocks.current = Array.from(el.querySelectorAll<HTMLElement>(".source-block[data-l0]"), (block) => {
       const a = Number(block.dataset.l0), b = Number(block.dataset.l1);
       const isLinked = linked.some((r) => r.lines![0] <= b && a <= r.lines![1]);
       block.classList.toggle("is-linked", isLinked);
       const tag = block.querySelector<HTMLElement>(":scope > .lean-tag--margin");
-      const claim = rows.find((row) => row.claim_match && row.lines?.[0] === a);
+      const claim = claims.get(a);
       if (claim?.claim_match && !block.querySelector(":scope > .lean-claim-link")) {
         const link = document.createElement("a");
         link.className = "lean-tag lean-claim-link";
@@ -159,11 +165,36 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
         t.setAttribute("aria-hidden", "true");
         block.prepend(t);
       } else if ((!isLinked || claim) && tag) tag.remove();
-      const on = !!sel && sel[0] <= b && a <= sel[1];
-      block.classList.toggle("is-selected", on);
-      if (on) { block.setAttribute("aria-current", "true"); block.tabIndex = -1; }
-      else { block.removeAttribute("aria-current"); block.removeAttribute("tabindex"); }
+      block.classList.remove("is-selected");
+      block.removeAttribute("aria-current");
+      block.removeAttribute("tabindex");
+      return { element: block, from: a, to: b };
+    });
+  }, [edition, paper, ready, rows]);
+
+  useLayoutEffect(() => {
+    if (!ready || !rows) return;
+    const lines = linesOf(rows, selected);
+    const next = new Set<HTMLElement>();
+    if (lines) {
+      for (const { element, from, to } of manuscriptBlocks.current) {
+        if (lines[0] <= to && from <= lines[1]) next.add(element);
+      }
     }
+    const previous = selectedBlocks.current;
+    for (const block of previous) {
+      if (next.has(block)) continue;
+      block.classList.remove("is-selected");
+      block.removeAttribute("aria-current");
+      block.removeAttribute("tabindex");
+    }
+    for (const block of next) {
+      if (previous.has(block)) continue;
+      block.classList.add("is-selected");
+      block.setAttribute("aria-current", "true");
+      block.tabIndex = -1;
+    }
+    selectedBlocks.current = next;
   }, [edition, paper, ready, rows, selected]);
 
   // Style phrases that have no Lean link.
@@ -188,13 +219,14 @@ export function ManuscriptPaper({ edition, paper, selected, anchor, page, onSele
     const target = e.target as HTMLElement;
     const span = target.closest<HTMLElement>(".phrase[data-phrase]");
     const phrase = span && phrases ? phrases.byId.get(span.dataset.phrase!) : undefined;
-    if (phrases) lightPhrases(phrases, phrase ? phrase.lean.map((row) => row.name) : null, phrase ? [phrase.id] : []);
     // The graph lights the cards of the phrase, else of the paragraph, under the pointer.
     const block = target.closest<HTMLElement>(".source-block[data-l0]");
     const key = phrase ? `p:${phrase.id}` : block ? `b:${block.dataset.l0}` : "";
     if (key === hovered.current) return;
     hovered.current = key;
-    onHover?.(phrase?.lean.length ? { names: phrase.lean.map((row) => row.name) }
+    const names = phrase ? phrase.lean.map((row) => row.name) : null;
+    if (phrases) lightPhrases(phrases, names, phrase ? [phrase.id] : []);
+    onHover?.(names?.length ? { names }
       : block ? { lines: [Number(block.dataset.l0), Number(block.dataset.l1)] } : null);
   }
 
