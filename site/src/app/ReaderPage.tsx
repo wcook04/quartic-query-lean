@@ -1,7 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { SOURCE_READER, type Edition } from "./edition";
 import { excursion, go, href, switchPaper, type Route } from "./router";
-import { isRestoringReadingPlace, useReadingPlace, useReturnToPaper } from "./restore";
+import { isInitialReaderEntry, isRestoringReadingPlace, useReadingPlace, useReturnToPaper } from "./restore";
 import { PAPERS, SUPPLEMENT, face } from "./papers";
 import { NavContext, type Nav } from "../inspect/Nav";
 import { ReaderContext } from "../inspect/ReaderContext";
@@ -73,7 +73,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const wide = useWide();
   const [readingLine, setReadingLine] = useState<number | null>(null);
   const [readingPage, setReadingPage] = useState<number | null>(null);
-  const [following, setFollowing] = useState(() => !SOURCE_READER || !route.s);
+  const [following, setFollowing] = useState(() => !SOURCE_READER || !route.s || (!route.ed && isInitialReaderEntry()));
   const [contents, setContents] = useState<ContentsRow[]>([]);
   const [lit, setLit] = useState<string[]>([]);
   const [clickPin, setClickPin] = useState<string | null>(null);
