@@ -3,7 +3,7 @@
 //   #/results                            every indexed statement of OpenAI's paper beside its Lean label
 //   #/read/<paper>?s=<selection>&v=…     a paper, a selected passage and an open view
 import { useEffect, useState } from "react";
-import { excursionOrigin, navigateEntry, previousPaperPlace } from "./restore";
+import { excursionOrigin, inspectionOrigin, navigateEntry, previousPaperPlace, type ReadingMode } from "./restore";
 import type { Reader } from "./edition";
 import type { Row } from "../paper/selectRow";
 import type { Phrase } from "../paper/phrases";
@@ -87,10 +87,19 @@ export async function followSharedPaper(route: Route, reader: Reader): Promise<R
   return { ...route, s, v: v === "statement" ? "passage" : v, d: undefined, ph: undefined, st: undefined };
 }
 
-export function go(route: Route, replace = false) {
+/** `keepInspection: false` ends a graph inspection: the reader chose a new place or mode. */
+export function go(route: Route, replace = false, keepInspection = true) {
   const next = href(route);
   if (next === location.hash) return;
-  navigateEntry(next, replace);
+  navigateEntry(next, replace, undefined, undefined, keepInspection ? undefined : null);
+  window.dispatchEvent(new HashChangeEvent("hashchange"));
+}
+
+/** A click on a graph neighbour keeps the reading place and mode from before the first such click. */
+export function inspectNeighbour(route: Route, mode: ReadingMode) {
+  const next = href(route);
+  if (next === location.hash) return;
+  navigateEntry(next, false, undefined, undefined, inspectionOrigin(mode));
   window.dispatchEvent(new HashChangeEvent("hashchange"));
 }
 
@@ -100,7 +109,7 @@ export function switchPaper(target: string) {
   const current = parse(location.hash);
   const next = place?.hash ?? href({ page: "read", paper: target, ed: current.ed });
   if (next === location.hash) return;
-  navigateEntry(next, false, place, null);
+  navigateEntry(next, false, place, null, null);
   window.dispatchEvent(new HashChangeEvent("hashchange"));
 }
 
@@ -108,7 +117,7 @@ export function switchPaper(target: string) {
 export function excursion(route: Route, originLabel = "the previous paper") {
   const next = href(route);
   if (next === location.hash) return;
-  navigateEntry(next, false, undefined, excursionOrigin(originLabel));
+  navigateEntry(next, false, undefined, excursionOrigin(originLabel), null);
   window.dispatchEvent(new HashChangeEvent("hashchange"));
 }
 

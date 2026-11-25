@@ -600,6 +600,9 @@ html, body { overflow-x: clip; max-width: 100%; }
 .source-block.is-linked { border-left-color: var(--lean-rule); cursor: pointer; }
 .source-block.is-linked:hover { border-left-color: var(--lean-ink); background: var(--lean-wash); }
 .source-block.is-selected, .source-block.is-selected:hover { border-left-color: var(--query); background: var(--select-wash); border-radius: 0 6px 6px 0; }
+/* The next linked passage, previewed in the pane before the first one is reached. */
+.source-block.is-upcoming:not(.is-selected) { border-left-color: var(--lean-ink); background: color-mix(in srgb, var(--exact) 14%, transparent); border-radius: 0 6px 6px 0; }
+.source-block.is-upcoming > .lean-tag--margin { opacity: 1; }
 .source-block.is-page-title { display: none; }
 .lean-tag--margin { position: absolute; right: calc(100% + 10px); top: 0.5em; cursor: pointer; user-select: none; -webkit-user-select: none; opacity: 0.8; transition: opacity var(--desk-quick) var(--desk-ease); }
 .source-block:hover > .lean-tag--margin { opacity: 1; }
@@ -633,6 +636,9 @@ html, body { overflow-x: clip; max-width: 100%; }
 .inspector__actions .textbutton { min-height: 28px; }
 .inspector__actions .inspector__back { color: var(--ink-2); text-decoration-color: var(--rule); }
 .inspector__actions .inspector__back:hover { color: var(--ink); }
+/* A graph inspection keeps its Go to passage and Return in the bar above the drawing. */
+.inspector--graph .inspector__bar.inspector__bar--inspect { display: flex; }
+.inspector__actions .inspector__return { display: inline-flex; align-items: center; gap: 6px; }
 
 /* The pane's exit: a quiet cross beside the paper, a named return on phones. */
 .inspector__modes .inspector__close { margin-left: auto; align-self: center; display: inline-grid; place-items: center; width: 32px; height: 32px; margin-bottom: 4px; padding: 0; border: 0; border-radius: 6px; background: none; color: var(--ink-3); cursor: pointer; }

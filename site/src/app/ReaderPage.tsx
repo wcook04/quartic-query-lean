@@ -1,12 +1,12 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { SOURCE_READER, type Edition } from "./edition";
-import { excursion, go, href, switchPaper, type Route } from "./router";
-import { isInitialReaderEntry, isRestoringReadingPlace, useReadingPlace, useReturnToPaper } from "./restore";
+import { excursion, go, href, inspectNeighbour, parse, switchPaper, type Route } from "./router";
+import { isInitialReaderEntry, isRestoringReadingPlace, returnFromInspection, useInspection, useReadingPlace, useReturnToPaper } from "./restore";
 import { PAPERS, SUPPLEMENT, face } from "./papers";
 import { NavContext, type Nav } from "../inspect/Nav";
 import { ReaderContext } from "../inspect/ReaderContext";
 import { StatementLabel } from "../inspect/common";
-import { declarationHeading, NamesContext, StatementNamesContext, type DeclarationTitles, type StatementTitles } from "../inspect/Names";
+import { declarationHeading, NamesContext, StatementNamesContext, statementTitle, type DeclarationTitles, type StatementTitles } from "../inspect/Names";
 import { PassagePanel } from "../inspect/PassagePanel";
 import { StatementPanel } from "../inspect/StatementPanel";
 import { LeanPanel } from "../inspect/LeanPanel";
@@ -61,6 +61,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const reader = edition.reader;
   useReadingPlace(paper, edition.permalink);
   const returnTo = useReturnToPaper();
+  // A graph neighbour being inspected keeps the reading place from before the first graph click.
+  const inspection = useInspection(paper, edition.permalink);
   const [rows, setRows] = useState<Row[]>([]);
   const [downloads, setDownloads] = useState<Record<string, any>>({});
   const [topicTitles, setTopicTitles] = useState<Record<string, string>>({});
@@ -93,6 +95,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const [fitHeight, setFitHeight] = useState<number | null>(null);
   // The proof map's own declarations, to say when a subject is not on it.
   const [mapCards, setMapCards] = useState<Record<string, any> | null>(null);
+  // The proof map's passages for each paper, with the declarations bound to them.
+  const [mapPassages, setMapPassages] = useState<Record<string, { id: string; lines?: [number, number]; bindings?: Record<string, unknown> }[]> | null>(null);
   // Which of a many-step paragraph's steps the graph shows, for the steps it was chosen among.
   const [stepAt, setStepAt] = useState<{ key: string; index: number }>({ key: "", index: 0 });
   // The last paragraph with Lean, kept in the drawing through paragraphs with none.
@@ -127,7 +131,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   useEffect(() => { reader.resource("selection/arguments.json").then((r: any) => {
     setTopicTitles((titles) => ({ ...titles, ...Object.fromEntries(Object.entries(r.topics ?? {}).map(([id, topic]: [string, any]) => [id, topic.title])) }));
   }, () => {}); }, [reader]);
-  useEffect(() => { reader.proofMap().then((m: any) => { if (m.currentness === "current") { setRootDeclaration(m.root); setMapCards(m.cards); } }, () => {}); }, [reader]);
+  useEffect(() => { reader.proofMap().then((m: any) => { if (m.currentness === "current") { setRootDeclaration(m.root); setMapCards(m.cards); setMapPassages(m.papers ?? null); } }, () => {}); }, [reader]);
   // Adapt SimplifiedMap's dismissal: Escape belongs to the open menu before
   // the surrounding proof pane, and returns keyboard focus to its summary.
   useEffect(() => {
@@ -233,7 +237,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       setLit(cards);
       // Clear a previous declaration/path: these views belong to this exact
       // passage and its freshly resolved Lean, not the old URL's selection.
-      go({ ...base, s: id, v: next, d: next === "lean" ? lean : undefined });
+      go({ ...base, s: id, v: next, d: next === "lean" ? lean : undefined }, false, false);
     } catch (error) {
       if (sequence !== clickSequence.current) return;
       clickPending.current = null;
@@ -255,18 +259,73 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     setFollowing(false);
     setClickError(null);
     if (!/^l\d+-\d+$/.test(selection)) setClickPin(selection);
-    go({ ...base, s: selection, v: next, d: next === "passage" ? undefined : phrase.lean[0]?.name, ph: id });
+    go({ ...base, s: selection, v: next, d: next === "passage" ? undefined : phrase.lean[0]?.name, ph: id }, false, false);
   }
 
-  // A card clicked in the graph or the whole map becomes the subject; the view stays.
+  // A card clicked in the graph or the whole map becomes the subject; the view stays and the
+  // paper stays put. The first such click keeps the reading place and mode to return to.
   function selectCard(name: string) {
+    const mode = { following, pin: clickPin ?? undefined, whole };
     clickSequence.current++;
     clickPending.current = null;
     setFollowing(false);
     setWhole(false);
     setPreview(null);
     const r = routeNow.current;
-    go({ ...base, s: r.s ?? currentSelection, p: r.p, v: r.v === "lean" ? "lean" : "graph", d: name });
+    const s = r.s ?? currentSelection;
+    // The paragraph being read is marked without bringing it into view.
+    followed.current = s;
+    inspectNeighbour({ ...base, s, p: r.p, v: r.v === "lean" ? "lean" : "graph", d: name }, mode);
+  }
+
+  // The inspected declaration's own passage in this paper, from the edition's reverse index.
+  const [reverse, setReverse] = useState<{ reader: typeof reader; index: Record<string, { paper: string; selection: string }[]> } | null>(null);
+  useEffect(() => {
+    if (!inspection || reverse?.reader === reader) return;
+    let live = true;
+    reader.resource("selection/reverse.json").then((index: any) => live && setReverse({ reader, index }), () => {});
+    return () => { live = false; };
+  }, [reader, inspection, reverse]);
+  const inspectedPassage = (() => {
+    if (!inspection || !route.d || reverse?.reader !== reader || !Object.hasOwn(reverse.index, route.d)) return undefined;
+    const found = reverse.index[route.d].find((item) => item.paper === paper && rows.some((row) => row.id === item.selection && meaningful(row)));
+    return found?.selection;
+  })();
+  // Go to passage: the paper moves to the inspected declaration's passage and the pane follows
+  // the paper from there. The origin of the first graph click is kept for Return.
+  function goToInspectedPassage() {
+    if (inspectedPassage) goToPassage(inspectedPassage);
+  }
+  // Move the paper to a passage and follow the paper from there.
+  function goToPassage(id: string) {
+    window.clearTimeout(panelMove.current);
+    clickSequence.current++;
+    clickPending.current = null;
+    setClickPin(null);
+    setClickError(null);
+    setFollowing(true);
+    setPreview(null);
+    setWhole(false);
+    // The passage is navigated to, so the paper brings it into view.
+    followed.current = undefined;
+    const r = routeNow.current;
+    go({ ...base, s: id, v: r.v === "closed" ? undefined : r.v });
+  }
+  // Return to original: the place and mode from before the first graph click.
+  function returnFromGraph() {
+    window.clearTimeout(panelMove.current);
+    const from = inspection;
+    if (!from) return;
+    clickSequence.current++;
+    clickPending.current = null;
+    setClickError(null);
+    setPreview(null);
+    setClickPin(from.mode.pin ?? null);
+    setFollowing(from.mode.following);
+    setWhole(!!from.mode.whole);
+    // The restored scroll owns the paper; its selection is not navigated to.
+    followed.current = parse(from.place.hash).s;
+    returnFromInspection();
   }
 
   // Escape, a close button or "Follow the paper": the pane follows the reading line again.
@@ -279,7 +338,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     setFollowing(true);
     setPreview(null);
     const r = routeNow.current;
-    go({ ...base, s: lineSelection, v: r.v === "closed" ? undefined : r.v });
+    go({ ...base, s: lineSelection, v: r.v === "closed" ? undefined : r.v }, false, false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paper, ed, lineSelection]);
 
@@ -295,8 +354,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
 
   const nav: Nav = useMemo(() => ({
     paper,
-    openSelection: (p, id) => { resumePaperFollowing(); setFollowing(false); const next: Route = { page: "read", paper: p, s: id, ed }; if (p === paper) go(next, !route.v); else excursion(next, face(paper).tab); },
-    openPassage: (p, anchor) => { resumePaperFollowing(); setFollowing(false); const next: Route = { page: "read", paper: p, a: anchor, ed }; if (p === paper) go(next); else excursion(next, face(paper).tab); },
+    openSelection: (p, id) => { resumePaperFollowing(); setFollowing(false); const next: Route = { page: "read", paper: p, s: id, ed }; if (p === paper) go(next, !route.v, false); else excursion(next, face(paper).tab); },
+    openPassage: (p, anchor) => { resumePaperFollowing(); setFollowing(false); const next: Route = { page: "read", paper: p, a: anchor, ed }; if (p === paper) go(next, false, false); else excursion(next, face(paper).tab); },
     openStatement: (id) => go({ ...base, s: route.s, p: route.p, v: "statement", st: id }),
     openLean: (name, phrase) => go({ ...base, s: currentSelection, p: route.p, v: "lean", d: name, ph: phrase }),
     // The three views share one subject: switching keeps the clicked card or phrase.
@@ -308,7 +367,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       if (pinnedClaim) setFollowing(false);
       go({ ...base, s: currentSelection, p: route.p, v: "passage", d: route.d, ph: route.ph });
     },
-    showInPaper: (id: string) => { resumePaperFollowing(); setFollowing(false); go({ ...base, s: id, v: route.v, st: route.st, d: route.d, j: route.j, e: route.e, step: route.step }, true); },
+    showInPaper: (id: string) => { resumePaperFollowing(); setFollowing(false); go({ ...base, s: id, v: route.v, st: route.st, d: route.d, j: route.j, e: route.e, step: route.step }, true, false); },
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }), [paper, route.s, route.p, route.v, route.st, route.d, route.j, route.e, route.step, ed, currentSelection, pinnedClaim, resumePaperFollowing]);
 
@@ -348,7 +407,70 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   // main result stands in only where no linked paragraph is selected at all.
   const leanResolving = !!leanKey && statementLean?.key !== leanKey;
   const leanLookupFailed = !!leanKey && statementLean?.key === leanKey && !!statementLean.failed;
-  const activeLean = route.d ?? lit[0] ?? passageLean ?? (currentSelection ? undefined : rootDeclaration);
+  // The paper's real Lean annotations in reading order: the proof map's passages with bound
+  // declarations. Before the first one is front matter; a gap after it stays local.
+  const annotations = useMemo(() => {
+    const out: { id: string; lines: [number, number]; cards: string[] }[] = [];
+    for (const r of mapPassages?.[paper] ?? []) {
+      const cards = Object.keys(r.bindings ?? {});
+      const lines = r.lines ?? rows.find((x) => x.id === r.id)?.lines;
+      if (cards.length && lines) out.push({ id: r.id, lines: [lines[0], lines[1]], cards });
+    }
+    return out.sort((a, b) => a.lines[0] - b.lines[0] || a.lines[1] - b.lines[1]);
+  }, [mapPassages, paper, rows]);
+  const manuscriptShown = paper !== "original" || originalHtml;
+  const position = rows.find((x) => x.id === currentSelection)?.lines?.[0] ?? readingLine ?? undefined;
+  // Without an ordered mapping (a PDF, an older edition) the earlier behaviour stands.
+  const mapped = annotations.length > 0 && manuscriptShown;
+  const frontMatter = !mapped || position == null || position < annotations[0].lines[0];
+  const upcoming = mapped ? annotations.find((a) => position == null || a.lines[0] > position) : undefined;
+  const previous = mapped && position != null ? annotations.filter((a) => a.lines[0] <= position).at(-1) : undefined;
+  const nothingLinked = !route.ph && !route.d && !lit.length && !passageLean && !leanResolving;
+  // Source reading opens on the whole map, kept through the front matter.
+  const autoMap = SOURCE_READER && combineViews;
+  // Where no whole map shows, front matter previews the first forthcoming annotation.
+  const previewNext = !!upcoming && frontMatter && nothingLinked &&
+    (mode === "lean" || (mode === "graph" && route.v !== "path" && !autoMap && !whole));
+  // An annotation's steps in the proof map's order, as a click on it would give them.
+  const [annotationCards, setAnnotationCards] = useState<Record<string, string[]>>({});
+  const cardsFor = (a?: { id: string; cards: string[] }) => a ? annotationCards[`${paper}:${a.id}`] ?? a.cards : [];
+  const annotationLookup = previewNext ? upcoming?.id : !frontMatter && nothingLinked ? previous?.id : undefined;
+  useEffect(() => {
+    const k = `${paper}:${annotationLookup}`;
+    if (!annotationLookup || Object.hasOwn(annotationCards, k)) return;
+    let live = true;
+    (reader as any).proofFocus({ paper, id: annotationLookup }).then((f: any) => {
+      if (live && f.cards?.length) setAnnotationCards((c) => ({ ...c, [k]: f.cards }));
+    }, () => {});
+    return () => { live = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reader, paper, annotationLookup]);
+  // Mark the previewed passage's own blocks; the paper does not move.
+  useLayoutEffect(() => {
+    if (!previewNext || !upcoming) return;
+    const [a, b] = upcoming.lines;
+    const marked = [...document.querySelectorAll<HTMLElement>(".manuscript .source-block[data-l0]")]
+      .filter((block) => Number(block.dataset.l0) <= b && a <= Number(block.dataset.l1));
+    marked.forEach((block) => block.classList.add("is-upcoming"));
+    return () => marked.forEach((block) => block.classList.remove("is-upcoming"));
+  }, [previewNext, upcoming?.id, upcoming?.lines[0], upcoming?.lines[1], rows]);
+  // ArrowRight goes to the previewed passage, as › moves to the next step. The pane (graph,
+  // Lean listing), the split handle, menus and fields keep their own arrows.
+  useEffect(() => {
+    if (!previewNext || !upcoming) return;
+    const on = (e: KeyboardEvent) => {
+      if (e.key !== "ArrowRight" || e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+      const t = e.target instanceof Element ? e.target : null;
+      if (t?.closest("input, textarea, select, [contenteditable], details, .inspector, .reader-split, [role=separator], [role=slider], [role=toolbar]") || document.querySelector(":popover-open")) return;
+      e.preventDefault();
+      goToPassage(upcoming.id);
+    };
+    window.addEventListener("keydown", on);
+    return () => window.removeEventListener("keydown", on);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [previewNext, upcoming?.id]);
+  const upcomingLean = previewNext ? cardsFor(upcoming)[0] : undefined;
+  const activeLean = route.d ?? lit[0] ?? passageLean ?? upcomingLean ?? (currentSelection ? undefined : rootDeclaration);
   const claimMatch = rows.find((r) => r.id === currentSelection)?.claim_match;
   const [graphOpened, setGraphOpened] = useState(mode === "graph");
   useEffect(() => { if (mode === "graph") setGraphOpened(true); }, [mode]);
@@ -442,7 +564,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
       if (isRestoringReadingPlace()) return;
       const h = aside.current?.querySelector<HTMLElement>("h2");
       if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
-      document.querySelector<HTMLElement>(".paper .is-selected")?.scrollIntoView({ block: "nearest" });
+      // A graph inspection leaves the paper where the reader was.
+      if (!inspection) document.querySelector<HTMLElement>(".paper .is-selected")?.scrollIntoView({ block: "nearest" });
     }, 120);
     // Reuse the manuscript navigation guard: after another deliberate input,
     // delayed panel work must not pull the paper back or steal keyboard focus.
@@ -498,7 +621,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const here = sectionAt(contents, route.s && /^l(\d+)/.exec(route.s) ? Number(/^l(\d+)/.exec(route.s)![1]) : readingLine);
   // The Graph view's subject (docs/graph-pane.md): a clicked phrase's declaration, else a clicked
   // card, else the clicked or followed paragraph's steps. A paragraph with no Lean keeps the last
-  // paragraph's steps in the drawing, and the main result stands in before any paragraph.
+  // paragraph's steps in the drawing, else the preceding annotation's. Front matter previews the
+  // first annotation where no whole map shows; the main result stands in only without a mapping.
   const chosenPhrase = route.ph ? phrases?.byId.get(route.ph) : undefined;
   const phraseDeclaration = chosenPhrase?.lean.length ? (chosenPhrase.lean.some((r) => r.name === route.d) ? route.d! : chosenPhrase.lean[0].name) : undefined;
   const phraseHeld = !!phraseDeclaration && paragraphStepsFor === `${route.ph}|${phraseDeclaration}`;
@@ -513,6 +637,8 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   let subjects: string[] = [];
   let graphLabel: React.ReactNode = null;
   let stepper: React.ReactNode = null;
+  // The linked passage the drawing shows in place of an unlinked one: named once, positively.
+  let shownPassage: { kind: "next" | "last"; title?: string } | null = null;
   const toParagraph = () => {
     if (phraseDeclaration) setParagraphStepsFor(`${route.ph}|${phraseDeclaration}`);
     else go({ ...base, s: route.s, p: route.p, v: "graph" });
@@ -523,9 +649,13 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   } else if (pickedCard) {
     subjects = [pickedCard];
     if (offMap(pickedCard)) graphLabel = <>The Lean around this declaration, which the proof map does not draw. <button type="button" onClick={toParagraph}>Show this paragraph’s steps</button></>;
-  } else if (paragraphSteps.length || lastSteps.current) {
-    const steps = paragraphSteps.length ? paragraphSteps : lastSteps.current!.steps;
-    if (!paragraphSteps.length) graphLabel = <>No Lean is linked to this paragraph. The graph keeps the steps of {lastSteps.current!.title ? <>“<span dangerouslySetInnerHTML={{ __html: titleHtml(lastSteps.current!.title) }} />”</> : "the last linked paragraph"}.</>;
+  } else if (paragraphSteps.length || previewNext || lastSteps.current || previous) {
+    const kept = lastSteps.current ?? (previous ? { steps: cardsFor(previous), title: annotationTitle(previous) } : null);
+    const steps = paragraphSteps.length ? paragraphSteps : previewNext ? cardsFor(upcoming) : kept!.steps;
+    const upcomingTitle = previewNext ? annotationTitle(upcoming!) : undefined;
+    if (!paragraphSteps.length) shownPassage = previewNext ? { kind: "next", title: upcomingTitle } : { kind: "last", title: kept!.title };
+    // Wide panes name the passage in the line above the tabs; narrow ones, which hide it, here.
+    if (shownPassage && !wide) graphLabel = <>{shownPassage.kind === "next" ? "Next linked passage" : "Showing the last linked passage"}{shownPassage.title ? <>: “<span dangerouslySetInnerHTML={{ __html: titleHtml(shownPassage.title) }} />”</> : null}.</>;
     if (steps.length > MANY_STEPS) {
       // A paragraph tied to many steps shows one at a time, its leading step first, so the drawing
       // keeps the room for their neighbourhoods; the others are a button away.
@@ -546,6 +676,17 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     subjects = [rootDeclaration];
     graphLabel = <>No Lean is linked to this place in the paper. The graph shows the main result.</>;
   }
+  function annotationTitle(a: { id: string; lines: [number, number] }) {
+    const row = rows.find((r) => r.id === a.id);
+    const statement = row?.statements?.[0];
+    const reviewed = statement && statementNames?.reader === reader && Object.hasOwn(statementNames.index.titles, statement)
+      ? statementTitle(statementNames.index, statement).title : undefined;
+    return row?.claim_match?.title ?? (row?.topic ? topicTitles[row.topic] : undefined) ?? reviewed ?? sectionAt(contents, a.lines[0])?.title;
+  }
+  const nextAction = previewNext && upcoming ? { go: () => goToPassage(upcoming.id), label: (() => {
+    const title = annotationTitle(upcoming);
+    return `Go to the next linked passage${title ? `: ${plainTitle(title)}` : ""}`;
+  })() } : null;
   const subjectLines: [number, number] | null = (() => {
     const r = rows.find((x) => x.id === currentSelection)?.lines;
     return r ? [r[0], r[1]] : readingLine != null ? [readingLine, readingLine] : null;
@@ -553,7 +694,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
   const noLeanHere = !phraseDeclaration && !pickedCard && !paragraphSteps.length;
   // The paragraph itself, for the dock when no Lean is linked to it.
   const dockPassage = (() => {
-    if (!noLeanHere || mode !== "graph") return null;
+    if (!noLeanHere || mode !== "graph" || previewNext) return null;
     const line = subjectLines?.[0];
     const block = line == null ? null : [...document.querySelectorAll<HTMLElement>(".manuscript .source-block[data-l0]")]
       .find((b) => Number(b.dataset.l0) <= line && line <= Number(b.dataset.l1));
@@ -569,18 +710,18 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
     if (name) setPreview(subjects.includes(name) ? null : name);
     else previewTimer.current = window.setTimeout(() => setPreview(null), 400);
   };
-  const goSection = (r: ContentsRow) => { resumePaperFollowing(); setFollowing(true); go({ ...base, a: r.anchor, v: route.v }, true); };
+  const goSection = (r: ContentsRow) => { resumePaperFollowing(); setFollowing(true); go({ ...base, a: r.anchor, v: route.v }, true, false); };
 
   const selectionStatements = rows.find((row) => row.id === currentSelection)?.statements;
   const awaitingLinkedLean = SOURCE_READER && combineViews && !whole && noLeanHere && leanResolving;
   const inlineLean = SOURCE_READER && combineViews && !whole && !noLeanHere;
-  const mapOnly = SOURCE_READER && (whole || (combineViews && noLeanHere && !awaitingLinkedLean));
+  const mapOnly = SOURCE_READER && (whole || (combineViews && noLeanHere && !awaitingLinkedLean && frontMatter));
   const graphDetail = preview && !inlineLean ? <CardPreview edition={edition} name={preview} title={phrases?.titles[preview]?.title ?? declarationHeading(preview, mapCards?.[preview] ?? names?.titles[preview]).title}
     kind={mapCards && Object.hasOwn(mapCards, preview) ? "On the proof map" : "Lean declaration outside the paper’s map"} onOpenLean={(n) => nav.openLean(n)} />
     : phraseDeclaration ? <PhraseSplit edition={edition} id={route.ph!} name={phraseDeclaration} onClose={followPaper}
       onPick={(name) => go({ ...base, s: route.s, p: route.p, v: "graph", d: name, ph: route.ph }, true)} onOpenLean={(n) => nav.openLean(n, route.ph)} />
-    : <LeanSplit edition={edition} names={noLeanHere ? [] : subjects}
-      heading={pickedCard ? "Selected Lean declaration" : noLeanHere ? "Selected passage" : "Lean linked to this passage"}
+    : <LeanSplit edition={edition} names={noLeanHere && !previewNext ? [] : subjects}
+      heading={pickedCard ? "Selected Lean declaration" : previewNext ? "Lean of the next linked passage" : noLeanHere ? "Selected passage" : "Lean linked to this passage"}
       passage={dockPassage} selectionStatements={SOURCE_READER ? selectionStatements ?? [] : undefined}
       onClose={held ? followPaper : undefined} onOpenLean={(n) => nav.openLean(n)} />;
 
@@ -720,6 +861,12 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                 );
               }
               const picked = route.d && !route.ph ? declarationHeading(route.d, mapCards?.[route.d] ?? names?.titles[route.d]).title : undefined;
+              const shown = !picked && (shownPassage?.kind === "next" || (shownPassage && mode === "graph")) ? shownPassage : null;
+              if (shown) return (
+                <p className="inspector__about">
+                  <span className="inspector__about-k">{shown.kind === "next" ? "Next linked passage" : "Showing the last linked passage"}</span> {shown.title ? <Title text={shown.title} /> : null}
+                </p>
+              );
               if (SOURCE_READER && !picked && !selectionStatements?.length && !title && !(lit.length && here)) return null;
               if (picked) return (
                 <p className="inspector__about"><span className="inspector__about-k">Clicked card</span> <Title text={picked} /></p>
@@ -742,6 +889,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                 <span className="graph-acts">
                   <span className="sr-only" role="status">{phraseDeclaration && !phraseHeld ? "Held on the clicked phrase." : pickedCard ? "Held on the clicked card." : held ? "Held on the clicked paragraph." : "Following the paper."}</span>
                   {stepper}
+                  {nextAction && <button type="button" className="graph-acts__btn" onClick={nextAction.go} aria-label={nextAction.label} aria-keyshortcuts="ArrowRight" title={`${nextAction.label} (→)`}>Next passage ›</button>}
                   {held && <button type="button" className="graph-acts__btn" onClick={followPaper} title="Follow the paper again (Esc)">Follow the paper</button>}
                   {!whole && !mapOnly && <button type="button" className="graph-acts__btn" onClick={() => setWhole(true)}>Whole proof map</button>}
                   {SOURCE_READER && !whole && !mapOnly && <button type="button" className="graph-acts__btn" onClick={() => setCombineViews(!combineViews)}>{combineViews ? "Minimise graph" : "Combine views"}</button>}
@@ -751,25 +899,35 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                 {wide ? <CloseIcon /> : <><BackIcon /><span>Back to paper</span></>}
               </button>
             </div>
-            {mode !== "graph" && (() => {
+            {(mode !== "graph" || inspection) && (() => {
               // One quiet line: what the pane is doing, then at most two actions. The Passage
               // tab itself returns to the selected passage, so the bar does not repeat it.
+              // A graph inspection adds its own two: Go to passage and Return to original.
               const leanFallback = mode === "lean" && !route.d && !currentSelection && activeLean === rootDeclaration;
               const pinnedLean = mode === "lean" && route.v === "lean" && !!route.d;
               const followingLean = mode === "lean" && route.v === "lean" && !route.d;
               const passageView = (mode === "lean" || mode === "evidence") && (!route.v || route.v === "passage");
-              const status = leanFallback ? <>No linked paragraph at this place; showing the main result.</>
+              const leanPreview = mode === "lean" && !!upcomingLean && activeLean === upcomingLean;
+              const status = mode === "graph" ? <>Inspecting the graph. The paper has not moved.</>
+                : leanPreview ? (wide ? null : <>Showing the next linked passage.</>)
+                : leanFallback ? <>No linked paragraph at this place; showing the main result.</>
                 : clickPin ? <>Held on the clicked paragraph.</>
                 : pinnedLean ? <>Pinned to this declaration.</>
                 : followingLean ? (following ? <>Following the paper.</> : <>Pinned to this passage.</>)
                 : passageView ? (following ? <>Following the paper.</> : <>Pinned to this passage.</>)
                 : null;
-              const refollow = held ? followPaper : null;
-              if (!status && !refollow && !route.v) return null;
+              // In the Graph view "Follow the paper" already sits beside the tabs.
+              const refollow = held && mode !== "graph" ? followPaper : null;
+              const next = mode === "lean" ? nextAction : null;
+              if (!status && !refollow && !route.v && !inspection) return null;
               return (
-                <div className="inspector__bar">
+                <div className={`inspector__bar${inspection ? " inspector__bar--inspect" : ""}`}>
                   {status && <p className="inspector__status" role="status">{status}</p>}
                   <span className="inspector__actions">
+                    {next && <button type="button" className="textbutton" onClick={next.go} aria-label={next.label} aria-keyshortcuts="ArrowRight" title={`${next.label} (→)`}>Next passage ›</button>}
+                    {/* Before landing, a mapped passage offers Go to passage alone; after it, Return. */}
+                    {inspectedPassage ? <button type="button" className="textbutton" onClick={goToInspectedPassage} title="Move the paper to this declaration’s passage and follow it from there">Go to passage</button>
+                      : inspection && <button type="button" className="textbutton inspector__return" onClick={returnFromGraph} title="Return to the place and mode in the paper before the first graph click"><BackIcon /> Return to original</button>}
                     {refollow && <button type="button" className="textbutton" onClick={refollow}>Follow the paper</button>}
                     {route.v && <button type="button" className="textbutton inspector__back" onClick={() => history.back()}><span aria-hidden="true">← </span>Back</button>}
                   </span>

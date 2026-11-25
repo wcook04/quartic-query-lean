@@ -12,7 +12,11 @@ export interface KeptScroll {
 }
 interface Place { hash: string; edition: string; paper: string; scroll: KeptScroll }
 interface Origin { key: string; label: string; place: Place }
-interface Entry { key: string; hash: string; place?: Place; origin?: Origin }
+/** How the pane was reading before the first graph click: following the paper or held on a paragraph. */
+export interface ReadingMode { following: boolean; pin?: string; whole?: boolean }
+/** The reading place and mode before the first click on a graph neighbour, kept across further hops. */
+export interface Inspection { place: Place; mode: ReadingMode }
+interface Entry { key: string; hash: string; place?: Place; origin?: Origin; inspect?: Inspection }
 const STATE = "quarticReadingPlace";
 const STORE = "quartic:reading-places:v1";
 const SCROLLERS = [".paper", ".inspector", ".inspector__body", ".contents", "[data-keep]"];
@@ -160,14 +164,22 @@ export function excursionOrigin(label: string): Origin | undefined {
   return live.origin ?? (live.place ? { key: live.key, label, place: live.place } : undefined);
 }
 
-/** Router integration: a replace refines this entry; a push has a fresh identity. */
-export function navigateEntry(hash: string, replace = false, place?: Place, origin?: Origin | null) {
+/** The first graph click's origin: the open inspection's own, else this entry's place and mode. */
+export function inspectionOrigin(mode: ReadingMode): Inspection | undefined {
+  saveReadingPlace();
+  if (live.inspect?.place.edition === edition && live.inspect.place.paper === paper) return live.inspect;
+  return live.place?.edition === edition && live.place.paper === paper ? { place: live.place, mode } : undefined;
+}
+
+/** Router integration: a replace refines this entry; a push has a fresh identity.
+ * An inspection carries forward until a navigation ends it with `null`. */
+export function navigateEntry(hash: string, replace = false, place?: Place, origin?: Origin | null, inspect?: Inspection | null) {
   saveReadingPlace();
   stopRestore?.();
   if (replace) {
-    live = { ...live, hash };
+    live = { ...live, hash, inspect: inspect === null ? undefined : inspect ?? live.inspect };
     if (live.place) live.place = { ...live.place, hash };
-  } else live = { key: key(), hash, place, origin: origin === null ? undefined : origin ?? live.origin };
+  } else live = { key: key(), hash, place, origin: origin === null ? undefined : origin ?? live.origin, inspect: inspect === null ? undefined : inspect ?? live.inspect };
   history[replace ? "replaceState" : "pushState"]({ ...state(), [STATE]: live }, "", hash);
   persist();
   notify();
@@ -210,6 +222,25 @@ export function useReturnToPaper(): { label: string; returnToOrigin(): void } | 
     persist(); notify();
     window.dispatchEvent(new HashChangeEvent("hashchange"));
   } };
+}
+
+/** The open graph inspection on this paper, if any. */
+export function useInspection(id: string, editionKey: string): Inspection | null {
+  const inspect = useSyncExternalStore(subscribe, () => live.inspect);
+  return inspect && inspect.place.edition === editionKey && inspect.place.paper === id ? inspect : null;
+}
+/** Return to the exact place before the first graph click, as returnToOrigin does for papers.
+ * The caller restores the returned reading mode. */
+export function returnFromInspection(): ReadingMode | undefined {
+  const inspect = live.inspect;
+  if (!inspect) return;
+  saveReadingPlace();
+  stopRestore?.();
+  live = { key: key(), hash: inspect.place.hash, place: inspect.place, origin: live.origin };
+  history.pushState({ ...state(), [STATE]: live }, "", live.hash);
+  persist(); notify();
+  window.dispatchEvent(new HashChangeEvent("hashchange"));
+  return inspect.mode;
 }
 
 if (typeof window !== "undefined") {
