@@ -214,6 +214,7 @@ function useNarrow(): boolean {
 interface Props {
   edition: Edition;
   combined?: boolean;
+  overviewFallback?: ReactNode;
   onFitHeight?(height: number | null): void;
   paper: string;
   /** The declarations in the middle. */
@@ -228,7 +229,7 @@ interface Props {
   onHover(name: string | null): void;
 }
 
-export function SubjectGraph({ edition, paper, subjects, position, hover, held, label, onSubject, onHover, combined, onFitHeight }: Props) {
+export function SubjectGraph({ edition, paper, subjects, position, hover, held, label, onSubject, onHover, combined, overviewFallback, onFitHeight }: Props) {
   const reader = edition.reader as Reader;
   const layer = usePhrases();
   const tone = useToneColours(layer);
@@ -324,6 +325,9 @@ export function SubjectGraph({ edition, paper, subjects, position, hover, held, 
   if (base === null) return <p className="sgraph__state">This edition’s proof map is not current, so the graph is not drawn. The Lean and passage views still answer for each paragraph.</p>;
   if (!shown) return <p className="sgraph__state" role="status">{failed ? "The graph for this place could not be loaded." : "Drawing the graph…"}</p>;
 
+  if (overviewFallback && base?.map.edges.length && shown.subjects.join("|") === key && shown.edges.length === 0) {
+    return <section className="sgraph" aria-label="Whole-paper graph">{overviewFallback}</section>;
+  }
   const drawn = shown.subjects;
   const isSubject = new Set(drawn);
   const users = new Set(shown.edges.filter((e) => isSubject.has(e.to) && !isSubject.has(e.from)).map((e) => e.from));

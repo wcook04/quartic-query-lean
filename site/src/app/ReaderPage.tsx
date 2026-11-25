@@ -1008,7 +1008,10 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
                     </Suspense>
                   ) : (
                     <SubjectGraph edition={edition} paper={paper} subjects={subjects} position={subjectLines} hover={paperHover}
-                      held={preview} label={graphLabel} onSubject={selectCard} onHover={onGraphHover} combined={inlineLean} onFitHeight={SOURCE_READER ? setFitHeight : undefined} />
+                      held={preview} label={graphLabel} onSubject={selectCard} onHover={onGraphHover} combined={inlineLean} onFitHeight={SOURCE_READER ? setFitHeight : undefined}
+                      overviewFallback={inlineLean ? <Suspense fallback={<p className="pending" role="status">Loading the Lean graph…</p>}>
+                        <ProofPane edition={edition} lit={[]} onSelect={selectCard} onOpenLean={nav.openLean} selectedEdge={null} onEdge={nav.openPath} />
+                      </Suspense> : undefined} />
                   )}
                 </div>
                 {!inlineLean && !mapOnly && !awaitingLinkedLean && <>
