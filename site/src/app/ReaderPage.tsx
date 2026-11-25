@@ -842,7 +842,7 @@ export function ReaderPage({ edition, route }: { edition: Edition; route: Route 
           </details>}
         </main>
 
-        {open && wide && <ReaderSplit />}
+        {open && wide && <ReaderSplit outline={contents.length > 0} />}
         {open && (
           <aside ref={aside} className={`inspector inspector--${mode}`} aria-label="The Lean proof and its evidence">
             {(() => {

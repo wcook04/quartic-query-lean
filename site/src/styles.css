@@ -646,7 +646,7 @@ html, body { overflow-x: clip; max-width: 100%; }
 
 /* The split adapts the family's dock handle: a two-line grip that lights amber. */
 @media (min-width: 901px) {
-  .desk--open { grid-template-columns: minmax(420px, 1fr) 10px minmax(360px, min(var(--proof-width, 44%), calc(100% - 430px))); }
+  .desk--open { grid-template-columns: minmax(420px, 1fr) 10px minmax(360px, min(var(--proof-width, calc((100% - 10px) / 2)), calc(100% - 430px))); }
   .reader-split { grid-column: 2; grid-row: 2; position: relative; z-index: 3; display: flex; align-items: center; justify-content: center; cursor: col-resize; touch-action: none; background: var(--paper); border-inline: 1px solid var(--rule-2); transition: background-color var(--desk-quick) var(--desk-ease); }
   .reader-split span { width: 4px; height: 36px; border-inline: 1px solid var(--control); transition: border-color var(--desk-quick) var(--desk-ease); }
   .reader-split:hover, .reader-split:focus-visible, .is-resizing .reader-split { background: var(--query-wash); outline: none; }
