@@ -518,6 +518,39 @@ export async function openReader(indexURL, options) {
             url: `${manifest.repository}/blob/${revision}/${row.file}#L${first}-L${last}`};
   }
 
+  function leadsReview(record, tie) {
+    return record.review_scope.leading_matches.some(match => match.declaration === tie.declaration && match.file === tie.file);
+  }
+
+  function orderedCurrentTies(record) {
+    const current = record.lean.filter(t => t.review_evidence === "current");
+    return [...current.filter(t => leadsReview(record, t)), ...current.filter(t => !leadsReview(record, t))];
+  }
+
+  // Prefer an exact, current statement tie from the selected row over a topic-graph helper.
+  async function passageStatementDeclaration(paper, id) {
+    if (!Object.hasOwn(documents, paper)) throw new Error("Unknown paper");
+    const rows = await resource(`selection/${paper}.json`);
+    const row = rows.find(r => r.id === id);
+    if (!row) throw new Error(`Unknown selection: ${id}`);
+    if (!row.statements?.length) return null;
+    const [reading, selection] = await Promise.all([resource("reading.json"), revisionResource(indexPath)]);
+    let partial = null;
+    for (const statement of row.statements) {
+      if (!Object.hasOwn(reading.fidelity, statement)) continue;
+      const record = await resource(reading.fidelity[statement]);
+      if (!record.review_scope) continue;
+      for (const tie of orderedCurrentTies(record)) {
+        const module = selection.modules[tie.declaration];
+        if (tie.relation === "unassessed" || typeof module !== "string" || tie.file !== `lean/${module.replaceAll(".", "/")}.lean`) continue;
+        const match = {statement, name: tie.declaration};
+        if (leadsReview(record, tie)) return match;
+        partial ??= match;
+      }
+    }
+    return partial;
+  }
+
   async function statementReview(id) {
     const reading = await resource("reading.json");
     if (!Object.hasOwn(reading.fidelity, id)) throw new Error("Unknown statement: " + id);
@@ -532,14 +565,12 @@ export async function openReader(indexURL, options) {
     const [originals, related] = await Promise.all([
       resource("selection/original.json"), resource("selection/by-statement.json")]);
     const selection = originals.find(row => row.statements.includes(id));
-    const current = record.lean.filter(t => t.review_evidence === "current");
-    const leading = t => record.review_scope.leading_matches.some(m => m.declaration === t.declaration && m.file === t.file);
     async function sourceExcerpt(path, lines) {
       if (!lines) return null;
       const text = await resource(path);
       return text.split("\n").slice(lines[0]-1, lines[1]).join("\n");
     }
-    const ordered = [...current.filter(leading), ...current.filter(t => !leading(t))];
+    const ordered = orderedCurrentTies(record);
     const comparisons = await Promise.all(ordered.map(async t => ({...t,
       sourceURL: sourceURL(t.file, t.declaration_lines), rawLean: await sourceExcerpt(t.file, t.declaration_lines)})));
     const semanticExamples = await Promise.all(record.semantic_probes.map(async p => ({...p,
@@ -708,5 +739,5 @@ export async function openReader(indexURL, options) {
     if (!type) throw new Error("Unrecognized figure format");
     return new Blob([await readBytes(path)], {type});
   }
-  return {revision, permalink, documents, home, declarationTitles, declarationTitle, proofMap, proofFocus, paperCardProgress, proofWitness, proofPath, proofPathSource, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementTitles, statementReview, phrases, phraseSource};
+  return {revision, permalink, documents, home, declarationTitles, declarationTitle, proofMap, proofFocus, paperCardProgress, proofWitness, proofPath, proofPathSource, proofCardSource, readBytes, readText, resource, manuscript, figure, restore, resolve, expand, fromDeclaration, journey, applicationIndex, statementTitles, statementReview, passageStatementDeclaration, phrases, phraseSource};
 }

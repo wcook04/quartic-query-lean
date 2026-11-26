@@ -4,7 +4,7 @@
 // paper passage citing it) are folded at the end.
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useAsync } from "../app/useAsync";
-import type { Edition } from "../app/edition";
+import { SOURCE_READER, type Edition } from "../app/edition";
 import { LeanCode, nameLinks } from "../lean/LeanCode";
 import { Axioms, axiomSummary, RelationMark, reviewWords, SourceLine } from "./evidence";
 import { DeclTitle, Elsewhere, journeyName, Loaded, StatementLabel } from "./common";
@@ -13,7 +13,7 @@ import { useNav } from "./Nav";
 import { ComparatorEvidence } from "./ComparatorEvidence";
 import type { ClaimMatch } from "../paper/selectRow";
 import { usePhrases } from "../paper/phrases";
-import { DeclarationPhrases } from "./PhraseCards";
+import { DeclarationPhrases, ReadingNote } from "./PhraseCards";
 
 const KIND_WORD: Record<string, string> = { value: "proof or body", type: "statement", structural: "structure" };
 
@@ -29,6 +29,7 @@ function edges(node: any, side: "uses" | "used_by"): Edge[] {
 }
 
 export function LeanPanel({ edition, name, forStep = false, claimMatch, phrase, selectionStatements, compact, linkedDeclarations }: { edition: Edition; name: string; forStep?: boolean; claimMatch?: ClaimMatch; phrase?: string; selectionStatements?: string[]; compact?: boolean; linkedDeclarations?: ReactNode }) {
+  const selectedStatements = SOURCE_READER && selectionStatements !== undefined ? JSON.stringify(selectionStatements) : undefined;
   const data = useAsync(async () => {
     const [d, reverse, map, graph] = await Promise.all([edition.reader.fromDeclaration(name), edition.reader.resource("selection/reverse.json"),
       edition.reader.proofMap().catch(() => null), edition.reader.resource("selection/index.json")]);
@@ -42,16 +43,19 @@ export function LeanPanel({ edition, name, forStep = false, claimMatch, phrase, 
       const path = await (edition.reader as any).proofPathSource?.(name).catch(() => null);
       kind = path?.kind ?? null;
     }
-    const statements = [...new Set<string>((d.treatments ?? []).filter((t: any) => t.statement && t.review === "current").map((t: any) => t.statement))];
+    const reviewedStatements = new Set<string>((d.treatments ?? []).filter((t: any) => t.statement && t.review === "current" && t.relation !== "unassessed").map((t: any) => t.statement));
+    const selected = selectedStatements === undefined ? undefined : (JSON.parse(selectedStatements) as string[]).find(id => reviewedStatements.has(id));
+    const statements = selectedStatements === undefined ? [...reviewedStatements] : selected ? [selected] : [];
     const reviews = await Promise.all(statements.map(async (id) => {
       const review: any = await edition.reader.statementReview(id).catch(() => null);
-      return [id, review?.comparisons?.find((c: any) => c.declaration === name)] as const;
+      return [id, review?.comparisons?.find((c: any) => c.declaration === name && (!d.source.source || c.file === d.source.source))] as const;
     }));
     const notes = Object.fromEntries(reviews.map(([id, c]) => [id, c?.note]));
     const gaps = Object.fromEntries(reviews.map(([id, c]) => [id, c ? c.open_assumptions ?? [] : undefined]));
     const by = Object.fromEntries(reviews.map(([id, c]) => [id, c?.reviewed_by]));
-    return { d: { ...d, kind, notes, gaps, by }, linked: new Set(Object.keys(reverse)), cards, modules: graph.modules };
-  }, [edition, name]);
+    const selectedComparison = selected ? reviews[0]?.[1] : undefined;
+    return { d: { ...d, kind, notes, gaps, by, selectedComparison }, linked: new Set(Object.keys(reverse)), cards, modules: graph.modules };
+  }, [edition, name, selectedStatements]);
   return <Loaded value={data} what="Lean declaration">{({ d, linked, cards, modules }) => <Declaration edition={edition} d={d} linked={linked} cards={cards} modules={modules} forStep={forStep} claimMatch={claimMatch?.name === name ? claimMatch : undefined} phrase={phrase} selectionStatements={selectionStatements} compact={compact} linkedDeclarations={linkedDeclarations} />}</Loaded>;
 }
 
@@ -95,12 +99,14 @@ function PhraseOnlyDeclaration({ edition, name, phrase, linkedDeclarations }: { 
         <p className="panel__kind">Lean declaration outside the recorded graph</p>
         <h2 id="ln-h" className="panel__title decl-head__title">{title ? <Title text={title.title} /> : name}</h2>
       </header>
-      <DeclarationPhrases name={name} picked={phrase} />
+      {SOURCE_READER && layer?.notes[name] && <ReadingNote text={layer.notes[name]} />}
+      {!SOURCE_READER && <DeclarationPhrases name={name} picked={phrase} />}
       <Loaded value={src} what="Lean source">{(v: any) => (
         <LeanCode text={v.text} from={v.lines[0]} mark={mark} label={`Lean source of ${name}`} url={v.url}
           sourceDetails={<><p className="decl-head__raw"><code>{name}</code><CopyName name={name} /></p>{linkedDeclarations}</>}
           caption={<><span className="leancode__file">{v.source.replace(/^lean\//, "")}</span><span>lines {v.lines[0]}–{v.lines[1]}</span></>} />
       )}</Loaded>
+      {SOURCE_READER && <DeclarationPhrases name={name} picked={phrase} detailsOnly />}
       <p className="ev">This file is compiled and checked separately from the main development, so the dependency graph does not record it.</p>
     </article>
   );
@@ -146,8 +152,23 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, 
   const range = src.lines ? (src.lines[0] === src.lines[1] ? `line ${src.lines[0]}` : `lines ${src.lines[0]}–${src.lines[1]}`) : "";
   const reviewed = [...ties].filter(([, t]) => t.review === "current" && t.relation !== "unassessed");
   const selectedTie = selectionStatements?.map((id) => reviewed.find(([st]) => id === st)).find(Boolean);
-  const linkedOnly = [...ties].filter(([, t]) => !(t.review === "current" && t.relation !== "unassessed"));
+  const comparison = SOURCE_READER ? d.selectedComparison : undefined;
   const statementButton = (st: string) => <button type="button" className="textbutton match__st" onClick={() => nav.openStatement(st)}><StatementLabel id={st} /></button>;
+  const readingNote = SOURCE_READER ? layer?.notes[d.name] : undefined;
+  const leadWithComparison = SOURCE_READER && !readingNote;
+  const passageComparison = selectedTie && (!SOURCE_READER || comparison) ? (
+    <section className="block match match--lead" aria-label="Statement comparison">
+      <p className="match__line">{statementButton(selectedTie[0])} <RelationMark relation={comparison?.relation ?? selectedTie[1].relation} openAssumptions={d.gaps[selectedTie[0]]} /></p>
+      {d.notes[selectedTie[0]] && <p className="match__note">{d.notes[selectedTie[0]]}</p>}
+      <SourceLine kind="review" by={d.by[selectedTie[0]]}>Compared by {reviewWords(d.by[selectedTie[0]])} with this Lean declaration.</SourceLine>
+    </section>
+  ) : claimMatch ? (
+    <section className="block match match--lead" aria-label="Match to the selected claim">
+      <p className="match__line"><span className="match__k">{claimMatch.title}</span> <RelationMark relation={claimMatch.relation} /></p>
+      <SourceLine kind="review" by={claimMatch.reviewed_by}>Compared by {reviewWords(claimMatch.reviewed_by)} against the selected claim.</SourceLine>
+    </section>
+  ) : null;
+  const linkedOnly = [...ties].filter(([, t]) => !(t.review === "current" && t.relation !== "unassessed"));
   const sourceDetails = (
     <>
       <p className="decl-head__raw">
@@ -166,7 +187,9 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, 
         <h2 id="ln-h" className="panel__title decl-head__title">{layer?.titles[d.name] ? <span title={d.name} aria-label={layer.titles[d.name].title_plain}><Title text={layer.titles[d.name].title} /></span> : <DeclTitle name={d.name} />}</h2>
       </header>
 
-      <DeclarationPhrases name={d.name} picked={phrase} />
+      {readingNote && <ReadingNote text={readingNote} />}
+      {!SOURCE_READER && <DeclarationPhrases name={d.name} picked={phrase} />}
+      {leadWithComparison && passageComparison}
 
       {selectionStatements === undefined && !claimMatch && ties.size > 0 && (
         <section className="block match match--lead" aria-labelledby="ln-tie">
@@ -193,11 +216,11 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, 
         </section>
       )}
 
-      {!compact && <ComparatorEvidence edition={edition} declaration={d.name} />}
+      {!SOURCE_READER && !compact && <ComparatorEvidence edition={edition} declaration={d.name} />}
 
       {src.text ? (
         <LeanCode text={src.text} from={src.lines?.[0] ?? 1} links={links} self={d.name} onOpen={nav.openLean} mark={mark}
-          label={`Lean source of ${d.name}`} url={src.url} foldOver={selectionStatements === undefined ? 14 : 0} foldWord={isTheorem ? "proof" : "definition body"}
+          label={`Lean source of ${d.name}`} url={src.url} foldOver={SOURCE_READER || selectionStatements !== undefined ? 0 : 14} foldWord={isTheorem ? "proof" : "definition body"}
           sourceDetails={sourceDetails}
           caption={<><span className="leancode__file">{file || "Lean source"}</span>{range && <span>{range}</span>}</>} />
       ) : (
@@ -210,19 +233,15 @@ function Declaration({ edition, d, linked, cards, modules, forStep, claimMatch, 
         </>
       )}
 
-      {selectedTie && (
-        <section className="block match match--lead" aria-label="Review of this passage and declaration">
-          <p className="match__line">{statementButton(selectedTie[0])} <RelationMark relation={selectedTie[1].relation} openAssumptions={d.gaps[selectedTie[0]]} /></p>
-          {d.notes[selectedTie[0]] && <p className="match__note">{d.notes[selectedTie[0]]}</p>}
-          <SourceLine kind="review" by={d.by[selectedTie[0]]}>Compared by {reviewWords(d.by[selectedTie[0]])} with this Lean declaration.</SourceLine>
-        </section>
+      {!SOURCE_READER && passageComparison}
+      {SOURCE_READER && readingNote && passageComparison && (
+        <details className="block fold">
+          <summary>Statement comparison</summary>
+          {passageComparison}
+        </details>
       )}
-      {!selectedTie && claimMatch && (
-        <section className="block match match--lead" aria-label="Match to the selected claim">
-          <p className="match__line"><span className="match__k">{claimMatch.title}</span> <RelationMark relation={claimMatch.relation} /></p>
-          <SourceLine kind="review" by={claimMatch.reviewed_by}>Compared by {reviewWords(claimMatch.reviewed_by)} against the selected claim.</SourceLine>
-        </section>
-      )}
+      {SOURCE_READER && <DeclarationPhrases name={d.name} picked={phrase} detailsOnly />}
+      {SOURCE_READER && !compact && <ComparatorEvidence edition={edition} declaration={d.name} />}
       {!compact && <>
       <section className="block" aria-labelledby="ln-uses">
         <h3 id="ln-uses" className="block__h">Uses</h3>

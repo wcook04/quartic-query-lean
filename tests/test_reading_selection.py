@@ -485,6 +485,12 @@ const cap = await reader.statementReview("eq-21");
 assert(cap.comparisons[0].declaration.endsWith(".eq_21"));
 assert(cap.comparisons[0].inspection.type.includes("Paper.reachedCellAt"));
 assert(cap.comparisons[0].inspection.type.includes("prodW (QuarticQuery.prodW μ)"));
+assert.deepEqual(await reader.passageStatementDeclaration("original", "original/thm-1.1"),
+  {statement: "thm-1.1", name: review.comparisons[0].declaration});
+assert.deepEqual(await reader.passageStatementDeclaration("original", "original/eq-21"),
+  {statement: "eq-21", name: cap.comparisons[0].declaration});
+assert.equal(await reader.passageStatementDeclaration("exposition", front.entrances.exposition.first_selection), null);
+await assert.rejects(reader.passageStatementDeclaration("original", "unknown"), /Unknown selection/);
 const model = await reader.statementReview("def-R");
 assert(model.semanticExamples.some(p => p.kind === "alternative_definition" &&
   p.inspection.type.includes("oneBitIdentity") && p.inspection.status === "current"));

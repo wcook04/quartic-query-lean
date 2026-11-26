@@ -62,8 +62,8 @@ export function href(route: Route): string {
   return `#/read/${encodeURIComponent(route.paper!)}${query ? "?" + query : ""}`;
 }
 
-/** An incoming paper link supplies a reading position without holding the pane there. */
-export async function followSharedPaper(route: Route, reader: Reader): Promise<Route> {
+/** Find the reading position carried by an incoming paper link. */
+export async function followSharedPaper(route: Route, reader: Reader, keepSelection = false): Promise<Route> {
   const { paper, d, ph, st, v } = route;
   if (route.page !== "read" || !paper || route.ed || v === "path" || v === "journey" ||
       (!d && !ph && !st) || !Object.hasOwn(reader.documents, paper)) return route;
@@ -84,6 +84,7 @@ export async function followSharedPaper(route: Route, reader: Reader): Promise<R
   }
   // A declaration without a passage still has its standalone view.
   if (!s && !route.p && !route.a) return route;
+  if (keepSelection) return s === route.s ? route : { ...route, s };
   return { ...route, s, v: v === "statement" ? "passage" : v, d: undefined, ph: undefined, st: undefined };
 }
 

@@ -27,7 +27,7 @@ export function App() {
   useEffect(() => {
     let active = true;
     openEdition(arrival.route.ed ?? null).then(async (loaded) => {
-      const shared = await followSharedPaper(arrival.route, loaded.reader).catch(() => arrival.route);
+      const shared = await followSharedPaper(arrival.route, loaded.reader, SOURCE_READER).catch(() => arrival.route);
       if (!active) return;
       if (shared !== arrival.route && isInitialReaderEntry() && location.hash === arrival.hash) go(shared, true);
       setEdition(loaded);

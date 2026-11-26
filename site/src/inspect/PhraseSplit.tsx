@@ -3,7 +3,7 @@
 // divider adapts the reader's paper/proof handle (app/ReaderSplit.tsx): pointer capture, a
 // CSS share, a remembered size and keyboard resizing, here on the vertical axis.
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import type { Edition } from "../app/edition";
+import { SOURCE_READER, type Edition } from "../app/edition";
 import { LeanPanel } from "./LeanPanel";
 import { usePhrases } from "../paper/phrases";
 import { Title } from "../text/title";
@@ -86,7 +86,7 @@ export function PhraseDivider() {
 }
 
 /** The chosen phrase in the dock: its card and Lean, with the tied lines lit. */
-export function PhraseSplit({ edition, id, name, onClose, onPick, onOpenLean }: { edition: Edition; id: string; name?: string; onClose(): void; onPick(name: string): void; onOpenLean(name: string): void }) {
+export function PhraseSplit({ edition, id, name, compact = false, onClose, onPick, onOpenLean }: { edition: Edition; id: string; name?: string; compact?: boolean; onClose(): void; onPick(name: string): void; onOpenLean(name: string): void }) {
   const layer = usePhrases();
   const phrase = layer?.byId.get(id);
   const declaration = name && phrase?.lean.some((r) => r.name === name) ? name : phrase?.lean[0]?.name;
@@ -106,15 +106,15 @@ export function PhraseSplit({ edition, id, name, onClose, onPick, onOpenLean }: 
   );
   return (
     <section className="phrase-split" aria-label="The chosen phrase and its Lean">
-      <header className="phrase-split__bar">
+      {!compact && <header className="phrase-split__bar">
         <p className="phrase-split__k">Chosen phrase{title && phrase.lean.length === 1 && <> · <Title text={title.title} /></>}</p>
         <button type="button" className="textbutton phrase-split__open" onClick={() => onOpenLean(declaration)}>Open its Lean</button>
         <button type="button" className="phrase-split__close" onClick={onClose} aria-label="Close the phrase and follow the paper" title="Close (Esc)">
           <CloseIcon />
         </button>
-      </header>
+      </header>}
       <div className="phrase-split__body">
-        <LeanPanel key={`${id}:${declaration}`} edition={edition} name={declaration} phrase={id} linkedDeclarations={linkedDeclarations} />
+        <LeanPanel key={`${id}:${declaration}`} edition={edition} name={declaration} phrase={id} compact={compact} selectionStatements={SOURCE_READER ? [] : undefined} linkedDeclarations={linkedDeclarations} />
       </div>
     </section>
   );

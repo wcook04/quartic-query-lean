@@ -20,7 +20,16 @@ function Quote({ phrase }: { phrase: Phrase }) {
   );
 }
 
-export function PhraseCard({ phrase, row, picked = false, openLean = true, showTitle = true }: { phrase: Phrase; row: PhraseLean; picked?: boolean; openLean?: boolean; showTitle?: boolean }) {
+export function ReadingNote({ text }: { text: string }) {
+  return (
+    <div className="phrase-card__note">
+      <p className="phrase-card__label">Reading note <span className="phrase-card__by">AI-drafted</span></p>
+      <p dangerouslySetInnerHTML={{ __html: noteHtml(text) }} />
+    </div>
+  );
+}
+
+export function PhraseCard({ phrase, row, picked = false, openLean = true, showTitle = true, showNote = true }: { phrase: Phrase; row: PhraseLean; picked?: boolean; openLean?: boolean; showTitle?: boolean; showNote?: boolean }) {
   const layer = usePhrases()!;
   const nav = useNav();
   const topic = layer.topics[layer.topicIndex.get(phrase.topic) ?? 0];
@@ -42,12 +51,7 @@ export function PhraseCard({ phrase, row, picked = false, openLean = true, showT
         <span className="phrase-card__label">Compared with these words <span className="phrase-card__by">AI-assessed</span></span>
         <span className="phrase-card__fid-text"><strong>{fidelity.lead}</strong>{fidelity.note && <> <span dangerouslySetInnerHTML={{ __html: noteHtml(fidelity.note) }} /></>}</span>
       </p>
-      {note && (
-        <div className="phrase-card__note">
-          <p className="phrase-card__label">Reading note <span className="phrase-card__by">AI-drafted</span></p>
-          <p dangerouslySetInnerHTML={{ __html: noteHtml(note) }} />
-        </div>
-      )}
+      {showNote && note && <ReadingNote text={note} />}
       {openLean && <p className="phrase-card__act"><button type="button" className="textbutton" onClick={() => nav.openLean(row.name, phrase.id)}>Open this declaration in the Lean tab</button></p>}
     </section>
   );
@@ -79,14 +83,20 @@ export function PhraseList({ lines, picked }: { lines: [number, number] | null; 
 }
 
 /** The phrases of this paper that a declaration states, for the top of its Lean panel. */
-export function DeclarationPhrases({ name, picked }: { name: string; picked?: string }) {
+export function DeclarationPhrases({ name, picked, detailsOnly = false }: { name: string; picked?: string; detailsOnly?: boolean }) {
   const layer = usePhrases();
   if (!layer) return null;
   const phrases = layer.byName.get(name) ?? [];
   if (!phrases.length) return null;
   const ordered = [...phrases].sort((a, b) => Number(b.id === picked) - Number(a.id === picked) || a.order - b.order);
   const [first, ...rest] = ordered;
-  const card = (p: Phrase) => <PhraseCard key={p.id} phrase={p} row={p.lean.find((r) => r.name === name)!} picked={p.id === picked} openLean={false} showTitle={false} />;
+  const card = (p: Phrase) => <PhraseCard key={p.id} phrase={p} row={p.lean.find((r) => r.name === name)!} picked={p.id === picked} openLean={false} showTitle={false} showNote={!detailsOnly} />;
+  if (detailsOnly) return (
+    <details className="block fold phrase-list phrase-list--lean">
+      <summary>Paper passages and comparisons <span className="fold__n">{ordered.length}</span></summary>
+      {ordered.map(card)}
+    </details>
+  );
   return (
     <section className="block phrase-list phrase-list--lean" aria-label="The phrases this declaration states">
       {card(first)}

@@ -108,12 +108,13 @@ original or the verification supplement with the same hash routes and selection
 IDs. An unpinned link from the old Quartic site goes to this app. Links with an
 explicit edition still open the app published with that historical snapshot.
 
-A selected passage with a Lean link opens the declaration and its dependencies.
-The proof starts collapsed. A current review of the selected statement and
-declaration appears once, after the Lean. A small local graph can leave more of
-the pane to the Lean. A grouped graph uses available room for individual
-dependencies. The whole proof map has its own view. The paper's original
-author line stays at the title, and the reading copy's credit follows the text.
+A selected passage with a Lean link opens the declaration above its dependency
+graph. A reviewed statement link takes precedence when choosing the declaration.
+The pane shows one reading note or statement comparison for the selected text
+and leaves the proof collapsed. Open the comparison for its sources and other
+reviewed declarations. The graph can be minimised, and the whole proof map has
+its own view. The paper's original author line stays at the title, and the
+reading copy's credit follows the text.
 
 ## Phrases, topics and reading notes
 

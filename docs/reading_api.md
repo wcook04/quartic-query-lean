@@ -493,6 +493,12 @@ that edition’s wording.
 
 ### Compare a paper result with Lean
 
+Use `reader.passageStatementDeclaration(paper, selectionId)` to choose the
+declaration to open for a selected passage. It returns `{statement, name}`
+for a current reviewed tie to the indexed Lean source. A leading tie wins
+over a supplementary tie. It returns `null` when the passage has no such
+reviewed tie. Use `proofFocus` to get the passage’s topic and proof graph links.
+
 Use `reader.statementReview("thm-1.1")` or
 `node tools/query_reading_api.mjs build/reading-api/v1/index.json --statement thm-1.1`.
 Open the original PDF at the returned location. Beside it, show the ledger
